@@ -9,6 +9,10 @@
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (0 = no, 1 = yes)
+#' @export
+#' @examples
+#' AgrestiCoull_CI_1x2(19)
+#' AgrestiCoull_CI_1x2(19, 20, .15)
 AgrestiCoull_CI_1x2 = function(X, n=NULL, alpha=0.05, printresults=TRUE) {
 
 

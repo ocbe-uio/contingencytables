@@ -19,6 +19,10 @@ AgrestiCoull_CI_1x2(X, n = NULL, alpha = 0.05, printresults = TRUE)
 Described in Chapter 2 "The 1x2 Table and the Binomial
 Distribution"
 }
+\examples{
+AgrestiCoull_CI_1x2(19)
+AgrestiCoull_CI_1x2(19, 20, .15)
+}
 \references{
 Agresti A, Coull BA (1998) Approximate is better than "exact"
 for interval estimation of binomial proportions. The American
