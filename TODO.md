@@ -12,5 +12,4 @@
 
 # Wishlist for next release
 
-- [ ] Create unit tests from examples
 - [ ] Change `print` to `cat` or `message`, where appropriate
