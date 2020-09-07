@@ -20,4 +20,5 @@ Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
 Wald_CI_1x2(100)
+Wald_CI_1x2(100, 5000)
 }
