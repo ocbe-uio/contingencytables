@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R:
     c(
         person(
-            given  = "Morten",
+            given  = "Morten Wang",
             family = "Fagerland",
             role   = "aut",
             email  = "morten.fagerland@medisin.uio.no"
@@ -40,3 +40,4 @@ RoxygenNote: 7.1.1
 URL: https://contingencytables.com/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
 Suggests: testthat
+Date: 2020-09-08
