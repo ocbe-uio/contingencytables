@@ -2,3 +2,4 @@
 
 export(AgrestiCoull_CI_1x2)
 export(Wald_CI_1x2)
+importFrom(stats,qnorm)
