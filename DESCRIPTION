@@ -10,10 +10,25 @@ Authors@R:
             email  = "morten.fagerland@medisin.uio.no"
         ),
         person(
+            given  = "Stian",
+            family = "Lydersen",
+            role   = "ctb"
+        ),
+        person(
+            given  = "Petter",
+            family = "Laake",
+            role   = "ctb"
+        ),
+        person(
             given  = "Waldir",
             family = "Leoncio",
             role   = "cre",
             email  = "waldirln@medisin.uio.no"
+        ),
+        person(
+            given  = "Ole Christian",
+            family = "Lingjærde",
+            role   = "trl"
         )
     )
 Description: Provides functions to perform statistical inference of data organized in contingency tables. This package is a companion to the "Statistical Analysis of Contingency Tables" book by Fagerland et. al. <ISBN 9781466588172>.
@@ -24,5 +39,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://contingencytables.com/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
-Suggests: 
-    testthat
+Suggests: testthat
