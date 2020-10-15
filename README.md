@@ -1,3 +1,5 @@
+<!-- TODO: uncomment just before GitHub publication to trigger Zenodo DOIs
+[![DOI](https://zenodo.org/badge/293482399.svg)](https://zenodo.org/badge/latestdoi/293482399) -->
 
 # contingencytables
 
