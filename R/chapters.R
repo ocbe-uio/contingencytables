@@ -11,8 +11,8 @@ chapter <- function(chap_num) {
 	} else {
 		chapters <- list(
 			ch2 = list(
-				AgrestiCoull_CI_1x2 = contingencytables:::AgrestiCoull_CI_1x2,
-				Wald_CI_1x2 = contingencytables:::Wald_CI_1x2
+				AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
+				Wald_CI_1x2 = Wald_CI_1x2
 			)
 		)
 		message("Loading functions from chapter ", chap_num)
