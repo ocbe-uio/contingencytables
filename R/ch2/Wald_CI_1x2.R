@@ -1,5 +1,3 @@
-# function [L, U, estimate] = Wald_CI_1x2(X, n, alpha, printresults)
-
 #' @title The Wald confidence interval for the binomial probability
 #' @description Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 #' @param X the number of successes
@@ -7,10 +5,10 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (`FALSE` = no, `TRUE` = yes)
 #' @importFrom stats qnorm
-#' @export
 #' @examples
-#' Wald_CI_1x2(100)
-#' Wald_CI_1x2(100, 5000)
+#' @export
+#' ch2$Wald_CI_1x2(100)
+#' ch2$Wald_CI_1x2(100, 5000)
 
 Wald_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
 
@@ -30,7 +28,7 @@ Wald_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
     SE = sqrt(estimate*(1 - estimate)/n)
 
     # The upper alpha/2 percentile of the standard normal distribution
-    z = qnorm(1 - alpha/2, 0, 1)
+    z = stats::qnorm(1 - alpha/2, 0, 1)
 
     # Calculate the confidence limits
     L = estimate - z*SE

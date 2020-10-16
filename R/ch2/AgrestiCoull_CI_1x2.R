@@ -9,13 +9,11 @@
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (0 = no, 1 = yes)
-#' @export
 #' @examples
-#' AgrestiCoull_CI_1x2(19)
-#' AgrestiCoull_CI_1x2(19, 20, .15)
+#' @export
+#' ch2$AgrestiCoull_CI_1x2(19)
+#' ch2$AgrestiCoull_CI_1x2(19, 20, .15)
 AgrestiCoull_CI_1x2 = function(X, n=NULL, alpha=0.05, printresults=TRUE) {
-
-
     if (is.null(n)) {
         X = 250; n = 533  # Example: The number of 1st order male births (Singh et al. 2010)
     #    X = 204; n = 412 # Example: The number of 2nd order male births (Singh et al. 2010)

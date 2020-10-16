@@ -1,0 +1,4 @@
+#!/bin/sh
+
+$R_HOME/bin/Rscript -e "modules::initModules()"
+
