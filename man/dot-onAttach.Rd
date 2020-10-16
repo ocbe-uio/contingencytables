@@ -7,9 +7,9 @@
 .onAttach(libname, pkgname)
 }
 \arguments{
-\item{libname}{no idea, but will break devtools::document() if removed}
+\item{libname}{library location. See \code{?base::.onAttach} for details}
 
-\item{pkgname}{name of the package}
+\item{pkgname}{package name. See \code{?base::.onAttach} for details}
 }
 \description{
 Prints package version number and welcome message on package load

@@ -20,7 +20,7 @@ Described in Chapter 2 "The 1x2 Table and the Binomial
 Distribution"
 }
 \examples{
-chapter(2)
+load_chapter(2)
 AgrestiCoull_CI_1x2(19)
 AgrestiCoull_CI_1x2(19, 20, .15)
 }
