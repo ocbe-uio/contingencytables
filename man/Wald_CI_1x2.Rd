@@ -19,6 +19,7 @@ Wald_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
+load_chapter(2)
 Wald_CI_1x2(100)
 Wald_CI_1x2(100, 5000)
 }
