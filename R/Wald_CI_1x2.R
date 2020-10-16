@@ -7,7 +7,6 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (`FALSE` = no, `TRUE` = yes)
 #' @importFrom stats qnorm
-#' @export
 #' @examples
 #' Wald_CI_1x2(100)
 #' Wald_CI_1x2(100, 5000)
