@@ -8,6 +8,7 @@
 #' @param printresults display results (`FALSE` = no, `TRUE` = yes)
 #' @importFrom stats qnorm
 #' @examples
+#' chapter(2)
 #' Wald_CI_1x2(100)
 #' Wald_CI_1x2(100, 5000)
 
