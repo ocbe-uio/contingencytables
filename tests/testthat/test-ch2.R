@@ -18,4 +18,13 @@ test_that("Chapter 2 functions basically work", {
 		object = AgrestiCoull_CI_1x2(19, 20, .15),
 		expected = "The Agresti-Coull CI: estimate = 0.8750 (85% CI 0.7778 to 0.9722)"
 	)
+	expect_output(
+		object = Arcsine_CI_1x2(500),
+		expected = "The arcsine CI: estimate = 0.4690 (95% CI 0.4269 to 0.5115)"
+	)
+
+	expect_output(
+		object = Arcsine_CI_1x2(100, 5e3, .1),
+		expected = "The arcsine CI: estimate = 0.0200 (90% CI 0.0169 to 0.0235)"
+	)
 })
