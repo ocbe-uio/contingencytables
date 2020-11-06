@@ -9,44 +9,40 @@
 #' @importFrom stats qnorm
 #' @examples
 #' load_chapter(2)
-#' Wald_CI_1x2(100)
-#' Wald_CI_1x2(100, 5000)
+#' Wald_CI_1x2(X=250, n=533) # The number of 1st order male births (Singh et al. 2010)
+#' Wald_CI_1x2(X=204, n=412) # The number of 2nd order male births (Singh et al. 2010)
+#' Wald_CI_1x2(X=103, n=167) # The number of 3rd order male births (Singh et al. 2010)
+#' Wald_CI_1x2(X=33, n=45)   # The number of 4th order male births (Singh et al. 2010)
+#' Wald_CI_1x2(X=13, n=16)   # Ligarden et al. (2010)
 
 Wald_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
+	# Estimate of the binomial probability (pihat)
+	estimate = X/n
 
+	# The standard error of the estimate
+	SE = sqrt(estimate*(1 - estimate)/n)
 
-    if (missing(n)) {
-        X = 250; n = 533; # Example: The number of 1st order male births (Singh et al. 2010)
-     #  X = 204; n = 412; # Example: The number of 2nd order male births (Singh et al. 2010)
-     #  X = 103; n = 167; # Example: The number of 3rd order male births (Singh et al. 2010)
-     #  X = 33; n = 45;   # Example: The number of 4th order male births (Singh et al. 2010)
-     #  X = 13; n = 16;   # Example: Ligarden et al. (2010)
-    }
+	# The upper alpha/2 percentile of the standard normal distribution
+	z = qnorm(1 - alpha/2, 0, 1)
 
-    # Estimate of the binomial probability (pihat)
-    estimate = X/n
+	# Calculate the confidence limits
+	L = estimate - z*SE
+	U = estimate + z*SE
 
-    # The standard error of the estimate
-    SE = sqrt(estimate*(1 - estimate)/n)
+	# Overshoot can happen: truncate the results
+	L = max(0, L)
+	U = min(U, 1)
 
-    # The upper alpha/2 percentile of the standard normal distribution
-    z = qnorm(1 - alpha/2, 0, 1)
+	if (printresults) {
+		print(
+			sprintf(
+				'The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
+				estimate, 100*(1 - alpha), L, U
+			)
+		)
+	}
 
-    # Calculate the confidence limits
-    L = estimate - z*SE
-    U = estimate + z*SE
-
-    # Overshoot can happen: truncate the results
-    L = max(0, L)
-    U = min(U, 1)
-
-    if (printresults) {
-        print(sprintf('The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
-            estimate, 100*(1 - alpha), L, U))
-    }
-
-    res = c(L, U, estimate)
-    names(res) = c("lower", "upper", "estimate")
-    invisible(res)
-
+	res = c(L, U, estimate)
+	names(res) = c("lower", "upper", "estimate")
+	invisible(res)
 }
