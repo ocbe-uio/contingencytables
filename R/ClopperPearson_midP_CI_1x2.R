@@ -7,6 +7,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
 #' @examples
+#' load_chapter(2)
 #' # The number of 1st order male births (Singh et al. 2010)
 #' ClopperPearson_midP_CI_1x2(X=250, n=533)
 #' # The number of 2nd order male births (Singh et al. 2010)
@@ -56,7 +57,6 @@ ClopperPearson_midP_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
 
 }
 
-#' ==========================
 calculate_L_CP2 = function(L0, X, n, alpha) {
     # global Xglobal nglobal alphaglobal
     T0 = sum(dbinom(X:n, n, L0))
@@ -65,7 +65,6 @@ calculate_L_CP2 = function(L0, X, n, alpha) {
     return(L)
 }
 
-#' ==========================
 calculate_U_CP2 = function(U0, X, n, alpha) {
     # global Xglobal nglobal alphaglobal
     T0 = sum(dbinom(0:X, n, U0))

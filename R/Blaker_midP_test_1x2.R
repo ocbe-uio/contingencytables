@@ -12,6 +12,7 @@
 #' @param pi0 a given probability
 #' @param printresults display results (F = no, T = yes)
 #' @examples
+#' load_chapter(2)
 #' # Example: The number of 1st order male births (Singh et al. 2010)
 #' Blaker_midP_test_1x2(X=250, n=533, pi0=0.513)
 #' # Example: The number of 2nd order male births (Singh et al. 2010)
