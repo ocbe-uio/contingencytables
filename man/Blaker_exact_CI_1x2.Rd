@@ -4,7 +4,7 @@
 \alias{Blaker_exact_CI_1x2}
 \title{The Blaker exact confidence interval}
 \usage{
-Blaker_exact_CI_1x2(X, n = NULL, alpha = 0.05, printresults = T)
+Blaker_exact_CI_1x2(X, n = NULL, alpha = 0.05, printresults = TRUE)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -19,6 +19,11 @@ Blaker_exact_CI_1x2(X, n = NULL, alpha = 0.05, printresults = T)
 The Blaker exact confidence interval for the binomial
 probability
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
+}
+\examples{
+load_chapter(2)
+Blaker_exact_CI_1x2(1)
+Blaker_exact_CI_1x2(1, 100)
 }
 \references{
 Blaker H (2000) Confidence curves and improved exact

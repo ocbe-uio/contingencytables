@@ -2,4 +2,6 @@
 
 export(load_chapter)
 export(unload_chapter)
+importFrom(stats,dbinom)
 importFrom(stats,qnorm)
+importFrom(stats,uniroot)
