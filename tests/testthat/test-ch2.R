@@ -32,4 +32,9 @@ test_that("Chapter 2 functions basically work", {
 		object = Blaker_midP_CI_1x2(100, 500, .5),
 		expected = "estimate = 0.2000 (50% CI 0.1881 to 0.2121)"
 	)
+	expect_error(Blaker_midP_test_1x2(100))
+	expect_output(
+		object = Blaker_midP_test_1x2(X=13, n=16, pi0=0.5),
+		expected = "P = 0.00845"
+	)
 })
