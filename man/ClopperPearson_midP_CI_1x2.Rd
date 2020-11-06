@@ -4,7 +4,7 @@
 \alias{ClopperPearson_midP_CI_1x2}
 \title{The Clopper-Pearson mid-P confidence interval}
 \usage{
-ClopperPearson_midP_CI_1x2(X, n, alpha = 0.05, printresults = T)
+ClopperPearson_midP_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 }
 \arguments{
 \item{X}{the number of successes}
