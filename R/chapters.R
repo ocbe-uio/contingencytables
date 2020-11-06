@@ -15,14 +15,7 @@ load_chapter <- function(chap_num) {
 			". Please choose a chapter between 2 and 10."
 		)
 	} else {
-		chapters <- list(
-			ch2 = list(
-				AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
-				Arcsine_CI_1x2      = Arcsine_CI_1x2,
-				Wald_CI_1x2         = Wald_CI_1x2,
-				Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2
-			)
-		)
+		chapters <- list_chapter_functions()
 		chap_name <- paste("Chapter", chap_num)
 		is_attached <- any(grepl(pattern = chap_name, x = search()))
 		if (is_attached) {
@@ -55,15 +48,7 @@ unload_chapter <- function(chap_num) {
 			". Please choose a chapter between 2 and 10."
 		)
 	} else {
-		# TODO: this list is repeated. Merge!
-		chapters <- list(
-			ch2 = list(
-				AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
-				Arcsine_CI_1x2      = Arcsine_CI_1x2,
-				Wald_CI_1x2         = Wald_CI_1x2,
-				Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2
-			)
-		)
+		chapters <- list_chapter_functions()
 		chap_name <- paste("Chapter", chap_num)
 		is_attached <- any(grepl(pattern = chap_name, x = search()))
 		if (!is_attached) {
@@ -76,6 +61,17 @@ unload_chapter <- function(chap_num) {
 			detach(eval(chap_name), character.only = TRUE)
 		}
 	}
+}
+
+# Lists of functions pertaining to a certain chapter
+list_chapter_functions <- function() {
+	ch2 <- list(
+		AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
+		Arcsine_CI_1x2      = Arcsine_CI_1x2,
+		Wald_CI_1x2         = Wald_CI_1x2,
+		Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2
+	)
+	return(list(ch2 = ch2))
 }
 
 # TODO: address generated check notes (post question on StackOverflow?)
