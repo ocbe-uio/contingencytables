@@ -63,6 +63,21 @@ unload_chapter <- function(chap_num) {
 	}
 }
 
+#' @title Reload chapter functions
+#' @description Reloads functions from a chapter
+#' @param chap_num Number of book chapter (from 2 to 10)
+#' @author Waldir Leoncio
+#' @export
+#' @details This is a wrapper for `unload_chapter()` followed by
+#' `load_chapter()`. It was made to ease the package development
+#' process, but might be useful for end users who thinks something
+#' might have gone wrong when loading/unloading a chapter and wishes
+#' to reload it.
+reload_chapter <- function(chap_num) {
+	unload_chapter(chap_num)
+	load_chapter(chap_num)
+}
+
 # Lists of functions pertaining to a certain chapter
 list_chapter_functions <- function() {
 	ch2 <- list(
