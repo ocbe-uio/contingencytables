@@ -19,7 +19,8 @@ load_chapter <- function(chap_num) {
 			ch2 = list(
 				AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
 				Arcsine_CI_1x2      = Arcsine_CI_1x2,
-				Wald_CI_1x2         = Wald_CI_1x2
+				Wald_CI_1x2         = Wald_CI_1x2,
+				Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2
 			)
 		)
 		chap_name <- paste("Chapter", chap_num)
@@ -59,7 +60,8 @@ unload_chapter <- function(chap_num) {
 			ch2 = list(
 				AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
 				Arcsine_CI_1x2      = Arcsine_CI_1x2,
-				Wald_CI_1x2         = Wald_CI_1x2
+				Wald_CI_1x2         = Wald_CI_1x2,
+				Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2
 			)
 		)
 		chap_name <- paste("Chapter", chap_num)

@@ -27,4 +27,12 @@ test_that("Chapter 2 functions basically work", {
 		object = Arcsine_CI_1x2(100, 5e3, .1),
 		expected = "The arcsine CI: estimate = 0.0200 (90% CI 0.0169 to 0.0235)"
 	)
+	expect_output(
+		object = Blaker_exact_CI_1x2(1),
+		expected = "The Blaker exact CI: estimate = 0.8125 (95% CI 0.5656 to 0.9469)"
+	)
+	expect_output(
+		object = Blaker_exact_CI_1x2(1, 100),
+		expected = "The Blaker exact CI: estimate = 0.0100 (95% CI 0.0005 to 0.0513)"
+	)
 })
