@@ -6,30 +6,21 @@
 #' @references https://stackoverflow.com/q/64388629/1169233
 #' @export
 load_chapter <- function(chap_num) {
-	if (missing(chap_num)) {
-		stop("Please choose a chapter between 2 and 10.")
-	}
-	if (chap_num < 2 | chap_num > 10) {
-		stop(
-			"There is no Chapter ", chap_num,
-			". Please choose a chapter between 2 and 10."
+	validate_chapter_choice(chap_num)
+	chapters <- list_chapter_functions()
+	chap_name <- paste("Chapter", chap_num)
+	is_attached <- any(grepl(pattern = chap_name, x = search()))
+	if (is_attached) {
+		message(
+			"Chapter functions already loaded. ",
+			"You can unload them with unload_chapter(", chap_num,
+			"). Exiting."
 		)
 	} else {
-		chapters <- list_chapter_functions()
-		chap_name <- paste("Chapter", chap_num)
-		is_attached <- any(grepl(pattern = chap_name, x = search()))
-		if (is_attached) {
-			message(
-				"Chapter functions already loaded. ",
-				"You can unload them with unload_chapter(", chap_num,
-				"). Exiting."
-			)
-		} else {
-			message("Loading functions from chapter ", chap_num)
-			attach(list2env(chapters[[chap_num - 1]]), name = chap_name)
-		}
-		# on.exit(detach(target))
+		message("Loading functions from chapter ", chap_num)
+		attach(list2env(chapters[[chap_num - 1]]), name = chap_name)
 	}
+	# on.exit(detach(target)) # attempt to solve "attach" note
 }
 
 #' @title Unload functions from a chapter
@@ -39,27 +30,18 @@ load_chapter <- function(chap_num) {
 #' @author Waldir Leoncio
 #' @export
 unload_chapter <- function(chap_num) {
-	if (missing(chap_num)) {
-		stop("Please choose a chapter between 2 and 10.")
-	}
-	if (chap_num < 2 | chap_num > 10) {
-		stop(
-			"There is no Chapter ", chap_num,
-			". Please choose a chapter between 2 and 10."
+	validate_chapter_choice(chap_num)
+	chapters <- list_chapter_functions()
+	chap_name <- paste("Chapter", chap_num)
+	is_attached <- any(grepl(pattern = chap_name, x = search()))
+	if (!is_attached) {
+		message(
+			"Chapter functions not attached. ",
+			"Use load_chapter(", chap_num, ") to attach them. Exiting."
 		)
 	} else {
-		chapters <- list_chapter_functions()
-		chap_name <- paste("Chapter", chap_num)
-		is_attached <- any(grepl(pattern = chap_name, x = search()))
-		if (!is_attached) {
-			message(
-				"Chapter functions not attached. ",
-				"Use load_chapter(", chap_num, ") to attach them. Exiting."
-			)
-		} else {
-			message("Unloading functions from chapter ", chap_num)
-			detach(eval(chap_name), character.only = TRUE)
-		}
+		message("Unloading functions from chapter ", chap_num)
+		detach(eval(chap_name), character.only = TRUE)
 	}
 }
 
@@ -78,8 +60,22 @@ reload_chapter <- function(chap_num) {
 	load_chapter(chap_num)
 }
 
-# Lists of functions pertaining to a certain chapter
+# ============================================================================ #
+# Internal functions used in this file                                         #
+# ============================================================================ #
+validate_chapter_choice <- function(chap_num) {
+	# Makes sure the user chooses a proper chapter number
+	if (missing(chap_num)) stop("Please choose a chapter between 2 and 10.")
+	if (chap_num < 2 | chap_num > 10) {
+		stop(
+			"There is no Chapter ", chap_num,
+			". Please choose a chapter between 2 and 10."
+		)
+	}
+}
+
 list_chapter_functions <- function() {
+	# Lists of functions pertaining to a certain chapter
 	ch2 <- list(
 		AgrestiCoull_CI_1x2   = AgrestiCoull_CI_1x2,
 		Arcsine_CI_1x2        = Arcsine_CI_1x2,
