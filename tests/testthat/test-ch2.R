@@ -42,4 +42,9 @@ test_that("Chapter 2 functions basically work", {
 		object = ClopperPearson_exact_CI_1x2(X=13, n=16),
 		expected = "estimate = 0.8125 (95% CI 0.5435 to 0.9595)"
 	)
+	expect_error(ClopperPearson_midP_CI_1x2(100))
+	expect_output(
+		object = ClopperPearson_midP_CI_1x2(X=13, n=16),
+		expected = "estimate = 0.8125 (95% CI 0.5699 to 0.9500)"
+	)
 })

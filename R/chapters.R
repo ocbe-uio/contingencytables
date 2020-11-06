@@ -84,7 +84,8 @@ list_chapter_functions <- function() {
 		Blaker_exact_test_1x2       = Blaker_exact_test_1x2,
 		Blaker_midP_CI_1x2          = Blaker_midP_CI_1x2,
 		Blaker_midP_test_1x2        = Blaker_midP_test_1x2,
-		ClopperPearson_exact_CI_1x2 = ClopperPearson_exact_CI_1x2
+		ClopperPearson_exact_CI_1x2 = ClopperPearson_exact_CI_1x2,
+		ClopperPearson_midP_CI_1x2  = ClopperPearson_midP_CI_1x2
 	)
 	return(list(ch2 = ch2))
 }
