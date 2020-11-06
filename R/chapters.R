@@ -77,13 +77,14 @@ validate_chapter_choice <- function(chap_num) {
 list_chapter_functions <- function() {
 	# Lists of functions pertaining to a certain chapter
 	ch2 <- list(
-		AgrestiCoull_CI_1x2   = AgrestiCoull_CI_1x2,
-		Arcsine_CI_1x2        = Arcsine_CI_1x2,
-		Wald_CI_1x2           = Wald_CI_1x2,
-		Blaker_exact_CI_1x2   = Blaker_exact_CI_1x2,
-		Blaker_exact_test_1x2 = Blaker_exact_test_1x2,
-		Blaker_midP_CI_1x2    = Blaker_midP_CI_1x2,
-		Blaker_midP_test_1x2  = Blaker_midP_test_1x2
+		AgrestiCoull_CI_1x2         = AgrestiCoull_CI_1x2,
+		Arcsine_CI_1x2              = Arcsine_CI_1x2,
+		Wald_CI_1x2                 = Wald_CI_1x2,
+		Blaker_exact_CI_1x2         = Blaker_exact_CI_1x2,
+		Blaker_exact_test_1x2       = Blaker_exact_test_1x2,
+		Blaker_midP_CI_1x2          = Blaker_midP_CI_1x2,
+		Blaker_midP_test_1x2        = Blaker_midP_test_1x2,
+		ClopperPearson_exact_CI_1x2 = ClopperPearson_exact_CI_1x2
 	)
 	return(list(ch2 = ch2))
 }
