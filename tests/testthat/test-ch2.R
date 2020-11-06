@@ -35,7 +35,7 @@ test_that("Chapter 2 functions basically work", {
 		object = Blaker_exact_CI_1x2(1, 100),
 		expected = "The Blaker exact CI: estimate = 0.0100 (95% CI 0.0005 to 0.0513)"
 	)
-		expect_output(
+	expect_output(
 		object = Blaker_exact_test_1x2(1),
 		expected = "The Blaker exact test: P = 0.04615"
 	)
