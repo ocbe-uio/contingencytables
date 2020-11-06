@@ -20,6 +20,11 @@ The Blaker exact test for the binomial probability (pi)
 H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
+\examples{
+load_chapter(2)
+Blaker_exact_test_1x2(1)
+Blaker_exact_test_1x2(1, 10, .5)
+}
 \references{
 Blaker H (2000) Confidence curves and improved exact
 confidence intervals for discrete distributions. The Canadian Journal of
