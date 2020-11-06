@@ -66,10 +66,11 @@ unload_chapter <- function(chap_num) {
 # Lists of functions pertaining to a certain chapter
 list_chapter_functions <- function() {
 	ch2 <- list(
-		AgrestiCoull_CI_1x2 = AgrestiCoull_CI_1x2,
-		Arcsine_CI_1x2      = Arcsine_CI_1x2,
-		Wald_CI_1x2         = Wald_CI_1x2,
-		Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2
+		AgrestiCoull_CI_1x2   = AgrestiCoull_CI_1x2,
+		Arcsine_CI_1x2        = Arcsine_CI_1x2,
+		Wald_CI_1x2           = Wald_CI_1x2,
+		Blaker_exact_CI_1x2   = Blaker_exact_CI_1x2,
+		Blaker_exact_test_1x2 = Blaker_exact_test_1x2
 	)
 	return(list(ch2 = ch2))
 }
