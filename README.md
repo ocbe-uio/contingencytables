@@ -38,3 +38,7 @@ This software is open source and contributions are welcome! If you have any trou
 To cite this package, install it and run `citation("contingencytables")`. The output should give you proper citation instructions in APA-like and BibTeX formats for the package version you have installed.
 
 Proper citation of the SAGT book can be found [here](https://contingencytables.com/how-to-cite).
+
+# Nerd badges
+
+[![Build Status](https://travis-ci.com/ocbe-uio/contingencytables.svg?branch=develop)](https://travis-ci.com/ocbe-uio/contingencytables)
