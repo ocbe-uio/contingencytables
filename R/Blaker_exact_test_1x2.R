@@ -12,6 +12,7 @@
 #' @param pi0 a given probability
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
+#' load_chapter(2)
 #' Blaker_exact_test_1x2(1)
 #' Blaker_exact_test_1x2(1, 10, .5)
 
