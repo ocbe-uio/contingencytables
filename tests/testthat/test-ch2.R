@@ -43,4 +43,12 @@ test_that("Chapter 2 functions basically work", {
 		object = Blaker_exact_test_1x2(1, 10, .5),
 		expected = "P = 0.02148"
 	)
+	expect_output(
+		object = Blaker_midP_CI_1x2(100),
+		expected = "estimate = 0.8125 (95% CI 0.5656 to 0.9347)"
+	)
+	expect_output(
+		object = Blaker_midP_CI_1x2(100, 500, .5),
+		expected = "estimate = 0.2000 (50% CI 0.1881 to 0.2121)"
+	)
 })
