@@ -2,51 +2,32 @@ context("Chapter 2")
 
 test_that("Chapter 2 functions basically work", {
 	load_chapter(2)
-	expect_output(
-		object = Wald_CI_1x2(100),
-		expected = "estimate = 0.4690 (95% CI 0.4267 to 0.5114)"
-	)
+	expect_error(Wald_CI_1x2(100))
 	expect_output(
 		object = Wald_CI_1x2(1, 2),
 		expected = "estimate = 0.5000 (95% CI 0.0000 to 1.0000)"
 	)
-	expect_output(
-		object = AgrestiCoull_CI_1x2(19),
-		expected = "estimate = 0.4693 (95% CI 0.4271 to 0.5115)"
-	)
+	expect_error(AgrestiCoull_CI_1x2(19))
 	expect_output(
 		object = AgrestiCoull_CI_1x2(19, 20, .15),
 		expected = "estimate = 0.8750 (85% CI 0.7778 to 0.9722)"
 	)
-	expect_output(
-		object = Arcsine_CI_1x2(500),
-		expected = "estimate = 0.4690 (95% CI 0.4269 to 0.5115)"
-	)
-
+	expect_error(Arcsine_CI_1x2(500))
 	expect_output(
 		object = Arcsine_CI_1x2(100, 5e3, .1),
 		expected = "estimate = 0.0200 (90% CI 0.0169 to 0.0235)"
 	)
-	expect_output(
-		object = Blaker_exact_CI_1x2(1),
-		expected = "estimate = 0.8125 (95% CI 0.5656 to 0.9469)"
-	)
+	expect_error(Blaker_exact_CI_1x2(1))
 	expect_output(
 		object = Blaker_exact_CI_1x2(1, 100),
 		expected = "estimate = 0.0100 (95% CI 0.0005 to 0.0513)"
 	)
-	expect_output(
-		object = Blaker_exact_test_1x2(1),
-		expected = "P = 0.04615"
-	)
+	expect_error(Blaker_exact_test_1x2(1))
 	expect_output(
 		object = Blaker_exact_test_1x2(1, 10, .5),
 		expected = "P = 0.02148"
 	)
-	expect_output(
-		object = Blaker_midP_CI_1x2(100),
-		expected = "estimate = 0.8125 (95% CI 0.5656 to 0.9347)"
-	)
+	expect_error(Blaker_midP_CI_1x2(100))
 	expect_output(
 		object = Blaker_midP_CI_1x2(100, 500, .5),
 		expected = "estimate = 0.2000 (50% CI 0.1881 to 0.2121)"
