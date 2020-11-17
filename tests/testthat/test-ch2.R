@@ -47,4 +47,9 @@ test_that("Chapter 2 functions basically work", {
 		object = ClopperPearson_midP_CI_1x2(X=13, n=16),
 		expected = "estimate = 0.8125 (95% CI 0.5699 to 0.9500)"
 	)
+	expect_error(Exact_binomial_test_1x2(100))
+	expect_output(
+		object = Exact_binomial_test_1x2(X = 13, n = 16, pi0 = 0.5),
+		expected = "P = 0.02127"
+	)
 })
