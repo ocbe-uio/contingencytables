@@ -1,15 +1,7 @@
-source("Wald_CI_1x2.R")
-source("Wald_CI_CC_1x2.R")
-source("LR_CI_1x2.R")
-source("Wilson_score_CI_1x2.R")
-source("Wilson_score_CI_CC_1x2.R")
-source("AgrestiCoull_CI_1x2.R")
-source("Jeffreys_CI_1x2.R")
-source("Arcsine_CI_1x2.R")
-source("ClopperPearson_exact_CI_1x2.R")
-source("Blaker_exact_CI_1x2.R")
-source("ClopperPearson_midP_CI_1x2.R")
-source("Blaker_midP_CI_1x2.R")
+ # TODO: adapt these ones first
+# source("Wald_CI_CC_1x2.R")
+# source("Wilson_score_CI_1x2.R")
+# source("Wilson_score_CI_CC_1x2.R")
 
 the_1x2_table_CIs = function(X, n, alpha=0.05) {
 
