@@ -22,6 +22,7 @@
 #' @note This function is used to expedite conversion of the original scripts
 #' into a package format
 #' @author Waldir Leoncio
+#' @importFrom utils write.table
 reformatScript <- function(filename, saveOutput = FALSE) {
 
 	# ======================================================== #
@@ -59,13 +60,11 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		x = txt
 	)
 	txt <- gsub(".+#\\s([^E]{,15}):", "#' @param \\1", txt)
-	# txt <- gsub("#\\s", "#' ", txt)
 	txt <- gsub(
 		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
 		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
 		x = txt
 	)
-	# txt <- gsub("\\s+#'", "#'", txt)
 
 	# Function code ------------------------------------------ #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
