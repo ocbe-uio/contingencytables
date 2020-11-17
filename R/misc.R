@@ -60,7 +60,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
 		x = txt
 	)
-	txt <- gsub(".+#\\s([^E]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
+	txt <- gsub(".+#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
 	txt <- gsub(
 		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
 		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
@@ -77,11 +77,13 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
 	txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
-	txt <- gsub("(\\S)\\-(\\S)", "\\1 - \\2", txt)
+	txt <- gsub("(\\W)\\-(\\W)", "\\1 - \\2", txt)
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
-	# txt <- gsub("(.+)\\s=\\s", "\\1 <- ", txt)
-	# txt <- gsub("\\s{4}", "\t", txt)
+	txt <- gsub("^(\\s*)(\\W+)\\s=\\s", "\\1\\2 <- ", txt) # assignment
+	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt) # assignment
+	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
+	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
 
 
 	# ======================================================== #
