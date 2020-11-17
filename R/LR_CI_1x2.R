@@ -7,6 +7,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
+#' load_chapter(2)
 #' # The number of 1st order male births (Singh et al. 2010)
 #' LR_CI_1x2(X=250, n=533)
 #' # The number of 2nd order male births (Singh et al. 2010)
