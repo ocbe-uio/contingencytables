@@ -57,10 +57,14 @@ test_that("Chapter 2 functions basically work", {
 		object = Jeffreys_CI_1x2(X = 13, n = 16),
 		expected = "estimate = 0.8125 (95% CI 0.5792 to 0.9442)"
 	)
-	LR_CI_1x2
 	expect_error(LR_CI_1x2(100))
 	expect_output(
 		object = LR_CI_1x2(X = 13, n = 16),
 		expected = "estimate = 0.8125 (95% CI 0.5828 to 0.9497)"
+	)
+	expect_error(LR_test_1x2(100))
+	expect_output(
+		object = LR_test_1x2(X = 13, n = 16, pi0 = .5),
+		expected = "P = 0.00944, T = 6.738 (df <- 1)"
 	)
 })
