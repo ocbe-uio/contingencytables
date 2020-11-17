@@ -39,24 +39,44 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# ======================================================== #
 
 	# Function documentation --------------------------------- #
+	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1])
+	txt <- gsub("# Input arguments", "", txt)
+	txt <- gsub("# ---------------", "", txt)
+	txt <- gsub(
+		pattern = "# (.*) Chapter (\\d{1,2})",
+		replacement = "#' @description \\1 Chapter \\2",
+		x = txt
+	)
+	txt <- gsub("#\\s{4}X", "X", txt)
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
-		replacement = "(X=\\1, n=\\2, pi0=0.\\3) #",
+		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
 		x = txt
 	)
 	txt <- gsub(
-		pattern = "X = (\\d+); n = (\\d+)\\s+# Example:",
-		replacement = "(X=\\1, n=\\2) #",
+		pattern = "X = (\\d+); n = (\\d+).+# Example:",
+		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
 		x = txt
 	)
-	txt <- gsub("#\\s(.{,15}):", "#' @param \\1", txt)
-	txt <- gsub("#\\s", "#' ", txt)
+	txt <- gsub(".+#\\s([^E]{,15}):", "#' @param \\1", txt)
+	# txt <- gsub("#\\s", "#' ", txt)
+	txt <- gsub(
+		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
+		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
+		x = txt
+	)
+	# txt <- gsub("\\s+#'", "#'", txt)
 
 	# Function code ------------------------------------------ #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
 	txt <- gsub("\\s{4}", "\t", txt)
-	# txt <- gsub("(\\w+)\\s=\\s", "\\1 <- ", txt)
+	txt <- gsub("(.+)\\s=\\s", "\\1 <- ", txt)
+	txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
+	txt <- gsub("(\\S)\\-(\\S)", "\\1 - \\2", txt)
+	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
+	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
+
 
 	# ======================================================== #
 	# Returning converted code                                 #
