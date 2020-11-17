@@ -88,7 +88,8 @@ list_chapter_functions <- function() {
 		ClopperPearson_midP_CI_1x2  = ClopperPearson_midP_CI_1x2,
 		Exact_binomial_test_1x2     = Exact_binomial_test_1x2,
 		Jeffreys_CI_1x2             = Jeffreys_CI_1x2,
-		LR_CI_1x2                   = LR_CI_1x2
+		LR_CI_1x2                   = LR_CI_1x2,
+		LR_test_1x2                 = LR_test_1x2
 	)
 	return(list(ch2 = ch2))
 }
