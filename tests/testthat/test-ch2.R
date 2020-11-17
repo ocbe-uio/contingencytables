@@ -77,4 +77,9 @@ test_that("Chapter 2 functions basically work", {
 		object = Score_test_1x2(X = 13, n = 16, pi0 = .5),
 		expected = "P = 0.01242, Z =  2.500"
 	)
+	expect_error(Score_test_CC_1x2(100))
+	expect_output(
+		object = Score_test_CC_1x2(X = 13, n = 16, pi0 = .5),
+		expected = "P = 0.02445, Z = 2.250"
+	)
 })
