@@ -40,10 +40,10 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# ======================================================== #
 
 	# Function documentation --------------------------------- #
-	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1])
+	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1]) # FIXME: it's not always the 1st line (e.g. Wald_CI_CC_1x2). Create a fun_line first
 	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
 	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
-	txt[chap_line - 2] <- gsub("#", "#' @description", txt[chap_line - 2])
+	txt[chap_line - 2] <- gsub("#", "#' @description", txt[chap_line - 2]) # FIXME: sometimes it's chap_line - 1 (e.g. Wald_CI_CC_1x2)
 	txt <- gsub("\\s*#$", "", txt)
 	txt <- gsub("# Input arguments", "", txt)
 	txt <- gsub("# ---------------", "", txt)
@@ -71,6 +71,8 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
 
+	# TODO: after idenfifying the documentation block, isolate it and move to beginning of the character vector
+
 	# Function code ------------------------------------------ #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
@@ -78,7 +80,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("(\\W)\\S\\-\\S(\\W)", "\\1 - \\2", txt)
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
-	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt) # assignment
+	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt) # assignment # FIXME: skips names(x)
 	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt) # assignment
 	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
 	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
