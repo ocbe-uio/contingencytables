@@ -65,7 +65,11 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
 		x = txt
 	)
-	txt <- gsub("\\s+if\\s\\(.+n\\)\\) \\{", "#' @examples", txt)
+	txt <- gsub(
+		pattern = "\\s+if\\s\\(.+n\\)\\) \\{",
+		replacement = "#' @examples\n#' load_chapter(2)",
+		txt
+	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
 
 	# Function code ------------------------------------------ #
