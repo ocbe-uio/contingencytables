@@ -13,3 +13,65 @@
 		"Please load functions from chapter X by running load_chapter(X)."
 	)
 }
+
+#' @title Package script
+#' @description Ad-hoc packages a function script
+#' @param filename name of the file
+#' @param saveOutput if `TRUE`, `filename` is overwritten. Defaults to `FALSE`
+#' @return text converted to R, printed to screen or replacing input file
+#' @note This function is used to expedite conversion of the original scripts
+#' into a package format
+#' @author Waldir Leoncio
+reformatScript <- function(filename, saveOutput = FALSE) {
+
+	# ======================================================== #
+	# Verification                                             #
+	# ======================================================== #
+	if (!file.exists(filename)) stop("File not found")
+
+	# ======================================================== #
+	# Reading file into R                                      #
+	# ======================================================== #
+	txt <- readLines(filename)
+
+	# ======================================================== #
+	# Converting code                                          #
+	# ======================================================== #
+
+	# Function documentation --------------------------------- #
+	txt <- gsub(
+		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
+		replacement = "(X=\\1, n=\\2, pi0=0.\\3) #",
+		x = txt
+	)
+	txt <- gsub(
+		pattern = "X = (\\d+); n = (\\d+)\\s+# Example:",
+		replacement = "(X=\\1, n=\\2) #",
+		x = txt
+	)
+	txt <- gsub("#\\s(.{,15}):", "#' @param \\1", txt)
+	txt <- gsub("#\\s", "#' ", txt)
+
+	# Function code ------------------------------------------ #
+	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
+	txt <- gsub("quote=F)", "quote=FALSE)", txt)
+	txt <- gsub("\\s{4}", "\t", txt)
+	# txt <- gsub("(\\w+)\\s=\\s", "\\1 <- ", txt)
+
+	# ======================================================== #
+	# Returning converted code                                 #
+	# ======================================================== #
+	if (!saveOutput) {
+		return(cat(txt, sep="\n"))
+	} else {
+		return(
+			write.table(
+				x         = txt,
+				file      = filename,
+				quote     = FALSE,
+				row.names = FALSE,
+				col.names = FALSE
+			)
+		)
+	}
+}
