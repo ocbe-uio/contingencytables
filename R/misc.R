@@ -41,14 +41,12 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 
 	# Function documentation --------------------------------- #
 	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1])
+	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
+	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
+	txt[chap_line - 2] <- gsub("#", "#' @description", txt[chap_line - 2])
 	txt <- gsub("\\s*#$", "", txt)
 	txt <- gsub("# Input arguments", "", txt)
 	txt <- gsub("# ---------------", "", txt)
-	txt <- gsub(
-		pattern = "# (.*) Chapter (\\d{1,2})",
-		replacement = "#' @description \\1 Chapter \\2",
-		x = txt
-	)
 	txt <- gsub("#\\s{2,4}X", "X", txt)
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
@@ -68,7 +66,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	)
 	txt <- gsub(
 		pattern = "\\s+if\\s*\\(.+(n|pi0)\\)\\) \\{",
-		replacement = "#' @examples load_chapter(2)",
+		replacement = paste0("#' @examples load_chapter(", chap_num,")"),
 		txt
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
@@ -77,10 +75,10 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
 	txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
-	txt <- gsub("(\\W)\\-(\\W)", "\\1 - \\2", txt)
+	txt <- gsub("(\\W)\\S\\-\\S(\\W)", "\\1 - \\2", txt)
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
-	txt <- gsub("^(\\s*)(\\W+)\\s=\\s", "\\1\\2 <- ", txt) # assignment
+	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt) # assignment
 	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt) # assignment
 	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
 	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
