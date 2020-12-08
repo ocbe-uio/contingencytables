@@ -12,10 +12,10 @@ load_chapter <- function(chap_num) {
 	is_attached <- any(grepl(pattern = chap_name, x = search()))
 	if (is_attached) {
 		message(
-			"Chapter functions already loaded. ",
-			"You can unload them with unload_chapter(", chap_num,
-			"). Exiting."
+			"Chapter functions already loaded. Reloading. ",
+			"You can unload them with unload_chapter(", chap_num, ")"
 		)
+		reload_chapter(chap_num)
 	} else {
 		message("Loading functions from chapter ", chap_num)
 		attach(list2env(chapters[[chap_num - 1]]), name = chap_name)
