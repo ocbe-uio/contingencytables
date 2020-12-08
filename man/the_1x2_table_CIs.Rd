@@ -6,6 +6,13 @@
 \usage{
 the_1x2_table_CIs(X, n, alpha = 0.05)
 }
+\arguments{
+\item{X}{the number of successes}
+
+\item{n}{the total number of observations}
+
+\item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
+}
 \description{
 The 1x2 Table CIs
 }
