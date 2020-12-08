@@ -10,6 +10,6 @@ test_that("Chapter 3 functions basically work", {
 		object = Exact_multinomial_test_1xc(
 			n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119)
 		),
-		expected = ""
+		regexp = "P = 0.04792"
 	)
 })
