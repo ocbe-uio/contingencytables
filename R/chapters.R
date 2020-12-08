@@ -109,7 +109,8 @@ list_chapter_functions <- function() {
 		Goodman_Wald_CIs_for_diffs_1xc = Goodman_Wald_CIs_for_diffs_1xc,
 		Goodman_Wilson_score_CIs_1xc   = Goodman_Wilson_score_CIs_1xc,
 		LR_test_1xc                    = LR_test_1xc,
-		MidP_multinomial_test_1xc      = MidP_multinomial_test_1xc
+		MidP_multinomial_test_1xc      = MidP_multinomial_test_1xc,
+		Pearson_chi_squared_test_1xc   = Pearson_chi_squared_test_1xc
 	)
 	return(list(ch2 = ch2, ch3 = ch3))
 }
