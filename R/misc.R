@@ -81,8 +81,6 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
 
-	# TODO: after idenfifying the documentation block, isolate it and move to beginning of the character vector
-
 	# Function code, general ---------------------------------- #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
@@ -100,6 +98,12 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
 	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
 
+
+	# TODO: reorder doc:
+	# 1) ID doc by starting with "#'"
+	# 2) Delimit lines
+	# 3) Move those lines to the beginning
+	# 4) Duplicate first line and change to title
 
 	# ======================================================== #
 	# Returning converted code                                 #
