@@ -52,4 +52,8 @@ test_that("Chapter 3 functions basically work", {
 		object = the_1xc_table_CIs(n=c(276, 380, 118)),
 		regexp = "Gold Wald                       0.1208 to 0.1841    0.0633"
 	)
+	expect_output(
+		object = the_1xc_table_tests(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119)),
+		regexp = "Pearson chi-squared    0.0346   \\(T = 6.727, df = 2\\)"
+	)
 })
