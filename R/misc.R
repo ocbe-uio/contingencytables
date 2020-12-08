@@ -44,7 +44,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
 	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
 	if (length(chap_line) > 0) {
-		for (cl in seq_len(chap_line)) {
+		for (cl in seq_len(chap_line) - 1) {
 			txt[chap_line - cl] <- gsub(
 				"#", "#' @description", txt[chap_line - cl]
 			)
@@ -98,12 +98,14 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
 	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
 
-
-	# TODO: reorder doc:
-	# 1) ID doc by starting with "#'"
-	# 2) Delimit lines
-	# 3) Move those lines to the beginning
-	# 4) Duplicate first line and change to title
+	# ======================================================== #
+	# Putting documentation first                              #
+	# ======================================================== #
+	doc_lines <- which(grepl("#'", txt))
+	txt <- c(txt[doc_lines], txt[-doc_lines])
+	if (substr(txt[1], 1, 24) == "#' @description function") txt <- txt[-1]
+	txt <- c(txt[1], txt)
+	txt[1] <- gsub("description", "title", txt[1])
 
 	# ======================================================== #
 	# Returning converted code                                 #
