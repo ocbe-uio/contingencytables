@@ -103,7 +103,8 @@ list_chapter_functions <- function() {
 	)
 	ch3 <- list(
 		Chacko_test_1xc            = Chacko_test_1xc,
-		Exact_multinomial_test_1xc = Exact_multinomial_test_1xc
+		Exact_multinomial_test_1xc = Exact_multinomial_test_1xc,
+		Gold_Wald_CIs_1xc          = Gold_Wald_CIs_1xc
 	)
 	return(list(ch2 = ch2, ch3 = ch3))
 }
