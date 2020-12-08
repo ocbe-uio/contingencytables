@@ -44,4 +44,8 @@ test_that("Chapter 3 functions basically work", {
 		),
 		regexp = "P = 0.00321, T = 11.481 \\(df = 2\\)"
 	)
+	expect_output(
+		object =  QuesenberryHurst_Wilson_score_CIs_1xc(n=c(276, 380, 118)),
+		regexp = "pi_2: estimate = 0.4910 \\(0.4472 to 0.5348\\)"
+	)
 })
