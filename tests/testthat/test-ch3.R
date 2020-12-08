@@ -35,7 +35,13 @@ test_that("Chapter 3 functions basically work", {
 	expect_output(
 		object = MidP_multinomial_test_1xc(
 			n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119)
-		)
+		),
 		regexp = "P = 0.04649"
+	)
+	expect_output(
+		object = Pearson_chi_squared_test_1xc(
+			n=c(276, 380, 118), pi0=c(0.402, 0.479, 0.119)
+		),
+		regexp = "P = 0.00321, T = 11.481 \\(df = 2\\)"
 	)
 })
