@@ -1,0 +1,48 @@
+Wald_test_1x2 = function(X, n, pi0, printresults=T) {
+
+    # The Wald test for the binomial probability (pi)
+    # H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
+    # Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
+    #
+    # Input arguments
+    # ---------------
+    # X: the number of successes
+    # n: the total number of observations
+    # pi0: a given probability
+    # printresults: display results (0 = no, 1 = yes)
+
+    if (missing(pi0)) {
+        X = 250; n = 533; pi0 = 0.513; # Example: The number of 1st order male births (Singh et al. 2010)
+     #  X = 204; n = 412; pi0 = 0.513; # Example: The number of 2nd order male births (Singh et al. 2010)
+     #  X = 103; n = 167; pi0 = 0.513; # Example: The number of 3rd order male births (Singh et al. 2010)
+     #  X = 33; n = 45; pi0 = 0.513;   # Example: The number of 4th order male births (Singh et al. 2010)
+     #  X = 13; n = 16; pi0 = 0.5;     # Example: Ligarden et al. (2010)
+    }
+
+    # Estimate of the binomial probability (pihat)
+    estimate = X/n
+
+    # The standard error of the estimate
+    SE = sqrt(estimate*(1 - estimate)/n)
+
+    # The Wald test statistic
+    Z = (estimate - pi0)/SE
+
+    # When the SE is zero, set Z = 0
+    if (X == 0 || X == n) {
+        Z = 0
+    }
+
+    # The two-sided P-value (reference distribution: standard normal)
+    P = 2*(1 - pnorm(abs(Z), 0, 1))
+
+    if (printresults) {
+        print(sprintf('The Wald test: P = %7.5f, Z = %6.3f', P, Z))
+    }
+
+    res = c(P, Z)
+    names(res) = c("p.value", "statistic")
+    invisible(res)
+    
+}
+
