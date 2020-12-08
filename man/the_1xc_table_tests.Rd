@@ -7,6 +7,10 @@
 the_1xc_table_tests(n, pi0, chacko.test = FALSE)
 }
 \arguments{
+\item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
+
+\item{pi0}{given probabilities (a 1xc vector)}
+
 \item{chacko.test}{if TRUE, only performs the Chacko test}
 }
 \description{

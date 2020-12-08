@@ -6,6 +6,11 @@
 \usage{
 the_1xc_table_CIs(n, alpha = 0.05)
 }
+\arguments{
+\item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
+
+\item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
+}
 \description{
 The 1xc table CIs
 }

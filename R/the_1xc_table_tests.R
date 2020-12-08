@@ -1,4 +1,6 @@
 #' @title The 1xc table tests
+#' @param n the observed counts (a 1xc vector, where c is the number of categories)
+#' @param pi0 given probabilities (a 1xc vector)
 #' @param chacko.test if TRUE, only performs the Chacko test
 #' @examples load_chapter(3)
 #' # Genotype counts for SNP rs 6498169 in RA patients
@@ -31,23 +33,23 @@ the_1xc_table_tests <- function(n, pi0, chacko.test=FALSE) {
 		myprint('Method                 P-value  (test statistic)')
 		myprint('---------------------------------------------------')
 
-		res <- Pearson_chi_squared_test_1xc(n, pi0,printresults=FALSE)
+		res <- Pearson_chi_squared_test_1xc(n, pi0, printresults=FALSE)
 		myprint(
 			'Pearson chi-squared    %6.4f   (T = %5.3f, df = %i)', res$P,
 			res$T, res$df
 		)
 
-		res <- LR_test_1xc(n, pi0,printresults=FALSE)
+		res <- LR_test_1xc(n, pi0, printresults=FALSE)
 		myprint(
 			'Likelihood ratio       %6.4f   (T = %5.3f, df = %i)',
 			res$P, res$T, res$df
 		)
 
 		if (N < 774) {
-			res <- Exact_multinomial_test_1xc(n, pi0,printresults=FALSE)
+			res <- Exact_multinomial_test_1xc(n, pi0, printresults=FALSE)
 			myprint('Exact multinomial      %6.4f\n', res)
 
-			res <- MidP_multinomial_test_1xc(n, pi0,printresults=FALSE)
+			res <- MidP_multinomial_test_1xc(n, pi0, printresults=FALSE)
 			myprint('Mid-P multinomial      %6.4f\n', res)
 		}
 
