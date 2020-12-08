@@ -40,25 +40,35 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# ======================================================== #
 
 	# Function documentation --------------------------------- #
-	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1])
+	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1]) # FIXME: it's not always the 1st line (e.g. Wald_CI_CC_1x2). Create a fun_line first
 	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
 	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
-	txt[chap_line - 2] <- gsub("#", "#' @description", txt[chap_line - 2])
+	if (length(chap_line) > 0) {
+		for (cl in seq_len(chap_line)) {
+			txt[chap_line - cl] <- gsub(
+				"#", "#' @description", txt[chap_line - cl]
+			)
+		}
+	}
 	txt <- gsub("\\s*#$", "", txt)
+
+	# Function arguments, general ---------------------------- #
 	txt <- gsub("# Input arguments", "", txt)
 	txt <- gsub("# ---------------", "", txt)
 	txt <- gsub("#\\s{2,4}X", "X", txt)
-	txt <- gsub(
-		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
-		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
-		x = txt
-	)
+
+	# Function arguments, specific --------------------------- #
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+).+# Example:",
 		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
 		x = txt
 	)
-	txt <- gsub(".+#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
+	txt <- gsub(
+		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
+		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
+		x = txt
+	)
+	txt <- gsub(".*#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
 	txt <- gsub(
 		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
 		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
@@ -71,15 +81,22 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
 
-	# Function code ------------------------------------------ #
+	# TODO: after idenfifying the documentation block, isolate it and move to beginning of the character vector
+
+	# Function code, general ---------------------------------- #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
 	txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
 	txt <- gsub("(\\W)\\S\\-\\S(\\W)", "\\1 - \\2", txt)
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
-	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt) # assignment
-	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt) # assignment
+
+	# Assignment operator ------------------------------------ #
+	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt)
+	txt <- gsub("^(\\s{4,8})names\\((\\w+)\\)\\s=\\s", "\\1names(\\2) <- ", txt)
+	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt)
+
+	# Indentation -------------------------------------------- #
 	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
 	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
 
@@ -101,3 +118,4 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		)
 	}
 }
+# TODO: import diff functionality from rBAPS (extract as separate function 1st)

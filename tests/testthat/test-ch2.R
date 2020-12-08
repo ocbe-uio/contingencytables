@@ -82,4 +82,24 @@ test_that("Chapter 2 functions basically work", {
 		object = Score_test_CC_1x2(X = 13, n = 16, pi0 = .5),
 		expected = "P = 0.02445, Z = 2.250"
 	)
+	expect_error(Wald_CI_CC_1x2(100))
+	expect_output(
+		object = Wald_CI_CC_1x2(X = 13, n = 16, alpha = .1),
+		expected = "estimate = 0.8125 (90% CI 0.6207 to 1.0000)"
+	)
+	expect_error(Wilson_score_CI_1x2(100))
+	expect_output(
+		object = Wilson_score_CI_1x2(X=13, n=16),
+		expected = "estimate = 0.8125 (95% CI 0.5699 to 0.9341)"
+	)
+	expect_error(Wilson_score_CI_CC_1x2(100))
+	expect_output(
+		object = Wilson_score_CI_CC_1x2(X=13, n=16),
+		expected = "estimate = 0.8125 (95% CI 0.5369 to 0.9503)"
+	)
+	expect_error(the_1x2_table_CIs(100))
+	expect_output(
+		object = the_1x2_table_CIs(X=13, n=16),
+		expected = "Estimate of pi: 13 / 16 = 0.812 "
+	)
 })
