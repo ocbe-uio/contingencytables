@@ -43,8 +43,12 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1]) # FIXME: it's not always the 1st line (e.g. Wald_CI_CC_1x2). Create a fun_line first
 	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
 	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
-	for (cl in seq_len(chap_line)) {
-		txt[chap_line - cl] <- gsub("#", "#' @description", txt[chap_line - cl])
+	if (length(chap_line) > 0) {
+		for (cl in seq_len(chap_line)) {
+			txt[chap_line - cl] <- gsub(
+				"#", "#' @description", txt[chap_line - cl]
+			)
+		}
 	}
 	txt <- gsub("\\s*#$", "", txt)
 
