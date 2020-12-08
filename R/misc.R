@@ -40,7 +40,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# ======================================================== #
 
 	# Function documentation --------------------------------- #
-	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1]) # FIXME: it's not always the 1st line (e.g. Wald_CI_CC_1x2). Create a fun_line first
+	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1])
 	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
 	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
 	if (length(chap_line) > 0) {
@@ -57,8 +57,8 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("# ---------------", "", txt)
 	txt <- gsub("#\\s{2,4}X", "X", txt)
 
-	# Function arguments, specific --------------------------- #
-	# TODO: replace these with gsubs for 1, 2 and 3 args
+	# Function examples --------------------------------------- #
+	# TODO: replace these with gsubs for 1, 2 and 3 args?
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+).+# Example:",
 		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
@@ -70,20 +70,26 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		x = txt
 	)
 	txt <- gsub(
-		pattern = "n = (.+)  # Example:",
-		replacement = paste0(fun_name, "(n=\\1) #"),
-		x = txt
-	)
-	txt <- gsub(".*#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
-	txt <- gsub(
-		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
-		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
+		pattern = "(n|pi0) = (.+)\\s{1,2}# Example:",
+		replacement = paste0(fun_name, "(\\1=\\2) #"),
 		x = txt
 	)
 	txt <- gsub(
 		pattern = "\\s+if\\s*\\(.+(n|pi0)\\)\\) \\{",
 		replacement = paste0("#' @examples load_chapter(", chap_num,")"),
 		txt
+	)
+
+	# Function arguments, specific ------------------------- #
+	txt <- gsub(
+		pattern = ".*#\\s([^(E|H)]{,15})(:| =)(\\s?\\w{3,}.+[^;])$",
+		replacement = "#' @param \\1\\3",
+		x = txt
+	)
+	txt <- gsub(
+		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
+		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
+		x = txt
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
 
@@ -94,15 +100,21 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("(\\W)\\S\\-\\S(\\W)", "\\1 - \\2", txt)
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
+	txt <- gsub("(\\S)\\^(\\S)", "\\1 ^ \\2", txt)
 
 	# Assignment operator ------------------------------------ #
-	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt)
-	txt <- gsub("^(\\s{4,8})names\\((\\w+)\\)\\s=\\s", "\\1names(\\2) <- ", txt)
+	txt <- gsub("^(\\s{4,})(\\w+)\\s=\\s", "\\1\\2 <- ", txt)
+	txt <- gsub("^(\\s{4,})names\\((\\w+)\\)\\s=\\s", "\\1names(\\2) <- ", txt)
 	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt)
 
 	# Indentation -------------------------------------------- #
-	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
-	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
+	txt <- gsub("^\\s{27,28}", "\t\t\t\t\t\t\t", txt) # indentation level 7
+	txt <- gsub("^\\s{24}", "\t\t\t\t\t\t", txt) # indentation level 6
+	txt <- gsub("^\\s{20}", "\t\t\t\t\t", txt) # indentation level 5
+	txt <- gsub("^\\s{16}", "\t\t\t\t", txt) # indentation level 4
+	txt <- gsub("^\\s{12}", "\t\t\t", txt) # indentation level 3
+	txt <- gsub("^\\s{7,8}",  "\t\t", txt) # indentation level 2
+	txt <- gsub("^\\s{4}",  "\t", txt) # indentation level 1
 
 	# ======================================================== #
 	# Putting documentation first                              #
