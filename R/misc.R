@@ -58,6 +58,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("#\\s{2,4}X", "X", txt)
 
 	# Function arguments, specific --------------------------- #
+	# TODO: replace these with gsubs for 1, 2 and 3 args
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+).+# Example:",
 		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
@@ -66,6 +67,11 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
 		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
+		x = txt
+	)
+	txt <- gsub(
+		pattern = "n = (.+)  # Example:",
+		replacement = paste0(fun_name, "(n=\\1) #"),
 		x = txt
 	)
 	txt <- gsub(".*#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
