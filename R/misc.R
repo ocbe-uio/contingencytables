@@ -79,15 +79,20 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 
 	# TODO: after idenfifying the documentation block, isolate it and move to beginning of the character vector
 
-	# Function code ------------------------------------------ #
+	# Function code, general ---------------------------------- #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
 	txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
 	txt <- gsub("(\\W)\\S\\-\\S(\\W)", "\\1 - \\2", txt)
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
-	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt) # assignment # FIXME: skips names(x)
-	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt) # assignment
+
+	# Assignment operator ------------------------------------ #
+	txt <- gsub("^(\\s{4,8})(\\w+)\\s=\\s", "\\1\\2 <- ", txt)
+	txt <- gsub("^(\\s{4,8})names\\((\\w+)\\)\\s=\\s", "\\1names(\\2) <- ", txt)
+	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt)
+
+	# Indentation -------------------------------------------- #
 	txt <- gsub("^\\s{8}", "\t\t", txt) # indentation level 2
 	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
 

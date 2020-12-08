@@ -1,5 +1,4 @@
  # TODO: adapt these ones first
-# source("Wilson_score_CI_1x2.R")
 # source("Wilson_score_CI_CC_1x2.R")
 
 the_1x2_table_CIs = function(X, n, alpha=0.05) {
