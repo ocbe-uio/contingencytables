@@ -1,5 +1,4 @@
  # TODO: adapt these ones first
-# source("Wald_CI_CC_1x2.R")
 # source("Wilson_score_CI_1x2.R")
 # source("Wilson_score_CI_CC_1x2.R")
 
