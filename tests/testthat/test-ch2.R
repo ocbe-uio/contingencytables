@@ -97,4 +97,9 @@ test_that("Chapter 2 functions basically work", {
 		object = Wilson_score_CI_CC_1x2(X=13, n=16),
 		expected = "estimate = 0.8125 (95% CI 0.5369 to 0.9503)"
 	)
+	expect_error(the_1x2_table_CIs(100))
+	expect_output(
+		object = the_1x2_table_CIs(X=13, n=16),
+		expected = "Estimate of pi: 13 / 16 = 0.812 "
+	)
 })
