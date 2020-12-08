@@ -43,22 +43,28 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	fun_name <- gsub("(.+)\\s+=\\s+function\\(.+", "\\1", txt[1]) # FIXME: it's not always the 1st line (e.g. Wald_CI_CC_1x2). Create a fun_line first
 	chap_line <- which(grepl(".+Chapter (\\d{1,2}) .+", txt))
 	chap_num <- sub(".+Chapter (\\d{1,2}) .+", "\\1", txt[chap_line])
-	txt[chap_line - 2] <- gsub("#", "#' @description", txt[chap_line - 2]) # FIXME: sometimes it's chap_line - 1 (e.g. Wald_CI_CC_1x2)
+	for (cl in seq_len(chap_line)) {
+		txt[chap_line - cl] <- gsub("#", "#' @description", txt[chap_line - cl])
+	}
 	txt <- gsub("\\s*#$", "", txt)
+
+	# Function arguments, general ---------------------------- #
 	txt <- gsub("# Input arguments", "", txt)
 	txt <- gsub("# ---------------", "", txt)
 	txt <- gsub("#\\s{2,4}X", "X", txt)
-	txt <- gsub(
-		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
-		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
-		x = txt
-	)
+
+	# Function arguments, specific --------------------------- #
 	txt <- gsub(
 		pattern = "X = (\\d+); n = (\\d+).+# Example:",
 		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
 		x = txt
 	)
-	txt <- gsub(".+#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
+	txt <- gsub(
+		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
+		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
+		x = txt
+	)
+	txt <- gsub(".*#\\s([^(E|H)]{,15})(:| =)(.+[^;])$", "#' @param \\1\\3", txt)
 	txt <- gsub(
 		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
 		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
@@ -103,3 +109,4 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		)
 	}
 }
+# TODO: import diff functionality from rBAPS (extract as separate function 1st)

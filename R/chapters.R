@@ -93,7 +93,8 @@ list_chapter_functions <- function() {
 		MidP_binomial_test_1x2      = MidP_binomial_test_1x2,
 		Score_test_1x2              = Score_test_1x2,
 		Score_test_CC_1x2           = Score_test_CC_1x2,
-		Wald_CI_CC_1x2              = Wald_CI_CC_1x2
+		Wald_CI_CC_1x2              = Wald_CI_CC_1x2,
+		Wilson_score_CI_1x2         = Wilson_score_CI_1x2
 	)
 	return(list(ch2 = ch2))
 }

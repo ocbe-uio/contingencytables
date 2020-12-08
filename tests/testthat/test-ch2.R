@@ -87,4 +87,9 @@ test_that("Chapter 2 functions basically work", {
 		object = Wald_CI_CC_1x2(X = 13, n = 16, alpha = .1),
 		expected = "estimate = 0.8125 (90% CI 0.6207 to 1.0000)"
 	)
+	expect_error(Wilson_score_CI_1x2(100))
+	expect_output(
+		object = Wilson_score_CI_1x2(X=13, n=16),
+		expected = "estimate = 0.8125 (95% CI 0.5699 to 0.9341)"
+	)
 })
