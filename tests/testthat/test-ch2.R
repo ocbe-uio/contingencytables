@@ -112,4 +112,9 @@ test_that("Chapter 2 functions basically work", {
 		object = Wald_test_CC_1x2(X=13, n=16, pi0=0.1),
 		expected = "P = 0.00000, Z = 6.982"
 	)
+	expect_error(the_1x2_table_tests(100))
+	expect_output(
+		object = the_1x2_table_tests(X=13, n=16, pi0=0.5),
+		expected = "H_0: pi = 0.500  vs  H_A: pi ~= 0.500"
+	)
 })
