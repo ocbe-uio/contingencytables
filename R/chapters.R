@@ -112,7 +112,8 @@ list_chapter_functions <- function() {
 		MidP_multinomial_test_1xc      = MidP_multinomial_test_1xc,
 		Pearson_chi_squared_test_1xc   = Pearson_chi_squared_test_1xc,
 		QuesenberryHurst_Wilson_score_CIs_1xc =
-			QuesenberryHurst_Wilson_score_CIs_1xc
+			QuesenberryHurst_Wilson_score_CIs_1xc,
+		the_1xc_table_CIs              = the_1xc_table_CIs
 	)
 	return(list(ch2 = ch2, ch3 = ch3))
 }
