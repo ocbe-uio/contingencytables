@@ -106,6 +106,7 @@ test_that("Chapter 2 functions basically work", {
 	expect_output(
 		object = Wald_test_1x2(X=13, n=16, pi0=0.1),
 		expected = "P = 0.00000, Z =  7.302"
+	)
 	expect_error(Wald_test_CC_1x2(100))
 	expect_output(
 		object = Wald_test_CC_1x2(X=13, n=16, pi0=0.1),
