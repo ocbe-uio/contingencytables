@@ -28,4 +28,9 @@ test_that("Chapter 3 functions basically work", {
 		object = Goodman_Wilson_score_CIs_1xc(n=c(276, 380, 118)),
 		regexp = "pi_3: estimate = 0.1525 \\(0.1241 to 0.1859\\)"
 	)
+	expect_output(
+		object = LR_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119)),
+		regexp = "P = 0.02704, T = 7.221 \\(df = 2\\)"
+	)
+
 })
