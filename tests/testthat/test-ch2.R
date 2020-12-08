@@ -82,4 +82,9 @@ test_that("Chapter 2 functions basically work", {
 		object = Score_test_CC_1x2(X = 13, n = 16, pi0 = .5),
 		expected = "P = 0.02445, Z = 2.250"
 	)
+	expect_error(Wald_CI_CC_1x2(100))
+	expect_output(
+		object = Wald_CI_CC_1x2(X = 13, n = 16, alpha = .1),
+		expected = "estimate = 0.8125 (90% CI 0.6207 to 1.0000)"
+	)
 })
