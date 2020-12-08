@@ -24,4 +24,8 @@ test_that("Chapter 3 functions basically work", {
 		object = Goodman_Wald_CIs_for_diffs_1xc(n=c(276, 380, 118)),
 		regexp = "pi_2 - pi_3: estimate = 0.3385 \\(0.2759 to 0.4011\\)"
 	)
+	expect_output(
+		object = Goodman_Wilson_score_CIs_1xc(n=c(276, 380, 118)),
+		regexp = "pi_3: estimate = 0.1525 \\(0.1241 to 0.1859\\)"
+	)
 })
