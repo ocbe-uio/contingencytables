@@ -106,7 +106,8 @@ list_chapter_functions <- function() {
 		Exact_multinomial_test_1xc     = Exact_multinomial_test_1xc,
 		Gold_Wald_CIs_1xc              = Gold_Wald_CIs_1xc,
 		Goodman_Wald_CIs_1xc           = Goodman_Wald_CIs_1xc,
-		Goodman_Wald_CIs_for_diffs_1xc = Goodman_Wald_CIs_for_diffs_1xc
+		Goodman_Wald_CIs_for_diffs_1xc = Goodman_Wald_CIs_for_diffs_1xc,
+		Goodman_Wilson_score_CIs_1xc   = Goodman_Wilson_score_CIs_1xc
 	)
 	return(list(ch2 = ch2, ch3 = ch3))
 }
