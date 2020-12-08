@@ -4,7 +4,7 @@
 \alias{Wilson_score_CI_1x2}
 \title{The Wilson score confidence interval}
 \usage{
-Wilson_score_CI_1x2(X, n = NULL, alpha = 0.05, printresults = TRUE)
+Wilson_score_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 }
 \arguments{
 \item{X}{the number of successes}

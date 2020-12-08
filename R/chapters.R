@@ -98,7 +98,8 @@ list_chapter_functions <- function() {
 		Wilson_score_CI_CC_1x2      = Wilson_score_CI_CC_1x2,
 		the_1x2_table_CIs           = the_1x2_table_CIs,
 		Wald_test_1x2               = Wald_test_1x2,
-		Wald_test_CC_1x2            = Wald_test_CC_1x2
+		Wald_test_CC_1x2            = Wald_test_CC_1x2,
+		the_1x2_table_tests         = the_1x2_table_tests
 	)
 	return(list(ch2 = ch2))
 }
