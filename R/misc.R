@@ -17,7 +17,7 @@
 #' @title Package script
 #' @description Ad-hoc packages a function script
 #' @param filename name of the file
-#' @param saveOutput if `TRUE`, `filename` is overwritten. Defaults to `FALSE`
+#' @param saveOutput if `TRUE`, original is printed and `filename` is overwritten. Defaults to `FALSE`, in which case reformatted file is printed
 #' @return text converted to R, printed to screen or replacing input file
 #' @note This function is used to expedite conversion of the original scripts
 #' into a package format
@@ -34,6 +34,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# Reading file into R                                      #
 	# ======================================================== #
 	txt <- readLines(filename)
+	orig <- txt
 
 	# ======================================================== #
 	# Converting code                                          #
@@ -131,6 +132,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	if (!saveOutput) {
 		return(cat(txt, sep="\n"))
 	} else {
+		cat(orig, sep="\n")
 		return(
 			write.table(
 				x         = txt,
