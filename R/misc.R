@@ -60,37 +60,51 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 
 	# Function examples --------------------------------------- #
 	# TODO: replace these with gsubs for 1, 2 and 3 args?
-	txt <- gsub(
-		pattern = "X = (\\d+); n = (\\d+).+# Example:",
-		replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
-		x = txt
-	)
-	txt <- gsub(
-		pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
-		replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
-		x = txt
-	)
-	txt <- gsub(
-		pattern = "(n|pi0) = (.+)\\s{1,2}# Example:",
-		replacement = paste0(fun_name, "(\\1=\\2) #"),
-		x = txt
-	)
-	txt <- gsub(
-		pattern = "\\s+if\\s*\\(.+(n|pi0)\\)\\) \\{",
-		replacement = paste0("#' @examples load_chapter(", chap_num,")"),
-		txt
-	)
+	if (chap_num <= 3) {
+		txt <- gsub(
+			pattern = "X = (\\d+); n = (\\d+).+# Example:",
+			replacement = paste0(fun_name, "(X=\\1, n=\\2) #"),
+			x = txt
+		)
+		txt <- gsub(
+			pattern = "X = (\\d+); n = (\\d+); pi0 = 0.(\\d+)\\s+# Example:",
+			replacement = paste0(fun_name, "(X=\\1, n=\\2, pi0=0.\\3) #"),
+			x = txt
+		)
+		txt <- gsub(
+			pattern = "(n|pi0) = (.+)\\s{1,2}# Example:",
+			replacement = paste0(fun_name, "(\\1=\\2) #"),
+			x = txt
+		)
+		txt <- gsub(
+			pattern = "\\s+if\\s*\\(.+(n|pi0)\\)\\) \\{",
+			replacement = paste0("#' @examples load_chapter(", chap_num,")"),
+			txt
+		)
+	} else {
+		ex_line_1st <- which(grepl("if \\(missing\\(n\\)\\)", txt))
+		ex_line_last <- which(grepl("}", txt))
+		ex_line_last <- ex_line_last[ex_line_last > ex_line_1st][1]
+		txt[ex_line_1st] <- paste0("#' @examples load_chapter(", chap_num, ")")
+		txt[ex_line_last] <- ""
+		txt[(ex_line_1st + 1):(ex_line_last - 1)] <- vapply(
+			X = (ex_line_1st + 1):(ex_line_last - 1),
+			FUN = function(l) sub("\\s*", "#' ", txt[l]),
+			FUN.VALUE = character(1)
+		)
+	}
 
 	# Function arguments, specific ------------------------- #
-	txt <- gsub(
+	doc_lines <- which(grepl("#'", txt))
+	txt[-doc_lines] <- gsub(
 		pattern = ".*#\\s([^(E|H)]{,15})(:| =)(\\s?\\w{3,}.+[^;])$",
 		replacement = "#' @param \\1\\3",
-		x = txt
+		x = txt[-doc_lines]
 	)
-	txt <- gsub(
+	txt[-doc_lines] <- gsub(
 		pattern = paste0(fun_name, "(\\(.+\\)) # (.+)"),
 		replacement = paste0("#' # \\2\n#' ", fun_name, "\\1"),
-		x = txt
+		x = txt[-doc_lines]
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
 
