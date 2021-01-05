@@ -3,7 +3,7 @@
 
 # contingencytables
 
-An R package for the _Statistical Analysis of Contingency Tables_ (SAGT) book by Fagerland et. al.. More info on the book on [its home page](https://contingencytables.com/) and in the [References](#references) section of this document.
+An R package for the _Statistical Analysis of Contingency Tables_ (SACT) book by Fagerland et. al.. More info on the book on [its home page](https://contingencytables.com/) and in the [References](#references) section of this document.
 
 # Installation and usage
 
@@ -23,7 +23,7 @@ There are currently no stable versions released of this package, but its code ca
 
 ## Usage
 
-After installing, you must load the package by running `library("contingencytables")` in R. You can read more about the package and its functions by running `library(help="contingencytables")` or by consulting the SAGT book.
+After installing, you must load the package by running `library("contingencytables")` in R. You can read more about the package and its functions by running `library(help="contingencytables")` or by consulting the SACT book.
 
 # License
 
@@ -37,7 +37,7 @@ This software is open source and contributions are welcome! If you have any trou
 
 To cite this package, install it and run `citation("contingencytables")`. The output should give you proper citation instructions in APA-like and BibTeX formats for the package version you have installed.
 
-Proper citation of the SAGT book can be found [here](https://contingencytables.com/how-to-cite).
+Proper citation of the SACT book can be found [here](https://contingencytables.com/how-to-cite).
 
 # Nerd badges
 
