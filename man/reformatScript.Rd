@@ -9,7 +9,7 @@ reformatScript(filename, saveOutput = FALSE)
 \arguments{
 \item{filename}{name of the file}
 
-\item{saveOutput}{if \code{TRUE}, \code{filename} is overwritten. Defaults to \code{FALSE}}
+\item{saveOutput}{if \code{TRUE}, original is printed and \code{filename} is overwritten. Defaults to \code{FALSE}, in which case reformatted file is printed}
 }
 \value{
 text converted to R, printed to screen or replacing input file
