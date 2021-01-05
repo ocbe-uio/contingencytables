@@ -146,7 +146,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	if (!saveOutput) {
 		return(cat(txt, sep="\n"))
 	} else {
-		cat(orig, sep="\n")
+		print(orig)
 		return(
 			write.table(
 				x         = txt,
