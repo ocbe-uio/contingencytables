@@ -116,6 +116,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
 	txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
 	txt <- gsub("(\\S)\\^(\\S)", "\\1 ^ \\2", txt)
+	txt <- gsub("\\[(\\d),(\\d)\\]", "[\\1, \\2]", txt)
 
 	# Assignment operator ------------------------------------ #
 	txt <- gsub("^(\\s{4,})(\\w+)\\s=\\s", "\\1\\2 <- ", txt)
