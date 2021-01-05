@@ -116,7 +116,10 @@ list_chapter_functions <- function() {
 		the_1xc_table_CIs              = the_1xc_table_CIs,
 		the_1xc_table_tests            = the_1xc_table_tests
 	)
-	return(list(ch2 = ch2, ch3 = ch3))
+	ch4 <- list(
+		Adjusted_inv_sinh_CI_OR_2x2 = Adjusted_inv_sinh_CI_OR_2x2
+	)
+	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
 
 # TODO: address generated check notes (post question on StackOverflow?)
