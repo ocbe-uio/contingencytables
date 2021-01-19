@@ -34,7 +34,11 @@ test_that("Chapter 4 functions basically work", {
 		regexp = "estimate = 0.7500 \\(95% CI 0.1415 to 4.6034\\)"
 	)
 	expect_output(
-		object = Cornfield_exact_conditional_CI_2x2( rbind(c(9,4), c(4,10))),
-		regexp = "estimate = 5.6250 \\(95% CI 0.8472 to 40.4374\\)"
+		object = Cornfield_exact_conditional_CI_2x2(rbind(c(9,4), c(4,10))),
+		regexp = "estimate = 5.6250 \\(95% CI 1.0226 to 31.5025\\)"
+	)
+	expect_output(
+		object = Cornfield_midP_CI_2x2(rbind(c(3,1), c(1,3))),
+		regexp = "estimate = 9.0000 \\(95% CI 0.3101 to 308.5568\\)"
 	)
 })
