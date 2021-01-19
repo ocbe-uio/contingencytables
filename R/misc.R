@@ -87,11 +87,14 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		ex_line_last <- ex_line_last[ex_line_last > ex_line_1st][1]
 		txt[ex_line_1st] <- paste0("#' @examples load_chapter(", chap_num, ")")
 		txt[ex_line_last] <- ""
-		txt[(ex_line_1st + 1):(ex_line_last - 1)] <- vapply(
-			X = (ex_line_1st + 1):(ex_line_last - 1),
-			FUN = function(l) sub("\\s*", "#' ", txt[l]),
-			FUN.VALUE = character(1)
-		)
+		ex_line_mid <- (ex_line_1st + 1):(ex_line_last - 1)
+		txt[ex_line_mid] <- replaceInExample(txt, ex_line_mid, "\\s*", "#' ")
+		txt[ex_line_mid] <- replaceInExample(txt, ex_line_mid, "#' # ", "#' ")
+		txt[ex_line_mid] <- replaceInExample(txt, ex_line_mid, " = ", " <- ")
+		rep_fun_ex <- rep(paste0("#' ", fun_name, "(n)"), length(ex_line_mid))
+		new_mid <- as.vector(rbind(txt[ex_line_mid], rep_fun_ex))
+		txt[ex_line_mid] <- ""
+		txt <- append(txt, new_mid, after=ex_line_1st)
 	}
 
 	# Function arguments, specific ------------------------- #
@@ -165,3 +168,10 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	}
 }
 # TODO: import diff functionality from rBAPS (extract as separate function 1st)
+replaceInExample <- function(x, lines, pattern, new) {
+	vapply(
+		X = lines,
+		FUN = function(l) sub(pattern, new, x[l]),
+		FUN.VALUE = character(1)
+	)
+}
