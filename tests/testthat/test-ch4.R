@@ -25,4 +25,8 @@ test_that("Chapter 4 functions basically work", {
 		object = AgrestiCaffo_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=T)),
 		regexp = "estimate = 0.1765 \\(95% CI 0.0116 to 0.3217\\)"
 	)
+		expect_output(
+		object = BaptistaPike_exact_conditional_CI_2x2(rbind(c(1, 7), c(5, 7))),
+		regexp = "estimate = 0.2000 \\(95% CI 0.0075 to 2.2069\\)"
+	)
 })
