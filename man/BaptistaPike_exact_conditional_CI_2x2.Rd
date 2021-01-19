@@ -12,10 +12,6 @@ BaptistaPike_exact_conditional_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
 
 \item{printresults}{display results (F = no, T = yes)}
-
-\item{alphaglobal}{alpha}
-
-\item{options}{optimset('Display', 'off', 'TolX', 0.0000001)}
 }
 \description{
 The Baptista-Pike exact conditional confidence interval for the odds ratio
