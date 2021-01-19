@@ -117,14 +117,15 @@ list_chapter_functions <- function() {
 		the_1xc_table_tests            = the_1xc_table_tests
 	)
 	ch4 <- list(
-		Adjusted_inv_sinh_CI_OR_2x2    = Adjusted_inv_sinh_CI_OR_2x2,
-		Adjusted_inv_sinh_CI_ratio_2x2 = Adjusted_inv_sinh_CI_ratio_2x2,
-		Adjusted_log_CI_2x2            = Adjusted_log_CI_2x2,
-		AgrestiCaffo_CI_2x2            = AgrestiCaffo_CI_2x2,
-		Wald_CI_2x2                    = Wald_CI_2x2,
+		Adjusted_inv_sinh_CI_OR_2x2        = Adjusted_inv_sinh_CI_OR_2x2,
+		Adjusted_inv_sinh_CI_ratio_2x2     = Adjusted_inv_sinh_CI_ratio_2x2,
+		Adjusted_log_CI_2x2                = Adjusted_log_CI_2x2,
+		AgrestiCaffo_CI_2x2                = AgrestiCaffo_CI_2x2,
+		Wald_CI_2x2                        = Wald_CI_2x2,
 		BaptistaPike_exact_conditional_CI_2x2 =
 			BaptistaPike_exact_conditional_CI_2x2,
-		BaptistaPike_midP_CI_2x2       = BaptistaPike_midP_CI_2x2
+		BaptistaPike_midP_CI_2x2           = BaptistaPike_midP_CI_2x2,
+		Cornfield_exact_conditional_CI_2x2 = Cornfield_exact_conditional_CI_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
