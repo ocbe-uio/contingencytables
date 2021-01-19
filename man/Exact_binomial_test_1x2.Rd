@@ -32,5 +32,6 @@ Exact_binomial_test_1x2(X = 103, n = 167, pi0 = 0.513)
 Exact_binomial_test_1x2(X = 33, n = 45, pi0 = 0.513)
 # Ligarden et al. (2010)
 Exact_binomial_test_1x2(X = 13, n = 16, pi0 = 0.5)
+unload_chapter(2)
 
 }

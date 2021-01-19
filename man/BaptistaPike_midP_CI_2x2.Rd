@@ -28,4 +28,5 @@ BaptistaPike_midP_CI_2x2(n1)
 BaptistaPike_midP_CI_2x2(n2)
 BaptistaPike_midP_CI_2x2(n3)
 BaptistaPike_midP_CI_2x2(n4)
+unload_chapter(4)
 }

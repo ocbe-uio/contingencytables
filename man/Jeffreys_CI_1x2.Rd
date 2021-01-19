@@ -32,4 +32,5 @@ Jeffreys_CI_1x2(X=103, n=167)
 Jeffreys_CI_1x2(X=33, n=45)
 # Ligarden et al. (2010)
 Jeffreys_CI_1x2(X=13, n=16)
+unload_chapter(2)
 }

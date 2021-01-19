@@ -9,6 +9,7 @@
 #' the_1xc_table_tests(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
 #' # Example for the Chacko test: Hypothetical experiment
 #' the_1xc_table_tests(n = c(1, 4, 3, 11, 9), pi0=c(0.402, 0.479, 0.119), TRUE)
+#' unload_chapter(3)
 the_1xc_table_tests <- function(n, pi0, chacko.test=FALSE) {
 	# ======================================================== #
 	# Ad-hoc function to print output                          #

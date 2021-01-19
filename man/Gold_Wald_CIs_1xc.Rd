@@ -22,4 +22,5 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 load_chapter(3)
 # Genotype counts for SNP rs 6498169 in RA patients
 Gold_Wald_CIs_1xc(n=c(276, 380, 118))
+unload_chapter(3)
 }

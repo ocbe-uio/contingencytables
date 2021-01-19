@@ -30,6 +30,7 @@ Wilson_score_CI_CC_1x2(X=103, n=167)
 Wilson_score_CI_CC_1x2(X=33, n=45)
 # Ligarden et al. (2010)
 Wilson_score_CI_CC_1x2(X=13, n=16)
+unload_chapter(2)
 }
 \references{
 Reference Wilson EB (1927) Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association; 22209-212

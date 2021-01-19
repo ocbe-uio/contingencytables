@@ -23,6 +23,7 @@
 #' Blaker_midP_test_1x2(X=33, n=45, pi0=0.513)
 #' # Example: Ligarden et al. (2010)
 #' Blaker_midP_test_1x2(X=13, n=16, pi0=0.5)
+#' unload_chapter(2)
 
 Blaker_midP_test_1x2 = function(X, n, pi0, printresults=TRUE) {
 
