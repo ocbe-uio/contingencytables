@@ -13,6 +13,7 @@
 #' the_1x2_table_tests(X = 33, n = 45, pi0 = 0.513)
 #' # Example: Ligarden et al. (2010)
 #' the_1x2_table_tests(X = 13, n = 16, pi0 = 0.5)
+#' unload_chapter(2)
 the_1x2_table_tests <- function(X, n, pi0) {
 
 	# ======================================================== #

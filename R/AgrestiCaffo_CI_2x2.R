@@ -9,6 +9,7 @@
 #' AgrestiCaffo_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=TRUE))
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
 #' AgrestiCaffo_CI_2x2(n = matrix(c(0,16,15,57), nrow=2, byrow=TRUE))
+#' unload_chapter(4)
 AgrestiCaffo_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# Estimate of the difference between probabilities (deltahat)
 	estimate <- n[1, 1] / (n[1, 1] + n[1, 2]) - n[2, 1] / (n[2, 1] + n[2, 2])

@@ -26,4 +26,5 @@ load_chapter(3)
 }
 # subset of 10 patients
 Exact_multinomial_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
+unload_chapter(3)
 }

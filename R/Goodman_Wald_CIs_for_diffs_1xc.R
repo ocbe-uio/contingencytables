@@ -9,6 +9,7 @@
 #' @examples load_chapter(3)
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' Goodman_Wald_CIs_for_diffs_1xc(n=c(276, 380, 118))
+#' unload_chapter(3)
 Goodman_Wald_CIs_for_diffs_1xc <- function(
 	n, alpha=0.05, adjustment="Bonferroni", printresults=TRUE
 ) {

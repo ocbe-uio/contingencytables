@@ -7,6 +7,7 @@
 #' @examples load_chapter(3)
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' Gold_Wald_CIs_1xc(n=c(276, 380, 118))
+#' unload_chapter(3)
 Gold_Wald_CIs_1xc <- function(n, alpha=0.05, printresults=TRUE) {
 	c0 <- length(n)
 	N <- sum(n)
@@ -14,7 +15,7 @@ Gold_Wald_CIs_1xc <- function(n, alpha=0.05, printresults=TRUE) {
 	# Estimates of the multinomial probabilities
 	pihat <- n / N
 
-	# Simultaneous confidence intervals with Scheffü¾Ž–”¼ adjustment
+	# Simultaneous confidence intervals with Scheffï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ adjustment
 	L <- rep(0, c0)
 	U <- rep(0, c0)
 	Scheffe <- qchisq(1 - alpha, c0 - 1)
