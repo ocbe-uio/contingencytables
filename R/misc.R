@@ -86,7 +86,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		ex_line_last <- which(grepl("}", txt))
 		ex_line_last <- ex_line_last[ex_line_last > ex_line_1st][1]
 		txt[ex_line_1st] <- paste0("#' @examples load_chapter(", chap_num, ")")
-		txt[ex_line_last] <- ""
+		txt[ex_line_last] <- paste0("#' unload_chapter(", chap_num, ")")
 		ex_line_mid <- (ex_line_1st + 1):(ex_line_last - 1)
 		txt[ex_line_mid] <- replaceInExample(txt, ex_line_mid, "\\s*", "#' ")
 		txt[ex_line_mid] <- replaceInExample(txt, ex_line_mid, "#' # ", "#' ")
