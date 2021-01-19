@@ -13,8 +13,6 @@
 #' BaptistaPike_exact_conditional_CI_2x2(n2)
 #' BaptistaPike_exact_conditional_CI_2x2(n3)
 #' BaptistaPike_exact_conditional_CI_2x2(n4)
-#' @param alphaglobal alpha
-#' @param options optimset('Display', 'off', 'TolX', 0.0000001)
 BaptistaPike_exact_conditional_CI_2x2 <- function(
 	n, alpha=0.05, printresults=TRUE
 ) {

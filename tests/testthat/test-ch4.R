@@ -27,6 +27,6 @@ test_that("Chapter 4 functions basically work", {
 	)
 		expect_output(
 		object = BaptistaPike_exact_conditional_CI_2x2(rbind(c(1, 7), c(5, 7))),
-		regexp = "estimate = 0.2000 \\(95% CI 0.0075 to 2.2069\\)"
+		regexp = "estimate = 0.2000 \\(95% CI 0.0151 to 1.7523\\)"
 	)
 })
