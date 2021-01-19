@@ -33,7 +33,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# ======================================================== #
 	# Reading file into R                                      #
 	# ======================================================== #
-	txt <- readLines(filename)
+	txt <- readLines(filename, warn = FALSE)
 	orig <- txt
 
 	# ======================================================== #
@@ -140,6 +140,11 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	if (substr(txt[1], 1, 24) == "#' @description function") txt <- txt[-1]
 	txt <- c(txt[1], txt)
 	txt[1] <- gsub("description", "title", txt[1])
+
+	# ======================================================== #
+	# Making sure last line is empty                           #
+	# ======================================================== #
+	if (txt[length(txt)] == "}") txt <- append(txt, "")
 
 	# ======================================================== #
 	# Returning converted code                                 #
