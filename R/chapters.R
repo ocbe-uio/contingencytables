@@ -119,7 +119,9 @@ list_chapter_functions <- function() {
 	ch4 <- list(
 		Adjusted_inv_sinh_CI_OR_2x2    = Adjusted_inv_sinh_CI_OR_2x2,
 		Adjusted_inv_sinh_CI_ratio_2x2 = Adjusted_inv_sinh_CI_ratio_2x2,
-		Adjusted_log_CI_2x2            = Adjusted_log_CI_2x2
+		Adjusted_log_CI_2x2            = Adjusted_log_CI_2x2,
+		AgrestiCaffo_CI_2x2            = AgrestiCaffo_CI_2x2,
+		Wald_CI_2x2                    = Wald_CI_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
