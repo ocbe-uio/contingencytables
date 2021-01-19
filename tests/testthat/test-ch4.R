@@ -33,4 +33,8 @@ test_that("Chapter 4 functions basically work", {
 		object = BaptistaPike_midP_CI_2x2(rbind(c(15, 30), c(2, 3))),
 		regexp = "estimate = 0.7500 \\(95% CI 0.1415 to 4.6034\\)"
 	)
+	expect_output(
+		object = Cornfield_exact_conditional_CI_2x2( rbind(c(9,4), c(4,10))),
+		regexp = "estimate = 5.6250 \\(95% CI 0.8472 to 40.4374\\)"
+	)
 })
