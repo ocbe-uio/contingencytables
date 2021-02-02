@@ -63,4 +63,9 @@ test_that("Chapter 4 functions basically work", {
 		object = Independence_smoothed_logit_CI_2x2(n),
 		regexp = "estimate = 5.6250 \\(95% CI 1.0206 to 23.7777\\)"
 	)
+	n <- matrix(c(9,4,4,10), nrow=2, byrow=T)
+	expect_output(
+		object = Inv_sinh_CI_OR_2x2(n),
+		regexp = "estimate = 5.6250 \\(95% CI 1.2472 to 25.3686\\)"
+	)
 })
