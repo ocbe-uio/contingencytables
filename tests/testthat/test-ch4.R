@@ -78,4 +78,9 @@ test_that("Chapter 4 functions basically work", {
 		object = Katz_log_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 0.9096 to 53.8695\\)"
 	)
+	n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)
+	expect_output(
+		object = Koopman_asymptotic_score_CI_2x2(n),
+		regexp = "estimate = 7.0000 \\(95% CI 1.2209 to 42.5757\\)"
+	)
 })
