@@ -156,11 +156,11 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	if (!saveOutput) {
 		message("This is what the contents of the file will look like:")
 		return(cat(txt, sep="\n"))
-		message("Rerun with saveOutput=TRUE to overwrite the file")
+		message("Rerun with saveOutput=TRUE to overwrite the file.")
 	} else {
 		message("This is what the original file looked like:")
 		print(orig, quote=FALSE)
-		message("File overwritten. Please compare with original content above")
+		message("File overwritten. Please compare with original content above.")
 		return(
 			write.table(
 				x         = txt,
