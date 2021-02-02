@@ -159,7 +159,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		message("Rerun with saveOutput=TRUE to overwrite the file")
 	} else {
 		message("This is what the original file looked like:")
-		print(orig) # TODO: improve output so it shows line number but not quotes
+		print(orig, quote=FALSE)
 		message("File overwritten. Please compare with original content above")
 		return(
 			write.table(
