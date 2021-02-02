@@ -129,7 +129,8 @@ list_chapter_functions <- function() {
 		Cornfield_midP_CI_2x2              = Cornfield_midP_CI_2x2,Fisher_exact_test_2x2              = Fisher_exact_test_2x2,
 		Exact_unconditional_test_2x2       = Exact_unconditional_test_2x2,Fisher_midP_test_2x2               = Fisher_midP_test_2x2,
 		Gart_adjusted_logit_CI_2x2         = Gart_adjusted_logit_CI_2x2,
-		Independence_smoothed_logit_CI_2x2 = Independence_smoothed_logit_CI_2x2
+		Independence_smoothed_logit_CI_2x2 = Independence_smoothed_logit_CI_2x2,
+		Inv_sinh_CI_OR_2x2                 = Inv_sinh_CI_OR_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
