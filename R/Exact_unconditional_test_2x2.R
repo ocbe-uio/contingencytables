@@ -23,6 +23,9 @@
 #' maximization however, it works well for most purposes. Try 'showplot=TRUE'
 #' to get an indication of the precision. A refinement of the maximization
 #' can be done with a manual restriction of the parameter space.
+#' @importFrom graphics lines
+#' @importFrom stats dhyper
+#' @importFrom grDevices dev.new
 Exact_unconditional_test_2x2 <- function(n, statistic='Pearson', gamma=0.0001,
 	printresults=TRUE)
 {
@@ -104,7 +107,7 @@ Exact_unconditional_test_2x2 <- function(n, statistic='Pearson', gamma=0.0001,
 	# Display a plot of the P-value as a function of the common success probability
 	if (showplot) {
 		common_pi_at_max_value <- pivalues[index]
-		quartz() # For Max OS X. Change to windows() to run under Windows.
+		dev.new()
 		plot(pivalues, Pvalues, lty=1, col="black")
 		lines(
 			c(common_pi_at_max_value, common_pi_at_max_value), c(0, P),
