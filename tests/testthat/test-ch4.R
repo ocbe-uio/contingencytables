@@ -49,4 +49,8 @@ test_that("Chapter 4 functions basically work", {
 		object = Exact_unconditional_test_2x2(rbind(c(3,1), c(1,3))),
 		regexp = "The Suissa-Shuster exact unconditional test: P = 0.28916"
 	)
+	expect_output(
+		object = Fisher_midP_test_2x2(rbind(c(0,16), c(15,57))),
+		regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
+	)
 })
