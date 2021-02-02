@@ -53,10 +53,14 @@ test_that("Chapter 4 functions basically work", {
 		object = Fisher_midP_test_2x2(rbind(c(0,16), c(15,57))),
 		regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
 	)
+	n <- matrix(c(0,16,15,57), nrow=2, byrow=T)
 	expect_output(
-		object = Gart_adjusted_logit_CI_2x2(
-			matrix(c(0,16,15,57), nrow=2, byrow=T)
-		),
+		object = Gart_adjusted_logit_CI_2x2(n),
 		regexp = "estimate = 0.0000 \\(95% CI 0.0064 to 1.9804\\)"
+	)
+	n <- matrix(c(9,4,4,10), nrow=2, byrow=T)
+	expect_output(
+		object = Independence_smoothed_logit_CI_2x2(n),
+		regexp = "estimate = 5.6250 \\(95% CI 1.0206 to 23.7777\\)"
 	)
 })
