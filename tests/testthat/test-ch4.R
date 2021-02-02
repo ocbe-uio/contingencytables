@@ -53,4 +53,10 @@ test_that("Chapter 4 functions basically work", {
 		object = Fisher_midP_test_2x2(rbind(c(0,16), c(15,57))),
 		regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
 	)
+	expect_output(
+		object = Gart_adjusted_logit_CI_2x2(
+			matrix(c(0,16,15,57), nrow=2, byrow=T)
+		),
+		regexp = "estimate = 0.0000 \\(95% CI 0.0064 to 1.9804\\)"
+	)
 })
