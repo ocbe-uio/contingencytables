@@ -41,4 +41,12 @@ test_that("Chapter 4 functions basically work", {
 		object = Cornfield_midP_CI_2x2(rbind(c(3,1), c(1,3))),
 		regexp = "estimate = 9.0000 \\(95% CI 0.3101 to 308.5568\\)"
 	)
+	expect_output(
+		object = Fisher_exact_test_2x2(rbind(c(0,16), c(15,57))),
+		regexp = "P = 0.06287"
+	)
+	expect_output(
+		object = Exact_unconditional_test_2x2(rbind(c(3,1), c(1,3))),
+		regexp = "The Suissa-Shuster exact unconditional test: P = 0.28916"
+	)
 })

@@ -126,7 +126,8 @@ list_chapter_functions <- function() {
 			BaptistaPike_exact_conditional_CI_2x2,
 		BaptistaPike_midP_CI_2x2           = BaptistaPike_midP_CI_2x2,
 		Cornfield_exact_conditional_CI_2x2 = Cornfield_exact_conditional_CI_2x2,
-		Cornfield_midP_CI_2x2              = Cornfield_midP_CI_2x2
+		Cornfield_midP_CI_2x2              = Cornfield_midP_CI_2x2,Fisher_exact_test_2x2              = Fisher_exact_test_2x2,
+		Exact_unconditional_test_2x2       = Exact_unconditional_test_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
