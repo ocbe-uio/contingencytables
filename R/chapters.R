@@ -131,7 +131,8 @@ list_chapter_functions <- function() {
 		Gart_adjusted_logit_CI_2x2         = Gart_adjusted_logit_CI_2x2,
 		Independence_smoothed_logit_CI_2x2 = Independence_smoothed_logit_CI_2x2,
 		Inv_sinh_CI_OR_2x2                 = Inv_sinh_CI_OR_2x2,
-		Inv_sinh_CI_ratio_2x2              = Inv_sinh_CI_ratio_2x2
+		Inv_sinh_CI_ratio_2x2              = Inv_sinh_CI_ratio_2x2,
+		Katz_log_CI_2x2                    = Katz_log_CI_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
