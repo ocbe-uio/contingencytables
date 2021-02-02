@@ -2,12 +2,13 @@
 #' @description Reformat script to fit package
 #' @param filename name of the file
 #' @param saveOutput if `TRUE`, original is printed and `filename` is overwritten. Defaults to `FALSE`, in which case reformatted file is printed
+#' @param tabIndent if `TRUE`, replaces spaced indentation with tabs
 #' @return text converted to R, printed to screen or replacing input file
 #' @note This function is used to expedite conversion of the original scripts
 #' into a package format
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
-reformat <- function(filename, saveOutput = FALSE) {
+reformat <- function(filename, saveOutput = FALSE, tabIndent = TRUE) {
 
 	# ======================================================== #
 	# Verification                                             #
@@ -18,6 +19,9 @@ reformat <- function(filename, saveOutput = FALSE) {
 	# Reading file into R                                      #
 	# ======================================================== #
 	txt <- readLines(filename, warn = FALSE)
+	if (substr(txt[1], 1, 9) == "#' @title") {
+		stop("I think this File has already been reformatted. Stopping.")
+	}
 	orig <- txt
 
 	# ======================================================== #
@@ -114,13 +118,7 @@ reformat <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("^(.+)\\s=\\sfunction", "\\1 <- function", txt)
 
 	# Indentation -------------------------------------------- #
-	txt <- gsub("^\\s{27,28}", "\t\t\t\t\t\t\t", txt) # indentation level 7
-	txt <- gsub("^\\s{24}", "\t\t\t\t\t\t", txt) # indentation level 6
-	txt <- gsub("^\\s{20}", "\t\t\t\t\t", txt) # indentation level 5
-	txt <- gsub("^\\s{16}", "\t\t\t\t", txt) # indentation level 4
-	txt <- gsub("^\\s{12}", "\t\t\t", txt) # indentation level 3
-	txt <- gsub("^\\s{7,8}", "\t\t", txt) # indentation level 2
-	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
+	if (tabIndent) txt <- tabIndent(txt)
 
 	# ======================================================== #
 	# Putting documentation first                              #
@@ -165,4 +163,14 @@ replaceInExample <- function(x, lines, pattern, new) {
 		FUN = function(l) sub(pattern, new, x[l]),
 		FUN.VALUE = character(1)
 	)
+}
+tabIndent <- function(txt) {
+	txt <- gsub("^\\s{27,28}", "\t\t\t\t\t\t\t", txt) # indentation level 7
+	txt <- gsub("^\\s{24}", "\t\t\t\t\t\t", txt) # indentation level 6
+	txt <- gsub("^\\s{20}", "\t\t\t\t\t", txt) # indentation level 5
+	txt <- gsub("^\\s{16}", "\t\t\t\t", txt) # indentation level 4
+	txt <- gsub("^\\s{12}", "\t\t\t", txt) # indentation level 3
+	txt <- gsub("^\\s{7,8}", "\t\t", txt) # indentation level 2
+	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
+	return(txt)
 }
