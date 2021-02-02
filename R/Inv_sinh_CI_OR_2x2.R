@@ -1,48 +1,53 @@
-Inv_sinh_CI_OR_2x2 = function(n, alpha=0.05, printresults=T) {
+#' @title The inverse hyperbolic sine confidence interval for the odds ratio
+#' @description The inverse hyperbolic sine confidence interval for the odds ratio
+#' @description Described in Chapter 4 "The 2x2 Table"
+#' @param n the observed counts (a 2x2 matrix)
+#' @param alpha the nominal level, e.g. 0.05 for 95% CIs
+#' @param printresults display results (F = no, T = yes)
+#' @examples load_chapter(4)
+#' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
+#' n <- matrix(c(9,4,4,10), nrow=2, byrow=T)
+#' Inv_sinh_CI_OR_2x2(n)
+#' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
+#' n <- matrix(c(0,16,15,57), nrow=2, byrow=T)
+#' Inv_sinh_CI_OR_2x2(n)
+#' unload_chapter(4)
+Inv_sinh_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
+	# Estimate of the odds ratio (thetahat)
+	estimate <- n[1, 1] * n[2, 2] / (n[1, 2] * n[2, 1])
 
-    # function [L, U, estimate] = Inv_sinh_CI_OR_2x2(n, alpha, printresults)
-    # The inverse hyperbolic sine confidence interval for the odds ratio
-    # Described in Chapter 4 "The 2x2 Table"
-    # 
-    # Input arguments
-    # ---------------
-    # n: the observed counts (a 2x2 matrix)
-    # alpha: the nominal level, e.g. 0.05 for 95% CIs 
-    # printresults: display results (F = no, T = yes)
+	# The upper alpha / 2 percentile of the standard normal distribution
+	z <- qnorm(1-alpha / 2, 0, 1)
 
-    if (missing(n)) {
-        # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-        n = matrix(c(9,4,4,10), nrow=2, byrow=T)   
-        # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):  
-        # n = matrix(c(0,16,15,57), nrow=2, byrow=T) 
-    } 
+	# Calculate the confidence limits
+	tmp <- asinh(0.5 * z*sqrt(1 / n[1, 1] + 1 / n[1, 2] + 1 / n[2, 1] + 1 / n[2, 2]))
+	L <- exp(log(estimate) - 2 * tmp)
+	U <- exp(log(estimate) + 2 * tmp)
 
-    # Estimate of the odds ratio (thetahat)
-    estimate = n[1,1]*n[2,2]/(n[1,2]*n[2,1])
+	# Fix zero cell cases
+	if (n[1, 1] == 0) {U = (z ^ 2) * n[2, 2] / (n[1, 2] * n[2, 1])}
+	if (n[2, 2] == 0) {U = n[1, 1] * (z ^ 2) / (n[1, 2] * n[2, 1])}
+	if (n[1, 1] == 0 && n[2, 2] == 0) {
+		U = ((z ^ 2) * (z ^ 2)) / (n[1, 2] * n[2, 1])
+	}
+	if (n[1, 2] == 0) {L = n[1, 1] * n[2, 2] / ((z ^ 2) * n[2, 1])}
+	if (n[2, 1] == 0) {L = n[1, 1] * n[2, 2] / (n[1, 2] * (z ^ 2))}
+	if (n[1, 2] == 0 && n[2, 1] == 0) {
+		L = n[1, 1] * n[2, 2] / ((z ^ 2) * (z ^ 2))
+	}
 
-    # The upper alpha/2 percentile of the standard normal distribution
-    z = qnorm(1-alpha/2, 0, 1)
+	if (printresults) {
+		print(
+			sprintf(
+				'The inverse sinh CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
+				estimate, 100 * (1 - alpha), L, U
+			),
+			quote=FALSE
+		)
+	}
 
-    # Calculate the confidence limits
-    tmp = asinh(0.5*z*sqrt(1/n[1,1] + 1/n[1,2] + 1/n[2,1] + 1/n[2,2]))
-    L = exp(log(estimate) - 2*tmp)
-    U = exp(log(estimate) + 2*tmp)
+	res <- data.frame(lower=L, upper=U, estimate=estimate)
+	invisible(res)
 
-    # Fix zero cell cases
-    if (n[1,1] == 0) {U = (z^2)*n[2,2]/(n[1,2]*n[2,1])}
-    if (n[2,2] == 0) {U = n[1,1]*(z^2)/(n[1,2]*n[2,1])}
-    if (n[1,1] == 0 && n[2,2] == 0) {U = ((z^2)*(z^2))/(n[1,2]*n[2,1])}
-    if (n[1,2] == 0) {L = n[1,1]*n[2,2]/((z^2)*n[2,1])}
-    if (n[2,1] == 0) {L = n[1,1]*n[2,2]/(n[1,2]*(z^2))}
-    if (n[1,2] == 0 && n[2,1] == 0) {L = n[1,1]*n[2,2]/((z^2)*(z^2))}
-
-    if (printresults) {
-        print(sprintf('The inverse sinh CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
-            estimate, 100*(1 - alpha), L, U), quote=F)
-    }
-    
-    res = data.frame(lower=L, upper=U, estimate=estimate)
-    invisible(res)      
-    
 }
 
