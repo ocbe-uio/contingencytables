@@ -74,8 +74,10 @@ Exact_unconditional_test_2x2 <- function(n, statistic='Pearson', gamma=0.0001,
 	} else {
 		# Berger and Boos procedure
 		# Use the Clopper-Pearson exact interval
-		res.cpe = ClopperPearson_exact_CI_1x2(np1, N, gamma, printresults=F)
-		pivalues <- seq(res.cpe$lower, res.cpe$upper, length=num_pi_values)
+		res.cpe <- ClopperPearson_exact_CI_1x2(np1, N, gamma, printresults=F)
+		pivalues <- seq(
+			res.cpe["lower"], res.cpe["upper"], length=num_pi_values
+		)
 	}
 
 	# Calculate the P-value corresponding to each value of the nuisance parameter
