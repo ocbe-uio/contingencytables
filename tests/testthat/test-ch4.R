@@ -68,4 +68,9 @@ test_that("Chapter 4 functions basically work", {
 		object = Inv_sinh_CI_OR_2x2(n),
 		regexp = "estimate = 5.6250 \\(95% CI 1.2472 to 25.3686\\)"
 	)
+	n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)
+	expect_output(
+		object = Inv_sinh_CI_ratio_2x2(n),
+		regexp = "estimate = 7.0000 \\(95% CI 1.1671 to 41.9827\\)"
+	)
 })
