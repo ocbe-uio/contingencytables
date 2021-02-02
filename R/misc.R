@@ -114,7 +114,9 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 
 	# Function code, general ---------------------------------- #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
+	txt <- gsub("byrow=T)", "byrow=TRUE)", txt)
 	txt <- gsub("quote=F)", "quote=FALSE)", txt)
+	txt <- gsub("F = no, T = yes", "FALSE = no, TRUE = yes", txt)
 	txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
 	# txt <- gsub("(\\W)\\S\\-\\S(\\W)", "\\1 - \\2", txt) # TODO: reimplement
 	txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
