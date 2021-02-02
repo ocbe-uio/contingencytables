@@ -110,6 +110,7 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 		x = txt[-doc_lines]
 	)
 	txt <- gsub("\\s+#' (.+)", "#' \\1", txt)
+	# TODO: identify arguments from whats inside parenthesis after fun_name
 
 	# Function code, general ---------------------------------- #
 	txt <- gsub("printresults=T)", "printresults=TRUE)", txt)
@@ -153,9 +154,11 @@ reformatScript <- function(filename, saveOutput = FALSE) {
 	# Returning converted code                                 #
 	# ======================================================== #
 	if (!saveOutput) {
+		message("This is what the contents of the file will look like:")
 		return(cat(txt, sep="\n"))
 	} else {
-		print(orig)
+		message("Printing original file. Please compare with new file contents")
+		print(orig) # TODO: improve output so it shows line number but not quotes
 		return(
 			write.table(
 				x         = txt,
