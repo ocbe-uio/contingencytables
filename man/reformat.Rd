@@ -4,12 +4,14 @@
 \alias{reformat}
 \title{Package script}
 \usage{
-reformat(filename, saveOutput = FALSE)
+reformat(filename, saveOutput = FALSE, tabIndent = TRUE)
 }
 \arguments{
 \item{filename}{name of the file}
 
 \item{saveOutput}{if \code{TRUE}, original is printed and \code{filename} is overwritten. Defaults to \code{FALSE}, in which case reformatted file is printed}
+
+\item{tabIndent}{if \code{TRUE}, replaces spaced indentation with tabs}
 }
 \value{
 text converted to R, printed to screen or replacing input file
