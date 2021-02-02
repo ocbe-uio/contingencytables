@@ -119,8 +119,8 @@ reformat <- function(filename, saveOutput = FALSE) {
 	txt <- gsub("^\\s{20}", "\t\t\t\t\t", txt) # indentation level 5
 	txt <- gsub("^\\s{16}", "\t\t\t\t", txt) # indentation level 4
 	txt <- gsub("^\\s{12}", "\t\t\t", txt) # indentation level 3
-	txt <- gsub("^\\s{7,8}",  "\t\t", txt) # indentation level 2
-	txt <- gsub("^\\s{4}",  "\t", txt) # indentation level 1
+	txt <- gsub("^\\s{7,8}", "\t\t", txt) # indentation level 2
+	txt <- gsub("^\\s{4}", "\t", txt) # indentation level 1
 
 	# ======================================================== #
 	# Putting documentation first                              #
