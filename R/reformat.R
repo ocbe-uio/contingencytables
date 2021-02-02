@@ -19,6 +19,9 @@ reformat <- function(filename, saveOutput = FALSE, tabIndent = TRUE) {
 	# Reading file into R                                      #
 	# ======================================================== #
 	txt <- readLines(filename, warn = FALSE)
+	if (substr(txt[1], 1, 9) == "#' @title") {
+		stop("I think this File has already been reformatted. Stopping.")
+	}
 	orig <- txt
 
 	# ======================================================== #
