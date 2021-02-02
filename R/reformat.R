@@ -1,5 +1,5 @@
 #' @title Package script
-#' @description Ad-hoc packages a function script
+#' @description Reformat script to fit package
 #' @param filename name of the file
 #' @param saveOutput if `TRUE`, original is printed and `filename` is overwritten. Defaults to `FALSE`, in which case reformatted file is printed
 #' @return text converted to R, printed to screen or replacing input file
@@ -7,7 +7,7 @@
 #' into a package format
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
-reformatScript <- function(filename, saveOutput = FALSE) {
+reformat <- function(filename, saveOutput = FALSE) {
 
 	# ======================================================== #
 	# Verification                                             #
