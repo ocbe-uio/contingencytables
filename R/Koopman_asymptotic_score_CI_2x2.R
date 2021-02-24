@@ -40,7 +40,7 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 		# exitflag = 1
 	} else if (is.na(estimate) || estimate==Inf) {
 		L <- uniroot(
-			calculate_limit_lower, c(phi0, phi1), n11=n11, n21=n21,
+			calculate_limit_lower.Koopman, c(phi0, phi1), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, pi1hat=pi1hat, pi2hat=pi2hat, alpha=alpha, tol=tol
 		)$root
 	} else if (estimate == 0) {
@@ -48,7 +48,7 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 		# exitflag = 1
 	} else {
 		L <- uniroot(
-			calculate_limit_lower, c(phi0, estimate), n11=n11, n21=n21,
+			calculate_limit_lower.Koopman, c(phi0, estimate), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, pi1hat=pi1hat, pi2hat=pi2hat, alpha=alpha, tol=tol
 		)$root
 	}
@@ -58,12 +58,12 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 		U <- Inf
 	} else if (estimate == 0) {
 		U <- uniroot(
-			calculate_limit_upper, c(phi0, phi1), n11=n11, n21=n21,
+			calculate_limit_upper.Koopman, c(phi0, phi1), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, pi1hat=pi1hat, pi2hat=pi2hat, alpha=alpha, tol=tol
 		)$root
 	} else {
 		U <- uniroot(
-			calculate_limit_upper, c(estimate, phi1), n11=n11, n21=n21,
+			calculate_limit_upper.Koopman, c(estimate, phi1), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, pi1hat=pi1hat, pi2hat=pi2hat, alpha=alpha, tol=tol
 		)$root
 	}
@@ -76,50 +76,3 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	res <- data.frame(lower=L, upper=U, estimate=estimate)
 	invisible(res)
 }
-
-# ================================
-calculate_limit_lower <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
-	# global n11 n21 n1p n2p pi1hat pi2hat alphaglobal limit
-	ml.res = ML_estimates(n11, n21, n1p, n2p, phi0)
-	T0 <- score_test_statistic(
-		pi1hat, pi2hat, ml.res$p1hat, ml.res$p2hat, n1p, n2p, phi0
-	)
-	if (is.na(T0)) {
-		T0 <- 0
-	}
-	f <- T0 - qnorm(1-alpha / 2, 0, 1)
-	return(f)
-}
-
-# ================================
-calculate_limit_upper <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
-	# global n11 n21 n1p n2p pi1hat pi2hat alphaglobal limit
-	ml.res = ML_estimates(n11, n21, n1p, n2p, phi0)
-	T0 <- score_test_statistic(
-		pi1hat, pi2hat, ml.res$p1hat, ml.res$p2hat, n1p, n2p, phi0
-	)
-	if (is.na(T0)) {
-		T0 <- 0
-	}
-	f <- T0 + qnorm(1-alpha / 2, 0, 1)
-	return(f)
-}
-
-
-# ==============================================================
-ML_estimates <- function(n11, n21, n1p, n2p, phi0) {
-	A0 <- (n1p + n2p) * phi0
-	B0 <- -(n1p * phi0 + n11 + n2p + n21 * phi0)
-	C0 <- n11 + n21
-	p2hat <- (-B0 - sqrt(B0 * B0 - 4 * A0 * C0)) / (2 * A0)
-	p1hat <- p2hat * phi0
-	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
-	return(res)
-}
-
-# ============================================================================
-score_test_statistic <- function(pi1hat, pi2hat, p1hat, p2hat, n1p, n2p, phi0) {
-	T0 <- (pi1hat - phi0 * pi2hat) / sqrt(p1hat * (1 - p1hat) / n1p + (phi0 ^ 2) * p2hat * (1 - p2hat) / n2p)
-	return(T0)
-}
-
