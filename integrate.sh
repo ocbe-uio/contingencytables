@@ -18,4 +18,8 @@ git add -A
 git commit -m "Added original script"
 
 echo -e "\nFunction integrated:\n"
+echo $filename | xclip -selection clipboard
 echo $filename
+
+# Finally, open file in editor
+xdg-open R/$filename_ext
