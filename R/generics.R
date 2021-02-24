@@ -129,3 +129,57 @@ score_test_statistic.Koopman <- function(pi1hat, pi2hat, p1hat, p2hat, n1p,
 		(phi0 ^ 2) * p2hat * (1 - p2hat) / n2p)
 	return(T0)
 }
+
+# ======================================================== #
+# Methods for Mettinen-Nurminen difference                 #
+# ======================================================== #
+
+# ==================================
+calculate_limit_lower.Mettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
+	# global n11 n21 n1p n2p alphaglobal pi1hat pi2hat limit
+	ml.res = ML_estimates.Mettinen_diff(n11, n21, n1p, n2p, delta0)
+	T0 <- score_test_statistic.Mettinen_diff(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
+	if (is.na(T0)) {
+		T0 <- 0
+	}
+	z <- qnorm(1-alpha / 2, 0, 1)
+	f <- T0 - z
+	return(f)
+}
+
+# ==================================
+calculate_limit_upper.Mettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
+	# global n11 n21 n1p n2p alphaglobal pi1hat pi2hat limit
+	ml.res = ML_estimates.Mettinen_diff(n11, n21, n1p, n2p, delta0)
+	T0 <- score_test_statistic.Mettinen_diff(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
+	if (is.na(T0)) {
+		T0 <- 0
+	}
+	z <- qnorm(1-alpha / 2, 0, 1)
+	f <- T0 + z
+	return(f)
+}
+
+# ================================================================
+# function [p1hat, p2hat] = ML_estimates(n11, n21, n1p, n2p, delta0)
+ML_estimates.Mettinen_diff <- function(n11, n21, n1p, n2p, delta0) {
+	L3 <- n1p + n2p
+	L2 <- (n1p + 2 * n2p) * delta0 - (n1p + n2p) - (n11 + n21)
+	L1 <- (n2p * delta0 - (n1p + n2p) - 2 * n21) * delta0 + (n11 + n21)
+	L0 <- n21 * delta0 * (1 - delta0)
+	q <- L2 ^ 3 / ((3 * L3) ^ 3) - L1 * L2 / (6 * L3 ^ 2) + L0 / (2 * L3)
+	p <- sign(q) * sqrt(L2 ^ 2 / (3 * L3) ^ 2 - L1 / (3 * L3))
+	a <- (1 / 3) * (pi + acos(q / p ^ 3))
+	p2hat <- 2 * p*cos(a) - L2 / (3 * L3)
+	p1hat <- p2hat + delta0
+	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
+	return(res)
+}
+
+
+# ===============================================================================
+score_test_statistic.Mettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p, n2p) {
+	T0 <- (pi1hat - pi2hat - delta0) / sqrt(p1hat * (1 - p1hat) / n1p + p2hat * (1 - p2hat) / n2p)
+	T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
+	return(T0)
+}
