@@ -83,4 +83,10 @@ test_that("Chapter 4 functions basically work", {
 		object = Koopman_asymptotic_score_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 1.2209 to 42.5757\\)"
 	)
+	n <- rbind(c(3,1), c(1,3))
+	expect_output(
+		object = LR_test_2x2(n),
+		regexp = "P = 0.14798, T = 2.093 \\(df = 1\\)"
+	)
+
 })
