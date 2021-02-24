@@ -88,5 +88,9 @@ test_that("Chapter 4 functions basically work", {
 		object = LR_test_2x2(n),
 		regexp = "P = 0.14798, T = 2.093 \\(df = 1\\)"
 	)
-
+	n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)
+	expect_output(
+		object =  Mee_asymptotic_score_CI_2x2(n),
+		regexp = "estimate = 0.1765 \\(95% CI 0.0284 to 0.3439\\)"
+	)
 })
