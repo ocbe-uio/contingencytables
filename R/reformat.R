@@ -20,7 +20,10 @@ reformat <- function(filename, saveOutput = FALSE, tabIndent = TRUE) {
 	# ======================================================== #
 	txt <- readLines(filename, warn = FALSE)
 	if (substr(txt[1], 1, 9) == "#' @title") {
-		stop("I think this File has already been reformatted. Stopping.")
+		stop(
+			"I think this File has already been reformatted. ",
+			"Please check the file name. Stopping."
+		)
 	}
 	orig <- txt
 
