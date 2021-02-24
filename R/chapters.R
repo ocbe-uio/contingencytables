@@ -134,7 +134,8 @@ list_chapter_functions <- function() {
 		Inv_sinh_CI_ratio_2x2              = Inv_sinh_CI_ratio_2x2,
 		Katz_log_CI_2x2                    = Katz_log_CI_2x2,
 		Koopman_asymptotic_score_CI_2x2    = Koopman_asymptotic_score_CI_2x2,
-		LR_test_2x2                        = LR_test_2x2
+		LR_test_2x2                        = LR_test_2x2,
+		Mee_asymptotic_score_CI_2x2        = Mee_asymptotic_score_CI_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
