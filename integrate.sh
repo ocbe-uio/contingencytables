@@ -31,6 +31,8 @@ git commit -m "Added original script"
 
 echo $filename | xclip -selection clipboard
 echo $filename
+echo -e "\nFunction name copied to clipboard. Opening file in editor..."
+xdg-open R/$filename_ext
 
 echo "Run the following in R to reformat the function:"
 echo "contingencytables:::reformat('R/$filename_ext')"
