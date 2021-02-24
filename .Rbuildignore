@@ -2,4 +2,4 @@ aux
 LICENSE
 TODO.md
 .travis.yml
-*.sh
+integrate.sh

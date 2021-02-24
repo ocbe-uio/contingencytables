@@ -16,3 +16,6 @@ git checkout $filename
 echo "Committing original script"
 git add -A
 git commit -m "Added original script"
+
+echo -e "\nFunction integrated:\n"
+echo $filename
