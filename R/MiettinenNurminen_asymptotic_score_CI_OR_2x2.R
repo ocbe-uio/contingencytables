@@ -33,7 +33,7 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 	# Lower CI limit
 	if (is.na(estimate) || estimate==Inf) {
 		L <- uniroot(
-			calculate_limit_lower, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
+			calculate_limit_lower.Mettinen_OR, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
 			n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	} else if (estimate == 0) {
@@ -41,7 +41,7 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 		# exitflag = 1
 	} else {
 		L <- uniroot(
-			calculate_limit_lower, c(theta0, estimate), n11=n11, n21=n21,
+			calculate_limit_lower.Mettinen_OR, c(theta0, estimate), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	}
@@ -51,12 +51,12 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 		U <- Inf
 	} else if (estimate == 0) {
 		U <- uniroot(
-			calculate_limit_upper, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
+			calculate_limit_upper.Mettinen_OR, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
 			n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	} else {
 		U <- uniroot(
-			calculate_limit_upper, c(estimate, theta1), n11=n11, n21=n21,
+			calculate_limit_upper.Mettinen_OR, c(estimate, theta1), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	}
@@ -75,46 +75,3 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 	res <- data.frame(lower=L, upper=U, estimate=estimate)
 	invisible(res)
 }
-
-
-# ==================================
-calculate_limit_lower <- function(theta0, n11, n21, n1p, n2p, alpha) {
-	# global n11 n21 n1p n2p alphaglobal limit
-	T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-	if (is.na(T0)) {
-		T0 <- 0
-	}
-	f <- T0 - qnorm(1-alpha / 2, 0, 1)
-	return(f)
-}
-
-# ==================================
-calculate_limit_upper <- function(theta0, n11, n21, n1p, n2p, alpha) {
-	# global n11 n21 n1p n2p alphaglobal limit
-	T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-	if (is.na(T0)) {
-		T0 <- 0
-	}
-	f <- T0 + qnorm(1-alpha / 2, 0, 1)
-	return(f)
-}
-
-# ===========================================================
-score_test_statistic <- function(theta0, n11, n21, n1p, n2p) {
-	res <- ML_estimates(theta0, n11, n21, n1p, n2p)
-	T0 <- (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
-	T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
-	return(T0)
-}
-
-# ================================================================
-ML_estimates <- function(theta0, n11, n21, n1p, n2p) {
-	A <- n2p * (theta0 - 1)
-	B <- n1p * theta0 + n2p - (n11 + n21) * (theta0 - 1)
-	C <- -(n11 + n21)
-	p2hat <- (-B + sqrt(B ^ 2 - 4 * A*C)) / (2 * A)
-	p1hat <- p2hat * theta0 / (1 + p2hat * (theta0 - 1))
-	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
-	return(res)
-}
-
