@@ -76,3 +76,4 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	res <- data.frame(lower=L, upper=U, estimate=estimate)
 	invisible(res)
 }
+
