@@ -23,17 +23,18 @@ score_test_statistic <- function(...) {
 }
 
 convertFunName2Method <- function() {
-	if (any(as.list(sys.calls()) == "Koopman_asymptotic_score_CI_2x2(n)")) {
+	callstack <- as.list(sys.calls())
+	if (any(callstack == "Koopman_asymptotic_score_CI_2x2(n)")) {
 		cls <- "Koopman"
-	} else if (any(as.list(sys.calls()) == "Mee_asymptotic_score_CI_2x2(n)")) {
+	} else if (any(callstack == "Mee_asymptotic_score_CI_2x2(n)")) {
 		cls <- "Mee"
-	} else if (any(as.list(sys.calls()) == "MiettinenNurminen_asymptotic_score_CI_difference_2x2(n)")) {
+	} else if (any(callstack == "MiettinenNurminen_asymptotic_score_CI_difference_2x2(n)")) {
 		cls <- "Miettinen_diff"
-	} else if (any(as.list(sys.calls()) == "MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)")) {
+	} else if (any(callstack == "MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)")) {
 		cls <- "Miettinen_OR"
-	} else if (any(as.list(sys.calls()) == "MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)")) {
+	} else if (any(callstack == "MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)")) {
 		cls <- "Miettinen_ratio"
-	} else if (any(as.list(sys.calls()) == "Uncorrected_asymptotic_score_CI_2x2(n)")) {
+	} else if (any(callstack == "Uncorrected_asymptotic_score_CI_2x2(n)")) {
 		cls <- "Uncorrected"
 	} else {
 		stop("Unrecognized parent function")
