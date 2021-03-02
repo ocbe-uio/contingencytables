@@ -33,7 +33,7 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 	# Lower CI limit
 	if (is.na(estimate) || estimate==Inf) {
 		L <- uniroot(
-			calculate_limit_lower, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
+			calculate_limit_lower.Miettinen_OR, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
 			n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	} else if (estimate == 0) {
@@ -41,7 +41,7 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 		# exitflag = 1
 	} else {
 		L <- uniroot(
-			calculate_limit_lower, c(theta0, estimate), n11=n11, n21=n21,
+			calculate_limit_lower.Miettinen_OR, c(theta0, estimate), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	}
@@ -51,12 +51,12 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha=0.05,
 		U <- Inf
 	} else if (estimate == 0) {
 		U <- uniroot(
-			calculate_limit_upper, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
+			calculate_limit_upper.Miettinen_OR, c(theta0, theta1), n11=n11, n21=n21, n1p=n1p,
 			n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	} else {
 		U <- uniroot(
-			calculate_limit_upper, c(estimate, theta1), n11=n11, n21=n21,
+			calculate_limit_upper.Miettinen_OR, c(estimate, theta1), n11=n11, n21=n21,
 			n1p=n1p, n2p=n2p, alpha=alpha, tol=tol
 		)$root
 	}
