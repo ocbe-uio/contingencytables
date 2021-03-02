@@ -103,4 +103,9 @@ test_that("Chapter 4 functions basically work", {
 		object =  MiettinenNurminen_asymptotic_score_CI_OR_2x2(n),
 		regexp = "5.6250 \\(95% CI 1.0934 to 28.9419\\)"
 	)
+	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
+	expect_output(
+		object =  MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n),
+		regexp = "estimate = 7.0000 \\(95% CI 1.2086 to 43.0330\\)"
+	)
 })

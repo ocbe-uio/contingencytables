@@ -228,3 +228,44 @@ ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p) {
 	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
 	return(res)
 }
+
+# ======================================================== #
+# Methods for Miettinen-Nurminen CI ratio                  #
+# ======================================================== #
+
+calculate_limit_lower.Miettinen_ratio <- function(phi0,n11,n21,n1p,n2p,pi1hat,pi2hat,alpha) {
+	res <- ML_estimates(n11, n21, n1p, n2p, phi0)
+	T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
+	if (is.na(T0)) {
+		T0 <- 0
+	}
+	f <- T0 - qnorm(1-alpha / 2, 0, 1)
+	return(f)
+}
+
+calculate_limit_upper.Miettinen_ratio <- function(phi0,n11,n21,n1p,n2p,pi1hat,pi2hat,alpha) {
+	res <- ML_estimates(n11, n21, n1p, n2p, phi0)
+	T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
+	if (is.na(T0)) {
+		T0 <- 0
+	}
+	f <- T0 + qnorm(1-alpha / 2, 0, 1)
+	return(f)
+}
+
+ML_estimates.Miettinen_ratio <- function(n11, n21, n1p, n2p, phi0) {
+	A0 <- (n1p + n2p) * phi0
+	B0 <- -(n1p * phi0 + n11 + n2p + n21 * phi0)
+	C0 <- n11 + n21
+	p2hat <- (-B0 - sqrt(B0 * B0 - 4 * A0 * C0)) / (2 * A0)
+	p1hat <- p2hat * phi0
+	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
+	return(res)
+}
+
+score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n1p, n2p, phi0) {
+	T0 <- (pi1hat - phi0 * pi2hat) / sqrt(p1hat * (1 - p1hat) / n1p + (phi0 ^ 2) * p2hat * (1 - p2hat) / n2p)
+	T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
+	return(T0)
+}
+
