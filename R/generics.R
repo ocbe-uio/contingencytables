@@ -2,14 +2,17 @@
 # Generic functions                                        #
 # ======================================================== #
 
-calculate_limit_lower <- function(...)
-{
-	UseMethod("calculate_limit_lower")
+calculate_limit_lower <- function(...) {
+	method <- convertFunName2Method(sys.calls()[[1]])
+	class(method) <- method
+	browser()#TEMP
+	UseMethod("calculate_limit_lower", method)
 }
 
-calculate_limit_upper <- function(...)
-{
-	UseMethod("calculate_limit_upper")
+calculate_limit_upper <- function(...) {
+	method <- convertFunName2Method(sys.calls()[[1]])
+	class(method) <- method
+	UseMethod("calculate_limit_upper", method)
 }
 
 ML_estimates <- function(...) {
@@ -18,6 +21,14 @@ ML_estimates <- function(...) {
 
 score_test_statistic <- function(...) {
 	UseMethod("score_test_statistic")
+}
+
+convertFunName2Method <- function(fun_name) {
+	if (fun_name == "MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)") {
+		return("Mettinen_diff")
+	} else if (fun_name == "Koopman_asymptotic_score_CI_2x2(n)") {
+		return("Koopman")
+	}
 }
 
 # ======================================================== #
