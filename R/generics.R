@@ -3,26 +3,26 @@
 # ======================================================== #
 
 calculate_limit_lower <- function(...) {
-	method <- convertFunName2Method(sys.calls())
+	method <- convertFunName2Method()
 	UseMethod("calculate_limit_lower", method)
 }
 
 calculate_limit_upper <- function(...) {
-	method <- convertFunName2Method(sys.calls())
+	method <- convertFunName2Method()
 	UseMethod("calculate_limit_upper", method)
 }
 
 ML_estimates <- function(...) {
-	method <- convertFunName2Method(sys.calls())
+	method <- convertFunName2Method()
 	UseMethod("ML_estimates", method)
 }
 
 score_test_statistic <- function(...) {
-	method <- convertFunName2Method(sys.calls())
+	method <- convertFunName2Method()
 	UseMethod("score_test_statistic", method)
 }
 
-convertFunName2Method <- function(fun_name) {
+convertFunName2Method <- function() {
 	if (any(as.list(sys.calls()) == "Koopman_asymptotic_score_CI_2x2(n)")) {
 		cls <- "Koopman"
 	} else if (any(as.list(sys.calls()) == "Mee_asymptotic_score_CI_2x2(n)")) {
@@ -38,7 +38,7 @@ convertFunName2Method <- function(fun_name) {
 	} else {
 		stop("Unrecognized parent function")
 	}
-	fun_name <- fun_name[[1]]
+	fun_name <- cls
 	class(fun_name) <- cls
 	return(fun_name)
 }
