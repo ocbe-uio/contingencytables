@@ -128,4 +128,9 @@ test_that("Chapter 4 functions basically work", {
 		object =  Pearson_chi_squared_test_2x2(n),
 		regexp = "Pearson chi-squared test: P = 0.15730, T = 2.000 \\(df = 1\\)"
 	)
+	n <- rbind(c(3,1), c(1,3))
+	expect_output(
+		object =  Pearson_chi_squared_test_CC_2x2(n),
+		regexp = "chi-squared test: P = 0.47950, T = 0.500 \\(df = 1\\)"
+	)
 })
