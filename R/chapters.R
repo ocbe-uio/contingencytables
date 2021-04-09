@@ -142,7 +142,8 @@ list_chapter_functions <- function() {
 			MiettinenNurminen_asymptotic_score_CI_OR_2x2,
 		MiettinenNurminen_asymptotic_score_CI_ratio_2x2 =
 			MiettinenNurminen_asymptotic_score_CI_ratio_2x2,
-		MOVER_R_Wilson_CI_OR_2x2           = MOVER_R_Wilson_CI_OR_2x2
+		MOVER_R_Wilson_CI_OR_2x2           = MOVER_R_Wilson_CI_OR_2x2,
+		MOVER_R_Wilson_CI_ratio_2x2        = MOVER_R_Wilson_CI_ratio_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }
