@@ -123,4 +123,9 @@ test_that("Chapter 4 functions basically work", {
 		object =  Newcombe_hybrid_score_CI_2x2(n),
 		regexp = "estimate = 0.1765 \\(95% CI 0.0189 to 0.3404\\)"
 	)
+	n <- n <- rbind(c(3,1), c(1,3))
+	expect_output(
+		object =  Pearson_chi_squared_test_2x2(n),
+		regexp = "Pearson chi-squared test: P = 0.15730, T = 2.000 \\(df = 1\\)"
+	)
 })
