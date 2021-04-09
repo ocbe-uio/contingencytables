@@ -146,7 +146,9 @@ list_chapter_functions <- function() {
 		MOVER_R_Wilson_CI_ratio_2x2        = MOVER_R_Wilson_CI_ratio_2x2,
 		Newcombe_hybrid_score_CI_2x2       = Newcombe_hybrid_score_CI_2x2,
 		Pearson_chi_squared_test_2x2       = Pearson_chi_squared_test_2x2,
-		Pearson_chi_squared_test_CC_2x2    = Pearson_chi_squared_test_CC_2x2
+		Pearson_chi_squared_test_CC_2x2    = Pearson_chi_squared_test_CC_2x2,
+		PriceBonett_approximate_Bayes_CI_2x2 =
+			PriceBonett_approximate_Bayes_CI_2x2
 	)
 	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
 }

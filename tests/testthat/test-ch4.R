@@ -133,4 +133,9 @@ test_that("Chapter 4 functions basically work", {
 		object =  Pearson_chi_squared_test_CC_2x2(n),
 		regexp = "chi-squared test: P = 0.47950, T = 0.500 \\(df = 1\\)"
 	)
+	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
+	expect_output(
+		object =  PriceBonett_approximate_Bayes_CI_2x2(n),
+		regexp = "estimate = 7.0000 \\(95% CI 0.9205 to 36.5449\\)"
+	)
 })
