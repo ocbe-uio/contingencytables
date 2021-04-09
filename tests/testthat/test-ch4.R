@@ -118,4 +118,9 @@ test_that("Chapter 4 functions basically work", {
 		object =  MOVER_R_Wilson_CI_ratio_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 1.1537 to 41.9763\\)"
 	)
+	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
+	expect_output(
+		object =  Newcombe_hybrid_score_CI_2x2(n),
+		regexp = "estimate = 0.1765 \\(95% CI 0.0189 to 0.3404\\)"
+	)
 })
