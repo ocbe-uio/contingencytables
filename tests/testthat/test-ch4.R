@@ -142,4 +142,8 @@ test_that("Chapter 4 functions basically work", {
 		object = the_2x2_table_CIs_difference(n),
 		regexp = "Miettinen-Nurminen asymptotic score -0.3164 to -0.0056"
 	)
+	expect_output(
+		object = Woolf_logit_CI_2x2(n),
+		regexp = "estimate = 0.0000 \\(95% CI 0.0000 to    Inf\\)"
+	)
 })
