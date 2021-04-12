@@ -138,4 +138,9 @@ test_that("Chapter 4 functions basically work", {
 		object =  PriceBonett_approximate_Bayes_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 0.9205 to 36.5449\\)"
 	)
+	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
+	expect_output(
+		object =  Wald_CI_CC_2x2(n),
+		regexp = "estimate = 0.1765 \\(95% CI -0.0002 to 0.3532\\)"
+	)
 })
