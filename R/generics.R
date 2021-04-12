@@ -33,11 +33,11 @@ convertFunName2Method <- function() {
 		cls <- "Koopman"
 	} else if (findInCallstack("^Mee_asymptotic_score_CI")) {
 		cls <- "Mee"
-	} else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_diff")) {
+	} else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_diff")) {
 		cls <- "Miettinen_diff"
-	} else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_OR")) {
+	} else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_OR")) {
 		cls <- "Miettinen_OR"
-	} else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_ratio")) {
+	} else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_rat")) {
 		cls <- "Miettinen_ratio"
 	} else if (findInCallstack("^Uncorrected_asymptotic_score_CI_2x2")) {
 		cls <- "Uncorrected"
