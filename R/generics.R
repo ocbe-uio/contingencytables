@@ -22,19 +22,24 @@ score_test_statistic <- function(...) {
 	UseMethod("score_test_statistic", method)
 }
 
+#' @author Waldir Leoncio
 convertFunName2Method <- function() {
 	callstack <- as.list(sys.calls())
-	if (any(callstack == "Koopman_asymptotic_score_CI_2x2(n)")) {
+	findInCallstack <- function(regex) {
+		length_function_name <- length(callstack[grepl(regex, callstack)])
+		return(length_function_name > 0)
+	}
+	if (findInCallstack("^Koopman_asymptotic_score_CI")) {
 		cls <- "Koopman"
-	} else if (any(callstack == "Mee_asymptotic_score_CI_2x2(n)")) {
+	} else if (findInCallstack("^Mee_asymptotic_score_CI")) {
 		cls <- "Mee"
-	} else if (any(callstack == "MiettinenNurminen_asymptotic_score_CI_difference_2x2(n)")) {
+	} else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_diff")) {
 		cls <- "Miettinen_diff"
-	} else if (any(callstack == "MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)")) {
+	} else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_OR")) {
 		cls <- "Miettinen_OR"
-	} else if (any(callstack == "MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)")) {
+	} else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_rat")) {
 		cls <- "Miettinen_ratio"
-	} else if (any(callstack == "Uncorrected_asymptotic_score_CI_2x2(n)")) {
+	} else if (findInCallstack("^Uncorrected_asymptotic_score_CI_2x2")) {
 		cls <- "Uncorrected"
 	} else {
 		stop("Unrecognized parent function")
