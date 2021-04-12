@@ -18,9 +18,13 @@ The Wald confidence interval for the difference between probabilities with Yates
 }
 \examples{
 load_chapter(4)
-n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)  # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
+# An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
+n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
 Wald_CI_CC_2x2(n)
-n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE) # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
+
+# The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
+n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 Wald_CI_CC_2x2(n)
+
 unload_chapter(4)
 }
