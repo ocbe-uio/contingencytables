@@ -95,12 +95,12 @@ test_that("Chapter 4 functions basically work", {
 	)
 	n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 	expect_output(
-		object =  MiettinenNurminen_asymptotic_score_CI_difference_2x2(n),
+		object = MiettinenNurminen_asymptotic_score_CI_difference_2x2(n),
 		regexp = "estimate = -0.2083 \\(95% CI -0.3164 to -0.0056\\)"
 	)
 	n <- matrix(c(9,4,4,10), nrow=2, byrow=TRUE)
 	expect_output(
-		object =  MiettinenNurminen_asymptotic_score_CI_OR_2x2(n),
+		object = MiettinenNurminen_asymptotic_score_CI_OR_2x2(n),
 		regexp = "5.6250 \\(95% CI 1.0934 to 28.9419\\)"
 	)
 	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
@@ -142,5 +142,15 @@ test_that("Chapter 4 functions basically work", {
 	expect_output(
 		object =  Wald_CI_CC_2x2(n),
 		regexp = "estimate = 0.1765 \\(95% CI -0.0002 to 0.3532\\)"
+	)
+	n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
+	expect_output(
+		object =  Wald_CI_CC_2x2(n),
+		regexp = "estimate = 0.1765 \\(95% CI -0.0002 to 0.3532\\)"
+	)
+	n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
+	expect_output(
+		object = the_2x2_table_CIs_difference(n),
+		regexp = "Miettinen-Nurminen asymptotic score -0.3164 to -0.0056"
 	)
 })
