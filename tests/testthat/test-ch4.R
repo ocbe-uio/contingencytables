@@ -63,7 +63,6 @@ test_that("Chapter 4 functions basically work", {
 		object = Independence_smoothed_logit_CI_2x2(n),
 		regexp = "estimate = 5.6250 \\(95% CI 1.0206 to 23.7777\\)"
 	)
-	n <- matrix(c(9,4,4,10), nrow=2, byrow=T)
 	expect_output(
 		object = Inv_sinh_CI_OR_2x2(n),
 		regexp = "estimate = 5.6250 \\(95% CI 1.2472 to 25.3686\\)"
@@ -73,12 +72,10 @@ test_that("Chapter 4 functions basically work", {
 		object = Inv_sinh_CI_ratio_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 1.1671 to 41.9827\\)"
 	)
-	n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Katz_log_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 0.9096 to 53.8695\\)"
 	)
-	n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Koopman_asymptotic_score_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 1.2209 to 42.5757\\)"
@@ -118,17 +115,15 @@ test_that("Chapter 4 functions basically work", {
 		object =  MOVER_R_Wilson_CI_ratio_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 1.1537 to 41.9763\\)"
 	)
-	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
 	expect_output(
 		object =  Newcombe_hybrid_score_CI_2x2(n),
 		regexp = "estimate = 0.1765 \\(95% CI 0.0189 to 0.3404\\)"
 	)
-	n <- n <- rbind(c(3,1), c(1,3))
+	n <- rbind(c(3,1), c(1,3))
 	expect_output(
 		object =  Pearson_chi_squared_test_2x2(n),
 		regexp = "Pearson chi-squared test: P = 0.15730, T = 2.000 \\(df = 1\\)"
 	)
-	n <- rbind(c(3,1), c(1,3))
 	expect_output(
 		object =  Pearson_chi_squared_test_CC_2x2(n),
 		regexp = "chi-squared test: P = 0.47950, T = 0.500 \\(df = 1\\)"
@@ -138,12 +133,6 @@ test_that("Chapter 4 functions basically work", {
 		object =  PriceBonett_approximate_Bayes_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 0.9205 to 36.5449\\)"
 	)
-	n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
-	expect_output(
-		object =  Wald_CI_CC_2x2(n),
-		regexp = "estimate = 0.1765 \\(95% CI -0.0002 to 0.3532\\)"
-	)
-	n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 	expect_output(
 		object =  Wald_CI_CC_2x2(n),
 		regexp = "estimate = 0.1765 \\(95% CI -0.0002 to 0.3532\\)"
