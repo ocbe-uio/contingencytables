@@ -155,4 +155,8 @@ test_that("Chapter 4 functions basically work", {
 		object = the_2x2_table_CIs_OR(n),
 		regexp = "inverse sinh \\(0.45, 0.25\\)     0.006 to  1.817    5.766"
 	)
+	expect_output(
+		object = the_2x2_table_CIs_ratio(n),
+		regexp = "Price-Bonett approximate Bayes\\s+0.001 to  3.425    7.836"
+	)
 })
