@@ -142,4 +142,17 @@ test_that("Chapter 4 functions basically work", {
 		object = the_2x2_table_CIs_difference(n),
 		regexp = "Miettinen-Nurminen asymptotic score -0.3164 to -0.0056"
 	)
+	expect_output(
+		object = Woolf_logit_CI_2x2(n),
+		regexp = "estimate = 0.0000 \\(95% CI 0.0000 to    Inf\\)"
+	)
+	expect_output(
+		object = Uncorrected_asymptotic_score_CI_2x2(n),
+		regexp = "0.0000 \\(95% CI 0.0000 to 0.9532\\)"
+	)
+	n <- rbind(c(0,16), c(15,57))
+	expect_output(
+		object = the_2x2_table_CIs_OR(n),
+		regexp = "inverse sinh \\(0.45, 0.25\\)     0.006 to  1.817    5.766"
+	)
 })
