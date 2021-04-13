@@ -159,4 +159,8 @@ test_that("Chapter 4 functions basically work", {
 		object = the_2x2_table_CIs_ratio(n),
 		regexp = "Price-Bonett approximate Bayes\\s+0.001 to  3.425    7.836"
 	)
+	expect_output(
+		object = Z_unpooled_test_2x2(n),
+		regexp = "The Z-unpooled test: P = 0.00001, Z = -4.353"
+	)
 })
