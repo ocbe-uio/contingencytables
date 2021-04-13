@@ -146,4 +146,8 @@ test_that("Chapter 4 functions basically work", {
 		object = Woolf_logit_CI_2x2(n),
 		regexp = "estimate = 0.0000 \\(95% CI 0.0000 to    Inf\\)"
 	)
+	expect_output(
+		object = Uncorrected_asymptotic_score_CI_2x2(n),
+		regexp = "0.0000 \\(95% CI 0.0000 to 0.9532\\)"
+	)
 })
