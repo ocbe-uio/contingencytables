@@ -153,6 +153,7 @@ list_chapter_functions <- function() {
 		Woolf_logit_CI_2x2                 = Woolf_logit_CI_2x2,
 		Uncorrected_asymptotic_score_CI_2x2 =
 			Uncorrected_asymptotic_score_CI_2x2,
+		Z_unpooled_test_2x2                = Z_unpooled_test_2x2,
 		the_2x2_table_CIs_difference       = the_2x2_table_CIs_difference,
 		the_2x2_table_CIs_OR               = the_2x2_table_CIs_OR,
 		the_2x2_table_CIs_ratio            = the_2x2_table_CIs_ratio,
