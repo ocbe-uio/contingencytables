@@ -274,3 +274,40 @@ score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n
 	return(T0)
 }
 
+# ======================================================== #
+# Methods for the uncorrected asymptotic score             #
+# ======================================================== #
+
+calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha) {
+	T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
+	if (is.na(T0)) {
+		T0 <- 0
+	}
+	f <- T0 - qnorm(1-alpha / 2, 0, 1)
+	return(f)
+}
+
+calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha) {
+	T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
+	if (is.na(T0)) {
+		T0 <- 0
+	}
+	f <- T0 + qnorm(1-alpha / 2, 0, 1)
+	return(f)
+}
+
+score_test_statistic.Uncorrected <- function(theta0, n11, n21, n1p, n2p) {
+	res <- ML_estimates(theta0, n11, n21, n1p, n2p)
+	T0 <- (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
+	return(T0)
+}
+
+ML_estimates.Uncorrected <- function(theta0, n11, n21, n1p, n2p) {
+	A0 <- n2p * (theta0 - 1)
+	B0 <- n1p * theta0 + n2p - (n11 + n21) * (theta0 - 1)
+	C0 <- -(n11 + n21)
+	p2hat <- (-B0 + sqrt(B0 ^ 2 - 4 * A0 * C0)) / (2 * A0)
+	p1hat <- p2hat * theta0 / (1 + p2hat * (theta0 - 1))
+	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
+	return(res)
+}
