@@ -163,4 +163,8 @@ test_that("Chapter 4 functions basically work", {
 		object = Z_unpooled_test_2x2(n),
 		regexp = "The Z-unpooled test: P = 0.00001, Z = -4.353"
 	)
+	expect_output(
+		object = the_2x2_table_tests(n),
+		regexp = "chi-squared w / CC\\s+0.1016\\s+\\(T = 2.680, df = 1\\)"
+	)
 })
