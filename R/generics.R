@@ -27,6 +27,21 @@ calc_prob <- function(...) {
 	UseMethod("calc_prob", method)
 }
 
+calc_Pvalue_4x2 <- function(...) {
+	method <- convertFunName2Method()
+	UseMethod("calc_Pvalue_4x2", method)
+}
+
+calc_Pvalue_5x2 <- function(...) {
+	method <- convertFunName2Method()
+	UseMethod("calc_Pvalue_5x2", method)
+}
+
+linear_rank_test_statistic <- function(...) {
+	method <- convertFunName2Method()
+	UseMethod("linear_rank_test_statistic", method)
+}
+
 #' @author Waldir Leoncio
 convertFunName2Method <- function() {
 	callstack <- as.list(sys.calls())
@@ -453,24 +468,32 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 	for (x1 in 0:min(nip[1], np1)) {
 		for (x2 in 0:min(nip[2], np1-x1)) {
 			for (x3 in 0:min(nip[3], np1-x1-x2)) {
-	for (x4 in 0:min(nip[4], np1-x1-x2-x3)) {
-		x5 <- np1 - x1 - x2 - x3 - x4
-		if (x5 > nip[5]) {next}
-		x <- c(x1, x2, x3, x4, x5)
-		T0 <- linear_rank_test_statistic(x, a)
-		f <- calc_prob(x, 5, N_choose_np1, nip_choose_xi1)
-		if (T0 == Tobs) {
-			point_prob <- point_prob + f
-		} else if (T0 < Tobs) {
-			left_sided_P <- left_sided_P + f
-		} else if (T0 > Tobs) {
-			right_sided_P <- right_sided_P + f
-		}
-	}
+				for (x4 in 0:min(nip[4], np1-x1-x2-x3)) {
+					x5 <- np1 - x1 - x2 - x3 - x4
+					if (x5 > nip[5]) {next}
+					x <- c(x1, x2, x3, x4, x5)
+					T0 <- linear_rank_test_statistic(x, a)
+					f <- calc_prob(x, 5, N_choose_np1, nip_choose_xi1)
+					if (T0 == Tobs) {
+						point_prob <- point_prob + f
+					} else if (T0 < Tobs) {
+						left_sided_P <- left_sided_P + f
+					} else if (T0 > Tobs) {
+						right_sided_P <- right_sided_P + f
+					}
+				}
 			}
 		}
 	}
 	one_sided_P <- min(left_sided_P, right_sided_P) + point_prob
 	res <- data.frame(one_sided_P=one_sided_P, point_prob=point_prob)
 	return(res)
+}
+
+# The linear rank test statistic, which gives an equivalent ordering of
+# tables as the Cochran-Armitage test statistic (under conditioning on
+# both row and column sums)
+linear_rank_test_statistic.CochranArmitage <- function(x, a) {
+	T0 <- sum(x * a)
+	return(T0)
 }

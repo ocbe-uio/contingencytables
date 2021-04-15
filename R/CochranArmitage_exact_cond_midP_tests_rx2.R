@@ -59,13 +59,3 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults=TRUE) {
 	res <- data.frame(P=P, midP=midP)
 	invisible(res)
 }
-
-# The linear rank test statistic, which gives an equivalent ordering of
-# tables as the Cochran-Armitage test statistic (under conditioning on
-# both row and column sums)
-
-linear_rank_test_statistic <- function(x, a) {
-	T0 <- sum(x * a)
-	return(T0)
-}
-
