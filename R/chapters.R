@@ -159,7 +159,18 @@ list_chapter_functions <- function() {
 		the_2x2_table_CIs_ratio            = the_2x2_table_CIs_ratio,
 		the_2x2_table_tests                = the_2x2_table_tests
 	)
-	return(list(ch2 = ch2, ch3 = ch3, ch4 = ch4))
+	ch5 <- list()
+	ch6 <- list()
+	ch7 <- list()
+	ch8 <- list(
+		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2
+	)
+	return(
+		list(
+			ch2 = ch2, ch3 = ch3, ch4 = ch4, ch5 = ch5,
+			ch6 = ch6, ch7 = ch7, ch8 = ch8
+		)
+	)
 }
 
 # TODO: address generated check notes (post question on StackOverflow?)
