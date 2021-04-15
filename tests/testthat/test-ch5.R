@@ -8,6 +8,11 @@ test_that("Chapter 8 functions basically work", {
 		object = CochranArmitage_CI_rx2(n, a),
 		regexp = "betahat = -0.0194 \\(95% CI -0.0395 to 0.0007\\)"
 	)
+	expect_output(
+		object = CochranArmitage_exact_cond_midP_tests_rx2(n, a),
+		regexp = "Cochran-Armitage exact cond. test: P = 0.08579"
+	)
+	#
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
