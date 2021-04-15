@@ -22,6 +22,11 @@ score_test_statistic <- function(...) {
 	UseMethod("score_test_statistic", method)
 }
 
+calc_prob <- function(...) {
+	method <- convertFunName2Method()
+	UseMethod("calc_prob", method)
+}
+
 #' @author Waldir Leoncio
 convertFunName2Method <- function() {
 	callstack <- as.list(sys.calls())
@@ -41,6 +46,10 @@ convertFunName2Method <- function() {
 		cls <- "Miettinen_ratio"
 	} else if (findInCallstack("^Uncorrected_asymptotic_score_CI_2x2")) {
 		cls <- "Uncorrected"
+	} else if (findInCallstack("^CochranArmitage")) {
+		cls <- "CochranArmitage"
+	} else if (findInCallstack("^Exact_cond_midP_unspecific_ordering_rx2")) {
+		cls <- "ExactCond"
 	} else {
 		stop("Unrecognized parent function")
 	}
@@ -310,4 +319,36 @@ ML_estimates.Uncorrected <- function(theta0, n11, n21, n1p, n2p) {
 	p1hat <- p2hat * theta0 / (1 + p2hat * (theta0 - 1))
 	res <- data.frame(p1hat=p1hat, p2hat=p2hat)
 	return(res)
+}
+
+# ======================================================== #
+# Methods for Exact_cond_midP_unspecific_ordering_rx2      #
+# ======================================================== #
+
+# Calculate the probability of table x
+# (multiple hypergeometric distribution)
+
+calc_prob.ExactCond <- function(x, r, N_choose_np1, nip_choose_xi1) {
+	f <- 1
+	for (i in 1:r) {
+		f <- f * nip_choose_xi1[i, x[i] + 1]
+	}
+	f <- f / N_choose_np1
+	return(f)
+}
+
+# ======================================================== #
+# Methods for Cochran-Armitage                             #
+# ======================================================== #
+
+# Calculate the probability of table x
+# (multiple hypergeometric distribution)
+
+calc_prob.CochranArmitage <- function(x, r, N_choose_np1, nip_choose_xi1) {
+	f <- 1
+	for (i in 1:r) {
+		f <- f * nip_choose_xi1[i, x[i] + 1]
+	}
+	f <- f / N_choose_np1
+	return(f)
 }

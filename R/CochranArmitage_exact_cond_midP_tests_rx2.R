@@ -133,15 +133,3 @@ linear_rank_test_statistic <- function(x, a) {
 	return(T0)
 }
 
-# Calculate the probability of table x
-# (multiple hypergeometric distribution)
-
-calc_prob <- function(x, r, N_choose_np1, nip_choose_xi1) {
-	f <- 1
-	for (i in 1:r) {
-		f <- f * nip_choose_xi1[i, x[i] + 1]
-	}
-	f <- f / N_choose_np1
-	return(f)
-}
-
