@@ -167,4 +167,5 @@ test_that("Chapter 4 functions basically work", {
 		object = the_2x2_table_tests(n),
 		regexp = "chi-squared w / CC\\s+0.1016\\s+\\(T = 2.680, df = 1\\)"
 	)
+	unload_chapter(4)
 })
