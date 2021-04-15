@@ -19,5 +19,5 @@ test_that("Wilson_score_CI_1x2 works across chapters", {
 	expect_length(suppressOutput("MOVER_R_Wilson_CI_OR_2x2"), 1)
 	expect_length(suppressOutput("MOVER_Wilson_score_CI_paired_2x2"), 1)
 	expect_length(suppressOutput("Newcombe_square_and_add_CI_paired_2x2"), 1)
-	# Transformed_Wilson_score_CI_paired_2x2
+	expect_length(suppressOutput("Transformed_Wilson_score_CI_paired_2x2"), 1)
 })

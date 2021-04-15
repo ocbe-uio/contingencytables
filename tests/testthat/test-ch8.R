@@ -11,5 +11,9 @@ test_that("Chapter 8 functions basically work", {
 		object = Newcombe_square_and_add_CI_paired_2x2(n),
 		regexp = "estimate = -0.0621 \\(95% CI -0.1186 to -0.0046\\)"
 	)
+	expect_output(
+		object = Transformed_Wilson_score_CI_paired_2x2(n),
+		regexp = "0.3750 \\(95% CI 0.1514 to 0.9287\\)"
+	)
 	unload_chapter(8)
 })
