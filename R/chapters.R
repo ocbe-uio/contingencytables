@@ -160,7 +160,9 @@ list_chapter_functions <- function() {
 		the_2x2_table_tests                = the_2x2_table_tests
 	)
 	ch5 <- list(
-		CochranArmitage_CI_rx2 = CochranArmitage_CI_rx2
+		CochranArmitage_CI_rx2 = CochranArmitage_CI_rx2,
+		CochranArmitage_exact_cond_midP_tests_rx2 =
+			CochranArmitage_exact_cond_midP_tests_rx2
 	)
 	ch6 <- list()
 	ch7 <- list()
