@@ -72,66 +72,6 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic="Pea
 	invisible(res)
 }
 
-# Brute force calculations of the two-sided exact P-value and the mid-P value
-# This function assumes r=4 rows
-
-calc_Pvalue_4x2 <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
-	P <- 0
-	point_prob <- 0
-	for (x1 in 0:min(nip[1], np1)) {
-		for (x2 in 0:min(nip[2], np1-x1)) {
-			for (x3 in 0:min(nip[3], np1-x1-x2)) {
-	x4 <- np1 - x1 - x2 - x3
-	if (x4 > nip[4]) { next }
-	x <- rbind(c(x1,nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),c(x4,nip[4]-x4))
-	T0 <- test.statistic(x, 4, nip, npj, N, direction, statistic)
-	f <- calc_prob(x[,1], 4, N_choose_np1, nip_choose_xi1)
-	if (T0 == Tobs) {
-		point_prob <- point_prob + f
-	} else if (T0 > Tobs) {
-		P <- P + f
-	}
-			}
-		}
-	}
-	midP <- P + 0.5 * point_prob
-	P <- P + point_prob
-	res <- list(P=P, midP=midP)
-	return(res)
-}
-
-# Brute force calculations of the two-sided exact P-value and the mid-P value
-# This function assumes r=5 rows
-
-calc_Pvalue_5x2 <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
-	P <- 0
-	point_prob <- 0
-	for (x1 in 0:min(nip[1], np1)) {
-		for (x2 in 0:min(nip[2], np1-x1)) {
-			for (x3 in 0:min(nip[3], np1-x1-x2)) {
-	for (x4 in 0:min(nip[4], np1-x1-x2-x3)) {
-		x5 <- np1 - x1 - x2 - x3 - x4
-		if (x5 > nip[5]) { next }
-		x <- rbind(c(x1, nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),
-		c(x4,nip[4]-x4),c(x5,nip[5]-x5))
-		T0 <- test.statistic(x, 5, nip, npj, N, direction, statistic)
-		f <- calc_prob(x[,1], 5, N_choose_np1, nip_choose_xi1)
-		if (T0 == Tobs) {
-			point_prob <- point_prob + f
-		} else if (T0 > Tobs) {
-			P <- P + f
-		}
-	}
-			}
-		}
-	}
-	midP <- P + 0.5 * point_prob
-	P <- P + point_prob
-	res <- list(P=P, midP=midP)
-	return(res)
-}
-
-
 # Calculate the test statistics
 
 test.statistic <- function(n, r, nip, npj, N, direction, statistic) {
