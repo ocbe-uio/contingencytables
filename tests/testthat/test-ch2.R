@@ -117,4 +117,5 @@ test_that("Chapter 2 functions basically work", {
 		object = the_1x2_table_tests(X=13, n=16, pi0=0.5),
 		regexp = "H_0: pi = 0.500  vs  H_A: pi ~= 0.500"
 	)
+	unload_chapter(2)
 })
