@@ -7,5 +7,9 @@ test_that("Chapter 8 functions basically work", {
 		object = MOVER_Wilson_score_CI_paired_2x2(n),
 		regexp = "estimate = 0.8667 \\(95% CI 0.7592 to 0.9866\\)"
 	)
+	expect_output(
+		object = Newcombe_square_and_add_CI_paired_2x2(n),
+		regexp = "estimate = -0.0621 \\(95% CI -0.1186 to -0.0046\\)"
+	)
 	unload_chapter(8)
 })
