@@ -163,7 +163,9 @@ list_chapter_functions <- function() {
 	ch6 <- list()
 	ch7 <- list()
 	ch8 <- list(
-		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2
+		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
+		Newcombe_square_and_add_CI_paired_2x2 =
+			Newcombe_square_and_add_CI_paired_2x2
 	)
 	return(
 		list(
