@@ -165,7 +165,9 @@ list_chapter_functions <- function() {
 			CochranArmitage_exact_cond_midP_tests_rx2,
 		CochranArmitage_MH_tests_rx2 = CochranArmitage_MH_tests_rx2,
 		Exact_cond_midP_unspecific_ordering_rx2 =
-			Exact_cond_midP_unspecific_ordering_rx2
+			Exact_cond_midP_unspecific_ordering_rx2,
+		Pearson_LR_tests_unspecific_ordering_rx2 =
+			Pearson_LR_tests_unspecific_ordering_rx2
 	)
 	ch6 <- list()
 	ch7 <- list(
