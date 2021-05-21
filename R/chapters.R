@@ -126,8 +126,10 @@ list_chapter_functions <- function() {
 			BaptistaPike_exact_conditional_CI_2x2,
 		BaptistaPike_midP_CI_2x2           = BaptistaPike_midP_CI_2x2,
 		Cornfield_exact_conditional_CI_2x2 = Cornfield_exact_conditional_CI_2x2,
-		Cornfield_midP_CI_2x2              = Cornfield_midP_CI_2x2,Fisher_exact_test_2x2              = Fisher_exact_test_2x2,
-		Exact_unconditional_test_2x2       = Exact_unconditional_test_2x2,Fisher_midP_test_2x2               = Fisher_midP_test_2x2,
+		Cornfield_midP_CI_2x2              = Cornfield_midP_CI_2x2,
+		Fisher_exact_test_2x2              = Fisher_exact_test_2x2,
+		Exact_unconditional_test_2x2       = Exact_unconditional_test_2x2,
+		Fisher_midP_test_2x2               = Fisher_midP_test_2x2,
 		Gart_adjusted_logit_CI_2x2         = Gart_adjusted_logit_CI_2x2,
 		Independence_smoothed_logit_CI_2x2 = Independence_smoothed_logit_CI_2x2,
 		Inv_sinh_CI_OR_2x2                 = Inv_sinh_CI_OR_2x2,
@@ -160,14 +162,15 @@ list_chapter_functions <- function() {
 		the_2x2_table_tests                = the_2x2_table_tests
 	)
 	ch5 <- list(
-		CochranArmitage_CI_rx2       = CochranArmitage_CI_rx2,
+		CochranArmitage_CI_rx2 = CochranArmitage_CI_rx2,
 		CochranArmitage_exact_cond_midP_tests_rx2 =
 			CochranArmitage_exact_cond_midP_tests_rx2,
 		CochranArmitage_MH_tests_rx2 = CochranArmitage_MH_tests_rx2,
 		Exact_cond_midP_unspecific_ordering_rx2 =
 			Exact_cond_midP_unspecific_ordering_rx2,
 		Pearson_LR_tests_unspecific_ordering_rx2 =
-			Pearson_LR_tests_unspecific_ordering_rx2
+			Pearson_LR_tests_unspecific_ordering_rx2,
+		Trend_estimate_CI_tests_rx2 = Trend_estimate_CI_tests_rx2
 	)
 	ch6 <- list()
 	ch7 <- list(
