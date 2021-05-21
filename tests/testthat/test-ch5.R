@@ -30,6 +30,12 @@ test_that("Chapter 5 functions basically work", {
 		object = Pearson_LR_tests_unspecific_ordering_rx2(n, 'decreasing'),
 		regexp = "Likelihood ratio test:    T = 11.192, P = 0.00252"
 	)
+	n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+	a <- c(1, 2, 3, 4, 5)
+	expect_output(
+		object = Trend_estimate_CI_tests_rx2(n, a),
+		regexp = "betahat = -0.1828 \\(95% CI -0.3844 to 0.0188\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
