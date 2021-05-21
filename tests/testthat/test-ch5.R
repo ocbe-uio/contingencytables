@@ -9,7 +9,7 @@ test_that("Chapter 5 functions basically work", {
 		object = CochranArmitage_CI_rx2(n, a),
 		regexp = "betahat = -0.0194 \\(95% CI -0.0395 to 0.0007\\)"
 	)
-	expect_output( #FIXME: slow
+	expect_output( #FIXME: #18 slow
 		object = CochranArmitage_exact_cond_midP_tests_rx2(n, a),
 		regexp = "Cochran-Armitage exact cond. test: P = 0.08579"
 	)
@@ -21,7 +21,7 @@ test_that("Chapter 5 functions basically work", {
 		c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37), byrow=TRUE, ncol=2
 	)
 	d <- 'decreasing'
-	expect_output( #FIXME: slow
+	expect_output( #FIXME: slow (#18)
 		object = Exact_cond_midP_unspecific_ordering_rx2(m, d), #TODO: n faster?
 		regexp = "Mid-P test:              0.02292"
 	)
