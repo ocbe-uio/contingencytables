@@ -5,6 +5,11 @@
 #' ("increasing" or "decreasing")
 #' @examples
 #' load_chapter(5)
+#' n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
+#' n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+#' a.0 <- c(1, 2, 3, 4, 5)
+#' a.1 <- c(7, 22, 37, 48, 55)
+#'
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' direction <- 'increasing'
 #' n <- n.0
@@ -20,11 +25,11 @@
 #'
 #' unload_chapter(5)
 the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
-
 	n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
 	n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 	a.0 <- c(1, 2, 3, 4, 5)
 	a.1 <- c(7, 22, 37, 48, 55)
+	a <- a.0
 
 	.print('Method                          Statistic      P-value')
 	.print('-------------------------------------------------------')
@@ -88,7 +93,6 @@ the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
 	} else if (all(n==n.1) && all(a==a.1)) {
 	    P <- 0.14524; midP <- 0.14404
 	}
-
 	.print('  Cochran-Armitage exact cond.                %8.5f', P)
 	.print('  Cochran-Armitage mid-P                      %8.5f', midP)
 
@@ -112,5 +116,5 @@ the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
 }
 
 .print <- function(s, ...) {
-	print(sprintf(gsub('\n','',s), ...), quote=F)
+	print(sprintf(gsub('\n','',s), ...), quote=FALSE)
 }
