@@ -168,7 +168,9 @@ list_chapter_functions <- function() {
 			Exact_cond_midP_unspecific_ordering_rx2
 	)
 	ch6 <- list()
-	ch7 <- list()
+	ch7 <- list(
+		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
+	)
 	ch8 <- list(
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 =
