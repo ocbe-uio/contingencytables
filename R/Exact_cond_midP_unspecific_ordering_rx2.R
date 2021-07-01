@@ -71,7 +71,7 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic="Pea
 	}
 
 	res <- data.frame(P=P, midP=midP)
-	invisible(res)
+	invisible(res) # TODO: replace with return?
 }
 
 # Calculate the test statistics
