@@ -37,10 +37,9 @@ test_that("Chapter 5 functions basically work", {
 		regexp = "betahat = -0.1828 \\(95% CI -0.3844 to 0.0188\\)"
 	)
 	n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-	a.0 <- c(1, 2, 3, 4, 5)
 	direction <- 'decreasing'
 	expect_output( # FIXME: #20 producing NAs
-		object = the_rx2_table(n.0, a.0, direction),
+		object = the_rx2_table(n.0, direction=direction),
 		regexp = "Cochran-Armitage             1.352           0.17639"
 	)
 	unload_chapter(5)
