@@ -61,6 +61,8 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic="Pea
 		res <- calc_Pvalue_5x2(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic)
 		P <- res$P
 		midP <- res$midP
+	} else {
+		stop("n must have either 4 or 5 rows")
 	}
 
 	if (printresults) {
