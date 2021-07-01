@@ -25,11 +25,7 @@
 #'
 #' unload_chapter(5)
 the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
-	n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-	n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
-	a.0 <- c(1, 2, 3, 4, 5)
-	a.1 <- c(7, 22, 37, 48, 55)
-	a <- a.0
+	a <- seq_len(nrow(n))
 
 	.print('Method                          Statistic      P-value')
 	.print('-------------------------------------------------------')
@@ -48,17 +44,10 @@ the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
 
 	# A little bit of computation time for the exact conditional and mid-P tests
 	# for unspecific ordering
-	# De-comment the following lines to shortcut the calculations
-	if (all(n == n.0)) {
-		P_Pearson <- 0.02322; midP_Pearson <- 0.02292; P_LR <- 0.07186; midP_LR <- 0.07156
-	} else if (all(n == n.1)) {
-		P_Pearson <- 0.00908; midP_Pearson <- 0.00907; P_LR <- 0.00364; midP_LR <- 0.00363
-	} else {
-		tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'Pearson', 0)
-		P_Pearson <- tmp$P; midP_Pearson <- tmp$midP
-		tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'LR', 0)
-		P_LR <- tmp$P; midP_LR <- tmp$midP
-	}
+	tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'Pearson', 0)
+	P_Pearson <- tmp$P; midP_Pearson <- tmp$midP
+	tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'LR', 0)
+	P_LR <- tmp$P; midP_LR <- tmp$midP
 
 	.print('  Exact conditional (Pearson)                 %8.5f', P_Pearson)
 	.print('  Mid-P (Pearson)                             %8.5f', midP_Pearson)
@@ -83,18 +72,6 @@ the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
 	results_logit <- Trend_estimate_CI_tests_rx2(n, a, 'logit', alpha, 0)
 	.print('  Wald                        %6.3f          %8.5f', results_logit$Z_Wald, results_logit$P_Wald)
 	.print('  Likelihood ratio            %6.3f (df=%g)   %8.5f', results_logit$T_LR, results_logit$df_LR, results_logit$P_LR)
-
-	# A little bit of computation time for the Cochran-Armitage exact and mid-P tests
-	# De-comment the following lines to shortcut the calculations
-	if (all(n==n.0) &&  all(a==a.0)) {
-	    P <- 0.20912; midP <- 0.18116
-	} else if (all(n==n.1) && all(a==a.0)) {
-	    P <- 0.08579; midP <- 0.07719
-	} else if (all(n==n.1) && all(a==a.1)) {
-	    P <- 0.14524; midP <- 0.14404
-	}
-	.print('  Cochran-Armitage exact cond.                %8.5f', P)
-	.print('  Cochran-Armitage mid-P                      %8.5f', midP)
 
 	.print('Testing the fit of the logit model')
 	.print('  Pearson goodness-of-fit     %6.3f (df=%g)   %8.5f', results_logit$chi2, results_logit$df_chi2, results_logit$P_chi2)
