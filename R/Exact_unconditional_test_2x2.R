@@ -84,12 +84,13 @@ Exact_unconditional_test_2x2 <- function(n, statistic='Pearson', gamma=0.0001,
 	}
 
 	# Calculate the P-value corresponding to each value of the nuisance parameter
-	Pvalues <- rep(0, length(pivalues))
-	for (i in 1:length(pivalues)) {
-		Pvalues[i] <- calculate_Pvalue(
-			pivalues[i], tables, binomcoeffs, n1p, n2p
-		)
-	}
+	Pvalues <- vapply(
+		X = seq_along(pivalues),
+		FUN = function(i) {
+			calculate_Pvalue(pivalues[i], tables, binomcoeffs, n1p, n2p)
+		},
+		FUN.VALUE = vector(mode = "numeric", length = 1)
+	)
 
 	# Let the exact unconditional P-value equal the maximum of the P-values
 	P <- max(Pvalues)
@@ -138,7 +139,7 @@ calculate_Pvalue <- function(pi0, tables, binomcoeffs, n1p, n2p) {
 	for (x11 in 0:n1p) {
 		for (x21 in 0:n2p) {
 			if (tables[x11 + 1, x21 + 1] == 1) {
-	Pvalue <- Pvalue + binomcoeffs[x11 + 1,x21 + 1] * (pi0 ^ (x11 + x21)) * ((1-pi0) ^ (n1p-x11 + n2p-x21))
+				Pvalue <- Pvalue + binomcoeffs[x11 + 1,x21 + 1] * (pi0 ^ (x11 + x21)) * ((1-pi0) ^ (n1p-x11 + n2p-x21))
 			}
 		}
 	}
