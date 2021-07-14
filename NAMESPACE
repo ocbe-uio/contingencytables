@@ -3,6 +3,7 @@
 export(load_chapter)
 export(reload_chapter)
 export(unload_chapter)
+importFrom(MASS,polr)
 importFrom(grDevices,dev.new)
 importFrom(graphics,lines)
 importFrom(stats,dbinom)
