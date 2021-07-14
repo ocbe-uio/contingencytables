@@ -7,6 +7,10 @@ test_that("Chapter 6 functions basically work", {
 		object = Brant_test_2xc(n) ,
 		regexp = "Brant test: T =  1.668, df = 2, P = 0.43422"
 	)
+	expect_output(
+		object = Cumulative_models_for_2xc(n),
+		regexp = "Wald \\(Z-statistic\\):          P =  0.14097, Z = -1.472"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
