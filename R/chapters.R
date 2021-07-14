@@ -174,7 +174,8 @@ list_chapter_functions <- function() {
 		Trend_estimate_CI_tests_rx2 = Trend_estimate_CI_tests_rx2
 	)
 	ch6 <- list(
-		Brant_test_2xc = Brant_test_2xc
+		Brant_test_2xc = Brant_test_2xc,
+		Cumulative_models_for_2xc = Cumulative_models_for_2xc
 	)
 	ch7 <- list(
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
