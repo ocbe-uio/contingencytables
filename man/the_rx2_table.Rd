@@ -4,14 +4,17 @@
 \alias{the_rx2_table}
 \title{The rx2 table}
 \usage{
-the_rx2_table(n, alpha = 0.05, direction = "increasing")
+the_rx2_table(n, alpha = 0.05, direction = "increasing", skip_exact = FALSE)
 }
 \arguments{
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs#'}
 
-\item{direction}{the direction of the success probabilities
+\item{direction}{the direction of the success probabilities}
+
+\item{skip_exact}{If \code{FALSE}, skips the exact conditional and mid-P tests
+for unspecific ordering (often saves calculation time)
 ("increasing" or "decreasing")}
 }
 \description{
