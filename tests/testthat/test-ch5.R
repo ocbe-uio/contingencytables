@@ -1,7 +1,6 @@
 context("Chapter 5")
 
 test_that("Chapter 5 functions basically work", {
-	# TODO: #18 speed up tests
 	load_chapter(5)
 	n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 	a <- c(1, 2, 3, 4, 5)
