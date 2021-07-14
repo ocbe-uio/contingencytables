@@ -2,6 +2,8 @@
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs#'
 #' @param direction the direction of the success probabilities
+#' @param skip_exact If `FALSE`, skips the exact conditional and mid-P tests
+#' for unspecific ordering (often saves calculation time)
 #' ("increasing" or "decreasing")
 #' @examples
 #' load_chapter(5)
@@ -24,7 +26,9 @@
 #' the_rx2_table(n, a, direction)
 #'
 #' unload_chapter(5)
-the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
+the_rx2_table <- function(
+	n, alpha=0.05, direction="increasing", skip_exact=FALSE
+) {
 	a <- seq_len(nrow(n))
 
 	.print('Method                          Statistic      P-value')
@@ -44,15 +48,17 @@ the_rx2_table <- function(n, alpha=0.05, direction="increasing") {
 
 	# A little bit of computation time for the exact conditional and mid-P tests
 	# for unspecific ordering
-	tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'Pearson', 0)
-	P_Pearson <- tmp$P; midP_Pearson <- tmp$midP
-	tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'LR', 0)
-	P_LR <- tmp$P; midP_LR <- tmp$midP
+	if (!skip_exact) {
+		tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'Pearson', 0)
+		P_Pearson <- tmp$P; midP_Pearson <- tmp$midP
+		tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, 'LR', 0)
+		P_LR <- tmp$P; midP_LR <- tmp$midP
 
-	.print('  Exact conditional (Pearson)                 %8.5f', P_Pearson)
-	.print('  Mid-P (Pearson)                             %8.5f', midP_Pearson)
-	.print('  Exact conditional (LR)                      %8.5f', P_LR)
-	.print('  Mid-P (LR)                                  %8.5f', midP_LR)
+		.print('  Exact conditional (Pearson)                 %8.5f', P_Pearson)
+		.print('  Mid-P (Pearson)                             %8.5f', midP_Pearson)
+		.print('  Exact conditional (LR)                      %8.5f', P_LR)
+		.print('  Mid-P (LR)                                  %8.5f', midP_LR)
+	}
 
 	.print('Tests for trend in the linear model')
 	results <- CochranArmitage_MH_tests_rx2(n, a, 0)

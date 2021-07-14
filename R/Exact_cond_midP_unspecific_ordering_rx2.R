@@ -86,38 +86,41 @@ test.statistic <- function(n, r, nip, npj, N, direction, statistic) {
 	}
 
 	# Common calculations for the Pearson and LR statistics
-	nhat <- n[,1] / apply(n,1,sum)
+	row_totals <- rowSums(n)
+	nhat <- n[,1] / row_totals
 	nhatstar <- nhat
 	for (i in 1:(r-1)) {
-		if ((direction=='increasing' && nhatstar[i] > nhatstar[i + 1]) ||
-	(direction=='decreasing' && nhatstar[i] < nhatstar[i + 1])) {
-			pooled_proportion <- (n[i,1] + n[i + 1,1]) / (n[i,1] + n[i,2] + n[i + 1,1] + n[i + 1,2])
+		cond1 <- direction == 'increasing' && nhatstar[i] > nhatstar[i + 1]
+		cond2 <- direction == 'decreasing' && nhatstar[i] < nhatstar[i + 1]
+		if (cond1 || cond2) {
+			pooled_proportion <- (n[i,1] + n[i + 1,1]) /
+				(n[i,1] + n[i,2] + n[i + 1,1] + n[i + 1,2])
 			nhatstar[i] = pooled_proportion
 			nhatstar[i + 1] = pooled_proportion
 		}
 	}
 	nstar <- matrix(0, r, 2)
-	nstar[,1] = apply(n,1,sum) * nhatstar
-	nstar[,2] = apply(n,1,sum) * (1 - nhatstar)
+	nstar[,1] <- row_totals * nhatstar
+	nstar[,2] <- row_totals * (1 - nhatstar)
 
 	m <- matrix(0, r, 2)
 	T0 <- 0
 	if (statistic=='Pearson') {
 		for (i in 1:r) {
 			for (j in 1:2) {
-	m[i,j] = nip[i] * npj[j] / N
-	if (m[i,j] > 0) {
-		T0 <- T0 + ((nstar[i,j] - m[i,j]) ^ 2) / m[i,j]
-	}
+				m[i,j] = nip[i] * npj[j] / N
+				if (m[i,j] > 0) {
+					T0 <- T0 + ((nstar[i,j] - m[i,j]) ^ 2) / m[i,j]
+				}
 			}
 		}
 	} else if (statistic=='LR') {
 		for (i in 1:r) {
 			for (j in 1:2) {
-	m[i,j] = nip[i] * npj[j] / N
-	if (m[i,j] > 0 && nstar[i,j] != 0) {
-		T0 <- T0 + nstar[i,j] * log(nstar[i,j] / m[i,j])
-	}
+				m[i,j] = nip[i] * npj[j] / N
+				if (m[i,j] > 0 && nstar[i,j] != 0) {
+					T0 <- T0 + nstar[i,j] * log(nstar[i,j] / m[i,j])
+				}
 			}
 		}
 		T0 <- 2 * T0

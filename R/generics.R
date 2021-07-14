@@ -361,16 +361,18 @@ calc_Pvalue_4x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_
 	for (x1 in 0:min(nip[1], np1)) {
 		for (x2 in 0:min(nip[2], np1-x1)) {
 			for (x3 in 0:min(nip[3], np1-x1-x2)) {
-	x4 <- np1 - x1 - x2 - x3
-	if (x4 > nip[4]) { next }
-	x <- rbind(c(x1,nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),c(x4,nip[4]-x4))
-	T0 <- test.statistic(x, 4, nip, npj, N, direction, statistic)
-	f <- calc_prob(x[,1], 4, N_choose_np1, nip_choose_xi1)
-	if (T0 == Tobs) {
-		point_prob <- point_prob + f
-	} else if (T0 > Tobs) {
-		P <- P + f
-	}
+				x4 <- np1 - x1 - x2 - x3
+				if (x4 > nip[4]) {
+					next
+				}
+				x <- rbind(c(x1,nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),c(x4,nip[4]-x4))
+				T0 <- test.statistic(x, 4, nip, npj, N, direction, statistic)
+				f <- calc_prob.ExactCond(x[,1], 4, N_choose_np1, nip_choose_xi1)
+				if (T0 == Tobs) {
+					point_prob <- point_prob + f
+				} else if (T0 > Tobs) {
+					P <- P + f
+				}
 			}
 		}
 	}
@@ -389,19 +391,21 @@ calc_Pvalue_5x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_
 	for (x1 in 0:min(nip[1], np1)) {
 		for (x2 in 0:min(nip[2], np1-x1)) {
 			for (x3 in 0:min(nip[3], np1-x1-x2)) {
-	for (x4 in 0:min(nip[4], np1-x1-x2-x3)) {
-		x5 <- np1 - x1 - x2 - x3 - x4
-		if (x5 > nip[5]) { next }
-		x <- rbind(c(x1, nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),
-		c(x4,nip[4]-x4),c(x5,nip[5]-x5))
-		T0 <- test.statistic(x, 5, nip, npj, N, direction, statistic)
-		f <- calc_prob(x[,1], 5, N_choose_np1, nip_choose_xi1)
-		if (T0 == Tobs) {
-			point_prob <- point_prob + f
-		} else if (T0 > Tobs) {
-			P <- P + f
-		}
-	}
+				for (x4 in 0:min(nip[4], np1-x1-x2-x3)) {
+					x5 <- np1 - x1 - x2 - x3 - x4
+					if (x5 > nip[5]) {
+						next
+					}
+					x <- rbind(c(x1, nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),
+					c(x4,nip[4]-x4),c(x5,nip[5]-x5))
+					T0 <- test.statistic(x, 5, nip, npj, N, direction, statistic)
+					f <- calc_prob.ExactCond(x[,1], 5, N_choose_np1, nip_choose_xi1)
+					if (T0 == Tobs) {
+						point_prob <- point_prob + f
+					} else if (T0 > Tobs) {
+						P <- P + f
+					}
+				}
 			}
 		}
 	}
@@ -438,18 +442,20 @@ calc_Pvalue_4x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 	for (x1 in 0:min(nip[1], np1)) {
 		for (x2 in 0:min(nip[2], np1-x1)) {
 			for (x3 in 0:min(nip[3], np1-x1-x2)) {
-	x4 <- np1 - x1 - x2 - x3
-	if (x4 > nip[4]) {next}
-	x <- c(x1, x2, x3, x4)
-	T0 <- linear_rank_test_statistic(x, a)
-	f <- calc_prob(x, 4, N_choose_np1, nip_choose_xi1)
-	if (T0 == Tobs) {
-		point_prob <- point_prob + f
-	} else if (T0 < Tobs) {
-		left_sided_P <- left_sided_P + f
-	} else if (T0 > Tobs) {
-		right_sided_P <- right_sided_P + f
-	}
+				x4 <- np1 - x1 - x2 - x3
+				if (x4 > nip[4]) {
+					next
+				}
+				x <- c(x1, x2, x3, x4)
+				T0 <- linear_rank_test_statistic.CochranArmitage(x, a)
+				f <- calc_prob.CochranArmitage(x, 4, N_choose_np1, nip_choose_xi1)
+				if (T0 == Tobs) {
+					point_prob <- point_prob + f
+				} else if (T0 < Tobs) {
+					left_sided_P <- left_sided_P + f
+				} else if (T0 > Tobs) {
+					right_sided_P <- right_sided_P + f
+				}
 			}
 		}
 	}
@@ -472,8 +478,8 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 					x5 <- np1 - x1 - x2 - x3 - x4
 					if (x5 > nip[5]) {next}
 					x <- c(x1, x2, x3, x4, x5)
-					T0 <- linear_rank_test_statistic(x, a)
-					f <- calc_prob(x, 5, N_choose_np1, nip_choose_xi1)
+					T0 <- linear_rank_test_statistic.CochranArmitage(x, a)
+					f <- calc_prob.CochranArmitage(x, 5, N_choose_np1, nip_choose_xi1)
 					if (T0 == Tobs) {
 						point_prob <- point_prob + f
 					} else if (T0 < Tobs) {
