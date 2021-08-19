@@ -6,26 +6,20 @@
 #' for unspecific ordering (often saves calculation time)
 #' ("increasing" or "decreasing")
 #' @examples
+#' \dontrun{
 #' load_chapter(5)
-#' n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-#' n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
-#' a.0 <- c(1, 2, 3, 4, 5)
-#' a.1 <- c(7, 22, 37, 48, 55)
-#'
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' direction <- 'increasing'
-#' n <- n.0
-#' a <- a.0
-#' the_rx2_table(n, a, direction)
+#' n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
+#' a.0 <- c(1, 2, 3, 4, 5)
+#' the_rx2_table(n.0, a.0, 'increasing')
+#'
 #'
 #' # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' direction <- 'decreasing'
-#' n <- n.1
-#' a <- a.0       # equally spaced scores
-#' a <- a.1    # mid-interval scores
-#' the_rx2_table(n, a, direction)
-#'
+#' n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+#' a.1 <- c(7, 22, 37, 48, 55)
+#' the_rx2_table(n.1, a.1, 'decreasing')
 #' unload_chapter(5)
+#' }
 the_rx2_table <- function(
 	n, alpha=0.05, direction="increasing", skip_exact=FALSE
 ) {
