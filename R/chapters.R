@@ -175,7 +175,9 @@ list_chapter_functions <- function() {
 	)
 	ch6 <- list(
 		Brant_test_2xc = Brant_test_2xc,
-		Cumulative_models_for_2xc = Cumulative_models_for_2xc
+		Cumulative_models_for_2xc = Cumulative_models_for_2xc,
+		Exact_cond_midP_linear_rank_tests_2xc =
+			Exact_cond_midP_linear_rank_tests_2xc
 	)
 	ch7 <- list(
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc

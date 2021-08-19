@@ -44,7 +44,8 @@ Cumulative_models_for_2xc <- function(
 	}
 
 	#  Fit the model
-	.dat001 <- dat <- data.frame(x = x, y = factor(y))
+	dat <- data.frame(x = x, y = factor(y))
+	assign(".dat001", dat, envir = .GlobalEnv)
 	if (identical(linkfunction, "logit")) {
 		tmp <- polr(y ~ x, method = "logistic", data = .dat001)
 	} else if (identical(linkfunction, "probit")) {
