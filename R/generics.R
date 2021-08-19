@@ -67,6 +67,8 @@ convertFunName2Method <- function() {
 		cls <- "ExactCond"
 	} else if (findInCallstack("Exact_cond_midP_linear_rank_tests_2xc")) {
 		cls <- "ExactCont_linear"
+	} else if (findInCallstack("Exact_cond_midP_unspecific_ordering_rx2")) {
+		cls <- "ExactCond_unspecific"
 	} else {
 		stop("Unrecognized parent function")
 	}
@@ -368,7 +370,7 @@ calc_Pvalue_4x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_
 					next
 				}
 				x <- rbind(c(x1,nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),c(x4,nip[4]-x4))
-				T0 <- test.statistic(x, 4, nip, npj, N, direction, statistic)
+				T0 <- test_statistic(x, 4, nip, npj, N, direction, statistic)
 				f <- calc_prob.ExactCond(x[,1], 4, N_choose_np1, nip_choose_xi1)
 				if (T0 == Tobs) {
 					point_prob <- point_prob + f
@@ -400,7 +402,7 @@ calc_Pvalue_5x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_
 					}
 					x <- rbind(c(x1, nip[1]-x1),c(x2,nip[2]-x2),c(x3,nip[3]-x3),
 					c(x4,nip[4]-x4),c(x5,nip[5]-x5))
-					T0 <- test.statistic(x, 5, nip, npj, N, direction, statistic)
+					T0 <- test_statistic(x, 5, nip, npj, N, direction, statistic)
 					f <- calc_prob.ExactCond(x[,1], 5, N_choose_np1, nip_choose_xi1)
 					if (T0 == Tobs) {
 						point_prob <- point_prob + f
@@ -506,6 +508,9 @@ linear_rank_test_statistic.CochranArmitage <- function(x, a) {
 	return(T0)
 }
 
+# ======================================================== #
+# Methods for Exact_cond_midP_linear_rank_tests_2xc        #
+# ======================================================== #
 
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes c=3 columns
@@ -582,5 +587,83 @@ calc_prob.ExactCont_linear <- function(x, c, N_choose_n1p, npj_choose_x1j) {
 	 f <- f * npj_choose_x1j[j, x[j] + 1]
 	}
 	f = f / N_choose_n1p
+	return(f)
+}
+
+# ======================================================== #
+# Methods for Exact_cond_midP_unspecific_ordering_rx2      #
+# ======================================================== #
+
+# Brute force calculations of the two-sided exact P-value and the mid-P value
+# This function assumes r=4 rows
+
+calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
+	P = 0
+	point_prob = 0
+	for (x1 in 0:min(c(nip[1], np1))) {
+	 for (x2 in 0:min(c(nip[2], np1-x1))) {
+		 for (x3 in 0:min(c(nip[3], np1-x1-x2))) {
+	x4 <- np1 - x1 - x2 - x3
+	if (x4 > nip[4]) {
+		next
+	}
+	x <- rbind(c(x1, nip[1]-x1), c(x2, nip[2]-x2), c(x3, nip[3]-x3), c(x4, nip[4]-x4))
+	T0 <- test_statistic(x, 4, nip, npj, N, direction, statistic)
+	f <- calc_prob(x[,1], 4, N_choose_np1, nip_choose_xi1)
+	if (T0 == Tobs) {
+	 point_prob <- point_prob + f
+	} else if (T0 > Tobs) {
+	 P <- P + f
+			}
+		 }
+	 }
+	}
+	midP = P + 0.5 * point_prob
+	P = P + point_prob
+
+	return(data.frame(P=P, midP=midP))
+}
+
+# Brute force calculations of the two-sided exact P-value and the mid-P value
+# This function assumes r=5 rows
+
+calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
+	P = 0
+	point_prob = 0
+	for (x1 in 0:min(c(nip[1], np1))) {
+	 for (x2 in 0:min(c(nip[2], np1-x1))) {
+		 for (x3 in 0:min(c(nip[3], np1-x1-x2))) {
+	for (x4 in 0:min(c(nip[4], np1-x1-x2-x3))) {
+	 x5 <- np1 - x1 - x2 - x3 - x4
+	 if (x5 > nip[5]) {
+	 	next
+	 }
+	 x <- rbind(c(x1, nip[1]-x1), c(x2, nip[2]-x2), c(x3, nip[3]-x3), c(x4, nip[4]-x4), c(x5, nip[5]-x5))
+	 T0 <- test_statistic(x, 5, nip, npj, N, direction, statistic)
+	 f <- calc_prob(x[,1], 5, N_choose_np1, nip_choose_xi1)
+	 if (T0 == Tobs) {
+		 point_prob <- point_prob + f
+	 } else if (T0 > Tobs) {
+		 P <- P + f
+	 }
+	}
+		 }
+	 }
+	}
+	midP = P + 0.5 * point_prob;
+	P = P + point_prob;
+
+	return(data.frame(P=P, midP=midP))
+}
+
+# Calculate the probability of table x
+# (multiple hypergeometric distribution)
+
+calc_prob.ExactCond_unspecific <- function(x, r, N_choose_np1, nip_choose_xi1) {
+	f = 1
+	for (i in 1:r) {
+	 f <- f * nip_choose_xi1[i, x[i] + 1]
+	}
+	f = f / N_choose_np1
 	return(f)
 }
