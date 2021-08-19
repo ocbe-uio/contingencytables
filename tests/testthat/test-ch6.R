@@ -33,6 +33,11 @@ test_that("Chapter 6 functions basically work", {
 		object = Pearson_LR_tests_cum_OR_2xc(n),
 		regexp = "Pearson chi-squared test: T =  3.813,  P = 0.07223"
 	)
+	alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
+	expect_output(
+		object = Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0),
+		regexp = "Score test for effect: P = 0.1431, T = 2.145 (df=1)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
