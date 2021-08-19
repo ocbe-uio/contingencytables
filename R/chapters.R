@@ -183,7 +183,8 @@ list_chapter_functions <- function() {
 		MantelHaenszel_test_2xc = MantelHaenszel_test_2xc,
 		Pearson_LR_tests_cum_OR_2xc = Pearson_LR_tests_cum_OR_2xc,
 		Score_test_for_effect_in_the_probit_model_2xc =
-			Score_test_for_effect_in_the_probit_model_2xc
+			Score_test_for_effect_in_the_probit_model_2xc,
+		the_2xc_table = the_2xc_table
 	)
 	ch7 <- list(
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
