@@ -11,6 +11,10 @@ test_that("Chapter 6 functions basically work", {
 		object = Cumulative_models_for_2xc(n),
 		regexp = "Wald \\(Z-statistic\\):          P =  0.14097, Z = -1.472"
 	)
+	expect_output(
+		object = Exact_cond_midP_linear_rank_tests_2xc(n),
+		regexp = "Exact cond. linear rank test: P = 0.14950"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
