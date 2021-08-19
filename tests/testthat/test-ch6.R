@@ -15,6 +15,16 @@ test_that("Chapter 6 functions basically work", {
 		object = Exact_cond_midP_linear_rank_tests_2xc(n),
 		regexp = "Exact cond. linear rank test: P = 0.14950"
 	)
+	dir <- "decreasing"
+	expect_output(
+		object = Exact_cond_midP_unspecific_ordering_rx2(t(n), dir),
+		regexp = "Exact conditional test:  0.13439"
+	)
+	stat <- "PearsonCumOR"
+	expect_output(
+		object = Exact_cond_midP_unspecific_ordering_rx2(t(n), dir, stat),
+		regexp = "Exact conditional test:  0.12033"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""

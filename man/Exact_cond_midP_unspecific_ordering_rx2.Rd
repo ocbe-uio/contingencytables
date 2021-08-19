@@ -14,46 +14,28 @@ Exact_cond_midP_unspecific_ordering_rx2(
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
 
-\item{direction}{the direction of the success probabilities ("increasing" or
-"decreasing")}
+\item{direction}{the direction of the success probabilities ("increasing"
+or "decreasing")}
 
 \item{statistic}{the Pearson test statistic ("Pearson") or the likelihood
 ratio test statistic ("LR"). Can also be used for cumulative ORs in
 2xc tables with "PearsonCumOR" or "LRCumOR".}
 
-\item{printresults}{display results}
+\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \description{
-The exact conditional and mid-P tests for unspecific ordering
+The exact conditional and mid-P tests for unspecific ordering.
+May also be used for 2xc tables, after flipping rows and columns (i.e. if
+n is a 2xc table, call this function with n' (the transpose of n) as
+the first argument).
 
 Described in Chapter 5 "The Ordered rx2 Table"
 }
-\note{
-May also be used for 2xc tables, after flipping rows and columns
-(i.e. if n is a 2xc table, call this function with n' (the transpose of n)
-as the first argument).
-}
 \examples{
 load_chapter(5)
-\dontrun{
-# Chapter 5: Alcohol consumption and malformations (Mills and Graubard, 1987)
-n <- matrix(c(48,17066,38,14464,5,788,1,126,1,37), byrow=TRUE, ncol=2)
-direction <- 'increasing'
-statistic <- 'Pearson'
-Exact_cond_midP_unspecific_ordering_rx2(n, direction, statistic)
-}
-
-# Chapter 5: Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow=TRUE, ncol=2)
-direction <- 'decreasing'
-statistic <- 'Pearson'
-Exact_cond_midP_unspecific_ordering_rx2(n, direction, statistic)
-
 # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
-n <- matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow=FALSE, nrow=4)
-direction <- 'decreasing'
-statistic <- 'PearsonCumOR'
-Exact_cond_midP_unspecific_ordering_rx2(n, direction, statistic)
-
+n <- t(rbind(c(14, 10, 3, 2), c(11, 7, 8, 4)))
+Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing")
+Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
 unload_chapter(5)
 }
