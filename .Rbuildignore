@@ -3,3 +3,4 @@ LICENSE
 TODO.md
 .travis.yml
 integrate.sh
+Rprof.out

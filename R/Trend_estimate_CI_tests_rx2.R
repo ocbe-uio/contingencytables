@@ -1,15 +1,18 @@
 #' @title Trend estimate for linear and logit models
 #' @description Trend estimate for linear and logit models
-#' \begin{itemize}
+#' \itemize{
 #'  \item The Wald test and CI
 #'  \item Likelihood ratio test
 #'  \item The Pearson goodness-of-fit test
 #'  \item Likelihood ratio (deviance) goodness-of-fit test
-#' Described in Chapter 5 "The Ordered rx2 Table"
+#' }
+#' @description Described in Chapter 5 "The Ordered rx2 Table"
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (0 = no, 1 = yes)
+#' @param linkfunction Link function for the binomial distribution see
+#' \code{?family} for more details
 #' @examples load_chapter(5)
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' n <- matrix(

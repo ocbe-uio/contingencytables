@@ -3,6 +3,7 @@
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed table (a 2xc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
+#' @importFrom stats binomial glm predict
 #' @examples load_chapter(6)
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))

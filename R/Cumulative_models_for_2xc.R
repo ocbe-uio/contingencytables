@@ -6,6 +6,7 @@
 #' @param  alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param  printresults display results (0 = no, 1 = yes)
 #' @importFrom MASS polr
+#' @importFrom stats binomial glm predict
 #' @examples load_chapter(6)
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
@@ -43,8 +44,7 @@ Cumulative_models_for_2xc <- function(
 	}
 
 	#  Fit the model
-	dat <- data.frame(x = x, y = factor(y))
-	assign(".dat001", dat, envir = .GlobalEnv)
+	.dat001 <- dat <- data.frame(x = x, y = factor(y))
 	if (identical(linkfunction, "logit")) {
 		tmp <- polr(y ~ x, method = "logistic", data = .dat001)
 	} else if (identical(linkfunction, "probit")) {

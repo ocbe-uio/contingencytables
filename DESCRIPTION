@@ -39,5 +39,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://contingencytables.com/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
+Imports: MASS
 Suggests: testthat
 Date: 2020-11-06

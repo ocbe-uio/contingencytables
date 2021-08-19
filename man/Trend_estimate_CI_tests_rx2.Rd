@@ -17,17 +17,22 @@ Trend_estimate_CI_tests_rx2(
 
 \item{a}{scores assigned to the rows}
 
+\item{linkfunction}{Link function for the binomial distribution see
+\code{?family} for more details}
+
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
 \description{
 Trend estimate for linear and logit models
-\begin{itemize}
+\itemize{
 \item The Wald test and CI
 \item Likelihood ratio test
 \item The Pearson goodness-of-fit test
 \item Likelihood ratio (deviance) goodness-of-fit test
+}
+
 Described in Chapter 5 "The Ordered rx2 Table"
 }
 \examples{
