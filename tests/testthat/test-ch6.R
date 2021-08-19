@@ -29,6 +29,10 @@ test_that("Chapter 6 functions basically work", {
 		object = MantelHaenszel_test_2xc(n),
 		regexp = "test of association: P = 0.1442, T = 2.132 \\(df=1\\)"
 	)
+	expect_output(
+		object = Pearson_LR_tests_cum_OR_2xc(n),
+		regexp = "Pearson chi-squared test: T =  3.813,  P = 0.07223"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
