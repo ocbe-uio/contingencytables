@@ -25,6 +25,10 @@ test_that("Chapter 6 functions basically work", {
 		object = Exact_cond_midP_unspecific_ordering_rx2(t(n), dir, stat),
 		regexp = "Exact conditional test:  0.12033"
 	)
+	expect_output(
+		object = MantelHaenszel_test_2xc(n),
+		regexp = "test of association: P = 0.1442, T = 2.132 \\(df=1\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
