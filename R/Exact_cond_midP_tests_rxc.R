@@ -196,7 +196,7 @@ KruskalWallis_statistic <- function(x, N, r, c, nip, npj) {
 	return(T0)
 }
 
-
+#' @importFrom stats cor
 linear_by_linear_statistic <- function(x, N, r, c) {
 	# Use equally-spaced scores for both rows and columns
 	a = 1:r

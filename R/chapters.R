@@ -192,6 +192,8 @@ list_chapter_functions <- function() {
 		Exact_cond_midP_tests_rxc = Exact_cond_midP_tests_rxc,
 		FisherFreemanHalton_asymptotic_test_rxc =
 			FisherFreemanHalton_asymptotic_test_rxc,
+		gamma_coefficient_rxc_bca = gamma_coefficient_rxc_bca,
+		gamma_coefficient_rxc = gamma_coefficient_rxc,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(
