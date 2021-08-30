@@ -201,6 +201,8 @@ list_chapter_functions <- function() {
 		linear_by_linear_test_rxc = linear_by_linear_test_rxc,
 		Pearson_correlation_coefficient_rxc =
 			Pearson_correlation_coefficient_rxc,
+		Pearson_correlation_coefficient_rxc_bca =
+			Pearson_correlation_coefficient_rxc_bca,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(

@@ -42,7 +42,7 @@ test_that("Chapter 7 functions basically work", {
 	)
 	expect_output(
 		object = Kendalls_tau_b_rxc_bca(n3),
-		regexp = "bootstrap CI: tau-b = -0.0859 \\(95% CI -0.14"
+		regexp = "bootstrap CI: tau-b = -0.0859 \\(95% CI -0.1"
 	)
 	n4 <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
 	expect_output(
@@ -56,6 +56,10 @@ test_that("Chapter 7 functions basically work", {
 	expect_output(
 		object = Pearson_correlation_coefficient_rxc(n3),
 		regexp = "coefficient: r = -0.1020 \\(95% CI -0.1708 to -0.0322\\)"
+	)
+	expect_output(
+		object = Pearson_correlation_coefficient_rxc_bca(n3),
+		regexp = "bootstrap CI: r = -0.1020 \\(95% CI -0.1"
 	)
 	# expect_output(
 	# 	object =

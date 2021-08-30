@@ -11,6 +11,7 @@
 #'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
 #' )
 #' linear_by_linear_test_rxc(n)
+#'
 #' \dontrun{
 #' # Breast Tumor (Table 7.8)
 #' n <- matrix(
