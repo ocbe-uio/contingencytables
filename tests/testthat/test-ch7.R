@@ -65,6 +65,10 @@ test_that("Chapter 7 functions basically work", {
 		object = dim(Pearson_residuals_rxc(n, printresults=FALSE)$residuals),
 		expected = c(3, 2)
 	)
+	expect_output(
+		object = Scheffe_type_CIs_rxc(n),
+		regexp = "pi_1|2 - pi_1|3: estimate = 0.0222 \\(-0.1181 to 0.1625\\)"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =

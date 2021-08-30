@@ -204,7 +204,8 @@ list_chapter_functions <- function() {
 		Pearson_correlation_coefficient_rxc_bca =
 			Pearson_correlation_coefficient_rxc_bca,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc,
-		Pearson_residuals_rxc = Pearson_residuals_rxc
+		Pearson_residuals_rxc = Pearson_residuals_rxc,
+		Scheffe_type_CIs_rxc = Scheffe_type_CIs_rxc
 	)
 	ch8 <- list(
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
