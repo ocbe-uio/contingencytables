@@ -17,7 +17,9 @@
 #' n <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
 #' Cumulative_models_for_rxc(n)
 #' unload_chapter(7)
-Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {
+Cumulative_models_for_rxc <- function(
+	n, linkfunction = "logit", alpha = 0.05, printresults = TRUE
+) {
 	r <- nrow(n)
 	c <- ncol(n)
 	nip <- apply(n, 1, sum)
@@ -47,13 +49,12 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
 
 	# Fit model
 	# [beta, L1, stats] = mnrfit(x, y, 'model', 'ordinal', 'link', linkfunction);
-	library(MASS)
 	dat <- data.frame(x = x, y = factor(y))
-	assign(".dat001", dat, envir = .GlobalEnv)
+	.dat001 <- dat
 	if (identical(linkfunction, "logit")) {
-		tmp <- polr(y ~ ., method = "logistic", data = .dat001)
+		tmp <- polr(y ~ ., method = "logistic", Hess = TRUE, data = .dat001)
 	} else if (identical(linkfunction, "probit")) {
-		tmp <- polr(y ~ ., method = "probit", data = .dat001)
+		tmp <- polr(y ~ ., method = "probit", Hess = TRUE, data = .dat001)
 	}
 	beta <- c(tmp$zeta, -tmp$coef)
 	L1 <- tmp$deviance
@@ -67,7 +68,7 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
 	}
 	# pihat = mnrval(beta, xx, 'model', 'ordinal', 'link', linkfunction);
 	dat <- data.frame(x = xx)
-	assign(".dat002", dat, envir = .GlobalEnv)
+	.dat002 <- dat
 	pihat <- predict(tmp, newdata = .dat002, type = "probs")
 
 	# Calculate expected values
