@@ -2,7 +2,7 @@
 % Please edit documentation in R/Exact_cond_midP_tests_rxc.R
 \name{Exact_cond_midP_tests_rxc}
 \alias{Exact_cond_midP_tests_rxc}
-\title{Exact conditional and mid-P tests for the rxc table: the Fisher-Freeman-Halton, Pearson,}
+\title{Exact conditional and mid-P tests for the rxc table}
 \usage{
 Exact_cond_midP_tests_rxc(n, printresults = TRUE)
 }
@@ -12,9 +12,9 @@ Exact_cond_midP_tests_rxc(n, printresults = TRUE)
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \description{
-Exact conditional and mid-P tests for the rxc table: the Fisher-Freeman-Halton, Pearson,
-
-likelihood ratio, Kruskal-Wallis, linear-by-linear, and Jonckheere-Terpstra tests
+Exact conditional and mid-P tests for the rxc table:
+the Fisher-Freeman-Halton, Pearson, likelihood ratio, Kruskal-Wallis,
+linear-by-linear, and Jonckheere-Terpstra tests.
 
 Described in Chapter 7 "The rxc Table"
 }

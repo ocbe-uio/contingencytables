@@ -39,7 +39,7 @@ FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
 }
 
 multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
-	if (max(x) > 170 || nip > 170 || npj > 170) {
+	if (any(max(x) > 170, nip > 170, npj > 170)) {
 		return(NA)
 	}
 	# Somewhat messy code to avoid overflow

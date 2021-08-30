@@ -1,6 +1,7 @@
-#' @title Exact conditional and mid-P tests for the rxc table: the Fisher-Freeman-Halton, Pearson,
-#' @description Exact conditional and mid-P tests for the rxc table: the Fisher-Freeman-Halton, Pearson,
-#' @description likelihood ratio, Kruskal-Wallis, linear-by-linear, and Jonckheere-Terpstra tests
+#' @title Exact conditional and mid-P tests for the rxc table
+#' @description Exact conditional and mid-P tests for the rxc table:
+#' the Fisher-Freeman-Halton, Pearson, likelihood ratio, Kruskal-Wallis,
+#' linear-by-linear, and Jonckheere-Terpstra tests.
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
@@ -107,8 +108,6 @@ Exact_cond_midP_tests_rxc <- function(n, printresults=TRUE) {
 	invisible(results)
 }
 
-
-
 find_possible_tables_3x2 <- function(nip, npj) {
 	tables = matrix(0, 0, 6)
 	for (x11 in max(c(0,npj[1]-(nip[2] + nip[3]))):min(c(nip[1],npj[1]))) {
@@ -123,7 +122,6 @@ find_possible_tables_3x2 <- function(nip, npj) {
 	}
 	return(tables)
 }
-
 
 find_possible_tables_3x3 <- function(nip, npj) {
 	tables = matrix(0, 0, 9)
@@ -145,7 +143,6 @@ find_possible_tables_3x3 <- function(nip, npj) {
 	return(tables)
 }
 
-
 test_statisticsEcmt <- function(x, N, r, c, nip, npj) {
 	T_FFH = multiple_hypergeomtric_pdf(x, N, r, c, nip, npj)
 	ans = Pearson_LR_statistics(x, N, r, c, nip, npj)
@@ -156,7 +153,6 @@ test_statisticsEcmt <- function(x, N, r, c, nip, npj) {
 	T_JT = Jonckheere_Terpstra_statistic(x, r, c, nip)
 	return (list(T_FFH, T_Pearson, T_LR, T_KW, T_lbl, T_JT))
 }
-
 
 Pearson_LR_statistics <- function(x, N, r, c, nip, npj) {
 	m = matrix(0, r, c)
@@ -176,7 +172,6 @@ Pearson_LR_statistics <- function(x, N, r, c, nip, npj) {
 	T_LR = 2 * T_LR
 	return(list(T_Pearson, T_LR))
 }
-
 
 KruskalWallis_statistic <- function(x, N, r, c, nip, npj) {
 	midranks = rep(0, c)
@@ -218,7 +213,6 @@ linear_by_linear_statistic <- function(x, N, r, c) {
 	return(T0)
 }
 
-
 Jonckheere_Terpstra_statistic <- function(x, r, c, nip) {
 	# Calculate the Mann-Whitney U statistic for the comparison of all pairs of
 	# rows (i1, i2), for which i1 < i2
@@ -249,9 +243,8 @@ Jonckheere_Terpstra_statistic <- function(x, r, c, nip) {
 	return(T0)
 }
 
-
 multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
-	if (max(x)>170 || nip>170 || npj>170) {
+	if (any(max(x) > 170, nip > 170, npj > 170)) {
 		return(NA)
 	}
 	# Somewhat messy code to avoid overflow
@@ -278,12 +271,9 @@ multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
 			f <- f / factorial(x[i,j])
 		}
 	}
-
 	return(f)
 }
 
 .print <- function(s, ...) {
 	print(sprintf(gsub('\n','',s), ...), quote=FALSE)
 }
-
-
