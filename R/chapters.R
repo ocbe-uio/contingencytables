@@ -187,6 +187,7 @@ list_chapter_functions <- function() {
 		the_2xc_table = the_2xc_table
 	)
 	ch7 <- list(
+		Bonferroni_type_CIs_rxc = Bonferroni_type_CIs_rxc,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(
