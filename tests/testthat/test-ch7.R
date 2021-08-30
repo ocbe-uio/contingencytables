@@ -81,9 +81,9 @@ test_that("Chapter 7 functions basically work", {
 		object =  {set.seed(562); Spearman_correlation_coefficient_rxc_bca(n3)},
 		regexp = "bootstrap CI: rho = -0.0962 \\(95% CI -0.1663 to -0.0269\\)"
 	)
-	# expect_output(
-	# 	object =
-	# 	regexp =
-	# )
+	expect_output(
+		object = the_rxc_table(n),
+		regexp = "Kruskal-Wallis asymptotic\\s+17.473 \\(df=2\\)   0.000161"
+	)
 	unload_chapter(7)
 })
