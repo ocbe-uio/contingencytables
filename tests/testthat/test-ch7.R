@@ -16,6 +16,10 @@ test_that("Chapter 7 functions basically work", {
 		object = Exact_cond_midP_tests_rxc(n),
 		regexp = "Exact linear-by-linear:      P = 0.9998521"
 	)
+	expect_output(
+		object = FisherFreemanHalton_asymptotic_test_rxc(n),
+		regexp = "Fisher-Freeman-Halton asymptotic test: P = 0.0003, T = 16.260"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
