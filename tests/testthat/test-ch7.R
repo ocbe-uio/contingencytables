@@ -61,6 +61,10 @@ test_that("Chapter 7 functions basically work", {
 		object = {set.seed(1562); Pearson_correlation_coefficient_rxc_bca(n3)},
 		regexp = "bootstrap CI: r = -0.1020 \\(95% CI -0.1723 to -0.0361\\)"
 	)
+	expect_output(
+		object = Pearson_LR_tests_rxc(n),
+		regexp = "Pearson chi-squared test: T = 17.562, df = 2, P = 0.00015"
+	)
 	expect_equal(
 		object = dim(Pearson_residuals_rxc(n, printresults=FALSE)$residuals),
 		expected = c(3, 2)
@@ -73,13 +77,13 @@ test_that("Chapter 7 functions basically work", {
 		object = Spearman_correlation_coefficient_rxc(n3),
 		regexp = "Wright CI: rho = -0.0962 \\(95% CI -0.1653 to -0.0262\\)"
 	)
+	expect_output(
+		object =  {set.seed(562); Spearman_correlation_coefficient_rxc_bca(n3)},
+		regexp = "bootstrap CI: rho = -0.0962 \\(95% CI -0.1663 to -0.0269\\)"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
 	# )
-	expect_output(
-		object = Pearson_LR_tests_rxc(n),
-		regexp = "Pearson chi-squared test: T = 17.562, df = 2, P = 0.00015"
-	)
 	unload_chapter(7)
 })
