@@ -197,6 +197,7 @@ list_chapter_functions <- function() {
 		JonckheereTerpstra_test_rxc = JonckheereTerpstra_test_rxc,
 		Kendalls_tau_b_rxc = Kendalls_tau_b_rxc,
 		Kendalls_tau_b_rxc_bca = Kendalls_tau_b_rxc_bca,
+		KruskalWallis_asymptotic_test_rxc = KruskalWallis_asymptotic_test_rxc,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(
