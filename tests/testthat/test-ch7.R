@@ -44,6 +44,11 @@ test_that("Chapter 7 functions basically work", {
 		object = Kendalls_tau_b_rxc_bca(n3),
 		regexp = "bootstrap CI: tau-b = -0.0859 \\(95% CI -0.14"
 	)
+	n4 <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
+	expect_output(
+		object = KruskalWallis_asymptotic_test_rxc(n4),
+		regexp = "Asymptotic Kruskal-Wallis test: T =  9.162, df = 2, P = 0.010"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
