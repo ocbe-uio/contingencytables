@@ -41,4 +41,4 @@ Proper citation of the SACT book can be found [here](https://contingencytables.c
 
 # Nerd badges
 
-[![R build status](https://github.com/contingencytables/workflows/R-CMD-check/badge.svg)](https://github.com/contingencytables/actions)
+[![R build status](https://github.com/ocbe-uio/contingencytables/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/contingencytables/actions)
