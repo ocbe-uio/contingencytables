@@ -196,6 +196,7 @@ list_chapter_functions <- function() {
 		gamma_coefficient_rxc = gamma_coefficient_rxc,
 		JonckheereTerpstra_test_rxc = JonckheereTerpstra_test_rxc,
 		Kendalls_tau_b_rxc = Kendalls_tau_b_rxc,
+		Kendalls_tau_b_rxc_bca = Kendalls_tau_b_rxc_bca,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(
@@ -212,5 +213,3 @@ list_chapter_functions <- function() {
 		)
 	)
 }
-
-# TODO: address generated check notes (post question on StackOverflow?)
