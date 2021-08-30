@@ -53,6 +53,10 @@ test_that("Chapter 7 functions basically work", {
 		object = linear_by_linear_test_rxc(n3),
 		regexp = "linear test for association: P = 0.004321, Z = -2.854",
 	)
+	expect_output(
+		object = Pearson_correlation_coefficient_rxc(n3),
+		regexp = "coefficient: r = -0.1020 \\(95% CI -0.1708 to -0.0322\\)"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
