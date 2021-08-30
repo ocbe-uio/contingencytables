@@ -1,0 +1,66 @@
+# function [gamma, C, D] = gamma_coefficient_rxc(n, printresults)
+
+gamma_coefficient_rxc = function(n, printresults=T) {
+
+	# The gamma coefficient
+	# Described in Chapter 7 "The rxc Table"
+	#
+	# Input arguments
+	# ---------------
+	# n: the observed table (an rxc matrix)
+	# printresults: display results (F = no, T = yes)
+
+	if (missing(n)) {
+	    n = rbind(c(2,4,29,19),c(7,6,116,51),c(19,27,201,76),c(18,22,133,54)) # Colorectal cancer (Table 7.7)
+		# n = [15 35 6 9 6; 2 4 2 11 11; 0 0 1 10 21] # Breast Tumor (Table 7.8)
+		# n = [2 3 3 3; 2 58 98 14; 8 162 949 252; 4 48 373 369] # Self-rated health (Table 7.9)
+	}
+
+	r = nrow(n)
+	c = ncol(n)
+
+	# C: The number of concordant pairs
+	C = 0
+	for (i in 1:(r-1)) {
+	    for (j in 1:(c-1)) {
+	        for (k in (i+1):r) {
+	            for (l in (j+1):c) {
+	                C = C + n[i,j]*n[k,l]
+	            }
+	        }
+	    }
+	}
+
+	# D: The number of discordant pairs
+	D = 0
+	for (i in 1:(r-1)) {
+	    for (l in 1:(c-1)) {
+	        for (k in (i+1):r) {
+	            for (j in (l+1):c) {
+	                D = D + n[i,j]*n[k,l]
+	            }
+	        }
+	    }
+	}
+
+	# The gamma coefficient
+	gamma = (C - D)/(C + D)
+
+	if (printresults) {
+	    .print('The number of concordant pairs:      %g\n', C)
+	    .print('The number of discordant pairs:      %g\n', D)
+	    .print('The proportion of concordant pairs:  %g\n', C/(C+D))
+	    .print('The proportion of discordant pairs:  %g\n', D/(C+D))
+	    .print('The gamma coefficient:               %6.4f\n', gamma)
+	}
+
+	invisible(list(gamma=gamma, C=C, D=D))
+}
+
+.print = function(s, ...) {
+	print(sprintf(gsub('\n','',s), ...), quote=F)
+}
+
+
+
+
