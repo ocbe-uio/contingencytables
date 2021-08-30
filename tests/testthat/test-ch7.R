@@ -12,6 +12,10 @@ test_that("Chapter 7 functions basically work", {
 		object = Cumulative_models_for_rxc(n2),
 		regexp = "Likelihood ratio\\s+P =  0.00832, T =  9.579 \\(df=2\\)"
 	)
+	expect_output(
+		object = Exact_cond_midP_tests_rxc(n),
+		regexp = "Exact linear-by-linear:      P = 0.9998521"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
