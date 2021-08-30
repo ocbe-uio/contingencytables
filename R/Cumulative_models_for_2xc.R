@@ -45,11 +45,11 @@ Cumulative_models_for_2xc <- function(
 
 	#  Fit the model
 	dat <- data.frame(x = x, y = factor(y))
-	assign(".dat001", dat, envir = .GlobalEnv)
+	.dat001 <- dat
 	if (identical(linkfunction, "logit")) {
-		tmp <- polr(y ~ x, method = "logistic", data = .dat001)
+		tmp <- polr(y ~ x, method = "logistic", Hess = TRUE, data = .dat001)
 	} else if (identical(linkfunction, "probit")) {
-		tmp <- polr(factor(y) ~ x, method = "probit", data = .dat001)
+		tmp <- polr(factor(y) ~ x, method = "probit", Hess = TRUE, data = .dat001)
 	}
 
 	# Extract from model
@@ -104,9 +104,9 @@ Cumulative_models_for_2xc <- function(
 	#  LR test for beta
 	# [~, L0, ~] = mnrfit([], y, 'model', 'ordinal', 'link', linkfunction);
 	if (identical(linkfunction, "logit")) {
-		tmp <- polr(y ~ 1, method = "logistic", data = .dat001)
+		tmp <- polr(y ~ 1, method = "logistic", Hess = TRUE, data = .dat001)
 	} else if (identical(linkfunction, "probit")) {
-		tmp <- polr(y ~ 1, method = "probit", data = .dat001)
+		tmp <- polr(y ~ 1, method = "probit", Hess = TRUE, data = .dat001)
 	}
 	L0 <- tmp$deviance
 	T_LR <- L0 - L1
