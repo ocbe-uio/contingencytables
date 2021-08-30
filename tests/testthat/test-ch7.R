@@ -20,6 +20,18 @@ test_that("Chapter 7 functions basically work", {
 		object = FisherFreemanHalton_asymptotic_test_rxc(n),
 		regexp = "Fisher-Freeman-Halton asymptotic test: P = 0.0003, T = 16.260"
 	)
+	n3 <- matrix(
+		c(2, 4, 29, 19, 7, 6, 116, 51, 19, 27, 201, 76, 18, 22, 133, 54),
+		ncol = 4, byrow=TRUE
+	)
+	expect_output(
+		object = gamma_coefficient_rxc_bca(n3),
+		regexp = "The gamma coefficient w / BCa bootstrap CI: gamma = -0.1390"
+	)
+	expect_output(
+		object = gamma_coefficient_rxc(n3),
+		regexp = "he proportion of discordant pairs:  0.569496"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
