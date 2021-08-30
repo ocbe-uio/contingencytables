@@ -49,6 +49,10 @@ test_that("Chapter 7 functions basically work", {
 		object = KruskalWallis_asymptotic_test_rxc(n4),
 		regexp = "Asymptotic Kruskal-Wallis test: T =  9.162, df = 2, P = 0.010"
 	)
+	expect_output(
+		object = linear_by_linear_test_rxc(n3),
+		regexp = "linear test for association: P = 0.004321, Z = -2.854",
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
