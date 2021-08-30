@@ -32,6 +32,10 @@ test_that("Chapter 7 functions basically work", {
 		object = gamma_coefficient_rxc(n3),
 		regexp = "he proportion of discordant pairs:  0.569496"
 	)
+	expect_output(
+		object = JonckheereTerpstra_test_rxc(n3),
+		regexp = "Terpstra test for association: P = 0.006720, Z = -2.710"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =

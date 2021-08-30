@@ -194,6 +194,7 @@ list_chapter_functions <- function() {
 			FisherFreemanHalton_asymptotic_test_rxc,
 		gamma_coefficient_rxc_bca = gamma_coefficient_rxc_bca,
 		gamma_coefficient_rxc = gamma_coefficient_rxc,
+		JonckheereTerpstra_test_rxc = JonckheereTerpstra_test_rxc,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(
