@@ -25,7 +25,7 @@ test_that("Chapter 7 functions basically work", {
 		ncol = 4, byrow=TRUE
 	)
 	expect_output(
-		object = set.seed(1562); gamma_coefficient_rxc_bca(n3),
+		object = {set.seed(1562); gamma_coefficient_rxc_bca(n3)},
 		regexp = "bootstrap CI: gamma = -0.1390 \\(95% CI -0.2398 to -0.0381\\)"
 	)
 	expect_output(
@@ -41,7 +41,7 @@ test_that("Chapter 7 functions basically work", {
 		regexp = "Fieller CI: tau-b = -0.0859 \\(95% CI -0.1318 to -0.0397\\)"
 	)
 	expect_output(
-		object = set.seed(1562); Kendalls_tau_b_rxc_bca(n3),
+		object = {set.seed(1562); Kendalls_tau_b_rxc_bca(n3)},
 		regexp = "bootstrap CI: tau-b = -0.0859 \\(95% CI -0.1487 to -0.0234\\)"
 	)
 	n4 <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
@@ -58,8 +58,12 @@ test_that("Chapter 7 functions basically work", {
 		regexp = "coefficient: r = -0.1020 \\(95% CI -0.1708 to -0.0322\\)"
 	)
 	expect_output(
-		object = set.seed(1562); Pearson_correlation_coefficient_rxc_bca(n3),
+		object = {set.seed(1562); Pearson_correlation_coefficient_rxc_bca(n3)},
 		regexp = "bootstrap CI: r = -0.1020 \\(95% CI -0.1723 to -0.0361\\)"
+	)
+	expect_equal(
+		object = dim(Pearson_residuals_rxc(n, printresults=FALSE)$residuals),
+		expected = c(3, 2)
 	)
 	# expect_output(
 	# 	object =
