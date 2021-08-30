@@ -61,6 +61,10 @@ test_that("Chapter 7 functions basically work", {
 		object = {set.seed(1562); Pearson_correlation_coefficient_rxc_bca(n3)},
 		regexp = "bootstrap CI: r = -0.1020 \\(95% CI -0.1723 to -0.0361\\)"
 	)
+	expect_equal(
+		object = dim(Pearson_residuals_rxc(n, printresults=FALSE)$residuals),
+		expected = c(3, 2)
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
