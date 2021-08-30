@@ -1,7 +1,6 @@
 #' @title Kendall's tau-b with confidence interval based on the Fieller standard deviation
 #' @description Kendall's tau-b with confidence interval based on the Fieller standard deviation
 #' @description Described in Chapter 7 "The rxc Table"
-#' @param Dependencies gamma_coefficient_rxc.m
 #' @param n the observed table (an rxc matrix)
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha)% confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
