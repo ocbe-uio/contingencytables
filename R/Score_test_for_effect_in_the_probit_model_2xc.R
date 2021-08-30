@@ -9,6 +9,7 @@
 #'  because Matlab does not calculate an intercept-only probit model (and this
 #' may apply to R code as well). alphahat0 can be calculated in, for instance,
 #' Stata.
+#' @importFrom stats dnorm
 #' @examples load_chapter(6)
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
