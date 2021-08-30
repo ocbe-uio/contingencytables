@@ -36,6 +36,10 @@ test_that("Chapter 7 functions basically work", {
 		object = JonckheereTerpstra_test_rxc(n3),
 		regexp = "Terpstra test for association: P = 0.006720, Z = -2.710"
 	)
+	expect_output(
+		object = Kendalls_tau_b_rxc(n3),
+		regexp = "Fieller CI: tau-b = -0.0859 \\(95% CI -0.1318 to -0.0397\\)"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
