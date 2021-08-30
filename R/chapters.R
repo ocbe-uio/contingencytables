@@ -188,6 +188,7 @@ list_chapter_functions <- function() {
 	)
 	ch7 <- list(
 		Bonferroni_type_CIs_rxc = Bonferroni_type_CIs_rxc,
+		Cumulative_models_for_rxc = Cumulative_models_for_rxc,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc
 	)
 	ch8 <- list(

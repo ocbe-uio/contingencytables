@@ -7,6 +7,11 @@ test_that("Chapter 7 functions basically work", {
 		object = Bonferroni_type_CIs_rxc(n),
 		regexp = "pi_1|1 - pi_1|3: estimate = -0.2476 \\(-0.4213 to -0.0740\\)"
 	)
+	n2 <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
+	expect_output(
+		object = Cumulative_models_for_rxc(n2),
+		regexp = "Likelihood ratio\\s+P =  0.00832, T =  9.579 \\(df=2\\)"
+	)
 	# expect_output(
 	# 	object =
 	# 	regexp =
