@@ -42,3 +42,5 @@ Proper citation of the SACT book can be found [here](https://contingencytables.c
 # Nerd badges
 
 [![R build status](https://github.com/ocbe-uio/contingencytables/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/contingencytables/actions)
+[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![](https://img.shields.io/github/last-commit/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables/commits/develop)
