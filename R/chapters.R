@@ -213,7 +213,8 @@ list_chapter_functions <- function() {
 		the_rxc_table = the_rxc_table
 	)
 	ch8 <- list(
-		Blaker_exact_CI_1x2 = Blaker_exact_CI_1x2,
+		BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 =
+			BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 =
 			Newcombe_square_and_add_CI_paired_2x2,
