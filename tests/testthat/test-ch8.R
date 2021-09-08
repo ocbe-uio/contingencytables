@@ -2,11 +2,15 @@ context("Chapter 8")
 
 test_that("Chapter 8 functions basically work", {
 	load_chapter(8)
-	expect_output(
-		object = Blaker_exact_CI_1x2(X = 250, n = 533),
-		regexp = "CI: estimate = 0.4690 \\(95% CI 0.4267 to 0.5122\\)"
-	)
 	n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
+	expect_output(
+		object = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n),
+		regexp = "CI w / CC: estimate = 0.8667 \\(95% CI 0.7475 to 1.0058\\)"
+	)
+	# expect_output(
+	# 	object = ,
+	# 	regexp = ""
+	# )
 	expect_output(
 		object = MOVER_Wilson_score_CI_paired_2x2(n),
 		regexp = "estimate = 0.8667 \\(95% CI 0.7592 to 0.9866\\)"
