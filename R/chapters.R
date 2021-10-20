@@ -176,14 +176,12 @@ list_chapter_functions <- function() {
 	ch6 <- list(
 		Brant_test_2xc = Brant_test_2xc,
 		Cumulative_models_for_2xc = Cumulative_models_for_2xc,
-		Exact_cond_midP_linear_rank_tests_2xc =
-			Exact_cond_midP_linear_rank_tests_2xc,
-		Exact_cond_midP_unspecific_ordering_rx2 =
-			Exact_cond_midP_unspecific_ordering_rx2,
+		Exact_cond_midP_linear_rank_tests_2xc = Exact_cond_midP_linear_rank_tests_2xc,
+		ClopperPearson_exact_CI_1x2_beta_version = ClopperPearson_exact_CI_1x2_beta_version,
+		Exact_cond_midP_unspecific_ordering_rx2 = Exact_cond_midP_unspecific_ordering_rx2,
 		MantelHaenszel_test_2xc = MantelHaenszel_test_2xc,
 		Pearson_LR_tests_cum_OR_2xc = Pearson_LR_tests_cum_OR_2xc,
-		Score_test_for_effect_in_the_probit_model_2xc =
-			Score_test_for_effect_in_the_probit_model_2xc,
+		Score_test_for_effect_in_the_probit_model_2xc = Score_test_for_effect_in_the_probit_model_2xc,
 		the_2xc_table = the_2xc_table
 	)
 	ch7 <- list(
@@ -217,6 +215,7 @@ list_chapter_functions <- function() {
 			BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2,
 		BonettPrice_hybrid_Wilson_score_CI_paired_2x2 =
 			BonettPrice_hybrid_Wilson_score_CI_paired_2x2,
+		ClopperPearson_exact_CI_1x2_beta_version = ClopperPearson_exact_CI_1x2_beta_version,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 =
 			Newcombe_square_and_add_CI_paired_2x2,
