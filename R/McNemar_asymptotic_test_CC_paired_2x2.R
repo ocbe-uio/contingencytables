@@ -28,7 +28,7 @@ McNemar_asymptotic_test_CC_paired_2x2 <- function(n, printresults = TRUE) {
       .print("P = 1.0\n")
     }
     P <- 1
-    return
+    return(P)
   }
 
   # The McNemar test statistic with continuity correction
@@ -41,7 +41,7 @@ McNemar_asymptotic_test_CC_paired_2x2 <- function(n, printresults = TRUE) {
     .print("The asymptotic McNemar test with continuity correction: P = %8.6f, Z = %6.3f\n", P, Z)
   }
 
-  invisible(list(P = P, Z = Z))
+  return(list(P = P, Z = Z))
 }
 
 

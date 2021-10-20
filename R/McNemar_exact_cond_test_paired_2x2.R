@@ -3,6 +3,7 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
+#' @importFrom stats pbinom
 #' @examples load_chapter(8)
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
@@ -26,7 +27,7 @@ McNemar_exact_cond_test_paired_2x2 <- function(n, printresults = TRUE) {
 	if (printresults) {
 		.print("The McNemar exact conditional test: P = %8.6f\n", P)
 	}
-  invisible(P)
+	return(P)
 }
 
 .print <- function(s, ...) {

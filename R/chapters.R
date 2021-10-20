@@ -111,8 +111,7 @@ list_chapter_functions <- function() {
 		LR_test_1xc                    = LR_test_1xc,
 		MidP_multinomial_test_1xc      = MidP_multinomial_test_1xc,
 		Pearson_chi_squared_test_1xc   = Pearson_chi_squared_test_1xc,
-		QuesenberryHurst_Wilson_score_CIs_1xc =
-			QuesenberryHurst_Wilson_score_CIs_1xc,
+		QuesenberryHurst_Wilson_score_CIs_1xc = QuesenberryHurst_Wilson_score_CIs_1xc,
 		the_1xc_table_CIs              = the_1xc_table_CIs,
 		the_1xc_table_tests            = the_1xc_table_tests
 	)
@@ -122,8 +121,7 @@ list_chapter_functions <- function() {
 		Adjusted_log_CI_2x2                = Adjusted_log_CI_2x2,
 		AgrestiCaffo_CI_2x2                = AgrestiCaffo_CI_2x2,
 		Wald_CI_2x2                        = Wald_CI_2x2,
-		BaptistaPike_exact_conditional_CI_2x2 =
-			BaptistaPike_exact_conditional_CI_2x2,
+		BaptistaPike_exact_conditional_CI_2x2 = BaptistaPike_exact_conditional_CI_2x2,
 		BaptistaPike_midP_CI_2x2           = BaptistaPike_midP_CI_2x2,
 		Cornfield_exact_conditional_CI_2x2 = Cornfield_exact_conditional_CI_2x2,
 		Cornfield_midP_CI_2x2              = Cornfield_midP_CI_2x2,
@@ -138,23 +136,18 @@ list_chapter_functions <- function() {
 		Koopman_asymptotic_score_CI_2x2    = Koopman_asymptotic_score_CI_2x2,
 		LR_test_2x2                        = LR_test_2x2,
 		Mee_asymptotic_score_CI_2x2        = Mee_asymptotic_score_CI_2x2,
-		MiettinenNurminen_asymptotic_score_CI_difference_2x2 =
-			MiettinenNurminen_asymptotic_score_CI_difference_2x2,
-		MiettinenNurminen_asymptotic_score_CI_OR_2x2 =
-			MiettinenNurminen_asymptotic_score_CI_OR_2x2,
-		MiettinenNurminen_asymptotic_score_CI_ratio_2x2 =
-			MiettinenNurminen_asymptotic_score_CI_ratio_2x2,
+		MiettinenNurminen_asymptotic_score_CI_difference_2x2 = MiettinenNurminen_asymptotic_score_CI_difference_2x2,
+		MiettinenNurminen_asymptotic_score_CI_OR_2x2 = MiettinenNurminen_asymptotic_score_CI_OR_2x2,
+		MiettinenNurminen_asymptotic_score_CI_ratio_2x2 = MiettinenNurminen_asymptotic_score_CI_ratio_2x2,
 		MOVER_R_Wilson_CI_OR_2x2           = MOVER_R_Wilson_CI_OR_2x2,
 		MOVER_R_Wilson_CI_ratio_2x2        = MOVER_R_Wilson_CI_ratio_2x2,
 		Newcombe_hybrid_score_CI_2x2       = Newcombe_hybrid_score_CI_2x2,
 		Pearson_chi_squared_test_2x2       = Pearson_chi_squared_test_2x2,
 		Pearson_chi_squared_test_CC_2x2    = Pearson_chi_squared_test_CC_2x2,
-		PriceBonett_approximate_Bayes_CI_2x2 =
-			PriceBonett_approximate_Bayes_CI_2x2,
+		PriceBonett_approximate_Bayes_CI_2x2 = PriceBonett_approximate_Bayes_CI_2x2,
 		Wald_CI_CC_2x2                     = Wald_CI_CC_2x2,
 		Woolf_logit_CI_2x2                 = Woolf_logit_CI_2x2,
-		Uncorrected_asymptotic_score_CI_2x2 =
-			Uncorrected_asymptotic_score_CI_2x2,
+		Uncorrected_asymptotic_score_CI_2x2 = Uncorrected_asymptotic_score_CI_2x2,
 		Z_unpooled_test_2x2                = Z_unpooled_test_2x2,
 		the_2x2_table_CIs_difference       = the_2x2_table_CIs_difference,
 		the_2x2_table_CIs_OR               = the_2x2_table_CIs_OR,
@@ -163,13 +156,10 @@ list_chapter_functions <- function() {
 	)
 	ch5 <- list(
 		CochranArmitage_CI_rx2 = CochranArmitage_CI_rx2,
-		CochranArmitage_exact_cond_midP_tests_rx2 =
-			CochranArmitage_exact_cond_midP_tests_rx2,
+		CochranArmitage_exact_cond_midP_tests_rx2 = CochranArmitage_exact_cond_midP_tests_rx2,
 		CochranArmitage_MH_tests_rx2 = CochranArmitage_MH_tests_rx2,
-		Exact_cond_midP_unspecific_ordering_rx2 =
-			Exact_cond_midP_unspecific_ordering_rx2,
-		Pearson_LR_tests_unspecific_ordering_rx2 =
-			Pearson_LR_tests_unspecific_ordering_rx2,
+		Exact_cond_midP_unspecific_ordering_rx2 = Exact_cond_midP_unspecific_ordering_rx2,
+		Pearson_LR_tests_unspecific_ordering_rx2 = Pearson_LR_tests_unspecific_ordering_rx2,
 		the_rx2_table = the_rx2_table,
 		Trend_estimate_CI_tests_rx2 = Trend_estimate_CI_tests_rx2
 	)
@@ -188,8 +178,7 @@ list_chapter_functions <- function() {
 		Bonferroni_type_CIs_rxc = Bonferroni_type_CIs_rxc,
 		Cumulative_models_for_rxc = Cumulative_models_for_rxc,
 		Exact_cond_midP_tests_rxc = Exact_cond_midP_tests_rxc,
-		FisherFreemanHalton_asymptotic_test_rxc =
-			FisherFreemanHalton_asymptotic_test_rxc,
+		FisherFreemanHalton_asymptotic_test_rxc = FisherFreemanHalton_asymptotic_test_rxc,
 		gamma_coefficient_rxc_bca = gamma_coefficient_rxc_bca,
 		gamma_coefficient_rxc = gamma_coefficient_rxc,
 		JonckheereTerpstra_test_rxc = JonckheereTerpstra_test_rxc,
@@ -197,33 +186,25 @@ list_chapter_functions <- function() {
 		Kendalls_tau_b_rxc_bca = Kendalls_tau_b_rxc_bca,
 		KruskalWallis_asymptotic_test_rxc = KruskalWallis_asymptotic_test_rxc,
 		linear_by_linear_test_rxc = linear_by_linear_test_rxc,
-		Pearson_correlation_coefficient_rxc =
-			Pearson_correlation_coefficient_rxc,
-		Pearson_correlation_coefficient_rxc_bca =
-			Pearson_correlation_coefficient_rxc_bca,
+		Pearson_correlation_coefficient_rxc = Pearson_correlation_coefficient_rxc,
+		Pearson_correlation_coefficient_rxc_bca = Pearson_correlation_coefficient_rxc_bca,
 		Pearson_LR_tests_rxc = Pearson_LR_tests_rxc,
 		Pearson_residuals_rxc = Pearson_residuals_rxc,
 		Scheffe_type_CIs_rxc = Scheffe_type_CIs_rxc,
-		Spearman_correlation_coefficient_rxc =
-			Spearman_correlation_coefficient_rxc,
-		Spearman_correlation_coefficient_rxc_bca =
-			Spearman_correlation_coefficient_rxc_bca,
+		Spearman_correlation_coefficient_rxc = Spearman_correlation_coefficient_rxc,
+		Spearman_correlation_coefficient_rxc_bca = Spearman_correlation_coefficient_rxc_bca,
 		the_rxc_table = the_rxc_table
 	)
 	ch8 <- list(
-		BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 =
-			BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2,
-		BonettPrice_hybrid_Wilson_score_CI_paired_2x2 =
-			BonettPrice_hybrid_Wilson_score_CI_paired_2x2,
+		BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2,
+		BonettPrice_hybrid_Wilson_score_CI_paired_2x2 = BonettPrice_hybrid_Wilson_score_CI_paired_2x2,
 		ClopperPearson_exact_CI_1x2_beta_version = ClopperPearson_exact_CI_1x2_beta_version,
 		McNemar_asymptotic_test_CC_paired_2x2 = McNemar_asymptotic_test_CC_paired_2x2,
 		McNemar_asymptotic_test_paired_2x2 = McNemar_asymptotic_test_paired_2x2,
 		McNemar_exact_cond_test_paired_2x2 = McNemar_exact_cond_test_paired_2x2,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
-		Newcombe_square_and_add_CI_paired_2x2 =
-			Newcombe_square_and_add_CI_paired_2x2,
-		Transformed_Wilson_score_CI_paired_2x2 =
-			Transformed_Wilson_score_CI_paired_2x2
+		Newcombe_square_and_add_CI_paired_2x2 = Newcombe_square_and_add_CI_paired_2x2,
+		Transformed_Wilson_score_CI_paired_2x2 = Transformed_Wilson_score_CI_paired_2x2
 	)
 	return(
 		list(
