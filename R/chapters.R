@@ -217,6 +217,7 @@ list_chapter_functions <- function() {
 			BonettPrice_hybrid_Wilson_score_CI_paired_2x2,
 		ClopperPearson_exact_CI_1x2_beta_version = ClopperPearson_exact_CI_1x2_beta_version,
 		McNemar_asymptotic_test_CC_paired_2x2 = McNemar_asymptotic_test_CC_paired_2x2,
+		McNemar_asymptotic_test_paired_2x2 = McNemar_asymptotic_test_paired_2x2,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 =
 			Newcombe_square_and_add_CI_paired_2x2,
