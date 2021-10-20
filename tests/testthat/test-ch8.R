@@ -15,6 +15,10 @@ test_that("Chapter 8 functions basically work", {
 		object = ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16),
 		regexp = "exact CI: estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
 	)
+	expect_output(
+		object = McNemar_asymptotic_test_CC_paired_2x2(n),
+		regexp = "McNemar test with continuity correction: P = 0.055009, Z =  1.919"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
