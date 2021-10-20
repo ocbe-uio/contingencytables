@@ -23,10 +23,10 @@ test_that("Chapter 8 functions basically work", {
 		object = McNemar_asymptotic_test_paired_2x2(n),
 		regexp = "The McNemar asymptotic test: P = 0.033006, Z = -2.132"
 	)
-	# expect_output(
-	# 	object = ,
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = McNemar_exact_cond_test_paired_2x2(n),
+		regexp = "The McNemar exact conditional test: P = 0.052479"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
