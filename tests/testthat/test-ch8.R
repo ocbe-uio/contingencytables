@@ -11,6 +11,10 @@ test_that("Chapter 8 functions basically work", {
 		object = BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n),
 		regexp = "estimate = 0.8667 \\(95% CI 0.7579 to 0.9910\\)"
 	)
+	expect_output(
+		object = ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16),
+		regexp = "exact CI: estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
