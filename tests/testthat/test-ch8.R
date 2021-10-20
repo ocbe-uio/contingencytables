@@ -7,6 +7,10 @@ test_that("Chapter 8 functions basically work", {
 		object = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n),
 		regexp = "CI w / CC: estimate = 0.8667 \\(95% CI 0.7475 to 1.0058\\)"
 	)
+	expect_output(
+		object = BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n),
+		regexp = "estimate = 0.8667 \\(95% CI 0.7579 to 0.9910\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
