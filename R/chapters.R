@@ -215,6 +215,8 @@ list_chapter_functions <- function() {
 	ch8 <- list(
 		BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 =
 			BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2,
+		BonettPrice_hybrid_Wilson_score_CI_paired_2x2 =
+			BonettPrice_hybrid_Wilson_score_CI_paired_2x2,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 =
 			Newcombe_square_and_add_CI_paired_2x2,
