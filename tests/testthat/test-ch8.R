@@ -108,9 +108,9 @@ test_that("Chapter 8 functions basically work", {
 		object = the_paired_2x2_table_CIs_ratio(n),
 		regexp = "Estimate of phi = pi_1\\+/pi_\\+1: 0.867"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = the_paired_2x2_table_tests(n),
+		regexp = "Estimate of pi_\\+1: 75/161 = 0.466"
+	)
 	unload_chapter(8)
 })
