@@ -80,11 +80,27 @@ test_that("Chapter 8 functions basically work", {
 	# 	regexp = ""
 	# )
 	# expect_output(
-	# 	object = (n),
+	# 	object = Wald_CI_OR_paired_2x2(n),
 	# 	regexp = ""
 	# )
 	# expect_output(
-	# 	object = (n),
+	# 	object = Wald_CI_OR_Laplace_paired_2x2(n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = Transformed_Wilson_score_CI_paired_2x2(n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = Transformed_Blaker_exact_CI_paired_2x2(n),
 	# 	regexp = ""
 	# )
 	# expect_output(
