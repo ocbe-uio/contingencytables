@@ -3,6 +3,7 @@ context("Chapter 8")
 test_that("Chapter 8 functions basically work", {
 	load_chapter(8)
 	n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
+	n2 <- rbind(c(7, 25), c(2, 68))
 	expect_output(
 		object = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n),
 		regexp = "CI w / CC: estimate = 0.8667 \\(95% CI 0.7475 to 1.0058\\)"
@@ -76,15 +77,31 @@ test_that("Chapter 8 functions basically work", {
 		regexp = "Estimate of delta = pi_1\\+ - pi_\\+1: -0.062"
 	)
 	# expect_output(
-	# 	object = the_paired_2x2_table_CIs_OR(n),
+	# 	object = the_paired_2x2_table_CIs_OR(n2),
 	# 	regexp = ""
 	# )
 	# expect_output(
-	# 	object = (n),
+	# 	object = Wald_CI_OR_paired_2x2(n2),
+	# 	regexp = ""
+	# )
+	expect_output(
+		object = Wald_CI_OR_Laplace_paired_2x2(n2),
+		regexp = "adjustment: estimate = 12.5000 \\(95% CI 2.6232 to 28.6333\\)"
+	)
+	# expect_output(
+	# 	object = Transformed_Wilson_score_CI_paired_2x2(n2),
 	# 	regexp = ""
 	# )
 	# expect_output(
-	# 	object = (n),
+	# 	object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(n2),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(n2),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = Transformed_Blaker_exact_CI_paired_2x2(n2),
 	# 	regexp = ""
 	# )
 	# expect_output(

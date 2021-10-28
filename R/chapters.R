@@ -206,7 +206,6 @@ list_chapter_functions <- function() {
 		McNemar_midP_test_paired_2x2 = McNemar_midP_test_paired_2x2,
 		Tang_asymptotic_score_CI_paired_2x2 = Tang_asymptotic_score_CI_paired_2x2,
 		Tango_asymptotic_score_CI_paired_2x2 = Tango_asymptotic_score_CI_paired_2x2,
-		the_paired_2x2_table_CIs_difference = the_paired_2x2_table_CIs_difference,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 = Newcombe_square_and_add_CI_paired_2x2,
 		Transformed_Wilson_score_CI_paired_2x2 = Transformed_Wilson_score_CI_paired_2x2,
@@ -214,6 +213,8 @@ list_chapter_functions <- function() {
 		Wald_CI_diff_CC_paired_2x2 = Wald_CI_diff_CC_paired_2x2,
 		Wald_CI_AgrestiMin_paired_2x2 = Wald_CI_AgrestiMin_paired_2x2,
 		Wald_CI_BonettPrice_paired_2x2 = Wald_CI_BonettPrice_paired_2x2,
+		Wald_CI_OR_Laplace_paired_2x2 = Wald_CI_OR_Laplace_paired_2x2,
+		the_paired_2x2_table_CIs_difference = the_paired_2x2_table_CIs_difference,
 		the_paired_2x2_table_CIs_OR = the_paired_2x2_table_CIs_OR
 	)
 	return(
