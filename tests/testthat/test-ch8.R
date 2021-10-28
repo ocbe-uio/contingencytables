@@ -55,10 +55,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Wald_CI_diff_CC_paired_2x2(n),
 		regexp = "estimate = -0.0621 \\(95% CI -0.1186 to -0.0057\\)"
 	)
-	# expect_output(
-	# 	object = ,
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Wald_CI_AgrestiMin_paired_2x2(n),
+		regexp = "adjustment: estimate = -0.0621 \\(95% CI -0.1182 to -0.0045\\)"
+	)
 	expect_output(
 		object = MOVER_Wilson_score_CI_paired_2x2(n),
 		regexp = "estimate = 0.8667 \\(95% CI 0.7592 to 0.9866\\)"
