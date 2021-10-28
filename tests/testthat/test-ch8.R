@@ -35,10 +35,10 @@ test_that("Chapter 8 functions basically work", {
 		object = McNemar_midP_test_paired_2x2(n),
 		regexp = "The McNemar mid-P test: P = 0.034690"
 	)
-	# expect_output(
-	# 	object = ,
-	# 	regexp = ""
-	# )
+	expect_output(
+		object =  Tang_asymptotic_score_CI_paired_2x2(n),
+		regexp = "estimate = 0.8667 \\(95% CI 0.7476 to 0.9876\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
