@@ -202,6 +202,7 @@ list_chapter_functions <- function() {
 		McNemar_asymptotic_test_CC_paired_2x2 = McNemar_asymptotic_test_CC_paired_2x2,
 		McNemar_asymptotic_test_paired_2x2 = McNemar_asymptotic_test_paired_2x2,
 		McNemar_exact_cond_test_paired_2x2 = McNemar_exact_cond_test_paired_2x2,
+		McNemar_exact_unconditional_test_paired_2x2 = McNemar_exact_unconditional_test_paired_2x2,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 = Newcombe_square_and_add_CI_paired_2x2,
 		Transformed_Wilson_score_CI_paired_2x2 = Transformed_Wilson_score_CI_paired_2x2
