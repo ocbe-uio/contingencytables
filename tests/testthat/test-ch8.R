@@ -80,10 +80,10 @@ test_that("Chapter 8 functions basically work", {
 	# 	object = the_paired_2x2_table_CIs_OR(n2),
 	# 	regexp = ""
 	# )
-	# expect_output(
-	# 	object = Wald_CI_OR_paired_2x2(n2),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Wald_CI_OR_paired_2x2(n2),
+		regexp = " The Wald CI: estimate = 12.5000 \\(95% CI 2.9608 to 52.7731\\)"
+	)
 	expect_output(
 		object = Wald_CI_OR_Laplace_paired_2x2(n2),
 		regexp = "adjustment: estimate = 12.5000 \\(95% CI 2.6232 to 28.6333\\)"
