@@ -22,11 +22,11 @@ load_chapter(6)
 # The Adolescent Placement Study (Fontanella et al., 2008)
 n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 the_2xc_table(n)
-}
 
 # Postoperative nausea (Lydersen et al., 2012a)
 n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 dir <- "decreasing"
 the_2xc_table(n, direction = dir)
+}
 unload_chapter(6)
 }

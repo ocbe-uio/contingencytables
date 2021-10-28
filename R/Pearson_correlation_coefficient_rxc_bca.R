@@ -9,13 +9,13 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples load_chapter(7)
-#' #' # Colorectal cancer (Table 7.7)
+#' \dontrun{
+#' # Colorectal cancer (Table 7.7)
 #' n <- rbind(
 #'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
 #' )
 #' Pearson_correlation_coefficient_rxc_bca(n)
 #'
-#' \dontrun{
 #' # Breast Tumor (Table 7.8)
 #' n <- matrix(
 #'   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),

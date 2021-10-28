@@ -3,13 +3,13 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs#'
 #' @examples load_chapter(7)
 #'
-#' # Unordered tables
-#'
-#' ## Treatment for ear infection (van Balen et al., 2003)
-#' n <- matrix(c(40, 25, 54, 7, 63, 10), byrow = TRUE, ncol = 2)
-#' the_rxc_table(n)
-#'
 #' \dontrun{
+#'   # Unordered tables
+#'
+#'   ## Treatment for ear infection (van Balen et al., 2003)
+#'   n <- matrix(c(40, 25, 54, 7, 63, 10), byrow = TRUE, ncol = 2)
+#'   the_rxc_table(n)
+#'
 #'   ## Psychiatric diagnoses vs PA (Mangerud et al., 2004)
 #'   n <- matrix(
 #'     c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17), byrow = TRUE, ncol = 2
