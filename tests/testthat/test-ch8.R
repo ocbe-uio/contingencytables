@@ -92,10 +92,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(n2),
 		regexp = "estimate = 12.5000 \\(95% CI 3.1169 to 108.8892\\)"
 	)
-	# expect_output(
-	# 	object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(n2),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(n2),
+		regexp = "estimate = 12.5000 \\(95% CI 3.4681 to 78.2972\\)"
+	)
 	# expect_output(
 	# 	object = Transformed_Blaker_exact_CI_paired_2x2(n2),
 	# 	regexp = ""
