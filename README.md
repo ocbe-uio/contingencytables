@@ -45,3 +45,4 @@ Proper citation of the SACT book can be found [here](https://contingencytables.c
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![](https://img.shields.io/github/last-commit/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables/commits/develop)
 [![](https://img.shields.io/github/languages/code-size/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables)
+[![](https://codecov.io/gh/ocbe-uio/contingencytables/branch/develop/graph/badge.svg)](https://codecov.io/gh/ocbe-uio/contingencytables)
