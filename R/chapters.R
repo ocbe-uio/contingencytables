@@ -213,7 +213,8 @@ list_chapter_functions <- function() {
 		Wald_CI_diff_paired_2x2 = Wald_CI_diff_paired_2x2,
 		Wald_CI_diff_CC_paired_2x2 = Wald_CI_diff_CC_paired_2x2,
 		Wald_CI_AgrestiMin_paired_2x2 = Wald_CI_AgrestiMin_paired_2x2,
-		Wald_CI_BonettPrice_paired_2x2 = Wald_CI_BonettPrice_paired_2x2
+		Wald_CI_BonettPrice_paired_2x2 = Wald_CI_BonettPrice_paired_2x2,
+		the_paired_2x2_table_CIs_OR = the_paired_2x2_table_CIs_OR
 	)
 	return(
 		list(
