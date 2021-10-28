@@ -76,10 +76,10 @@ test_that("Chapter 8 functions basically work", {
 		object = the_paired_2x2_table_CIs_difference(n),
 		regexp = "Estimate of delta = pi_1\\+ - pi_\\+1: -0.062"
 	)
-	# expect_output(
-	# 	object = the_paired_2x2_table_CIs_OR(n2),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = the_paired_2x2_table_CIs_OR(n2),
+		regexp = "Estimate of theta_cond = n_12/n_21: 12.500"
+	)
 	expect_output(
 		object = Wald_CI_OR_paired_2x2(n2),
 		regexp = " The Wald CI: estimate = 12.5000 \\(95% CI 2.9608 to 52.7731\\)"
