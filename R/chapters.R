@@ -212,7 +212,8 @@ list_chapter_functions <- function() {
 		Transformed_Wilson_score_CI_paired_2x2 = Transformed_Wilson_score_CI_paired_2x2,
 		Wald_CI_diff_paired_2x2 = Wald_CI_diff_paired_2x2,
 		Wald_CI_diff_CC_paired_2x2 = Wald_CI_diff_CC_paired_2x2,
-		Wald_CI_AgrestiMin_paired_2x2 = Wald_CI_AgrestiMin_paired_2x2
+		Wald_CI_AgrestiMin_paired_2x2 = Wald_CI_AgrestiMin_paired_2x2,
+		Wald_CI_BonettPrice_paired_2x2 = Wald_CI_BonettPrice_paired_2x2
 	)
 	return(
 		list(
