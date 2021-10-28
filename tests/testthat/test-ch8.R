@@ -104,10 +104,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Wald_CI_ratio_paired_2x2(n),
 		regexp = "The Wald CI: estimate = 0.8667 \\(95% CI 0.7597 to 0.9886\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = the_paired_2x2_table_CIs_ratio(n),
+		regexp = "Estimate of phi = pi_1\\+/pi_\\+1: 0.867"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
