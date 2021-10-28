@@ -71,12 +71,12 @@ test_that("Chapter 8 functions basically work", {
 		object = Wald_CI_BonettPrice_paired_2x2(n),
 		regexp = "adjustment: estimate = -0.0621 \\(95% CI -0.1195 to -0.0032\\)"
 	)
+	expect_output(
+		object = the_paired_2x2_table_CIs_difference(n),
+		regexp = "Estimate of delta = pi_1\\+ - pi_\\+1: -0.062"
+	)
 	# expect_output(
-	# 	object = the_paired_2x2_table_CIs_difference(n),
-	# 	regexp = ""
-	# )
-	# expect_output(
-	# 	object = (n),
+	# 	object = the_paired_2x2_table_CIs_OR(n),
 	# 	regexp = ""
 	# )
 	# expect_output(
