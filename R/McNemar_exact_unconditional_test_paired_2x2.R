@@ -1,7 +1,6 @@
 #' @title The McNemar exact unconditional test
 #' @description The McNemar exact unconditional test
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
-#' @param Dependencies ClopperPearson_exact_CI_1x2_beta_version.m
 #' @param n the observed table (a 2x2 matrix)
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
 #' @param printresults display results (FALSE = no, TRUE = yes)

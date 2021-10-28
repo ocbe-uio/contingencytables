@@ -16,8 +16,6 @@ McNemar_exact_unconditional_test_paired_2x2(
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)}
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
-
-\item{Dependencies}{ClopperPearson_exact_CI_1x2_beta_version.m}
 }
 \description{
 The McNemar exact unconditional test
