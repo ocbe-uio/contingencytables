@@ -1,6 +1,6 @@
 #' @title The Paired 2x2 table tests
 #' @param n frequency matrix
-#' @param alpha type I error
+#' @param gamma parameter for the Berger and Boos procedure
 #' @examples load_chapter(8)
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)

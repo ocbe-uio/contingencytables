@@ -9,7 +9,7 @@ the_paired_2x2_table_tests(n, gamma = 1e-04)
 \arguments{
 \item{n}{frequency matrix}
 
-\item{alpha}{type I error}
+\item{gamma}{parameter for the Berger and Boos procedure}
 }
 \description{
 The Paired 2x2 table tests
