@@ -209,7 +209,8 @@ list_chapter_functions <- function() {
 		the_paired_2x2_table_CIs_difference = the_paired_2x2_table_CIs_difference,
 		MOVER_Wilson_score_CI_paired_2x2 = MOVER_Wilson_score_CI_paired_2x2,
 		Newcombe_square_and_add_CI_paired_2x2 = Newcombe_square_and_add_CI_paired_2x2,
-		Transformed_Wilson_score_CI_paired_2x2 = Transformed_Wilson_score_CI_paired_2x2
+		Transformed_Wilson_score_CI_paired_2x2 = Transformed_Wilson_score_CI_paired_2x2,
+		Wald_CI_diff_paired_2x2 = Wald_CI_diff_paired_2x2
 	)
 	return(
 		list(
