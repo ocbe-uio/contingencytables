@@ -100,6 +100,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Transformed_Blaker_exact_CI_paired_2x2(n2),
 		regexp = "estimate = 12.5000 \\(95% CI 3.2994 to 74.0582\\)"
 	)
+	expect_output(
+		object = Wald_CI_ratio_paired_2x2(n),
+		regexp = "The Wald CI: estimate = 0.8667 \\(95% CI 0.7597 to 0.9886\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
@@ -108,6 +112,5 @@ test_that("Chapter 8 functions basically work", {
 	# 	object = (n),
 	# 	regexp = ""
 	# )
-
 	unload_chapter(8)
 })
