@@ -26,6 +26,7 @@
 #' well for most purposes. Try \code{showplot=1} to get an indication of
 #' the precision. A refinement of the maximization can be done with a manual
 #' restriction of the parameter space.
+#' @importFrom graphics segments
 McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, printresults = TRUE) {
   # Partition the parameter space into 'num_pi_values' equally spaced values
   num_pi_values <- 1000
@@ -89,7 +90,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
   # Display a plot of the P-value as a function of the common success probability
   if (showplot == 1) {
     common_pi_at_max_value <- pivalues[index]
-    quartz() # Change to windows() or other if not a Mac
+    dev.new()
     plot(pivalues, Pvalues, type = "l", lwd = 2)
     segments(common_pi_at_max_value, 0, common_pi_at_max_value, P, col = "red", lty = 2)
   }
