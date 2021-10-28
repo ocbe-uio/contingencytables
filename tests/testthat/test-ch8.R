@@ -39,10 +39,10 @@ test_that("Chapter 8 functions basically work", {
 		object =  Tang_asymptotic_score_CI_paired_2x2(n),
 		regexp = "estimate = 0.8667 \\(95% CI 0.7476 to 0.9876\\)"
 	)
-	# expect_output(
-	# 	object = ,
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Tango_asymptotic_score_CI_paired_2x2(n),
+		regexp = "score CI: estimate = -0.0621 \\(95% CI -0.1240 to -0.0054\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
