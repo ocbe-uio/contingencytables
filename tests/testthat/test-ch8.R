@@ -31,10 +31,10 @@ test_that("Chapter 8 functions basically work", {
 		object = McNemar_exact_unconditional_test_paired_2x2(n),
 		regexp = "The McNemar exact unconditional test: P = 0.034053"
 	)
-	# expect_output(
-	# 	object = ,
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = McNemar_midP_test_paired_2x2(n),
+		regexp = "The McNemar mid-P test: P = 0.034690"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
