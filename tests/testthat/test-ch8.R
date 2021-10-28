@@ -47,10 +47,10 @@ test_that("Chapter 8 functions basically work", {
 	# 	object = the_paired_2x2_table_CIs_difference(n),
 	# 	regexp = ""
 	# )
-	# expect_output(
-	# 	object = ,
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Wald_CI_diff_paired_2x2(n),
+		regexp = "The Wald CI: estimate = -0.0621 \\(95% CI -0.1184 to -0.0058\\)"
+	)
 	# expect_output(
 	# 	object = ,
 	# 	regexp = ""
