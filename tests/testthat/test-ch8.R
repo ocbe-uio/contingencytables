@@ -88,14 +88,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Wald_CI_OR_Laplace_paired_2x2(n2),
 		regexp = "adjustment: estimate = 12.5000 \\(95% CI 2.6232 to 28.6333\\)"
 	)
-	# expect_output(
-	# 	object = Transformed_Wilson_score_CI_paired_2x2(n2),
-	# 	regexp = ""
-	# )
-	# expect_output(
-	# 	object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(n2),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(n2),
+		regexp = "estimate = 12.5000 \\(95% CI 3.1169 to 108.8892\\)"
+	)
 	# expect_output(
 	# 	object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(n2),
 	# 	regexp = ""
