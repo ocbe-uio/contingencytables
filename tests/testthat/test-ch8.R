@@ -43,10 +43,6 @@ test_that("Chapter 8 functions basically work", {
 		object = Tango_asymptotic_score_CI_paired_2x2(n),
 		regexp = "score CI: estimate = -0.0621 \\(95% CI -0.1240 to -0.0054\\)"
 	)
-	# expect_output(
-	# 	object = the_paired_2x2_table_CIs_difference(n),
-	# 	regexp = ""
-	# )
 	expect_output(
 		object = Wald_CI_diff_paired_2x2(n),
 		regexp = "The Wald CI: estimate = -0.0621 \\(95% CI -0.1184 to -0.0058\\)"
@@ -71,5 +67,34 @@ test_that("Chapter 8 functions basically work", {
 		object = Transformed_Wilson_score_CI_paired_2x2(n),
 		regexp = "0.3750 \\(95% CI 0.1514 to 0.9287\\)"
 	)
+	expect_output(
+		object = Wald_CI_BonettPrice_paired_2x2(n),
+		regexp = "adjustment: estimate = -0.0621 \\(95% CI -0.1195 to -0.0032\\)"
+	)
+	# expect_output(
+	# 	object = the_paired_2x2_table_CIs_difference(n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = (n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = (n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = (n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = (n),
+	# 	regexp = ""
+	# )
+	# expect_output(
+	# 	object = (n),
+	# 	regexp = ""
+	# )
+
 	unload_chapter(8)
 })
