@@ -220,7 +220,8 @@ list_chapter_functions <- function() {
 		Wald_CI_OR_paired_2x2 = Wald_CI_OR_paired_2x2,
 		Wald_CI_ratio_paired_2x2 = Wald_CI_ratio_paired_2x2,
 		the_paired_2x2_table_CIs_difference = the_paired_2x2_table_CIs_difference,
-		the_paired_2x2_table_CIs_OR = the_paired_2x2_table_CIs_OR
+		the_paired_2x2_table_CIs_OR = the_paired_2x2_table_CIs_OR,
+		the_paired_2x2_table_CIs_ratio = the_paired_2x2_table_CIs_ratio
 	)
 	return(
 		list(
