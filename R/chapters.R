@@ -225,7 +225,8 @@ list_chapter_functions <- function() {
 		the_paired_2x2_table_tests = the_paired_2x2_table_tests
 	)
 	ch9 <- list(
-		Bhapkar_test_paired_cxc = Bhapkar_test_paired_cxc
+		Bhapkar_test_paired_cxc = Bhapkar_test_paired_cxc,
+		Bonferroni_type_CIs_paired_cxc = Bonferroni_type_CIs_paired_cxc
 	)
 	return(
 		list(
