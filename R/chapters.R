@@ -224,10 +224,13 @@ list_chapter_functions <- function() {
 		the_paired_2x2_table_CIs_ratio = the_paired_2x2_table_CIs_ratio,
 		the_paired_2x2_table_tests = the_paired_2x2_table_tests
 	)
+	ch9 <- list(
+		Bhapkar_test_paired_cxc = Bhapkar_test_paired_cxc
+	)
 	return(
 		list(
 			ch2 = ch2, ch3 = ch3, ch4 = ch4, ch5 = ch5,
-			ch6 = ch6, ch7 = ch7, ch8 = ch8
+			ch6 = ch6, ch7 = ch7, ch8 = ch8, ch9 = ch9
 		)
 	)
 }
