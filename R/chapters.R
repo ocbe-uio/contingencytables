@@ -226,7 +226,8 @@ list_chapter_functions <- function() {
 	)
 	ch9 <- list(
 		Bhapkar_test_paired_cxc = Bhapkar_test_paired_cxc,
-		Bonferroni_type_CIs_paired_cxc = Bonferroni_type_CIs_paired_cxc
+		Bonferroni_type_CIs_paired_cxc = Bonferroni_type_CIs_paired_cxc,
+		FleissEveritt_test_paired_cxc = FleissEveritt_test_paired_cxc
 	)
 	return(
 		list(
