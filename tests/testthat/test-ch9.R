@@ -7,10 +7,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Bhapkar_test_paired_cxc(n),
 		regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df=3\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Bonferroni_type_CIs_paired_cxc(n),
+		regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
