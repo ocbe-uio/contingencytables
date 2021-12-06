@@ -16,10 +16,11 @@ test_that("Chapter 8 functions basically work", {
 		object = FleissEveritt_test_paired_cxc(n2),
 		regexp = "version of the Stuart test: P = 0.000912, T = 14.000 \\(df=2\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	n3 <- rbind(c(596, 18, 6), c(0, 2, 0), c(0, 0, 42))
+	expect_output(
+		object = FleissLevinPaik_test_paired_cxc(n3),
+		regexp = "The Fleiss-Levin-Paik test: P = 0.000004, T = 21.429 \\(df=1\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
