@@ -52,7 +52,7 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
     .print("The Fleiss-Levin-Paik test: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
   }
 
-  invisible(list(P = P, T = T0, df = df))
+  return(invisible(list(P = P, T = T0, df = df)))
 }
 
 
