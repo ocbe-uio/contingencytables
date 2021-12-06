@@ -11,10 +11,11 @@ test_that("Chapter 8 functions basically work", {
 		object = Bonferroni_type_CIs_paired_cxc(n),
 		regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	n2 <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
+	expect_output(
+		object = FleissEveritt_test_paired_cxc(n2),
+		regexp = "version of the Stuart test: P = 0.000912, T = 14.000 \\(df=2\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
