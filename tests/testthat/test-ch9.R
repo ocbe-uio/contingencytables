@@ -49,10 +49,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n4),
 		regexp = "0.6196 \\(95% CI 0.5591 to 0.6800\\); P = 0.00011, Z =  3.877"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Wald_test_and_CI_marginal_mean_scores_paired_cxc(n4, a),
+		regexp = "The Wald CI: estimate = 1.6942 \\(95% CI 0.9347 to 2.4537\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
