@@ -25,10 +25,10 @@ test_that("Chapter 8 functions basically work", {
 		object = McNemarBowker_test_paired_cxc(n),
 		regexp = "test for symmetry: P = 0.000200, T0 = 26.250 \\(df=6\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Scheffe_type_CIs_paired_cxc(n),
+		regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0076 to  0.0250\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
