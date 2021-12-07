@@ -4,6 +4,7 @@ test_that("Chapter 8 functions basically work", {
 	load_chapter(8)
 	n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 	n2 <- rbind(c(7, 25), c(2, 68))
+	n_short <- floor(n / 10)
 	expect_output(
 		object = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n),
 		regexp = "CI w / CC: estimate = 0.8667 \\(95% CI 0.7475 to 1.0058\\)"
@@ -29,8 +30,8 @@ test_that("Chapter 8 functions basically work", {
 		regexp = "The McNemar exact conditional test: P = 0.052479"
 	)
 	expect_output(
-		object = McNemar_exact_unconditional_test_paired_2x2(n),
-		regexp = "The McNemar exact unconditional test: P = 0.034053"
+		object = McNemar_exact_unconditional_test_paired_2x2(n_short),
+		regexp = "The McNemar exact unconditional test: P = 0.542071"
 	)
 	expect_output(
 		object = McNemar_midP_test_paired_2x2(n),
@@ -109,8 +110,8 @@ test_that("Chapter 8 functions basically work", {
 		regexp = "Estimate of phi = pi_1\\+/pi_\\+1: 0.867"
 	)
 	expect_output(
-		object = the_paired_2x2_table_tests(n),
-		regexp = "Estimate of pi_\\+1: 75/161 = 0.466"
+		object = the_paired_2x2_table_tests(n_short),
+		regexp = "Estimate of pi_\\+1: 6/14 = 0.429"
 	)
 	unload_chapter(8)
 })
