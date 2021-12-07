@@ -5,7 +5,7 @@
 #' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
-#' @examples
+#' @examples load_chapter(9)
 #' # A comparison between serial and retrospective measurements
 #' # (Fischer et al., 1999)
 #' n <- rbind(
