@@ -57,9 +57,9 @@ test_that("Chapter 8 functions basically work", {
 		object = the_paired_cxc_table_nominal(n),
 		regexp = "pi_3\\+ - pi_\\+3:  -0.0088  \\(-0.0187 to  0.0012\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = the_paired_cxc_table_ordinal(n4, a),
+		regexp = "Wald logit: estimate = 0.2391 \\(95% CI 0.1151 to 0.3558\\)"
+	)
 	unload_chapter(8)
 })
