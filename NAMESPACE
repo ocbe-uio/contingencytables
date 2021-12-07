@@ -2,6 +2,7 @@
 
 export(load_chapter)
 export(reload_chapter)
+export(the_paired_cxc_table_nominal)
 export(unload_chapter)
 importFrom(MASS,polr)
 importFrom(boot,boot)
