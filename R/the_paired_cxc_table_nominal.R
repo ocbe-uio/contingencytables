@@ -1,11 +1,13 @@
+#' @title The Paired CxC table - nominal
+#' @param n the total number of observations
+#' @export
+#' @examples load_chapter(9)
+#' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
+#' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
+#' the_paired_cxc_table_nominal(n)
+#' unload_chapter(9)
 the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
-  if (missing(n)) {
-    # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-    n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
 
-    # From Table 13.6, page 382, of Fleiss et al. (2003)
-    #    n = [35 5 0; 15 20 5; 10 5 5]
-  }
 
   c <- nrow(n)
   N <- sum(n)
