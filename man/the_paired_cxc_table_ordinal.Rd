@@ -4,10 +4,14 @@
 \alias{the_paired_cxc_table_ordinal}
 \title{The Paired CxC table - ordinal}
 \usage{
-the_paired_cxc_table_ordinal(n, alpha = 0.05)
+the_paired_cxc_table_ordinal(n, a, alpha = 0.05)
 }
 \arguments{
 \item{n}{the total number of observations}
+
+\item{a}{scores assigned to the outcome categories}
+
+\item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \description{
 The Paired CxC table - ordinal
@@ -22,6 +26,7 @@ n <- rbind(
   c(1, 0, 15, 9, 12),
   c(0, 0, 2, 1, 3)
 )
-the_paired_cxc_table_ordinal(n)
+a <- c(8, 3.5, 0, -3.5, -8)
+the_paired_cxc_table_ordinal(n, a)
 unload_chapter(9)
 }

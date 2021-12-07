@@ -21,7 +21,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
     if (printresults) {
       .print("This method can only be used for c=3 categories\n")
     }
-    return
+    return()
   }
 
   # Compute the differences between the marginal sums
@@ -34,7 +34,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
       .print("No differences between the marginal sums\n")
       .print("P = 1.0\n")
     }
-    return
+    return()
   }
 
   n23 <- (n[2, 3] + n[3, 2]) / 2
@@ -52,7 +52,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
     .print("The Fleiss-Everitt version of the Stuart test: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
   }
 
-  return(invisible(list(P = P, T = T0, df = df)))
+  invisible(list(P = P, T = T0, df = df))
 }
 
 .print <- function(s, ...) {

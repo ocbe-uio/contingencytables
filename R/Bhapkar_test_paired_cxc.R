@@ -25,7 +25,7 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
       .print("No differences between the marginal sums\n")
       .print("P = 1.0\n")
     }
-    return
+    return()
   }
 
   # Form the sample covariance matrix
@@ -50,7 +50,7 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
       print(d)
       print(Sigmahat)
     }
-    return
+    return()
   }
 
   # Reference distribution: chi-squared with c-1 degrees of freedom
@@ -61,7 +61,7 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
     .print("The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
   }
 
-  return(invisible(list(P = P, T = T0, df = df)))
+  invisible(list(P = P, T = T0, df = df))
 }
 
 
