@@ -41,10 +41,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Score_test_and_CI_marginal_mean_scores_paired_cxc(n4, a),
 		regexp = "The score CI: estimate = 1.6942 \\(95% CI 0.8769 to 2.5115\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Stuart_test_paired_cxc(n),
+		regexp = "marginal homogenity: P = 0.000008, T0 = 26.250 \\(df=3\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
