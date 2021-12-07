@@ -24,7 +24,7 @@ Stuart_test_paired_cxc <- function(n, printresults = TRUE) {
       .print("No differences between the marginal sums\n")
       .print("P = 1.0\n")
     }
-    return
+    return()
   }
 
   # Form the null covariance matrix
@@ -49,7 +49,7 @@ Stuart_test_paired_cxc <- function(n, printresults = TRUE) {
       print(d)
       print(Sigmahat0)
     }
-    return
+    return()
   }
 
   # Reference distribution: chi-squared with c-1 degrees of freedom

@@ -1,5 +1,6 @@
 #' @title The Paired CxC table - nominal
 #' @param n the total number of observations
+#' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @export
 #' @examples load_chapter(9)
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)

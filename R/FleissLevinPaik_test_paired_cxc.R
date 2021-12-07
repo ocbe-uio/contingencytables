@@ -21,7 +21,7 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
     if (printresults) {
       .print("This method can only be used for c=3 categories\n")
     }
-    return
+    return()
   }
 
   # Compute the differences between the marginal sums
@@ -34,7 +34,7 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
       .print("No differences between the marginal sums\n")
       .print("P = 1.0\n")
     }
-    return
+    return()
   }
 
   n12 <- (n[1, 2] + n[2, 1]) / 2
@@ -52,7 +52,7 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
     .print("The Fleiss-Levin-Paik test: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
   }
 
-  return(invisible(list(P = P, T = T0, df = df)))
+  invisible(list(P = P, T = T0, df = df))
 }
 
 
