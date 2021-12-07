@@ -17,7 +17,7 @@
 #' a <- c(8, 3.5, 0, -3.5, -8)
 #' Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, a)
 #' unload_chapter(9)
-Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05, printresults = T) {
+Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05, printresults = TRUE) {
   c <- nrow(n)
   N <- sum(n)
   nip <- apply(n, 1, sum)

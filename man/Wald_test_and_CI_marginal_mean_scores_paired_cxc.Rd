@@ -9,7 +9,7 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc(
   n,
   a,
   alpha = 0.05,
-  printresults = T
+  printresults = TRUE
 )
 }
 \arguments{
