@@ -3,6 +3,7 @@ context("Chapter 6")
 test_that("Chapter 6 functions basically work", {
 	load_chapter(6)
 	n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
+	n_short <- floor(n / 2)
 	expect_output(
 		object = Brant_test_2xc(n) ,
 		regexp = "Brant test: T =  1.668, df = 2, P = 0.43422"
@@ -17,13 +18,13 @@ test_that("Chapter 6 functions basically work", {
 	)
 	dir <- "decreasing"
 	expect_output(
-		object = Exact_cond_midP_unspecific_ordering_rx2(t(n), dir),
-		regexp = "Exact conditional test:  0.13439"
+		object = Exact_cond_midP_unspecific_ordering_rx2(t(n_short), dir),
+		regexp = "Exact conditional test:  0.23094"
 	)
 	stat <- "PearsonCumOR"
 	expect_output(
-		object = Exact_cond_midP_unspecific_ordering_rx2(t(n), dir, stat),
-		regexp = "Exact conditional test:  0.12033"
+		object = Exact_cond_midP_unspecific_ordering_rx2(t(n_short), dir, stat),
+		regexp = "Exact conditional test:  0.08012"
 	)
 	expect_output(
 		object = MantelHaenszel_test_2xc(n),
@@ -39,8 +40,8 @@ test_that("Chapter 6 functions basically work", {
 		regexp = "Score test for effect: P = 0.1431, T = 2.145 \\(df=1\\)"
 	)
 	expect_output(
-		object = the_2xc_table(n, direction = "decreasing"),
-		regexp = "Wald \\(OR\\)       2.045     0.789 to  5.303"
+		object = the_2xc_table(n_short, direction = "decreasing"),
+		regexp = "Wald \\(OR\\)       2.420     0.598 to  9.788"
 	)
 	unload_chapter(6)
 })
