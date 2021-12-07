@@ -232,7 +232,8 @@ list_chapter_functions <- function() {
 		McNemarBowker_test_paired_cxc = McNemarBowker_test_paired_cxc,
 		Scheffe_type_CIs_paired_cxc = Scheffe_type_CIs_paired_cxc,
 		Score_test_and_CI_marginal_mean_scores_paired_cxc = Score_test_and_CI_marginal_mean_scores_paired_cxc,
-		Stuart_test_paired_cxc = Stuart_test_paired_cxc
+		Stuart_test_paired_cxc = Stuart_test_paired_cxc,
+		Wald_test_and_CI_marginal_mean_ranks_paired_cxc = Wald_test_and_CI_marginal_mean_ranks_paired_cxc
 	)
 	return(
 		list(

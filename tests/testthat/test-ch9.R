@@ -45,10 +45,10 @@ test_that("Chapter 8 functions basically work", {
 		object = Stuart_test_paired_cxc(n),
 		regexp = "marginal homogenity: P = 0.000008, T0 = 26.250 \\(df=3\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n4),
+		regexp = "0.6196 \\(95% CI 0.5591 to 0.6800\\); P = 0.00011, Z =  3.877"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
