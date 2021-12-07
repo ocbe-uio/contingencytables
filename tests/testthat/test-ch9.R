@@ -29,10 +29,18 @@ test_that("Chapter 8 functions basically work", {
 		object = Scheffe_type_CIs_paired_cxc(n),
 		regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0076 to  0.0250\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	n4 <- rbind(
+		c(1, 0, 1, 0, 0),
+		c(0, 2, 8, 4, 4),
+		c(1, 1, 31, 14, 11),
+		c(1, 0, 15, 9, 12),
+		c(0, 0, 2, 1, 3)
+	)
+	a <- c(8, 3.5, 0, -3.5, -8)
+	expect_output(
+		object = Score_test_and_CI_marginal_mean_scores_paired_cxc(n4, a),
+		regexp = "The score CI: estimate = 1.6942 \\(95% CI 0.8769 to 2.5115\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""
