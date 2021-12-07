@@ -2,6 +2,7 @@
 #' @description The Wald test and confidence interval for the difference between marginal mean scores
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
+#' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples load_chapter(9)

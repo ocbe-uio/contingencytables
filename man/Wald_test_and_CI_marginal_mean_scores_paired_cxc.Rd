@@ -15,6 +15,8 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc(
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
 
+\item{a}{scores assigned to the outcome categories}
+
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}

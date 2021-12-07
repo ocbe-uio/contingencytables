@@ -234,7 +234,8 @@ list_chapter_functions <- function() {
 		Score_test_and_CI_marginal_mean_scores_paired_cxc = Score_test_and_CI_marginal_mean_scores_paired_cxc,
 		Stuart_test_paired_cxc = Stuart_test_paired_cxc,
 		Wald_test_and_CI_marginal_mean_ranks_paired_cxc = Wald_test_and_CI_marginal_mean_ranks_paired_cxc,
-		Wald_test_and_CI_marginal_mean_scores_paired_cxc = Wald_test_and_CI_marginal_mean_scores_paired_cxc
+		Wald_test_and_CI_marginal_mean_scores_paired_cxc = Wald_test_and_CI_marginal_mean_scores_paired_cxc,
+		the_paired_cxc_table_nominal = the_paired_cxc_table_nominal
 	)
 	return(
 		list(
