@@ -21,6 +21,7 @@ load_chapter(8)
 n <- rbind(c(1, 1), c(7, 12))
 the_paired_2x2_table_tests(n)
 
+\dontrun{
 # Complete response before and after consolidation therapy
 # (Cavo et al., 2012)
 n <- rbind(c(59, 6), c(16, 80))
@@ -29,6 +30,6 @@ the_paired_2x2_table_tests(n)
 #' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 n <- rbind(c(7, 25), c(2, 68))
 the_paired_2x2_table_tests(n)
-
+}
 unload_chapter(8)
 }
