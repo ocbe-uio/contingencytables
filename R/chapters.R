@@ -230,7 +230,8 @@ list_chapter_functions <- function() {
 		FleissEveritt_test_paired_cxc = FleissEveritt_test_paired_cxc,
 		FleissLevinPaik_test_paired_cxc = FleissLevinPaik_test_paired_cxc,
 		McNemarBowker_test_paired_cxc = McNemarBowker_test_paired_cxc,
-		Scheffe_type_CIs_paired_cxc = Scheffe_type_CIs_paired_cxc
+		Scheffe_type_CIs_paired_cxc = Scheffe_type_CIs_paired_cxc,
+		Score_test_and_CI_marginal_mean_scores_paired_cxc = Score_test_and_CI_marginal_mean_scores_paired_cxc
 	)
 	return(
 		list(
