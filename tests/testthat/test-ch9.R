@@ -21,10 +21,10 @@ test_that("Chapter 8 functions basically work", {
 		object = FleissLevinPaik_test_paired_cxc(n3),
 		regexp = "The Fleiss-Levin-Paik test: P = 0.000004, T = 21.429 \\(df=1\\)"
 	)
-	# expect_output(
-	# 	object = (n),
-	# 	regexp = ""
-	# )
+	expect_output(
+		object = McNemarBowker_test_paired_cxc(n),
+		regexp = "test for symmetry: P = 0.000200, T0 = 26.250 \\(df=6\\)"
+	)
 	# expect_output(
 	# 	object = (n),
 	# 	regexp = ""

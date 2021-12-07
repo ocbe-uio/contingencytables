@@ -228,7 +228,8 @@ list_chapter_functions <- function() {
 		Bhapkar_test_paired_cxc = Bhapkar_test_paired_cxc,
 		Bonferroni_type_CIs_paired_cxc = Bonferroni_type_CIs_paired_cxc,
 		FleissEveritt_test_paired_cxc = FleissEveritt_test_paired_cxc,
-		FleissLevinPaik_test_paired_cxc = FleissLevinPaik_test_paired_cxc
+		FleissLevinPaik_test_paired_cxc = FleissLevinPaik_test_paired_cxc,
+		McNemarBowker_test_paired_cxc = McNemarBowker_test_paired_cxc
 	)
 	return(
 		list(
