@@ -80,17 +80,18 @@ the_2xc_table <- function(n, alpha=0.05, direction="increasing") {
 	.print('  Wald                          %6.3f          %8.5f\n', resultsProbit$Z_Wald, resultsProbit$P_Wald)
 	.print('  Likelihood ratio              %6.3f (df=%g)   %8.5f\n', resultsProbit$T_LR, resultsProbit$df_LR, resultsProbit$P_LR)
 
+	alphahat0 <- NULL
 	if (all(n == rbind(c(8, 28, 72, 126), c(46, 73, 69, 86)))) {
 	 alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
 	}
 	if (all(n == rbind(c(14, 10, 3, 2), c(11, 7, 8, 4)))) {
 	 alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
 	}
-	res = Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0, FALSE)
-	.print('  Score                         %6.3f (df=%g)   %8.5f\n', res$T, res$df, res$P)
+	if (!is.null(alphahat0)) {
+		res = Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0, FALSE)
+		.print('  Score                         %6.3f (df=%g)   %8.5f\n', res$T, res$df, res$P)
+	}
 	.print('--------------------------------------------------------\n')
-
-
 	.print('\nEstimation of the effect parameter beta with %g%% CIs\n', 100 * (1-alpha))
 	.print('----------------------------------------------------\n')
 	.print('Interval         Estimate     Conf. int       Width\n')
