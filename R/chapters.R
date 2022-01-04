@@ -247,7 +247,8 @@ list_chapter_functions <- function() {
 		MantelHaenszel_estimate_stratified_2x2 = MantelHaenszel_estimate_stratified_2x2,
 		Pearson_LR_homogeneity_test_stratified_2x2 = Pearson_LR_homogeneity_test_stratified_2x2,
 		Pearson_LR_test_common_effect_stratified_2x2 = Pearson_LR_test_common_effect_stratified_2x2,
-		Peto_homogeneity_test_stratified_2x2 = Peto_homogeneity_test_stratified_2x2
+		Peto_homogeneity_test_stratified_2x2 = Peto_homogeneity_test_stratified_2x2,
+		Peto_OR_estimate_stratified_2x2 = Peto_OR_estimate_stratified_2x2
 	)
 	return(
 		list(
