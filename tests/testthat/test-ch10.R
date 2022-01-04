@@ -17,5 +17,9 @@ test_that("Chapter 10 functions basically work", {
 		object = CochranMantelHaenszel_test_stratified_2x2(n),
 		regexp = "Cochran-Mantel-Haenszel test: P = 0.00000, T0 = 24.920 \\(df = 1"
 	)
+  expect_output(
+		object = InverseVariance_estimate_stratified_2x2(n),
+		regexp = "The inverse variance estimate =  3.5563"
+	)
 	unload_chapter(10)
 })
