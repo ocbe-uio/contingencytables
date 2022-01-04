@@ -1,6 +1,6 @@
 context("Chapter 9")
 
-test_that("Chapter 8 functions basically work", {
+test_that("Chapter 9 functions basically work", {
 	load_chapter(9)
 	n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
 	expect_output(
@@ -61,5 +61,5 @@ test_that("Chapter 8 functions basically work", {
 		object = the_paired_cxc_table_ordinal(n4, a),
 		regexp = "Wald logit: estimate = 0.2391 \\(95% CI 0.1151 to 0.3558\\)"
 	)
-	unload_chapter(8)
+	unload_chapter(9)
 })
