@@ -239,12 +239,13 @@ list_chapter_functions <- function() {
 		the_paired_cxc_table_ordinal = the_paired_cxc_table_ordinal
 	)
 	ch10 <- list(
+		BreslowDay_homogeneity_test_stratified_2x2 = BreslowDay_homogeneity_test_stratified_2x2,
 		MantelHaenszel_estimate_stratified_2x2 = MantelHaenszel_estimate_stratified_2x2
 	)
 	return(
 		list(
 			ch2 = ch2, ch3 = ch3, ch4 = ch4, ch5 = ch5,
-			ch6 = ch6, ch7 = ch7, ch8 = ch8, ch9 = ch9, ch10 = ch10
+			ch6 = ch6, ch7 = ch7,	ch8 = ch8, ch9 = ch9, ch10 = ch10
 		)
 	)
 }
