@@ -23,6 +23,7 @@
 #' ML_estimates_and_CIs_stratified_2x2(n)
 #'
 #' unload_chapter(10)
+#' @importFrom stats coef
 ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, printresults = TRUE) {
   N <- sum(n)
   K <- dim(n)[3]
