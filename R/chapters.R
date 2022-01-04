@@ -240,6 +240,7 @@ list_chapter_functions <- function() {
 	)
 	ch10 <- list(
 		BreslowDay_homogeneity_test_stratified_2x2 = BreslowDay_homogeneity_test_stratified_2x2,
+		CochranMantelHaenszel_test_stratified_2x2 = CochranMantelHaenszel_test_stratified_2x2,
 		MantelHaenszel_estimate_stratified_2x2 = MantelHaenszel_estimate_stratified_2x2
 	)
 	return(
