@@ -13,5 +13,9 @@ test_that("Chapter 10 functions basically work", {
 		object = MantelHaenszel_estimate_stratified_2x2(n),
 		regexp = "The Mantel-Haenszel estimate =  4.5239"
 	)
+  expect_output(
+		object = CochranMantelHaenszel_test_stratified_2x2(n),
+		regexp = "Cochran-Mantel-Haenszel test: P = 0.00000, T0 = 24.920 \\(df = 1"
+	)
 	unload_chapter(10)
 })
