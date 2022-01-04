@@ -29,5 +29,9 @@ test_that("Chapter 10 functions basically work", {
 		object = ML_estimates_and_CIs_stratified_2x2(n),
 		regexp = "gammahat_2 =  0.2122 \\(95% CI 0.0276 to 0.3967\\)"
 	)
+  expect_output(
+		object = Pearson_LR_homogeneity_test_stratified_2x2(n),
+		regexp = "The Pearson chi-squared test: P = 0.02471, T0 = 5.044 \\(df = 1\\)"
+	)
 	unload_chapter(10)
 })
