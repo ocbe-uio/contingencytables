@@ -44,7 +44,7 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit", prin
     results$P_Pearson <- 1.0
     results$T_Pearson <- 0
     results$df_Pearson <- 0
-    return(invisible(result))
+    return(invisible(results))
   }
 
   # Calculate the expected cell counts under the null hypothesis of
