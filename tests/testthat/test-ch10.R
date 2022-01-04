@@ -41,5 +41,9 @@ test_that("Chapter 10 functions basically work", {
 		object = Peto_homogeneity_test_stratified_2x2(n),
 		regexp = "The Peto test: P = 0.09297, T0 = 2.822 \\(df = 1\\)"
 	)
+  expect_output(
+		object = Peto_OR_estimate_stratified_2x2(n),
+		regexp = "The Peto OR estimate =  3.7120"
+	)
   unload_chapter(10)
 })
