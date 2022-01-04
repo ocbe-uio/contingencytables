@@ -23,7 +23,11 @@ test_that("Chapter 10 functions basically work", {
 	)
   expect_output(
 		object = Cochran_Q_test_stratified_2x2(n),
-		regexp = "The Cochran Q test (MH): P = 0.01025, Q = 6.591 \\(df = 1\\)"
+		regexp = "The Cochran Q test \\(MH\\): P = 0.01025, Q = 6.591 \\(df = 1\\)"
+	)
+  expect_output(
+		object = ML_estimates_and_CIs_stratified_2x2(n),
+		regexp = "gammahat_2 =  0.2122 \\(95% CI 0.0276 to 0.3967\\)"
 	)
 	unload_chapter(10)
 })
