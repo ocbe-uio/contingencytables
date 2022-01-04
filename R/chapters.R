@@ -244,7 +244,8 @@ list_chapter_functions <- function() {
 		Cochran_Q_test_stratified_2x2 = Cochran_Q_test_stratified_2x2,
 		InverseVariance_estimate_stratified_2x2 = InverseVariance_estimate_stratified_2x2,
 		ML_estimates_and_CIs_stratified_2x2 = ML_estimates_and_CIs_stratified_2x2,
-		MantelHaenszel_estimate_stratified_2x2 = MantelHaenszel_estimate_stratified_2x2
+		MantelHaenszel_estimate_stratified_2x2 = MantelHaenszel_estimate_stratified_2x2,
+		Pearson_LR_homogeneity_test_stratified_2x2 = Pearson_LR_homogeneity_test_stratified_2x2
 	)
 	return(
 		list(
