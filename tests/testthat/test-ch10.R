@@ -31,7 +31,11 @@ test_that("Chapter 10 functions basically work", {
 	)
   expect_output(
 		object = Pearson_LR_homogeneity_test_stratified_2x2(n),
-		regexp = "The Pearson chi-squared test: P = 0.02471, T0 = 5.044 \\(df = 1\\)"
+		regexp = "Pearson chi-squared test: P = 0.02471, T0 = 5.044 \\(df = 1\\)"
+	)
+  expect_output(
+		object = Pearson_LR_test_common_effect_stratified_2x2(n),
+		regexp = "Pearson chi-squared test: P = 0.00000, T0 = 25.101 \\(df = 1\\)"
 	)
 	unload_chapter(10)
 })
