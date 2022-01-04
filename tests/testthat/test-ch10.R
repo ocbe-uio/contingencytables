@@ -1,41 +1,45 @@
 context("Chapter 10")
 
 test_that("Chapter 10 functions basically work", {
-	load_chapter(10)
-	n <- array(dim = c(2, 2, 2))
+  load_chapter(10)
+  n <- array(dim = c(2, 2, 2))
   n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
   n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
-	expect_output(
-		object = BreslowDay_homogeneity_test_stratified_2x2(n),
-		regexp = "The Breslow-Day test: P = 0.02292, T0 = 5.175 \\(df = 1\\)"
-	)
   expect_output(
-		object = MantelHaenszel_estimate_stratified_2x2(n),
-		regexp = "The Mantel-Haenszel estimate =  4.5239"
-	)
+    object = BreslowDay_homogeneity_test_stratified_2x2(n),
+    regexp = "The Breslow-Day test: P = 0.02292, T0 = 5.175 \\(df = 1\\)"
+  )
   expect_output(
-		object = CochranMantelHaenszel_test_stratified_2x2(n),
-		regexp = "Cochran-Mantel-Haenszel test: P = 0.00000, T0 = 24.920 \\(df = 1"
-	)
+    object = MantelHaenszel_estimate_stratified_2x2(n),
+    regexp = "The Mantel-Haenszel estimate =  4.5239"
+  )
   expect_output(
-		object = InverseVariance_estimate_stratified_2x2(n),
-		regexp = "The inverse variance estimate =  3.5563"
-	)
+    object = CochranMantelHaenszel_test_stratified_2x2(n),
+    regexp = "Cochran-Mantel-Haenszel test: P = 0.00000, T0 = 24.920 \\(df = 1"
+  )
   expect_output(
-		object = Cochran_Q_test_stratified_2x2(n),
-		regexp = "The Cochran Q test \\(MH\\): P = 0.01025, Q = 6.591 \\(df = 1\\)"
-	)
+    object = InverseVariance_estimate_stratified_2x2(n),
+    regexp = "The inverse variance estimate =  3.5563"
+  )
   expect_output(
-		object = ML_estimates_and_CIs_stratified_2x2(n),
-		regexp = "gammahat_2 =  0.2122 \\(95% CI 0.0276 to 0.3967\\)"
-	)
+    object = Cochran_Q_test_stratified_2x2(n),
+    regexp = "The Cochran Q test \\(MH\\): P = 0.01025, Q = 6.591 \\(df = 1\\)"
+  )
   expect_output(
-		object = Pearson_LR_homogeneity_test_stratified_2x2(n),
-		regexp = "Pearson chi-squared test: P = 0.02471, T0 = 5.044 \\(df = 1\\)"
-	)
+    object = ML_estimates_and_CIs_stratified_2x2(n),
+    regexp = "gammahat_2 =  0.2122 \\(95% CI 0.0276 to 0.3967\\)"
+  )
   expect_output(
-		object = Pearson_LR_test_common_effect_stratified_2x2(n),
-		regexp = "Pearson chi-squared test: P = 0.00000, T0 = 25.101 \\(df = 1\\)"
+    object = Pearson_LR_homogeneity_test_stratified_2x2(n),
+    regexp = "Pearson chi-squared test: P = 0.02471, T0 = 5.044 \\(df = 1\\)"
+  )
+  expect_output(
+    object = Pearson_LR_test_common_effect_stratified_2x2(n),
+    regexp = "Pearson chi-squared test: P = 0.00000, T0 = 25.101 \\(df = 1\\)"
+  )
+  expect_output(
+		object = Peto_homogeneity_test_stratified_2x2(n),
+		regexp = "The Peto test: P = 0.09297, T0 = 2.822 \\(df = 1\\)"
 	)
-	unload_chapter(10)
+  unload_chapter(10)
 })
