@@ -21,5 +21,9 @@ test_that("Chapter 10 functions basically work", {
 		object = InverseVariance_estimate_stratified_2x2(n),
 		regexp = "The inverse variance estimate =  3.5563"
 	)
+  expect_output(
+		object = Cochran_Q_test_stratified_2x2(n),
+		regexp = "The Cochran Q test (MH): P = 0.01025, Q = 6.591 \\(df = 1\\)"
+	)
 	unload_chapter(10)
 })
