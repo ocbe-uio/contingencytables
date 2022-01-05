@@ -23,7 +23,7 @@ Authors@R:
             given  = "Waldir",
             family = "Leoncio",
             role   = "cre",
-            email  = "waldirln@medisin.uio.no"
+            email  = "w.l.netto@medisin.uio.no"
         ),
         person(
             given  = "Ole Christian",
