@@ -11,11 +11,7 @@ load_chapter <- function(chap_num) {
 	chap_name <- paste("Chapter", chap_num)
 	is_attached <- any(grepl(pattern = chap_name, x = search()))
 	if (is_attached) {
-		message(
-			"Chapter functions already loaded. Reloading. ",
-			"You can unload them with unload_chapter(", chap_num, ")"
-		)
-		reload_chapter(chap_num)
+		message("Chapter functions already loaded.")
 	} else {
 		message("Loading functions from chapter ", chap_num)
 		attach(list2env(chapters[[chap_num - 1]]), name = chap_name)
@@ -43,21 +39,6 @@ unload_chapter <- function(chap_num) {
 		message("Unloading functions from chapter ", chap_num)
 		detach(eval(chap_name), character.only = TRUE)
 	}
-}
-
-#' @title Reload chapter functions
-#' @description Reloads functions from a chapter
-#' @param chap_num Number of book chapter (from 2 to 10)
-#' @author Waldir Leoncio
-#' @export
-#' @details This is a wrapper for `unload_chapter()` followed by
-#' `load_chapter()`. It was made to ease the package development
-#' process, but might be useful for end users who thinks something
-#' might have gone wrong when loading/unloading a chapter and wishes
-#' to reload it.
-reload_chapter <- function(chap_num) {
-	unload_chapter(chap_num)
-	load_chapter(chap_num)
 }
 
 # ============================================================================ #
