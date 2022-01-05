@@ -57,5 +57,9 @@ test_that("Chapter 10 functions basically work", {
 		object = Wald_test_and_CI_common_ratio_stratified_2x2(n),
 		regexp = "Wald CI \\(MH\\): phihat = 2.4751 \\(95% CI 1.5831 to 3.8698\\)"
 	)
+  expect_output(
+		object = Woolf_test_and_CI_stratified_2x2(n),
+		regexp = "The Woolf CI: thetahatIV = 3.5563 \\(95% CI 1.8365 to 6.8866\\)"
+	)
   unload_chapter(10)
 })
