@@ -61,5 +61,9 @@ test_that("Chapter 10 functions basically work", {
 		object = Woolf_test_and_CI_stratified_2x2(n),
 		regexp = "The Woolf CI: thetahatIV = 3.5563 \\(95% CI 1.8365 to 6.8866\\)"
 	)
+  expect_output(
+		object = stratified_2x2_tables(n),
+		regexp = "Woolf \\(IV\\)           3.5563     1.8365 to  6.8866"
+	)
   unload_chapter(10)
 })
