@@ -250,7 +250,8 @@ list_chapter_functions <- function() {
 		Peto_homogeneity_test_stratified_2x2 = Peto_homogeneity_test_stratified_2x2,
 		Peto_OR_estimate_stratified_2x2 = Peto_OR_estimate_stratified_2x2,
 		RBG_test_and_CI_stratified_2x2 = RBG_test_and_CI_stratified_2x2,
-		Wald_test_and_CI_common_diff_stratified_2x2 = Wald_test_and_CI_common_diff_stratified_2x2
+		Wald_test_and_CI_common_diff_stratified_2x2 = Wald_test_and_CI_common_diff_stratified_2x2,
+		Wald_test_and_CI_common_ratio_stratified_2x2 = Wald_test_and_CI_common_ratio_stratified_2x2
 	)
 	return(
 		list(
