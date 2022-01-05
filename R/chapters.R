@@ -252,7 +252,8 @@ list_chapter_functions <- function() {
 		RBG_test_and_CI_stratified_2x2 = RBG_test_and_CI_stratified_2x2,
 		Wald_test_and_CI_common_diff_stratified_2x2 = Wald_test_and_CI_common_diff_stratified_2x2,
 		Wald_test_and_CI_common_ratio_stratified_2x2 = Wald_test_and_CI_common_ratio_stratified_2x2,
-		Woolf_test_and_CI_stratified_2x2 = Woolf_test_and_CI_stratified_2x2
+		Woolf_test_and_CI_stratified_2x2 = Woolf_test_and_CI_stratified_2x2,
+		stratified_2x2_tables = stratified_2x2_tables
 	)
 	return(
 		list(
