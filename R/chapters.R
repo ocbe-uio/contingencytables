@@ -15,8 +15,10 @@ load_chapter <- function(chap_num) {
 	} else {
 		message("Loading functions from chapter ", chap_num)
 		attach(list2env(chapters[[chap_num - 1]]), name = chap_name)
+		message("Available functions:")
+		print(names(chapters[[chap_num - 1]]))
+		message("When you're done, run unload_chapter(", chap_num, ").")
 	}
-	# on.exit(detach(target)) # attempt to solve "attach" note
 }
 
 #' @title Unload functions from a chapter
