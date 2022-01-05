@@ -33,7 +33,7 @@ load_chapter(10)
 n <- array(dim = c(2, 2, 2))
 n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
 n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
-ML_estimates_and_CIs_stratified_2x2(n)
+Wald_test_and_CI_common_diff_stratified_2x2(n)
 
 # Prophylactice use of Lidocaine in myocardial infarction (Hine et al., 1989)
 n <- array(0, dim = c(2, 2, 6))
@@ -43,7 +43,7 @@ n[, , 3] <- rbind(c(6, 101), c(4, 106))
 n[, , 4] <- rbind(c(7, 96), c(5, 95))
 n[, , 5] <- rbind(c(7, 103), c(3, 103))
 n[, , 6] <- rbind(c(11, 143), c(4, 142))
-ML_estimates_and_CIs_stratified_2x2(n)
+Wald_test_and_CI_common_diff_stratified_2x2(n)
 
 unload_chapter(10)
 }
