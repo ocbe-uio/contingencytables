@@ -53,5 +53,9 @@ test_that("Chapter 10 functions basically work", {
 		object = Wald_test_and_CI_common_diff_stratified_2x2(n),
 		regexp = "Wald CI \\(MH\\): deltahat = 0.3294 \\(95% CI 0.2281 to 0.4307\\)"
 	)
+  expect_output(
+		object = Wald_test_and_CI_common_ratio_stratified_2x2(n),
+		regexp = "Wald CI \\(MH\\): phihat = 2.4751 \\(95% CI 1.5831 to 3.8698\\)"
+	)
   unload_chapter(10)
 })
