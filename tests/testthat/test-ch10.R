@@ -49,5 +49,9 @@ test_that("Chapter 10 functions basically work", {
 		object = RBG_test_and_CI_stratified_2x2(n),
 		regexp = "The RBG CI: thetahatMH = 4.5239 \\(95% CI 2.3556 to 8.6880\\)"
 	)
+  expect_output(
+		object = Wald_test_and_CI_common_diff_stratified_2x2(n),
+		regexp = "Wald CI \\(MH\\): deltahat = 0.3294 \\(95% CI 0.2281 to 0.4307\\)"
+	)
   unload_chapter(10)
 })
