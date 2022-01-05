@@ -40,4 +40,4 @@ URL: https://contingencytables.com/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
 Imports: MASS, boot
 Suggests: testthat
-Date: 2020-11-06
+Date: 2022-01-05
