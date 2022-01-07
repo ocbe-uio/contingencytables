@@ -31,7 +31,7 @@ Authors@R:
             role   = "trl"
         )
     )
-Description: Provides functions to perform statistical inference of data organized in contingency tables. This package is a companion to the "Statistical Analysis of Contingency Tables" book by Fagerland et. al. <ISBN 9781466588172>.
+Description: Provides functions to perform statistical inference of data organized in contingency tables. This package is a companion to the "Statistical Analysis of Contingency Tables" book by Fagerland et al. <ISBN 9781466588172>.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
