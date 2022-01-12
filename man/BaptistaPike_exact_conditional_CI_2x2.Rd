@@ -27,5 +27,4 @@ BaptistaPike_exact_conditional_CI_2x2(n1)
 BaptistaPike_exact_conditional_CI_2x2(n2)
 BaptistaPike_exact_conditional_CI_2x2(n3)
 BaptistaPike_exact_conditional_CI_2x2(n4)
-
 }

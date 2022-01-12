@@ -18,7 +18,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' stratified_2x2_tables(n)
 #'
-#'
+#' @export
 stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("\n")
   .print("\nThe stratum-specific effect estimates\n")

@@ -14,7 +14,7 @@
 #'   n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow=TRUE)
 #'   Exact_cond_midP_tests_rxc(n)
 #' }
-#'
+#' @export
 #' @note  Works only for 3x2 and 3x3 tables
 Exact_cond_midP_tests_rxc <- function(n, printresults=TRUE) {
 	r = nrow(n)

@@ -21,7 +21,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Pearson_LR_homogeneity_test_stratified_2x2(n)
 #'
-#'
+#' @export
 Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit", printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)

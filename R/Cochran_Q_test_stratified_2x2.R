@@ -22,7 +22,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Cochran_Q_test_stratified_2x2(n)
 #'
-#'
+#' @export
 Cochran_Q_test_stratified_2x2 <- function(n, link = "linear", estimatetype = "MH", printresults = TRUE) {
   K <- dim(n)[3]
 

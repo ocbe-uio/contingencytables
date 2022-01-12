@@ -23,7 +23,6 @@ the_2x2_table_CIs_ratio(n)
 n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 the_2x2_table_CIs_ratio(n)
 
-
 }
 \seealso{
 the_2x2_table_CIs_difference the_2x2_table_CIs_OR the_2x2_table_tests

@@ -26,7 +26,7 @@
 #' Spearman_correlation_coefficient_rxc(n)
 #' }
 #'
-#'
+#' @export
 Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

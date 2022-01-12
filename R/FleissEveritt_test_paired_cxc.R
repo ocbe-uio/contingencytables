@@ -7,7 +7,7 @@
 #' # From Table 13.6, page 382, of Fleiss et al. (2003)
 #' n <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
 #' FleissEveritt_test_paired_cxc(n)
-#'
+#' @export
 FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
   # This is the version with c=3 categories
   c <- nrow(n)

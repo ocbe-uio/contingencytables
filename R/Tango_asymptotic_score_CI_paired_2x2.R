@@ -15,7 +15,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' Tango_asymptotic_score_CI_paired_2x2(n)
 #'
-#'
+#' @export
 Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   n12 <- n[1, 2]
   n21 <- n[2, 1]

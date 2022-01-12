@@ -13,7 +13,7 @@
 #' )
 #' a <- c(8, 3.5, 0, -3.5, -8)
 #' the_paired_cxc_table_ordinal(n, a)
-#'
+#' @export
 the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   c <- nrow(n)
   N <- sum(n)

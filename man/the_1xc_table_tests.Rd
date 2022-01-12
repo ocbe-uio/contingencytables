@@ -23,5 +23,4 @@ the_1xc_table_tests(n=c(276, 380, 118), pi0=c(0.402, 0.479, 0.119))
 the_1xc_table_tests(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
 # Example for the Chacko test: Hypothetical experiment
 the_1xc_table_tests(n = c(1, 4, 3, 11, 9), pi0=c(0.402, 0.479, 0.119), TRUE)
-
 }

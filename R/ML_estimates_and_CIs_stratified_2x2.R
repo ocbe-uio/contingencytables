@@ -22,7 +22,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' ML_estimates_and_CIs_stratified_2x2(n)
 #'
-#'
+#' @export
 #' @importFrom stats coef
 ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, printresults = TRUE) {
   N <- sum(n)

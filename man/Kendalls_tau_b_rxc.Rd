@@ -39,5 +39,4 @@ n <- matrix(
 )
 Kendalls_tau_b_rxc(n)
 
-
 }

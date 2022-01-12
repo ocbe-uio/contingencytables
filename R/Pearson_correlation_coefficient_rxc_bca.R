@@ -30,7 +30,7 @@
 #' )
 #' Pearson_correlation_coefficient_rxc_bca(n)
 #' }
-#'
+#' @export
 Pearson_correlation_coefficient_rxc_bca <- function(
 	n, nboot = 1e4, a = 1:nrow(n), b = 1:ncol(n), alpha = 0.05,
 	printresults = TRUE

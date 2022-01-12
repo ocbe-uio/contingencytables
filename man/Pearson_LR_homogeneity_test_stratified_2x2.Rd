@@ -39,5 +39,4 @@ n[, , 5] <- rbind(c(7, 103), c(3, 103))
 n[, , 6] <- rbind(c(11, 143), c(4, 142))
 Pearson_LR_homogeneity_test_stratified_2x2(n)
 
-
 }

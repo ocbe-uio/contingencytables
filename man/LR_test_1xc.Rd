@@ -23,5 +23,4 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 LR_test_1xc(n=c(276, 380, 118), pi0=c(0.402, 0.479, 0.119))
 # subset of 10 patients
 LR_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
-
 }

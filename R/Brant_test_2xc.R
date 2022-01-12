@@ -13,7 +13,7 @@
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' Brant_test_2xc(n)
 #'
-#'
+#' @export
 Brant_test_2xc <- function(n, printresults = TRUE) {
 	# Note that this function only works for 2xc tables (not for rxc tables)
 	r0 <- nrow(n)

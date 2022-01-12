@@ -50,5 +50,4 @@ n <- matrix(
 Pearson_correlation_coefficient_rxc(n)
 }
 
-
 }

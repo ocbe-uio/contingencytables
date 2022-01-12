@@ -22,7 +22,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' RBG_test_and_CI_stratified_2x2(n)
 #'
-#'
+#' @export
 RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   nppk <- apply(n, 3, sum)
 

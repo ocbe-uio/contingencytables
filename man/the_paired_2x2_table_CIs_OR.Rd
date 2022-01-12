@@ -20,5 +20,4 @@ The Paired 2x2 table CIs OR
 n <- rbind(c(7, 25), c(2, 68))
 the_paired_2x2_table_CIs_OR(n)
 
-
 }

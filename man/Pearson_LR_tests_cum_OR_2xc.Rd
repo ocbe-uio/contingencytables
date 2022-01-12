@@ -22,5 +22,4 @@ Described in Chapter 6 "The Ordered 2xc Table"
 # Postoperative nausea (Lydersen et al., 2012a)
 n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 Pearson_LR_tests_cum_OR_2xc(n)
-
 }

@@ -9,7 +9,7 @@ the_rxc_table(n, alpha = 0.05)
 \arguments{
 \item{n}{the total number of observations}
 
-\item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs#'}
+\item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \description{
 The rxc table
@@ -61,5 +61,4 @@ The rxc table
   )
   the_rxc_table(n)
 }
-
 }

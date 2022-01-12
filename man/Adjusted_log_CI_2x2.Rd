@@ -25,5 +25,4 @@ Adjusted_log_CI_2x2(n)
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
 n = matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 Adjusted_log_CI_2x2(n)
-
 }

@@ -15,7 +15,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' Tang_asymptotic_score_CI_paired_2x2(n)
 #'
-#'
+#' @export
 Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Define global variables that are needed in the functions below
 

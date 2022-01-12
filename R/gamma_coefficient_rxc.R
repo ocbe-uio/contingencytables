@@ -25,7 +25,7 @@
 #'   )
 #'   gamma_coefficient_rxc_bca(n)
 #' }
-#'
+#' @export
 gamma_coefficient_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

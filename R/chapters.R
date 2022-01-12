@@ -1,8 +1,7 @@
 #' @name chap1
-#' @title Chapter 1
+#' @title Chapter 1: Introduction
 #' @description There are no functions for Chapter 1 (Introduction), only from
 #' Chapters 2 to 10.
-#'
 #' @references
 #' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of
 #' Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
@@ -38,9 +37,7 @@ NULL
 #'   \item{Wald_test_CC_1x2}
 #'   \item{the_1x2_table_tests}
 #' }
-#'
 #' @note You can also print the list above with \code{list_functions(2)}.
-#'
 #' @references
 #' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of
 #' Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
@@ -65,7 +62,7 @@ list_functions <- function(chap_num) {
 }
 
 # ============================================================================ #
-# Internal functions used in this file                                         #
+# Internal functions and objects used in this file                                         #
 # ============================================================================ #
 validate_chapter_choice <- function(chap_num) {
 	# Makes sure the user chooses a proper chapter number

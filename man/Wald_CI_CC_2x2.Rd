@@ -25,5 +25,4 @@ Wald_CI_CC_2x2(n)
 n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 Wald_CI_CC_2x2(n)
 
-
 }

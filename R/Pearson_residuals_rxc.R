@@ -21,7 +21,7 @@
 #'   c(5, 21, 12), c(19, 130, 64), c(7, 26, 18)
 #' )
 #' Pearson_residuals_rxc(n)
-#'
+#' @export
 Pearson_residuals_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

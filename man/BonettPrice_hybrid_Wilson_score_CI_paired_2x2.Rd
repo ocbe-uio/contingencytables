@@ -28,5 +28,4 @@ BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)
 # Complete response before and after consolidation therapy (Cavo et al., 2012)
 n <- rbind(c(59, 6), c(16, 80))
 BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)
-
 }

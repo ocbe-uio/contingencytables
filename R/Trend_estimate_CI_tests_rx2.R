@@ -28,7 +28,7 @@
 #' n <- rbind(c(8,53),c(10,48),c(11,100),c(22,102),c(6,129))
 #' a <- c(1, 2, 3, 4, 5)
 #' Trend_estimate_CI_tests_rx2(n, a)
-#'
+#' @export
 
 Trend_estimate_CI_tests_rx2 <- function(
 	n, a, linkfunction="logit", alpha=0.05, printresults=TRUE

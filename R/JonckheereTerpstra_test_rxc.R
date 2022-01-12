@@ -23,7 +23,7 @@
 #'   ncol = 4, byrow = TRUE
 #' )
 #' JonckheereTerpstra_test_rxc(n)
-#'
+#' @export
 JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

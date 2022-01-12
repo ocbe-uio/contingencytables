@@ -9,7 +9,7 @@ the_2xc_table(n, alpha = 0.05, direction = "increasing")
 \arguments{
 \item{n}{the total number of observations}
 
-\item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs#'}
+\item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 
 \item{direction}{the direction of the success probabilities}
 }
@@ -27,5 +27,4 @@ n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 dir <- "decreasing"
 the_2xc_table(n, direction = dir)
 }
-
 }

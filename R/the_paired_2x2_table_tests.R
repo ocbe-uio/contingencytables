@@ -17,7 +17,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' the_paired_2x2_table_tests(n)
 #' }
-#'
+#' @export
 the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   N <- sum(n)
 

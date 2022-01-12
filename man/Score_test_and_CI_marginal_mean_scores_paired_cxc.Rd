@@ -37,5 +37,4 @@ n <- rbind(
 )
 a <- c(8, 3.5, 0, -3.5, -8)
 Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a)
-
 }

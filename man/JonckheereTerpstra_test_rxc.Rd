@@ -36,5 +36,4 @@ n <- matrix(
   ncol = 4, byrow = TRUE
 )
 JonckheereTerpstra_test_rxc(n)
-
 }

@@ -27,5 +27,4 @@ MOVER_R_Wilson_CI_OR_2x2(n)
 n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 MOVER_R_Wilson_CI_OR_2x2(n)
 
-
 }

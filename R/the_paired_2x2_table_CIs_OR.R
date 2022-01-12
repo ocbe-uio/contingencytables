@@ -7,7 +7,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' the_paired_2x2_table_CIs_OR(n)
 #'
-#'
+#' @export
 the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   thetacondhat <- n[1, 2] / n[2, 1]
 

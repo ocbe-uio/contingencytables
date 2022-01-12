@@ -27,5 +27,4 @@ n <- rbind(
 )
 a <- c(8, 3.5, 0, -3.5, -8)
 the_paired_cxc_table_ordinal(n, a)
-
 }

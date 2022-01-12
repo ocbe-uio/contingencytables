@@ -1,6 +1,6 @@
 #' @title The 2xc table
 #' @param n the total number of observations
-#' @param alpha the nominal level, e.g. 0.05 for 95% CIs#'
+#' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param direction the direction of the success probabilities
 #' @examples
 #' \dontrun{
@@ -13,7 +13,7 @@
 #' dir <- "decreasing"
 #' the_2xc_table(n, direction = dir)
 #' }
-#'
+#' @export
 the_2xc_table <- function(n, alpha=0.05, direction="increasing") {
 	.print('\nMethod                            Statistic      P-value\n')
 	.print('--------------------------------------------------------\n')

@@ -39,5 +39,4 @@ n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
 Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
 
-
 }

@@ -25,5 +25,4 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 # subset of 10 patients
 Exact_multinomial_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
-
 }

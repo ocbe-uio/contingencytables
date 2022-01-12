@@ -8,7 +8,7 @@
 #' # Postoperative nausea (Lydersen et al., 2012a)
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' Pearson_LR_tests_cum_OR_2xc(n)
-#'
+#' @export
 Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresults = TRUE) {
 
 	# Swap the order of the two rows if probabilities are increasing

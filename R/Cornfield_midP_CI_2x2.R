@@ -13,7 +13,7 @@
 #' Cornfield_midP_CI_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' Cornfield_midP_CI_2x2(n)
-#'
+#' @export
 Cornfield_midP_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# global n11 n1p n2p np1 alphaglobal
 	n11 <- n[1, 1]

@@ -31,5 +31,4 @@ the_2x2_table_tests(n)
 n <- rbind(c(0,16), c(15,57))
 the_2x2_table_tests(n)
 
-
 }

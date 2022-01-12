@@ -10,7 +10,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' Transformed_Clopper_Pearson_midP_CI_paired_2x2(n)
 #'
-#'
+#' @export
 Transformed_Clopper_Pearson_midP_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the conditional odds ratio (thetacondhat)
   estimate <- n[1, 2] / n[2, 1]

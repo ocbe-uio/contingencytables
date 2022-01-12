@@ -6,7 +6,6 @@
 \title{Statistical Analysis of Contingency tables}
 \description{
 Statistical Analysis of Contingency Tables is an invaluable tool for statistical inference in contingency tables. It covers effect size estimation, confidence intervals, and hypothesis tests for the binomial and the multinomial distributions, unpaired and paired 2x2 tables, rxc tables, ordered rx2 and 2xc tables, paired cxc tables, and stratified tables.
-
 This package provides functions that accompany the "Statistical Analysis of Contingency Tables" book by Fagerland et. al. <ISBN 9781466588172>.
 }
 \references{

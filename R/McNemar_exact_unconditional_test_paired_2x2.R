@@ -18,7 +18,7 @@
 #' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 #' n <- rbind(c(7, 25), c(2, 68))
 #' McNemar_exact_unconditional_test_paired_2x2(n)
-#'
+#' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
 #' (default: 1000). The number may be changed below. This method could be

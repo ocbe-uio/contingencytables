@@ -13,7 +13,7 @@
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' MOVER_R_Wilson_CI_OR_2x2(n)
 #'
-#'
+#' @export
 MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 
 	# If n_22 = 0, use an equivalent case, which gives a finite upper limit

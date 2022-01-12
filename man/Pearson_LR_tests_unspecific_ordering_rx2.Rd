@@ -34,5 +34,4 @@ Pearson_LR_tests_unspecific_ordering_rx2(n, 'decreasing')
 # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
 n <- t(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow=TRUE, ncol=4))
 Pearson_LR_tests_unspecific_ordering_rx2(n, 'decreasing')
-
 }

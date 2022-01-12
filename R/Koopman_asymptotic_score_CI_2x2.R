@@ -13,7 +13,7 @@
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' Koopman_asymptotic_score_CI_2x2(n)
-#'
+#' @export
 Koopman_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 
 	n11 <- n[1, 1]

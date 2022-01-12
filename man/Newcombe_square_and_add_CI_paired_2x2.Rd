@@ -29,5 +29,4 @@ Newcombe_square_and_add_CI_paired_2x2(n)
 n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 Newcombe_square_and_add_CI_paired_2x2(n)
 
-
 }

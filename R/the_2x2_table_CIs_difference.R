@@ -11,7 +11,7 @@
 #' n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 #' the_2x2_table_CIs_difference(n)
 #'
-#'
+#' @export
 the_2x2_table_CIs_difference <- function(n, alpha=0.05) {
 	pi1hat <- n[1, 1] / (n[1, 1] + n[1, 2])
 	pi2hat <- n[2, 1] / (n[2, 1] + n[2, 2])

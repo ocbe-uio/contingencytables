@@ -27,5 +27,4 @@ n <- rbind(c(9,4), c(4,10))    # Example: Lampasona et al. (2013)
 Fisher_midP_test_2x2(n)
 n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 Fisher_midP_test_2x2(n)
-
 }

@@ -23,7 +23,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Wald_test_and_CI_common_diff_stratified_2x2(n)
 #'
-#'
+#' @export
 Wald_test_and_CI_common_diff_stratified_2x2 <- function(n, estimatetype = "MH", alpha = 0.05, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)

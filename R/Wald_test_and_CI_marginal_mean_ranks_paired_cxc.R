@@ -15,7 +15,7 @@
 #'   c(0, 0, 2, 1, 3)
 #' )
 #' Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n)
-#'
+#' @export
 Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
   c <- nrow(n)
   N <- sum(n)

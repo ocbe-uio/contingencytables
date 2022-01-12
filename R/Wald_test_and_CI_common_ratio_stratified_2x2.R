@@ -22,8 +22,7 @@
 #' n[, , 5] <- rbind(c(7, 103), c(3, 103))
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Wald_test_and_CI_common_ratio_stratified_2x2(n)
-#'
-#'
+#' @export
 Wald_test_and_CI_common_ratio_stratified_2x2 <- function(n, estimatetype = "MH", alpha = 0.05, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

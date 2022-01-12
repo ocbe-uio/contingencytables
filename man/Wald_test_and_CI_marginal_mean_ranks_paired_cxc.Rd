@@ -34,5 +34,4 @@ n <- rbind(
   c(0, 0, 2, 1, 3)
 )
 Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n)
-
 }

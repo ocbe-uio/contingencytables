@@ -33,5 +33,4 @@ Z_unpooled_test_2x2(n)
 n <- rbind(c(0,16), c(15,57))
 Z_unpooled_test_2x2(n)
 
-
 }

@@ -55,5 +55,4 @@ n <- matrix(
 )
 Pearson_correlation_coefficient_rxc_bca(n)
 }
-
 }

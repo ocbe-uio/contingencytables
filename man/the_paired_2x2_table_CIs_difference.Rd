@@ -25,5 +25,4 @@ the_paired_2x2_table_CIs_difference(n)
 n <- rbind(c(59, 6), c(16, 80))
 the_paired_2x2_table_CIs_difference(n)
 
-
 }

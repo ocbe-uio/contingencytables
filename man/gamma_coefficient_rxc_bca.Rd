@@ -42,5 +42,4 @@ gamma_coefficient_rxc_bca(n)
   )
   gamma_coefficient_rxc_bca(n)
 }
-
 }

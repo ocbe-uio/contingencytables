@@ -22,7 +22,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Woolf_test_and_CI_stratified_2x2(n)
 #'
-#'
+#' @export
 Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Get the inverse variance overall estimate and weights
   tmp <- InverseVariance_estimate_stratified_2x2(n, "logit", F)

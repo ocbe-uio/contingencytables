@@ -25,7 +25,7 @@
 #' )
 #' Kendalls_tau_b_rxc(n)
 #'
-#'
+#' @export
 Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 	nip <- apply(n, 1, sum)
 	npj <- apply(n, 2, sum)

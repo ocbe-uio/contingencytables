@@ -15,7 +15,7 @@
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' Exact_cond_midP_linear_rank_tests_2xc(n)
 #'
-#'
+#' @export
 Exact_cond_midP_linear_rank_tests_2xc <- function(n, b=0, printresults=TRUE) {
 	c0 <- ncol(n)
 	nip <- apply(n, 1, sum)

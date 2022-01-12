@@ -43,6 +43,4 @@ n[, , 4] <- rbind(c(7, 96), c(5, 95))
 n[, , 5] <- rbind(c(7, 103), c(3, 103))
 n[, , 6] <- rbind(c(11, 143), c(4, 142))
 Wald_test_and_CI_common_ratio_stratified_2x2(n)
-
-
 }

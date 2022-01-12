@@ -15,7 +15,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' Wald_CI_ratio_paired_2x2(n)
 #'
-#'
+#' @export
 Wald_CI_ratio_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the ratio of probabilities (phihat)
   estimate <- (n[1, 1] + n[1, 2]) / (n[1, 1] + n[2, 1])

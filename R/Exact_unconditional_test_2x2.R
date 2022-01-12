@@ -15,7 +15,7 @@
 #' Exact_unconditional_test_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' Exact_unconditional_test_2x2(n)
-#'
+#' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
 #' (default: 1000). The number may be changed below.

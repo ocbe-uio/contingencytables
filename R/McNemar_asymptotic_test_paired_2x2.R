@@ -18,7 +18,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' McNemar_asymptotic_test_paired_2x2(n)
 #'
-#'
+#' @export
 McNemar_asymptotic_test_paired_2x2 <- function(n, printresults = TRUE) {
   # The number of discordant pairs
   nd <- n[1, 2] + n[2, 1]

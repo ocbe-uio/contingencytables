@@ -27,7 +27,7 @@
 #' )
 #' linear_by_linear_test_rxc(n)
 #' }
-#'
+#' @export
 linear_by_linear_test_rxc <- function(n, a = 1:ncol(n), b = 1:nrow(n), printresults = TRUE) {
 
 	# If no scores are given, use equally spaced scores

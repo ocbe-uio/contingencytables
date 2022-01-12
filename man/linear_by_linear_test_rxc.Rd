@@ -42,5 +42,4 @@ n <- matrix(
 )
 linear_by_linear_test_rxc(n)
 }
-
 }

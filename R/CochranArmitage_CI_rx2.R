@@ -16,7 +16,7 @@
 #' a <- c(1, 2, 3, 4, 5)
 #' CochranArmitage_CI_rx2(n, a)
 #'
-#'
+#' @export
 CochranArmitage_CI_rx2 <- function(n, a, alpha=0.05, printresults=TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)

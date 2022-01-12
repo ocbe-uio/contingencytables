@@ -23,5 +23,4 @@ the_2x2_table_CIs_difference(n)
 n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 the_2x2_table_CIs_difference(n)
 
-
 }

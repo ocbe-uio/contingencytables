@@ -14,7 +14,7 @@
 #'   ncol = 3, byrow = TRUE
 #' )
 #' KruskalWallis_asymptotic_test_rxc(n)
-#'
+#' @export
 KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

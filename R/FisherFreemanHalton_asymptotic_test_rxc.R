@@ -9,7 +9,7 @@
 #' FisherFreemanHalton_asymptotic_test_rxc(n)
 #'
 #' @note May not give results for all tables, due to overflow
-#'
+#' @export
 FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

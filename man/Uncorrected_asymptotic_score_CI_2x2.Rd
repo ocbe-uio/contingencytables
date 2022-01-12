@@ -28,5 +28,4 @@ n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 Uncorrected_asymptotic_score_CI_2x2(n)
 
 
-
 }

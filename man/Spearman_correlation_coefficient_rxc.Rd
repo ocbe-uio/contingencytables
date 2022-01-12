@@ -40,5 +40,4 @@ n <- matrix(
 Spearman_correlation_coefficient_rxc(n)
 }
 
-
 }

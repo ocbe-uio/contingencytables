@@ -19,7 +19,7 @@
 #' n <- rbind(c(0,16), c(15,57))
 #' the_2x2_table_tests(n)
 #'
-#'
+#' @export
 the_2x2_table_tests <- function(n, gamma=0.0001) {
 	pi1hat <- n[1, 1] / (n[1, 1] + n[1, 2])
 	pi2hat <- n[2, 1] / (n[2, 1] + n[2, 2])

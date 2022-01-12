@@ -9,7 +9,7 @@
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' MantelHaenszel_test_2xc(n)
 #' b <- 0
-#'
+#' @export
 MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {
 	c <- ncol(n)
 	nip <- apply(n, 1, sum)

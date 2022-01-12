@@ -30,5 +30,4 @@ Wald_CI_BonettPrice_paired_2x2(n)
 # (Cavo et al., 2012)
 n <- rbind(c(59, 6), c(16, 80))
 Wald_CI_BonettPrice_paired_2x2(n)
-
 }

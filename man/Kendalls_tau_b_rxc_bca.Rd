@@ -42,5 +42,4 @@ Described in Chapter 7 "The rxc Table"
   )
   Kendalls_tau_b_rxc_bca(n)
 }
-
 }

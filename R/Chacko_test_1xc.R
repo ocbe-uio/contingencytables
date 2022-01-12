@@ -6,7 +6,7 @@
 #' @examples
 #' # Hypothetical experiment
 #' Chacko_test_1xc(n=c(1, 4, 3, 11, 9))
-#'
+#' @export
 Chacko_test_1xc <- function(n, printresults=TRUE) {
 	c0 <- length(n)
 	N <- sum(n)

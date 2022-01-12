@@ -12,7 +12,7 @@
 #' LR_test_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' LR_test_2x2(n)
-#'
+#' @export
 LR_test_2x2 <- function(n, printresults=TRUE) {
 	# The estimated expected counts
 	N <- sum(n)

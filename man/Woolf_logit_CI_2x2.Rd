@@ -27,5 +27,4 @@ Woolf_logit_CI_2x2(n)
 n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 Woolf_logit_CI_2x2(n)
 
-
 }

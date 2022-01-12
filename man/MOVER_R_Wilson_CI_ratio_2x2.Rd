@@ -26,5 +26,4 @@ MOVER_R_Wilson_CI_ratio_2x2(matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE))
 MOVER_R_Wilson_CI_ratio_2x2(matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE))
 
 
-
 }

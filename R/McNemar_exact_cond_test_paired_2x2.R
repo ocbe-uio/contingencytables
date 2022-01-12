@@ -19,7 +19,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' McNemar_exact_cond_test_paired_2x2(n)
 #'
-#'
+#' @export
 McNemar_exact_cond_test_paired_2x2 <- function(n, printresults = TRUE) {
   # Exact p-value based on the binomial distribution
   P <- 2 * pbinom(min(n[1, 2], n[2, 1]), n[1, 2] + n[2, 1], 0.5)

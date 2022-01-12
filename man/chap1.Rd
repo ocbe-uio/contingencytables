@@ -2,7 +2,7 @@
 % Please edit documentation in R/chapters.R
 \name{chap1}
 \alias{chap1}
-\title{Chapter 1}
+\title{Chapter 1: Introduction}
 \description{
 There are no functions for Chapter 1 (Introduction), only from
 Chapters 2 to 10.

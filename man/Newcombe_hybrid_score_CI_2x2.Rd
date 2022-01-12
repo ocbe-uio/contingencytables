@@ -27,5 +27,4 @@ Newcombe_hybrid_score_CI_2x2(n)
 n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 Newcombe_hybrid_score_CI_2x2(n)
 
-
 }

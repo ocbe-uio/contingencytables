@@ -14,7 +14,7 @@
 #' # Ligarden et al. (2010)
 #' the_1x2_table_CIs(X=13, n=16)
 #'
-#'
+#' @export
 the_1x2_table_CIs <- function(X, n, alpha=0.05) {
 
 	estimate <- X / n

@@ -12,7 +12,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' the_paired_2x2_table_CIs_difference(n)
 #'
-#'
+#' @export
 the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   N <- sum(n)
 

@@ -29,5 +29,4 @@ Wald_CI_ratio_paired_2x2(n)
 n <- rbind(c(59, 6), c(16, 80))
 Wald_CI_ratio_paired_2x2(n)
 
-
 }

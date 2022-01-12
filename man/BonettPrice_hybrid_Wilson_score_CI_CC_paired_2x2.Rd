@@ -35,5 +35,4 @@ BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n)
 n <- rbind(c(59, 6), c(16, 80))
 BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n)
 
-
 }

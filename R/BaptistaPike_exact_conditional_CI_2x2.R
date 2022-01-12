@@ -13,7 +13,7 @@
 #' BaptistaPike_exact_conditional_CI_2x2(n2)
 #' BaptistaPike_exact_conditional_CI_2x2(n3)
 #' BaptistaPike_exact_conditional_CI_2x2(n4)
-#'
+#' @export
 BaptistaPike_exact_conditional_CI_2x2 <- function(
 	n, alpha=0.05, printresults=TRUE
 ) {

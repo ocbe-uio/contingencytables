@@ -20,7 +20,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' CochranMantelHaenszel_test_stratified_2x2(n)
 #'
-#'
+#' @export
 CochranMantelHaenszel_test_stratified_2x2 <- function(n, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

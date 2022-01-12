@@ -49,5 +49,4 @@ n <- matrix(
 )
 Spearman_correlation_coefficient_rxc_bca(n)
 }
-
 }

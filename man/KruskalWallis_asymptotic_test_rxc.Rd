@@ -27,5 +27,4 @@ n <- matrix(
   ncol = 3, byrow = TRUE
 )
 KruskalWallis_asymptotic_test_rxc(n)
-
 }

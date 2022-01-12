@@ -11,7 +11,7 @@
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' Inv_sinh_CI_ratio_2x2(n)
-#'
+#' @export
 Inv_sinh_CI_ratio_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 
 	n1p <- n[1, 1] + n[1, 2]

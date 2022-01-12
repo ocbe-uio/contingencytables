@@ -38,7 +38,6 @@ ClopperPearson_exact_CI_1x2_beta_version(X = 103, n = 167)
 ClopperPearson_exact_CI_1x2_beta_version(X = 33, n = 45)
 # Ligarden et al. (2010)
 ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16)
-
 }
 \references{
 Brown LD, Cai T, DasGupta A (2001) Interval estimation for a

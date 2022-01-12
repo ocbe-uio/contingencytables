@@ -24,5 +24,4 @@ Described in Chapter 8 "The Paired 2x2 Table"
 n <- rbind(c(7, 25), c(2, 68))
 Wald_CI_OR_Laplace_paired_2x2(n)
 
-
 }

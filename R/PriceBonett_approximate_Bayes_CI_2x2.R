@@ -14,7 +14,7 @@
 #' n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 #' PriceBonett_approximate_Bayes_CI_2x2(n)
 #'
-#'
+#' @export
 PriceBonett_approximate_Bayes_CI_2x2 <- function(n, a=1.25, b=2.5, alpha=0.05, printresults=TRUE) {
 	n1p <- n[1, 1] + n[1, 2]
 	n2p <- n[2, 1] + n[2, 2]

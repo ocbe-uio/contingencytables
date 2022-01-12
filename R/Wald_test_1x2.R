@@ -17,7 +17,7 @@
 #' Wald_test_1x2(X=33, n=45, pi0=0.1)
 #' # Ligarden et al. (2010)
 #' Wald_test_1x2(X=13, n=16, pi0=0.1)
-#'
+#' @export
 Wald_test_1x2 <- function(X, n, pi0, printresults=TRUE) {
 
 	# Estimate of the binomial probability (pihat)

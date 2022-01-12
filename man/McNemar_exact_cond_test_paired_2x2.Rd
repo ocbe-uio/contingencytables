@@ -31,5 +31,4 @@ McNemar_exact_cond_test_paired_2x2(n)
 n <- rbind(c(7, 25), c(2, 68))
 McNemar_exact_cond_test_paired_2x2(n)
 
-
 }

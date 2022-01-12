@@ -30,5 +30,4 @@ Exact_cond_midP_tests_rxc(n)
   n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow=TRUE)
   Exact_cond_midP_tests_rxc(n)
 }
-
 }

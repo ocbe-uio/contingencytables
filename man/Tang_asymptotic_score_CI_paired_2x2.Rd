@@ -29,5 +29,4 @@ Tang_asymptotic_score_CI_paired_2x2(n)
 n <- rbind(c(59, 6), c(16, 80))
 Tang_asymptotic_score_CI_paired_2x2(n)
 
-
 }

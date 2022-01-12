@@ -21,7 +21,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' BreslowDay_homogeneity_test_stratified_2x2(n)
 #'
-#'
+#' @export
 BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   n11k <- n[1, 1, ]
   n1pk <- apply(n[1, , ], 2, sum)

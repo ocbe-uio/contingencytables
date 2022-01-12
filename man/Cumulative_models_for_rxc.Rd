@@ -36,5 +36,4 @@ Cumulative_models_for_rxc(n)
 # LBW vs psych. morbidity with control as reference category (Table 7.6)
 n <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
 Cumulative_models_for_rxc(n)
-
 }

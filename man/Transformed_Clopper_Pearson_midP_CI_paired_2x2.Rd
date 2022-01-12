@@ -29,5 +29,4 @@ Described in Chapter 8 "The Paired 2x2 Table"
 n <- rbind(c(7, 25), c(2, 68))
 Transformed_Clopper_Pearson_midP_CI_paired_2x2(n)
 
-
 }

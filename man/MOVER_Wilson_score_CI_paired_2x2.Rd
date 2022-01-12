@@ -27,5 +27,4 @@ MOVER_Wilson_score_CI_paired_2x2(n)
 n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 MOVER_Wilson_score_CI_paired_2x2(n)
 
-
 }
