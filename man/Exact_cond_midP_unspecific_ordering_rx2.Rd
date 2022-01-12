@@ -35,5 +35,7 @@ Described in Chapter 5 "The Ordered rx2 Table"
 # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
 n <- t(rbind(c(14, 10, 3, 2), c(11, 7, 8, 4)))
 Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing")
-Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
+\dontrun{
+    Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
+}
 }
