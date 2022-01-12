@@ -19,9 +19,7 @@ ScheffE-type confidence intervals for differences of marginal probabilities
 Described in Chapter 9 "The Paired kxk Table"
 }
 \examples{
-load_chapter(9)
 # Pretherapy susceptability of pathogens (Peterson et al., 2007)
 n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
 Scheffe_type_CIs_paired_cxc(n)
-unload_chapter(9)
 }

@@ -15,11 +15,9 @@ the_paired_2x2_table_CIs_OR(n, alpha = 0.05)
 The Paired 2x2 table CIs OR
 }
 \examples{
-load_chapter(8)
 
 # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 n <- rbind(c(7, 25), c(2, 68))
 the_paired_2x2_table_CIs_OR(n)
 
-unload_chapter(8)
 }

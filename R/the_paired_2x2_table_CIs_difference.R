@@ -1,7 +1,7 @@
 #' @title The Paired 2x2 table CIs difference
 #' @param n frequency matrix
 #' @param alpha type I error
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1, 1), c(7, 12))
@@ -12,7 +12,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' the_paired_2x2_table_CIs_difference(n)
 #'
-#' unload_chapter(8)
+#' @export
 the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   N <- sum(n)
 

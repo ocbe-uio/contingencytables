@@ -1,8 +1,7 @@
 context("Chapter 3")
 
 test_that("Chapter 3 functions basically work", {
-	load_chapter(3)
-	expect_output(
+		expect_output(
 		object = Chacko_test_1xc(n=c(1, 4, 3, 11, 9)),
 		regexp = "P = 0.00873, T = 9.482 \\(df = 2\\)"
 	)
@@ -56,5 +55,4 @@ test_that("Chapter 3 functions basically work", {
 		object = the_1xc_table_tests(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119)),
 		regexp = "Pearson chi-squared    0.0346   \\(T = 6.727, df = 2\\)"
 	)
-	unload_chapter(3)
-})
+	})

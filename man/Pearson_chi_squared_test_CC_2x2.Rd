@@ -19,7 +19,6 @@ with continuity correction
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-load_chapter(4)
 # Example: A lady tasting a cup of tea
 n <- rbind(c(3,1), c(1,3))
 Pearson_chi_squared_test_CC_2x2(n)
@@ -36,5 +35,4 @@ Pearson_chi_squared_test_CC_2x2(n)
 n <- rbind(c(0,16), c(15,57))
 Pearson_chi_squared_test_CC_2x2(n)
 
-unload_chapter(4)
 }

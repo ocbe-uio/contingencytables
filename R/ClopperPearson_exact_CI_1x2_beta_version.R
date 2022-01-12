@@ -9,7 +9,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @seealso ClopperPearson_exact_CI_1x2
-#' @examples load_chapter(8)
+#' @examples
 #' # The number of 1st order male births (Singh et al. 2010)
 #' ClopperPearson_exact_CI_1x2_beta_version(X = 250, n = 533)
 #' # The number of 2nd order male births (Singh et al. 2010)
@@ -20,7 +20,7 @@
 #' ClopperPearson_exact_CI_1x2_beta_version(X = 33, n = 45)
 #' # Ligarden et al. (2010)
 #' ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16)
-#' unload_chapter(8)
+#' @export
 ClopperPearson_exact_CI_1x2_beta_version <- function(X, n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the binomial probability (pihat)
   estimate <- X / n

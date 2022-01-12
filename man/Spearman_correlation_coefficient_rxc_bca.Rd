@@ -28,7 +28,6 @@ boostrap confidence interval
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 \dontrun{
 # Colorectal cancer (Table 7.7)
 n <- rbind(
@@ -50,5 +49,4 @@ n <- matrix(
 )
 Spearman_correlation_coefficient_rxc_bca(n)
 }
-unload_chapter(7)
 }

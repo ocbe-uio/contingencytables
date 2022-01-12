@@ -19,7 +19,6 @@ The MOVER Wilson score confidence interval for the ratio of paired probabilities
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-load_chapter(8)
 n <- rbind(c(1,1),c(7,12))
 MOVER_Wilson_score_CI_paired_2x2(n)
 
@@ -28,5 +27,4 @@ MOVER_Wilson_score_CI_paired_2x2(n)
 n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 MOVER_Wilson_score_CI_paired_2x2(n)
 
-unload_chapter(8)
 }

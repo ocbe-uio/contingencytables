@@ -17,7 +17,6 @@ The Pearson residuals and the standardized Pearson residuals
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 # Treatment for ear infection (van Balen et al., 2003)
 n <- matrix(c(40, 25, 54, 7, 63, 10), ncol = 2, byrow = TRUE)
 Pearson_residuals_rxc(n)
@@ -35,5 +34,4 @@ n <- rbind(
   c(5, 21, 12), c(19, 130, 64), c(7, 26, 18)
 )
 Pearson_residuals_rxc(n)
-unload_chapter(7)
 }

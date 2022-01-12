@@ -18,7 +18,7 @@ Described in Chapter 7 "The rxc Table"
 }
 \examples{
 # Examples from Chapter 5 (ordered rx2 tables)
-load_chapter(7)
+
 
 ## Alcohol consumption and malformations (Mills and Graubard, 1987):
 
@@ -64,5 +64,4 @@ n <- matrix(
 byrow=TRUE, ncol=3
 )
 Pearson_LR_tests_rxc(n)
-unload_chapter(7)
 }

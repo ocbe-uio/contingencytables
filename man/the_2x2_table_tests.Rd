@@ -15,7 +15,6 @@ the_2x2_table_tests(n, gamma = 1e-04)
 Wrapper for \code{_test_2x2} functions on Chapter 4.
 }
 \examples{
-load_chapter(4)
 # Example: A lady tasting a cup of tea
 n <- rbind(c(3,1), c(1,3))
 the_2x2_table_tests(n)
@@ -32,5 +31,4 @@ the_2x2_table_tests(n)
 n <- rbind(c(0,16), c(15,57))
 the_2x2_table_tests(n)
 
-unload_chapter(4)
 }

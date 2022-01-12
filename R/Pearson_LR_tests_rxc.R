@@ -5,7 +5,7 @@
 #' @param printresults display results
 #' @examples
 #' # Examples from Chapter 5 (ordered rx2 tables)
-#' load_chapter(7)
+#'
 #'
 #' ## Alcohol consumption and malformations (Mills and Graubard, 1987):
 #'
@@ -51,7 +51,7 @@
 #' byrow=TRUE, ncol=3
 #' )
 #' Pearson_LR_tests_rxc(n)
-#' unload_chapter(7)
+#' @export
 
 Pearson_LR_tests_rxc <- function(n, printresults=TRUE) {
 	r <- nrow(n)
@@ -97,4 +97,3 @@ Pearson_LR_tests_rxc <- function(n, printresults=TRUE) {
 
 	invisible(results)
 }
-

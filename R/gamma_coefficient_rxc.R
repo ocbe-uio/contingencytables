@@ -3,7 +3,7 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' \dontrun{
 #' # Colorectal cancer (Table 7.7)
 #' n <- rbind(
@@ -25,7 +25,7 @@
 #'   )
 #'   gamma_coefficient_rxc_bca(n)
 #' }
-#' unload_chapter(7)
+#' @export
 gamma_coefficient_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

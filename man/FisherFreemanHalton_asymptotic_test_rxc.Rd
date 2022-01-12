@@ -20,9 +20,8 @@ Described in Chapter 7 "The rxc Table"
 May not give results for all tables, due to overflow
 }
 \examples{
-load_chapter(7)
 # Treatment for ear infection (van Balen et al., 2003)
 n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 FisherFreemanHalton_asymptotic_test_rxc(n)
-unload_chapter(7)
+
 }

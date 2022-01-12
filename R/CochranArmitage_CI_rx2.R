@@ -5,7 +5,7 @@
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results
-#' @examples load_chapter(5)
+#' @examples
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' n <- rbind(c(48,17066),c(38,14464),c(5,788),c(1,126),c(1,37))
 #' a <- c(1, 2, 3, 4, 5)
@@ -16,7 +16,7 @@
 #' a <- c(1, 2, 3, 4, 5)
 #' CochranArmitage_CI_rx2(n, a)
 #'
-#' unload_chapter(5)
+#' @export
 CochranArmitage_CI_rx2 <- function(n, a, alpha=0.05, printresults=TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)
@@ -52,4 +52,3 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha=0.05, printresults=TRUE) {
 	res <- data.frame(lower=L, upper=U, estimate=betahat)
 
 }
-

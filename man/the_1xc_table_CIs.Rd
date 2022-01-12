@@ -15,8 +15,6 @@ the_1xc_table_CIs(n, alpha = 0.05)
 The 1xc table CIs
 }
 \examples{
-load_chapter(3)
 # Genotype counts for SNP rs 6498169 in RA patients
 the_1xc_table_CIs(n=c(276, 380, 118))
-unload_chapter(3)
 }

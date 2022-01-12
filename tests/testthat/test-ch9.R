@@ -1,8 +1,7 @@
 context("Chapter 9")
 
 test_that("Chapter 9 functions basically work", {
-	load_chapter(9)
-	n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
+		n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
 	expect_output(
 		object = Bhapkar_test_paired_cxc(n),
 		regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df=3\\)"
@@ -61,5 +60,4 @@ test_that("Chapter 9 functions basically work", {
 		object = the_paired_cxc_table_ordinal(n4, a),
 		regexp = "Wald logit: estimate = 0.2391 \\(95% CI 0.1151 to 0.3558\\)"
 	)
-	unload_chapter(9)
-})
+	})

@@ -10,7 +10,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' load_chapter(2)
+#'
 #' # The number of 1st order male births (Singh et al. 2010)
 #' AgrestiCoull_CI_1x2(X = 250, n = 533)
 #' # The number of 2nd order male births (Singh et al. 2010)
@@ -21,7 +21,7 @@
 #' AgrestiCoull_CI_1x2(X = 33, n = 45)
 #' # Example: Ligarden et al. (2010)
 #' AgrestiCoull_CI_1x2(X = 13, n = 16)
-#' unload_chapter(2)
+#' @export
 AgrestiCoull_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
 	# Estimate of the binomial probability (pihat)
 	estimate = X/n

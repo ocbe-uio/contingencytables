@@ -24,11 +24,9 @@ The Transformed Clopper-Pearson exact confidence interval for the conditional od
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-load_chapter(8)
 
 # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 n <- rbind(c(7, 25), c(2, 68))
 Transformed_Clopper_Pearson_exact_CI_paired_2x2(n)
 
-unload_chapter(8)
 }

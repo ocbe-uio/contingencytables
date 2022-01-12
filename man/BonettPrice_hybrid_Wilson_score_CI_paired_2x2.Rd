@@ -23,11 +23,9 @@ The Bonett-Price hybrid Wilson score confidence interval for the ratio of paired
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-load_chapter(8)
 n <- rbind(c(1, 1), c(7, 12))
 BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)
 # Complete response before and after consolidation therapy (Cavo et al., 2012)
 n <- rbind(c(59, 6), c(16, 80))
 BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)
-unload_chapter(8)
 }

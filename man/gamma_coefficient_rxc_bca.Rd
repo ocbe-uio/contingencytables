@@ -21,7 +21,6 @@ The gamma coefficient with the bias-corrected and accelerated boostrap confidenc
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 \dontrun{
 # Colorectal cancer (Table 7.7)
 n <- rbind(
@@ -43,5 +42,4 @@ gamma_coefficient_rxc_bca(n)
   )
   gamma_coefficient_rxc_bca(n)
 }
-unload_chapter(7)
 }

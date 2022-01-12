@@ -1,14 +1,11 @@
 context("Cross-chapter integration")
 
 test_that("Wilson_score_CI_1x2 works across chapters", {
-	load_chapter(2)
-	expect_output(
+		expect_output(
 		object  = the_1x2_table_CIs(X=100, n=1e3),
 		regexpr = "Wilson score with CC         0.082 to 0.121    0.038"
 	)
-	unload_chapter(2)
-	load_chapter(4)
-	suppressOutput <- function(fun_name) {
+			suppressOutput <- function(fun_name) {
 		FUN <- get(fun_name)
 		mx <- matrix(c(123, 456, 789, 0), nrow=2)
 		out <- invisible(capture.output(FUN(mx)))

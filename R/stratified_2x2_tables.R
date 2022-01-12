@@ -1,7 +1,7 @@
 #' @title Stratified 2x2 tables
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @examples load_chapter(10)
+#' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' n <- array(dim = c(2, 2, 2))
 #' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -18,7 +18,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' stratified_2x2_tables(n)
 #'
-#' unload_chapter(10)
+#' @export
 stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("\n")
   .print("\nThe stratum-specific effect estimates\n")

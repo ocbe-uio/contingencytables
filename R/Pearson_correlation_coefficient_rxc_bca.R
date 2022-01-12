@@ -8,7 +8,7 @@
 #' @param b scores assigned to the columns
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' \dontrun{
 #' # Colorectal cancer (Table 7.7)
 #' n <- rbind(
@@ -30,7 +30,7 @@
 #' )
 #' Pearson_correlation_coefficient_rxc_bca(n)
 #' }
-#' unload_chapter(7)
+#' @export
 Pearson_correlation_coefficient_rxc_bca <- function(
 	n, nboot = 1e4, a = 1:nrow(n), b = 1:ncol(n), alpha = 0.05,
 	printresults = TRUE

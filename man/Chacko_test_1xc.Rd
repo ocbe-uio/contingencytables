@@ -17,8 +17,6 @@ The Chacko test for order-restriction
 Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
-load_chapter(3)
 # Hypothetical experiment
 Chacko_test_1xc(n=c(1, 4, 3, 11, 9))
-unload_chapter(3)
 }

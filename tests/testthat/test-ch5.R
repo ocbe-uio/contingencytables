@@ -1,8 +1,7 @@
 context("Chapter 5")
 
 test_that("Chapter 5 functions basically work", {
-	load_chapter(5)
-	n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+		n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 	a <- c(1, 2, 3, 4, 5)
 	expect_output(
 		object = CochranArmitage_CI_rx2(n, a),
@@ -41,5 +40,4 @@ test_that("Chapter 5 functions basically work", {
 		object = the_rx2_table(n.0, direction=direction, skip_exact=TRUE),
 		regexp = "Cochran-Armitage             0.817           0.41391"
 	)
-	unload_chapter(5)
-})
+	})

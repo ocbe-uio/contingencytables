@@ -1,8 +1,7 @@
 context("Chapter 6")
 
 test_that("Chapter 6 functions basically work", {
-	load_chapter(6)
-	n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
+		n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 	n_short <- floor(n / 2)
 	expect_output(
 		object = Brant_test_2xc(n) ,
@@ -43,5 +42,4 @@ test_that("Chapter 6 functions basically work", {
 		object = the_2xc_table(n_short, direction = "decreasing"),
 		regexp = "Wald \\(OR\\)       2.420     0.598 to  9.788"
 	)
-	unload_chapter(6)
-})
+	})

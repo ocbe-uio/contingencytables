@@ -2,7 +2,7 @@
 #' @description Wrapper for \code{_CI_2x2} functions on Chapter 4.
 #' @param n frequency matrix
 #' @param alpha type I error
-#' @examples load_chapter(4)
+#' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
 #' n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
 #' the_2x2_table_CIs_difference(n)
@@ -11,7 +11,7 @@
 #' n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 #' the_2x2_table_CIs_difference(n)
 #'
-#' unload_chapter(4)
+#' @export
 the_2x2_table_CIs_difference <- function(n, alpha=0.05) {
 	pi1hat <- n[1, 1] / (n[1, 1] + n[1, 2])
 	pi2hat <- n[2, 1] / (n[2, 1] + n[2, 2])
@@ -45,4 +45,3 @@ the_2x2_table_CIs_difference <- function(n, alpha=0.05) {
 	print('--------------------------------------------------------------', quote=FALSE)
 
 }
-

@@ -4,11 +4,11 @@
 #' @param n the observed counts (a 2xc matrix)
 #' @param direction the direction of column probabilities ("increasing" or "decreasing")
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(6)
+#' @examples
 #' # Postoperative nausea (Lydersen et al., 2012a)
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' Pearson_LR_tests_cum_OR_2xc(n)
-#' unload_chapter(6)
+#' @export
 Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresults = TRUE) {
 
 	# Swap the order of the two rows if probabilities are increasing

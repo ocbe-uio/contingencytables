@@ -19,10 +19,8 @@ The Mantel-Haenszel test of association with column scores
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-load_chapter(6)
 # Postoperative nausea (Lydersen et al., 2012a)
 n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 MantelHaenszel_test_2xc(n)
 b <- 0
-unload_chapter(6)
 }

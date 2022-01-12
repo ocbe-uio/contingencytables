@@ -3,10 +3,10 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(3)
+#' @examples
 #' # Hypothetical experiment
 #' Chacko_test_1xc(n=c(1, 4, 3, 11, 9))
-#' unload_chapter(3)
+#' @export
 Chacko_test_1xc <- function(n, printresults=TRUE) {
 	c0 <- length(n)
 	N <- sum(n)

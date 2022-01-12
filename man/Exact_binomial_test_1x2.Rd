@@ -21,7 +21,7 @@ H_0 pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
-load_chapter(2)
+
 # The number of 1st order male births (Singh et al. 2010)
 Exact_binomial_test_1x2(X = 250, n = 533, pi0 = 0.513)
 # The number of 2nd order male births (Singh et al. 2010)
@@ -32,6 +32,5 @@ Exact_binomial_test_1x2(X = 103, n = 167, pi0 = 0.513)
 Exact_binomial_test_1x2(X = 33, n = 45, pi0 = 0.513)
 # Ligarden et al. (2010)
 Exact_binomial_test_1x2(X = 13, n = 16, pi0 = 0.5)
-unload_chapter(2)
 
 }

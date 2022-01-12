@@ -19,9 +19,7 @@ The Pearson chi-squared and likelihood ratio tests for cumulative ORs in 2xc tab
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-load_chapter(6)
 # Postoperative nausea (Lydersen et al., 2012a)
 n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 Pearson_LR_tests_cum_OR_2xc(n)
-unload_chapter(6)
 }

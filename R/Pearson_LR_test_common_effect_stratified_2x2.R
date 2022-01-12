@@ -6,7 +6,7 @@
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param link the link function ('linear', 'log', or 'logit')
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(10)
+#' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' n <- array(dim = c(2, 2, 2))
 #' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -23,7 +23,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Pearson_LR_test_common_effect_stratified_2x2(n)
 #'
-#' unload_chapter(10)
+#' @export
 Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit", printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

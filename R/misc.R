@@ -10,6 +10,7 @@
 		fields = "Version")
 	packageStartupMessage(
 		"Welcome to ", paste(pkgname, version), ".\n",
-		"Please load functions from chapter X by running load_chapter(X)."
+		"Please run ?chapX or list_functions(x) to see the functions related to ",
+		"chapter X."
 	)
 }

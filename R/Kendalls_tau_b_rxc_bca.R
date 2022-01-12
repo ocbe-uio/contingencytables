@@ -5,7 +5,7 @@
 #' @param nboot number of bootstrap samples
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' \dontrun{
 #'    # Colorectal cancer (Table 7.7)
 #'    n <- rbind(
@@ -27,7 +27,7 @@
 #'   )
 #'   Kendalls_tau_b_rxc_bca(n)
 #' }
-#' unload_chapter(7)
+#' @export
 Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

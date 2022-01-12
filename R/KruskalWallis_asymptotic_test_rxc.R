@@ -3,7 +3,7 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' # Low birth weight vs psychiatric morbitidy (Table 7.6)
 #' n <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
 #' KruskalWallis_asymptotic_test_rxc(n)
@@ -14,7 +14,7 @@
 #'   ncol = 3, byrow = TRUE
 #' )
 #' KruskalWallis_asymptotic_test_rxc(n)
-#' unload_chapter(7)
+#' @export
 KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

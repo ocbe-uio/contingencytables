@@ -2,7 +2,7 @@
 #' @description Wrapper for \code{_test_2x2} functions on Chapter 4.
 #' @param n frequency matrix
 #' @param gamma  parameter for the Berger and Boos procedure
-#' @examples load_chapter(4)
+#' @examples
 #' # Example: A lady tasting a cup of tea
 #' n <- rbind(c(3,1), c(1,3))
 #' the_2x2_table_tests(n)
@@ -19,7 +19,7 @@
 #' n <- rbind(c(0,16), c(15,57))
 #' the_2x2_table_tests(n)
 #'
-#' unload_chapter(4)
+#' @export
 the_2x2_table_tests <- function(n, gamma=0.0001) {
 	pi1hat <- n[1, 1] / (n[1, 1] + n[1, 2])
 	pi2hat <- n[2, 1] / (n[2, 1] + n[2, 2])

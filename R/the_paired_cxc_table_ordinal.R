@@ -2,7 +2,7 @@
 #' @param n the total number of observations
 #' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @examples load_chapter(9)
+#' @examples
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
 #' n <- rbind(
 #'   c(1, 0, 1, 0, 0),
@@ -13,7 +13,7 @@
 #' )
 #' a <- c(8, 3.5, 0, -3.5, -8)
 #' the_paired_cxc_table_ordinal(n, a)
-#' unload_chapter(9)
+#' @export
 the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   c <- nrow(n)
   N <- sum(n)

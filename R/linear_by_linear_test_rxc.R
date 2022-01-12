@@ -5,7 +5,7 @@
 #' @param a scores assigned to the rows
 #' @param b scores assigned to the columns
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' #' # Colorectal cancer (Table 7.7)
 #' n <- rbind(
 #'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
@@ -27,7 +27,7 @@
 #' )
 #' linear_by_linear_test_rxc(n)
 #' }
-#' unload_chapter(7)
+#' @export
 linear_by_linear_test_rxc <- function(n, a = 1:ncol(n), b = 1:nrow(n), printresults = TRUE) {
 
 	# If no scores are given, use equally spaced scores

@@ -4,7 +4,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, 1T= yes)
-#' @examples load_chapter(4)
+#' @examples
 #' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
 #' n <- matrix(c(9,4,4,10), nrow=2, byrow=TRUE)
 #' MOVER_R_Wilson_CI_OR_2x2(n)
@@ -13,7 +13,7 @@
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' MOVER_R_Wilson_CI_OR_2x2(n)
 #'
-#' unload_chapter(4)
+#' @export
 MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 
 	# If n_22 = 0, use an equivalent case, which gives a finite upper limit
@@ -76,4 +76,3 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	res <- data.frame(lower=L, upper=U, estimate=estimate)
 	invisible(res)
 }
-

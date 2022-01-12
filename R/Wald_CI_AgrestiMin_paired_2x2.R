@@ -5,7 +5,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1, 1), c(7, 12))
@@ -16,7 +16,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' Wald_CI_AgrestiMin_paired_2x2(n)
 #'
-#' unload_chapter(8)
+#' @export
 Wald_CI_AgrestiMin_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
 
   # Estimate of the difference between probabilities (deltahat)

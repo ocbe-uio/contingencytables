@@ -4,7 +4,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
 #' n <- matrix(c(9,4,4,10), nrow=2, byrow=TRUE)
 #' Uncorrected_asymptotic_score_CI_2x2(n)
@@ -13,8 +13,8 @@
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' Uncorrected_asymptotic_score_CI_2x2(n)
 #'
-#' unload_chapter(4)
 #'
+#' @export
 Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# global n11 n21 n1p n2p alphaglobal limit
 

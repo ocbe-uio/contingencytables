@@ -1,7 +1,7 @@
 #' @title The rxc table
 #' @param n the total number of observations
-#' @param alpha the nominal level, e.g. 0.05 for 95% CIs#'
-#' @examples load_chapter(7)
+#' @param alpha the nominal level, e.g. 0.05 for 95% CIs
+#' @examples
 #'
 #' \dontrun{
 #'   # Unordered tables
@@ -48,7 +48,7 @@
 #'   )
 #'   the_rxc_table(n)
 #' }
-#' unload_chapter(7)
+#' @export
 the_rxc_table <- function(n, alpha = 0.05) {
 	r <- nrow(n)
 	c <- ncol(n)

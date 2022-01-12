@@ -3,7 +3,7 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' # Colorectal cancer (Table 7.7)
 #' n <- rbind(
 #'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
@@ -23,7 +23,7 @@
 #'   ncol = 4, byrow = TRUE
 #' )
 #' JonckheereTerpstra_test_rxc(n)
-#' unload_chapter(7)
+#' @export
 JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

@@ -10,7 +10,7 @@
 #' may apply to R code as well). alphahat0 can be calculated in, for instance,
 #' Stata.
 #' @importFrom stats dnorm
-#' @examples load_chapter(6)
+#' @examples
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 #' alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
@@ -21,7 +21,7 @@
 #' alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
 #' Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
 #'
-#' unload_chapter(6)
+#' @export
 Score_test_for_effect_in_the_probit_model_2xc <- function(
 	n, alphahat0, printresults = TRUE
 ) {

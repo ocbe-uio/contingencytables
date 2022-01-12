@@ -17,7 +17,6 @@ the_1x2_table_CIs(X, n, alpha = 0.05)
 The 1x2 Table CIs
 }
 \examples{
-load_chapter(2)
 # The number of 1st order male births (Singh et al. 2010)
 the_1x2_table_CIs(X=250, n=533)
 # The number of 2nd order male births (Singh et al. 2010)
@@ -28,6 +27,5 @@ the_1x2_table_CIs(X=103, n=167)
 the_1x2_table_CIs(X=33, n=45)
 # Ligarden et al. (2010)
 the_1x2_table_CIs(X=13, n=16)
-unload_chapter(2)
 
 }

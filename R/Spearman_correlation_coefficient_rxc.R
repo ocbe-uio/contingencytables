@@ -4,7 +4,7 @@
 #' @param n the observed table (an rxc matrix)
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha)# confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' # Colorectal cancer (Table 7.7)
 #' n <- rbind(
 #'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
@@ -26,7 +26,7 @@
 #' Spearman_correlation_coefficient_rxc(n)
 #' }
 #'
-#' unload_chapter(7)
+#' @export
 Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

@@ -17,7 +17,6 @@ The likelihood ratio test for association in 2x2 tables
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-load_chapter(4)
 n <- rbind(c(3,1), c(1,3))       # Example: A lady tasting a cup of tea
 LR_test_2x2(n)
 n <- rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)
@@ -26,5 +25,4 @@ n <- rbind(c(9,4), c(4,10))    # Example: Lampasona et al. (2013)
 LR_test_2x2(n)
 n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 LR_test_2x2(n)
-unload_chapter(4)
 }

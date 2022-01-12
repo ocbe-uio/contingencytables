@@ -1,7 +1,7 @@
+.github
 aux
 LICENSE
-TODO.md
-.travis.yml
-integrate.sh
 Rprof.out
-.github
+README.md
+^cran-comments\.md$
+.gitignore

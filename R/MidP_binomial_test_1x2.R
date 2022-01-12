@@ -6,7 +6,7 @@
 #' @param n the total number of observations
 #' @param pi0 a given probability
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(2)
+#' @examples
 #' # The number of 1st order male births (Singh et al. 2010, adapted)
 #' MidP_binomial_test_1x2(X=250, n=533, pi0 = .5)
 #' # The number of 2nd order male births (Singh et al. 2010, adapted)
@@ -17,7 +17,7 @@
 #' MidP_binomial_test_1x2(X=33, n=45, pi0 = .5)
 #' # Ligarden et al. (2010, adapted)
 #' MidP_binomial_test_1x2(X=13, n=16, pi0 = .5)
-#' unload_chapter(2)
+#' @export
 MidP_binomial_test_1x2 <- function(X, n, pi0, printresults=TRUE) {
 	# The right tail mid-P value (for H_A: pi > pi0)
 	# midPright = sum(binopdf(X:n, n, pi0));

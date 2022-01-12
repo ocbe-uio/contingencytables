@@ -3,7 +3,7 @@
 #' @param n frequency matrix
 #' @param alpha type I error
 #' @seealso the_2x2_table_CIs_difference the_2x2_table_CIs_OR the_2x2_table_tests
-#' @examples load_chapter(4)
+#' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
 #' n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
 #' the_2x2_table_CIs_ratio(n)
@@ -12,7 +12,7 @@
 #' n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 #' the_2x2_table_CIs_ratio(n)
 #'
-#' unload_chapter(4)
+#' @export
 the_2x2_table_CIs_ratio <- function(n, alpha=0.05) {
 	pi1hat <- n[1, 1] / (n[1, 1] + n[1, 2])
 	pi2hat <- n[2, 1] / (n[2, 1] + n[2, 2])

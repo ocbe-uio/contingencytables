@@ -5,7 +5,7 @@
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(10)
+#' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' n <- array(dim = c(2, 2, 2))
 #' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -22,7 +22,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' RBG_test_and_CI_stratified_2x2(n)
 #'
-#' unload_chapter(10)
+#' @export
 RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   nppk <- apply(n, 3, sum)
 

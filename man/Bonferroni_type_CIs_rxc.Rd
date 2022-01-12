@@ -19,9 +19,7 @@ The Bonferroni-type simultaneous confidence intervals for the differences pi_1|i
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 # Example: Treatment for ear infection
 n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 Bonferroni_type_CIs_rxc(n)
-unload_chapter(7)
 }

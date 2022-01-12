@@ -4,7 +4,7 @@
 #' @param n the observed table (a 2xc matrix)
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(6)
+#' @examples
 #' \dontrun{
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126),c(46, 73, 69, 86))
@@ -15,7 +15,7 @@
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' Exact_cond_midP_linear_rank_tests_2xc(n)
 #'
-#' unload_chapter(6)
+#' @export
 Exact_cond_midP_linear_rank_tests_2xc <- function(n, b=0, printresults=TRUE) {
 	c0 <- ncol(n)
 	nip <- apply(n, 1, sum)
