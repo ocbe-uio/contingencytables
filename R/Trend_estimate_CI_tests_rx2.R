@@ -13,7 +13,7 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @param linkfunction Link function for the binomial distribution see
 #' \code{?family} for more details
-#' @examples load_chapter(5)
+#' @examples
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' n <- matrix(
 #'  c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
@@ -28,7 +28,7 @@
 #' n <- rbind(c(8,53),c(10,48),c(11,100),c(22,102),c(6,129))
 #' a <- c(1, 2, 3, 4, 5)
 #' Trend_estimate_CI_tests_rx2(n, a)
-#' unload_chapter(5)
+#'
 
 Trend_estimate_CI_tests_rx2 <- function(
 	n, a, linkfunction="logit", alpha=0.05, printresults=TRUE

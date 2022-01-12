@@ -4,14 +4,14 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
 #' n <- matrix(c(9,4,4,10), nrow=2, byrow=TRUE)
 #' Inv_sinh_CI_OR_2x2(n)
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' Inv_sinh_CI_OR_2x2(n)
-#' unload_chapter(4)
+#'
 Inv_sinh_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# Estimate of the odds ratio (thetahat)
 	estimate <- n[1, 1] * n[2, 2] / (n[1, 2] * n[2, 1])
@@ -50,4 +50,3 @@ Inv_sinh_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	invisible(res)
 
 }
-

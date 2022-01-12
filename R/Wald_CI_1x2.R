@@ -14,7 +14,7 @@
 #' Wald_CI_1x2(X=103, n=167) # The number of 3rd order male births (Singh et al. 2010)
 #' Wald_CI_1x2(X=33, n=45)   # The number of 4th order male births (Singh et al. 2010)
 #' Wald_CI_1x2(X=13, n=16)   # Ligarden et al. (2010)
-#' unload_chapter(2)
+#'
 
 Wald_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
 	# Estimate of the binomial probability (pihat)

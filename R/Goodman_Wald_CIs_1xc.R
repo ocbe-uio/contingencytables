@@ -5,10 +5,10 @@
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(3)
+#' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' Goodman_Wald_CIs_1xc(n=c(276, 380, 118))
-#' unload_chapter(3)
+#'
 Goodman_Wald_CIs_1xc <- function(n, alpha=0.05, printresults=TRUE) {
 	c0 <- length(n)
 	N <- sum(n)

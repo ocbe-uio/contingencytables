@@ -3,7 +3,7 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1, 1), c(7, 12))
@@ -17,7 +17,7 @@
 #' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 #' n <- rbind(c(7, 25), c(2, 68))
 #' McNemar_midP_test_paired_2x2(n)
-#' unload_chapter(8)
+#'
 McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
   if (n[1, 2] == n[2, 1]) {
     midP <- 1 - 0.5 * dbinom(n[1, 2], n[1, 2] + n[2, 1], 0.5)

@@ -6,7 +6,7 @@
 #' @param n the total number of observations
 #' @param pi0 a given probability
 #' @param printresults display results (0 = no, 1 = yes)
-#' @examples load_chapter(2)
+#' @examples
 #' # The number of 1st order male births (adapted from Singh et al. 2010)
 #' Wald_test_1x2(X=250, n=533, pi0=0.1)
 #' # The number of 2nd order male births (adapted from Singh et al. 2010)
@@ -17,7 +17,7 @@
 #' Wald_test_1x2(X=33, n=45, pi0=0.1)
 #' # Ligarden et al. (2010)
 #' Wald_test_1x2(X=13, n=16, pi0=0.1)
-#' unload_chapter(2)
+#'
 Wald_test_1x2 <- function(X, n, pi0, printresults=TRUE) {
 
 	# Estimate of the binomial probability (pihat)
@@ -46,4 +46,3 @@ Wald_test_1x2 <- function(X, n, pi0, printresults=TRUE) {
 	invisible(res)
 
 }
-

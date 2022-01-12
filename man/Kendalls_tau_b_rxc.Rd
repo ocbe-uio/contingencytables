@@ -19,7 +19,6 @@ Kendall's tau-b with confidence interval based on the Fieller standard deviation
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 # Colorectal cancer (Table 7.7)
 n <- rbind(
   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
@@ -40,5 +39,5 @@ n <- matrix(
 )
 Kendalls_tau_b_rxc(n)
 
-unload_chapter(7)
+
 }

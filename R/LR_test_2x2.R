@@ -3,7 +3,7 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' n <- rbind(c(3,1), c(1,3))       # Example: A lady tasting a cup of tea
 #' LR_test_2x2(n)
 #' n <- rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)
@@ -12,7 +12,7 @@
 #' LR_test_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' LR_test_2x2(n)
-#' unload_chapter(4)
+#'
 LR_test_2x2 <- function(n, printresults=TRUE) {
 	# The estimated expected counts
 	N <- sum(n)
@@ -52,4 +52,3 @@ LR_test_2x2 <- function(n, printresults=TRUE) {
 	invisible(res)
 
 }
-

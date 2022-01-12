@@ -1,7 +1,7 @@
 #' @title The Paired 2x2 table tests
 #' @param n frequency matrix
 #' @param gamma parameter for the Berger and Boos procedure
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1, 1), c(7, 12))
@@ -17,7 +17,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' the_paired_2x2_table_tests(n)
 #' }
-#' unload_chapter(8)
+#'
 the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   N <- sum(n)
 

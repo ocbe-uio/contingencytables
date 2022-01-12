@@ -26,7 +26,6 @@ Cumulative logit and probit models
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-load_chapter(6)
 # The Adolescent Placement Study (Fontanella et al., 2008)
 n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 Cumulative_models_for_2xc(n)
@@ -35,5 +34,5 @@ Cumulative_models_for_2xc(n)
 n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 Cumulative_models_for_2xc(n)
 
-unload_chapter(6)
+
 }

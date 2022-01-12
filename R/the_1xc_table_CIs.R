@@ -1,10 +1,10 @@
 #' @title The 1xc table CIs
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @examples load_chapter(3)
+#' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' the_1xc_table_CIs(n=c(276, 380, 118))
-#' unload_chapter(3)
+#'
 the_1xc_table_CIs <- function(n, alpha=0.05) {
 
 	# ======================================================== #

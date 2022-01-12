@@ -4,7 +4,7 @@
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(10)
+#' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' n <- array(dim = c(2, 2, 2))
 #' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -21,7 +21,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' BreslowDay_homogeneity_test_stratified_2x2(n)
 #'
-#' unload_chapter(10)
+#'
 BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   n11k <- n[1, 1, ]
   n1pk <- apply(n[1, , ], 2, sum)

@@ -28,7 +28,6 @@ based on either the Mantel-Haenszel or inverse variance estimate
 Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 }
 \examples{
-load_chapter(10)
 # Smoking and lung cancer (Doll and Hill, 1950)
 n <- array(dim = c(2, 2, 2))
 n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -45,5 +44,5 @@ n[, , 5] <- rbind(c(7, 103), c(3, 103))
 n[, , 6] <- rbind(c(11, 143), c(4, 142))
 Wald_test_and_CI_common_ratio_stratified_2x2(n)
 
-unload_chapter(10)
+
 }

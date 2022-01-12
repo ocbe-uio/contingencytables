@@ -26,7 +26,6 @@ The score test and confidence interval for the difference
 between marginal mean scores Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
-load_chapter(9)
 # A comparison between serial and retrospective measurements
 # (Fischer et al., 1999)
 n <- rbind(
@@ -38,5 +37,5 @@ n <- rbind(
 )
 a <- c(8, 3.5, 0, -3.5, -8)
 Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a)
-unload_chapter(9)
+
 }

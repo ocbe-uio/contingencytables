@@ -1,8 +1,7 @@
 context("Chapter 8")
 
 test_that("Chapter 8 functions basically work", {
-	load_chapter(8)
-	n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
+		n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 	n2 <- rbind(c(7, 25), c(2, 68))
 	n_short <- floor(n / 10)
 	expect_output(
@@ -113,5 +112,4 @@ test_that("Chapter 8 functions basically work", {
 		object = the_paired_2x2_table_tests(n_short),
 		regexp = "Estimate of pi_\\+1: 6/14 = 0.429"
 	)
-	unload_chapter(8)
-})
+	})

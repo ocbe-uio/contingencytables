@@ -4,7 +4,7 @@
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' n <- rbind(c(3,1), c(1,3))     # Example: A lady tasting a cup of tea
 #' Cornfield_exact_conditional_CI_2x2(n)
 #' n <- rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)
@@ -13,7 +13,7 @@
 #' Cornfield_exact_conditional_CI_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' Cornfield_exact_conditional_CI_2x2(n)
-#' unload_chapter(4)
+#'
 Cornfield_exact_conditional_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# global n11 n1p n2p np1 alphaglobal
 	n11 <- n[1, 1]

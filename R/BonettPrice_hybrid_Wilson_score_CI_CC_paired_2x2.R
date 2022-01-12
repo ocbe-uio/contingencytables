@@ -5,7 +5,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1, 1), c(7, 12))
@@ -15,7 +15,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n)
 #'
-#' unload_chapter(8)
+#'
 BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   nstar <- n[1, 1] + n[1, 2] + n[2, 1]
   n1p <- n[1, 1] + n[1, 2]

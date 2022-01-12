@@ -3,7 +3,7 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' # Example: A lady tasting a cup of tea
 #' n <- rbind(c(3,1), c(1,3))
 #' Pearson_chi_squared_test_2x2(n)
@@ -20,7 +20,7 @@
 #' n <- rbind(c(0,16), c(15,57))
 #' Pearson_chi_squared_test_2x2(n)
 #'
-#' unload_chapter(4)
+#'
 Pearson_chi_squared_test_2x2 <- function(n, printresults=TRUE) {
 	n1p <- n[1, 1] + n[1, 2]
 	n2p <- n[2, 1] + n[2, 2]
@@ -48,4 +48,3 @@ Pearson_chi_squared_test_2x2 <- function(n, printresults=TRUE) {
 	invisible(res)
 
 }
-

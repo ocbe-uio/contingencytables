@@ -4,11 +4,11 @@
 #' @param n the observed counts (an rx2 vector)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' # Example: Treatment for ear infection
 #' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 #' Bonferroni_type_CIs_rxc(n)
-#' unload_chapter(7)
+#'
 Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)

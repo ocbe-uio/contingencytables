@@ -6,10 +6,10 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param adjustment Scheffe or Bonferroni adjustment ("Scheffe" or "Bonferroni")
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(3)
+#' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' Goodman_Wald_CIs_for_diffs_1xc(n=c(276, 380, 118))
-#' unload_chapter(3)
+#'
 Goodman_Wald_CIs_for_diffs_1xc <- function(
 	n, alpha=0.05, adjustment="Bonferroni", printresults=TRUE
 ) {
@@ -68,5 +68,3 @@ Goodman_Wald_CIs_for_diffs_1xc <- function(
 	res <- data.frame(lower=L, upper=U, estimate=diffs)
 	invisible(res)
 }
-
-

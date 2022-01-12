@@ -15,7 +15,6 @@ the_2x2_table_CIs_OR(n, alpha = 0.05)
 Wrapper for \code{_CI_OR_2x2} functions on Chapter 4.
 }
 \examples{
-load_chapter(4)
 # Example: A lady tasting a cup of tea
 n <- rbind(c(3,1), c(1,3))
 the_2x2_table_CIs_OR(n)
@@ -32,5 +31,5 @@ the_2x2_table_CIs_OR(n)
 n <- rbind(c(0,16), c(15,57))
 the_2x2_table_CIs_OR(n)
 
-unload_chapter(4)
+
 }

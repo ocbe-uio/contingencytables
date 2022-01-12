@@ -17,7 +17,6 @@ The Kruskal-Wallis asymptotic test for singly ordered rxc tables
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 # Low birth weight vs psychiatric morbitidy (Table 7.6)
 n <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
 KruskalWallis_asymptotic_test_rxc(n)
@@ -28,5 +27,5 @@ n <- matrix(
   ncol = 3, byrow = TRUE
 )
 KruskalWallis_asymptotic_test_rxc(n)
-unload_chapter(7)
+
 }

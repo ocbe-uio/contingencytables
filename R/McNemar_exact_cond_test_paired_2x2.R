@@ -4,7 +4,7 @@
 #' @param n the observed table (a 2x2 matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom stats pbinom
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1, 1), c(7, 12))
@@ -19,7 +19,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' McNemar_exact_cond_test_paired_2x2(n)
 #'
-#' unload_chapter(8)
+#'
 McNemar_exact_cond_test_paired_2x2 <- function(n, printresults = TRUE) {
   # Exact p-value based on the binomial distribution
   P <- 2 * pbinom(min(n[1, 2], n[2, 1]), n[1, 2] + n[2, 1], 0.5)

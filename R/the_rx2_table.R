@@ -18,7 +18,7 @@
 #' n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 #' a.1 <- c(7, 22, 37, 48, 55)
 #' the_rx2_table(n.1, a.1, 'decreasing')
-#' unload_chapter(5)
+#'
 #' }
 the_rx2_table <- function(
 	n, alpha=0.05, direction="increasing", skip_exact=FALSE

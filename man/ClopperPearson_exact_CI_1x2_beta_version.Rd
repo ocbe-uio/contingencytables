@@ -28,7 +28,6 @@ The Clopper-Pearson exact confidence interval for the binomial probability
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
-load_chapter(8)
 # The number of 1st order male births (Singh et al. 2010)
 ClopperPearson_exact_CI_1x2_beta_version(X = 250, n = 533)
 # The number of 2nd order male births (Singh et al. 2010)
@@ -39,7 +38,7 @@ ClopperPearson_exact_CI_1x2_beta_version(X = 103, n = 167)
 ClopperPearson_exact_CI_1x2_beta_version(X = 33, n = 45)
 # Ligarden et al. (2010)
 ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16)
-unload_chapter(8)
+
 }
 \references{
 Brown LD, Cai T, DasGupta A (2001) Interval estimation for a

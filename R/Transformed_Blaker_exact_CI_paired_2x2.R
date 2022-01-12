@@ -4,13 +4,13 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(8)
+#' @examples
 #'
 #' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 #' n <- rbind(c(7, 25), c(2, 68))
 #' Transformed_Blaker_exact_CI_paired_2x2(n)
 #'
-#' unload_chapter(8)
+#'
 Transformed_Blaker_exact_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the conditional odds ratio (thetacondhat)
   estimate <- n[1, 2] / n[2, 1]

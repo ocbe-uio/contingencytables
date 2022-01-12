@@ -4,7 +4,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T= yes)
-#' @examples load_chapter(8)
+#' @examples
 #' n <- rbind(c(1,1),c(7,12))
 #' MOVER_Wilson_score_CI_paired_2x2(n)
 #'
@@ -13,7 +13,7 @@
 #' n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 #' MOVER_Wilson_score_CI_paired_2x2(n)
 #'
-#' unload_chapter(8)
+#'
  MOVER_Wilson_score_CI_paired_2x2 <- function(n, alpha=0.05, printresults=TRUE)
  {
  	N <- sum(n)

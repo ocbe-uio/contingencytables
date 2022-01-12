@@ -4,7 +4,7 @@
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(9)
+#' @examples
 #' # A comparison between serial and retrospective measurements
 #' # (Fischer et al., 1999)
 #' n <- rbind(
@@ -15,7 +15,7 @@
 #'   c(0, 0, 2, 1, 3)
 #' )
 #' Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n)
-#' unload_chapter(9)
+#'
 Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
   c <- nrow(n)
   N <- sum(n)

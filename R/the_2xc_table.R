@@ -2,7 +2,7 @@
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs#'
 #' @param direction the direction of the success probabilities
-#' @examples load_chapter(6)
+#' @examples
 #' \dontrun{
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
@@ -13,7 +13,7 @@
 #' dir <- "decreasing"
 #' the_2xc_table(n, direction = dir)
 #' }
-#' unload_chapter(6)
+#'
 the_2xc_table <- function(n, alpha=0.05, direction="increasing") {
 	.print('\nMethod                            Statistic      P-value\n')
 	.print('--------------------------------------------------------\n')

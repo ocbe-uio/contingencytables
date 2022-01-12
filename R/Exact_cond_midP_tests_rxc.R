@@ -5,7 +5,7 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' # Treatment for ear infection (Table 7.3)
 #' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 #' Exact_cond_midP_tests_rxc(n)
@@ -14,7 +14,7 @@
 #'   n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow=TRUE)
 #'   Exact_cond_midP_tests_rxc(n)
 #' }
-#' unload_chapter(7)
+#'
 #' @note  Works only for 3x2 and 3x3 tables
 Exact_cond_midP_tests_rxc <- function(n, printresults=TRUE) {
 	r = nrow(n)

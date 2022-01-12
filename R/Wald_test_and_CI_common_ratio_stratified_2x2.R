@@ -6,7 +6,7 @@
 #' @param estimatetype Mantel-Haenszel or inverse variance estimate ('MH' or 'IV')
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(10)
+#' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' n <- array(dim = c(2, 2, 2))
 #' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -23,7 +23,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Wald_test_and_CI_common_ratio_stratified_2x2(n)
 #'
-#' unload_chapter(10)
+#'
 Wald_test_and_CI_common_ratio_stratified_2x2 <- function(n, estimatetype = "MH", alpha = 0.05, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

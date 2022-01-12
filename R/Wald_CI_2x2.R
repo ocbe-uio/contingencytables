@@ -4,12 +4,12 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
 #' Wald_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=TRUE))
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
 #' Wald_CI_2x2(n = matrix(c(0,16,15,57), nrow=2, byrow=TRUE))
-#' unload_chapter(4)
+#'
 Wald_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	n1p <- n[1, 1] + n[1, 2]
 	n2p <- n[2, 1] + n[2, 2]
@@ -49,4 +49,3 @@ Wald_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	invisible(res)
 
 }
-

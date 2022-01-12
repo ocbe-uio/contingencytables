@@ -64,5 +64,5 @@ n <- matrix(
 byrow=TRUE, ncol=3
 )
 Pearson_LR_tests_rxc(n)
-unload_chapter(7)
+
 }

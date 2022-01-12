@@ -32,7 +32,7 @@ Arcsine_CI_1x2(X = 103, n = 167)
 Arcsine_CI_1x2(X = 33, n = 45)
 # Ligarden et al. (2010)
 Arcsine_CI_1x2(X = 13, n = 16)
-unload_chapter(2)
+
 }
 \references{
 Anscombe FJ (1948) The transformation of Poisson, binomial and

@@ -17,7 +17,6 @@ Wald_CI_CC_2x2(n, alpha = 0.05, printresults = TRUE)
 The Wald confidence interval for the difference between probabilities with Yates's continuity correction. Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-load_chapter(4)
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
 n <- matrix(c(7, 27, 1, 33), nrow=2, byrow=TRUE)
 Wald_CI_CC_2x2(n)
@@ -26,5 +25,5 @@ Wald_CI_CC_2x2(n)
 n <- matrix(c(0, 16, 15, 57), nrow=2, byrow=TRUE)
 Wald_CI_CC_2x2(n)
 
-unload_chapter(4)
+
 }

@@ -4,7 +4,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param printresults display results (F = no, T = yes)
 #' @param statistic 'hypergeometric' (i.e. Fisher-Irwin default), 'Pearson', or 'LR' (likelihood ratio)
-#' @examples load_chapter(4)
+#' @examples
 #' n <- rbind(c(3,1), c(1,3))       # Example: A lady tasting a cup of tea
 #' Fisher_midP_test_2x2(n)
 #' n <- rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)
@@ -13,7 +13,7 @@
 #' Fisher_midP_test_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' Fisher_midP_test_2x2(n)
-#' unload_chapter(4)
+#'
 Fisher_midP_test_2x2 <- function(n, statistic='hypergeometric', printresults=TRUE) {
 
 	n1p <- n[1, 1] + n[1, 2]
@@ -98,4 +98,3 @@ test_statistic_fisher_midp_test_2x2 <- function(x11, x12, x21, x22, statistic) {
 
 	return(T0)
 }
-

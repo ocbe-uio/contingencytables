@@ -19,7 +19,6 @@ The Tang asymptotic score confidence interval for the ratio of paired probabilit
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-load_chapter(8)
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)
 n <- rbind(c(1, 1), c(7, 12))
@@ -30,5 +29,5 @@ Tang_asymptotic_score_CI_paired_2x2(n)
 n <- rbind(c(59, 6), c(16, 80))
 Tang_asymptotic_score_CI_paired_2x2(n)
 
-unload_chapter(8)
+
 }

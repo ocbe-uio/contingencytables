@@ -5,7 +5,7 @@
 #' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(9)
+#' @examples
 #' # A comparison between serial and retrospective measurements
 #' # (Fischer et al., 1999)
 #' n <- rbind(
@@ -17,7 +17,7 @@
 #' )
 #' a <- c(8, 3.5, 0, -3.5, -8)
 #' Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a)
-#' unload_chapter(9)
+#'
 Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(
 	n, a, alpha = 0.05, printresults = TRUE
 ) {

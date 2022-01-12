@@ -17,10 +17,9 @@ The Fleiss-Levin-Paik test for three-level ordinal outcomes
 Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
-load_chapter(9)
 # Pretherapy susceptability of pathogens *without the N / A category*
 # (Peterson et al., 2007)
 n <- rbind(c(596, 18, 6), c(0, 2, 0), c(0, 0, 42))
 FleissLevinPaik_test_paired_cxc(n)
-unload_chapter(9)
+
 }

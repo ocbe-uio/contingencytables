@@ -17,7 +17,6 @@ the_paired_cxc_table_ordinal(n, a, alpha = 0.05)
 The Paired CxC table - ordinal
 }
 \examples{
-load_chapter(9)
 # Pretherapy susceptability of pathogens (Peterson et al., 2007)
 n <- rbind(
   c(1, 0, 1, 0, 0),
@@ -28,5 +27,5 @@ n <- rbind(
 )
 a <- c(8, 3.5, 0, -3.5, -8)
 the_paired_cxc_table_ordinal(n, a)
-unload_chapter(9)
+
 }

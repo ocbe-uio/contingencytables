@@ -15,7 +15,6 @@ the_rxc_table(n, alpha = 0.05)
 The rxc table
 }
 \examples{
-load_chapter(7)
 
 \dontrun{
   # Unordered tables
@@ -62,5 +61,5 @@ load_chapter(7)
   )
   the_rxc_table(n)
 }
-unload_chapter(7)
+
 }

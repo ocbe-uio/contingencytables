@@ -1,13 +1,13 @@
 #' @title The Paired 2x2 table CIs OR
 #' @param n frequency matrix
 #' @param alpha type I error
-#' @examples load_chapter(8)
+#' @examples
 #'
 #' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 #' n <- rbind(c(7, 25), c(2, 68))
 #' the_paired_2x2_table_CIs_OR(n)
 #'
-#' unload_chapter(8)
+#'
 the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   thetacondhat <- n[1, 2] / n[2, 1]
 

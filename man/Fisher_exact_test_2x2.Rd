@@ -19,7 +19,6 @@ The Fisher exact test for association in 2x2 tables
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-load_chapter(4)
 n <- rbind(c(3,1), c(1,3)) # Example: A lady tasting a cup of tea
 Fisher_exact_test_2x2(n)
 n <- rbind(c(7,27), c(1,33)) # Example: Perondi et al. (2004)

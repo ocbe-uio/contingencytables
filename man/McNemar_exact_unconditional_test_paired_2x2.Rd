@@ -32,7 +32,6 @@ the precision. A refinement of the maximization can be done with a manual
 restriction of the parameter space.
 }
 \examples{
-load_chapter(8)
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)
 n <- rbind(c(1, 1), c(7, 12))
@@ -46,5 +45,5 @@ McNemar_exact_unconditional_test_paired_2x2(n)
 # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 n <- rbind(c(7, 25), c(2, 68))
 McNemar_exact_unconditional_test_paired_2x2(n)
-unload_chapter(8)
+
 }

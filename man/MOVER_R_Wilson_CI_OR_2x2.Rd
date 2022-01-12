@@ -19,7 +19,6 @@ The MOVER-R Wilson confidence interval for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-load_chapter(4)
 # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
 n <- matrix(c(9,4,4,10), nrow=2, byrow=TRUE)
 MOVER_R_Wilson_CI_OR_2x2(n)
@@ -28,5 +27,5 @@ MOVER_R_Wilson_CI_OR_2x2(n)
 n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 MOVER_R_Wilson_CI_OR_2x2(n)
 
-unload_chapter(4)
+
 }

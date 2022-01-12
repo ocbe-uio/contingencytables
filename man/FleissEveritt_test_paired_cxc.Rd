@@ -17,9 +17,8 @@ The Fleiss-Everitt version of the Stuart test for marginal homogeneity
 Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
-load_chapter(9)
 # From Table 13.6, page 382, of Fleiss et al. (2003)
 n <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
 FleissEveritt_test_paired_cxc(n)
-unload_chapter(9)
+
 }

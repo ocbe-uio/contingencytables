@@ -19,11 +19,10 @@ The Wald confidence interval for the conditional odds ratio with Laplace adjustm
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-load_chapter(8)
 
 # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
 n <- rbind(c(7, 25), c(2, 68))
 Wald_CI_OR_Laplace_paired_2x2(n)
 
-unload_chapter(8)
+
 }

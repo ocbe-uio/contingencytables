@@ -6,7 +6,7 @@
 #' @param statistic 'Pearson' (Suissa-Shuster test default), 'LR' (likelihood ratio),
 #''unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)
 #' @param printresults display results (F = no, T = yes)
-#' @examples load_chapter(4)
+#' @examples
 #' n <- rbind(c(3,1), c(1,3))       # Example: A lady tasting a cup of tea
 #' Exact_unconditional_test_2x2(n)
 #' n <- rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)
@@ -15,7 +15,7 @@
 #' Exact_unconditional_test_2x2(n)
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' Exact_unconditional_test_2x2(n)
-#' unload_chapter(4)
+#'
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
 #' (default: 1000). The number may be changed below.
@@ -179,4 +179,3 @@ test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, stat
 	return(T0)
 
 }
-

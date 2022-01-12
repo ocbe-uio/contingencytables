@@ -1,46 +1,66 @@
-#' @title Load functions from a chapter
-#' @description Loads all the functions associated with a specific book chapter.
-#' @param chap_num Number of book chapter (from 2 to 10)
-#' @return Loads the functions from that chapter
-#' @author Waldir Leoncio
-#' @references https://stackoverflow.com/q/64388629/1169233
-#' @export
-load_chapter <- function(chap_num) {
-	validate_chapter_choice(chap_num)
-	chapters <- list_chapter_functions()
-	chap_name <- paste("Chapter", chap_num)
-	is_attached <- any(grepl(pattern = chap_name, x = search()))
-	if (is_attached) {
-		message("Chapter functions already loaded.")
-	} else {
-		message("Loading functions from chapter ", chap_num)
-		attach(list2env(chapters[[chap_num - 1]]), name = chap_name)
-		message("Available functions:")
-		print(names(chapters[[chap_num - 1]]))
-		message("When you're done, run unload_chapter(", chap_num, ").")
-	}
-}
+#' @name chap1
+#' @title Chapter 1
+#' @description There are no functions for Chapter 1 (Introduction), only from
+#' Chapters 2 to 10.
+#'
+#' @references
+#' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of
+#' Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
+#' - https://contingencytables.com/
+#' - https://www.routledge.com/Statistical-Analysis-of-Contingency-Tables/Fagerland-Lydersen-Laake/p/book/9781466588172
+NULL
 
-#' @title Unload functions from a chapter
-#' @description Unloads all the functions associated with a specific book chapter.
+#' @name chap2
+#' @title Chapter 2: The 1x2 Table and the Binomial Distribution
+#' @description These are the functions related to chapter 2:
+#' \enumerate{
+#'   \item{AgrestiCoull_CI_1x2}
+#'   \item{Arcsine_CI_1x2}
+#'   \item{Wald_CI_1x2}
+#'   \item{Blaker_exact_CI_1x2}
+#'   \item{Blaker_exact_test_1x2}
+#'   \item{Blaker_midP_CI_1x2}
+#'   \item{Blaker_midP_test_1x2}
+#'   \item{ClopperPearson_exact_CI_1x2}
+#'   \item{ClopperPearson_midP_CI_1x2}
+#'   \item{Exact_binomial_test_1x2}
+#'   \item{Jeffreys_CI_1x2}
+#'   \item{LR_CI_1x2}
+#'   \item{LR_test_1x2}
+#'   \item{MidP_binomial_test_1x2}
+#'   \item{Score_test_1x2}
+#'   \item{Score_test_CC_1x2}
+#'   \item{Wald_CI_CC_1x2}
+#'   \item{Wilson_score_CI_1x2}
+#'   \item{Wilson_score_CI_CC_1x2}
+#'   \item{the_1x2_table_CIs}
+#'   \item{Wald_test_1x2}
+#'   \item{Wald_test_CC_1x2}
+#'   \item{the_1x2_table_tests}
+#' }
+#'
+#' @note You can also print the list above with \code{list_functions(2)}.
+#'
+#' @references
+#' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of
+#' Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
+#' - https://contingencytables.com/
+#' - https://www.routledge.com/Statistical-Analysis-of-Contingency-Tables/Fagerland-Lydersen-Laake/p/book/9781466588172
+NULL
+
+#' @title List functions from a chapter
+#' @description Complements the \code{?chapX} command by printing a list of
+#' functions related to a particular chapter \code{X} on the R console.
 #' @param chap_num Number of book chapter (from 2 to 10)
-#' @return Unloads the functions from that chapter
+#' @return List of functions from that chapter
 #' @author Waldir Leoncio
 #' @export
-unload_chapter <- function(chap_num) {
+list_functions <- function(chap_num) {
 	validate_chapter_choice(chap_num)
 	chapters <- list_chapter_functions()
 	chap_name <- paste("Chapter", chap_num)
-	is_attached <- any(grepl(pattern = chap_name, x = search()))
-	if (!is_attached) {
-		message(
-			"Chapter functions not attached. ",
-			"Use load_chapter(", chap_num, ") to attach them. Exiting."
-		)
-	} else {
-		message("Unloading functions from chapter ", chap_num)
-		detach(eval(chap_name), character.only = TRUE)
-	}
+	message("Chapter", chap_num, "functions:")
+	cat(paste0(names(chapters[[chap_num - 1]]), "()"), sep = "\n")
 }
 
 # ============================================================================ #

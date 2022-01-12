@@ -19,12 +19,11 @@ The exact multinomial test for multinomial probabilities
 Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
-load_chapter(3)
 # Genotype counts for SNP rs 6498169 in RA patients
 \dontrun{
   Exact_multinomial_test_1xc(n=c(276, 380, 118), pi0=c(0.402, 0.479, 0.119))
 }
 # subset of 10 patients
 Exact_multinomial_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
-unload_chapter(3)
+
 }

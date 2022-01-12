@@ -6,10 +6,10 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (F = no, T = yes)
 #' @importFrom stats qchisq
-#' @examples load_chapter(3)
+#' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' Goodman_Wilson_score_CIs_1xc(n=c(276, 380, 118))
-#' unload_chapter(3)
+#'
 Goodman_Wilson_score_CIs_1xc <- function(n, alpha=0.05, printresults=TRUE) {
 
 	c0 <- length(n)

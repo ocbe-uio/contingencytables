@@ -22,7 +22,6 @@ Described in Chapter 7 "The rxc Table"
 Works only for 3x2 and 3x3 tables
 }
 \examples{
-load_chapter(7)
 # Treatment for ear infection (Table 7.3)
 n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 Exact_cond_midP_tests_rxc(n)
@@ -31,5 +30,5 @@ Exact_cond_midP_tests_rxc(n)
   n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow=TRUE)
   Exact_cond_midP_tests_rxc(n)
 }
-unload_chapter(7)
+
 }

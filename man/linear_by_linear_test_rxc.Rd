@@ -21,7 +21,6 @@ The linear-by-linear test for association
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-load_chapter(7)
 #' # Colorectal cancer (Table 7.7)
 n <- rbind(
   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
@@ -43,5 +42,5 @@ n <- matrix(
 )
 linear_by_linear_test_rxc(n)
 }
-unload_chapter(7)
+
 }

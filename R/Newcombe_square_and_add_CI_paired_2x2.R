@@ -4,7 +4,7 @@
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(8)
+#' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
 #' n <- rbind(c(1,1),c(7,12))
@@ -15,7 +15,7 @@
 #' n <- matrix(c(59, 6, 16, 80), 2, byrow=TRUE)
 #' Newcombe_square_and_add_CI_paired_2x2(n)
 #'
-#' unload_chapter(8)
+#'
 Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	nip <- apply(n, 1, sum)
 	npi <- apply(n, 2, sum)

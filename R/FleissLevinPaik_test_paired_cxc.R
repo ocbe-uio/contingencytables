@@ -3,12 +3,12 @@
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(9)
+#' @examples
 #' # Pretherapy susceptability of pathogens *without the N / A category*
 #' # (Peterson et al., 2007)
 #' n <- rbind(c(596, 18, 6), c(0, 2, 0), c(0, 0, 42))
 #' FleissLevinPaik_test_paired_cxc(n)
-#' unload_chapter(9)
+#'
 FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
   c <- nrow(n)
   nip <- apply(n, 1, sum)

@@ -1,8 +1,7 @@
 context("Chapter 7")
 
 test_that("Chapter 7 functions basically work", {
-	load_chapter(7)
-	n <- matrix(c(40, 25, 54, 7, 63, 10), byrow=TRUE, ncol=2)
+		n <- matrix(c(40, 25, 54, 7, 63, 10), byrow=TRUE, ncol=2)
 	n_short <- floor(n / 10)
 	expect_output(
 		object = Bonferroni_type_CIs_rxc(n),
@@ -88,5 +87,4 @@ test_that("Chapter 7 functions basically work", {
 		object = the_rxc_table(n3_short),
 		regexp = "Kruskal-Wallis asymptotic\\s+1.561 \\(df=3\\)   0.668229"
 	)
-	unload_chapter(7)
-})
+	})

@@ -51,7 +51,7 @@
 #' byrow=TRUE, ncol=3
 #' )
 #' Pearson_LR_tests_rxc(n)
-#' unload_chapter(7)
+#'
 
 Pearson_LR_tests_rxc <- function(n, printresults=TRUE) {
 	r <- nrow(n)
@@ -97,4 +97,3 @@ Pearson_LR_tests_rxc <- function(n, printresults=TRUE) {
 
 	invisible(results)
 }
-

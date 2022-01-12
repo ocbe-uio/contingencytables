@@ -17,7 +17,6 @@ the_2xc_table(n, alpha = 0.05, direction = "increasing")
 The 2xc table
 }
 \examples{
-load_chapter(6)
 \dontrun{
 # The Adolescent Placement Study (Fontanella et al., 2008)
 n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
@@ -28,5 +27,5 @@ n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 dir <- "decreasing"
 the_2xc_table(n, direction = dir)
 }
-unload_chapter(6)
+
 }

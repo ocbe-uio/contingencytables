@@ -1,8 +1,7 @@
 context("Chapter 10")
 
 test_that("Chapter 10 functions basically work", {
-  load_chapter(10)
-  n <- array(dim = c(2, 2, 2))
+    n <- array(dim = c(2, 2, 2))
   n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
   n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
   expect_output(
@@ -65,5 +64,4 @@ test_that("Chapter 10 functions basically work", {
 		object = stratified_2x2_tables(n),
 		regexp = "Woolf \\(IV\\)           3.5563     1.8365 to  6.8866"
 	)
-  unload_chapter(10)
-})
+  })

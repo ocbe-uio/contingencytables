@@ -15,7 +15,6 @@ stratified_2x2_tables(n, alpha = 0.05)
 Stratified 2x2 tables
 }
 \examples{
-load_chapter(10)
 # Smoking and lung cancer (Doll and Hill, 1950)
 n <- array(dim = c(2, 2, 2))
 n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
@@ -32,5 +31,5 @@ n[, , 5] <- rbind(c(7, 103), c(3, 103))
 n[, , 6] <- rbind(c(11, 143), c(4, 142))
 stratified_2x2_tables(n)
 
-unload_chapter(10)
+
 }

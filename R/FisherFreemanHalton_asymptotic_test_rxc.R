@@ -3,11 +3,11 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
-#' @examples load_chapter(7)
+#' @examples
 #' # Treatment for ear infection (van Balen et al., 2003)
 #' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 #' FisherFreemanHalton_asymptotic_test_rxc(n)
-#' unload_chapter(7)
+#'
 #' @note May not give results for all tables, due to overflow
 #'
 FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
