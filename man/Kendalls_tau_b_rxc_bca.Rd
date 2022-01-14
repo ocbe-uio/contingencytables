@@ -21,7 +21,7 @@ Kendall's tau-b with the bias-corrected and accelerated boostrap confidence inte
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-\dontrun{
+\donttest{
    # Colorectal cancer (Table 7.7)
    n <- rbind(
      c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)

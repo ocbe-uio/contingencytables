@@ -6,7 +6,7 @@
 #' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' \dontrun{
+#' \donttest{
 #' MidP_multinomial_test_1xc(n=c(276, 380, 118), pi0=c(0.402, 0.479, 0.119))
 #' }
 #' # subset of 10 patients

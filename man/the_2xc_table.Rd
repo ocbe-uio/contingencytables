@@ -17,7 +17,7 @@ the_2xc_table(n, alpha = 0.05, direction = "increasing")
 The 2xc table
 }
 \examples{
-\dontrun{
+\donttest{
 # The Adolescent Placement Study (Fontanella et al., 2008)
 n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 the_2xc_table(n)

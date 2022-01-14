@@ -13,7 +13,7 @@
 #'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
 #' )
 #' Pearson_correlation_coefficient_rxc(n)
-#' \dontrun{
+#' \donttest{
 #' # Breast Tumor (Table 7.8)
 #' n <- matrix(
 #'   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),

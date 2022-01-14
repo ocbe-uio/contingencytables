@@ -20,7 +20,7 @@ The Paired 2x2 table tests
 n <- rbind(c(1, 1), c(7, 12))
 the_paired_2x2_table_tests(n)
 
-\dontrun{
+\donttest{
 # Complete response before and after consolidation therapy
 # (Cavo et al., 2012)
 n <- rbind(c(59, 6), c(16, 80))

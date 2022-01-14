@@ -3,7 +3,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @examples
 #'
-#' \dontrun{
+#' \donttest{
 #'   # Unordered tables
 #'
 #'   ## Treatment for ear infection (van Balen et al., 2003)

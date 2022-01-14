@@ -6,7 +6,7 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'    # Colorectal cancer (Table 7.7)
 #'    n <- rbind(
 #'      c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)

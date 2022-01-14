@@ -27,7 +27,7 @@ n <- rbind(
 )
 linear_by_linear_test_rxc(n)
 
-\dontrun{
+\donttest{
 # Breast Tumor (Table 7.8)
 n <- matrix(
   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),

@@ -5,7 +5,7 @@
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126),c(46, 73, 69, 86))
 #' Exact_cond_midP_linear_rank_tests_2xc(n)
