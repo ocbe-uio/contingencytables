@@ -4,12 +4,15 @@
 \alias{the_rxc_table}
 \title{The rxc table}
 \usage{
-the_rxc_table(n, alpha = 0.05)
+the_rxc_table(n, alpha = 0.05, nboot = 10000)
 }
 \arguments{
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
+
+\item{nboot}{number of boostrap samples}
+}
 \value{
 NULL. This function should be called for its printed output.
 }

@@ -1,6 +1,7 @@
 #' @title The rxc table
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
+#' @param nboot number of boostrap samples
 #' @examples
 #'
 #' \donttest{
@@ -203,9 +204,6 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 	cat("\n")
 	.print("\nCorrelation measures\n")
 	.print("-----------------------------------------------------------------------------------------\n")
-
-	# Number of boostrap samples
-	nboot <- 10000
 
 	tmp <- Pearson_correlation_coefficient_rxc(n, 1:r, 1:c, alpha, printresults = FALSE)
 	rP <- tmp[[1]]
