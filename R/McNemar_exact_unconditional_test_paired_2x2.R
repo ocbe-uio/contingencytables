@@ -10,7 +10,7 @@
 #' n <- rbind(c(1, 1), c(7, 12))
 #' McNemar_exact_unconditional_test_paired_2x2(n)
 #'
-#' \donttest{
+#' \dontrun{
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
 #' n <- rbind(c(59, 6), c(16, 80))

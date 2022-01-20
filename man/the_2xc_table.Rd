@@ -20,7 +20,7 @@ A string of "-". This function should be called for its printed output.
 The 2xc table
 }
 \examples{
-\donttest{
+\dontrun{
 # The Adolescent Placement Study (Fontanella et al., 2008)
 n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 the_2xc_table(n)

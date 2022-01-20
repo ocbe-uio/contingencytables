@@ -3,7 +3,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param direction the direction of the success probabilities
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 #' the_2xc_table(n)

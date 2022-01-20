@@ -5,7 +5,7 @@
 #' @param a scores assigned to the rows
 #' @param printresults display results
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' n <- rbind(c(48,17066),c(38,14464),c(5,788),c(1,126),c(1,37))
 #' a <- c(1, 2, 3, 4, 5)

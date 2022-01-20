@@ -21,7 +21,7 @@ The rxc table
 }
 \examples{
 
-\donttest{
+\dontrun{
   # Unordered tables
 
   ## Treatment for ear infection (van Balen et al., 2003)

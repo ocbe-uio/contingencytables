@@ -4,7 +4,7 @@
 #' @param nboot number of boostrap samples
 #' @examples
 #'
-#' \donttest{
+#' \dontrun{
 #'   # Unordered tables
 #'
 #'   ## Treatment for ear infection (van Balen et al., 2003)
