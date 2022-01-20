@@ -15,6 +15,9 @@ AgrestiCoull_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A vector containing lower, upper and point estimates of the statistic
+}
 \description{
 Described in Chapter 2 "The 1x2 Table and the Binomial
 Distribution"

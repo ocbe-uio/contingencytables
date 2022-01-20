@@ -24,6 +24,7 @@
 #' )
 #' JonckheereTerpstra_test_rxc(n)
 #' @export
+#' @return a list containing the standard normalized Jonckheere-Terpstra test statistic
 JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

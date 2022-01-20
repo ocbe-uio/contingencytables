@@ -3,6 +3,7 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param printresults display results (F = no, T = yes)
+#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 #' @examples
 #' # Hypothetical experiment
 #' Chacko_test_1xc(n=c(1, 4, 3, 11, 9))

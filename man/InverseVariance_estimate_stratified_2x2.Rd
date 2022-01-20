@@ -13,6 +13,9 @@ InverseVariance_estimate_stratified_2x2(n, link = "logit", printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+a list respectively containing the inverse variance estimate of the overall effect (\code{estimate}), the stratum-specific effect estimates (\code{psihat}) and the weights (\code{v}).
+}
 \description{
 The inverse variance estimate of the overall effect across strata
 

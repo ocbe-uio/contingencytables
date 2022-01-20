@@ -19,6 +19,7 @@
 #' # Ligarden et al. (2010, adapted)
 #' Score_test_CC_1x2(X=13, n=16, pi0=.5)
 #' @export
+#' @return A vector containing the two-sided p-value and the score test statistic
 Score_test_CC_1x2 <- function(X, n, pi0, printresults=TRUE) {
 	# Estimate of the binomial probability (pihat)
 	estimate <- X / n

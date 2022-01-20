@@ -15,6 +15,9 @@ Wald_test_CC_1x2(X, n, pi0, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A vector containing the two-sided p-value and the Wald test statistic
+}
 \description{
 The Wald test with continuity correction for the binomial probability (pi)
 

@@ -11,6 +11,9 @@ the_paired_2x2_table_tests(n, gamma = 1e-04)
 
 \item{gamma}{parameter for the Berger and Boos procedure}
 }
+\value{
+The value of gamma. This function should be called for its printed output.
+}
 \description{
 The Paired 2x2 table tests
 }

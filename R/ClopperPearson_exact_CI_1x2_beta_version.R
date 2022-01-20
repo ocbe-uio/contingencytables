@@ -9,6 +9,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @seealso ClopperPearson_exact_CI_1x2
+#' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010)
 #' ClopperPearson_exact_CI_1x2_beta_version(X = 250, n = 533)

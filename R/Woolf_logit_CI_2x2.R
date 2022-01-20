@@ -14,6 +14,7 @@
 #' Woolf_logit_CI_2x2(n)
 #'
 #' @export
+#' @return A vector containing lower, upper and point estimates of the statistic
 Woolf_logit_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# Estimate of the odds ratio (thetahat)
 	estimate <- n[1, 1] * n[2, 2] / (n[1, 2] * n[2, 1])

@@ -31,6 +31,7 @@
 #' Pearson_correlation_coefficient_rxc_bca(n)
 #' }
 #' @export
+#' @return A list containing the statistic and the confindence interval limits
 Pearson_correlation_coefficient_rxc_bca <- function(
 	n, nboot = 1e4, a = 1:nrow(n), b = 1:ncol(n), alpha = 0.05,
 	printresults = TRUE

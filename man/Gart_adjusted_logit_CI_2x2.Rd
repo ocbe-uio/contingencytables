@@ -13,6 +13,9 @@ Gart_adjusted_logit_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Gart adjusted logit confidence interval for the odds ratio
 

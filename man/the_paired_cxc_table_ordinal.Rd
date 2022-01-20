@@ -13,6 +13,9 @@ the_paired_cxc_table_ordinal(n, a, alpha = 0.05)
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
+\value{
+A string containing the last line of the printed text. This function should be called for its printed output.
+}
 \description{
 The Paired CxC table - ordinal
 }

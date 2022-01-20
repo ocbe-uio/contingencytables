@@ -20,6 +20,7 @@
 #' the_rx2_table(n.1, a.1, 'decreasing')
 #' }
 #' @export
+#' @return A string of "-". This function should be called for its printed output.
 the_rx2_table <- function(
 	n, alpha=0.05, direction="increasing", skip_exact=FALSE
 ) {

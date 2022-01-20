@@ -10,6 +10,8 @@ the_rxc_table(n, alpha = 0.05)
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
+\value{
+NULL. This function should be called for its printed output.
 }
 \description{
 The rxc table

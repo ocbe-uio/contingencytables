@@ -23,6 +23,10 @@
 #' RBG_test_and_CI_stratified_2x2(n)
 #'
 #' @export
+#' @return A list containing the two-sided p-value (\code{P}), the Wald test
+#' statistic (\code{Z}), the confidence limits (\code{L} and \code{U}), the
+#' Mantel-Haenszel overall estimate (\code{thetahatMH}) and the standard error
+#' (\code{SElog}).
 RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   nppk <- apply(n, 3, sum)
 

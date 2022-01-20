@@ -13,6 +13,9 @@ Kendalls_tau_b_rxc(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the statistic and the confindence interval limits
+}
 \description{
 Kendall's tau-b with confidence interval based on the Fieller standard deviation
 

@@ -18,6 +18,7 @@
 #' the_paired_2x2_table_tests(n)
 #' }
 #' @export
+#' @return The value of gamma. This function should be called for its printed output.
 the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   N <- sum(n)
 

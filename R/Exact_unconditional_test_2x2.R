@@ -26,6 +26,7 @@
 #' @importFrom graphics lines
 #' @importFrom stats dhyper
 #' @importFrom grDevices dev.new
+#' @return Fisher's exact test statistic
 Exact_unconditional_test_2x2 <- function(n, statistic='Pearson', gamma=0.0001,
 	printresults=TRUE)
 {

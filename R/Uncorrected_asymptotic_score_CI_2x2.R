@@ -15,6 +15,7 @@
 #'
 #'
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	# global n11 n21 n1p n2p alphaglobal limit
 

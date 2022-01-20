@@ -13,6 +13,9 @@ Fisher_midP_test_2x2(n, statistic = "hypergeometric", printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+probability value
+}
 \description{
 The Fisher mid-P test for association in 2x2 tables
 

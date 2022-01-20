@@ -13,6 +13,9 @@ the_1xc_table_tests(n, pi0, chacko.test = FALSE)
 
 \item{chacko.test}{if TRUE, only performs the Chacko test}
 }
+\value{
+NULL. This function should be called for its printed output
+}
 \description{
 The 1xc table tests
 }

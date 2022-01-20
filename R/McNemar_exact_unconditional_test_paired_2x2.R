@@ -29,6 +29,7 @@
 #' the precision. A refinement of the maximization can be done with a manual
 #' restriction of the parameter space.
 #' @importFrom graphics segments
+#' @return The T version of the test statistic (not the Z one)
 McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, printresults = TRUE) {
   # Partition the parameter space into 'num_pi_values' equally spaced values
   num_pi_values <- 1000

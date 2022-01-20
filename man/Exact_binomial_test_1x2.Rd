@@ -15,6 +15,9 @@ Exact_binomial_test_1x2(X, n, pi0, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+The two-sided, twice-the-smallest tail p-value
+}
 \description{
 H_0 pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 

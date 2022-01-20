@@ -15,6 +15,9 @@ Kendalls_tau_b_rxc_bca(n, nboot = 10000, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A list containing the statistic and the confindence interval limits
+}
 \description{
 Kendall's tau-b with the bias-corrected and accelerated boostrap confidence interval
 

@@ -4,6 +4,7 @@
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (F = no, T = yes)
+#' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' n1 = rbind(c(3,1), c(1,3))     # Example: A lady tasting a cup of tea
 #' n2 = rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)

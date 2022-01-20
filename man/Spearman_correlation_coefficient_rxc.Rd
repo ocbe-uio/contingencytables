@@ -13,6 +13,9 @@ Spearman_correlation_coefficient_rxc(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the Spearman correlation coefficient, and the Fieller and Bonett-Wright confidence intervals
+}
 \description{
 The Spearman correlation coefficient
 

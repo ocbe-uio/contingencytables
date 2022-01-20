@@ -13,6 +13,9 @@ Woolf_logit_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A vector containing lower, upper and point estimates of the statistic
+}
 \description{
 The Woolf logit confidence interval for the odds ratio
 

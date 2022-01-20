@@ -8,6 +8,7 @@
 #' @param psi4 pseudo-frequency
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results
+#' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
 #' n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)

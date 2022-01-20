@@ -23,6 +23,9 @@ Pearson_correlation_coefficient_rxc(
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A list containing the statistic and the confindence interval limits
+}
 \description{
 The Pearson correlation coefficient
 

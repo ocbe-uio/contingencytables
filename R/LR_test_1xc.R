@@ -10,6 +10,7 @@
 #' # subset of 10 patients
 #' LR_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
 #' @export
+#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 LR_test_1xc <- function(n, pi0, printresults=TRUE) {
 
 	c0 <- length(n)

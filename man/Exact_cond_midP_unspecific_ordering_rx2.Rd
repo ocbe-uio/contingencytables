@@ -23,6 +23,9 @@ ratio test statistic ("LR"). Can also be used for cumulative ORs in
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A data frame containing the two-sided exact P-value and the mid-P value
+}
 \description{
 The exact conditional and mid-P tests for unspecific ordering.
 May also be used for 2xc tables, after flipping rows and columns (i.e. if

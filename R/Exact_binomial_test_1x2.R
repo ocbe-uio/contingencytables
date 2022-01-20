@@ -6,6 +6,7 @@
 #' @param n the total number of observations
 #' @param pi0 a given probability
 #' @param printresults display results (F = no, T = yes)
+#' @return The two-sided, twice-the-smallest tail p-value
 #' @examples
 #'
 #' # The number of 1st order male births (Singh et al. 2010)

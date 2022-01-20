@@ -13,6 +13,9 @@ LR_test_1xc(n, pi0, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The likelihood ratio test for multinomial probabilities
 

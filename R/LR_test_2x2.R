@@ -13,6 +13,7 @@
 #' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
 #' LR_test_2x2(n)
 #' @export
+#' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
 LR_test_2x2 <- function(n, printresults=TRUE) {
 	# The estimated expected counts
 	N <- sum(n)

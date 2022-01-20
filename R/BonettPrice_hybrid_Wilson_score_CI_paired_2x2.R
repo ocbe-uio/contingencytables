@@ -4,6 +4,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (0 = no, 1 = yes)
+#' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
 #' n <- rbind(c(1, 1), c(7, 12))
 #' BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)

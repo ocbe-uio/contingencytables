@@ -13,6 +13,9 @@ Goodman_Wald_CIs_1xc(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Goodman Wald simultaneous intervals for the multinomial probabilities
 

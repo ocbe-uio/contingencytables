@@ -13,6 +13,7 @@
 #'
 #'
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 MOVER_R_Wilson_CI_ratio_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	n1p <- n[1, 1] + n[1, 2]
 	n2p <- n[2, 1] + n[2, 2]

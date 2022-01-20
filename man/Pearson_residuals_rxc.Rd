@@ -11,6 +11,9 @@ Pearson_residuals_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing matrices of the Pearson residuals and the standardized Pearson residuals
+}
 \description{
 The Pearson residuals and the standardized Pearson residuals
 

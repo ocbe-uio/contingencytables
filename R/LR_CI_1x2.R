@@ -19,6 +19,7 @@
 #' # Ligarden et al. (2010)
 #' LR_CI_1x2(X=13, n=16)
 #' @export
+#' @return A vector containing lower, upper and point estimates of the statistic
 LR_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
 
 	# Define global variables that are needed in the LR test statistic function

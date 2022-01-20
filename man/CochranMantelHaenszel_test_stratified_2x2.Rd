@@ -11,6 +11,9 @@ CochranMantelHaenszel_test_stratified_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The Cochran-Mantel-Haenszel test of a common odds ratio
 

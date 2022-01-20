@@ -13,6 +13,9 @@ the_1x2_table_tests(X, n, pi0)
 
 \item{pi0}{a given probability}
 }
+\value{
+NULL. This function should be called for its printed output
+}
 \description{
 The 1x2 Table tests
 }

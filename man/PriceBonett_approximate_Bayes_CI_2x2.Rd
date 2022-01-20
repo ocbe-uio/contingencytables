@@ -21,6 +21,9 @@ PriceBonett_approximate_Bayes_CI_2x2(
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Price-Bonett approximate Bayes confidence interval for the ratio of probabilities
 

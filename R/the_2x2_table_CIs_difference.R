@@ -12,6 +12,7 @@
 #' the_2x2_table_CIs_difference(n)
 #'
 #' @export
+#' @return A string of "-". This function should be called for its printed output
 the_2x2_table_CIs_difference <- function(n, alpha=0.05) {
 	pi1hat <- n[1, 1] / (n[1, 1] + n[1, 2])
 	pi2hat <- n[2, 1] / (n[2, 1] + n[2, 2])

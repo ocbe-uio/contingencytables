@@ -13,6 +13,9 @@ MOVER_Wilson_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T= yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The MOVER Wilson score confidence interval for the ratio of paired probabilities
 

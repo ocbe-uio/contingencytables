@@ -15,6 +15,7 @@
 #' the_1x2_table_CIs(X=13, n=16)
 #'
 #' @export
+#' @return NULL. This function should be called for its printed output
 the_1x2_table_CIs <- function(X, n, alpha=0.05) {
 
 	estimate <- X / n

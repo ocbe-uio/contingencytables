@@ -52,7 +52,7 @@
 #' )
 #' Pearson_LR_tests_rxc(n)
 #' @export
-
+#' @return A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
 Pearson_LR_tests_rxc <- function(n, printresults=TRUE) {
 	r <- nrow(n)
 	c0 <- ncol(n)

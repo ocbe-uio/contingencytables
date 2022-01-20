@@ -11,6 +11,10 @@ gamma_coefficient_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+a list containing the gamma coefficient, the number of concordant
+pairs and the number of discordant pairs
+}
 \description{
 The gamma coefficient
 

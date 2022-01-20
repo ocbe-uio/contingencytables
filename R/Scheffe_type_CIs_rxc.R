@@ -9,6 +9,7 @@
 #' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 #' Scheffe_type_CIs_rxc(n)
 #' @export
+#' @return A list containing lower, upper and point estimates of the statistic
 Scheffe_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)

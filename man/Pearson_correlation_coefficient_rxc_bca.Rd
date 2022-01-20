@@ -26,6 +26,9 @@ Pearson_correlation_coefficient_rxc_bca(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the statistic and the confindence interval limits
+}
 \description{
 The Pearson correlation coefficient with the bias-corrected and accelerated
 

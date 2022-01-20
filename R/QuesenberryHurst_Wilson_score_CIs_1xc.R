@@ -9,6 +9,7 @@
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' QuesenberryHurst_Wilson_score_CIs_1xc(n=c(276, 380, 118))
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 QuesenberryHurst_Wilson_score_CIs_1xc <- function(n, alpha=0.05, printresults=TRUE) {
 
 	c0 <- length(n)

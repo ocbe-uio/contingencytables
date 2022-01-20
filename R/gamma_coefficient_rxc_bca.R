@@ -29,6 +29,7 @@
 #'   gamma_coefficient_rxc_bca(n)
 #' }
 #' @export
+#' @return a list with the gamma coefficient and the confidence interval limits
 gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

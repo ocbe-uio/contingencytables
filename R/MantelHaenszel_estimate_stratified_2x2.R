@@ -22,6 +22,7 @@
 #' MantelHaenszel_estimate_stratified_2x2(n)
 #'
 #' @export
+#' @return a list respectively containing the inverse variance estimate of the overall effect (\code{estimate}), the stratum-specific effect estimates (\code{psihat}) and the weights (\code{w}).
 MantelHaenszel_estimate_stratified_2x2 <- function(n, link = "logit", printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)

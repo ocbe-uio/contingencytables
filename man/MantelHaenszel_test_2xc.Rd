@@ -13,6 +13,9 @@ MantelHaenszel_test_2xc(n, b = 0, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The Mantel-Haenszel test of association with column scores
 

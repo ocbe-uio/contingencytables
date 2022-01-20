@@ -19,6 +19,7 @@
 #'     Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
 #' }
 #' @export
+#' @return A data frame containing the two-sided exact P-value and the mid-P value
 Exact_cond_midP_unspecific_ordering_rx2 <- function(
 	n, direction, statistic = "Pearson", printresults = TRUE
 ) {

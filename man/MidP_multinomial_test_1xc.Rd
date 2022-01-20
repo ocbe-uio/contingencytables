@@ -13,6 +13,9 @@ MidP_multinomial_test_1xc(n, pi0, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+probability value
+}
 \description{
 The mid-P multinomial test for multinomial probabilities
 

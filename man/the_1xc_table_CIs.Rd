@@ -11,6 +11,9 @@ the_1xc_table_CIs(n, alpha = 0.05)
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The 1xc table CIs
 }

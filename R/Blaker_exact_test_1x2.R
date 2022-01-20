@@ -11,6 +11,7 @@
 #' @param n the total number of observations
 #' @param pi0 a given probability
 #' @param printresults display results (0 = no, 1 = yes)
+#' @return The two-sided p-value
 #' @examples
 #'
 #' # The number of 1st order male births (Singh et al. 2010)

@@ -13,6 +13,9 @@ CochranArmitage_MH_tests_rx2(n, a, printresults = TRUE)
 
 \item{printresults}{display results}
 }
+\value{
+A list containing observed statistics and p-values
+}
 \description{
 Described in Chapter 5 "The Ordered rx2 Table"
 }

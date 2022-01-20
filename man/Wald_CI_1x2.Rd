@@ -15,6 +15,9 @@ Wald_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (\code{FALSE} = no, \code{TRUE} = yes)}
 }
+\value{
+A vector containing lower, upper and point estimates of the statistic
+}
 \description{
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }

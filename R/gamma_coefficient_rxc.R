@@ -26,6 +26,8 @@
 #'   gamma_coefficient_rxc_bca(n)
 #' }
 #' @export
+#' @return a list containing the gamma coefficient, the number of concordant
+#' pairs and the number of discordant pairs
 gamma_coefficient_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

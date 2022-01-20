@@ -12,6 +12,7 @@
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' Mee_asymptotic_score_CI_2x2(n)
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 Mee_asymptotic_score_CI_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 	n11 <- n[1, 1]
 	n21 <- n[2, 1]

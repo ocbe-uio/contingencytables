@@ -6,6 +6,7 @@
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95#' CIs
 #' @param printresults display results (F = no, T = yes)
+#' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
 #'
 #' # The number of 1st order male births (Singh et al. 2010)

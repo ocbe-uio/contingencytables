@@ -21,6 +21,7 @@
 #' Peto_homogeneity_test_stratified_2x2(n)
 #'
 #' @export
+#' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
 Peto_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

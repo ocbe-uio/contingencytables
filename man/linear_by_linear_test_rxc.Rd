@@ -15,6 +15,9 @@ linear_by_linear_test_rxc(n, a = 1:ncol(n), b = 1:nrow(n), printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+a list containing the linear-by-linear test statistic
+}
 \description{
 The linear-by-linear test for association
 

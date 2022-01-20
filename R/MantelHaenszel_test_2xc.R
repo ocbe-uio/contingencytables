@@ -10,6 +10,7 @@
 #' MantelHaenszel_test_2xc(n)
 #' b <- 0
 #' @export
+#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {
 	c <- ncol(n)
 	nip <- apply(n, 1, sum)

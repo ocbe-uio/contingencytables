@@ -18,6 +18,7 @@
 #' CochranArmitage_exact_cond_midP_tests_rx2(n, a)
 #'
 #' @export
+#' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
 CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults=TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)

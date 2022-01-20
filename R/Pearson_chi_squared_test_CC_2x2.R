@@ -22,6 +22,7 @@
 #' Pearson_chi_squared_test_CC_2x2(n)
 #'
 #' @export
+#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 Pearson_chi_squared_test_CC_2x2 <- function(n, printresults=TRUE) {
 	n1p <- n[1, 1] + n[1, 2]
 	n2p <- n[2, 1] + n[2, 2]

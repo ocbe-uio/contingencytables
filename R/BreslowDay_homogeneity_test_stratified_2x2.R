@@ -4,6 +4,7 @@
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param printresults display results (FALSE = no, TRUE = yes)
+#' @return A list containing lower bound, upper bound and differences of the statistic
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' n <- array(dim = c(2, 2, 2))

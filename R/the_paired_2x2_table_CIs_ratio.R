@@ -13,6 +13,7 @@
 #' the_paired_2x2_table_CIs_ratio(n)
 #'
 #' @export
+#' @return A string containing the last line of the printed text. This function should be called for its printed output.
 the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   N <- sum(n)
 

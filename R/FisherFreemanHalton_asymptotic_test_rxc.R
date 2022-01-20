@@ -10,6 +10,7 @@
 #'
 #' @note May not give results for all tables, due to overflow
 #' @export
+#' @return A list containing the probability, the statistic and the degrees of freedom
 FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

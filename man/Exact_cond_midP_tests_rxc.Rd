@@ -11,6 +11,9 @@ Exact_cond_midP_tests_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing exact p-values and mid-p values
+}
 \description{
 Exact conditional and mid-P tests for the rxc table:
 the Fisher-Freeman-Halton, Pearson, likelihood ratio, Kruskal-Wallis,

@@ -14,6 +14,7 @@
 #' the_2xc_table(n, direction = dir)
 #' }
 #' @export
+#' @return A string of "-". This function should be called for its printed output.
 the_2xc_table <- function(n, alpha=0.05, direction="increasing") {
 	.print('\nMethod                            Statistic      P-value\n')
 	.print('--------------------------------------------------------\n')

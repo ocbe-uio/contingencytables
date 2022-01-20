@@ -20,6 +20,9 @@ Cochran_Q_test_stratified_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the probability, the statistic and the degrees of freedom
+}
 \description{
 The Cochran Q test of homogeneity of effects over strata
 

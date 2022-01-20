@@ -16,6 +16,7 @@
 #' Exact_cond_midP_linear_rank_tests_2xc(n)
 #'
 #' @export
+#' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
 Exact_cond_midP_linear_rank_tests_2xc <- function(n, b=0, printresults=TRUE) {
 	c0 <- ncol(n)
 	nip <- apply(n, 1, sum)

@@ -11,6 +11,9 @@ Bhapkar_test_paired_cxc(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the probability, the statistic and the degrees of freedom
+}
 \description{
 The Bhapkar test for marginal homogeneity
 

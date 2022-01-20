@@ -15,6 +15,9 @@ CochranArmitage_CI_rx2(n, a, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results}
 }
+\value{
+A vector containing lower, upper and point estimates of the statistic
+}
 \description{
 The Cochran-Armitage confidence interval for trend in the linear model
 

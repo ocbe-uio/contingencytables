@@ -17,6 +17,9 @@ McNemar_exact_unconditional_test_paired_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+The T version of the test statistic (not the Z one)
+}
 \description{
 The McNemar exact unconditional test
 

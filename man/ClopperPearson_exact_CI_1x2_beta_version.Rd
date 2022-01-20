@@ -20,6 +20,9 @@ ClopperPearson_exact_CI_1x2_beta_version(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The Clopper-Pearson exact confidence interval for the binomial probability
 

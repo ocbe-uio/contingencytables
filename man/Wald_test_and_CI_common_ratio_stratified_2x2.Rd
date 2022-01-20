@@ -20,6 +20,9 @@ Wald_test_and_CI_common_ratio_stratified_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimates for phi
+}
 \description{
 The Wald test and CI for a common ratio of probabilities
 

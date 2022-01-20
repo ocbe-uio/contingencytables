@@ -23,6 +23,9 @@ Adjusted_inv_sinh_CI_OR_2x2(
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The adjusted inverse hyperbolic sine confidence interval for the odds ratio.
 

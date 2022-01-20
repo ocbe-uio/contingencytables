@@ -49,7 +49,8 @@
 #'   the_rxc_table(n)
 #' }
 #' @export
-the_rxc_table <- function(n, alpha = 0.05) {
+#' @return NULL. This function should be called for its printed output.
+the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 	r <- nrow(n)
 	c <- ncol(n)
 

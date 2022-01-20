@@ -24,6 +24,9 @@ Trend_estimate_CI_tests_rx2(
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A list containing several test statistics (see description above).
+}
 \description{
 Trend estimate for linear and logit models
 \itemize{

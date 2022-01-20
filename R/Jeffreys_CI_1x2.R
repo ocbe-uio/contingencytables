@@ -19,6 +19,7 @@
 #' # Ligarden et al. (2010)
 #' Jeffreys_CI_1x2(X=13, n=16)
 #' @export
+#' @return A vector containing lower, upper and point estimates of the statistic
 Jeffreys_CI_1x2 <- function(X, n, alpha=0.05, printresults=TRUE) {
 
 	# Estimate of the binomial probability (pihat)

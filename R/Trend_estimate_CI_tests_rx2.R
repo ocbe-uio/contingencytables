@@ -29,7 +29,7 @@
 #' a <- c(1, 2, 3, 4, 5)
 #' Trend_estimate_CI_tests_rx2(n, a)
 #' @export
-
+#' @return A list containing several test statistics (see description above).
 Trend_estimate_CI_tests_rx2 <- function(
 	n, a, linkfunction="logit", alpha=0.05, printresults=TRUE
 ) {

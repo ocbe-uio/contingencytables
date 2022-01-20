@@ -15,6 +15,9 @@ gamma_coefficient_rxc_bca(n, nboot = 10000, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+a list with the gamma coefficient and the confidence interval limits
+}
 \description{
 The gamma coefficient with the bias-corrected and accelerated boostrap confidence interval
 

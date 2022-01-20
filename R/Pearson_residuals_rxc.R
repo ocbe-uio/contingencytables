@@ -22,6 +22,7 @@
 #' )
 #' Pearson_residuals_rxc(n)
 #' @export
+#' @return A list containing matrices of the Pearson residuals and the standardized Pearson residuals
 Pearson_residuals_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

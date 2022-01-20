@@ -11,6 +11,9 @@ McNemar_exact_cond_test_paired_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+The exact p-value based on the binomial distribution
+}
 \description{
 The McNemar exact conditional test
 
