@@ -1,3 +1,5 @@
+set.seed(3755232)
+
 context("Output class, name and length")
 
 # Common elements ======================================== #
