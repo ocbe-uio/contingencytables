@@ -1,7 +1,7 @@
 #' @title The rxc table
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param nboot number of boostrap samples
+#' @param nboot number of boostrap samples. If 0, skips tests that use bootstrapping
 #' @examples
 #'
 #' \dontrun{
@@ -210,11 +210,13 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 	L <- tmp[[2]]
 	U <- tmp[[3]]
 	.print("Pearson correlation coefficient           %6.3f (%g%% CI %6.3f to %6.3f)\n", rP, 100 * (1 - alpha), L, U)
-	tmp <- Pearson_correlation_coefficient_rxc_bca(n, nboot, 1:r, 1:c, alpha, printresults = FALSE)
-	rP <- tmp[[1]]
-	L <- tmp[[2]]
-	U <- tmp[[3]]
-	.print("Pearson correlation w / BCa bootstrap CI    %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rP, 100 * (1 - alpha), L, U, nboot)
+	if (nboot > 0) {
+		tmp <- Pearson_correlation_coefficient_rxc_bca(n, nboot, 1:r, 1:c, alpha, printresults = FALSE)
+		rP <- tmp[[1]]
+		L <- tmp[[2]]
+		U <- tmp[[3]]
+		.print("Pearson correlation w / BCa bootstrap CI    %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rP, 100 * (1 - alpha), L, U, nboot)
+	}
 
 	cat("\n")
 	tmp <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)
@@ -225,20 +227,26 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 	U_BW <- tmp[[5]]
 	.print("\nSpearman correlation w / Fieller CI         %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L, U)
 	.print("Spearman correlation w / Bonett-Wright CI   %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
-	tmp <- Spearman_correlation_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
-	rho <- tmp[[1]]
-	L <- tmp[[2]]
-	U <- tmp[[3]]
-	.print("Spearman correlation w / BCa bootstrap CI   %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rho, 100 * (1 - alpha), L, U, nboot)
+
+	if (nboot > 0) {
+		tmp <- Spearman_correlation_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
+		rho <- tmp[[1]]
+		L <- tmp[[2]]
+		U <- tmp[[3]]
+		.print("Spearman correlation w / BCa bootstrap CI   %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rho, 100 * (1 - alpha), L, U, nboot)
+	}
 
 	cat("\n")
 	gamma <- gamma_coefficient_rxc(n, printresults = FALSE)$gamma
 	.print("\nThe gamma coefficient                     %6.3f\n", gamma)
-	tmp <- gamma_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
-	gamma <- tmp[[1]]
-	L <- tmp[[2]]
-	U <- tmp[[3]]
-	.print("The gamma coefficient w / BCa bootstrap CI  %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", gamma, 100 * (1 - alpha), L, U, nboot)
+
+	if (nboot > 0) {
+		tmp <- gamma_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
+		gamma <- tmp[[1]]
+		L <- tmp[[2]]
+		U <- tmp[[3]]
+		.print("The gamma coefficient w / BCa bootstrap CI  %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", gamma, 100 * (1 - alpha), L, U, nboot)
+	}
 
 	cat("\n")
 	tmp <- Kendalls_tau_b_rxc(n, alpha, printresults = FALSE)
@@ -246,11 +254,14 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 	L <- tmp[[2]]
 	U <- tmp[[3]]
 	.print("\nKendalls tau-b w / Fieller CI              %6.3f (%g%% CI %6.3f to %6.3f)\n", tau_b, 100 * (1 - alpha), L, U)
-	tmp <- Kendalls_tau_b_rxc_bca(n, nboot, alpha, printresults = FALSE)
-	tau_b <- tmp[[1]]
-	L <- tmp[[2]]
-	U <- tmp[[3]]
-	.print("Kendalls tau-b w / BCa bootstrap CI        %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", tau_b, 100 * (1 - alpha), L, U, nboot)
+
+	if (nboot > 0) {
+		tmp <- Kendalls_tau_b_rxc_bca(n, nboot, alpha, printresults = FALSE)
+		tau_b <- tmp[[1]]
+		L <- tmp[[2]]
+		U <- tmp[[3]]
+		.print("Kendalls tau-b w / BCa bootstrap CI        %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", tau_b, 100 * (1 - alpha), L, U, nboot)
+	}
 
 	.print("-----------------------------------------------------------------------------------------\n")
 }

@@ -11,7 +11,7 @@ the_rxc_table(n, alpha = 0.05, nboot = 10000)
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 
-\item{nboot}{number of boostrap samples}
+\item{nboot}{number of boostrap samples. If 0, skips tests that use bootstrapping}
 }
 \value{
 NULL. This function should be called for its printed output.
