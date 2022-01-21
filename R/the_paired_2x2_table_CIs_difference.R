@@ -13,6 +13,7 @@
 #' the_paired_2x2_table_CIs_difference(n)
 #'
 #' @export
+#' @return A string of "-". This function should be called for its printed output.
 the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   N <- sum(n)
 

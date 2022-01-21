@@ -13,6 +13,9 @@ Tang_asymptotic_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The Tang asymptotic score confidence interval for the ratio of paired probabilities
 

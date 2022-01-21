@@ -11,6 +11,9 @@ Pearson_chi_squared_test_CC_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The Pearson chi-squared test for association in 2x2 tables
 

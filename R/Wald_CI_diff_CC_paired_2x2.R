@@ -16,6 +16,7 @@
 #' n <- rbind(c(59, 6), c(16, 80))
 #' Wald_CI_diff_CC_paired_2x2(n)
 #' @export
+#' @return A list containing lower, upper and point estimates of the statistic
 Wald_CI_diff_CC_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   N <- sum(n)
 

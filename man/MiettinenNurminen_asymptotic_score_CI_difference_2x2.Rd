@@ -18,6 +18,9 @@ MiettinenNurminen_asymptotic_score_CI_difference_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Mietinen-Nurminen asymptotic score confidence interval for the
 

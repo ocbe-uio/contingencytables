@@ -11,6 +11,9 @@ the_2x2_table_CIs_OR(n, alpha = 0.05)
 
 \item{alpha}{type I error}
 }
+\value{
+A string of "-". This function should be called for its printed output
+}
 \description{
 Wrapper for \code{_CI_OR_2x2} functions on Chapter 4.
 }

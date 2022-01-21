@@ -21,6 +21,9 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc(
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A list containing the two-sided p-value, the score test statistic, the confidence limits and the estimate of the difference between marginal mean scores
+}
 \description{
 The score test and confidence interval for the difference
 between marginal mean scores Described in Chapter 9 "The Paired cxc Table"

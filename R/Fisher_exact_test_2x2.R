@@ -14,6 +14,7 @@
 #' n <- rbind(c(0,16), c(15,57)) # Example: Ritland et al. (2007)
 #' Fisher_exact_test_2x2(n)
 #' @export
+#' @return probability value
 Fisher_exact_test_2x2 <- function(n, statistic='Pearson', printresults=TRUE) {
 
 	n1p <- n[1, 1] + n[1, 2]

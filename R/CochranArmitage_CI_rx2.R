@@ -5,6 +5,7 @@
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results
+#' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' n <- rbind(c(48,17066),c(38,14464),c(5,788),c(1,126),c(1,37))

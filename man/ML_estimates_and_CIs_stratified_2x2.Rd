@@ -20,6 +20,9 @@ ML_estimates_and_CIs_stratified_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the maximum likelihood estimates
+}
 \description{
 Maximum likelihood estimates with CIs of the grouping and strata effects
 

@@ -11,6 +11,9 @@ McNemar_asymptotic_test_paired_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+The McNemar test statistic with continuity correction (\code{Z}) and the reference distribution (standard normal, \code{P})
+}
 \description{
 The McNemar asymptotic test
 

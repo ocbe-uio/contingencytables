@@ -13,6 +13,9 @@ Wald_CI_OR_Laplace_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The Wald confidence interval for the conditional odds ratio with Laplace adjustment
 

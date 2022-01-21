@@ -11,6 +11,9 @@ BreslowDay_homogeneity_test_stratified_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower bound, upper bound and differences of the statistic
+}
 \description{
 The Breslow-Day test of homogeneity of odds ratios over strata with
 

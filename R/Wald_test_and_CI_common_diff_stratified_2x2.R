@@ -24,6 +24,7 @@
 #' Wald_test_and_CI_common_diff_stratified_2x2(n)
 #'
 #' @export
+#' @return A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimates for delta
 Wald_test_and_CI_common_diff_stratified_2x2 <- function(n, estimatetype = "MH", alpha = 0.05, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)

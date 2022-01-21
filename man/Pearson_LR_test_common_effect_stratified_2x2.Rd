@@ -17,6 +17,9 @@ Pearson_LR_test_common_effect_stratified_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+}
 \description{
 The Pearson chi-squared and likelihood ratio tests of a common difference
 

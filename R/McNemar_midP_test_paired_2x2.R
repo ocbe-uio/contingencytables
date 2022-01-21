@@ -18,6 +18,7 @@
 #' n <- rbind(c(7, 25), c(2, 68))
 #' McNemar_midP_test_paired_2x2(n)
 #' @export
+#' @return probability value
 McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
   if (n[1, 2] == n[2, 1]) {
     midP <- 1 - 0.5 * dbinom(n[1, 2], n[1, 2] + n[2, 1], 0.5)

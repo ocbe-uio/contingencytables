@@ -9,6 +9,7 @@
 #' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' Pearson_LR_tests_cum_OR_2xc(n)
 #' @export
+#' @return A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
 Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresults = TRUE) {
 
 	# Swap the order of the two rows if probabilities are increasing

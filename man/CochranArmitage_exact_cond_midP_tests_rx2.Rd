@@ -13,6 +13,9 @@ CochranArmitage_exact_cond_midP_tests_rx2(n, a, printresults = TRUE)
 
 \item{printresults}{display results}
 }
+\value{
+A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
+}
 \description{
 The Cochran-Armitage exact conditional and mid-P tests
 

@@ -17,6 +17,9 @@
 #' Cumulative_models_for_2xc(n)
 #'
 #' @export
+#' @return A list containing the results of statistical tests for the
+#' goodness-of-fit of a proportional odds model, the effect in a proportional
+#' odds model and the effect parameter beta in the proportional odds model.
 Cumulative_models_for_2xc <- function(
 	n, linkfunction = "logit", alpha = 0.05, printresults = TRUE
 ) {

@@ -4,6 +4,7 @@
 #' @param n the observed table (a 2xc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom stats binomial glm predict
+#' @return A data frame containing the probability, the statistic and the degrees of freedom
 #' @examples
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
 #' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))

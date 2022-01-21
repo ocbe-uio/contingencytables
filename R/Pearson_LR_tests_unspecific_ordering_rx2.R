@@ -22,6 +22,7 @@
 #' n <- t(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow=TRUE, ncol=4))
 #' Pearson_LR_tests_unspecific_ordering_rx2(n, 'decreasing')
 #' @export
+#' @return A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
 Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults=TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)

@@ -4,6 +4,7 @@
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
+#' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' n <- rbind(c(3,1), c(1,3))     # Example: A lady tasting a cup of tea
 #' Cornfield_exact_conditional_CI_2x2(n)

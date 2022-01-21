@@ -18,6 +18,9 @@ Transformed_Clopper_Pearson_midP_CI_paired_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The Transformed Clopper-Pearson mid-P confidence interval for the conditional odds ratio
 

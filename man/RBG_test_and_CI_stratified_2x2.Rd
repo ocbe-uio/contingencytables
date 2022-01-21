@@ -13,6 +13,12 @@ RBG_test_and_CI_stratified_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the two-sided p-value (\code{P}), the Wald test
+statistic (\code{Z}), the confidence limits (\code{L} and \code{U}), the
+Mantel-Haenszel overall estimate (\code{thetahatMH}) and the standard error
+(\code{SElog}).
+}
 \description{
 The RBG test and CI for a common odds ratio
 

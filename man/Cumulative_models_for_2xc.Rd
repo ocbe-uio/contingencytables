@@ -20,6 +20,11 @@ Cumulative_models_for_2xc(
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A list containing the results of statistical tests for the
+goodness-of-fit of a proportional odds model, the effect in a proportional
+odds model and the effect parameter beta in the proportional odds model.
+}
 \description{
 Cumulative logit and probit models
 

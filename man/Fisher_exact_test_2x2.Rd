@@ -13,6 +13,9 @@ Fisher_exact_test_2x2(n, statistic = "Pearson", printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+probability value
+}
 \description{
 The Fisher exact test for association in 2x2 tables
 

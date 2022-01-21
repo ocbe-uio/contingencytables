@@ -22,6 +22,7 @@
 #' Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
 #'
 #' @export
+#' @return A list containing the probability, the statistic and the degrees of freedom
 Score_test_for_effect_in_the_probit_model_2xc <- function(
 	n, alphahat0, printresults = TRUE
 ) {

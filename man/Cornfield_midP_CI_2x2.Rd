@@ -13,6 +13,9 @@ Cornfield_midP_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Cornfield mid-P confidence interval for the odds ratio
 

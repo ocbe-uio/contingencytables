@@ -13,6 +13,7 @@
 #' n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 #' MiettinenNurminen_asymptotic_score_CI_difference_2x2(n)
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 MiettinenNurminen_asymptotic_score_CI_difference_2x2 <- function(n, alpha=0.05,
 printresults=TRUE) {
 

@@ -11,6 +11,9 @@ Peto_OR_estimate_stratified_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the Peto odds ratio estimate, its conditional expectation (from the hypergeometric distribution) and the variance
+}
 \description{
 The Peto estimate of the common odds ratio across strata
 

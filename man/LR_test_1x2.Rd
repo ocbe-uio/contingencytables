@@ -15,6 +15,9 @@ LR_test_1x2(X, n, pi0, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A vector containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The likelihood ratio test for the binomial probability (pi)
 H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided).

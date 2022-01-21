@@ -5,6 +5,7 @@
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' the_1xc_table_CIs(n=c(276, 380, 118))
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 the_1xc_table_CIs <- function(n, alpha=0.05) {
 
 	# ======================================================== #

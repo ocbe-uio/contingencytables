@@ -20,6 +20,9 @@ Wald_test_and_CI_common_diff_stratified_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimates for delta
+}
 \description{
 The Wald test and CI for a common difference between probabilities
 

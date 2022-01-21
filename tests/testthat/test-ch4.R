@@ -1,27 +1,27 @@
 context("Chapter 4")
 
 test_that("Chapter 4 functions basically work", {
-		n <- matrix(c(9, 4, 4, 10), nrow=2, byrow=T)
+	n <- matrix(c(9, 4, 4, 10), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Adjusted_inv_sinh_CI_OR_2x2(n),
 		regexp = "estimate = 5.6250 \\(95% CI 1.1414 to 21.7873\\)"
 	)
-	n <- matrix(c(0,16,15,57), nrow=2, byrow=T)
+	n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Adjusted_inv_sinh_CI_ratio_2x2(n),
 		regexp = "estimate = 0.0000 \\(95% CI 0.0000 to 1.1524\\)"
 	)
-	n <- matrix(c(7,27,1,33), nrow=2, byrow=T)
+	n <- matrix(c(7,27,1,33), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Adjusted_log_CI_2x2(n),
 		regexp = "estimate = 7.0000 \\(95% CI 0.9241 to 27.0523\\)"
 	)
 	expect_output(
-		object = Wald_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=T)),
+		object = Wald_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=TRUE)),
 		regexp = "estimate = 0.1765 \\(95% CI 0.0292 to 0.3238\\)"
 	)
 	expect_output(
-		object = AgrestiCaffo_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=T)),
+		object = AgrestiCaffo_CI_2x2(n = matrix(c(7,27,1,33), nrow=2, byrow=TRUE)),
 		regexp = "estimate = 0.1765 \\(95% CI 0.0116 to 0.3217\\)"
 	)
 	expect_output(
@@ -52,12 +52,12 @@ test_that("Chapter 4 functions basically work", {
 		object = Fisher_midP_test_2x2(rbind(c(0,16), c(15,57))),
 		regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
 	)
-	n <- matrix(c(0,16,15,57), nrow=2, byrow=T)
+	n <- matrix(c(0,16,15,57), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Gart_adjusted_logit_CI_2x2(n),
 		regexp = "estimate = 0.0000 \\(95% CI 0.0064 to 1.9804\\)"
 	)
-	n <- matrix(c(9,4,4,10), nrow=2, byrow=T)
+	n <- matrix(c(9,4,4,10), nrow=2, byrow=TRUE)
 	expect_output(
 		object = Independence_smoothed_logit_CI_2x2(n),
 		regexp = "estimate = 5.6250 \\(95% CI 1.0206 to 23.7777\\)"

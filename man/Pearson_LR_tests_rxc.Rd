@@ -11,6 +11,9 @@ Pearson_LR_tests_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results}
 }
+\value{
+A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+}
 \description{
 The Pearson chi-squared and likelihood ratio tests for association in rxc tables
 

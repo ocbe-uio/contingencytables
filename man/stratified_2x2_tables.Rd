@@ -11,6 +11,9 @@ stratified_2x2_tables(n, alpha = 0.05)
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
+\value{
+A string of "-". This function should be called for its printed output
+}
 \description{
 Stratified 2x2 tables
 }

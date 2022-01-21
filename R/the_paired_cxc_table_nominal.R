@@ -6,6 +6,7 @@
 #' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
 #' the_paired_cxc_table_nominal(n)
 #' @export
+#' @return A string containing the last line of the printed text. This function should be called for its printed output.
 the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
 
 

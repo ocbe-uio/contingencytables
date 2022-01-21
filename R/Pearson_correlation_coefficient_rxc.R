@@ -30,6 +30,7 @@
 #' }
 #'
 #' @export
+#' @return A list containing the statistic and the confindence interval limits
 Pearson_correlation_coefficient_rxc <- function(n, a = 1:nrow(n), b = 1:ncol(n), alpha = 0.05, printresults = TRUE) {
 	# If no scores are given, use equally spaced scores
 	r <- nrow(n)

@@ -13,6 +13,9 @@ Bonferroni_type_CIs_paired_cxc(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 Bonferroni-type confidence intervals for differences of marginal probabilities
 

@@ -11,6 +11,9 @@ Chacko_test_1xc(n, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The Chacko test for order-restriction
 

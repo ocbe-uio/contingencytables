@@ -19,6 +19,7 @@
 #' Wald_CI_CC_1x2(X=13, n=16)
 #'
 #' @export
+#' @return A vector containing lower, upper and point estimates of the statistic
 Wald_CI_CC_1x2 <- function(X, n, alpha=0.05, printresults=TRUE) {
 
 	# Estimate of the binomial probability (pihat)

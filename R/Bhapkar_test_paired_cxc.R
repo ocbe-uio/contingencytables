@@ -3,6 +3,7 @@
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
+#' @return A list containing the probability, the statistic and the degrees of freedom
 #' @examples
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
 #' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))

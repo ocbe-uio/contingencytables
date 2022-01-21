@@ -23,6 +23,7 @@
 #' Cochran_Q_test_stratified_2x2(n)
 #'
 #' @export
+#' @return A list containing the probability, the statistic and the degrees of freedom
 Cochran_Q_test_stratified_2x2 <- function(n, link = "linear", estimatetype = "MH", printresults = TRUE) {
   K <- dim(n)[3]
 

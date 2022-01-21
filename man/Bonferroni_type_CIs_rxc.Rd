@@ -13,6 +13,9 @@ Bonferroni_type_CIs_rxc(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The Bonferroni-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
 

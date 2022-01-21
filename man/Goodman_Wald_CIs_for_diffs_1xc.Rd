@@ -20,6 +20,9 @@ Goodman_Wald_CIs_for_diffs_1xc(
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Goodman Wald simultaneous intervals for the differences between the
 

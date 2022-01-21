@@ -29,6 +29,7 @@
 #' Spearman_correlation_coefficient_rxc_bca(n)
 #' }
 #' @export
+#' @return A list containing the statistic and the confindence interval limits
 Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

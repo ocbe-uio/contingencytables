@@ -13,6 +13,9 @@ Exact_cond_midP_linear_rank_tests_2xc(n, b = 0, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
+}
 \description{
 Exact conditional and mid-P linear rank tests
 

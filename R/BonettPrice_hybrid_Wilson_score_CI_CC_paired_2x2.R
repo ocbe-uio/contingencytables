@@ -5,6 +5,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
+#' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)

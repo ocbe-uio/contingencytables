@@ -11,6 +11,9 @@ Z_unpooled_test_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A vector containing the two-sided p-value and the unpooled Z statistic
+}
 \description{
 The Z-unpooled test for association in 2x2 tables
 

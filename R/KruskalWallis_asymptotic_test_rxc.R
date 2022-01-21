@@ -15,6 +15,7 @@
 #' )
 #' KruskalWallis_asymptotic_test_rxc(n)
 #' @export
+#' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
 KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
 	r <- nrow(n)
 	c <- ncol(n)

@@ -11,6 +11,9 @@ KruskalWallis_asymptotic_test_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+A list containing the two-sided p-value, the statistic and the degrees of freedom
+}
 \description{
 The Kruskal-Wallis asymptotic test for singly ordered rxc tables
 

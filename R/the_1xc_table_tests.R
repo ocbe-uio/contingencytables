@@ -10,6 +10,7 @@
 #' # Example for the Chacko test: Hypothetical experiment
 #' the_1xc_table_tests(n = c(1, 4, 3, 11, 9), pi0=c(0.402, 0.479, 0.119), TRUE)
 #' @export
+#' @return NULL. This function should be called for its printed output
 the_1xc_table_tests <- function(n, pi0, chacko.test=FALSE) {
 	# ======================================================== #
 	# Ad-hoc function to print output                          #

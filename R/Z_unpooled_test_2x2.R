@@ -21,6 +21,7 @@
 #' Z_unpooled_test_2x2(n)
 #'
 #' @export
+#' @return A vector containing the two-sided p-value and the unpooled Z statistic
 Z_unpooled_test_2x2 <- function(n, printresults=TRUE) {
 	n1p <- n[1, 1] + n[1, 2]
 	n2p <- n[2, 1] + n[2, 2]

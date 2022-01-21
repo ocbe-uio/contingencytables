@@ -21,6 +21,9 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the Wald test and the Wald CI statistics
+}
 \description{
 The Wald test and confidence interval for the difference between marginal mean scores
 

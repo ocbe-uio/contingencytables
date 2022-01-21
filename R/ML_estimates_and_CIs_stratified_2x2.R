@@ -24,6 +24,7 @@
 #'
 #' @export
 #' @importFrom stats coef
+#' @return A list containing the maximum likelihood estimates
 ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, printresults = TRUE) {
   N <- sum(n)
   K <- dim(n)[3]

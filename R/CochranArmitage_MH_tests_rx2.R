@@ -16,6 +16,7 @@
 #' CochranArmitage_MH_tests_rx2(n, a)
 #'
 #' @export
+#' @return A list containing observed statistics and p-values
 CochranArmitage_MH_tests_rx2 <- function(n, a, printresults=TRUE) {
 	r <- nrow(n)
 	nip <- apply(n, 1, sum)

@@ -11,6 +11,9 @@ the_paired_2x2_table_CIs_difference(n, alpha = 0.05)
 
 \item{alpha}{type I error}
 }
+\value{
+A string of "-". This function should be called for its printed output.
+}
 \description{
 The Paired 2x2 table CIs difference
 }

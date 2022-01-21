@@ -11,6 +11,9 @@ McNemar_midP_test_paired_2x2(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+probability value
+}
 \description{
 The McNemar mid-P test
 

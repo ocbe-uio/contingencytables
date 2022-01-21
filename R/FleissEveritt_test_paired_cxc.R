@@ -8,6 +8,7 @@
 #' n <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
 #' FleissEveritt_test_paired_cxc(n)
 #' @export
+#' @return A list containing the probability, the statistic and the degrees of freedom
 FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
   # This is the version with c=3 categories
   c <- nrow(n)

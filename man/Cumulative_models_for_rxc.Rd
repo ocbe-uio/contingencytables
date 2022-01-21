@@ -20,6 +20,11 @@ Cumulative_models_for_rxc(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the results of statistical tests for the
+goodness-of-fit of a proportional odds model, the effect in a proportional
+odds model and row comparisons
+}
 \description{
 Cumulative logit and probit models
 

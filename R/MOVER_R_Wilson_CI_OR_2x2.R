@@ -14,6 +14,7 @@
 #' MOVER_R_Wilson_CI_OR_2x2(n)
 #'
 #' @export
+#' @return A data frame containing lower, upper and point estimates of the statistic
 MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha=0.05, printresults=TRUE) {
 
 	# If n_22 = 0, use an equivalent case, which gives a finite upper limit

@@ -18,6 +18,9 @@ Score_test_for_effect_in_the_probit_model_2xc(
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A list containing the probability, the statistic and the degrees of freedom
+}
 \description{
 The score test for effect in the cumulative probit model
 described in Chapter 6 "The Ordered 2xc Table"

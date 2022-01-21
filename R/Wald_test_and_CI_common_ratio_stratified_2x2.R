@@ -23,6 +23,7 @@
 #' n[, , 6] <- rbind(c(11, 143), c(4, 142))
 #' Wald_test_and_CI_common_ratio_stratified_2x2(n)
 #' @export
+#' @return A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimates for phi
 Wald_test_and_CI_common_ratio_stratified_2x2 <- function(n, estimatetype = "MH", alpha = 0.05, printresults = TRUE) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

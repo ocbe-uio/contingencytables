@@ -16,6 +16,7 @@
 #' )
 #' Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n)
 #' @export
+#' @return A list containing the test statistic estimates
 Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
   c <- nrow(n)
   N <- sum(n)

@@ -13,6 +13,9 @@ Gold_Wald_CIs_1xc(n, alpha = 0.05, printresults = TRUE)
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+A data frame containing lower, upper and point estimates of the statistic
+}
 \description{
 The Gold Wald simultaneous intervals for the multinomial probabilities (with Scheffe adjustment)
 

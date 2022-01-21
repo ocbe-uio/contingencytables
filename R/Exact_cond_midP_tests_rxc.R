@@ -16,6 +16,7 @@
 #' }
 #' @export
 #' @note  Works only for 3x2 and 3x3 tables
+#' @return A list containing exact p-values and mid-p values
 Exact_cond_midP_tests_rxc <- function(n, printresults=TRUE) {
 	r = nrow(n)
 	c = ncol(n)

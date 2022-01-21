@@ -21,6 +21,9 @@ Exact_unconditional_test_2x2(
 
 \item{printresults}{display results (F = no, T = yes)}
 }
+\value{
+Fisher's exact test statistic
+}
 \description{
 Exact unconditional test for association in 2x2 tables
 

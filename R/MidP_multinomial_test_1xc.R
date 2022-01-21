@@ -12,6 +12,7 @@
 #' # subset of 10 patients
 #' MidP_multinomial_test_1xc(n=c(6, 1, 3), pi0=c(0.402, 0.479, 0.119))
 #' @export
+#' @return probability value
 MidP_multinomial_test_1xc <- function(n, pi0, printresults=TRUE) {
 
 	c0 <- length(n)

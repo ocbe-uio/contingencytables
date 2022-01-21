@@ -18,6 +18,9 @@ BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing lower, upper and point estimates of the statistic
+}
 \description{
 The Bonett-Price hybrid Wilson score confidence interval for the ratio of paired probabilities
 

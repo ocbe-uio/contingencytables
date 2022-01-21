@@ -8,6 +8,7 @@
 #' the_paired_2x2_table_CIs_OR(n)
 #'
 #' @export
+#' @return A string of "-". This function should be called for its printed output.
 the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   thetacondhat <- n[1, 2] / n[2, 1]
 

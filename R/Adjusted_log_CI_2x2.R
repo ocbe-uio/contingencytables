@@ -4,6 +4,7 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
+#' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
 #' n = matrix(c(7,27,1,33), nrow=2, byrow=TRUE)

@@ -13,6 +13,9 @@ Pearson_LR_tests_unspecific_ordering_rx2(n, direction, printresults = TRUE)
 
 \item{printresults}{display results}
 }
+\value{
+A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
+}
 \description{
 The Pearson chi-squared and likelihood ratio tests for unspecific ordering in rx2 tables.
 Described in Chapter 5 "The Ordered rx2 Table".

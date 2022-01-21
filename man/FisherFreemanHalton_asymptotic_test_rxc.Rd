@@ -11,6 +11,9 @@ FisherFreemanHalton_asymptotic_test_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A list containing the probability, the statistic and the degrees of freedom
+}
 \description{
 The Fisher-Freeman-Halton asymptotic test for unordered rxc tables
 

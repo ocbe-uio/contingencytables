@@ -16,6 +16,7 @@
 #' Tango_asymptotic_score_CI_paired_2x2(n)
 #'
 #' @export
+#' @return A list containing lower, upper and point estimates of the statistic
 Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   n12 <- n[1, 2]
   n21 <- n[2, 1]

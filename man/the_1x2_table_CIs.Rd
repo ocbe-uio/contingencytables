@@ -13,6 +13,9 @@ the_1x2_table_CIs(X, n, alpha = 0.05)
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
+\value{
+NULL. This function should be called for its printed output
+}
 \description{
 The 1x2 Table CIs
 }

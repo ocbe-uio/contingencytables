@@ -11,6 +11,9 @@ Brant_test_2xc(n, printresults = TRUE)
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
+\value{
+A data frame containing the probability, the statistic and the degrees of freedom
+}
 \description{
 The Brant test for the proportional odds assumption
 

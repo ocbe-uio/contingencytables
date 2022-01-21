@@ -11,6 +11,9 @@ JonckheereTerpstra_test_rxc(n, printresults = TRUE)
 
 \item{printresults}{display results (0 = no, 1 = yes)}
 }
+\value{
+a list containing the standard normalized Jonckheere-Terpstra test statistic
+}
 \description{
 The Jonckheere-Terpstra test for association
 
