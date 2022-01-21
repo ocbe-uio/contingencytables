@@ -7,6 +7,16 @@ An R package for the _Statistical Analysis of Contingency Tables_ (SACT) book by
 
 # Installation and usage
 
+## Stable version
+
+The latest stable version of this package is available on [CRAN](https://cran.r-project.org/package=contingencytables) and can be installed by running
+
+```r
+install.packages("contingencytables")
+```
+
+from an R interactive session.
+
 ## Development version
 
 The development version of this package can be installed by running the following command in R:
@@ -16,10 +26,6 @@ remotes::install_github("ocbe-uio/contingencytables", ref="develop")
 ```
 
 If the command above does not work, make sure you have the remotes package installed (e.g. by running `install.packages("remotes")` in R).
-
-## Stable version
-
-There are currently no stable versions released of this package, but its code can be obtained as separate files at https://contingencytables.com/software-resources. A stable version should come as soon as we're done with the most important tasks on our [to-do list](TODO.md).
 
 ## Usage
 
@@ -41,8 +47,9 @@ Proper citation of the SACT book can be found [here](https://contingencytables.c
 
 # Nerd badges
 
+[![](https://www.r-pkg.org/badges/version/contingencytables)](https://cran.r-project.org/package=contingencytables)
+[![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build status](https://github.com/ocbe-uio/contingencytables/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/contingencytables/actions)
-[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![](https://img.shields.io/github/last-commit/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables/commits/develop)
 [![](https://img.shields.io/github/languages/code-size/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables)
 [![](https://codecov.io/gh/ocbe-uio/contingencytables/branch/develop/graph/badge.svg)](https://codecov.io/gh/ocbe-uio/contingencytables)
