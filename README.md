@@ -1,6 +1,3 @@
-<!-- TODO: uncomment just before GitHub publication to trigger Zenodo DOIs
-[![DOI](https://zenodo.org/badge/293482399.svg)](https://zenodo.org/badge/latestdoi/293482399) -->
-
 # contingencytables
 
 An R package for the _Statistical Analysis of Contingency Tables_ (SACT) book by Fagerland et. al.. More info on the book on [its home page](https://contingencytables.com/) and in the [References](#references) section of this document.
@@ -47,6 +44,7 @@ Proper citation of the SACT book can be found [here](https://contingencytables.c
 
 # Nerd badges
 
+[![DOI](https://zenodo.org/badge/293482399.svg)](https://zenodo.org/badge/latestdoi/293482399)
 [![](https://www.r-pkg.org/badges/version/contingencytables)](https://cran.r-project.org/package=contingencytables)
 [![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build status](https://github.com/ocbe-uio/contingencytables/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/contingencytables/actions)
