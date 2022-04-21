@@ -44,8 +44,18 @@ Exact_cond_midP_tests_rxc <- function(n, printresults=TRUE) {
 	Tobs_JT = ans[[6]]
 
 	# Calculate exact P- and mid-P values
-	P_FFH = 0; P_Pearson = 0; P_LR = 0; P_KW = 0; P_lbl = 0; P_JT = 0;
-	midP_FFH = 0; midP_Pearson = 0; midP_LR = 0; midP_KW = 0; midP_lbl = 0; midP_JT = 0;
+	P_FFH = 0
+	P_Pearson = 0
+	P_LR = 0
+	P_KW = 0
+	P_lbl = 0
+	P_JT = 0
+	midP_FFH = 0
+	midP_Pearson = 0
+	midP_LR = 0
+	midP_KW = 0
+	midP_lbl = 0
+	midP_JT = 0
 
 	for (i in 1:nrow(tables)) {
 		x <- rbind(tables[i,1:c], tables[i,(c + 1):(2 * c)], tables[i,(2 * c + 1):(3 * c)])
