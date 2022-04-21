@@ -47,6 +47,6 @@ the_1xc_table_CIs <- function(n, alpha=0.05) {
 	}
 	myprint('----------------------------------------------------------')
 
-	Goodman_Wald_CIs_for_diffs_1xc(n, alpha, 'Bonferroni') # ASK: this looks out of place. Should it be res5 and part of the output?
+	Goodman_Wald_CIs_for_diffs_1xc(n, alpha, 'Bonferroni')
 
 }
