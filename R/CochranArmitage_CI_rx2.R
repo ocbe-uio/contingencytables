@@ -53,4 +53,5 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05, printresults = TRUE) {
   }
 
   res <- data.frame(lower = L, upper = U, estimate = betahat)
+  return(res)
 }

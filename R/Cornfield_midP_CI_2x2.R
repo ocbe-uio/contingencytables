@@ -42,7 +42,6 @@ Cornfield_midP_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Upper CI limit
   if (n[2, 1] == 0 || n[1, 2] == 0) {
     U <- Inf
-    exitflag <- 1
   } else if (estimate == 0) {
     U <- uniroot(calculate_U, c(theta0, theta1), n11 = n11, n1p = n1p, n2p = n2p, np1 = np1, alpha = alpha, tol = tol)$root
   } else {

@@ -39,10 +39,6 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # The estimated logits of pi_1 and pi_2 and their CIs
   q1hat <- pi1hat / (1 - pi1hat)
   q2hat <- pi2hat / (1 - pi2hat)
-  L1 <- res1["lower"] / (1 - res1["lower"])
-  L2 <- res2["lower"] / (1 - res2["lower"])
-  U1 <- res1["upper"] / (1 - res1["upper"])
-  U2 <- res2["upper"] / (1 - res2["upper"])
 
   # Calculate the confidence limits
   L <- (q1hat * q2hat - sqrt((q1hat * q2hat)^2 -
