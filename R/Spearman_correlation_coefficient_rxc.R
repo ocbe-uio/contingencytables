@@ -74,9 +74,7 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults =
   rho <- numerator / sqrt(denominator1 * denominator2)
 
   # Fisher Z transformation
-  z <- atanh(rho)
-  # Or, equivalently
-  # z = 0.5 * log((1 + rho) / (1-rho))
+  z <- atanh(rho) # equivalently, z = 0.5 * log((1 + rho) / (1-rho))
 
   # The 1-alpha percentile of the standard normal distribution
   z_alpha <- qnorm(1 - alpha / 2, 0, 1)

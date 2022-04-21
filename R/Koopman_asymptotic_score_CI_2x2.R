@@ -34,10 +34,8 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE
   phi1 <- 100000
 
   # Lower CI limit
-  # limit = 'lower'
   if (n[1, 1] == 0 && n[2, 1] == 0) {
     L <- 0
-    # exitflag = 1
   } else if (is.na(estimate) || estimate == Inf) {
     L <- uniroot(
       calculate_limit_lower.Koopman, c(phi0, phi1),
@@ -46,7 +44,6 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE
     )$root
   } else if (estimate == 0) {
     L <- 0
-    # exitflag = 1
   } else {
     L <- uniroot(
       calculate_limit_lower.Koopman, c(phi0, estimate),

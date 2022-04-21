@@ -30,7 +30,6 @@ Arcsine_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   ptilde <- (X + 3 / 8) / (n + 3 / 4)
 
   # The upper alpha/2 percentile of the standard normal distribution
-  # z = norminv(1 - alpha/2, 0, 1)
   z <- qnorm(1 - alpha / 2, 0, 1)
 
   # Calculate the confidence limits

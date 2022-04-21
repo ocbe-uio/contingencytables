@@ -21,18 +21,12 @@
 #' ClopperPearson_midP_CI_1x2(X = 13, n = 16)
 #' @export
 ClopperPearson_midP_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
-  # Define global variables that are needed in the functions below
-  # global Xglobal nglobal alphaglobal
-  # Xglobal = X;
-  # nglobal = n;
-  # alphaglobal = alpha;
 
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 
   # Use Matlabs fzero function to solve the equations for the confidence limits
   tol <- 0.00000001
-  # options = optimset('Display', 'off', 'TolX', tol);
 
   # Find the lower CI limit
   if (estimate == 0) {

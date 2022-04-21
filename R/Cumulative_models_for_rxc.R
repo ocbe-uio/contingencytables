@@ -49,7 +49,6 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
   }
 
   # Fit model
-  # [beta, L1, stats] = mnrfit(x, y, 'model', 'ordinal', 'link', linkfunction);
   dat <- data.frame(x = x, y = factor(y))
   .dat001 <- dat
   if (identical(linkfunction, "logit")) {
@@ -67,7 +66,6 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
   for (i in 1:(r - 1)) {
     xx[i + 1, i] <- 1
   }
-  # pihat = mnrval(beta, xx, 'model', 'ordinal', 'link', linkfunction);
   dat <- data.frame(x = xx)
   .dat002 <- dat
   pihat <- predict(tmp, newdata = .dat002, type = "probs")
@@ -120,7 +118,6 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
   }
 
   # Likelihood ratio test for beta
-  # [~, L0, ~] = mnrfit([], y, 'model', 'ordinal', 'link', linkfunction);
   if (identical(linkfunction, "logit")) {
     tmp <- polr(y ~ 1, method = "logistic", data = .dat001)
   } else if (identical(linkfunction, "probit")) {

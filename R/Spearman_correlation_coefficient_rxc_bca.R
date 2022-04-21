@@ -55,10 +55,6 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   rho <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)$rho
 
   # The CI bootstrap sample
-  # funchandle = @(Y1,Y2) put_data_back_into_table_format(Y1, Y2)
-  # L = ci(1)
-  # U = ci(2)
-
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
   ans.boot <- boot(dat, f.Sccrb, R = nboot, stype = "i", .param = list(alpha, r, c))
   ans.ci <- boot.ci(ans.boot, conf = 1 - alpha, type = "bca")

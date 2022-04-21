@@ -21,8 +21,6 @@
 #' @return probability value
 MidP_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   # The right tail mid-P value (for H_A: pi > pi0)
-  # midPright = sum(binopdf(X:n, n, pi0));
-  # midPright = midPright - 0.5 * binopdf(X, n, pi0);
   midPright <- sum(dbinom(X:n, n, pi0))
   midPright <- midPright - 0.5 * dbinom(X, n, pi0)
 

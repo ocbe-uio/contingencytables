@@ -34,7 +34,6 @@ Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 
   # Get the number of concordant and discordant pairs from the gamma
   # coefficient
-  # [~, C, D] = gamma_coefficient_rxc(n, 0);
   tmp <- gamma_coefficient_rxc(n, 0)
   C <- tmp[[2]]
   D <- tmp[[3]]
@@ -49,9 +48,7 @@ Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
   tau_b <- (C - D) / sqrt((N * (N - 1) / 2 - T1) * (N * (N - 1) / 2 - T2))
 
   # Fisher Z transformation
-  z <- atanh(tau_b)
-  # Or, equivalently
-  # z = 0.5 * log((1 + tau_b) / (1-tau_b))
+  z <- atanh(tau_b) # Or, equivalently, z = 0.5 * log((1 + tau_b) / (1-tau_b))
 
   # The 1-alpha percentile of the standard normal distribution
   z_alpha <- qnorm(1 - alpha / 2, 0, 1)

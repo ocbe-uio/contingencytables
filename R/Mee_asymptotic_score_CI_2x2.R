@@ -32,7 +32,6 @@ Mee_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   delta1 <- 0.99999
 
   # Lower CI limit
-  # limit = 'lower'
   if (estimate == -1) {
     L <- -1
   } else {
@@ -45,7 +44,6 @@ Mee_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   }
 
   # Upper CI limit
-  # limit = 'upper'
   if (estimate == 1) {
     U <- 1
   } else {

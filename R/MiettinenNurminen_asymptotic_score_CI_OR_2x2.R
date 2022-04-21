@@ -39,7 +39,6 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha = 0.05,
     )$root
   } else if (estimate == 0) {
     L <- 0
-    # exitflag = 1
   } else {
     L <- uniroot(
       calculate_limit_lower.Miettinen_OR, c(theta0, estimate),
@@ -64,7 +63,6 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha = 0.05,
       n1p = n1p, n2p = n2p, alpha = alpha, tol = tol
     )$root
   }
-  # if exitflag ~= 1, display_warning(exitflag), }
 
   if (printresults) {
     print(

@@ -26,8 +26,6 @@ Jeffreys_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   estimate <- X / n
 
   # Calculate the confidence limits with Jeffreys noninformative prior, B(0.5, 0.5)
-  # L <- betainv(alpha / 2, X + 0.5, n - X + 0.5);
-  # U <- betainv(1 - alpha / 2, X + 0.5, n - X + 0.5);
   L <- qbeta(alpha / 2, X + 0.5, n - X + 0.5)
   U <- qbeta(1 - alpha / 2, X + 0.5, n - X + 0.5)
 

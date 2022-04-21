@@ -35,7 +35,6 @@ LR_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   # The two-sided P-value (reference distribution: chi-squared with 1 degree
   # of freedom)
   df <- 1
-  # P <- 1 - chi2cdf(T0, df);
   P <- 1 - pchisq(T0, df)
 
   if (printresults) {

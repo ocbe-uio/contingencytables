@@ -32,7 +32,6 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = 
   theta1 <- 100000
 
   # Lower CI limit
-  # limit = 'lower'
   if (is.na(estimate) || estimate == Inf) {
     L <- uniroot(calculate_limit_lower.Uncorrected, c(theta0, theta1),
       n11 = n11, n21 = n21, n1p = n1p,
@@ -40,20 +39,16 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = 
     )$root
   } else if (estimate == 0) {
     L <- 0
-    # exitflag = 1
   } else {
     L <- uniroot(calculate_limit_lower.Uncorrected, c(theta0, estimate),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, alpha = alpha, tol = tol
     )$root
   }
-  # if exitflag ~= 1, display_warning(exitflag), }
 
   # Upper CI limit
-  # limit = 'upper'
   if (n[2, 1] == 0 || n[1, 2] == 0) {
     U <- Inf
-    # exitflag = 1
   } else if (estimate == 0) {
     U <- uniroot(calculate_limit_upper.Uncorrected, c(theta0, theta1),
       n11 = n11, n21 = n21, n1p = n1p,
@@ -65,7 +60,6 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = 
       n2p = n2p, alpha = alpha, tol = tol
     )$root
   }
-  # if exitflag ~= 1, display_warning(exitflag), }
 
   if (printresults) {
     print(sprintf(

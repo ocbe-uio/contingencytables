@@ -26,8 +26,7 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults = TRUE)
   np1 <- sum(n[, 1])
 
   # Calculate all nchoosek beforehand
-  # nip_choose_xi1 <- matrix(0, r, max(nip))   ##### ORIGINAL
-  nip_choose_xi1 <- matrix(0, r, max(nip) + 1) ##### CHANGED
+  nip_choose_xi1 <- matrix(0, r, max(nip) + 1)
   for (i in 1:r) {
     for (xi1 in 0:nip[i]) {
       nip_choose_xi1[i, xi1 + 1] <- choose(nip[i], xi1)

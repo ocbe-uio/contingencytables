@@ -29,16 +29,6 @@
 Blaker_exact_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
-
-  # Define global variables that are needed in the function for the confidence limits below
-  # global Xglobal nglobal alphaglobal
-  # Xglobal = X
-  # nglobal = n
-  # alphaglobal = alpha;
-
-  # Use Matlabs fzero function to solve the equations for the confidence limits
-  # options = optimset('Display', 'off', 'TolX', tol);
-
   tol <- 0.00000001
 
   # Find the lower CI limit
@@ -70,13 +60,10 @@ Blaker_exact_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
 # ===============================
 
 calculate_limit_Blaker <- function(pi0, X, n, alpha) {
-  # Pvalues = binopdf(0:n, n, pi0)
   Pvalues <- dbinom(0:n, n, pi0)
-  # gammaobs = min([sum(Pvalues(X+1:n+1)), sum(Pvalues(1:X+1))])
   gammaobs <- min(c(sum(Pvalues[(X + 1):(n + 1)]), sum(Pvalues[1:(X + 1)])))
   T0 <- 0
   for (k in 0:n) {
-    # gammak = min([sum(Pvalues(k+1:n+1)), sum(Pvalues(1:k+1))]);
     gammak <- min(c(sum(Pvalues[(k + 1):(n + 1)]), sum(Pvalues[1:(k + 1)])))
     if (gammak <= gammaobs) {
       T0 <- T0 + dbinom(k, n, pi0)

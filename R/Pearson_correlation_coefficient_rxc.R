@@ -60,9 +60,7 @@ Pearson_correlation_coefficient_rxc <- function(n, a = seq_len(nrow(n)), b = seq
   rP <- covar[1, 2] / sqrt(covar[1, 1] * covar[2, 2])
 
   # Fisher Z transformation
-  z <- atanh(rP)
-  # Or, equivalently
-  # z = 0.5 * log((1 + rP) / (1-rP))
+  z <- atanh(rP) # Or, equivalently, = 0.5 * log((1 + rP) / (1-rP))
 
   # The 1-alpha percentile of the standard normal distribution
   z_alpha <- qnorm(1 - alpha / 2, 0, 1)

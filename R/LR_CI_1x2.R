@@ -24,25 +24,19 @@ LR_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
 
   # Define global variables that are needed in the LR test statistic function
   # below
-  # global Xglobal nglobal z
-  # Xglobal = X;
-  # nglobal = n;
   z <- qnorm(1 - alpha / 2, 0, 1)
 
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 
-  # Use Matlabs fzero function to solve the equations:
-  # T - z = 0 and T + z = 0,
+  # Use Matlabs fzero function to solve the equations T - z = 0 and T + z = 0,
   # where T is the LR test statistic
   tol <- 0.00000001
-  # options = optimset('Display', 'off', 'TolX', tol);
 
   # Find the lower CI limit
   if (estimate == 0) {
     L <- 0
   } else {
-    # [L, ~, ~] = fzero(@LR_test_statistic, [tol, X / n], options);
     L <- uniroot(
       LR_test_statistic,
       interval = c(tol, X / n), X = X, n = n, z = z, tol = tol
@@ -53,8 +47,6 @@ LR_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   if (estimate == 1) {
     U <- 1
   } else {
-    # [U, ~, ~] = ...
-    # fzero(@LR_test_statistic, [max([tol, X / n]), 1 - tol], options);
     U <- uniroot(
       LR_test_statistic,
       interval = c(max(tol, X / n), 1 - tol), X = X, n = n,

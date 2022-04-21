@@ -45,7 +45,6 @@ MiettinenNurminen_asymptotic_score_CI_difference_2x2 <- function(n, alpha = 0.05
   }
 
   # Upper CI limit
-  # limit = 'upper'
   if (estimate == 1) {
     U <- 1
   } else {

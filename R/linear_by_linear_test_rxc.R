@@ -57,10 +57,6 @@ linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(
   Z <- sqrt(N - 1) * r
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-  # Alternative version with chi-squared 1 dof distribution
-  # T = (N - 1) * r ^ 2
-  # P = 1 - pchisq(T, 1)
-
   if (printresults) {
     .print("The linear-by-linear test for association: P = %8.6f, Z = %6.3f\n", P, Z)
   }

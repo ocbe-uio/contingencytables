@@ -29,15 +29,8 @@ Blaker_midP_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 
-  # Define global variables that are needed in the function for the confidence limits below
-  # global Xglobal nglobal alphaglobal
-  # Xglobal = X;
-  # nglobal = n;
-  # alphaglobal = alpha;
-
   # Use Matlabs fzero function to solve the equations for the confidence limits
   tol <- 0.00000001
-  # options = optimset('Display', 'off', 'TolX', tol);
 
   # Find the lower CI limit
   if (estimate == 0) {
