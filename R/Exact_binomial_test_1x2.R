@@ -21,21 +21,21 @@
 #' Exact_binomial_test_1x2(X = 13, n = 16, pi0 = 0.5)
 #'
 #' @export
-Exact_binomial_test_1x2 = function(X, n, pi0, printresults=TRUE) {
+Exact_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
 
-	# The exact right tail P-value (for H_A: pi > pi0)
-	Pright = sum(dbinom(X:n, n, pi0))
+  # The exact right tail P-value (for H_A: pi > pi0)
+  Pright <- sum(dbinom(X:n, n, pi0))
 
-	# The exact left tail P-value (for H_A: pi < pi0)
-	Pleft = sum(dbinom(0:X, n, pi0))
+  # The exact left tail P-value (for H_A: pi < pi0)
+  Pleft <- sum(dbinom(0:X, n, pi0))
 
-	# The two-sided twice the smallest tail P-value
-	P = 2 * min(Pright, Pleft)
-	P = min(P, 1)
+  # The two-sided twice the smallest tail P-value
+  P <- 2 * min(Pright, Pleft)
+  P <- min(P, 1)
 
-	if (printresults) {
-		print(sprintf('The exact binomial test: P = %7.5f', P), quote=FALSE)
-	}
+  if (printresults) {
+    print(sprintf("The exact binomial test: P = %7.5f", P), quote = FALSE)
+  }
 
-	invisible(P)
+  invisible(P)
 }

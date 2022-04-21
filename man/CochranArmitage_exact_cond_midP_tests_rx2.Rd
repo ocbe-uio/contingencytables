@@ -24,13 +24,13 @@ Described in Chapter 5 "The Ordered rx2 Table"
 \examples{
 \dontrun{
 # Alcohol consumption and malformations (Mills and Graubard, 1987)
-n <- rbind(c(48,17066),c(38,14464),c(5,788),c(1,126),c(1,37))
+n <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
 a <- c(1, 2, 3, 4, 5)
 CochranArmitage_exact_cond_midP_tests_rx2(n, a)
 }
 
 # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-n <- rbind(c(8,53),c(10,48),c(11,100),c(22,102),c(6,129))
+n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 a <- c(1, 2, 3, 4, 5)
 CochranArmitage_exact_cond_midP_tests_rx2(n, a)
 

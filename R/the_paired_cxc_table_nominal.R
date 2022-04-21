@@ -8,8 +8,6 @@
 #' @export
 #' @return A string containing the last line of the printed text. This function should be called for its printed output.
 the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
-
-
   c <- nrow(n)
   N <- sum(n)
 

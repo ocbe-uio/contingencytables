@@ -23,9 +23,9 @@ Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
 
-Wald_CI_1x2(X=250, n=533) # The number of 1st order male births (Singh et al. 2010)
-Wald_CI_1x2(X=204, n=412) # The number of 2nd order male births (Singh et al. 2010)
-Wald_CI_1x2(X=103, n=167) # The number of 3rd order male births (Singh et al. 2010)
-Wald_CI_1x2(X=33, n=45)   # The number of 4th order male births (Singh et al. 2010)
-Wald_CI_1x2(X=13, n=16)   # Ligarden et al. (2010)
+Wald_CI_1x2(X = 250, n = 533) # The number of 1st order male births (Singh et al. 2010)
+Wald_CI_1x2(X = 204, n = 412) # The number of 2nd order male births (Singh et al. 2010)
+Wald_CI_1x2(X = 103, n = 167) # The number of 3rd order male births (Singh et al. 2010)
+Wald_CI_1x2(X = 33, n = 45) # The number of 4th order male births (Singh et al. 2010)
+Wald_CI_1x2(X = 13, n = 16) # Ligarden et al. (2010)
 }

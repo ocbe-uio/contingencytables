@@ -12,40 +12,40 @@
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {
-	c <- ncol(n)
-	nip <- apply(n, 1, sum)
-	npj <- apply(n, 2, sum)
-	N <- sum(n)
+  c <- ncol(n)
+  nip <- apply(n, 1, sum)
+  npj <- apply(n, 2, sum)
+  N <- sum(n)
 
-	if (b == 0) {
-		b <- rep(0, c)
-		for (j in 1:c) {
-			a0 <- ifelse(j > 1, sum(npj[1:j - 1]), 0)
-			b0 <- 1 + sum(npj[1:j])
-			b[j] <- 0.5 * (a0 + b0)
-		}
-	}
+  if (b == 0) {
+    b <- rep(0, c)
+    for (j in 1:c) {
+      a0 <- ifelse(j > 1, sum(npj[1:j - 1]), 0)
+      b0 <- 1 + sum(npj[1:j])
+      b[j] <- 0.5 * (a0 + b0)
+    }
+  }
 
-	# The Mantel-Haenszel test statistic
-	b1mean <- sum(b * n[1, ] / nip[1])
-	b1exp <- sum(b * npj / N)
-	b1var <- ((N - nip[1]) / (nip[1] * (N - 1))) * sum(((b - b1exp)^2) * npj) / N
-	T0 <- ((b1mean - b1exp)^2) / b1var
+  # The Mantel-Haenszel test statistic
+  b1mean <- sum(b * n[1, ] / nip[1])
+  b1exp <- sum(b * npj / N)
+  b1var <- ((N - nip[1]) / (nip[1] * (N - 1))) * sum(((b - b1exp)^2) * npj) / N
+  T0 <- ((b1mean - b1exp)^2) / b1var
 
-	# The two-sided P-value (reference distribution: chi-squared with one degree
-	# of freedom)
-	df <- 1
-	P <- 1 - pchisq(T0, df)
+  # The two-sided P-value (reference distribution: chi-squared with one degree
+  # of freedom)
+  df <- 1
+  P <- 1 - pchisq(T0, df)
 
-	if (printresults) {
-		print(
-			sprintf(
-				"Mantel-Haenszel test of association: P = %6.4f, T = %5.3f (df=%g)",
-				P, T0, df
-			),
-			quote = FALSE
-		)
-	}
+  if (printresults) {
+    print(
+      sprintf(
+        "Mantel-Haenszel test of association: P = %6.4f, T = %5.3f (df=%g)",
+        P, T0, df
+      ),
+      quote = FALSE
+    )
+  }
 
-	invisible(data.frame(P = P, T = T0, df = df))
+  invisible(data.frame(P = P, T = T0, df = df))
 }

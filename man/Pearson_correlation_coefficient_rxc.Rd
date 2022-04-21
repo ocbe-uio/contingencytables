@@ -6,8 +6,8 @@
 \usage{
 Pearson_correlation_coefficient_rxc(
   n,
-  a = 1:nrow(n),
-  b = 1:ncol(n),
+  a = seq_len(nrow(n)),
+  b = seq_len(ncol(n)),
   alpha = 0.05,
   printresults = TRUE
 )

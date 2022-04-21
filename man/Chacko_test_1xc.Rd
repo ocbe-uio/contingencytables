@@ -21,5 +21,5 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
 # Hypothetical experiment
-Chacko_test_1xc(n=c(1, 4, 3, 11, 9))
+Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
 }

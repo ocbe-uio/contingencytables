@@ -26,25 +26,26 @@ Described in Chapter 7 "The rxc Table"
 ## Alcohol consumption and malformations (Mills and Graubard, 1987):
 
 n <- matrix(
- c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37), byrow=TRUE, ncol=2
+  c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
+  byrow = TRUE, ncol = 2
 )
 Pearson_LR_tests_rxc(n)
 
 ## Elevated troponin T levels in stroke patients (Indredavik et al., 2008):
 
-n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow=TRUE, ncol=2)
+n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow = TRUE, ncol = 2)
 Pearson_LR_tests_rxc(n)
 
 
 # Examples from Chapter 6 (ordered 2xc tables)
 ## The Adolescent Placement Study (Fontanella et al., 2008):
 
-n <- matrix(c(8, 28, 72, 126, 46, 73, 69, 86), byrow=TRUE, ncol=4)
+n <- matrix(c(8, 28, 72, 126, 46, 73, 69, 86), byrow = TRUE, ncol = 4)
 Pearson_LR_tests_rxc(n)
 
 ## Postoperative nausea (Lydersen et al., 2012a):
 
-n <- matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow=TRUE, ncol=4)
+n <- matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow = TRUE, ncol = 4)
 Pearson_LR_tests_rxc(n)
 
 
@@ -52,19 +53,20 @@ Pearson_LR_tests_rxc(n)
 
 ## Treatment for ear infection (van Balen et al., 2003):
 
-n <- matrix(c(40, 25, 54, 7, 63, 10), byrow=TRUE, ncol=2)
+n <- matrix(c(40, 25, 54, 7, 63, 10), byrow = TRUE, ncol = 2)
 Pearson_LR_tests_rxc(n)
 
 ## Psychiatric diagnoses vs PA (Mangerud et al., 2004):
 n <- matrix(
- c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17), byrow=TRUE, ncol=2
+  c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17),
+  byrow = TRUE, ncol = 2
 )
 Pearson_LR_tests_rxc(n)
 
 ## Psychiatric diag. vs BMI (Mangerud et al., 2004):
 n <- matrix(
- c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
-byrow=TRUE, ncol=3
+  c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
+  byrow = TRUE, ncol = 3
 )
 Pearson_LR_tests_rxc(n)
 }

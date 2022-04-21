@@ -4,7 +4,7 @@ context("Output class, name and length")
 
 # Common elements ======================================== #
 
-n  <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
+n <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
 n2 <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
 n3 <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 n4 <- array(c(c(647, 2, 622, 27), c(41, 19, 28, 32)), dim = c(2, 2, 2))
@@ -91,7 +91,7 @@ test_that("Output classes are the expected", {
   expect_is(McNemarBowker_test_paired_cxc(n, printresults = FALSE), "list")
   expect_is(Mee_asymptotic_score_CI_2x2(n, printresults = FALSE), "data.frame")
   expect_is(MidP_binomial_test_1x2(13, 16, .3, printresults = FALSE), "numeric")
-  expect_is( MidP_multinomial_test_1xc(n, runif(4), printresults = FALSE), "numeric")
+  expect_is(MidP_multinomial_test_1xc(n, runif(4), printresults = FALSE), "numeric")
   expect_is(MiettinenNurminen_asymptotic_score_CI_difference_2x2(n, printresults = FALSE), "data.frame")
   expect_is(MiettinenNurminen_asymptotic_score_CI_OR_2x2(n, printresults = FALSE), "data.frame")
   expect_is(MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n, printresults = FALSE), "data.frame")
@@ -242,7 +242,7 @@ test_that("Output names are the expected", {
   expect_named(Exact_multinomial_test_1xc(1:3, seq(.4, .6, .1), printresults = FALSE), NULL)
   expect_named(Exact_unconditional_test_2x2(n, printresults = FALSE), NULL)
   expect_named(Fisher_exact_test_2x2(n, printresults = FALSE), NULL)
-  expect_named(Exact_unconditional_test_2x2(n, printresults = FALSE),  NULL)
+  expect_named(Exact_unconditional_test_2x2(n, printresults = FALSE), NULL)
   expect_named(Fisher_midP_test_2x2(n, printresults = FALSE), NULL)
   expect_named(FisherFreemanHalton_asymptotic_test_rxc(n, printresults = FALSE), ptdf)
   expect_named(FleissEveritt_test_paired_cxc(n5, printresults = FALSE), ptdf)
