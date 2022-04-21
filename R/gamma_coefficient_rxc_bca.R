@@ -72,7 +72,7 @@ f.gcrb <- function(dat, d) {
 	Y1 <- dat[d, 1]
 	Y2 <- dat[d, 2]
 	n <- matrix(0, max(Y1), max(Y2))
-	for (id in 1:length(Y1)) {
+	for (id in seq_along(Y1)) {
 		n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
 	}
 	res <- gamma_coefficient_rxc(n, printresults = FALSE)

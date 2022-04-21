@@ -73,7 +73,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
 
   # Calculate the P-value corresponding to each value of the nuisance parameter
   Pvalues <- rep(0, length(pivalues))
-  for (i in 1:length(pivalues)) {
+  for (i in seq_along(pivalues)) {
     Pvalues[i] <- calculate_Pvalue.2(pivalues[i], tables, trinomcoeffs, N)
   }
 

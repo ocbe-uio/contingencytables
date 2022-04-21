@@ -15,8 +15,6 @@ n7 <- floor(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), nrow = 2, byrow = TRUE) / 4)
 # Unit tests ============================================= #
 
 test_that("Output classes are the expected", {
-  # TODO: if there's no particular reason for the output classes to be different, they
-  # should be standardized.
   expect_is(Adjusted_inv_sinh_CI_OR_2x2(n, printresults = FALSE), "data.frame")
   expect_is(Adjusted_inv_sinh_CI_ratio_2x2(n, printresults = FALSE), "data.frame")
   expect_is(Adjusted_log_CI_2x2(n, printresults = FALSE), "data.frame")

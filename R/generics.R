@@ -650,8 +650,8 @@ calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
 		 }
 	 }
 	}
-	midP = P + 0.5 * point_prob;
-	P = P + point_prob;
+	midP = P + 0.5 * point_prob
+	P = P + point_prob
 
 	return(data.frame(P=P, midP=midP))
 }

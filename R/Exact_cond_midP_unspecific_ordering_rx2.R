@@ -85,7 +85,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
 	m <- array(0, dim = c(length(J), 2, c))
 	T0 <- 0
 	if (identical(statistic, "PearsonCumOR")) {
-		for (h in 1:length(J)) {
+		for (h in seq_along(J)) {
 			nJ <- J[[h]]
 			cols <- ncol(nJ)
 			for (i in 1:2) {
@@ -98,7 +98,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
 			}
 		}
 	} else if (identical(statistic, "LRCumOR")) {
-		for (h in 1:length(J)) {
+		for (h in seq_along(J)) {
 			nJ <- J[[h]]
 			cols <- ncol(nJ)
 			for (i in 1:2) {

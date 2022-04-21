@@ -33,7 +33,7 @@
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
 Pearson_correlation_coefficient_rxc_bca <- function(
-	n, nboot = 1e4, a = 1:nrow(n), b = 1:ncol(n), alpha = 0.05,
+	n, nboot = 1e4, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05,
 	printresults = TRUE
 ) {
 	# If no scores are given, use equally spaced scores
@@ -89,7 +89,7 @@ f.Pccrb <- function(dat, indx, .param) {
 	n <- matrix(0, r, c)
 	Y1 <- dat$Y1[indx]
 	Y2 <- dat$Y2[indx]
-	for (id in 1:length(Y1)) {
+	for (id in seq_along(Y1)) {
 		n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
 	}
 	rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha, printresults = FALSE)$rP
