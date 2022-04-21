@@ -10,66 +10,58 @@
 #' @examples
 #'
 #' # The number of 1st order male births (Singh et al. 2010)
-#' ClopperPearson_exact_CI_1x2(X=250, n=533)
+#' ClopperPearson_exact_CI_1x2(X = 250, n = 533)
 #' # The number of 2nd order male births (Singh et al. 2010)
-#' ClopperPearson_exact_CI_1x2(X=204, n=412)
+#' ClopperPearson_exact_CI_1x2(X = 204, n = 412)
 #' # The number of 3rd order male births (Singh et al. 2010)
-#' ClopperPearson_exact_CI_1x2(X=103, n=167)
+#' ClopperPearson_exact_CI_1x2(X = 103, n = 167)
 #' # The number of 4th order male births (Singh et al. 2010)
-#' ClopperPearson_exact_CI_1x2(X=33, n=45)
+#' ClopperPearson_exact_CI_1x2(X = 33, n = 45)
 #' # Ligarden et al. (2010)
-#' ClopperPearson_exact_CI_1x2(X=13, n=16)
+#' ClopperPearson_exact_CI_1x2(X = 13, n = 16)
 #' @export
 
-ClopperPearson_exact_CI_1x2 <- function(X, n, alpha=0.05, printresults=TRUE) {
-    # Define global variables that are needed in the functions below
-    # global Xglobal nglobal alphaglobal
-    # Xglobal = X;
-    # nglobal = n;
-    # alphaglobal = alpha;
+ClopperPearson_exact_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  # Estimate of the binomial probability (pihat)
+  estimate <- X / n
+  tol <- 0.00000001
 
-    # Estimate of the binomial probability (pihat)
-    estimate = X/n
+  # Find the lower CI limit
+  if (estimate == 0) {
+    L <- 0
+  } else {
+    L <- uniroot(calculate_L_CP, interval = c(0, 1), X = X, n = n, alpha = alpha, tol = tol)$root
+  }
 
-    # Use Matlabs fzero function to solve the equations for the confidence limits
-    tol = 0.00000001
-    # options = optimset('Display', 'off', 'TolX', tol);
+  # Find the upper CI limit
+  if (estimate == 1) {
+    U <- 1
+  } else {
+    U <- uniroot(calculate_U_CP, interval = c(0, 1), X = X, n = n, alpha = alpha, tol = tol)$root
+  }
 
-    # Find the lower CI limit
-    if (estimate == 0) {
-        L = 0
-    } else {
-        L = uniroot(calculate_L_CP, interval=c(0,1), X=X, n=n, alpha=alpha, tol=tol)$root
-    }
+  if (printresults) {
+    print(sprintf(
+      "The Clopper Pearson exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
+    ), quote = FALSE)
+  }
 
-    # Find the upper CI limit
-    if (estimate == 1) {
-        U = 1
-    } else {
-        U = uniroot(calculate_U_CP, interval=c(0,1), X=X, n=n, alpha=alpha, tol=tol)$root
-    }
-
-    if (printresults) {
-        print(sprintf('The Clopper Pearson exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
-            estimate, 100*(1 - alpha), L, U), quote=F)
-    }
-
-    res = c(L, U, estimate)
-    names(res) = c("lower", "upper", "estimate")
-    invisible(res)
-
+  res <- c(L, U, estimate)
+  names(res) <- c("lower", "upper", "estimate")
+  invisible(res)
 }
 
-calculate_L_CP = function(L0, X, n, alpha) {
-    # global Xglobal nglobal alphaglobal
-    T0 = sum(dbinom(X:n, n, L0))
-    L = T0 - alpha/2
-    return(L)
+calculate_L_CP <- function(L0, X, n, alpha) {
+  # global Xglobal nglobal alphaglobal
+  T0 <- sum(dbinom(X:n, n, L0))
+  L <- T0 - alpha / 2
+  return(L)
 }
 
-calculate_U_CP = function(U0, X, n, alpha) {
-    # global Xglobal nglobal alphaglobal
-    T0 = sum(dbinom(0:X, n, U0))
-    U = T0 - alpha/2
-    return(U)
+calculate_U_CP <- function(U0, X, n, alpha) {
+  # global Xglobal nglobal alphaglobal
+  T0 <- sum(dbinom(0:X, n, U0))
+  U <- T0 - alpha / 2
+  return(U)
 }

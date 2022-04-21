@@ -17,7 +17,7 @@ Transformed_Clopper_Pearson_midP_CI_paired_2x2 <- function(n, alpha = 0.05, prin
   estimate <- n[1, 2] / n[2, 1]
 
   # The Clopper-Pearson mid-P interval for mu = pi_12 / (pi_12 + pi_21)
-  tmp <- ClopperPearson_midP_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha, F)
+  tmp <- ClopperPearson_midP_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha, FALSE)
   L_mu <- tmp[[1]]
   U_mu <- tmp[[2]]
 

@@ -23,26 +23,25 @@
 #' # Example: Ligarden et al. (2010)
 #' AgrestiCoull_CI_1x2(X = 13, n = 16)
 #' @export
-AgrestiCoull_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
-	# Estimate of the binomial probability (pihat)
-	estimate = X/n
+AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  # Estimate of the binomial probability (pihat)
+  estimate <- X / n
 
-	# Add two successes and two failures and calculate the Wald CI
-	res = Wald_CI_1x2(X + 2, n + 4, alpha, 0)
-	estimate = res[3]
-	L = res[1]
-	U = res[2]
+  # Add two successes and two failures and calculate the Wald CI
+  res <- Wald_CI_1x2(X + 2, n + 4, alpha, 0)
+  estimate <- res[3]
+  L <- res[1]
+  U <- res[2]
 
-	if (printresults) {
-		print(
-			sprintf(
-				'The Agresti-Coull CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
-				estimate, 100*(1 - alpha), L, U
-			),
-			quote=FALSE
-		)
-	}
+  if (printresults) {
+    print(
+      sprintf(
+        "The Agresti-Coull CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+        estimate, 100 * (1 - alpha), L, U
+      ),
+      quote = FALSE
+    )
+  }
 
-	invisible(res)
-
+  invisible(res)
 }

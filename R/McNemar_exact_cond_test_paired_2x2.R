@@ -25,10 +25,10 @@ McNemar_exact_cond_test_paired_2x2 <- function(n, printresults = TRUE) {
   # Exact p-value based on the binomial distribution
   P <- 2 * pbinom(min(n[1, 2], n[2, 1]), n[1, 2] + n[2, 1], 0.5)
   P <- min(P, 1)
-	if (printresults) {
-		.print("The McNemar exact conditional test: P = %8.6f\n", P)
-	}
-	return(P)
+  if (printresults) {
+    .print("The McNemar exact conditional test: P = %8.6f\n", P)
+  }
+  return(P)
 }
 
 .print <- function(s, ...) {

@@ -62,44 +62,44 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("\n")
   .print("\nEstimating a common difference between probabilities\n")
   .print("----------------------------------------------------\n")
-  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "linear", F)[[1]]
+  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "linear", FALSE)[[1]]
   .print("The Mantel-Haenszel estimate = %7.4f\n", estimate)
-  estimate <- InverseVariance_estimate_stratified_2x2(n, "linear", F)[[1]]
+  estimate <- InverseVariance_estimate_stratified_2x2(n, "linear", FALSE)[[1]]
   .print("The inverse variance estimate = %7.4f\n", estimate)
 
   cat("\n")
   .print("\nEstimating a common ratio of probabilities\n")
   .print("------------------------------------------\n")
-  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "log", F)[[1]]
+  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "log", FALSE)[[1]]
   .print("The Mantel-Haenszel estimate = %7.4f\n", estimate)
-  estimate <- InverseVariance_estimate_stratified_2x2(n, "log", F)[[1]]
+  estimate <- InverseVariance_estimate_stratified_2x2(n, "log", FALSE)[[1]]
   .print("The inverse variance estimate = %7.4f\n", estimate)
 
   cat("\n")
   .print("\nEstimating a common odds ratio\n")
   .print("------------------------------\n")
-  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "logit", F)[[1]]
+  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "logit", FALSE)[[1]]
   .print("The Mantel-Haenszel estimate = %7.4f\n", estimate)
-  estimate <- InverseVariance_estimate_stratified_2x2(n, "logit", F)[[1]]
+  estimate <- InverseVariance_estimate_stratified_2x2(n, "logit", FALSE)[[1]]
   .print("The inverse variance estimate = %7.4f\n", estimate)
-  estimate <- Peto_OR_estimate_stratified_2x2(n, F)[[1]]
+  estimate <- Peto_OR_estimate_stratified_2x2(n, FALSE)[[1]]
   .print("The Peto OR estimate = %7.4f\n", estimate)
 
   .print("\nTests of homogeneity of the difference between probabilities\n")
   .print("============================================================\n")
   .print("Test                 P-value  (test statistic)\n")
   .print("-------------------------------------------------\n")
-  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "MH", F)
+  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "MH", FALSE)
   P <- tmp[[1]]
   Q <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "IV", F)
+  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "IV", FALSE)
   P <- tmp[[1]]
   Q <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear", F)
+  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear", FALSE)
   .print("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   .print("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
   .print("-------------------------------------------------\n")
@@ -109,17 +109,17 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   .print("================================================\n")
   .print("Test                 P-value  (test statistic)\n")
   .print("-------------------------------------------------\n")
-  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "MH", F)
+  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "MH", FALSE)
   P <- tmp[[1]]
   Q <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "IV", F)
+  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "IV", FALSE)
   P <- tmp[[1]]
   Q <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log", F)
+  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log", FALSE)
   .print("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   .print("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
   .print("-------------------------------------------------\n")
@@ -129,25 +129,25 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   .print("===================================\n")
   .print("Test                             P-value  (test statistic)\n")
   .print("-------------------------------------------------------------\n")
-  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "MH", F)
+  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "MH", FALSE)
   P <- tmp[[1]]
   Q <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran Q (MH)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "IV", F)
+  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "IV", FALSE)
   P <- tmp[[1]]
   Q <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran Q (IV)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit", F)
+  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit", FALSE)
   .print("Likelihood ratio                 %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   .print("Pearson chi-squared              %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
-  tmp <- BreslowDay_homogeneity_test_stratified_2x2(n, F)
+  tmp <- BreslowDay_homogeneity_test_stratified_2x2(n, FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
   .print("Breslow-Day W/Tarone correction  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df)
-  tmp <- Peto_homogeneity_test_stratified_2x2(n, F)
+  tmp <- Peto_homogeneity_test_stratified_2x2(n, FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
@@ -157,19 +157,19 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 
   .print("\nTests and CIs for a common difference between probabilities\n")
   .print("===========================================================\n")
-  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "linear", F)
+  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "linear", FALSE)
   .print("Test                 P-value  (test statistic)\n")
   .print("-------------------------------------------------\n")
   .print("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   .print("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
-  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "MH", alpha, F)
+  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "MH", alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_MH <- tmp[[3]]
   U_MH <- tmp[[4]]
   deltahat_MH <- tmp[[5]]
   .print("Wald (MH)            %6.4f   (Z = %5.3f)\n", P, Z)
-  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "IV", alpha, F)
+  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "IV", alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_IV <- tmp[[3]]
@@ -177,7 +177,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   deltahat_IV <- tmp[[5]]
   .print("Wald (IV)            %6.4f   (Z = %5.3f)\n", P, Z)
   .print("-------------------------------------------------\n")
-  results <- ML_estimates_and_CIs_stratified_2x2(n, "linear", alpha, F)
+  results <- ML_estimates_and_CIs_stratified_2x2(n, "linear", alpha, FALSE)
   .print("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha))
   .print("-------------------------------------------------\n")
   .print("Wald (MH)           %7.4f    %7.4f to %7.4f\n", deltahat_MH, L_MH, U_MH)
@@ -187,19 +187,19 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 
   .print("\nTests and CIs for a common ratio of probabilities\n")
   .print("=================================================\n")
-  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "log", F)
+  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "log", FALSE)
   .print("Test                 P-value  (test statistic)\n")
   .print("-------------------------------------------------\n")
   .print("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   .print("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
-  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "MH", alpha, F)
+  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "MH", alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_MH <- tmp[[3]]
   U_MH <- tmp[[4]]
   deltahat_MH <- tmp[[5]]
   .print("Wald (MH)            %6.4f   (Z = %5.3f)\n", P, Z)
-  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "IV", alpha, F)
+  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "IV", alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_IV <- tmp[[3]]
@@ -217,24 +217,24 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 
   .print("\nTests and CIs for a common odds ratio\n")
   .print("=====================================\n")
-  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "logit", F)
+  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "logit", FALSE)
   .print("Test                     P-value  (test statistic)\n")
   .print("-----------------------------------------------------\n")
   .print("Likelihood ratio         %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   .print("Pearson chi-squared      %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
-  tmp <- CochranMantelHaenszel_test_stratified_2x2(n, F)
+  tmp <- CochranMantelHaenszel_test_stratified_2x2(n, FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
   .print("Cochran-Mantel-Haenszel  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df)
-  tmp <- RBG_test_and_CI_stratified_2x2(n, alpha, F)
+  tmp <- RBG_test_and_CI_stratified_2x2(n, alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_RBG <- tmp[[3]]
   U_RBG <- tmp[[4]]
   phihat_RBG <- tmp[[5]]
   .print("RBG                      %6.4f   (Z = %5.3f)\n", P, Z)
-  tmp <- Woolf_test_and_CI_stratified_2x2(n, alpha, F)
+  tmp <- Woolf_test_and_CI_stratified_2x2(n, alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_Woolf <- tmp[[3]]
@@ -252,5 +252,5 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

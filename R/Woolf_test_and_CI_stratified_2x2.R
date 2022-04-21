@@ -26,7 +26,7 @@
 #' @return A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimate thetahatIV
 Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Get the inverse variance overall estimate and weights
-  tmp <- InverseVariance_estimate_stratified_2x2(n, "logit", F)
+  tmp <- InverseVariance_estimate_stratified_2x2(n, "logit", FALSE)
   thetahatIV <- tmp[[1]]
   v <- tmp[[3]]
 

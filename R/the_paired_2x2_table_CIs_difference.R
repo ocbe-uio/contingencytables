@@ -26,41 +26,41 @@ the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   .print("Estimate of delta = pi_1+ - pi_+1: %5.3f\n\n", deltahat)
 
   .print("Interval method                           %i%% CI         width\n", 100 * (1 - alpha))
-  print("--------------------------------------------------------------", quote = F)
+  print("--------------------------------------------------------------", quote = FALSE)
 
-  tmp <- Wald_CI_diff_paired_2x2(n, alpha, F)
+  tmp <- Wald_CI_diff_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Wald                                %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Wald_CI_diff_CC_paired_2x2(n, alpha, F)
+  tmp <- Wald_CI_diff_CC_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Wald w/continuity correction        %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Wald_CI_AgrestiMin_paired_2x2(n, alpha, F)
+  tmp <- Wald_CI_AgrestiMin_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Wald w/Agresti-Min adjustment       %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Wald_CI_BonettPrice_paired_2x2(n, alpha, F)
+  tmp <- Wald_CI_BonettPrice_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Wald w/Bonett-Price adjustment      %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Newcombe_square_and_add_CI_paired_2x2(n, alpha, F)
+  tmp <- Newcombe_square_and_add_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Newcombe square-and-add             %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Tango_asymptotic_score_CI_paired_2x2(n, alpha, F)
+  tmp <- Tango_asymptotic_score_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Tango asymptotic score              %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  print("--------------------------------------------------------------", quote = F)
+  print("--------------------------------------------------------------", quote = FALSE)
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

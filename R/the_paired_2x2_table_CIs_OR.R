@@ -16,41 +16,41 @@ the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   cat("\n")
 
   .print("Interval method                              %i%% CI        log width\n", 100 * (1 - alpha))
-  print("--------------------------------------------------------------------", quote = F)
+  print("--------------------------------------------------------------------", quote = FALSE)
 
-  tmp <- Wald_CI_OR_paired_2x2(n, alpha, F)
+  tmp <- Wald_CI_OR_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Wald                                   %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- Wald_CI_OR_Laplace_paired_2x2(n, alpha, F)
+  tmp <- Wald_CI_OR_Laplace_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Wald with Laplace adjustment           %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- Transformed_Wilson_score_CI_paired_2x2(n, alpha, F)
+  tmp <- Transformed_Wilson_score_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Transformed Wilson score               %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- Transformed_Clopper_Pearson_exact_CI_paired_2x2(n, alpha, F)
+  tmp <- Transformed_Clopper_Pearson_exact_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Transformed Clopper-Pearson exact      %7.4f to %7.4f  %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- Transformed_Clopper_Pearson_midP_CI_paired_2x2(n, alpha, F)
+  tmp <- Transformed_Clopper_Pearson_midP_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Transformed Clopper-Pearson mid-P      %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- Transformed_Blaker_exact_CI_paired_2x2(n, alpha, F)
+  tmp <- Transformed_Blaker_exact_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
   .print("Transformed Blaker exact               %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  print("--------------------------------------------------------------------", quote = F)
+  print("--------------------------------------------------------------------", quote = FALSE)
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

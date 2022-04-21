@@ -4,16 +4,16 @@
 #' @param n the observed counts (a 2x2 matrix)
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001 gamma=0: no adj)
 #' @param statistic 'Pearson' (Suissa-Shuster test default), 'LR' (likelihood ratio),
-#''unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)
+#'' unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)
 #' @param printresults display results (F = no, T = yes)
 #' @examples
-#' n <- rbind(c(3,1), c(1,3))       # Example: A lady tasting a cup of tea
+#' n <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
 #' Exact_unconditional_test_2x2(n)
-#' n <- rbind(c(7,27), c(1,33))   # Example: Perondi et al. (2004)
+#' n <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
 #' Exact_unconditional_test_2x2(n)
-#' n <- rbind(c(9,4), c(4,10))    # Example: Lampasona et al. (2013)
+#' n <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
 #' Exact_unconditional_test_2x2(n)
-#' n <- rbind(c(0,16), c(15,57))  # Example: Ritland et al. (2007)
+#' n <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
 #' Exact_unconditional_test_2x2(n)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
@@ -27,156 +27,164 @@
 #' @importFrom stats dhyper
 #' @importFrom grDevices dev.new
 #' @return Fisher's exact test statistic
-Exact_unconditional_test_2x2 <- function(n, statistic='Pearson', gamma=0.0001,
-	printresults=TRUE)
-{
-	# Partition the parameter space into 'num_pi_values' equally spaced values
-	num_pi_values <- 1000
+Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.0001,
+                                         printresults = TRUE) {
+  # Partition the parameter space into 'num_pi_values' equally spaced values
+  num_pi_values <- 1000
 
-	# Display a plot of the P-value as a function of the common success probability
-	showplot <- FALSE
+  # Display a plot of the P-value as a function of the common success probability
+  showplot <- FALSE
 
-	n1p <- n[1, 1] + n[1, 2]
-	n2p <- n[2, 1] + n[2, 2]
-	np1 <- n[1, 1] + n[2, 1]
-	N <- sum(n)
+  n1p <- n[1, 1] + n[1, 2]
+  n2p <- n[2, 1] + n[2, 2]
+  np1 <- n[1, 1] + n[2, 1]
+  N <- sum(n)
 
-	# Calculate and store the binomial coefficients needed
-	binomcoeffs1 <- rep(0, n1p + 1)
-	for (x11 in 0:n1p) {
-		binomcoeffs1[x11 + 1] <- choose(n1p, x11)
-	}
-	if (n1p == n2p) {
-		binomcoeffs2 <- binomcoeffs1
-	} else {
-		binomcoeffs2 <- rep(0, n2p + 1)
-		for (x21 in 0:n2p) {
-			binomcoeffs2[x21 + 1] <- choose(n2p, x21)
-		}
-	}
-	binomcoeffs <- outer(binomcoeffs1, binomcoeffs2)
+  # Calculate and store the binomial coefficients needed
+  binomcoeffs1 <- rep(0, n1p + 1)
+  for (x11 in 0:n1p) {
+    binomcoeffs1[x11 + 1] <- choose(n1p, x11)
+  }
+  if (n1p == n2p) {
+    binomcoeffs2 <- binomcoeffs1
+  } else {
+    binomcoeffs2 <- rep(0, n2p + 1)
+    for (x21 in 0:n2p) {
+      binomcoeffs2[x21 + 1] <- choose(n2p, x21)
+    }
+  }
+  binomcoeffs <- outer(binomcoeffs1, binomcoeffs2)
 
-	# Find the tables that agree equally or less with H0 as the observed
-	tables <- matrix(0, n1p + 1, n2p + 1)
-	Tobs <- test_statistic_exact_unconditional_test_2x2(
-		n[1, 1], n[1, 2], n[2, 1], n[2, 2], statistic
-	)
-	for (x11 in 0:n1p) {
-		for (x21 in 0:n2p) {
-			T0 <- test_statistic_exact_unconditional_test_2x2(
-				x11, n1p-x11, x21, n2p-x21, statistic
-			)
-			if (!is.na(T0) && T0 >= Tobs) { # ADDED !is.na(..) TO AVOID CRASH
-				tables[x11 + 1, x21 + 1] = 1
-			}
-		}
-	}
+  # Find the tables that agree equally or less with H0 as the observed
+  tables <- matrix(0, n1p + 1, n2p + 1)
+  Tobs <- test_statistic_exact_unconditional_test_2x2(
+    n[1, 1], n[1, 2], n[2, 1], n[2, 2], statistic
+  )
+  for (x11 in 0:n1p) {
+    for (x21 in 0:n2p) {
+      T0 <- test_statistic_exact_unconditional_test_2x2(
+        x11, n1p - x11, x21, n2p - x21, statistic
+      )
+      if (!is.na(T0) && T0 >= Tobs) { # ADDED !is.na(..) TO AVOID CRASH
+        tables[x11 + 1, x21 + 1] <- 1
+      }
+    }
+  }
 
-	# A simple partition the nuisance parameter space
-	if (gamma == 0) {
-		pivalues <- seq(0, 1, length=num_pi_values)
-	} else {
-		# Berger and Boos procedure
-		# Use the Clopper-Pearson exact interval
-		res.cpe <- ClopperPearson_exact_CI_1x2(np1, N, gamma, printresults=F)
-		pivalues <- seq(
-			res.cpe["lower"], res.cpe["upper"], length=num_pi_values
-		)
-	}
+  # A simple partition the nuisance parameter space
+  if (gamma == 0) {
+    pivalues <- seq(0, 1, length = num_pi_values)
+  } else {
+    # Berger and Boos procedure
+    # Use the Clopper-Pearson exact interval
+    res.cpe <- ClopperPearson_exact_CI_1x2(np1, N, gamma, printresults = FALSE)
+    pivalues <- seq(
+      res.cpe["lower"], res.cpe["upper"],
+      length = num_pi_values
+    )
+  }
 
-	# Calculate the P-value corresponding to each value of the nuisance parameter
-	Pvalues <- vapply(
-		X = seq_along(pivalues),
-		FUN = function(i) {
-			calculate_Pvalue(pivalues[i], tables, binomcoeffs, n1p, n2p)
-		},
-		FUN.VALUE = vector(mode = "numeric", length = 1)
-	)
+  # Calculate the P-value corresponding to each value of the nuisance parameter
+  Pvalues <- vapply(
+    X = seq_along(pivalues),
+    FUN = function(i) {
+      calculate_Pvalue(pivalues[i], tables, binomcoeffs, n1p, n2p)
+    },
+    FUN.VALUE = vector(mode = "numeric", length = 1)
+  )
 
-	# Let the exact unconditional P-value equal the maximum of the P-values
-	P <- max(Pvalues)
-	index <- which(P == Pvalues)[1]
+  # Let the exact unconditional P-value equal the maximum of the P-values
+  P <- max(Pvalues)
+  index <- which(P == Pvalues)[1]
 
-	# Add gamma (the parameter for the Berger and Boos procedure) to make sure
-	# the actual significance level is bounded by the nominal level
-	P <- min(c(P + gamma, 1))
+  # Add gamma (the parameter for the Berger and Boos procedure) to make sure
+  # the actual significance level is bounded by the nominal level
+  P <- min(c(P + gamma, 1))
 
-	# Handle cases where the P-value is not computable
-	if (sum(tables) == 0) {
-		P <- 1.0
-	}
+  # Handle cases where the P-value is not computable
+  if (sum(tables) == 0) {
+    P <- 1.0
+  }
 
-	# Display a plot of the P-value as a function of the common success probability
-	if (showplot) {
-		common_pi_at_max_value <- pivalues[index]
-		dev.new()
-		plot(pivalues, Pvalues, lty=1, col="black")
-		lines(
-			c(common_pi_at_max_value, common_pi_at_max_value), c(0, P),
-			lty=2, col="red"
-		)
-	}
+  # Display a plot of the P-value as a function of the common success probability
+  if (showplot) {
+    common_pi_at_max_value <- pivalues[index]
+    dev.new()
+    plot(pivalues, Pvalues, lty = 1, col = "black")
+    lines(
+      c(common_pi_at_max_value, common_pi_at_max_value), c(0, P),
+      lty = 2, col = "red"
+    )
+  }
 
-	if (printresults) {
-		if (statistic == 'Pearson') {
-			print(sprintf('The Suissa-Shuster exact unconditional test: P = %7.5f', P), quote=FALSE)
-		} else if (statistic == 'LR') {
-			print(sprintf('Exact unconditional test with the LR statistic: P = %7.5f', P), quote=FALSE)
-		} else if (statistic == 'unpooled') {
-			print(sprintf('Exact unconditional test with the unpooled Z statistic: P = %7.5f', P), quote=FALSE)
-		} else if (statistic == 'Fisher') {
-			print(sprintf('Fisher-Boschloo exact unconditional test: P = %7.5f', P), quote=FALSE)
-		}
-	}
+  if (printresults) {
+    if (statistic == "Pearson") {
+      print(sprintf("The Suissa-Shuster exact unconditional test: P = %7.5f", P), quote = FALSE)
+    } else if (statistic == "LR") {
+      print(sprintf("Exact unconditional test with the LR statistic: P = %7.5f", P), quote = FALSE)
+    } else if (statistic == "unpooled") {
+      print(sprintf("Exact unconditional test with the unpooled Z statistic: P = %7.5f", P), quote = FALSE)
+    } else if (statistic == "Fisher") {
+      print(sprintf("Fisher-Boschloo exact unconditional test: P = %7.5f", P), quote = FALSE)
+    }
+  }
 
-	invisible(P)
-
+  invisible(P)
 }
 
 
 # ===================================================================
 calculate_Pvalue <- function(pi0, tables, binomcoeffs, n1p, n2p) {
-	Pvalue <- 0
-	for (x11 in 0:n1p) {
-		for (x21 in 0:n2p) {
-			if (tables[x11 + 1, x21 + 1] == 1) {
-				Pvalue <- Pvalue + binomcoeffs[x11 + 1,x21 + 1] * (pi0 ^ (x11 + x21)) * ((1-pi0) ^ (n1p-x11 + n2p-x21))
-			}
-		}
-	}
-	return(Pvalue)
+  Pvalue <- 0
+  for (x11 in 0:n1p) {
+    for (x21 in 0:n2p) {
+      if (tables[x11 + 1, x21 + 1] == 1) {
+        Pvalue <- Pvalue + binomcoeffs[x11 + 1, x21 + 1] * (pi0^(x11 + x21)) * ((1 - pi0)^(n1p - x11 + n2p - x21))
+      }
+    }
+  }
+  return(Pvalue)
 }
 
 # ========================================================
 test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, statistic) {
-	N <- x11 + x12 + x21 + x22
+  N <- x11 + x12 + x21 + x22
 
-	if (statistic == 'Pearson') {
-		# The Pearson chi-squared statistic
-		T0 <- (N * (x11 * x22-x12 * x21) ^ 2) / ((x11 + x12) * (x21 + x22) * (x11 + x21) * (x12 + x22))
-	} else if (statistic == 'LR') {
-		# The likelihood ratio statistic
-		T0 <- 0
-		if (x11 > 0) {T0 = T0 + x11 * log(x11 / ((x11 + x12) * (x11 + x21) / N))}
-		if (x12 > 0) {T0 = T0 + x12 * log(x12 / ((x11 + x12) * (x12 + x22) / N))}
-		if (x21 > 0) {T0 = T0 + x21 * log(x21 / ((x21 + x22) * (x11 + x21) / N))}
-		if (x22 > 0) {T0 = T0 + x22 * log(x22 / ((x21 + x22) * (x12 + x22) / N))}
-		T0 <- 2 * T0
-	} else if (statistic == 'unpooled') {
-		# The unpooled Z statistic
-		n1p <- x11 + x12
-		n2p <- x21 + x22
-		tmp1 <- x11 / n1p
-		tmp2 <- x21 / n2p
-		Z <- (tmp1-tmp2) / sqrt((tmp1 * (1 - tmp1) / n1p) + (tmp2 * (1 - tmp2) / n2p))
-		if (is.na(Z)) {Z = 0}
-		T0 <- Z ^ 2
-	} else if (statistic == 'Fisher') {
-		# Fisher's exact test as test statistic
-		x <- matrix(c(x11, x12, x21, x22), nrow=2, byrow=T)
-		T0 <- -Fisher_exact_test_2x2(x, 'hypergeometric', printresults=FALSE)
-	}
+  if (statistic == "Pearson") {
+    # The Pearson chi-squared statistic
+    T0 <- (N * (x11 * x22 - x12 * x21)^2) / ((x11 + x12) * (x21 + x22) * (x11 + x21) * (x12 + x22))
+  } else if (statistic == "LR") {
+    # The likelihood ratio statistic
+    T0 <- 0
+    if (x11 > 0) {
+      T0 <- T0 + x11 * log(x11 / ((x11 + x12) * (x11 + x21) / N))
+    }
+    if (x12 > 0) {
+      T0 <- T0 + x12 * log(x12 / ((x11 + x12) * (x12 + x22) / N))
+    }
+    if (x21 > 0) {
+      T0 <- T0 + x21 * log(x21 / ((x21 + x22) * (x11 + x21) / N))
+    }
+    if (x22 > 0) {
+      T0 <- T0 + x22 * log(x22 / ((x21 + x22) * (x12 + x22) / N))
+    }
+    T0 <- 2 * T0
+  } else if (statistic == "unpooled") {
+    # The unpooled Z statistic
+    n1p <- x11 + x12
+    n2p <- x21 + x22
+    tmp1 <- x11 / n1p
+    tmp2 <- x21 / n2p
+    Z <- (tmp1 - tmp2) / sqrt((tmp1 * (1 - tmp1) / n1p) + (tmp2 * (1 - tmp2) / n2p))
+    if (is.na(Z)) {
+      Z <- 0
+    }
+    T0 <- Z^2
+  } else if (statistic == "Fisher") {
+    # Fisher's exact test as test statistic
+    x <- matrix(c(x11, x12, x21, x22), nrow = 2, byrow = TRUE)
+    T0 <- -Fisher_exact_test_2x2(x, "hypergeometric", printresults = FALSE)
+  }
 
-	return(T0)
-
+  return(T0)
 }

@@ -24,7 +24,7 @@ Described in Chapter 8 "The Paired 2x2 Table"
 \examples{
 
 # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-n <- rbind(c(7,25),c(2,68))
+n <- rbind(c(7, 25), c(2, 68))
 Transformed_Wilson_score_CI_paired_2x2(n)
 
 }
