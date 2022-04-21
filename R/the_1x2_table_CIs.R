@@ -35,76 +35,76 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
   )
   myprint("----------------------------------------------------")
 
-  res <- Wald_CI_1x2(X, n, alpha, F)
+  res <- Wald_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Wald                         %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Wald_CI_CC_1x2(X, n, alpha, F)
+  res <- Wald_CI_CC_1x2(X, n, alpha, FALSE)
   myprint(
     "Wald with CC                 %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- LR_CI_1x2(X, n, alpha, F)
+  res <- LR_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Likelihood ratio             %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Wilson_score_CI_1x2(X, n, alpha, F)
+  res <- Wilson_score_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Wilson score                 %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Wilson_score_CI_CC_1x2(X, n, alpha, F)
+  res <- Wilson_score_CI_CC_1x2(X, n, alpha, FALSE)
   myprint(
     "Wilson score with CC         %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- AgrestiCoull_CI_1x2(X, n, alpha, F)
+  res <- AgrestiCoull_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Agresti-Coull                %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Jeffreys_CI_1x2(X, n, alpha, F)
+  res <- Jeffreys_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Jeffreys                     %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Arcsine_CI_1x2(X, n, alpha, F)
+  res <- Arcsine_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Arcsine (Anscombe)           %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- ClopperPearson_exact_CI_1x2(X, n, alpha, F)
+  res <- ClopperPearson_exact_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Clopper-Pearson exact        %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  # res = ClopperPearson_exact_CI_1x2_beta_version(X, n, alpha, F)
+  # res = ClopperPearson_exact_CI_1x2_beta_version(X, n, alpha, FALSE)
   # myprint('Clopper-Pearson exact (beta) %5.3f to %5.3f %8.3f', res[1], res[2], res[2] - res[1])
 
-  res <- Blaker_exact_CI_1x2(X, n, alpha, F)
+  res <- Blaker_exact_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Blaker exact                 %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- ClopperPearson_midP_CI_1x2(X, n, alpha, F)
+  res <- ClopperPearson_midP_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Clopper-Pearson mid-p        %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Blaker_midP_CI_1x2(X, n, alpha, F)
+  res <- Blaker_midP_CI_1x2(X, n, alpha, FALSE)
   myprint(
     "Blaker mid-P                 %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]

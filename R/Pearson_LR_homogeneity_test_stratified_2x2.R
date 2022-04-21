@@ -29,7 +29,7 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit", printr
   K <- dim(n)[3]
 
   # Get the estimated probabilities
-  results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05, F)
+  results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05, FALSE)
   pihat <- results$pihat
 
   if (any(pihat < 0)) {

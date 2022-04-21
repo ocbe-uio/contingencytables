@@ -17,7 +17,7 @@ Transformed_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults
   estimate <- n[1, 2] / n[2, 1]
 
   # The Wilson score interval for mu <- pi_12 / (pi_12 + pi_21)
-  tmp <- Wilson_score_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha, F)
+  tmp <- Wilson_score_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha, FALSE)
   L_mu <- tmp[[1]]
   U_mu <- tmp[[2]]
 

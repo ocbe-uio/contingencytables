@@ -21,27 +21,27 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   .print("\nTests for nominal categories                Statistic      P-value\n")
   .print("-------------------------------------------------------------------\n")
 
-  tmp <- Bhapkar_test_paired_cxc(n, F)
+  tmp <- Bhapkar_test_paired_cxc(n, FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
   .print("Bhapkar test for marginal homogeneity      %6.3f (df=%g)  %9.6f\n", T0, df, P)
 
-  tmp <- Stuart_test_paired_cxc(n, F)
+  tmp <- Stuart_test_paired_cxc(n, FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
   .print("Stuart test for marginal homogeneity       %6.3f (df=%g)  %9.6f\n", T0, df, P)
 
   if (c == 3) {
-    tmp <- FleissEveritt_test_paired_cxc(n, F)
+    tmp <- FleissEveritt_test_paired_cxc(n, FALSE)
     P <- tmp[[1]]
     T0 <- tmp[[2]]
     df <- tmp[[3]]
     .print("Fleiss-Everitt version of the Stuart test  %6.3f (df=%g)  %9.6f\n", T0, df, P)
   }
 
-  tmp <- McNemarBowker_test_paired_cxc(n, F)
+  tmp <- McNemarBowker_test_paired_cxc(n, FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
@@ -53,11 +53,11 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   .print("\nCategory        Estimate    ScheffE 95%%CI         Bonferroni 95%%CI     P-value*\n")
   .print("-------------------------------------------------------------------------------\n")
   for (i in 1:c) {
-    tmp <- Scheffe_type_CIs_paired_cxc(n, alpha, F)
+    tmp <- Scheffe_type_CIs_paired_cxc(n, alpha, FALSE)
     Scheffe_L <- tmp[[1]]
     Scheffe_U <- tmp[[2]]
     deltahat <- tmp[[3]]
-    tmp <- Bonferroni_type_CIs_paired_cxc(n, alpha, F)
+    tmp <- Bonferroni_type_CIs_paired_cxc(n, alpha, FALSE)
     Bonferroni_L <- tmp[[1]]
     Bonferroni_U <- tmp[[2]]
 
@@ -74,5 +74,5 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

@@ -31,7 +31,7 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   K <- dim(n)[3]
 
   # Get the Mantel-Haenszel overall estimate
-  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit", F)[[1]]
+  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit", FALSE)[[1]]
 
   # Find the expected cell counts in cell [1, 1] in each stratum (m11k) by
   # solving a quadratic equation

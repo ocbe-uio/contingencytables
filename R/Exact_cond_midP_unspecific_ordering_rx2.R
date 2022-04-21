@@ -76,7 +76,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
   index1 <- 1
   while (index1 < c + 1) {
     v <- which(r[index1:length(r)] == min(r[index1:length(r)]))[1]
-    J[[length(J) + 1]] <- n[, index1:(index1 + v - 1), drop = F]
+    J[[length(J) + 1]] <- n[, index1:(index1 + v - 1), drop = FALSE]
     index1 <- index1 + v
   }
 

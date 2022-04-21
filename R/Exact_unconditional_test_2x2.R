@@ -77,7 +77,7 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
   } else {
     # Berger and Boos procedure
     # Use the Clopper-Pearson exact interval
-    res.cpe <- ClopperPearson_exact_CI_1x2(np1, N, gamma, printresults = F)
+    res.cpe <- ClopperPearson_exact_CI_1x2(np1, N, gamma, printresults = FALSE)
     pivalues <- seq(
       res.cpe["lower"], res.cpe["upper"],
       length = num_pi_values
@@ -182,7 +182,7 @@ test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, stat
     T0 <- Z^2
   } else if (statistic == "Fisher") {
     # Fisher's exact test as test statistic
-    x <- matrix(c(x11, x12, x21, x22), nrow = 2, byrow = T)
+    x <- matrix(c(x11, x12, x21, x22), nrow = 2, byrow = TRUE)
     T0 <- -Fisher_exact_test_2x2(x, "hypergeometric", printresults = FALSE)
   }
 

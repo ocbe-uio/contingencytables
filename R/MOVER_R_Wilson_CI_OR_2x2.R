@@ -33,8 +33,8 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   estimate <- n[1, 1] * n[2, 2] / (n[1, 2] * n[2, 1])
 
   # Use Wilson score CIs for the two probabilities of success
-  res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha, printresults = F)
-  res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha, printresults = F)
+  res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha, printresults = FALSE)
+  res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha, printresults = FALSE)
 
   # The estimated logits of pi_1 and pi_2 and their CIs
   q1hat <- pi1hat / (1 - pi1hat)
@@ -54,7 +54,7 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {
-    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha, printresults = F)$upper
+    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha, printresults = FALSE)$upper
     L <- 1 / U_tmp
   }
 

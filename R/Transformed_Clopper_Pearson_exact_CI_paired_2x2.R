@@ -17,7 +17,7 @@ Transformed_Clopper_Pearson_exact_CI_paired_2x2 <- function(n, alpha = 0.05, pri
   estimate <- n[1, 2] / n[2, 1]
 
   # The Clopper-Pearson exact interval for mu = pi_12 / (pi_12 + pi_21)
-  tmp <- ClopperPearson_exact_CI_1x2_beta_version(n[1, 2], n[1, 2] + n[2, 1], alpha, F)
+  tmp <- ClopperPearson_exact_CI_1x2_beta_version(n[1, 2], n[1, 2] + n[2, 1], alpha, FALSE)
   L_mu <- tmp[[1]]
   U_mu <- tmp[[2]]
 

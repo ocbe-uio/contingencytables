@@ -57,7 +57,7 @@ Blaker_midP_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
     print(sprintf(
       "The Blaker mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
       estimate, 100 * (1 - alpha), L, U
-    ), quote = F)
+    ), quote = FALSE)
   }
 
   res <- c(L, U, estimate)

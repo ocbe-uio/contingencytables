@@ -63,5 +63,5 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05,
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

@@ -191,5 +191,5 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05, p
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

@@ -65,7 +65,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
   } else {
     # Berger and Boos procedure
     # Use the Clopper-Pearson exact interval
-    tmp <- ClopperPearson_exact_CI_1x2_beta_version(n[1, 2] + n[2, 1], N, gamma, F)
+    tmp <- ClopperPearson_exact_CI_1x2_beta_version(n[1, 2] + n[2, 1], N, gamma, FALSE)
     L <- tmp[[1]]
     U <- tmp[[2]]
     pivalues <- seq(L, U, length = num_pi_values)
