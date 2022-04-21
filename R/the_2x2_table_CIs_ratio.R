@@ -31,7 +31,7 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Katz log                             %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  ers <- Adjusted_log_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Adjusted_log_CI_2x2(n, alpha, printresults = FALSE)
   L <- res$lower
   U <- res$upper
   print(sprintf("Adjusted log                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
