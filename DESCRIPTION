@@ -1,6 +1,6 @@
 Package: contingencytables
 Title: Statistical Analysis of Contingency Tables
-Version: 1.0.0.9001
+Version: 1.0.1
 Authors@R:
     c(
         person(
@@ -40,4 +40,4 @@ URL: https://contingencytables.com/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
 Imports: MASS, boot
 Suggests: testthat
-Date: 2022-01-05
+Date: 2022-04-21
