@@ -39,7 +39,7 @@ Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresult
 	m <- array(0, dim = c(length(J), 2, c))
 	T_LR <- 0
 	T_Pearson <- 0
-	for (h in 1:length(J)) {
+	for (h in seq_along(J)) {
 		nJ <- J[[h]]
 		npj <- apply(nJ, 2, sum)
 		cols <- ncol(nJ)

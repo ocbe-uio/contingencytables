@@ -57,7 +57,7 @@ Exact_cond_midP_tests_rxc <- function(n, printresults=TRUE) {
 	midP_lbl = 0
 	midP_JT = 0
 
-	for (i in 1:nrow(tables)) {
+	for (i in seq_len(nrow(tables))) {
 		x <- rbind(tables[i,1:c], tables[i,(c + 1):(2 * c)], tables[i,(2 * c + 1):(3 * c)])
 		ans = test_statisticsEcmt(x, N, r, c, nip, npj)
 		f = ans[[1]]

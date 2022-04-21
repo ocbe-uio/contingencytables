@@ -82,7 +82,7 @@ f.Sccrb <- function(dat, indx, .param) {
 	Y1 <- dat$Y1[indx]
 	Y2 <- dat$Y2[indx]
 	n <- matrix(0, r, c)
-	for (id in 1:length(Y1)) {
+	for (id in seq_along(Y1)) {
 		n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
 	}
 	rho <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)$rho

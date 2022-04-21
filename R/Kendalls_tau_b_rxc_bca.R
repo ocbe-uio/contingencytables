@@ -69,7 +69,7 @@ f.Ktbrb <- function(dat, d, .alpha, .r, .c) {
 	n <- matrix(0, .r, .c)
 	Y1 <- dat$Y1[d]
 	Y2 <- dat$Y2[d]
-	for (id in 1:length(Y1)) {
+	for (id in seq_along(Y1)) {
 		n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
 	}
 	res <- Kendalls_tau_b_rxc(n, .alpha, printresults = FALSE)

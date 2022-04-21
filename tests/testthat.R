@@ -1,4 +1,1 @@
-library(testthat)
-library(contingencytables)
-
-test_check("contingencytables")
+testthat::test_check("contingencytables")

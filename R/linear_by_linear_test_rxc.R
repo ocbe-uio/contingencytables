@@ -29,8 +29,9 @@
 #' }
 #' @export
 #' @return a list containing the linear-by-linear test statistic
-linear_by_linear_test_rxc <- function(n, a = 1:ncol(n), b = 1:nrow(n), printresults = TRUE) {
-
+linear_by_linear_test_rxc <- function(
+	n, a = seq_len(ncol(n)), b = seq_len(nrow(n)), printresults = TRUE
+) {
 	# If no scores are given, use equally spaced scores
 	r <- nrow(n)
 	c <- ncol(n)

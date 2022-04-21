@@ -34,7 +34,7 @@ Exact_multinomial_test_1xc <- function(n, pi0, printresults=TRUE) {
 
 	P <- 0
 	Tobs <- sum(((n - N * pi0) ^ 2) / (N * pi0))
-	for (i in 1:nrow(x)) {
+	for (i in seq_len(nrow(x))) {
 		T0 <- sum(((x[i,] - N * pi0) ^ 2) / (N * pi0)) # Pearson chi-squared
 		if (T0 >= Tobs) {
 			P <- P + dmultinom(x[i,], prob=pi0)
@@ -50,7 +50,7 @@ Exact_multinomial_test_1xc <- function(n, pi0, printresults=TRUE) {
 
 # =========================
 all.tables3 <- function(N) {
-	x <- c()
+	x <- vector()
 	for (x1 in 0:N) {
 		for (x2 in 0:(N-x1)) {
 			x <- rbind(x, c(x1, x2, N-x1-x2))
@@ -61,7 +61,7 @@ all.tables3 <- function(N) {
 
 # =========================
 all.tables4 <- function(N) {
-	x <- c()
+	x <- vector()
 	for (x1 in (0:N)) {
 		for (x2 in 0:(N-x1)) {
 			for (x3 in 0:(N-x1-x2)) {
@@ -74,7 +74,7 @@ all.tables4 <- function(N) {
 
 # =========================
 all.tables5 <- function(N) {
-	x <- c()
+	x <- vector()
 	for (x1 in 0:N) {
 		for (x2 in 0:(N-x1)) {
 			for (x3 in 0:(N-x1-x2)) {
@@ -88,7 +88,7 @@ all.tables5 <- function(N) {
 
 # =========================
 all.tables6 <- function(N) {
-	x <- c()
+	x <- vector()
 	for (x1 in 0:N) {
 		for (x2 in 0:(N-x1)) {
 			for (x3 in 0:(N-x1-x2)) {
@@ -104,7 +104,7 @@ all.tables6 <- function(N) {
 
 # =========================
 all.tables7 <- function(N) {
-	x <- c()
+	x <- vector()
 	for (x1 in 0:N) {
 		for (x2 in 0:(N-x1)) {
 			for (x3 in 0:(N-x1-x2)) {
