@@ -20,12 +20,6 @@ The Brant test for the proportional odds assumption
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-# The Adolescent Placement Study (Fontanella et al., 2008)
-n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-Brant_test_2xc(n)
-
-# Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-Brant_test_2xc(n)
-
+Brant_test_2xc(fontanella_2008)
+Brant_test_2xc(lydersen_2012a)
 }

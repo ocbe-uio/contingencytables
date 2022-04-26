@@ -22,7 +22,5 @@ Bonferroni-type confidence intervals for differences of marginal probabilities
 Described in Chapter 9 "The Paired kxk Table"
 }
 \examples{
-# Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-Bonferroni_type_CIs_paired_cxc(n)
+Bonferroni_type_CIs_paired_cxc(peterson_2007)
 }

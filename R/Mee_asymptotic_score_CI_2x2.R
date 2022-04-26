@@ -6,10 +6,10 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
-#' n <- matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE)
+#' n <- perondi_2004
 #' Mee_asymptotic_score_CI_2x2(n)
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
+#' n <- ritland_2007
 #' Mee_asymptotic_score_CI_2x2(n)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic

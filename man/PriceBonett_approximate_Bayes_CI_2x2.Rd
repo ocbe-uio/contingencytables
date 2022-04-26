@@ -31,11 +31,11 @@ Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-n <- matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE)
+n <- perondi_2004
 PriceBonett_approximate_Bayes_CI_2x2(n)
 
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
+n <- ritland_2007
 PriceBonett_approximate_Bayes_CI_2x2(n)
 
 }

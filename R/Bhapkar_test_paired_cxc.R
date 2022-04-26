@@ -5,9 +5,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @return A list containing the probability, the statistic and the degrees of freedom
 #' @examples
-#' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-#' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-#' Bhapkar_test_paired_cxc(n)
+#' Bhapkar_test_paired_cxc(peterson_2007)
 #' @export
 Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
   c <- nrow(n)

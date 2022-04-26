@@ -6,17 +6,9 @@
 #' @param printresults display results
 #' @examples
 #' \dontrun{
-#' # Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' n <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-#' a <- c(1, 2, 3, 4, 5)
-#' CochranArmitage_exact_cond_midP_tests_rx2(n, a)
+#' CochranArmitage_exact_cond_midP_tests_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' }
-#'
-#' # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
-#' a <- c(1, 2, 3, 4, 5)
-#' CochranArmitage_exact_cond_midP_tests_rx2(n, a)
-#'
+#' CochranArmitage_exact_cond_midP_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
 #' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
 CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults = TRUE) {

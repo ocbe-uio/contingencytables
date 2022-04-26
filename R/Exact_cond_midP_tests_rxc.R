@@ -6,9 +6,7 @@
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Treatment for ear infection (Table 7.3)
-#' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
-#' Exact_cond_midP_tests_rxc(n)
+#' Exact_cond_midP_tests_rxc(ear_infection)
 #' # Low birth weight vs psychiatric morbitidy (Table 7.6)
 #' \dontrun{
 #' n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)

@@ -6,7 +6,7 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
+#' n <- lydersen_2012a
 #' MantelHaenszel_test_2xc(n)
 #' b <- 0
 #' @export

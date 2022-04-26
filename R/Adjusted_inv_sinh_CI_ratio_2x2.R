@@ -10,12 +10,8 @@
 #' @param printresults display results
 #' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
-#' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
-#' n <- matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE)
-#' Adjusted_inv_sinh_CI_ratio_2x2(n)
-#' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
-#' Adjusted_inv_sinh_CI_ratio_2x2(n)
+#' Adjusted_inv_sinh_CI_ratio_2x2(perondi_2004)
+#' Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007)
 #' @export
 Adjusted_inv_sinh_CI_ratio_2x2 <- function(n, psi1 = 0, psi2 = 0, psi3 = 0, psi4 = 1, alpha = 0.05, printresults = TRUE) {
   n1p <- n[1, 1] + n[1, 2]

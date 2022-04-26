@@ -5,8 +5,7 @@
 #' @param printresults display results (F = no, T = yes)
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 #' @examples
-#' # Hypothetical experiment
-#' Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
+#' Chacko_test_1xc(hypothetical)
 #' @export
 Chacko_test_1xc <- function(n, printresults = TRUE) {
   c0 <- length(n)

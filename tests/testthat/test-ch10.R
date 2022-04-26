@@ -1,7 +1,7 @@
 context("Chapter 10")
 
 test_that("Chapter 10 functions basically work", {
-  n <- array(dim = c(2, 2, 2))
+  n <- doll_hill_1950
   n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
   n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
   expect_output(

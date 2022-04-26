@@ -11,17 +11,11 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
-#'
-#' # The number of 1st order male births (Singh et al. 2010)
-#' AgrestiCoull_CI_1x2(X = 250, n = 533)
-#' # The number of 2nd order male births (Singh et al. 2010)
-#' AgrestiCoull_CI_1x2(X = 204, n = 412)
-#' # The number of 3rd order male births (Singh et al. 2010)
-#' AgrestiCoull_CI_1x2(X = 103, n = 167)
-#' # Example: The number of 4th order male births (Singh et al. 2010)
-#' AgrestiCoull_CI_1x2(X = 33, n = 45)
-#' # Example: Ligarden et al. (2010)
-#' AgrestiCoull_CI_1x2(X = 13, n = 16)
+#' AgrestiCoull_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
+#' AgrestiCoull_CI_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"])
+#' AgrestiCoull_CI_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"])
+#' with(singh_2010["4th", ], AgrestiCoull_CI_1x2(X, n)) # alternative syntax
+#' AgrestiCoull_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
 AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   # Estimate of the binomial probability (pihat)

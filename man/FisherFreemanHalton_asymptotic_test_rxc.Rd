@@ -24,7 +24,7 @@ May not give results for all tables, due to overflow
 }
 \examples{
 # Treatment for ear infection (van Balen et al., 2003)
-n <- rbind(c(40, 25), c(54, 7), c(63, 10))
+n <- ear_infection
 FisherFreemanHalton_asymptotic_test_rxc(n)
 
 }

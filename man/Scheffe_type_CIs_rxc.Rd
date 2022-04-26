@@ -23,6 +23,6 @@ Described in Chapter 7 "The rxc Table"
 }
 \examples{
 # Example: Treatment for ear infection
-n <- rbind(c(40, 25), c(54, 7), c(63, 10))
+n <- ear_infection
 Scheffe_type_CIs_rxc(n)
 }

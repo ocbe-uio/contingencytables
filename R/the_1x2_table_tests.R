@@ -4,15 +4,15 @@
 #' @param pi0 a given probability
 #' @examples
 #' # Example: The number of 1st order male births (Singh et al. 2010)
-#' the_1x2_table_tests(X = 250, n = 533, pi0 = 0.513)
+#' the_1x2_table_tests(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
 #' # Example: The number of 2nd order male births (Singh et al. 2010)
-#' the_1x2_table_tests(X = 204, n = 412, pi0 = 0.513)
+#' the_1x2_table_tests(singh_2010["2nd", "X"], singh_2010["2nd", "n"], pi0 = 0.513)
 #' # Example: The number of 3rd order male births (Singh et al. 2010)
-#' the_1x2_table_tests(X = 103, n = 167, pi0 = 0.513)
+#' the_1x2_table_tests(singh_2010["3rd", "X"], singh_2010["3rd", "n"], pi0 = 0.513)
 #' # Example: The number of 4th order male births (Singh et al. 2010)
-#' the_1x2_table_tests(X = 33, n = 45, pi0 = 0.513)
+#' the_1x2_table_tests(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = 0.513)
 #' # Example: Ligarden et al. (2010)
-#' the_1x2_table_tests(X = 13, n = 16, pi0 = 0.5)
+#' the_1x2_table_tests(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 #' @export
 #' @return NULL. This function should be called for its printed output
 the_1x2_table_tests <- function(X, n, pi0) {

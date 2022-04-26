@@ -4,9 +4,9 @@ context("Output class, name and length")
 
 # Common elements ======================================== #
 
-n <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
-n2 <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-n3 <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
+n <- lampasona_2013
+n2 <- peterson_2007
+n3 <- lydersen_2012a
 n4 <- array(c(c(647, 2, 622, 27), c(41, 19, 28, 32)), dim = c(2, 2, 2))
 n5 <- matrix(1:9, 3)
 n6 <- matrix(1:8, ncol = 2)

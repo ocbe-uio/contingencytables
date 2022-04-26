@@ -22,12 +22,8 @@ The Baptista-Pike exact conditional confidence interval for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-n1 <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-n2 <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-n3 <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-n4 <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-BaptistaPike_exact_conditional_CI_2x2(n1)
-BaptistaPike_exact_conditional_CI_2x2(n2)
-BaptistaPike_exact_conditional_CI_2x2(n3)
-BaptistaPike_exact_conditional_CI_2x2(n4)
+BaptistaPike_exact_conditional_CI_2x2(tea)
+BaptistaPike_exact_conditional_CI_2x2(perondi_2004)
+BaptistaPike_exact_conditional_CI_2x2(lampasona_2013)
+BaptistaPike_exact_conditional_CI_2x2(ritland_2007)
 }

@@ -1,7 +1,7 @@
 context("Chapter 9")
 
 test_that("Chapter 9 functions basically work", {
-  n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
+  n <- peterson_2007
   expect_output(
     object = Bhapkar_test_paired_cxc(n),
     regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df=3\\)"

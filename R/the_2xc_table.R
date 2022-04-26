@@ -5,11 +5,11 @@
 #' @examples
 #' \dontrun{
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
+#' n <- fontanella_2008
 #' the_2xc_table(n)
 #'
 #' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
+#' n <- lydersen_2012a
 #' dir <- "decreasing"
 #' the_2xc_table(n, direction = dir)
 #' }
@@ -82,10 +82,10 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   .print("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", resultsProbit$T_LR, resultsProbit$df_LR, resultsProbit$P_LR)
 
   alphahat0 <- NULL
-  if (all(n == rbind(c(8, 28, 72, 126), c(46, 73, 69, 86)))) {
+  if (all(n == fontanella_2008)) {
     alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
   }
-  if (all(n == rbind(c(14, 10, 3, 2), c(11, 7, 8, 4)))) {
+  if (all(n == lydersen_2012a)) {
     alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
   }
   if (!is.null(alphahat0)) {

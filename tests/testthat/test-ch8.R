@@ -13,7 +13,7 @@ test_that("Chapter 8 functions basically work", {
     regexp = "estimate = 0.8667 \\(95% CI 0.7579 to 0.9910\\)"
   )
   expect_output(
-    object = ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16),
+    object = ClopperPearson_exact_CI_1x2_beta_version(ligarden_2010["X"], ligarden_2010["n"]),
     regexp = "exact CI: estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
   )
   expect_output(

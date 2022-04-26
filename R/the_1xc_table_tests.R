@@ -8,7 +8,7 @@
 #' # subset of 10 patients
 #' the_1xc_table_tests(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
 #' # Example for the Chacko test: Hypothetical experiment
-#' the_1xc_table_tests(n = c(1, 4, 3, 11, 9), pi0 = c(0.402, 0.479, 0.119), TRUE)
+#' the_1xc_table_tests(n = hypothetical, pi0 = c(0.402, 0.479, 0.119), TRUE)
 #' @export
 #' @return NULL. This function should be called for its printed output
 the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
