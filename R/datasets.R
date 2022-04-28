@@ -139,23 +139,14 @@ indredavik_2008 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 #' @name table_7.5
 #' @references Fagerland MW, Lydersen S, Laake P (2017)
 #' @export
-table_7.5 <- rbind(
-  c(19, 130, 64),
-  c(3, 55, 23),
-  c(8, 102, 36),
-  c(6, 14, 1),
-  c(5, 21, 12),
-  c(7, 26, 18)
+table_7.5 <- matrix(
+  c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
+  ncol = 3, byrow = TRUE
 )
-# TODO: check real table with Morten, because KruskalWallis_asymptotic_test_rxc,
-# because KruskalWallis_asymptotic_test_rxc() contains a different formulation.
-
 
 #' LBW vs psych. morbidity with control as reference category
 #' @docType data
 #' @name table_7.6
 #' @references Fagerland MW, Lydersen S, Laake P (2017)
 #' @export
-table_7.6 <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
-# TODO: check real table with Morten, because other function examples show diff:
-# matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
+table_7.6 <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
