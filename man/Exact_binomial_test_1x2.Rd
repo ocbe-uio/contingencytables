@@ -29,5 +29,4 @@ Exact_binomial_test_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"], pi0 = 0.
 Exact_binomial_test_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"], pi0 = 0.513)
 Exact_binomial_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = 0.513)
 Exact_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
-
 }

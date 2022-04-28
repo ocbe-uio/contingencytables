@@ -128,25 +128,102 @@ mills_graubard_1987 <- rbind(
 indredavik_2008 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 
 #' Treatment for ear infection
+#' @description Status after 21 days treatment of the ear infection acute otitis
+#' externa.
+#'
+#' Van Balen et al. (2003) report a randomized, double-blind, controlled trial
+#' comparing three treatments for an ear infection. The numbers and proportions
+#' of patients reported cured and not cured after 21 days of treatment are
+#' summarized in Table 7.3. Because there is no ordering between the treatments,
+#' we regard Table 7.3 as an unordered 3 × 2 table.
 #' @docType data
 #' @name table_7.3
-#' @references Fagerland MW, Lydersen S, Laake P (2017)
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#' Van Balen et al. (2003)
 #' @export
-table_7.3 <- rbind(c(40, 25), c(54, 7), c(63, 10))
+table_7.3 <- matrix(
+  data = c(40, 25, 54, 7, 63, 10),
+  ncol = 2,
+  byrow = TRUE,
+  dimnames = list(
+    c(
+      "Acetic acid",
+      "Corticosteroid and acetic acid",
+      "Corticosteroid and antibiotic"
+    ),
+    c("Cured", "Not cured")
+  )
+)
 
 #' Psychiatric diag. vs BMI with hyperkinetic disorders as reference category
 #' @docType data
+#' @description Psychiatric diagnoses and weight categories based on age- and
+#' sex-adjusted BMI.
+#'
+#' Table 7.5 shows the number of thin, normal weight, and overweight subjects
+#' within each of six psychiatric diagnoses, based on the same study as in
+#' Section 7.2.2 (Mangerud et al., 2014). Body mass index (BMI) is calculated
+#' as the weight in kg divided by the squared height in meters. In subjects
+#' aged 18 years or older, the cut-off points for being categorized as thin,
+#' normal weight, and overweight are BMI less than 18.5, BMI between 18.5 and
+#' 25, and BMI above 25, respectively. For younger subjects (below 18 years of
+#' age), the categorization was done following internationally adopted cut-off
+#' points for age and sex (Cole et al., 2000, 2007). For example, the cut-off
+#' point for being overweight at age 13 is 21.91 for males and 22.58 for
+#' females.
 #' @name table_7.5
-#' @references Fagerland MW, Lydersen S, Laake P (2017)
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#' Mangerud et al. (2014)
 #' @export
 table_7.5 <- matrix(
-  c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
-  ncol = 3, byrow = TRUE
+  data = c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
+  ncol = 3,
+  byrow = TRUE,
+  dimnames = list(
+    c(
+      "Mood (affective) dis.",
+      "Anxiety disorders",
+      "Eating disorders",
+      "Autism spectrum dis.",
+      "Hyperkinetic dis.",
+      "Other disorders"
+    ),
+    c("Thin", "Normal", "Overweight")
+  )
 )
 
 #' LBW vs psych. morbidity with control as reference category
 #' @docType data
+#' @description Categories of birth weight and psychiatric problems at age 20
+#' years (Lund et al., 2012).
+#'
+#' Lund et al. (2012) report psychiatric morbidity in young adulthood in two low
+#' birth weight groups and a control group. The subjects were born between 1986
+#' and 1988. The very low birth weight (VLBW) group consisted of babies born
+#' preterm with birth weight ≤ 1500 grams. The small for gestational age at
+#' term (SGA) group was born at term with birth weight below the 10th percentile
+#' adjusted for gestational age, sex, and parity. The control group was born at
+#' term, and was not small for gestational age. Table 7.6 shows the severity
+#' level of psychiatric problems at age 20 years. We shall regard the birth
+#' groups as unordered; however, the diagnostic groups are naturally ordered.
+#' Hence, Table 7.6 is a singly ordered 3 × 3 table with unordered rows and
+#' ordered columns.
 #' @name table_7.6
-#' @references Fagerland MW, Lydersen S, Laake P (2017)
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#' Lund et al. (2012)
 #' @export
-table_7.6 <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
+table_7.6 <- matrix(
+  data = c(22, 4, 12, 24, 9, 10, 51, 7, 6),
+  ncol = 3,
+  byrow = TRUE,
+  dimnames = list(
+    c("VLBW", "SGA", "Control"),
+    c("No diagnosis", "Subthreshold diagnosis", "Definite diagnosis")
+  )
+)
