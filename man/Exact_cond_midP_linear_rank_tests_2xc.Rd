@@ -22,14 +22,6 @@ Exact conditional and mid-P linear rank tests
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-\dontrun{
-# The Adolescent Placement Study (Fontanella et al., 2008)
-n <- fontanella_2008
-Exact_cond_midP_linear_rank_tests_2xc(n)
-}
-
-# Postoperative nausea (Lydersen et al., 2012a)
-n <- lydersen_2012a
-Exact_cond_midP_linear_rank_tests_2xc(n)
-
+\dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
+Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
 }

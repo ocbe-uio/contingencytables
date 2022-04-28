@@ -6,7 +6,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
-#' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012)
+#' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
 #' @export
 #' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
 Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0, printresults = TRUE) {
