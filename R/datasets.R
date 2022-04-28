@@ -69,13 +69,6 @@ bentur_2009 <- rbind(c(1, 1), c(7, 12))
 #' @export
 cavo_2012 <- rbind(c(59, 6), c(16, 80))
 
-#' Treatment for ear infection
-#' @docType data
-#' @name ear_infection
-#' @references Fagerland MW, Lydersen S, Laake P (2017)
-#' @export
-ear_infection <- rbind(c(40, 25), c(54, 7), c(63, 10)) # TODO: rename as Table 7.3
-
 #' The Adolescent Placement Study
 #' @docType data
 #' @name fontanella_2008
@@ -133,6 +126,13 @@ mills_graubard_1987 <- rbind(
 #' @references Indredavik et al. (2008)
 #' @export
 indredavik_2008 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+
+#' Treatment for ear infection
+#' @docType data
+#' @name table_7.3
+#' @references Fagerland MW, Lydersen S, Laake P (2017)
+#' @export
+table_7.3 <- rbind(c(40, 25), c(54, 7), c(63, 10))
 
 #' Psychiatric diag. vs BMI with hyperkinetic disorders as reference category
 #' @docType data

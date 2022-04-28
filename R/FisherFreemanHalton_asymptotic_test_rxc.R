@@ -5,7 +5,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Treatment for ear infection (van Balen et al., 2003)
-#' n <- ear_infection
+#' n <- table_7.3
 #' FisherFreemanHalton_asymptotic_test_rxc(n)
 #'
 #' @note May not give results for all tables, due to overflow

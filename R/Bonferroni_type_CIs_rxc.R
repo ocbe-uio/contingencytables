@@ -6,7 +6,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
-#' Bonferroni_type_CIs_rxc(ear_infection)
+#' Bonferroni_type_CIs_rxc(table_7.3)
 #' @export
 Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
   r <- nrow(n)

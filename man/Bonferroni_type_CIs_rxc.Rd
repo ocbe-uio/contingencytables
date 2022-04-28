@@ -22,5 +22,5 @@ The Bonferroni-type simultaneous confidence intervals for the differences pi_1|i
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-Bonferroni_type_CIs_rxc(ear_infection)
+Bonferroni_type_CIs_rxc(table_7.3)
 }

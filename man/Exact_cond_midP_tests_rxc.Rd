@@ -26,7 +26,7 @@ Works only for 3x2 and 3x3 tables
 }
 \examples{
 # Treatment for ear infection (Table 7.3)
-n <- ear_infection
+n <- table_7.3
 Exact_cond_midP_tests_rxc(n)
 # Low birth weight vs psychiatric morbitidy (Table 7.6)
 \dontrun{

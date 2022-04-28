@@ -23,6 +23,6 @@ Described in Chapter 7 "The rxc Table"
 }
 \examples{
 # Example: Treatment for ear infection
-n <- ear_infection
+n <- table_7.3
 Scheffe_type_CIs_rxc(n)
 }
