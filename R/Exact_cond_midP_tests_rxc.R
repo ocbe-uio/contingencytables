@@ -6,14 +6,12 @@
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' Exact_cond_midP_tests_rxc(table_7.3)
-#' # Low birth weight vs psychiatric morbitidy (Table 7.6)
+#' Exact_cond_midP_tests_rxc(table_7.3)  # a 3x2 table
 #' \dontrun{
-#' n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
-#' Exact_cond_midP_tests_rxc(n)
+#'   Exact_cond_midP_tests_rxc(table_7.6) # a 3x3 table
 #' }
 #' @export
-#' @note  Works only for 3x2 and 3x3 tables
+#' @note Works only for 3x2 and 3x3 tables
 #' @return A list containing exact p-values and mid-p values
 Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
   r <- nrow(n)

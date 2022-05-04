@@ -196,7 +196,7 @@ table_7.5 <- matrix(
   )
 )
 
-#' LBW vs psych. morbidity with control as reference category
+#' Low Birth Weight vs psychiatric morbitidy with control as reference category
 #' @docType data
 #' @description Categories of birth weight and psychiatric problems at age 20
 #' years (Lund et al., 2012).

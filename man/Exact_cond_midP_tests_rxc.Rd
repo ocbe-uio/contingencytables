@@ -25,10 +25,8 @@ Described in Chapter 7 "The rxc Table"
 Works only for 3x2 and 3x3 tables
 }
 \examples{
-Exact_cond_midP_tests_rxc(table_7.3)
-# Low birth weight vs psychiatric morbitidy (Table 7.6)
+Exact_cond_midP_tests_rxc(table_7.3)  # a 3x2 table
 \dontrun{
-n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
-Exact_cond_midP_tests_rxc(n)
+  Exact_cond_midP_tests_rxc(table_7.6) # a 3x3 table
 }
 }

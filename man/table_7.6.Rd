@@ -3,7 +3,7 @@
 \docType{data}
 \name{table_7.6}
 \alias{table_7.6}
-\title{LBW vs psych. morbidity with control as reference category}
+\title{Low Birth Weight vs psychiatric morbitidy with control as reference category}
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 3 rows and 3 columns.
 }
