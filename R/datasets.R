@@ -129,7 +129,7 @@ indredavik_2008 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 
 #' Treatment for ear infection
 #' @description Status after 21 days treatment of the ear infection acute otitis
-#' externa.
+#' externa (Van Balen et al., 2003).
 #'
 #' Van Balen et al. (2003) report a randomized, double-blind, controlled trial
 #' comparing three treatments for an ear infection. The numbers and proportions
@@ -160,7 +160,7 @@ table_7.3 <- matrix(
 #' Psychiatric diag. vs BMI with hyperkinetic disorders as reference category
 #' @docType data
 #' @description Psychiatric diagnoses and weight categories based on age- and
-#' sex-adjusted BMI.
+#' sex-adjusted BMI (Mangerud et al., 2014).
 #'
 #' Table 7.5 shows the number of thin, normal weight, and overweight subjects
 #' within each of six psychiatric diagnoses, based on the same study as in
@@ -225,5 +225,93 @@ table_7.6 <- matrix(
   dimnames = list(
     c("VLBW", "SGA", "Control"),
     c("No diagnosis", "Subthreshold diagnosis", "Definite diagnosis")
+  )
+)
+
+#' Colorectal cancer (Table 7.7)
+#' @description Duration of symptoms and tumor stage for patients treated for
+#' colorectal cancer (Jullumstrø et al., 2009).
+#'
+#' Early detection and treatment of colorectal cancer is beneficial, because
+#' advanced stages of colorectal cancer have poorer prognosis. Table 7.7
+#' displays duration of symptoms (rows) versus tumor stage (columns) in a study
+#' of 784 patients treated for colorectal cancer at a regional hospital in
+#' Norway from 1980 to 2004 (Jullumstrø et al., 2009). The rows as well as the
+#' columns are ordered, and Table 7.7 can be regarded as a doubly ordered 4 × 4
+#' table.
+#' @docType data
+#' @name table_7.7
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#' Jullumstrø et al. (2009)
+#' @export
+table_7.7 <- matrix(
+  data = c(2, 4, 29, 19, 7, 6, 116, 51, 19, 27, 201, 76, 18, 22, 133, 54),
+  ncol = 4,
+  byrow = TRUE,
+  dimnames = list(
+    c("< 1 week", "2-8 weeks", "2-6 months", "> 6 months"),
+    c("T-1", "T-2", "T-3", "T-4")
+  )
+)
+
+#' Breast Tumor
+#' @description Nuclear pleomorphism from fine needle aspiration smears and
+#' breast tumor type (Bofin et al., 2004).
+#'
+#' Bofin et al. (2004) studied associations between different findings in fine
+#' needle aspiration (FNA) smears from breast tumors and the final histological
+#' diagnosis of tumor type in 133 patients. The aim of the study was to identify
+#' variables developed from FNA smears that could differentiate between
+#' the different tumor diagnoses. Table 7.8 presents the cross-classification of
+#' the FNA variable nuclear pleomorphism with tumor types. Both variables can be
+#' considered as ordered, with tumor type ordered from benign (as in NPBD) to
+#' most malign (as in IDC).
+#' @docType data
+#' @name table_7.8
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#' Bofin et al. (2004)
+#' @export
+table_7.8 <- matrix(
+  data = c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
+  ncol = 5,
+  byrow = TRUE,
+  dimnames = list(
+    c("None/mild", "Moderate", "Profound"),
+    c("NPBD", "PBD", "AIDH", "DCIS", "IDC")
+  )
+)
+
+#' Self-rated health (Table 7.9)
+#' @description Self-rated health for 12 to 17 years old adolescents in
+#' Young-HUNT 1 and four years later in Young-HUNT 2 (Breidablik et al., 2008).
+#'
+#' In the HUNT study (Nord-Trøndelag county health survey), one of the questions
+#' is: “How is your overall health at the moment?” The outcome categories
+#' are “Very good”, “Good”, “Not very good”, and “Poor”. Table 7.9 shows
+#' the counts for the adolescents aged 12 to 17 years in 1995 to 1997
+#' (Young-HUNT 1), and for the same individuals four years later (Young-HUNT 2;
+#' Breidablik et al. (2008)). Both the rows and the columns are ordered. In
+#' this example, it may be appropriate to regard self-rated health as an
+#' unobserved (latent) continuous variable, where only a categorized version has
+#' been observed. Table 7.9 is actually an example of a paired c × c table with
+#' ordinal data.
+#' @docType data
+#' @name table_7.9
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#' Breidablik et al. (2008)
+#' @export
+table_7.9 <- matrix(
+  data = c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
+  ncol = 4,
+  byrow = TRUE,
+  dimnames = list(
+    c("Poor", "Not very good", "Good", "Very good"),
+    c("Poor", "Not very good", "Good", "Very good")
   )
 )

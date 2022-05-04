@@ -12,7 +12,7 @@ table_7.3
 }
 \description{
 Status after 21 days treatment of the ear infection acute otitis
-externa.
+externa (Van Balen et al., 2003).
 
 Van Balen et al. (2003) report a randomized, double-blind, controlled trial
 comparing three treatments for an ear infection. The numbers and proportions

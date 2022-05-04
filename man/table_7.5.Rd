@@ -12,7 +12,7 @@ table_7.5
 }
 \description{
 Psychiatric diagnoses and weight categories based on age- and
-sex-adjusted BMI.
+sex-adjusted BMI (Mangerud et al., 2014).
 
 Table 7.5 shows the number of thin, normal weight, and overweight subjects
 within each of six psychiatric diagnoses, based on the same study as in
