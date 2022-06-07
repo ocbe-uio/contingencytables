@@ -7,14 +7,10 @@
 #'' unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)
 #' @param printresults display results (F = no, T = yes)
 #' @examples
-#' n <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-#' Exact_unconditional_test_2x2(n)
-#' n <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-#' Exact_unconditional_test_2x2(n)
-#' n <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-#' Exact_unconditional_test_2x2(n)
-#' n <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-#' Exact_unconditional_test_2x2(n)
+#' Exact_unconditional_test_2x2(tea)
+#' Exact_unconditional_test_2x2(perondi_2004)
+#' Exact_unconditional_test_2x2(lampasona_2013)
+#' Exact_unconditional_test_2x2(ritland_2007)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values

@@ -5,26 +5,9 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha)% confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Colorectal cancer (Table 7.7)
-#' n <- rbind(
-#'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-#' )
-#' Kendalls_tau_b_rxc(n)
-#'
-#' # Breast Tumor (Table 7.8)
-#' n <- matrix(
-#'   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-#'   ncol = 5, byrow = TRUE
-#' )
-#' Kendalls_tau_b_rxc(n)
-#'
-#' # Self-rated health (Table 7.9)
-#' n <- matrix(
-#'   c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-#'   ncol = 4, byrow = TRUE
-#' )
-#' Kendalls_tau_b_rxc(n)
-#'
+#' Kendalls_tau_b_rxc(table_7.7)
+#' Kendalls_tau_b_rxc(table_7.8)
+#' Kendalls_tau_b_rxc(table_7.9)
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
 Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {

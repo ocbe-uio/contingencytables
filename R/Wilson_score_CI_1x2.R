@@ -8,15 +8,15 @@
 #' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # birth order 1, Singh et al. (2010)
-#' Wilson_score_CI_1x2(X = 250, n = 533)
+#' Wilson_score_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
 #' # birth order 2, Singh et al. (2010)
-#' Wilson_score_CI_1x2(X = 204, n = 412)
+#' Wilson_score_CI_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"])
 #' # birth order 3, Singh et al. (2010)
-#' Wilson_score_CI_1x2(X = 103, n = 167)
+#' Wilson_score_CI_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"])
 #' # birth order 4, Singh et al. (2010)
-#' Wilson_score_CI_1x2(X = 33, n = 45)
+#' with(singh_2010["4th", ], Wilson_score_CI_1x2(X, n)) # alternative syntax
 #' # Ligarden (2010)
-#' Wilson_score_CI_1x2(X = 13, n = 16)
+#' Wilson_score_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
 Wilson_score_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {

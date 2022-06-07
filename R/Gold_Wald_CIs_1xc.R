@@ -5,8 +5,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (F = no, T = yes)
 #' @examples
-#' # Genotype counts for SNP rs 6498169 in RA patients
-#' Gold_Wald_CIs_1xc(n = c(276, 380, 118))
+#' Gold_Wald_CIs_1xc(n = snp6498169$complete$n)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 Gold_Wald_CIs_1xc <- function(n, alpha = 0.05, printresults = TRUE) {

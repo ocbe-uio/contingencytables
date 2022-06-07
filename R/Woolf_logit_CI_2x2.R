@@ -6,11 +6,11 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-#' n <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
+#' n <- lampasona_2013
 #' Woolf_logit_CI_2x2(n)
 #'
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
+#' n <- ritland_2007
 #' Woolf_logit_CI_2x2(n)
 #'
 #' @export

@@ -4,10 +4,7 @@
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Treatment for ear infection (van Balen et al., 2003)
-#' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
-#' FisherFreemanHalton_asymptotic_test_rxc(n)
-#'
+#' FisherFreemanHalton_asymptotic_test_rxc(table_7.3)
 #' @note May not give results for all tables, due to overflow
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom

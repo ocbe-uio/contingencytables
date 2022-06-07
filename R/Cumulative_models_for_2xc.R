@@ -8,14 +8,8 @@
 #' @importFrom MASS polr
 #' @importFrom stats binomial glm predict
 #' @examples
-#' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-#' Cumulative_models_for_2xc(n)
-#'
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' Cumulative_models_for_2xc(n)
-#'
+#' Cumulative_models_for_2xc(fontanella_2008)
+#' Cumulative_models_for_2xc(lydersen_2012a)
 #' @export
 #' @return A list containing the results of statistical tests for the
 #' goodness-of-fit of a proportional odds model, the effect in a proportional

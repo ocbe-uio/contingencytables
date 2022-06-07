@@ -21,9 +21,9 @@ The 1xc table tests
 }
 \examples{
 # Genotype counts for SNP rs 6498169 in RA patients
-the_1xc_table_tests(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119))
+the_1xc_table_tests(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
 # subset of 10 patients
-the_1xc_table_tests(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+the_1xc_table_tests(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 # Example for the Chacko test: Hypothetical experiment
-the_1xc_table_tests(n = c(1, 4, 3, 11, 9), pi0 = c(0.402, 0.479, 0.119), TRUE)
+the_1xc_table_tests(n = hypothetical, pi0 = c(0.402, 0.479, 0.119), TRUE)
 }

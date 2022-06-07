@@ -4,12 +4,12 @@
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
-#' n <- rbind(c(1, 1), c(7, 12))
+#' n <- bentur_2009
 #' the_paired_2x2_table_CIs_difference(n)
 #'
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
-#' n <- rbind(c(59, 6), c(16, 80))
+#' n <- cavo_2012
 #' the_paired_2x2_table_CIs_difference(n)
 #'
 #' @export

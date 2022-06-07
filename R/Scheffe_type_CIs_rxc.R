@@ -6,7 +6,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Example: Treatment for ear infection
-#' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
+#' n <- table_7.3
 #' Scheffe_type_CIs_rxc(n)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic

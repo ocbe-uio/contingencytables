@@ -5,10 +5,7 @@
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' MantelHaenszel_test_2xc(n)
-#' b <- 0
+#' MantelHaenszel_test_2xc(lydersen_2012a)
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {

@@ -6,14 +6,8 @@
 #' @importFrom stats binomial glm predict
 #' @return A data frame containing the probability, the statistic and the degrees of freedom
 #' @examples
-#' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-#' Brant_test_2xc(n)
-#'
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' Brant_test_2xc(n)
-#'
+#' Brant_test_2xc(fontanella_2008)
+#' Brant_test_2xc(lydersen_2012a)
 #' @export
 Brant_test_2xc <- function(n, printresults = TRUE) {
   # Note that this function only works for 2xc tables (not for rxc tables)

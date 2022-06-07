@@ -24,12 +24,12 @@ Described in Chapter 8 "The Paired 2x2 Table"
 \examples{
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)
-n <- rbind(c(1, 1), c(7, 12))
+n <- bentur_2009
 Wald_CI_ratio_paired_2x2(n)
 
 # Complete response before and after consolidation therapy
 # (Cavo et al., 2012)
-n <- rbind(c(59, 6), c(16, 80))
+n <- cavo_2012
 Wald_CI_ratio_paired_2x2(n)
 
 }

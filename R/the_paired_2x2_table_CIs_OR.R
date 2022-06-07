@@ -2,11 +2,7 @@
 #' @param n frequency matrix
 #' @param alpha type I error
 #' @examples
-#'
-#' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-#' n <- rbind(c(7, 25), c(2, 68))
-#' the_paired_2x2_table_CIs_OR(n)
-#'
+#' the_paired_2x2_table_CIs_OR(ezra_2010)
 #' @export
 #' @return A string of "-". This function should be called for its printed output.
 the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {

@@ -6,11 +6,8 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
-#' n <- rbind(c(1, 1), c(7, 12))
-#' BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)
-#' # Complete response before and after consolidation therapy (Cavo et al., 2012)
-#' n <- rbind(c(59, 6), c(16, 80))
-#' BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n)
+#' BonettPrice_hybrid_Wilson_score_CI_paired_2x2(bentur_2009)
+#' BonettPrice_hybrid_Wilson_score_CI_paired_2x2(cavo_2012)
 #' @export
 BonettPrice_hybrid_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   nstar <- n[1, 1] + n[1, 2] + n[2, 1]

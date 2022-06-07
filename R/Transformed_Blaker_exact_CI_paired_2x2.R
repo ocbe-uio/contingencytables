@@ -5,11 +5,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#'
-#' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-#' n <- rbind(c(7, 25), c(2, 68))
-#' Transformed_Blaker_exact_CI_paired_2x2(n)
-#'
+#' Transformed_Blaker_exact_CI_paired_2x2(ezra_2010)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 Transformed_Blaker_exact_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {

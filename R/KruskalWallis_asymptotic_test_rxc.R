@@ -4,16 +4,8 @@
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' # Low birth weight vs psychiatric morbitidy (Table 7.6)
-#' n <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
-#' KruskalWallis_asymptotic_test_rxc(n)
-#'
-#' # Psychiatric diag. vs BMI (Table 7.5)
-#' n <- matrix(
-#'   c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
-#'   ncol = 3, byrow = TRUE
-#' )
-#' KruskalWallis_asymptotic_test_rxc(n)
+#' KruskalWallis_asymptotic_test_rxc(table_7.5)
+#' KruskalWallis_asymptotic_test_rxc(table_7.6)
 #' @export
 #' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
 KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {

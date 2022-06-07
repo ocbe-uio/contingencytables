@@ -1,7 +1,7 @@
 context("Chapter 5")
 
 test_that("Chapter 5 functions basically work", {
-  n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+  n <- indredavik_2008
   a <- c(1, 2, 3, 4, 5)
   expect_output(
     object = CochranArmitage_CI_rx2(n, a),
@@ -28,7 +28,7 @@ test_that("Chapter 5 functions basically work", {
     object = Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing"),
     regexp = "Likelihood ratio test:    T = 11.192, P = 0.00252"
   )
-  n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
+  n <- indredavik_2008
   a <- c(1, 2, 3, 4, 5)
   expect_output(
     object = Trend_estimate_CI_tests_rx2(n, a),

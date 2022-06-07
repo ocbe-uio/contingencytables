@@ -5,7 +5,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T= yes)
 #' @examples
-#' n <- rbind(c(1, 1), c(7, 12))
+#' n <- bentur_2009
 #' MOVER_Wilson_score_CI_paired_2x2(n)
 #'
 #' # Complete response before and after consolidation therapy

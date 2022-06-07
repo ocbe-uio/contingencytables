@@ -6,16 +6,8 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Psychiatric diag. vs BMI with hyperkinetic disorders
-#' # as reference category (Table 7.5)
-#' n <- rbind(
-#'   c(19, 130, 64), c(3, 55, 23), c(8, 102, 36), c(6, 14, 1), c(5, 21, 12), c(7, 26, 18)
-#' )
-#' Cumulative_models_for_rxc(n)
-#'
-#' # LBW vs psych. morbidity with control as reference category (Table 7.6)
-#' n <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
-#' Cumulative_models_for_rxc(n)
+#' Cumulative_models_for_rxc(table_7.5)
+#' Cumulative_models_for_rxc(table_7.6)
 #' @export
 #' @return A list containing the results of statistical tests for the
 #' goodness-of-fit of a proportional odds model, the effect in a proportional

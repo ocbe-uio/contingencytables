@@ -13,7 +13,7 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
-#' n <- t(rbind(c(14, 10, 3, 2), c(11, 7, 8, 4)))
+#' n <- t(lydersen_2012a)
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing")
 #' \dontrun{
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")

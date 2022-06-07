@@ -6,10 +6,10 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-#' MOVER_R_Wilson_CI_ratio_2x2(matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE))
+#' MOVER_R_Wilson_CI_ratio_2x2(perondi_2004)
 #'
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-#' MOVER_R_Wilson_CI_ratio_2x2(matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE))
+#' MOVER_R_Wilson_CI_ratio_2x2(ritland_2007)
 #'
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic

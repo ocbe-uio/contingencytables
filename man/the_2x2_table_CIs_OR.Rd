@@ -19,19 +19,19 @@ Wrapper for \code{_CI_OR_2x2} functions on Chapter 4.
 }
 \examples{
 # Example: A lady tasting a cup of tea
-n <- rbind(c(3, 1), c(1, 3))
+n <- tea
 the_2x2_table_CIs_OR(n)
 
 # Example: Perondi et al. (2004)
-n <- rbind(c(7, 27), c(1, 33))
+n <- perondi_2004
 the_2x2_table_CIs_OR(n)
 
 # Example: Lampasona et al. (2013)
-n <- rbind(c(9, 4), c(4, 10))
+n <- lampasona_2013
 the_2x2_table_CIs_OR(n)
 
 # Example: Ritland et al. (2007)
-n <- rbind(c(0, 16), c(15, 57))
+n <- ritland_2007
 the_2x2_table_CIs_OR(n)
 
 }

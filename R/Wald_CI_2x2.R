@@ -6,9 +6,9 @@
 #' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
-#' Wald_CI_2x2(n = matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE))
+#' Wald_CI_2x2(n = perondi_2004)
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' Wald_CI_2x2(n = matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE))
+#' Wald_CI_2x2(n = ritland_2007)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 Wald_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {

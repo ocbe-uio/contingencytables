@@ -1,7 +1,7 @@
 context("Chapter 6")
 
 test_that("Chapter 6 functions basically work", {
-  n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
+  n <- lydersen_2012a
   n_short <- floor(n / 2)
   expect_output(
     object = Brant_test_2xc(n),

@@ -22,10 +22,6 @@ The Gart adjusted logit confidence interval for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-n <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
-Gart_adjusted_logit_CI_2x2(n)
-# The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
-Gart_adjusted_logit_CI_2x2(n)
+Gart_adjusted_logit_CI_2x2(lampasona_2013)
+Gart_adjusted_logit_CI_2x2(ritland_2007)
 }
