@@ -20,8 +20,8 @@ test_that("Chapter 5 functions basically work", {
   m <- matrix(c(48, 170, 38, 144, 5, 7, 1, 1), byrow = TRUE, ncol = 2)
   d <- "decreasing"
   expect_output(
-    object = Exact_cond_midP_unspecific_ordering_rx2(m, d),
-    regexp = "Mid-P test:              0.12889"
+    object = Exact_cond_midP_unspecific_ordering_rx2(ceiling(m / 10), d),
+    regexp = "Mid-P test:              0.43131"
   )
   n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow = TRUE, ncol = 2)
   expect_output(

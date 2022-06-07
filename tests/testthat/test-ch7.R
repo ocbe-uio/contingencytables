@@ -8,7 +8,6 @@ test_that("Chapter 7 functions basically work", {
     regexp = "pi_1|1 - pi_1|3: estimate = -0.2476 \\(-0.4213 to -0.0740\\)"
   )
   n2 <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
-  n2 <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
   expect_output(
     object = Cumulative_models_for_rxc(n2),
     regexp = "Likelihood ratio\\s+P =  0.00832, T =  9.579 \\(df=2\\)"
@@ -29,9 +28,9 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      gamma_coefficient_rxc_bca(n3_short)
+      gamma_coefficient_rxc_bca(n3_short, nboot = 200)
     },
-    regexp = "-0.2137 \\(95% CI -0.5328 to  0.1671\\)"
+    regexp = "-0.2137 \\(95% CI -0.5268 to  0.1931\\)"
   )
   expect_output(
     object = gamma_coefficient_rxc(n3_short),
@@ -48,9 +47,9 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      Kendalls_tau_b_rxc_bca(n3_short)
+      Kendalls_tau_b_rxc_bca(n3_short, nboot = 200)
     },
-    regexp = "bootstrap CI: tau-b = -0.1235 \\(95% CI -0.0979 to  0.3344\\)"
+    regexp = "bootstrap CI: tau-b = -0.1235 \\(95% CI -0.0863 to  0.3904\\)"
   )
   n4 <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
   expect_output(
@@ -68,9 +67,9 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      Pearson_correlation_coefficient_rxc_bca(n3_short)
+      Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 2000)
     },
-    regexp = "bootstrap CI: r =  0.2019 \\(95% CI  0.0831 to  0.4319\\)"
+    regexp = "bootstrap CI: r =  0.2019 \\(95% CI  0.0862 to  0.3876\\)"
   )
   expect_output(
     object = Pearson_LR_tests_rxc(n),
@@ -91,12 +90,12 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(562)
-      Spearman_correlation_coefficient_rxc_bca(n3_short)
+      Spearman_correlation_coefficient_rxc_bca(n3_short, nboot = 200)
     },
-    regexp = "bootstrap CI: rho = -0.1358 \\(95% CI -0.3529 to  0.1070\\)"
+    regexp = "bootstrap CI: rho = -0.1358 \\(95% CI -0.3636 to  0.1118\\)"
   )
   expect_output(
-    object = the_rxc_table(n3_short),
+    object = the_rxc_table(n3_short, nboot = 3000),
     regexp = "Kruskal-Wallis asymptotic\\s+1.561 \\(df=3\\)   0.668229"
   )
 })
