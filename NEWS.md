@@ -1,5 +1,7 @@
 # contingencytables (development version)
 
+* Fixes bug on `Pearson_chi_squared_test_CC_2x2()` (see issue #34 for details)
+
 # contingencytables 1.0.1
 
 * Added a `NEWS.md` file to track changes to the package.
