@@ -31,11 +31,11 @@ Pearson_chi_squared_test_CC_2x2 <- function(n, printresults = TRUE) {
   N <- sum(n)
 
   # The Pearson chi-squared statistic
-  T0 <- (N * (abs(n[1, 1] * n[2, 2] - n[1, 2] * n[2, 1]) - (N / 2))^2) / (n1p * n2p * np1 * np2)
+  T0 <- (N * max(0, (abs(n[1, 1] * n[2, 2] - n[1, 2] * n[2, 1]) - (N / 2)))^2) / (n1p * n2p * np1 * np2)
 
   # The two-sided P-value (reference distribution: chi-squared with 1 degree of freedom)
   df <- 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   # Handle cases where the P-value is not computable
   if (is.na(P) || (n[1, 1] == 0 && n[2, 1] == 0) || (n[1, 2] == 0 && n[2, 2] == 0)) {
