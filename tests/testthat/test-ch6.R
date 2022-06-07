@@ -12,8 +12,8 @@ test_that("Chapter 6 functions basically work", {
     regexp = "Wald \\(Z-statistic\\):          P =  0.14097, Z = -1.472"
   )
   expect_output(
-    object = Exact_cond_midP_linear_rank_tests_2xc(n),
-    regexp = "Exact cond. linear rank test: P = 0.14950"
+    object = Exact_cond_midP_linear_rank_tests_2xc(n_short),
+    regexp = "Exact cond. linear rank test: P = 0.23854"
   )
   dir <- "decreasing"
   expect_output(
