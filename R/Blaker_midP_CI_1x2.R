@@ -15,69 +15,63 @@
 #' @examples
 #'
 #' # The number of 1st order male births (Singh et al. 2010)
-#' Blaker_midP_CI_1x2(X=250, n=533)
+#' Blaker_midP_CI_1x2(X = 250, n = 533)
 #' # The number of 2nd order male births (Singh et al. 2010)
-#' Blaker_midP_CI_1x2(X=204, n=412)
+#' Blaker_midP_CI_1x2(X = 204, n = 412)
 #' # The number of 3rd order male births (Singh et al. 2010)
-#' Blaker_midP_CI_1x2(X=103, n=167)
+#' Blaker_midP_CI_1x2(X = 103, n = 167)
 #' # The number of 4th order male births (Singh et al. 2010)
-#' Blaker_midP_CI_1x2(X=33, n=45)
+#' Blaker_midP_CI_1x2(X = 33, n = 45)
 #' # Ligarden et al. (2010)
-#' Blaker_midP_CI_1x2(X=13, n=16)
+#' Blaker_midP_CI_1x2(X = 13, n = 16)
 #' @export
-Blaker_midP_CI_1x2 = function(X, n, alpha=0.05, printresults=TRUE) {
-	# Estimate of the binomial probability (pihat)
-	estimate = X/n
+Blaker_midP_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  # Estimate of the binomial probability (pihat)
+  estimate <- X / n
 
-	# Define global variables that are needed in the function for the confidence limits below
-	# global Xglobal nglobal alphaglobal
-	# Xglobal = X;
-	# nglobal = n;
-	# alphaglobal = alpha;
+  # Use Matlabs fzero function to solve the equations for the confidence limits
+  tol <- 0.00000001
 
-	# Use Matlabs fzero function to solve the equations for the confidence limits
-	tol = 0.00000001
-	# options = optimset('Display', 'off', 'TolX', tol);
+  # Find the lower CI limit
+  if (estimate == 0) {
+    L <- 0
+  } else {
+    L <- uniroot(calculate_limit_Blaker2, interval = c(0, X / n), X = X, n = n, alpha = alpha, tol = tol)$root
+  }
 
-	# Find the lower CI limit
-	if (estimate == 0) {
-		L = 0
-	} else {
-		L = uniroot(calculate_limit_Blaker2, interval=c(0, X/n), X=X, n=n, alpha=alpha, tol=tol)$root
-	}
+  # Find the upper CI limit
+  if (estimate == 1) {
+    U <- 1
+  } else {
+    U <- uniroot(calculate_limit_Blaker2, interval = c(X / n, 1), X = X, n = n, alpha = alpha, tol = tol)$root
+  }
 
-	# Find the upper CI limit
-	if (estimate == 1) {
-		U = 1
-	} else {
-		U = uniroot(calculate_limit_Blaker2, interval=c(X/n, 1), X=X, n=n, alpha=alpha, tol=tol)$root
-	}
+  if (printresults) {
+    print(sprintf(
+      "The Blaker mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
+    ), quote = FALSE)
+  }
 
-	if (printresults) {
-		print(sprintf('The Blaker mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
-			estimate, 100*(1 - alpha), L, U), quote=F)
-	}
-
-	res = c(L, U, estimate)
-	names(res) = c("lower", "upper", "estimate")
-	invisible(res)
-
+  res <- c(L, U, estimate)
+  names(res) <- c("lower", "upper", "estimate")
+  invisible(res)
 }
 
 # ===============================
-calculate_limit_Blaker2 = function(pi0, X, n, alpha) {
-	# global Xglobal nglobal alphaglobal
-	pvalues = dbinom(0:n, n, pi0)
-	gammaobs = min(c(sum(pvalues[(X+1):(n+1)]), sum(pvalues[1:(X+1)])))
-	T0 = 0
-	for (k in 0:n) {
-		gammak = min(c(sum(pvalues[(k+1):(n+1)]), sum(pvalues[1:(k+1)])))
-		if (gammak == gammaobs) {
-			T0 = T0 + 0.5*dbinom(k, n, pi0)
-		} else if (gammak < gammaobs) {
-			T0 = T0 + dbinom(k, n, pi0)
-		}
-	}
-	f = T0 - alpha
-	return(f)
+calculate_limit_Blaker2 <- function(pi0, X, n, alpha) {
+  # global Xglobal nglobal alphaglobal
+  pvalues <- dbinom(0:n, n, pi0)
+  gammaobs <- min(c(sum(pvalues[(X + 1):(n + 1)]), sum(pvalues[1:(X + 1)])))
+  T0 <- 0
+  for (k in 0:n) {
+    gammak <- min(c(sum(pvalues[(k + 1):(n + 1)]), sum(pvalues[1:(k + 1)])))
+    if (gammak == gammaobs) {
+      T0 <- T0 + 0.5 * dbinom(k, n, pi0)
+    } else if (gammak < gammaobs) {
+      T0 <- T0 + dbinom(k, n, pi0)
+    }
+  }
+  f <- T0 - alpha
+  return(f)
 }

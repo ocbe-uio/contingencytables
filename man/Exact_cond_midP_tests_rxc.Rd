@@ -30,7 +30,7 @@ n <- rbind(c(40, 25), c(54, 7), c(63, 10))
 Exact_cond_midP_tests_rxc(n)
 # Low birth weight vs psychiatric morbitidy (Table 7.6)
 \dontrun{
-  n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow=TRUE)
-  Exact_cond_midP_tests_rxc(n)
+n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
+Exact_cond_midP_tests_rxc(n)
 }
 }

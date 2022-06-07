@@ -32,70 +32,64 @@
 #' }
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
-Pearson_correlation_coefficient_rxc_bca <- function(
-	n, nboot = 1e4, a = 1:nrow(n), b = 1:ncol(n), alpha = 0.05,
-	printresults = TRUE
-) {
-	# If no scores are given, use equally spaced scores
-	r <- nrow(n)
-	c <- ncol(n)
+Pearson_correlation_coefficient_rxc_bca <- function(n, nboot = 1e4, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05,
+                                                    printresults = TRUE) {
+  # If no scores are given, use equally spaced scores
+  r <- nrow(n)
+  c <- ncol(n)
 
-	N <- sum(n)
+  N <- sum(n)
 
-	# Put the observed data into long format for bootstrapping the two samples
-	Y1 <- rep(0, N)
-	Y2 <- rep(0, N)
-	id <- 0
-	for (i in 1:r) {
-		for (j in 1:c) {
-			for (k in 1:n[i, j]) {
-				id <- id + 1
-				Y1[id] <- i
-				Y2[id] <- j
-			}
-		}
-	}
+  # Put the observed data into long format for bootstrapping the two samples
+  Y1 <- rep(0, N)
+  Y2 <- rep(0, N)
+  id <- 0
+  for (i in 1:r) {
+    for (j in 1:c) {
+      for (k in 1:n[i, j]) {
+        id <- id + 1
+        Y1[id] <- i
+        Y2[id] <- j
+      }
+    }
+  }
 
-	# The estimate
-	rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha, printresults = FALSE)$rP
+  # The estimate
+  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha, printresults = FALSE)$rP
 
-	# The CI bootstrap sample
-	# funchandle = @(Y1,Y2) put_data_back_into_table_format(Y1, Y2)
-	# L = ci[1]
-	# U = ci[1]
+  # The CI bootstrap sample
+  dat <- data.frame(Y1 = Y1, Y2 = Y2)
+  ans.boot <- boot(dat, f.Pccrb, R = nboot, stype = "i", .param = list(a, b, alpha, r, c))
+  ans.ci <- boot.ci(ans.boot, conf = 1 - alpha, type = "bca")
+  L <- ans.ci$bca[4]
+  U <- ans.ci$bca[5]
 
-	dat <- data.frame(Y1 = Y1, Y2 = Y2)
-	ans.boot <- boot(dat, f.Pccrb, R = nboot, stype = "i", .param = list(a, b, alpha, r, c))
-	ans.ci <- boot.ci(ans.boot, conf = 1 - alpha, type = "bca")
-	L <- ans.ci$bca[4]
-	U <- ans.ci$bca[5]
+  if (printresults) {
+    .print("The Pearson correlation w / BCa bootstrap CI: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
+  }
 
-	if (printresults) {
-		.print("The Pearson correlation w / BCa bootstrap CI: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
-	}
-
-	invisible(list(rP = rP, L = L, U = U))
+  invisible(list(rP = rP, L = L, U = U))
 }
 
 
 # ===================================================
 f.Pccrb <- function(dat, indx, .param) {
-	# global aglobal bglobal alphaglobal r c
-	a <- .param[[1]]
-	b <- .param[[2]]
-	alpha <- .param[[3]]
-	r <- .param[[4]]
-	c <- .param[[5]]
-	n <- matrix(0, r, c)
-	Y1 <- dat$Y1[indx]
-	Y2 <- dat$Y2[indx]
-	for (id in 1:length(Y1)) {
-		n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
-	}
-	rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha, printresults = FALSE)$rP
-	return(rP)
+  # global aglobal bglobal alphaglobal r c
+  a <- .param[[1]]
+  b <- .param[[2]]
+  alpha <- .param[[3]]
+  r <- .param[[4]]
+  c <- .param[[5]]
+  n <- matrix(0, r, c)
+  Y1 <- dat$Y1[indx]
+  Y2 <- dat$Y2[indx]
+  for (id in seq_along(Y1)) {
+    n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
+  }
+  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha, printresults = FALSE)$rP
+  return(rP)
 }
 
 .print <- function(s, ...) {
-	print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

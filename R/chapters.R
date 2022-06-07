@@ -295,28 +295,29 @@ NULL
 #' @author Waldir Leoncio
 #' @export
 list_functions <- function(chap_num) {
-	validate_chapter_choice(chap_num)
-	message("Chapter ", chap_num, " functions:")
-	cat(paste0(full_list_chapter_functions[[chap_num - 1]], "()"), sep = "\n")
-	message(
-		"Learn more about an individual function with ?<function_name> and ",
-		"example(<function_name>).")
+  validate_chapter_choice(chap_num)
+  message("Chapter ", chap_num, " functions:")
+  cat(paste0(full_list_chapter_functions[[chap_num - 1]], "()"), sep = "\n")
+  message(
+    "Learn more about an individual function with ?<function_name> and ",
+    "example(<function_name>)."
+  )
 }
 
 # ============================================================================ #
 # Internal functions and objects used in this file                                         #
 # ============================================================================ #
 validate_chapter_choice <- function(chap_num) {
-	# Makes sure the user chooses a proper chapter number
-	if (missing(chap_num)) stop("Please choose a chapter between 2 and 10.")
-	if (chap_num < 2 | chap_num > 10) {
+  # Makes sure the user chooses a proper chapter number
+  if (missing(chap_num)) stop("Please choose a chapter between 2 and 10.")
+  if (chap_num < 2 | chap_num > 10) {
     stop("Please choose a chapter between 2 and 10.")
-	}
+  }
 }
 
 full_list_chapter_functions <- list(
-	# Lists of functions pertaining to a certain chapter
-	ch2 = c(
+  # Lists of functions pertaining to a certain chapter
+  ch2 = c(
     "AgrestiCoull_CI_1x2",
     "Arcsine_CI_1x2",
     "Wald_CI_1x2",
@@ -340,8 +341,8 @@ full_list_chapter_functions <- list(
     "Wald_test_1x2",
     "Wald_test_CC_1x2",
     "the_1x2_table_tests"
-	),
-	ch3 = c(
+  ),
+  ch3 = c(
     "Chacko_test_1xc",
     "Exact_multinomial_test_1xc",
     "Gold_Wald_CIs_1xc",
@@ -354,8 +355,8 @@ full_list_chapter_functions <- list(
     "QuesenberryHurst_Wilson_score_CIs_1xc",
     "the_1xc_table_CIs",
     "the_1xc_table_tests"
-	),
-	ch4 = c(
+  ),
+  ch4 = c(
     "Adjusted_inv_sinh_CI_OR_2x2",
     "Adjusted_inv_sinh_CI_ratio_2x2",
     "Adjusted_log_CI_2x2",
@@ -393,8 +394,8 @@ full_list_chapter_functions <- list(
     "the_2x2_table_CIs_OR",
     "the_2x2_table_CIs_ratio",
     "the_2x2_table_tests"
-	),
-	ch5 = c(
+  ),
+  ch5 = c(
     "CochranArmitage_CI_rx2",
     "CochranArmitage_exact_cond_midP_tests_rx2",
     "CochranArmitage_MH_tests_rx2",
@@ -402,8 +403,8 @@ full_list_chapter_functions <- list(
     "Pearson_LR_tests_unspecific_ordering_rx2",
     "the_rx2_table",
     "Trend_estimate_CI_tests_rx2"
-	),
-	ch6 = c(
+  ),
+  ch6 = c(
     "Brant_test_2xc",
     "Cumulative_models_for_2xc",
     "Exact_cond_midP_linear_rank_tests_2xc",
@@ -413,8 +414,8 @@ full_list_chapter_functions <- list(
     "Pearson_LR_tests_cum_OR_2xc",
     "Score_test_for_effect_in_the_probit_model_2xc",
     "the_2xc_table"
-	),
-	ch7 = c(
+  ),
+  ch7 = c(
     "Bonferroni_type_CIs_rxc",
     "Cumulative_models_for_rxc",
     "Exact_cond_midP_tests_rxc",
@@ -434,8 +435,8 @@ full_list_chapter_functions <- list(
     "Spearman_correlation_coefficient_rxc",
     "Spearman_correlation_coefficient_rxc_bca",
     "the_rxc_table"
-	),
-	ch8 = c(
+  ),
+  ch8 = c(
     "BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2",
     "BonettPrice_hybrid_Wilson_score_CI_paired_2x2",
     "ClopperPearson_exact_CI_1x2_beta_version",
@@ -463,8 +464,8 @@ full_list_chapter_functions <- list(
     "the_paired_2x2_table_CIs_OR",
     "the_paired_2x2_table_CIs_ratio",
     "the_paired_2x2_table_tests"
-	),
-	ch9 = c(
+  ),
+  ch9 = c(
     "Bhapkar_test_paired_cxc",
     "Bonferroni_type_CIs_paired_cxc",
     "FleissEveritt_test_paired_cxc",
@@ -477,8 +478,8 @@ full_list_chapter_functions <- list(
     "Wald_test_and_CI_marginal_mean_scores_paired_cxc",
     "the_paired_cxc_table_nominal",
     "the_paired_cxc_table_ordinal"
-	),
-	ch10 = c(
+  ),
+  ch10 = c(
     "BreslowDay_homogeneity_test_stratified_2x2",
     "CochranMantelHaenszel_test_stratified_2x2",
     "Cochran_Q_test_stratified_2x2",
@@ -494,5 +495,5 @@ full_list_chapter_functions <- list(
     "Wald_test_and_CI_common_ratio_stratified_2x2",
     "Woolf_test_and_CI_stratified_2x2",
     "stratified_2x2_tables"
-	)
+  )
 )

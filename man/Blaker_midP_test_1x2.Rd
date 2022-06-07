@@ -26,15 +26,15 @@ Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 \examples{
 
 # Example: The number of 1st order male births (Singh et al. 2010)
-Blaker_midP_test_1x2(X=250, n=533, pi0=0.513)
+Blaker_midP_test_1x2(X = 250, n = 533, pi0 = 0.513)
 # Example: The number of 2nd order male births (Singh et al. 2010)
-Blaker_midP_test_1x2(X=204, n=412, pi0=0.513)
+Blaker_midP_test_1x2(X = 204, n = 412, pi0 = 0.513)
 # Example: The number of 3rd order male births (Singh et al. 2010)
-Blaker_midP_test_1x2(X=103, n=167, pi0=0.513)
+Blaker_midP_test_1x2(X = 103, n = 167, pi0 = 0.513)
 # Example: The number of 4th order male births (Singh et al. 2010)
-Blaker_midP_test_1x2(X=33, n=45, pi0=0.513)
+Blaker_midP_test_1x2(X = 33, n = 45, pi0 = 0.513)
 # Example: Ligarden et al. (2010)
-Blaker_midP_test_1x2(X=13, n=16, pi0=0.5)
+Blaker_midP_test_1x2(X = 13, n = 16, pi0 = 0.5)
 }
 \references{
 Blaker H (2000) Confidence curves and improved exact

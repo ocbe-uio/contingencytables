@@ -24,7 +24,7 @@ Described in Chapter 6 "The Ordered 2xc Table"
 \examples{
 \dontrun{
 # The Adolescent Placement Study (Fontanella et al., 2008)
-n <- rbind(c(8, 28, 72, 126),c(46, 73, 69, 86))
+n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 Exact_cond_midP_linear_rank_tests_2xc(n)
 }
 

@@ -24,7 +24,7 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   if (c == 3) {
     .print("\nTest for three-level outomes         Statistic      P-value\n")
     .print("------------------------------------------------------------\n")
-    tmp <- FleissLevinPaik_test_paired_cxc(n, F)
+    tmp <- FleissLevinPaik_test_paired_cxc(n, FALSE)
     P <- tmp[[1]]
     T0 <- tmp[[2]]
     df <- tmp[[3]]
@@ -49,14 +49,14 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
 
   .print("\nMethod                                           %g%% CI       P-value  (test statistic)\n", 100 * (1 - alpha))
   .print("--------------------------------------------------------------------------------------\n")
-  tmp <- Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha, F)
+  tmp <- Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L <- tmp[[3]]
   U <- tmp[[4]]
   .print("Wald CI and test for marginal mean scores  (%6.3f to %6.3f)  %6.4f  (Z = %5.3f)\n", L, U, P, Z)
 
-  tmp <- Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha, F)
+  tmp <- Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L <- tmp[[3]]
@@ -69,7 +69,7 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   # Comparing marginal mean ranks/ridits
   # ====================================
 
-  results <- Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, alpha, F)
+  results <- Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, alpha, FALSE)
   .print("\nInference for tau\n")
   .print("-----------------\n")
   .print("Wald:       estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", results$tauhat, 100 * (1 - alpha), results$CI_tau[1], results$CI_tau[2], results$P, results$Z_Wald)
@@ -81,5 +81,5 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
 }
 
 .print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = F)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

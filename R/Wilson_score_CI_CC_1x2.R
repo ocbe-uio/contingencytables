@@ -7,39 +7,38 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010)
-#' Wilson_score_CI_CC_1x2(X=250, n=533)
+#' Wilson_score_CI_CC_1x2(X = 250, n = 533)
 #' # The number of 2nd order male births (Singh et al. 2010)
-#' Wilson_score_CI_CC_1x2(X=204, n=412)
+#' Wilson_score_CI_CC_1x2(X = 204, n = 412)
 #' # The number of 3rd order male births (Singh et al. 2010)
-#' Wilson_score_CI_CC_1x2(X=103, n=167)
+#' Wilson_score_CI_CC_1x2(X = 103, n = 167)
 #' # The number of 4th order male births (Singh et al. 2010)
-#' Wilson_score_CI_CC_1x2(X=33, n=45)
+#' Wilson_score_CI_CC_1x2(X = 33, n = 45)
 #' # Ligarden et al. (2010)
-#' Wilson_score_CI_CC_1x2(X=13, n=16)
+#' Wilson_score_CI_CC_1x2(X = 13, n = 16)
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
-Wilson_score_CI_CC_1x2 <- function(X, n, alpha=0.05, printresults=TRUE) {
-	# Estimate of the binomial probability (pihat)
-	estimate <- X / n
+Wilson_score_CI_CC_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  # Estimate of the binomial probability (pihat)
+  estimate <- X / n
 
-	# The upper alpha / 2 percentile of the standard normal distribution
-	z <- qnorm(1 - alpha / 2, 0, 1)
+  # The upper alpha / 2 percentile of the standard normal distribution
+  z <- qnorm(1 - alpha / 2, 0, 1)
 
-	# Calculate the confidence limits
-	L <- (2 * n*estimate + z^2 - 1 - z * sqrt(z^2 - 2 - 1 / n +
-	  4 * estimate * n*(1-estimate) + 4 * estimate)) / (2 * (n + z^2))
-	U <- (2 * n*estimate + z^2 + 1 + z * sqrt(z^2 + 2 - 1 / n +
-	  4 * estimate * n*(1-estimate) - 4 * estimate)) / (2 * (n + z^2))
+  # Calculate the confidence limits
+  L <- (2 * n * estimate + z^2 - 1 - z * sqrt(z^2 - 2 - 1 / n +
+    4 * estimate * n * (1 - estimate) + 4 * estimate)) / (2 * (n + z^2))
+  U <- (2 * n * estimate + z^2 + 1 + z * sqrt(z^2 + 2 - 1 / n +
+    4 * estimate * n * (1 - estimate) - 4 * estimate)) / (2 * (n + z^2))
 
-	if (printresults) {
-		print(sprintf(
-			'The Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)',
-			estimate, 100 * (1 - alpha), L, U
-		), quote=FALSE)
-	}
+  if (printresults) {
+    print(sprintf(
+      "The Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
+    ), quote = FALSE)
+  }
 
-	res <- c(L, U, estimate)
-	names(res) <- c("lower", "upper", "estimate")
-	invisible(res)
-
+  res <- c(L, U, estimate)
+  names(res) <- c("lower", "upper", "estimate")
+  invisible(res)
 }

@@ -20,50 +20,51 @@ NULL. This function should be called for its printed output.
 The rxc table
 }
 \examples{
-
 \dontrun{
-  # Unordered tables
+# Unordered tables
 
-  ## Treatment for ear infection (van Balen et al., 2003)
-  n <- matrix(c(40, 25, 54, 7, 63, 10), byrow = TRUE, ncol = 2)
-  the_rxc_table(n)
+## Treatment for ear infection (van Balen et al., 2003)
+n <- matrix(c(40, 25, 54, 7, 63, 10), byrow = TRUE, ncol = 2)
+the_rxc_table(n)
 
-  ## Psychiatric diagnoses vs PA (Mangerud et al., 2004)
-  n <- matrix(
-    c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17), byrow = TRUE, ncol = 2
-  )
-  the_rxc_table(n)
+## Psychiatric diagnoses vs PA (Mangerud et al., 2004)
+n <- matrix(
+  c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17),
+  byrow = TRUE, ncol = 2
+)
+the_rxc_table(n)
 
-  # Singly ordered tables
-  ## Psychiatric diag. vs BMI (Mangerud et al., 2004)
-  n <- matrix(
-    c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
-    byrow = TRUE, ncol = 3
-  )
-  the_rxc_table(n)
+# Singly ordered tables
+## Psychiatric diag. vs BMI (Mangerud et al., 2004)
+n <- matrix(
+  c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
+  byrow = TRUE, ncol = 3
+)
+the_rxc_table(n)
 
-  ## Low birth weight vs psychiatric morbitidy (Lund et al., 2012)
-  n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), byrow = TRUE, ncol = 3)
-  the_rxc_table(n)
+## Low birth weight vs psychiatric morbitidy (Lund et al., 2012)
+n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), byrow = TRUE, ncol = 3)
+the_rxc_table(n)
 
-  # Doubly ordered tables
-  # Colorectal cancer (Jullumstroe et al., 2009)
-  n <- rbind(
-    c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-  )
-  the_rxc_table(n)
+# Doubly ordered tables
+# Colorectal cancer (Jullumstroe et al., 2009)
+n <- rbind(
+  c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
+)
+the_rxc_table(n)
 
-  # Breast Tumor (Bofin et al., 2004)
-  n <- matrix(
-  c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21), byrow = TRUE, ncol = 5
-  )
-  the_rxc_table(n)
+# Breast Tumor (Bofin et al., 2004)
+n <- matrix(
+  c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
+  byrow = TRUE, ncol = 5
+)
+the_rxc_table(n)
 
-  # Self-rated health (Breidablik et al., 2008)
-  n <- matrix(
-    c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-    byrow = TRUE, ncol = 4
-  )
-  the_rxc_table(n)
+# Self-rated health (Breidablik et al., 2008)
+n <- matrix(
+  c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
+  byrow = TRUE, ncol = 4
+)
+the_rxc_table(n)
 }
 }

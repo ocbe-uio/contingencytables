@@ -25,13 +25,13 @@ H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 }
 \examples{
 # The number of 1st order male births (adapted from Singh et al. 2010)
-Wald_test_1x2(X=250, n=533, pi0=0.1)
+Wald_test_1x2(X = 250, n = 533, pi0 = 0.1)
 # The number of 2nd order male births (adapted from Singh et al. 2010)
-Wald_test_1x2(X=204, n=412, pi0=0.1)
+Wald_test_1x2(X = 204, n = 412, pi0 = 0.1)
 # The number of 3rd order male births (adapted from Singh et al. 2010)
-Wald_test_1x2(X=103, n=167, pi0=0.1)
+Wald_test_1x2(X = 103, n = 167, pi0 = 0.1)
 # The number of 4th order male births (adapted from Singh et al. 2010)
-Wald_test_1x2(X=33, n=45, pi0=0.1)
+Wald_test_1x2(X = 33, n = 45, pi0 = 0.1)
 # Ligarden et al. (2010)
-Wald_test_1x2(X=13, n=16, pi0=0.1)
+Wald_test_1x2(X = 13, n = 16, pi0 = 0.1)
 }

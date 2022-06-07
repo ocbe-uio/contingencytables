@@ -31,18 +31,18 @@ n <- rbind(
 )
 gamma_coefficient_rxc_bca(n)
 
-  # Breast Tumor (Table 7.8)
-  n <- matrix(
-    c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-    ncol = 5, byrow = TRUE
-  )
-  gamma_coefficient_rxc_bca(n)
+# Breast Tumor (Table 7.8)
+n <- matrix(
+  c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
+  ncol = 5, byrow = TRUE
+)
+gamma_coefficient_rxc_bca(n)
 
-  # Self-rated health (Table 7.9)
-  n <- matrix(
-    c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-    ncol = 4, byrow = TRUE
-  )
-  gamma_coefficient_rxc_bca(n)
+# Self-rated health (Table 7.9)
+n <- matrix(
+  c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
+  ncol = 4, byrow = TRUE
+)
+gamma_coefficient_rxc_bca(n)
 }
 }

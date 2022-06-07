@@ -29,46 +29,41 @@
 #' }
 #' @export
 #' @return a list containing the linear-by-linear test statistic
-linear_by_linear_test_rxc <- function(n, a = 1:ncol(n), b = 1:nrow(n), printresults = TRUE) {
+linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n)), printresults = TRUE) {
+  # If no scores are given, use equally spaced scores
+  r <- nrow(n)
+  c <- ncol(n)
 
-	# If no scores are given, use equally spaced scores
-	r <- nrow(n)
-	c <- ncol(n)
+  N <- sum(n)
 
-	N <- sum(n)
+  # Put the observed data into long format
+  Y1 <- rep(0, N)
+  Y2 <- rep(0, N)
+  id <- 0
+  for (i in 1:r) {
+    for (j in 1:c) {
+      for (k in 1:n[i, j]) {
+        id <- id + 1
+        Y1[id] <- a[i]
+        Y2[id] <- b[j]
+      }
+    }
+  }
 
-	# Put the observed data into long format
-	Y1 <- rep(0, N)
-	Y2 <- rep(0, N)
-	id <- 0
-	for (i in 1:r) {
-		for (j in 1:c) {
-			for (k in 1:n[i, j]) {
-			id <- id + 1
-			Y1[id] <- a[i]
-			Y2[id] <- b[j]
-			}
-		}
-	}
+  # The Pearson correlation coefficient
+  r <- cor(Y1, Y2)
 
-	# The Pearson correlation coefficient
-	r <- cor(Y1, Y2)
+  # The linear-by-linear test statistic
+  Z <- sqrt(N - 1) * r
+  P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-	# The linear-by-linear test statistic
-	Z <- sqrt(N - 1) * r
-	P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+  if (printresults) {
+    .print("The linear-by-linear test for association: P = %8.6f, Z = %6.3f\n", P, Z)
+  }
 
-	# Alternative version with chi-squared 1 dof distribution
-	# T = (N - 1) * r ^ 2
-	# P = 1 - pchisq(T, 1)
-
-	if (printresults) {
-		.print("The linear-by-linear test for association: P = %8.6f, Z = %6.3f\n", P, Z)
-	}
-
-	invisible(list(P = P, Z = Z))
+  invisible(list(P = P, Z = Z))
 }
 
 .print <- function(s, ...) {
-	print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

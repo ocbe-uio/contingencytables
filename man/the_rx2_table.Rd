@@ -29,12 +29,12 @@ The rx2 table
 # Alcohol consumption and malformations (Mills and Graubard, 1987)
 n.0 <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
 a.0 <- c(1, 2, 3, 4, 5)
-the_rx2_table(n.0, a.0, 'increasing')
+the_rx2_table(n.0, a.0, "increasing")
 
 
 # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
 n.1 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 a.1 <- c(7, 22, 37, 48, 55)
-the_rx2_table(n.1, a.1, 'decreasing')
+the_rx2_table(n.1, a.1, "decreasing")
 }
 }
