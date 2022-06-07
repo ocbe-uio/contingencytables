@@ -20,12 +20,8 @@ The likelihood ratio test for association in 2x2 tables
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-n <- tea # Example: A lady tasting a cup of tea
-LR_test_2x2(n)
-n <- perondi_2004 # Example: Perondi et al. (2004)
-LR_test_2x2(n)
-n <- lampasona_2013 # Example: Lampasona et al. (2013)
-LR_test_2x2(n)
-n <- ritland_2007 # Example: Ritland et al. (2007)
-LR_test_2x2(n)
+LR_test_2x2(tea)
+LR_test_2x2(perondi_2004)
+LR_test_2x2(lampasona_2013)
+LR_test_2x2(ritland_2007)
 }

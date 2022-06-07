@@ -6,9 +6,9 @@
 #' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' Pearson_chi_squared_test_1xc(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119))
+#' Pearson_chi_squared_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
 #' # subset of 10 patients
-#' Pearson_chi_squared_test_1xc(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+#' Pearson_chi_squared_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 Pearson_chi_squared_test_1xc <- function(n, pi0, printresults = TRUE) {

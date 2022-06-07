@@ -7,14 +7,10 @@
 #'' unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)
 #' @param printresults display results (F = no, T = yes)
 #' @examples
-#' n <- tea # Example: A lady tasting a cup of tea
-#' Exact_unconditional_test_2x2(n)
-#' n <- perondi_2004 # Example: Perondi et al. (2004)
-#' Exact_unconditional_test_2x2(n)
-#' n <- lampasona_2013 # Example: Lampasona et al. (2013)
-#' Exact_unconditional_test_2x2(n)
-#' n <- ritland_2007 # Example: Ritland et al. (2007)
-#' Exact_unconditional_test_2x2(n)
+#' Exact_unconditional_test_2x2(tea)
+#' Exact_unconditional_test_2x2(perondi_2004)
+#' Exact_unconditional_test_2x2(lampasona_2013)
+#' Exact_unconditional_test_2x2(ritland_2007)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values

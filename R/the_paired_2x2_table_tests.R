@@ -2,20 +2,10 @@
 #' @param n frequency matrix
 #' @param gamma parameter for the Berger and Boos procedure
 #' @examples
-#' # Airway hyper-responsiveness before and after stem cell transplantation
-#' # (Bentur et al., 2009)
-#' n <- bentur_2009
-#' the_paired_2x2_table_tests(n)
-#'
+#' the_paired_2x2_table_tests(bentur_2009)
 #' \dontrun{
-#' # Complete response before and after consolidation therapy
-#' # (Cavo et al., 2012)
-#' n <- cavo_2012
-#' the_paired_2x2_table_tests(n)
-#'
-#' #' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-#' n <- rbind(c(7, 25), c(2, 68))
-#' the_paired_2x2_table_tests(n)
+#'   the_paired_2x2_table_tests(cavo_2012)
+#'   the_paired_2x2_table_tests(ezra_2010)
 #' }
 #' @export
 #' @return The value of gamma. This function should be called for its printed output.

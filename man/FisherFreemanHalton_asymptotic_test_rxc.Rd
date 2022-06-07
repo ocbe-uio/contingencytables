@@ -23,8 +23,5 @@ Described in Chapter 7 "The rxc Table"
 May not give results for all tables, due to overflow
 }
 \examples{
-# Treatment for ear infection (van Balen et al., 2003)
-n <- table_7.3
-FisherFreemanHalton_asymptotic_test_rxc(n)
-
+FisherFreemanHalton_asymptotic_test_rxc(table_7.3)
 }

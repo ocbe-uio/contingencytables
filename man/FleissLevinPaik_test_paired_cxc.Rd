@@ -21,7 +21,5 @@ Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
 # Pretherapy susceptability of pathogens *without the N / A category*
-# (Peterson et al., 2007)
-n <- rbind(c(596, 18, 6), c(0, 2, 0), c(0, 0, 42))
-FleissLevinPaik_test_paired_cxc(n)
+FleissLevinPaik_test_paired_cxc(peterson_2007[-4, -4])
 }

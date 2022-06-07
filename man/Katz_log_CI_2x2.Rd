@@ -22,10 +22,6 @@ The Katz log confidence interval for the ratio of probabilities
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
-n <- perondi_2004
-Katz_log_CI_2x2(n)
-# The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-n <- ritland_2007
-Katz_log_CI_2x2(n)
+Katz_log_CI_2x2(perondi_2004)
+Katz_log_CI_2x2(ritland_2007)
 }

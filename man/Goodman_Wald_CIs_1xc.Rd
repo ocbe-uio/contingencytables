@@ -24,6 +24,5 @@ The Goodman Wald simultaneous intervals for the multinomial probabilities
 Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
-# Genotype counts for SNP rs 6498169 in RA patients
-Goodman_Wald_CIs_1xc(n = c(276, 380, 118))
+Goodman_Wald_CIs_1xc(n = snp6498169$complete$n)
 }

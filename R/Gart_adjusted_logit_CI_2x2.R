@@ -5,12 +5,8 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T = yes)
 #' @examples
-#' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-#' n <- lampasona_2013
-#' Gart_adjusted_logit_CI_2x2(n)
-#' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' n <- ritland_2007
-#' Gart_adjusted_logit_CI_2x2(n)
+#' Gart_adjusted_logit_CI_2x2(lampasona_2013)
+#' Gart_adjusted_logit_CI_2x2(ritland_2007)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 Gart_adjusted_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {

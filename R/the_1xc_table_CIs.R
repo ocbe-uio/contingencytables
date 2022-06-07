@@ -3,7 +3,7 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' the_1xc_table_CIs(n = c(276, 380, 118))
+#' the_1xc_table_CIs(n = snp6498169$complete$n)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 the_1xc_table_CIs <- function(n, alpha = 0.05) {

@@ -2,7 +2,6 @@ context("Chapter 8")
 
 test_that("Chapter 8 functions basically work", {
   n <- matrix(c(59, 6, 16, 80), 2, byrow = TRUE)
-  n2 <- rbind(c(7, 25), c(2, 68))
   n_short <- floor(n / 10)
   expect_output(
     object = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n),
@@ -77,27 +76,27 @@ test_that("Chapter 8 functions basically work", {
     regexp = "Estimate of delta = pi_1\\+ - pi_\\+1: -0.062"
   )
   expect_output(
-    object = the_paired_2x2_table_CIs_OR(n2),
+    object = the_paired_2x2_table_CIs_OR(ezra_2010),
     regexp = "Estimate of theta_cond = n_12/n_21: 12.500"
   )
   expect_output(
-    object = Wald_CI_OR_paired_2x2(n2),
+    object = Wald_CI_OR_paired_2x2(ezra_2010),
     regexp = " The Wald CI: estimate = 12.5000 \\(95% CI 2.9608 to 52.7731\\)"
   )
   expect_output(
-    object = Wald_CI_OR_Laplace_paired_2x2(n2),
+    object = Wald_CI_OR_Laplace_paired_2x2(ezra_2010),
     regexp = "adjustment: estimate = 12.5000 \\(95% CI 2.6232 to 28.6333\\)"
   )
   expect_output(
-    object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(n2),
+    object = Transformed_Clopper_Pearson_exact_CI_paired_2x2(ezra_2010),
     regexp = "estimate = 12.5000 \\(95% CI 3.1169 to 108.8892\\)"
   )
   expect_output(
-    object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(n2),
+    object = Transformed_Clopper_Pearson_midP_CI_paired_2x2(ezra_2010),
     regexp = "estimate = 12.5000 \\(95% CI 3.4681 to 78.2972\\)"
   )
   expect_output(
-    object = Transformed_Blaker_exact_CI_paired_2x2(n2),
+    object = Transformed_Blaker_exact_CI_paired_2x2(ezra_2010),
     regexp = "estimate = 12.5000 \\(95% CI 3.2994 to 74.0582\\)"
   )
   expect_output(

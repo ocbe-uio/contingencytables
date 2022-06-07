@@ -5,14 +5,10 @@
 #' @param printresults display results (F = no, T = yes)
 #' @param statistic 'hypergeometric' (i.e. Fisher-Irwin default), 'Pearson', or 'LR' (likelihood ratio)
 #' @examples
-#' n <- tea # Example: A lady tasting a cup of tea
-#' Fisher_midP_test_2x2(n)
-#' n <- perondi_2004 # Example: Perondi et al. (2004)
-#' Fisher_midP_test_2x2(n)
-#' n <- lampasona_2013 # Example: Lampasona et al. (2013)
-#' Fisher_midP_test_2x2(n)
-#' n <- ritland_2007 # Example: Ritland et al. (2007)
-#' Fisher_midP_test_2x2(n)
+#' Fisher_midP_test_2x2(tea)
+#' Fisher_midP_test_2x2(perondi_2004)
+#' Fisher_midP_test_2x2(lampasona_2013)
+#' Fisher_midP_test_2x2(ritland_2007)
 #' @export
 #' @return probability value
 Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric", printresults = TRUE) {

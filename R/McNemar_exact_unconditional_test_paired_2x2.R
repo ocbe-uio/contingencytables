@@ -5,21 +5,11 @@
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Airway hyper-responsiveness before and after stem cell transplantation
-#' # (Bentur et al., 2009)
-#' n <- bentur_2009
-#' McNemar_exact_unconditional_test_paired_2x2(n)
-#'
+#' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 #' \dontrun{
-#' # Complete response before and after consolidation therapy
-#' # (Cavo et al., 2012)
-#' n <- cavo_2012
-#' McNemar_exact_unconditional_test_paired_2x2(n)
+#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012)
 #' }
-#'
-#' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-#' n <- rbind(c(7, 25), c(2, 68))
-#' McNemar_exact_unconditional_test_paired_2x2(n)
+#' McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values

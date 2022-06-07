@@ -315,3 +315,26 @@ table_7.9 <- matrix(
     c("Poor", "Not very good", "Good", "Very good")
   )
 )
+
+#' Genotype counts for SNP rs 6498169 in RA patients
+#' @name snp6498169
+#' @docType data
+#' @export
+snp6498169 <- list(
+  complete = data.frame(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119)),
+  subset   = data.frame(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+)
+
+#' Table 13.6, page 382, of Fleiss et al. (2003)
+#' @name fleiss_2003
+#' @docType data
+#' @references Fleiss et al. (2003)
+#' @export
+fleiss_2003 <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
+
+#' Floppy eyelid syndrome vs obstructive sleep apnea
+#' @name ezra_2010
+#' @docType data
+#' @references Ezra et al. (2010)
+#' @export
+ezra_2010 <- rbind(c(7, 25), c(2, 68))

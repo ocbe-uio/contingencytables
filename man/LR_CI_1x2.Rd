@@ -24,15 +24,9 @@ probability. Described in Chapter 2 "The 1x2 Table and the Binomial
 Distribution"
 }
 \examples{
-
-# The number of 1st order male births (Singh et al. 2010)
 LR_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
-# The number of 2nd order male births (Singh et al. 2010)
 LR_CI_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"])
-# The number of 3rd order male births (Singh et al. 2010)
 LR_CI_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"])
-# The number of 4th order male births (Singh et al. 2010)
 with(singh_2010["4th", ], LR_CI_1x2(X, n)) # alternative syntax
-# Ligarden et al. (2010)
 LR_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 }
