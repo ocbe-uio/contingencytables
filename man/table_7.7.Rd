@@ -12,19 +12,19 @@ table_7.7
 }
 \description{
 Duration of symptoms and tumor stage for patients treated for
-colorectal cancer (Jullumstrø et al., 2009).
+colorectal cancer (Jullumstroe et al., 2009).
 
 Early detection and treatment of colorectal cancer is beneficial, because
 advanced stages of colorectal cancer have poorer prognosis. Table 7.7
 displays duration of symptoms (rows) versus tumor stage (columns) in a study
 of 784 patients treated for colorectal cancer at a regional hospital in
-Norway from 1980 to 2004 (Jullumstrø et al., 2009). The rows as well as the
+Norway from 1980 to 2004 (Jullumstroe et al., 2009). The rows as well as the
 columns are ordered, and Table 7.7 can be regarded as a doubly ordered 4 × 4
 table.
 }
 \references{
 Fagerland MW, Lydersen S, Laake P (2017)
 
-Jullumstrø et al. (2009)
+Jullumstroe et al. (2009)
 }
 \keyword{datasets}
