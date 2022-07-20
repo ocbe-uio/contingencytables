@@ -138,6 +138,9 @@ indredavik_2008 <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
 #' we regard Table 7.3 as an unordered 3 × 2 table.
 #' @docType data
 #' @name table_7.3
+#' @aliases vanbalen_2003
+#' @usage table_7.3
+#' vanbalen_2003
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -156,6 +159,7 @@ table_7.3 <- matrix(
     c("Cured", "Not cured")
   )
 )
+vanbalen_2003 <- table_7.3
 
 #' Psychiatric Diagnoses and Physical Activity
 #' @docType data
@@ -169,6 +173,9 @@ table_7.3 <- matrix(
 #' psychiatric diagnoses are unordered, and we shall treat this as an unordered
 #' 6 x 2 table
 #' @name table_7.4
+#' @aliases mangerud_2014_PA
+#' @usage table_7.4
+#' mangerud_2014_PA
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -186,6 +193,7 @@ table_7.4 <- matrix(
     c("No", "Yes")
   )
 )
+mangerud_2014_PA <- table_7.4
 
 #' Psychiatric diag. vs BMI with hyperkinetic disorders as reference category
 #' @docType data
@@ -204,6 +212,9 @@ table_7.4 <- matrix(
 #' point for being overweight at age 13 is 21.91 for males and 22.58 for
 #' females.
 #' @name table_7.5
+#' @aliases mangerud_2014_BMI
+#' @usage table_7.5
+#' mangerud_2014_BMI
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -225,6 +236,7 @@ table_7.5 <- matrix(
     c("Thin", "Normal", "Overweight")
   )
 )
+mangerud_2014_BMI <- table_7.5
 
 #' Low Birth Weight vs psychiatric morbitidy with control as reference category
 #' @docType data
@@ -243,6 +255,9 @@ table_7.5 <- matrix(
 #' Hence, Table 7.6 is a singly ordered 3 × 3 table with unordered rows and
 #' ordered columns.
 #' @name table_7.6
+#' @aliases lund_2012
+#' @usage table_7.6
+#' lund_2012
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -257,6 +272,7 @@ table_7.6 <- matrix(
     c("No diagnosis", "Subthreshold diagnosis", "Definite diagnosis")
   )
 )
+lund_2012 <- table_7.6
 
 #' Colorectal cancer (Table 7.7)
 #' @description Duration of symptoms and tumor stage for patients treated for
@@ -271,6 +287,9 @@ table_7.6 <- matrix(
 #' table.
 #' @docType data
 #' @name table_7.7
+#' @aliases jullumstroe_2009
+#' @usage table_7.7
+#' jullumstroe_2009
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -285,6 +304,7 @@ table_7.7 <- matrix(
     c("T-1", "T-2", "T-3", "T-4")
   )
 )
+jullumstroe_2009 <- table_7.7
 
 #' Breast Tumor
 #' @description Nuclear pleomorphism from fine needle aspiration smears and
@@ -300,6 +320,9 @@ table_7.7 <- matrix(
 #' most malign (as in IDC).
 #' @docType data
 #' @name table_7.8
+#' @aliases bofin_2004
+#' @usage table_7.8
+#' bofin_2004
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -314,6 +337,7 @@ table_7.8 <- matrix(
     c("NPBD", "PBD", "AIDH", "DCIS", "IDC")
   )
 )
+bofin_2004 <- table_7.8
 
 #' Self-rated health (Table 7.9)
 #' @description Self-rated health for 12 to 17 years old adolescents in
@@ -331,6 +355,9 @@ table_7.8 <- matrix(
 #' ordinal data.
 #' @docType data
 #' @name table_7.9
+#' @aliases breidablik_2008
+#' @usage table_7.9
+#' breidablik_2008
 #' @references
 #' Fagerland MW, Lydersen S, Laake P (2017)
 #'
@@ -345,6 +372,7 @@ table_7.9 <- matrix(
     c("Poor", "Not very good", "Good", "Very good")
   )
 )
+breidablik_2008 <- table_7.9
 
 #' Genotype counts for SNP rs 6498169 in RA patients
 #' @name snp6498169

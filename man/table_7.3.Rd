@@ -3,12 +3,14 @@
 \docType{data}
 \name{table_7.3}
 \alias{table_7.3}
+\alias{vanbalen_2003}
 \title{Treatment for ear infection}
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 3 rows and 2 columns.
 }
 \usage{
 table_7.3
+vanbalen_2003
 }
 \description{
 Status after 21 days treatment of the ear infection acute otitis

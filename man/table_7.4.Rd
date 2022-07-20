@@ -3,12 +3,14 @@
 \docType{data}
 \name{table_7.4}
 \alias{table_7.4}
+\alias{mangerud_2014_PA}
 \title{Psychiatric Diagnoses and Physical Activity}
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 6 rows and 2 columns.
 }
 \usage{
 table_7.4
+mangerud_2014_PA
 }
 \description{
 Psychiatric diagnoses and participation in team
