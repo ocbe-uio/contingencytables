@@ -157,6 +157,36 @@ table_7.3 <- matrix(
   )
 )
 
+#' Psychiatric Diagnoses and Physical Activity
+#' @docType data
+#' @description Psychiatric diagnoses and participation in team
+#' sports (Mangerud et al., 2014)
+#'
+#' Table 7.4 shows the number of subjects participating in team sports within
+#' each of six psychiatric diagnoses, based on data from a study of physical
+#' activity in adolescents aged 13 to 18 years who were referred to a child and
+#' adolescent psychiatric clinic from 2009 to 2001 (Mangerud et al., 2014). The
+#' psychiatric diagnoses are unordered, and we shall treat this as an unordered
+#' 6 x 2 table
+#' @name table_7.4
+#' @references
+#' Fagerland MW, Lydersen S, Laake P (2017)
+#'
+#'
+#' @export
+table_7.4 <- matrix(
+  data = c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17),
+  ncol = 2,
+  byrow = TRUE,
+  dimnames = list(
+    c(
+      "Mood (affective) disorders", "Anxiety disorders", "Eating disorders",
+      "Autism spectrum disorders", "Hyperkinetic disorders", "Other disorders"
+      ),
+    c("No", "Yes")
+  )
+)
+
 #' Psychiatric diag. vs BMI with hyperkinetic disorders as reference category
 #' @docType data
 #' @description Psychiatric diagnoses and weight categories based on age- and
