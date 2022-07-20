@@ -6,8 +6,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-#' n <- peterson_2007
-#' Scheffe_type_CIs_paired_cxc(n)
+#' Scheffe_type_CIs_paired_cxc(peterson_2007)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 Scheffe_type_CIs_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {

@@ -5,12 +5,10 @@
 #' @seealso the_2x2_table_CIs_difference the_2x2_table_CIs_OR the_2x2_table_tests
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-#' n <- perondi_2004
-#' the_2x2_table_CIs_ratio(n)
+#' the_2x2_table_CIs_ratio(perondi_2004)
 #'
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-#' n <- ritland_2007
-#' the_2x2_table_CIs_ratio(n)
+#' the_2x2_table_CIs_ratio(ritland_2007)
 #'
 #' @export
 #' @return A string of "-". This function should be called for its printed output

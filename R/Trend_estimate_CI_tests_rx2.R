@@ -15,19 +15,10 @@
 #' \code{?family} for more details
 #' @examples
 #' # Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' n <- matrix(
-#'   c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
-#'   ncol = 2,
-#'   byrow = TRUE
-#' )
-#' n <- mills_graubard_1987 # same as before
-#' a <- c(1, 2, 3, 4, 5)
-#' Trend_estimate_CI_tests_rx2(n, a)
+#' Trend_estimate_CI_tests_rx2(mills_graubard_1987, 1:5)
 #'
 #' # levated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' n <- indredavik_2008
-#' a <- c(1, 2, 3, 4, 5)
-#' Trend_estimate_CI_tests_rx2(n, a)
+#' Trend_estimate_CI_tests_rx2(indredavik_2008, 1:5)
 #' @export
 #' @return A list containing several test statistics (see description above).
 Trend_estimate_CI_tests_rx2 <- function(n, a, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {

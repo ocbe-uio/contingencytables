@@ -7,13 +7,11 @@
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
-#' n <- bentur_2009
-#' Wald_CI_diff_paired_2x2(n)
+#' Wald_CI_diff_paired_2x2(bentur_2009)
 #'
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
-#' n <- cavo_2012
-#' Wald_CI_diff_paired_2x2(n)
+#' Wald_CI_diff_paired_2x2(cavo_2012)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 Wald_CI_diff_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {

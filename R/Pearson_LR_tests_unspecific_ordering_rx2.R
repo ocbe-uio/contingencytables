@@ -9,21 +9,16 @@
 #' @param printresults display results
 #' @examples
 #' # Chapter 5: Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' n <- matrix(
-#'   c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
-#'   byrow = TRUE, ncol = 2
-#' )
-#' Pearson_LR_tests_unspecific_ordering_rx2(n, "increasing")
+#' Pearson_LR_tests_unspecific_ordering_rx2(mills_graubard_1987, "increasing")
 #'
 #' # Chapter 5: Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow = TRUE, ncol = 2)
-#' Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing")
+#' Pearson_LR_tests_unspecific_ordering_rx2(indredavik_2008, "decreasing")
 #'
 #' # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
-#' n <- t(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow = TRUE, ncol = 4))
-#' Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing")
+#' Pearson_LR_tests_unspecific_ordering_rx2(t(lydersen_2012a), "decreasing")
 #' @export
-#' @return A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
+#' @return A list containing the two-sided p-value and the test statistic for
+#' the likelihood ratio and the Pearson chi-squared tests
 Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults = TRUE) {
   r <- nrow(n)
   nip <- apply(n, 1, sum)

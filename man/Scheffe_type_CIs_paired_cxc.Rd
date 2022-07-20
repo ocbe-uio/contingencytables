@@ -23,6 +23,5 @@ Described in Chapter 9 "The Paired kxk Table"
 }
 \examples{
 # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- peterson_2007
-Scheffe_type_CIs_paired_cxc(n)
+Scheffe_type_CIs_paired_cxc(peterson_2007)
 }

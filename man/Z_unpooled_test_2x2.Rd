@@ -21,19 +21,15 @@ Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
 # Example: A lady tasting a cup of tea
-n <- tea
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(tea)
 
 # Example: Perondi et al. (2004)
-n <- perondi_2004
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(perondi_2004)
 
 # Example: Lampasona et al. (2013)
-n <- lampasona_2013
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(lampasona_2013)
 
 # Example: Ritland et al. (2007)
-n <- ritland_2007
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(ritland_2007)
 
 }

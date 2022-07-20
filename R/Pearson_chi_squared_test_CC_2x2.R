@@ -6,20 +6,16 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Example: A lady tasting a cup of tea
-#' n <- tea
-#' Pearson_chi_squared_test_CC_2x2(n)
+#' Pearson_chi_squared_test_CC_2x2(tea)
 #'
 #' # Example: Perondi et al. (2004)
-#' n <- perondi_2004
-#' Pearson_chi_squared_test_CC_2x2(n)
+#' Pearson_chi_squared_test_CC_2x2(perondi_2004)
 #'
 #' # Example: Lampasona et al. (2013)
-#' n <- lampasona_2013
-#' Pearson_chi_squared_test_CC_2x2(n)
+#' Pearson_chi_squared_test_CC_2x2(lampasona_2013)
 #'
 #' # Example: Ritland et al. (2007)
-#' n <- ritland_2007
-#' Pearson_chi_squared_test_CC_2x2(n)
+#' Pearson_chi_squared_test_CC_2x2(ritland_2007)
 #'
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom

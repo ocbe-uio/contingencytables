@@ -27,11 +27,8 @@ for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# A case-control study of GADA exposure on IPEX syndrome
-# (Lampasona et al., 2013)
-n <- lampasona_2013
-MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)
+# A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013)
+MiettinenNurminen_asymptotic_score_CI_OR_2x2(lampasona_2013)
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-n <- ritland_2007
-MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)
+MiettinenNurminen_asymptotic_score_CI_OR_2x2(ritland_2007)
 }

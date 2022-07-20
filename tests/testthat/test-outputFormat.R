@@ -7,10 +7,10 @@ context("Output class, name and length")
 n <- lampasona_2013
 n2 <- peterson_2007
 n3 <- lydersen_2012a
-n4 <- array(c(c(647, 2, 622, 27), c(41, 19, 28, 32)), dim = c(2, 2, 2))
+n4 <- doll_hill_1950
 n5 <- matrix(1:9, 3)
 n6 <- matrix(1:8, ncol = 2)
-n7 <- floor(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), nrow = 2, byrow = TRUE) / 4)
+n7 <- floor(lydersen_2012a / 4)
 
 # Unit tests ============================================= #
 set.seed(6492798) # useful for functions using Bootstrap

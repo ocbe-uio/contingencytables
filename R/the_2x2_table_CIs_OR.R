@@ -4,20 +4,16 @@
 #' @param alpha type I error
 #' @examples
 #' # Example: A lady tasting a cup of tea
-#' n <- tea
-#' the_2x2_table_CIs_OR(n)
+#' the_2x2_table_CIs_OR(tea)
 #'
 #' # Example: Perondi et al. (2004)
-#' n <- perondi_2004
-#' the_2x2_table_CIs_OR(n)
+#' the_2x2_table_CIs_OR(perondi_2004)
 #'
 #' # Example: Lampasona et al. (2013)
-#' n <- lampasona_2013
-#' the_2x2_table_CIs_OR(n)
+#' the_2x2_table_CIs_OR(lampasona_2013)
 #'
 #' # Example: Ritland et al. (2007)
-#' n <- ritland_2007
-#' the_2x2_table_CIs_OR(n)
+#' the_2x2_table_CIs_OR(ritland_2007)
 #'
 #' @export
 #' @return A string of "-". This function should be called for its printed output

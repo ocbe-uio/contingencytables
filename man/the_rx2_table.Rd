@@ -25,16 +25,12 @@ The rx2 table
 }
 \examples{
 \dontrun{
+  # Alcohol consumption and malformations (Mills and Graubard, 1987)
+  a.0 <- c(1, 2, 3, 4, 5)
+  the_rx2_table(mills_graubard_1987, a.0, "increasing")
 
-# Alcohol consumption and malformations (Mills and Graubard, 1987)
-n.0 <- mills_graubard_1987
-a.0 <- c(1, 2, 3, 4, 5)
-the_rx2_table(n.0, a.0, "increasing")
-
-
-# Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-n.1 <- indredavik_2008
-a.1 <- c(7, 22, 37, 48, 55)
-the_rx2_table(n.1, a.1, "decreasing")
+  # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
+  a.1 <- c(7, 22, 37, 48, 55)
+  the_rx2_table(indredavik_2008, a.1, "decreasing")
 }
 }

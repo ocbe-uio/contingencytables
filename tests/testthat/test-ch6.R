@@ -1,14 +1,13 @@
 context("Chapter 6")
 
 test_that("Chapter 6 functions basically work", {
-  n <- lydersen_2012a
-  n_short <- floor(n / 2)
+  n_short <- floor(lydersen_2012a / 2)
   expect_output(
-    object = Brant_test_2xc(n),
+    object = Brant_test_2xc(lydersen_2012a),
     regexp = "Brant test: T =  1.668, df = 2, P = 0.43422"
   )
   expect_output(
-    object = Cumulative_models_for_2xc(n),
+    object = Cumulative_models_for_2xc(lydersen_2012a),
     regexp = "Wald \\(Z-statistic\\):          P =  0.14097, Z = -1.472"
   )
   expect_output(
@@ -26,16 +25,16 @@ test_that("Chapter 6 functions basically work", {
     regexp = "Exact conditional test:  0.08012"
   )
   expect_output(
-    object = MantelHaenszel_test_2xc(n),
+    object = MantelHaenszel_test_2xc(lydersen_2012a),
     regexp = "test of association: P = 0.1442, T = 2.132 \\(df=1\\)"
   )
   expect_output(
-    object = Pearson_LR_tests_cum_OR_2xc(n),
+    object = Pearson_LR_tests_cum_OR_2xc(lydersen_2012a),
     regexp = "Pearson chi-squared test: T =  3.813,  P = 0.07223"
   )
   alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
   expect_output(
-    object = Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0),
+    object = Score_test_for_effect_in_the_probit_model_2xc(lydersen_2012a, alphahat0),
     regexp = "Score test for effect: P = 0.1431, T = 2.145 \\(df=1\\)"
   )
   expect_output(

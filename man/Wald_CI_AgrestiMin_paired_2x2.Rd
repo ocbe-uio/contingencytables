@@ -26,12 +26,10 @@ Described in Chapter 8 "The Paired 2x2 Table"
 \examples{
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)
-n <- bentur_2009
-Wald_CI_AgrestiMin_paired_2x2(n)
+Wald_CI_AgrestiMin_paired_2x2(bentur_2009)
 
 # Complete response before and after consolidation therapy
 # (Cavo et al., 2012)
-n <- cavo_2012
-Wald_CI_AgrestiMin_paired_2x2(n)
+Wald_CI_AgrestiMin_paired_2x2(cavo_2012)
 
 }

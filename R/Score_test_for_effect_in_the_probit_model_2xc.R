@@ -12,14 +12,12 @@
 #' @importFrom stats dnorm
 #' @examples
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- fontanella_2008
 #' alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
-#' Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
+#' Score_test_for_effect_in_the_probit_model_2xc(fontanella_2008, alphahat0)
 #'
 #' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- lydersen_2012a
 #' alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
-#' Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
+#' Score_test_for_effect_in_the_probit_model_2xc(lydersen_2012a, alphahat0)
 #'
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom

@@ -6,8 +6,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Example: Treatment for ear infection
-#' n <- table_7.3
-#' Scheffe_type_CIs_rxc(n)
+#' Scheffe_type_CIs_rxc(table_7.3)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 Scheffe_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {

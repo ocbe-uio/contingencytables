@@ -6,8 +6,7 @@
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- lydersen_2012a
-#' Pearson_LR_tests_cum_OR_2xc(n)
+#' Pearson_LR_tests_cum_OR_2xc(lydersen_2012a)
 #' @export
 #' @return A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
 Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresults = TRUE) {

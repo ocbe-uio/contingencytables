@@ -3,7 +3,7 @@
 #' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @examples
-#' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
+#' # Pretherapy susceptability of pathogens (Peterson et al., 2007)c # FIXME: naming conflict
 #' n <- rbind(
 #'   c(1, 0, 1, 0, 0),
 #'   c(0, 2, 8, 4, 4),
@@ -14,7 +14,8 @@
 #' a <- c(8, 3.5, 0, -3.5, -8)
 #' the_paired_cxc_table_ordinal(n, a)
 #' @export
-#' @return A string containing the last line of the printed text. This function should be called for its printed output.
+#' @return A string containing the last line of the printed text.
+#' This function should be called for its printed output.
 the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   c <- nrow(n)
   N <- sum(n)

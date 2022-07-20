@@ -22,12 +22,9 @@ The 2xc table
 \examples{
 \dontrun{
 # The Adolescent Placement Study (Fontanella et al., 2008)
-n <- fontanella_2008
-the_2xc_table(n)
+the_2xc_table(fontanella_2008)
 
 # Postoperative nausea (Lydersen et al., 2012a)
-n <- lydersen_2012a
-dir <- "decreasing"
-the_2xc_table(n, direction = dir)
+the_2xc_table(lydersen_2012a, direction = "decreasing")
 }
 }

@@ -14,13 +14,14 @@ the_paired_cxc_table_ordinal(n, a, alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A string containing the last line of the printed text. This function should be called for its printed output.
+A string containing the last line of the printed text.
+This function should be called for its printed output.
 }
 \description{
 The Paired CxC table - ordinal
 }
 \examples{
-# Pretherapy susceptability of pathogens (Peterson et al., 2007)
+# Pretherapy susceptability of pathogens (Peterson et al., 2007)c # FIXME: naming conflict
 n <- rbind(
   c(1, 0, 1, 0, 0),
   c(0, 2, 8, 4, 4),

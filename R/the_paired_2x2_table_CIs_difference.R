@@ -4,13 +4,11 @@
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
-#' n <- bentur_2009
-#' the_paired_2x2_table_CIs_difference(n)
+#' the_paired_2x2_table_CIs_difference(bentur_2009)
 #'
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
-#' n <- cavo_2012
-#' the_paired_2x2_table_CIs_difference(n)
+#' the_paired_2x2_table_CIs_difference(cavo_2012)
 #'
 #' @export
 #' @return A string of "-". This function should be called for its printed output.
