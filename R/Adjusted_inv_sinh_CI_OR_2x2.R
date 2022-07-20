@@ -12,6 +12,7 @@
 #' Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)
 #' @export
 Adjusted_inv_sinh_CI_OR_2x2 <- function(n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
 
   # Estimate of the odds ratio (thetahat)
   estimate <- n[1, 1] * n[2, 2] / (n[1, 2] * n[2, 1])
