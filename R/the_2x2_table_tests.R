@@ -4,20 +4,16 @@
 #' @param gamma  parameter for the Berger and Boos procedure
 #' @examples
 #' # Example: A lady tasting a cup of tea
-#' n <- tea
-#' the_2x2_table_tests(n)
+#' the_2x2_table_tests(tea)
 #'
 #' # Example: Perondi et al. (2004)
-#' n <- perondi_2004
-#' the_2x2_table_tests(n)
+#' the_2x2_table_tests(perondi_2004)
 #'
 #' # Example: Lampasona et al. (2013)
-#' n <- lampasona_2013
-#' the_2x2_table_tests(n)
+#' the_2x2_table_tests(lampasona_2013)
 #'
 #' # Example: Ritland et al. (2007)
-#' n <- ritland_2007
-#' the_2x2_table_tests(n)
+#' the_2x2_table_tests(ritland_2007)
 #'
 #' @export
 #' @return The value of gamma. This function should be called for its printed output.

@@ -30,19 +30,9 @@ Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 }
 \examples{
 # Smoking and lung cancer (Doll and Hill, 1950)
-n <- doll_hill_1950
-n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
-n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
-ML_estimates_and_CIs_stratified_2x2(n)
+ML_estimates_and_CIs_stratified_2x2(doll_hill_1950)
 
 # Prophylactice use of Lidocaine in myocardial infarction (Hine et al., 1989)
-n <- hine_1989
-n[, , 1] <- rbind(c(2, 37), c(1, 42))
-n[, , 2] <- rbind(c(4, 40), c(4, 40))
-n[, , 3] <- rbind(c(6, 101), c(4, 106))
-n[, , 4] <- rbind(c(7, 96), c(5, 95))
-n[, , 5] <- rbind(c(7, 103), c(3, 103))
-n[, , 6] <- rbind(c(11, 143), c(4, 142))
-ML_estimates_and_CIs_stratified_2x2(n)
+ML_estimates_and_CIs_stratified_2x2(hine_1989)
 
 }

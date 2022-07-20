@@ -5,13 +5,8 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (F = no, T= yes)
 #' @examples
-#' n <- bentur_2009
-#' MOVER_Wilson_score_CI_paired_2x2(n)
-#'
-#' # Complete response before and after consolidation therapy
-#' # (Cavo et al., 2012)
-#' n <- matrix(c(59, 6, 16, 80), 2, byrow = TRUE)
-#' MOVER_Wilson_score_CI_paired_2x2(n)
+#' MOVER_Wilson_score_CI_paired_2x2(bentur_2009)
+#' MOVER_Wilson_score_CI_paired_2x2(cavo_2012)
 #'
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic

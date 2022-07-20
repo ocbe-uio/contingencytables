@@ -22,12 +22,7 @@ The MOVER Wilson score confidence interval for the ratio of paired probabilities
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-n <- bentur_2009
-MOVER_Wilson_score_CI_paired_2x2(n)
-
-# Complete response before and after consolidation therapy
-# (Cavo et al., 2012)
-n <- matrix(c(59, 6, 16, 80), 2, byrow = TRUE)
-MOVER_Wilson_score_CI_paired_2x2(n)
+MOVER_Wilson_score_CI_paired_2x2(bentur_2009)
+MOVER_Wilson_score_CI_paired_2x2(cavo_2012)
 
 }

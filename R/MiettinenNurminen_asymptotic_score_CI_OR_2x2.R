@@ -6,13 +6,10 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # A case-control study of GADA exposure on IPEX syndrome
-#' # (Lampasona et al., 2013)
-#' n <- lampasona_2013
-#' MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)
+#' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013)
+#' MiettinenNurminen_asymptotic_score_CI_OR_2x2(lampasona_2013)
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-#' n <- ritland_2007
-#' MiettinenNurminen_asymptotic_score_CI_OR_2x2(n)
+#' MiettinenNurminen_asymptotic_score_CI_OR_2x2(ritland_2007)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha = 0.05,

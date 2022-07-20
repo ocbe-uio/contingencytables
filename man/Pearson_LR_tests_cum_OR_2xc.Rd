@@ -23,6 +23,5 @@ Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
 # Postoperative nausea (Lydersen et al., 2012a)
-n <- lydersen_2012a
-Pearson_LR_tests_cum_OR_2xc(n)
+Pearson_LR_tests_cum_OR_2xc(lydersen_2012a)
 }

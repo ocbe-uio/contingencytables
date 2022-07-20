@@ -4,23 +4,14 @@
 #' @param n the observed counts (an rxc matrix)
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Treatment for ear infection (van Balen et al., 2003)
-#' n <- matrix(c(40, 25, 54, 7, 63, 10), ncol = 2, byrow = TRUE)
-#' Pearson_residuals_rxc(n)
+#' ## Treatment for ear infection (van Balen et al., 2003):
+#' Pearson_residuals_rxc(table_7.3)
 #'
-#' # Psychiatric diagnoses vs PA (Mangerud et al., 2004)
-#' n <- matrix(
-#'   c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17),
-#'   ncol = 2, byrow = TRUE
-#' )
-#' Pearson_residuals_rxc(n)
+#' ## Psychiatric diagnoses vs PA (Mangerud et al., 2004):
+#' Pearson_residuals_rxc(table_7.4)
 #'
-#' # Psychiatric diag. vs BMI (Mangerud et al., 2004)
-#' n <- rbind(
-#'   c(3, 55, 23), c(8, 102, 36), c(6, 14, 1),
-#'   c(5, 21, 12), c(19, 130, 64), c(7, 26, 18)
-#' )
-#' Pearson_residuals_rxc(n)
+#' ## Psychiatric diag. vs BMI (Mangerud et al., 2004):
+#' Pearson_residuals_rxc(table_7.5)
 #' @export
 #' @return A list containing matrices of the Pearson residuals and the standardized Pearson residuals
 Pearson_residuals_rxc <- function(n, printresults = TRUE) {

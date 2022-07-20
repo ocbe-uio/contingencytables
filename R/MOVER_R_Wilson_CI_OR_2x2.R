@@ -6,12 +6,10 @@
 #' @param printresults display results (F = no, 1T= yes)
 #' @examples
 #' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-#' n <- lampasona_2013
-#' MOVER_R_Wilson_CI_OR_2x2(n)
+#' MOVER_R_Wilson_CI_OR_2x2(lampasona_2013)
 #'
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' n <- ritland_2007
-#' MOVER_R_Wilson_CI_OR_2x2(n)
+#' MOVER_R_Wilson_CI_OR_2x2(ritland_2007)
 #'
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic

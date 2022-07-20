@@ -21,6 +21,5 @@ Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
 # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- peterson_2007
-McNemarBowker_test_paired_cxc(n)
+McNemarBowker_test_paired_cxc(peterson_2007)
 }

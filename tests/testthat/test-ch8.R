@@ -1,7 +1,7 @@
 context("Chapter 8")
 
 test_that("Chapter 8 functions basically work", {
-  n <- matrix(c(59, 6, 16, 80), 2, byrow = TRUE)
+  n <- cavo_2012
   n_short <- floor(n / 10)
   expect_output(
     object = BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n),

@@ -5,12 +5,10 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-#' n <- perondi_2004
-#' Wald_CI_CC_2x2(n)
+#' Wald_CI_CC_2x2(perondi_2004)
 #'
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-#' n <- ritland_2007
-#' Wald_CI_CC_2x2(n)
+#' Wald_CI_CC_2x2(ritland_2007)
 #'
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic

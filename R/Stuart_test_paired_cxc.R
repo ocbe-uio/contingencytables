@@ -5,8 +5,7 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-#' n <- peterson_2007
-#' Stuart_test_paired_cxc(n)
+#' Stuart_test_paired_cxc(peterson_2007)
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
 Stuart_test_paired_cxc <- function(n, printresults = TRUE) {

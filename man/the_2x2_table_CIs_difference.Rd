@@ -19,11 +19,9 @@ Wrapper for \code{_CI_2x2} functions on Chapter 4.
 }
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-n <- perondi_2004
-the_2x2_table_CIs_difference(n)
+the_2x2_table_CIs_difference(perondi_2004)
 
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-n <- ritland_2007
-the_2x2_table_CIs_difference(n)
+the_2x2_table_CIs_difference(ritland_2007)
 
 }

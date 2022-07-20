@@ -29,12 +29,5 @@ Described in Chapter 9 "The Paired cxc Table"
 \examples{
 # A comparison between serial and retrospective measurements
 # (Fischer et al., 1999)
-n <- rbind(
-  c(1, 0, 1, 0, 0),
-  c(0, 2, 8, 4, 4),
-  c(1, 1, 31, 14, 11),
-  c(1, 0, 15, 9, 12),
-  c(0, 0, 2, 1, 3)
-)
-Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n)
+Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)
 }

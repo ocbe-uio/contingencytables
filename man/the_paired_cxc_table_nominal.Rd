@@ -19,6 +19,5 @@ The Paired CxC table - nominal
 }
 \examples{
 # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- peterson_2007
-the_paired_cxc_table_nominal(n)
+the_paired_cxc_table_nominal(peterson_2007)
 }
