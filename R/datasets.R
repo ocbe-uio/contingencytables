@@ -368,3 +368,17 @@ fleiss_2003 <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
 #' @references Ezra et al. (2010)
 #' @export
 ezra_2010 <- rbind(c(7, 25), c(2, 68))
+
+
+#' A comparison between serial and retrospective measurements
+#' @name fischer_1999
+#' @docType data
+#' @references Fischer et al. (1999)
+#' @export
+fischer_1999 <- rbind(
+  c(1, 0, 1, 0, 0),
+  c(0, 2, 8, 4, 4),
+  c(1, 1, 31, 14, 11),
+  c(1, 0, 15, 9, 12),
+  c(0, 0, 2, 1, 3)
+)
