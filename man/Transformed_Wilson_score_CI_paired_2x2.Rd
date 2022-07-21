@@ -2,7 +2,8 @@
 % Please edit documentation in R/Transformed_Wilson_score_CI_paired_2x2.R
 \name{Transformed_Wilson_score_CI_paired_2x2}
 \alias{Transformed_Wilson_score_CI_paired_2x2}
-\title{The Transformed Wilson score confidence interval for the conditional odds ratio}
+\title{The Transformed Wilson score confidence interval for the conditional
+odds ratio}
 \usage{
 Transformed_Wilson_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 }
@@ -17,7 +18,8 @@ Transformed_Wilson_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 A list containing lower, upper and point estimates of the statistic
 }
 \description{
-The Transformed Wilson score confidence interval for the conditional odds ratio
+The Transformed Wilson score confidence interval for the
+conditional odds ratio
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }

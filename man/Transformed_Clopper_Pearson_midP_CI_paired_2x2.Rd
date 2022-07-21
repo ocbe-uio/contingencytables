@@ -3,7 +3,8 @@
 %   R/Transformed_Clopper_Pearson_midP_CI_paired_2x2.R
 \name{Transformed_Clopper_Pearson_midP_CI_paired_2x2}
 \alias{Transformed_Clopper_Pearson_midP_CI_paired_2x2}
-\title{The Transformed Clopper-Pearson mid-P confidence interval for the conditional odds ratio}
+\title{The Transformed Clopper-Pearson mid-P confidence interval for
+the conditional odds ratio}
 \usage{
 Transformed_Clopper_Pearson_midP_CI_paired_2x2(
   n,
@@ -22,7 +23,8 @@ Transformed_Clopper_Pearson_midP_CI_paired_2x2(
 A list containing lower, upper and point estimates of the statistic
 }
 \description{
-The Transformed Clopper-Pearson mid-P confidence interval for the conditional odds ratio
+The Transformed Clopper-Pearson mid-P confidence interval for
+the conditional odds ratio
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }

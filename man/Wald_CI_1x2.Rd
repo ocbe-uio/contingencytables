@@ -19,7 +19,8 @@ Wald_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 A vector containing lower, upper and point estimates of the statistic
 }
 \description{
-Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
+Described in Chapter 2 "The 1x2 Table and the Binomial
+Distribution"
 }
 \examples{
 Wald_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
