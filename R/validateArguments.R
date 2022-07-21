@@ -22,7 +22,7 @@ validateArguments <- function(x, types = "default") {
       type <- switch(
         names(x)[i],
         "n" = "counts",
-        "alpha" = "prob",
+        "alpha" = "probability",
         "psi1" = "positive",
         "psi2" = "positive",
         "skip"
@@ -33,12 +33,15 @@ validateArguments <- function(x, types = "default") {
     isvalid <- switch(
       type,
       "counts" = all(trunc(x[[i]]) == x[[i]]) && all(x[[i]] >= 0),
-      "prob"  = (x[[i]] >= 0) && (x[[i]] <= 1),
+      "probability"  = (x[[i]] >= 0) && (x[[i]] <= 1),
       "positive" = (x[[i]] > 0),
       "skip" = TRUE
     )
     if (!isvalid) {
-      stop(x[[i]], " is not a valid value for ", names(x)[i])
-    } # TODO: improve feedback
+      stop(
+        names(x)[i], " contains invalid values. Should be ", type, ".",
+        call. = FALSE
+      )
+    }
   }
 }
