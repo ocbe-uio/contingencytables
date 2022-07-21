@@ -8,6 +8,7 @@
 #' Chacko_test_1xc(hypothetical)
 #' @export
 Chacko_test_1xc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   c0 <- length(n)
   N <- sum(n)
 

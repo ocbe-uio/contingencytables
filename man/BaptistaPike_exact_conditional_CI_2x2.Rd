@@ -2,7 +2,8 @@
 % Please edit documentation in R/BaptistaPike_exact_conditional_CI_2x2.R
 \name{BaptistaPike_exact_conditional_CI_2x2}
 \alias{BaptistaPike_exact_conditional_CI_2x2}
-\title{The Baptista-Pike exact conditional confidence interval for the odds ratio}
+\title{The Baptista-Pike exact conditional confidence interval for the odds
+ratio}
 \usage{
 BaptistaPike_exact_conditional_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 }
@@ -14,10 +15,12 @@ BaptistaPike_exact_conditional_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 \item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+A data frame containing lower, upper and point estimates of the
+statistic
 }
 \description{
-The Baptista-Pike exact conditional confidence interval for the odds ratio
+The Baptista-Pike exact conditional confidence interval for the
+odds ratio
 
 Described in Chapter 4 "The 2x2 Table"
 }

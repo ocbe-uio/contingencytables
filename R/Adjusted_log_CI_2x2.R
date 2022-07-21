@@ -10,6 +10,7 @@
 #' Adjusted_log_CI_2x2(ritland_2007)
 #' @export
 Adjusted_log_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
 

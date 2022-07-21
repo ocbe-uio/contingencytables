@@ -8,7 +8,10 @@
 #' @examples
 #' Bonferroni_type_CIs_paired_cxc(peterson_2007)
 #' @export
-Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Bonferroni_type_CIs_paired_cxc <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
+  validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)

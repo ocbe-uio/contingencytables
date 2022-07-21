@@ -10,9 +10,11 @@
 #' Cochran_Q_test_stratified_2x2(hine_1989)
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
-Cochran_Q_test_stratified_2x2 <- function(n, link = "linear", estimatetype = "MH", printresults = TRUE) {
+Cochran_Q_test_stratified_2x2 <- function(
+  n, link = "linear", estimatetype = "MH", printresults = TRUE
+) {
+  validateArguments(mget(ls()))
   K <- dim(n)[3]
-
   # Get the inverse variance weights (which are used for both MH and IV) and
   # the inverse variance estimate (this may be overwritten if the MH estimate
   # is chosen). In any case, use the psihat from the inverse variance because

@@ -8,6 +8,7 @@
 #' Bhapkar_test_paired_cxc(peterson_2007)
 #' @export
 Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)

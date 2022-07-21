@@ -10,6 +10,7 @@
 #' BreslowDay_homogeneity_test_stratified_2x2(hine_1989)
 #' @export
 BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   n11k <- n[1, 1, ]
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)

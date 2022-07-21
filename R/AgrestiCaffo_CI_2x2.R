@@ -10,6 +10,7 @@
 #' AgrestiCaffo_CI_2x2(ritland_2007)
 #' @export
 AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   # Estimate of the difference between probabilities (deltahat)
   estimate <- n[1, 1] / (n[1, 1] + n[1, 2]) - n[2, 1] / (n[2, 1] + n[2, 2])
 

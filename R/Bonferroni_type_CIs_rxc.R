@@ -9,6 +9,7 @@
 #' Bonferroni_type_CIs_rxc(table_7.3)
 #' @export
 Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   C <- r * (r - 1) / 2

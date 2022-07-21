@@ -17,7 +17,10 @@
 #' with(singh_2010["4th", ], ClopperPearson_exact_CI_1x2_beta_version(X, n)) # alternative syntax
 #' ClopperPearson_exact_CI_1x2_beta_version(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-ClopperPearson_exact_CI_1x2_beta_version <- function(X, n, alpha = 0.05, printresults = TRUE) {
+ClopperPearson_exact_CI_1x2_beta_version <- function(
+  X, n, alpha = 0.05, printresults = TRUE
+) {
+  validateArguments(mget(ls()))
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 

@@ -21,7 +21,7 @@
 #' @export
 
 Blaker_midP_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
-
+  validateArguments(mget(ls()))
   # Calculate the two-sided mid-P value
   Pvalues <- dbinom(0:n, n, pi0)
   gammaobs <- min(sum(Pvalues[(X + 1):(n + 1)]), sum(Pvalues[1:(X + 1)]))
