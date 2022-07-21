@@ -1,5 +1,7 @@
-#' @title The Wald confidence interval for the conditional odds ratio with Laplace adjustment
-#' @description The Wald confidence interval for the conditional odds ratio with Laplace adjustment
+#' @title The Wald confidence interval for the conditional odds ratio with
+#' Laplace adjustment
+#' @description The Wald confidence interval for the conditional odds ratio with
+#' Laplace adjustment
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
@@ -8,7 +10,9 @@
 #' Wald_CI_OR_Laplace_paired_2x2(ezra_2010)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Wald_CI_OR_Laplace_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Wald_CI_OR_Laplace_paired_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
   # Estimate of the conditional odds ratio (thetacondhat)
   estimate <- n[1, 2] / n[2, 1]
 
@@ -35,7 +39,13 @@ Wald_CI_OR_Laplace_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) 
   }
 
   if (printresults) {
-    .print("The Wald CI w / Laplace adjustment: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      paste(
+        "The Wald CI w / Laplace adjustment: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)\n"
+      ),
+      estimate, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

@@ -2,7 +2,8 @@
 % Please edit documentation in R/Wald_CI_OR_Laplace_paired_2x2.R
 \name{Wald_CI_OR_Laplace_paired_2x2}
 \alias{Wald_CI_OR_Laplace_paired_2x2}
-\title{The Wald confidence interval for the conditional odds ratio with Laplace adjustment}
+\title{The Wald confidence interval for the conditional odds ratio with
+Laplace adjustment}
 \usage{
 Wald_CI_OR_Laplace_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 }
@@ -17,7 +18,8 @@ Wald_CI_OR_Laplace_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 A list containing lower, upper and point estimates of the statistic
 }
 \description{
-The Wald confidence interval for the conditional odds ratio with Laplace adjustment
+The Wald confidence interval for the conditional odds ratio with
+Laplace adjustment
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }

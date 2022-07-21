@@ -12,7 +12,9 @@ test_that("Chapter 5 functions basically work", {
   )
   a <- 1:4
   expect_output(
-    object = CochranArmitage_exact_cond_midP_tests_rx2(indredavik_2008[-5, ], a),
+    object = CochranArmitage_exact_cond_midP_tests_rx2(
+      indredavik_2008[-5, ], a
+    ),
     regexp = "Cochran-Armitage exact cond. test: P = 0.62494"
   )
   m <- matrix(c(48, 170, 38, 144, 5, 7, 1, 1), byrow = TRUE, ncol = 2)

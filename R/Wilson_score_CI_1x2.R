@@ -1,7 +1,9 @@
 #' @title The Wilson score confidence interval
 #' @description The Wilson score confidence interval
 # Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
-#' @references Reference Wilson EB (1927) Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association 22209-212
+#' @references Reference Wilson EB (1927) Probable inference, the law of
+#' succession, and statistical inference. Journal of the American Statistical
+#' Association 22209-212
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs

@@ -14,10 +14,13 @@ Wald_CI_CC_2x2(n, alpha = 0.05, printresults = TRUE)
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+A data frame containing lower, upper and point estimates of the
+statistic
 }
 \description{
-The Wald confidence interval for the difference between probabilities with Yates's continuity correction. Described in Chapter 4 "The 2x2 Table"
+The Wald confidence interval for the difference between
+probabilities with Yates's continuity correction. Described in Chapter 4
+"The 2x2 Table"
 }
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)

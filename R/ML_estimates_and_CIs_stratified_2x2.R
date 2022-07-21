@@ -69,9 +69,9 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, p
   results$betahat <- as.vector(alphaandbetahat[2])
   results$betahatSE <- as.vector(stats.se[2])
   results$betahatCI <- as.vector(c(L[2], U[2]))
-  results$gammahat <- as.vector(alphaandbetahat[-c(1:2)])
-  results$gammahatSE <- as.vector(stats.se[-c(1:2)])
-  results$gammahatCI <- cbind(L[-c(1:2)], U[-c(1:2)])
+  results$gammahat <- as.vector(alphaandbetahat[-c(1, 2)])
+  results$gammahatSE <- as.vector(stats.se[-c(1, 2)])
+  results$gammahatCI <- cbind(L[-c(1, 2)], U[-c(1, 2)])
   rownames(results$gammahatCI) <- rep("", nrow(results$gammahatCI))
   results$pihat <- pihat
 

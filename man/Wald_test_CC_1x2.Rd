@@ -2,7 +2,7 @@
 % Please edit documentation in R/Wald_test_CC_1x2.R
 \name{Wald_test_CC_1x2}
 \alias{Wald_test_CC_1x2}
-\title{The Wald test with continuity correction for the binomial probability (pi)}
+\title{The Wald test with continuity correction for the binomial probability}
 \usage{
 Wald_test_CC_1x2(X, n, pi0, printresults = TRUE)
 }
@@ -19,7 +19,8 @@ Wald_test_CC_1x2(X, n, pi0, printresults = TRUE)
 A vector containing the two-sided p-value and the Wald test statistic
 }
 \description{
-The Wald test with continuity correction for the binomial probability (pi)
+The Wald test with continuity correction for the binomial
+probability (pi)
 
 H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 }

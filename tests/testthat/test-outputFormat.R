@@ -27,7 +27,9 @@ t010 <- Blaker_exact_test_1x2(13, 16, .5, printresults = FALSE)
 t011 <- Blaker_midP_CI_1x2(13, 16, printresults = FALSE)
 t012 <- Arcsine_CI_1x2(13, 16, printresults = FALSE)
 t013 <- Blaker_midP_test_1x2(13, 16, .5, printresults = FALSE)
-t014 <- BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n, printresults = FALSE)
+t014 <- BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(
+  n, printresults = FALSE
+)
 t015 <- BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n, printresults = FALSE)
 t016 <- Bonferroni_type_CIs_paired_cxc(n, printresults = FALSE)
 t017 <- Bonferroni_type_CIs_rxc(n, printresults = FALSE)
@@ -49,7 +51,9 @@ t032 <- Cumulative_models_for_rxc(n3, printresults = FALSE)
 t033 <- Exact_binomial_test_1x2(13, 16, .5, printresults = FALSE)
 t034 <- Exact_cond_midP_linear_rank_tests_2xc(n5, printresults = FALSE)
 t035 <- Exact_cond_midP_tests_rxc(n5[, 1:2], printresults = FALSE)
-t036 <- Exact_cond_midP_unspecific_ordering_rx2(n6, "decreasing", printresults = FALSE)
+t036 <- Exact_cond_midP_unspecific_ordering_rx2(
+  n6, "decreasing", printresults = FALSE
+)
 t037 <- Exact_multinomial_test_1xc(1:3, seq(.4, .6, .1), printresults = FALSE)
 t038 <- Exact_unconditional_test_2x2(n, printresults = FALSE)
 t039 <- Fisher_exact_test_2x2(n, printresults = FALSE)
@@ -92,7 +96,9 @@ t075 <- McNemarBowker_test_paired_cxc(n, printresults = FALSE)
 t076 <- Mee_asymptotic_score_CI_2x2(n, printresults = FALSE)
 t077 <- MidP_binomial_test_1x2(13, 16, .3, printresults = FALSE)
 t078 <- MidP_multinomial_test_1xc(n, runif(4), printresults = FALSE)
-t079 <- MiettinenNurminen_asymptotic_score_CI_difference_2x2(n, printresults = FALSE)
+t079 <- MiettinenNurminen_asymptotic_score_CI_difference_2x2(
+  n, printresults = FALSE
+)
 t080 <- MiettinenNurminen_asymptotic_score_CI_OR_2x2(n, printresults = FALSE)
 t081 <- MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n, printresults = FALSE)
 t082 <- ML_estimates_and_CIs_stratified_2x2(n4, printresults = FALSE)
@@ -104,13 +110,17 @@ t087 <- Newcombe_square_and_add_CI_paired_2x2(n, printresults = FALSE)
 t088 <- Pearson_chi_squared_test_1xc(n, runif(4), printresults = FALSE)
 t089 <- Pearson_chi_squared_test_2x2(n, printresults = FALSE)
 t090 <- Pearson_chi_squared_test_CC_2x2(n, printresults = FALSE)
-t091 <- Pearson_correlation_coefficient_rxc_bca(n, nboot = 160, printresults = FALSE)
+t091 <- Pearson_correlation_coefficient_rxc_bca(
+  n, nboot = 160, printresults = FALSE
+)
 t092 <- Pearson_correlation_coefficient_rxc(n, printresults = FALSE)
 t093 <- Pearson_LR_homogeneity_test_stratified_2x2(n4, printresults = FALSE)
 t094 <- Pearson_LR_test_common_effect_stratified_2x2(n4, printresults = FALSE)
 t095 <- Pearson_LR_tests_cum_OR_2xc(n, printresults = FALSE)
 t096 <- Pearson_LR_tests_rxc(n, printresults = FALSE)
-t097 <- Pearson_LR_tests_unspecific_ordering_rx2(n, "increasing", printresults = FALSE)
+t097 <- Pearson_LR_tests_unspecific_ordering_rx2(
+  n, "increasing", printresults = FALSE
+)
 t098 <- Pearson_residuals_rxc(n, printresults = FALSE)
 t099 <- Peto_homogeneity_test_stratified_2x2(n4, printresults = FALSE)
 t100 <- Peto_OR_estimate_stratified_2x2(n4, printresults = FALSE)
@@ -120,10 +130,16 @@ t103 <- RBG_test_and_CI_stratified_2x2(n4, printresults = FALSE)
 t104 <- Scheffe_type_CIs_paired_cxc(n, printresults = FALSE)
 t105 <- Scheffe_type_CIs_rxc(n, printresults = FALSE)
 t106 <- Score_test_1x2(13, 16, .5, printresults = FALSE)
-t107 <- Score_test_and_CI_marginal_mean_scores_paired_cxc(n, runif(4), printresults = FALSE)
+t107 <- Score_test_and_CI_marginal_mean_scores_paired_cxc(
+  n, runif(4), printresults = FALSE
+)
 t108 <- Score_test_CC_1x2(13, 16, .5, printresults = FALSE)
-t109 <- Score_test_for_effect_in_the_probit_model_2xc(n, rnorm(4), printresults = FALSE)
-t110 <- Spearman_correlation_coefficient_rxc_bca(n, nboot = 160, printresults = FALSE)
+t109 <- Score_test_for_effect_in_the_probit_model_2xc(
+  n, rnorm(4), printresults = FALSE
+)
+t110 <- Spearman_correlation_coefficient_rxc_bca(
+  n, nboot = 160, printresults = FALSE
+)
 t111 <- Spearman_correlation_coefficient_rxc(n, printresults = FALSE)
 t112 <- invisible(capture.output(stratified_2x2_tables(n4)))
 t113 <- Stuart_test_paired_cxc(n2, printresults = FALSE)
@@ -167,7 +183,9 @@ t150 <- Wald_test_1x2(13, 16, .1, printresults = FALSE)
 t151 <- Wald_test_and_CI_common_diff_stratified_2x2(n4, printresults = FALSE)
 t152 <- Wald_test_and_CI_common_ratio_stratified_2x2(n4, printresults = FALSE)
 t153 <- Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, printresults = FALSE)
-t154 <- Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, rnorm(4), printresults = FALSE)
+t154 <- Wald_test_and_CI_marginal_mean_scores_paired_cxc(
+  n, rnorm(4), printresults = FALSE
+)
 t155 <- Wald_test_CC_1x2(13, 16, .1, printresults = FALSE)
 t156 <- Wilson_score_CI_1x2(13, 16, printresults = FALSE)
 t157 <- Wilson_score_CI_CC_1x2(13, 16, printresults = FALSE)
@@ -381,7 +399,8 @@ test_that("Output names are the expected", {
   expect_named(t028, ptdf)
   expect_named(t029, lue)
   expect_named(t030, lue)
-  expect_named(t031,
+  expect_named(
+    t031,
     c(
       "betahat", "OR", "se", "D", "P_D", "df_D", "X2", "P_X2", "df_X2",
       "Z_Wald", "T_Wald", "P_Wald", "T_LR", "P_LR", "df_LR", "Z_MW", "P_MW",
@@ -398,7 +417,13 @@ test_that("Output names are the expected", {
   )
   expect_named(t033, NULL)
   expect_named(t034, c("P", "midP"))
-  expect_named(t035, c("P_FFH", "midP_FFH", "P_Pearson", "midP_Pearson", "P_LR", "midP_LR", "P_KW", "midP_KW", "P_lbl", "midP_lbl", "P_JT", "midP_JT"))
+  expect_named(
+    t035,
+    c(
+      "P_FFH", "midP_FFH", "P_Pearson", "midP_Pearson", "P_LR", "midP_LR",
+      "P_KW", "midP_KW", "P_lbl", "midP_lbl", "P_JT", "midP_JT"
+    )
+  )
   expect_named(t036, c("P", "midP"))
   expect_named(t037, NULL)
   expect_named(t038, NULL)
@@ -445,7 +470,13 @@ test_that("Output names are the expected", {
   expect_named(t079, lue)
   expect_named(t080, lue)
   expect_named(t081, lue)
-  expect_named(t082, c("alphahat", "alphahatSE", "alphahatCI", "betahat", "betahatSE", "betahatCI", "gammahat", "gammahatSE", "gammahatCI", "pihat"))
+  expect_named(
+    t082,
+    c(
+      "alphahat", "alphahatSE", "alphahatCI", "betahat", "betahatSE",
+      "betahatCI", "gammahat", "gammahatSE", "gammahatCI", "pihat"
+    )
+  )
   expect_named(t083, lue)
   expect_named(t084, lue)
   expect_named(t085, LUe)
@@ -459,7 +490,12 @@ test_that("Output names are the expected", {
   expect_named(t093, plr_df)
   expect_named(t094, plr_df)
   expect_named(t095, plr)
-  expect_named(t096, c("T_Pearson", "df_Pearson", "P_Pearson", "T_LR", "df_LR", "P_LR"))
+  expect_named(
+    t096,
+    c(
+      "T_Pearson", "df_Pearson", "P_Pearson", "T_LR", "df_LR", "P_LR"
+    )
+  )
   expect_named(t097, plr)
   expect_named(t098, c("residuals", "std_residuals"))
   expect_named(t099, ptdf)
@@ -500,7 +536,13 @@ test_that("Output names are the expected", {
   expect_named(t134, LUe)
   expect_named(t135, LUe)
   expect_named(t136, LUe)
-  expect_named(t137, c("betahat", "Z_Wald", "P_Wald", "T_LR", "P_LR", "df_LR", "chi2", "P_chi2", "df_chi2", "D", "P_D", "df_D", "CI_Wald", "CI_Wald_width"))
+  expect_named(
+    t137,
+    c(
+      "betahat", "Z_Wald", "P_Wald", "T_LR", "P_LR", "df_LR", "chi2", "P_chi2",
+      "df_chi2", "D", "P_D", "df_D", "CI_Wald", "CI_Wald_width"
+    )
+  )
   expect_named(t138, lue)
   expect_named(t139, lue)
   expect_named(t140, lue)
@@ -516,7 +558,13 @@ test_that("Output names are the expected", {
   expect_named(t150, ps)
   expect_named(t151, c("P", "Z", "L", "U", "deltahat"))
   expect_named(t152, c("P", "Z", "L", "U", "phihat"))
-  expect_named(t153, c("tauhat", "SE_tau", "CI_tau", "Z_Wald", "P", "alphahat", "SE_alpha", "CI_alpha", "CI_alpha_logit", "Z_Wald_logit", "P_logit", "CI_tau_logit"))
+  expect_named(
+    t153,
+    c(
+      "tauhat", "SE_tau", "CI_tau", "Z_Wald", "P", "alphahat", "SE_alpha",
+      "CI_alpha", "CI_alpha_logit", "Z_Wald_logit", "P_logit", "CI_tau_logit"
+    )
+  )
   expect_named(t154, c("P", "Z_Wald", LUe))
   expect_named(t155, ps)
   expect_named(t156, lue)

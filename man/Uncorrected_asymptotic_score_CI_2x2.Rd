@@ -2,7 +2,8 @@
 % Please edit documentation in R/Uncorrected_asymptotic_score_CI_2x2.R
 \name{Uncorrected_asymptotic_score_CI_2x2}
 \alias{Uncorrected_asymptotic_score_CI_2x2}
-\title{The uncorrected asymptotic score confidence interval for the odds ratio}
+\title{The uncorrected asymptotic score confidence interval for the odds
+ratio}
 \usage{
 Uncorrected_asymptotic_score_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 }
@@ -14,15 +15,18 @@ Uncorrected_asymptotic_score_CI_2x2(n, alpha = 0.05, printresults = TRUE)
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+A data frame containing lower, upper and point estimates of the
+tatistic
 }
 \description{
-The uncorrected asymptotic score confidence interval for the odds ratio
+The uncorrected asymptotic score confidence interval for the
+odds ratio
 
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
+# A case-control study of GADA exposure on IPEX syndrome
+# (Lampasona et al., 2013):
 Uncorrected_asymptotic_score_CI_2x2(lampasona_2013)
 
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):

@@ -1,7 +1,8 @@
 # function [L, U, estimate] = Wald_CI_1x2(X, n, alpha, printresults)
 
 #' @title The Wald confidence interval for the binomial probability
-#' @description Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
+#' @description Described in Chapter 2 "The 1x2 Table and the Binomial
+#' Distribution"
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs

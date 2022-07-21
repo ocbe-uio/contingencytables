@@ -33,12 +33,16 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Blaker_midP_test_1x2(100))
   expect_output(
-    object = Blaker_midP_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5),
+    object = Blaker_midP_test_1x2(
+      ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5
+    ),
     regexp = "P = 0.00845"
   )
   expect_error(ClopperPearson_exact_CI_1x2(100))
   expect_output(
-    object = ClopperPearson_exact_CI_1x2(ligarden_2010["X"], ligarden_2010["n"]),
+    object = ClopperPearson_exact_CI_1x2(
+      ligarden_2010["X"], ligarden_2010["n"]
+    ),
     regexp = "estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
   )
   expect_error(ClopperPearson_midP_CI_1x2(100))
@@ -48,7 +52,9 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Exact_binomial_test_1x2(100))
   expect_output(
-    object = Exact_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5),
+    object = Exact_binomial_test_1x2(
+      ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5
+      ),
     regexp = "P = 0.02127"
   )
   expect_error(Jeffreys_CI_1x2(100))
@@ -68,7 +74,9 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(MidP_binomial_test_1x2(100))
   expect_output(
-    object = MidP_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5),
+    object = MidP_binomial_test_1x2(
+      ligarden_2010["X"], ligarden_2010["n"], pi0 = .5
+    ),
     regexp = "P = 0.01273"
   )
   expect_error(Score_test_1x2(100))
@@ -78,7 +86,9 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Score_test_CC_1x2(100))
   expect_output(
-    object = Score_test_CC_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5),
+    object = Score_test_CC_1x2(
+      ligarden_2010["X"], ligarden_2010["n"], pi0 = .5
+    ),
     regexp = "P = 0.02445, Z = 2.250"
   )
   expect_error(Wald_CI_CC_1x2(100))
@@ -108,12 +118,16 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Wald_test_CC_1x2(100))
   expect_output(
-    object = Wald_test_CC_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.1),
+    object = Wald_test_CC_1x2(
+      ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.1
+    ),
     regexp = "P = 0.00000, Z = 6.982"
   )
   expect_error(the_1x2_table_tests(100))
   expect_output(
-    object = the_1x2_table_tests(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5),
+    object = the_1x2_table_tests(
+      ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5
+    ),
     regexp = "H_0: pi = 0.500  vs  H_A: pi ~= 0.500"
   )
 })

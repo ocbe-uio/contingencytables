@@ -34,7 +34,9 @@ test_that("Chapter 6 functions basically work", {
   )
   alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
   expect_output(
-    object = Score_test_for_effect_in_the_probit_model_2xc(lydersen_2012a, alphahat0),
+    object = Score_test_for_effect_in_the_probit_model_2xc(
+      lydersen_2012a, alphahat0
+    ),
     regexp = "Score test for effect: P = 0.1431, T = 2.145 \\(df=1\\)"
   )
   expect_output(

@@ -2,7 +2,8 @@
 % Please edit documentation in R/Wald_CI_AgrestiMin_paired_2x2.R
 \name{Wald_CI_AgrestiMin_paired_2x2}
 \alias{Wald_CI_AgrestiMin_paired_2x2}
-\title{The Wald confidence interval for the difference between paired probabilities}
+\title{The Wald confidence interval for the difference between paired
+probabilities}
 \usage{
 Wald_CI_AgrestiMin_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 }
@@ -17,9 +18,11 @@ Wald_CI_AgrestiMin_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 A list containing lower, upper and point estimates of the statistic
 }
 \description{
-The Wald confidence interval for the difference between paired probabilities
+The Wald confidence interval for the difference between paired
+probabilities
 
-with the pseudo-frequency adjustment suggested by Agresti and Min (2005)
+with the pseudo-frequency adjustment suggested by
+Agresti and Min (2005)
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }

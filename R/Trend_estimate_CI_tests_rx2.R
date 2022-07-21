@@ -21,11 +21,15 @@
 #' Trend_estimate_CI_tests_rx2(indredavik_2008, 1:5)
 #' @export
 #' @return A list containing several test statistics (see description above).
-Trend_estimate_CI_tests_rx2 <- function(n, a, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {
+Trend_estimate_CI_tests_rx2 <- function(
+  n, a, linkfunction = "logit", alpha = 0.05, printresults = TRUE
+) {
   nip <- apply(n, 1, sum)
 
   # Fit model and get estimat of the trend (beta) and its standard error
-  mdl1 <- glm(cbind(n[, 1], n[, 2]) ~ 1 + a, family = binomial(link = linkfunction))
+  mdl1 <- glm(
+    cbind(n[, 1], n[, 2]) ~ 1 + a, family = binomial(link = linkfunction)
+  )
   L1 <- -mdl1$deviance / 2
   betahat <- mdl1$coefficients[2]
   SEhat <- summary(mdl1)$coefficients[2, 2]
@@ -70,7 +74,8 @@ Trend_estimate_CI_tests_rx2 <- function(n, a, linkfunction = "logit", alpha = 0.
     P_D <- 1 - pchisq(D, df_D)
   }
 
-  # Output arguments (estimated trend, observed statistics, degrees of freedom, P-values, and CI)
+  # Output arguments (estimated trend, observed statistics, degrees of freedom,
+  # P-values, and CI)
   results <- list()
   results$betahat <- betahat
 
@@ -94,11 +99,42 @@ Trend_estimate_CI_tests_rx2 <- function(n, a, linkfunction = "logit", alpha = 0.
 
 
   if (printresults) {
-    print(sprintf("Wald test:                    P = %7.5f, T = %5.3f", P_Wald, Z_Wald), quote = FALSE)
-    print(sprintf("Likelihood ratio test:        P = %7.5f, T = %5.3f (df = %i)", P_LR, T_LR, df_LR), quote = FALSE)
-    print(sprintf("Pearson goodness-of-fit test: P = %7.5f, T = %5.3f (df = %i)", P_chi2, chi2, df_chi2), quote = FALSE)
-    print(sprintf("LR (deviance) test:           P = %7.5f, T = %5.3f (df = %i)", P_D, D, df_D), quote = FALSE)
-    print(sprintf("Trend estimate and Wald CI:   betahat = %6.4f (%g%% CI %6.4f to %6.4f)", betahat, 100 * (1 - alpha), CI_Wald[1], CI_Wald[2]), quote = FALSE)
+    print(
+      sprintf(
+        "Wald test:                    P = %7.5f, T = %5.3f", P_Wald, Z_Wald
+      ),
+      quote = FALSE
+    )
+    print(
+      sprintf(
+        "Likelihood ratio test:        P = %7.5f, T = %5.3f (df = %i)",
+        P_LR, T_LR, df_LR
+      ),
+      quote = FALSE
+    )
+    print(
+      sprintf(
+        "Pearson goodness-of-fit test: P = %7.5f, T = %5.3f (df = %i)",
+        P_chi2, chi2, df_chi2
+      ),
+      quote = FALSE
+    )
+    print(
+      sprintf(
+        "LR (deviance) test:           P = %7.5f, T = %5.3f (df = %i)",
+        P_D, D, df_D
+      ),
+      quote = FALSE
+    )
+    print(
+      sprintf(
+        paste(
+          "Trend estimate and Wald CI:   betahat =",
+          "%6.4f (%g%% CI %6.4f to %6.4f)"
+        ),
+        betahat, 100 * (1 - alpha), CI_Wald[1], CI_Wald[2]
+      ), quote = FALSE
+    )
   }
 
   invisible(results)

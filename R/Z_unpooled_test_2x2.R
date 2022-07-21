@@ -17,13 +17,15 @@
 #' Z_unpooled_test_2x2(ritland_2007)
 #'
 #' @export
-#' @return A vector containing the two-sided p-value and the unpooled Z statistic
+#' @return A vector containing the two-sided p-value and the unpooled Z
+#' statistic
 Z_unpooled_test_2x2 <- function(n, printresults = TRUE) {
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
 
   # The unpooled Z statistic
-  Z <- (n[1, 1] / n1p - n[2, 1] / n2p) / sqrt(n[1, 1] * n[1, 2] / n1p^3 + n[2, 1] * n[2, 2] / n2p^3)
+  Z <- (n[1, 1] / n1p - n[2, 1] / n2p) /
+    sqrt(n[1, 1] * n[1, 2] / n1p^3 + n[2, 1] * n[2, 2] / n2p^3)
 
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
@@ -34,7 +36,9 @@ Z_unpooled_test_2x2 <- function(n, printresults = TRUE) {
   }
 
   if (printresults) {
-    print(sprintf("The Z-unpooled test: P = %7.5f, Z = %6.3f", P, Z), quote = FALSE)
+    print(
+      sprintf("The Z-unpooled test: P = %7.5f, Z = %6.3f", P, Z),
+    quote = FALSE)
   }
 
   res <- data.frame(p.value = P, statistic = Z)

@@ -1,9 +1,11 @@
 #' @title The Wald test and CI for a common ratio of probabilities
 #' @description The Wald test and CI for a common ratio of probabilities
 #' @description based on either the Mantel-Haenszel or inverse variance estimate
-#' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
+#' @description Described in Chapter 10 "Stratified 2x2 Tables and
+#' Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
-#' @param estimatetype Mantel-Haenszel or inverse variance estimate ('MH' or 'IV')
+#' @param estimatetype Mantel-Haenszel or inverse variance estimate
+#' ('MH' or 'IV')
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
@@ -13,8 +15,11 @@
 #' # Prophylactice use of Lidocaine in myocardial infarction (Hine et al., 1989)
 #' Wald_test_and_CI_common_ratio_stratified_2x2(hine_1989)
 #' @export
-#' @return A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimates for phi
-Wald_test_and_CI_common_ratio_stratified_2x2 <- function(n, estimatetype = "MH", alpha = 0.05, printresults = TRUE) {
+#' @return A list containing the two-sided p-value, the Wald test statistic,
+#' and the lower, upper and point estimates for phi.
+Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
+  n, estimatetype = "MH", alpha = 0.05, printresults = TRUE
+) {
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)
@@ -54,7 +59,10 @@ Wald_test_and_CI_common_ratio_stratified_2x2 <- function(n, estimatetype = "MH",
 
   if (printresults) {
     .print("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
-    .print("The Wald CI (%s): phihat = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimatetype, phihat, 100 * (1 - alpha), L, U)
+    .print(
+      "The Wald CI (%s): phihat = %6.4f (%g%% CI %6.4f to %6.4f)\n",
+      estimatetype, phihat, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(P = P, Z = Z, L = L, U = U, phihat = phihat))

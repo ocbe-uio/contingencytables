@@ -1,5 +1,7 @@
-#' @title The Wald test and confidence interval for the difference between marginal mean scores
-#' @description The Wald test and confidence interval for the difference between marginal mean scores
+#' @title The Wald test and confidence interval for the difference between
+#' marginal mean scores
+#' @description The Wald test and confidence interval for the difference between
+#' marginal mean scores
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
 #' @param a scores assigned to the outcome categories
@@ -12,7 +14,9 @@
 #' Wald_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a)
 #' @export
 #' @return A list containing the Wald test and the Wald CI statistics
-Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05, printresults = TRUE) {
+Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
+  n, a, alpha = 0.05, printresults = TRUE
+) {
   c <- nrow(n)
   N <- sum(n)
   nip <- apply(n, 1, sum)
@@ -49,7 +53,10 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05,
 
   if (printresults) {
     .print("The Wald test: P = %7.5f, Z = %6.3f\n", P, Z_Wald)
-    .print("The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate,
+      100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(P = P, Z_Wald = Z_Wald, L = L, U = U, estimate = estimate))

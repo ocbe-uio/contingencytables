@@ -1,5 +1,6 @@
 #' @title The Wald confidence interval for the ratio of paired probabilities
-#' @description The Wald confidence interval for the ratio of paired probabilities
+#' @description The Wald confidence interval for the ratio of paired
+#' probabilities
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
@@ -36,7 +37,10 @@ Wald_CI_ratio_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   }
 
   if (printresults) {
-    .print("The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate,
+      100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

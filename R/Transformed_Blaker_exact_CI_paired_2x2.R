@@ -8,7 +8,9 @@
 #' Transformed_Blaker_exact_CI_paired_2x2(ezra_2010)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Transformed_Blaker_exact_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Transformed_Blaker_exact_CI_paired_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
   # Estimate of the conditional odds ratio (thetacondhat)
   estimate <- n[1, 2] / n[2, 1]
 
@@ -22,7 +24,13 @@ Transformed_Blaker_exact_CI_paired_2x2 <- function(n, alpha = 0.05, printresults
   U <- U_mu / (1 - U_mu)
 
   if (printresults) {
-    .print("The transformed Blaker exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      paste(
+        "The transformed Blaker exact CI: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)\n"
+      ),
+      estimate, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

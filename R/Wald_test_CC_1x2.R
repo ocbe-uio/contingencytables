@@ -1,5 +1,6 @@
-#' @title The Wald test with continuity correction for the binomial probability (pi)
-#' @description The Wald test with continuity correction for the binomial probability (pi)
+#' @title The Wald test with continuity correction for the binomial probability
+#' @description The Wald test with continuity correction for the binomial
+#' probability (pi)
 #' @description H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 # Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 #' @param X the number of successes
