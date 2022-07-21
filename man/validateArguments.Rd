@@ -9,7 +9,7 @@ validateArguments(x, types = "default")
 \arguments{
 \item{x}{named list containing function arguments and their values}
 
-\item{types}{vector of types for \code{x}}
+\item{types}{named vector of types for \code{x}}
 }
 \value{
 Nothing if all aguments fit their type. An error message otherwise.
@@ -21,10 +21,17 @@ validate their arguments.
 \details{
 Accepted validation types are:
 \itemize{
-\item "count"
+\item "counts"
 \item "positive"
-\item "prob"
+\item "probability"
+\item "linear, log or logit"
+\item "MH or IV"
+\item
 }
+}
+\note{
+Types are evaluated alphabetically, and errors accuse no more than
+one invalid argument at a time.
 }
 \examples{
 Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)

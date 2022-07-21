@@ -10,6 +10,7 @@
 #' Brant_test_2xc(lydersen_2012a)
 #' @export
 Brant_test_2xc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   # Note that this function only works for 2xc tables (not for rxc tables)
   r0 <- nrow(n)
   c0 <- ncol(n)

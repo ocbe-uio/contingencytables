@@ -1,5 +1,7 @@
-#' @title The adjusted inverse hyperbolic sine confidence interval for the odds ratio
-#' @description The adjusted inverse hyperbolic sine confidence interval for the odds ratio.
+#' @title The adjusted inverse hyperbolic sine confidence interval for the odds
+#' ratio
+#' @description The adjusted inverse hyperbolic sine confidence interval for
+#' the odds ratio.
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param psi1 pseudo-frequency (should be > 0)
@@ -11,7 +13,9 @@
 #' Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)
 #' @export
-Adjusted_inv_sinh_CI_OR_2x2 <- function(n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05, printresults = TRUE) {
+Adjusted_inv_sinh_CI_OR_2x2 <- function(
+  n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05, printresults = TRUE
+) {
   validateArguments(mget(ls()))
 
   # Estimate of the odds ratio (thetahat)
@@ -24,7 +28,12 @@ Adjusted_inv_sinh_CI_OR_2x2 <- function(n, psi1 = 0.45, psi2 = 0.25, alpha = 0.0
   z <- qnorm(1 - alpha / 2, 0, 1)
 
   # Calculate the confidence limits
-  tmp <- asinh(0.5 * z * sqrt(1 / (n[1, 1] + psi2) + 1 / (n[1, 2] + psi2) + 1 / (n[2, 1] + psi2) + 1 / (n[2, 2] + psi2)))
+  tmp <- asinh(
+    0.5 * z *
+    sqrt(
+      1 / (n[1, 1] + psi2) + 1 / (n[1, 2] + psi2) + 1 / (n[2, 1] + psi2) + 1 / (n[2, 2] + psi2)
+    )
+  )
   L <- exp(log(thetatilde) - 2 * tmp)
   U <- exp(log(thetatilde) + 2 * tmp)
 

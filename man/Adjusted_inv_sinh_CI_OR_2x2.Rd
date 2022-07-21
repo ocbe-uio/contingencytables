@@ -2,7 +2,8 @@
 % Please edit documentation in R/Adjusted_inv_sinh_CI_OR_2x2.R
 \name{Adjusted_inv_sinh_CI_OR_2x2}
 \alias{Adjusted_inv_sinh_CI_OR_2x2}
-\title{The adjusted inverse hyperbolic sine confidence interval for the odds ratio}
+\title{The adjusted inverse hyperbolic sine confidence interval for the odds
+ratio}
 \usage{
 Adjusted_inv_sinh_CI_OR_2x2(
   n,
@@ -27,7 +28,8 @@ Adjusted_inv_sinh_CI_OR_2x2(
 A data frame containing lower, upper and point estimates of the statistic
 }
 \description{
-The adjusted inverse hyperbolic sine confidence interval for the odds ratio.
+The adjusted inverse hyperbolic sine confidence interval for
+the odds ratio.
 
 Described in Chapter 4 "The 2x2 Table"
 }

@@ -1,5 +1,7 @@
-#' @title The adjusted inverse hyperbolic sine confidence interval for the ratio of probabilities
-#' @description The adjusted inverse hyperbolic sine confidence interval for the ratio of probabilities
+#' @title The adjusted inverse hyperbolic sine confidence interval for the
+#' ratio of probabilities
+#' @description The adjusted inverse hyperbolic sine confidence interval for
+#' the ratio of probabilities
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param psi1 pseudo-frequency
@@ -8,12 +10,22 @@
 #' @param psi4 pseudo-frequency
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return A data frame containing lower, upper and point estimates of the
+#' statistic
 #' @examples
 #' Adjusted_inv_sinh_CI_ratio_2x2(perondi_2004)
 #' Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007)
 #' @export
-Adjusted_inv_sinh_CI_ratio_2x2 <- function(n, psi1 = 0, psi2 = 0, psi3 = 0, psi4 = 1, alpha = 0.05, printresults = TRUE) {
+Adjusted_inv_sinh_CI_ratio_2x2 <- function(
+  n, psi1 = 0, psi2 = 0, psi3 = 0, psi4 = 1, alpha = 0.05, printresults = TRUE
+) {
+  validateArguments(
+    x = mget(ls()),
+    types = c(
+      n = "counts", psi1 = "skip", psi2 = "skip", psi3 = "skip", psi4 = "skip",
+      alpha = "probability", printresults = "skip"
+    )
+  )
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
 

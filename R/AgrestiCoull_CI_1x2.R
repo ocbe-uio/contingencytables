@@ -18,6 +18,7 @@
 #' AgrestiCoull_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
 AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 

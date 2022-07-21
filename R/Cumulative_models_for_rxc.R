@@ -13,6 +13,7 @@
 #' goodness-of-fit of a proportional odds model, the effect in a proportional
 #' odds model and row comparisons
 Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)

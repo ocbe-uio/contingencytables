@@ -12,6 +12,7 @@
 #' Cornfield_midP_CI_2x2(ritland_2007)
 #' @export
 Cornfield_midP_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   # global n11 n1p n2p np1 alphaglobal
   n11 <- n[1, 1]
   n1p <- n[1, 1] + n[1, 2]

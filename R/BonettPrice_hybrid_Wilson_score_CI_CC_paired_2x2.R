@@ -11,7 +11,10 @@
 #' BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(cavo_2012)
 #'
 #' @export
-BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
+  validateArguments(mget(ls()))
   nstar <- n[1, 1] + n[1, 2] + n[2, 1]
   n1p <- n[1, 1] + n[1, 2]
   np1 <- n[1, 1] + n[2, 1]

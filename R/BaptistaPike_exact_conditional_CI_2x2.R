@@ -1,17 +1,23 @@
-#' @title The Baptista-Pike exact conditional confidence interval for the odds ratio
-#' @description The Baptista-Pike exact conditional confidence interval for the odds ratio
+#' @title The Baptista-Pike exact conditional confidence interval for the odds
+#' ratio
+#' @description The Baptista-Pike exact conditional confidence interval for the
+#' odds ratio
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @param printresults display results (F = no, T = yes)
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return A data frame containing lower, upper and point estimates of the
+#' statistic
 #' @examples
 #' BaptistaPike_exact_conditional_CI_2x2(tea)
 #' BaptistaPike_exact_conditional_CI_2x2(perondi_2004)
 #' BaptistaPike_exact_conditional_CI_2x2(lampasona_2013)
 #' BaptistaPike_exact_conditional_CI_2x2(ritland_2007)
 #' @export
-BaptistaPike_exact_conditional_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+BaptistaPike_exact_conditional_CI_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
+  validateArguments(mget(ls()))
   # global n11 n1p n2p np1 alphaglobal
   n11 <- n[1, 1]
   n1p <- n[1, 1] + n[1, 2]
