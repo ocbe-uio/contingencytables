@@ -37,6 +37,8 @@ validateArguments <- function(x, types = "default") {
       "positive" = (x[[i]] > 0),
       "skip" = TRUE
     )
-    if (!isvalid) stop(x[[i]], " is not a valid value for ", names(x)[i]) # TODO: improve feedback
+    if (!isvalid) {
+      stop(x[[i]], " is not a valid value for ", names(x)[i])
+    } # TODO: improve feedback
   }
 }

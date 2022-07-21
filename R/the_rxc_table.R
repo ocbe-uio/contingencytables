@@ -1,7 +1,8 @@
 #' @title The rxc table
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param nboot number of boostrap samples. If 0, skips tests that use bootstrapping
+#' @param nboot number of boostrap samples. If 0, skips tests that use
+#' bootstrapping
 #' @examples
 #' \dontrun{
 #' # Unordered tables

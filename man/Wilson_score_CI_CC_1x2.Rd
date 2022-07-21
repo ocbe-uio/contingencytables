@@ -2,7 +2,8 @@
 % Please edit documentation in R/Wilson_score_CI_CC_1x2.R
 \name{Wilson_score_CI_CC_1x2}
 \alias{Wilson_score_CI_CC_1x2}
-\title{The Wilson score confidence interval with continuity correction for the binomial probability}
+\title{The Wilson score confidence interval with continuity correction for
+the binomial probability}
 \usage{
 Wilson_score_CI_CC_1x2(X, n, alpha = 0.05, printresults = TRUE)
 }
@@ -19,7 +20,8 @@ Wilson_score_CI_CC_1x2(X, n, alpha = 0.05, printresults = TRUE)
 A vector containing lower, upper and point estimates of the statistic
 }
 \description{
-Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
+Described in Chapter 2 "The 1x2 Table and the Binomial
+Distribution"
 }
 \examples{
 # The number of 1st order male births (Singh et al. 2010)
@@ -34,5 +36,7 @@ with(singh_2010["4th", ], Wilson_score_CI_CC_1x2(X, n)) # alternative syntax
 Wilson_score_CI_CC_1x2(ligarden_2010["X"], ligarden_2010["n"])
 }
 \references{
-Reference Wilson EB (1927) Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association; 22209-212
+Reference Wilson EB (1927) Probable inference, the law of
+succession, and statistical inference. Journal of the American Statistical
+Association; 22209-212
 }

@@ -22,7 +22,8 @@ The Woolf logit confidence interval for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
+# A case-control study of GADA exposure on IPEX syndrome
+# (Lampasona et al., 2013):
 Woolf_logit_CI_2x2(lampasona_2013)
 
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):

@@ -1,7 +1,8 @@
 #' @title The Woolf test and CI for a common odds ratio
 #' @description The Woolf test and CI for a common odds ratio
 #' @description (A Wald-type test and CI based on the inverse variance estimate)
-#' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
+#' @description Described in Chapter 10 "Stratified 2x2 Tables and
+#' Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @param printresults display results (FALSE = no, TRUE = yes)
@@ -13,8 +14,11 @@
 #' Woolf_test_and_CI_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimate thetahatIV
-Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+#' @return A list containing the two-sided p-value, the Wald test statistic,
+#' and the lower, upper and point estimate thetahatIV.
+Woolf_test_and_CI_stratified_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
   # Get the inverse variance overall estimate and weights
   tmp <- InverseVariance_estimate_stratified_2x2(n, "logit", FALSE)
   thetahatIV <- tmp[[1]]
@@ -38,7 +42,10 @@ Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRU
 
   if (printresults) {
     .print("The Woolf test: P = %7.5f, Z = %6.3f\n", P, Z)
-    .print("The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)\n", thetahatIV, 100 * (1 - alpha), L, U)
+    .print(
+      "The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)\n",
+      thetahatIV, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(P = P, Z = Z, L = L, U = U, thetahatIV = thetahatIV))

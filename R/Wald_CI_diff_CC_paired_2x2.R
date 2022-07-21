@@ -1,5 +1,7 @@
-#' @title The Wald confidence interval for the difference between paired probabilities
-#' @description The Wald confidence interval for the difference between paired probabilities
+#' @title The Wald confidence interval for the difference between paired
+#' probabilities
+#' @description The Wald confidence interval for the difference between paired
+#' probabilities
 #' @description with continuity correction
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
@@ -39,7 +41,13 @@ Wald_CI_diff_CC_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   U <- min(U, 1)
 
   if (printresults) {
-    .print("The Wald CI with continuity correction: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      paste(
+        "The Wald CI with continuity correction: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)\n"
+      ),
+      estimate, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

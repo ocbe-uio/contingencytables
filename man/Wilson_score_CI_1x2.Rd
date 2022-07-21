@@ -34,5 +34,7 @@ with(singh_2010["4th", ], Wilson_score_CI_1x2(X, n)) # alternative syntax
 Wilson_score_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 }
 \references{
-Reference Wilson EB (1927) Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association 22209-212
+Reference Wilson EB (1927) Probable inference, the law of
+succession, and statistical inference. Journal of the American Statistical
+Association 22209-212
 }

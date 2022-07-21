@@ -1,5 +1,7 @@
-#' @title The Transformed Wilson score confidence interval for the conditional odds ratio
-#' @description The Transformed Wilson score confidence interval for the conditional odds ratio
+#' @title The Transformed Wilson score confidence interval for the conditional
+#' odds ratio
+#' @description The Transformed Wilson score confidence interval for the
+#' conditional odds ratio
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
@@ -8,7 +10,9 @@
 #' Transformed_Wilson_score_CI_paired_2x2(ezra_2010)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Transformed_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Transformed_Wilson_score_CI_paired_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
   # Estimate of the conditional odds ratio (thetacondhat)
   estimate <- n[1, 2] / n[2, 1]
 
@@ -22,7 +26,13 @@ Transformed_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults
   U <- U_mu / (1 - U_mu)
 
   if (printresults) {
-    .print("The transformed Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      paste(
+        "The transformed Wilson score CI: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)\n"
+      ),
+      estimate, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

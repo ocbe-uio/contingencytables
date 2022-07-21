@@ -1,5 +1,7 @@
-#' @title The Wald test and confidence interval for the difference between marginal mean ranks / ridits
-#' @description The Wald test and confidence interval for the difference between marginal mean ranks / ridits
+#' @title The Wald test and confidence interval for the difference between
+#' marginal mean ranks / ridits
+#' @description The Wald test and confidence interval for the difference between
+#' marginal mean ranks / ridits
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
@@ -10,7 +12,9 @@
 #' Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)
 #' @export
 #' @return A list containing the test statistic estimates
-Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
   c <- nrow(n)
   N <- sum(n)
   nip <- apply(n, 1, sum)
@@ -54,7 +58,9 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, pri
   z <- qnorm(1 - alpha / 2, 0, 1)
 
   # Inference for tau
-  SE_tau <- sqrt((sum(sum((phihat^2) * n / N)) - (sum(sum(phihat * n / N)))^2) / N)
+  SE_tau <- sqrt(
+    (sum(sum((phihat^2) * n / N)) - (sum(sum(phihat * n / N)))^2) / N
+  )
   CI_tau <- c(tauhat - z * SE_tau, tauhat + z * SE_tau)
   Z_Wald <- tauhat / SE_tau
   P <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
@@ -65,10 +71,15 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, pri
 
 
   # Inference for alpha on the logit scale
-  l <- log(alphahat / (1 - alphahat)) - z * SE_alpha / (alphahat * (1 - alphahat))
-  u <- log(alphahat / (1 - alphahat)) + z * SE_alpha / (alphahat * (1 - alphahat))
+  l <- log(
+    alphahat / (1 - alphahat)) - z * SE_alpha / (alphahat * (1 - alphahat)
+  )
+  u <- log(
+    alphahat / (1 - alphahat)) + z * SE_alpha / (alphahat * (1 - alphahat)
+  )
   CI_alpha_logit <- c(exp(l) / (1 + exp(l)), exp(u) / (1 + exp(u)))
-  Z_Wald_logit <- (alphahat * (1 - alphahat) * log(alphahat / (1 - alphahat))) / SE_alpha
+  Z_Wald_logit <- (alphahat * (1 - alphahat) * log(alphahat / (1 - alphahat))) /
+    SE_alpha
   P_logit <- 2 * (1 - pnorm(abs(Z_Wald_logit), 0, 1))
 
   # Inference for tau on the logit scale
@@ -89,12 +100,27 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05, pri
   results$CI_tau_logit <- CI_tau_logit
 
   if (printresults) {
+    common_part <- "%6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f"
     .print("\nInference for tau\n-----------------\n")
-    .print("Wald:       estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", tauhat, 100 * (1 - alpha), CI_tau[1], CI_tau[2], P, Z_Wald)
-    .print("Wald logit: estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", tauhat, 100 * (1 - alpha), CI_tau_logit[1], CI_tau_logit[2], P_logit, Z_Wald_logit)
+    .print(
+      paste("Wald:       estimate =", common_part, "\n"),
+      tauhat, 100 * (1 - alpha), CI_tau[1], CI_tau[2], P, Z_Wald
+    )
+    .print(
+      paste("Wald logit: estimate =", common_part, "\n"),
+      tauhat, 100 * (1 - alpha), CI_tau_logit[1], CI_tau_logit[2], P_logit,
+      Z_Wald_logit
+    )
     .print("\nInference for alpha\n-------------------\n")
-    .print("Wald:       estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", alphahat, 100 * (1 - alpha), CI_alpha[1], CI_alpha[2], P, Z_Wald)
-    .print("Wald logit: estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n\n", alphahat, 100 * (1 - alpha), CI_alpha_logit[1], CI_alpha_logit[2], P_logit, Z_Wald_logit)
+    .print(
+      paste("Wald:       estimate =", common_part, "\n"),
+      alphahat, 100 * (1 - alpha), CI_alpha[1], CI_alpha[2], P, Z_Wald
+    )
+    .print(
+      paste("Wald logit: estimate =", common_part, "\n\n"),
+      alphahat, 100 * (1 - alpha), CI_alpha_logit[1], CI_alpha_logit[2],
+      P_logit, Z_Wald_logit
+    )
   }
 
   invisible(results)

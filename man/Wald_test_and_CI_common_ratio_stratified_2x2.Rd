@@ -14,21 +14,24 @@ Wald_test_and_CI_common_ratio_stratified_2x2(
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 
-\item{estimatetype}{Mantel-Haenszel or inverse variance estimate ('MH' or 'IV')}
+\item{estimatetype}{Mantel-Haenszel or inverse variance estimate
+('MH' or 'IV')}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimates for phi
+A list containing the two-sided p-value, the Wald test statistic,
+and the lower, upper and point estimates for phi.
 }
 \description{
 The Wald test and CI for a common ratio of probabilities
 
 based on either the Mantel-Haenszel or inverse variance estimate
 
-Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
+Described in Chapter 10 "Stratified 2x2 Tables and
+Meta-Analysis"
 }
 \examples{
 # Smoking and lung cancer (Doll and Hill, 1950)

@@ -1,6 +1,9 @@
-#' @title The Wald confidence interval for the difference between paired probabilities
-#' @description The Wald confidence interval for the difference between paired probabilities
-#' @description with the pseudo-frequency adjustment suggested by Agresti and Min (2005)
+#' @title The Wald confidence interval for the difference between paired
+#' probabilities
+#' @description The Wald confidence interval for the difference between paired
+#' probabilities
+#' @description with the pseudo-frequency adjustment suggested by
+#' Agresti and Min (2005)
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
@@ -16,8 +19,9 @@
 #'
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Wald_CI_AgrestiMin_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
-
+Wald_CI_AgrestiMin_paired_2x2 <- function(
+  n, alpha = 0.05, printresults = TRUE
+) {
   # Estimate of the difference between probabilities (deltahat)
   N <- sum(n)
   estimate <- (n[1, 2] - n[2, 1]) / N
@@ -27,7 +31,9 @@ Wald_CI_AgrestiMin_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) 
   Ntilde <- sum(ntilde)
 
   # Standard error of the estimate
-  SE <- sqrt((ntilde[1, 2] + ntilde[2, 1]) - ((ntilde[1, 2] - ntilde[2, 1])^2) / Ntilde) / Ntilde
+  SE <- sqrt(
+    (ntilde[1, 2] + ntilde[2, 1]) - ((ntilde[1, 2] - ntilde[2, 1])^2) / Ntilde
+  ) / Ntilde
 
   # The upper alpha / 2 percentile of the standard normal distribution
   z <- qnorm(1 - alpha / 2, 0, 1)
@@ -41,7 +47,13 @@ Wald_CI_AgrestiMin_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) 
   U <- min(U, 1)
 
   if (printresults) {
-    .print("The Wald CI with Agresti-Min adjustment: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    .print(
+      paste(
+        "The Wald CI with Agresti-Min adjustment: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)\n"
+      ),
+      estimate, 100 * (1 - alpha), L, U
+    )
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

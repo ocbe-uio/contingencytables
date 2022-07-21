@@ -14,14 +14,16 @@ Woolf_test_and_CI_stratified_2x2(n, alpha = 0.05, printresults = TRUE)
 \item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing the two-sided p-value, the Wald test statistic, and the lower, upper and point estimate thetahatIV
+A list containing the two-sided p-value, the Wald test statistic,
+and the lower, upper and point estimate thetahatIV.
 }
 \description{
 The Woolf test and CI for a common odds ratio
 
 (A Wald-type test and CI based on the inverse variance estimate)
 
-Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
+Described in Chapter 10 "Stratified 2x2 Tables and
+Meta-Analysis"
 }
 \examples{
 # Smoking and lung cancer (Doll and Hill, 1950)

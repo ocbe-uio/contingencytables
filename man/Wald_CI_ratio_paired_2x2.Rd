@@ -17,7 +17,8 @@ Wald_CI_ratio_paired_2x2(n, alpha = 0.05, printresults = TRUE)
 A list containing lower, upper and point estimates of the statistic
 }
 \description{
-The Wald confidence interval for the ratio of paired probabilities
+The Wald confidence interval for the ratio of paired
+probabilities
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }

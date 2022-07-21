@@ -3,7 +3,8 @@
 %   R/Wald_test_and_CI_marginal_mean_ranks_paired_cxc.R
 \name{Wald_test_and_CI_marginal_mean_ranks_paired_cxc}
 \alias{Wald_test_and_CI_marginal_mean_ranks_paired_cxc}
-\title{The Wald test and confidence interval for the difference between marginal mean ranks / ridits}
+\title{The Wald test and confidence interval for the difference between
+marginal mean ranks / ridits}
 \usage{
 Wald_test_and_CI_marginal_mean_ranks_paired_cxc(
   n,
@@ -22,7 +23,8 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc(
 A list containing the test statistic estimates
 }
 \description{
-The Wald test and confidence interval for the difference between marginal mean ranks / ridits
+The Wald test and confidence interval for the difference between
+marginal mean ranks / ridits
 
 Described in Chapter 9 "The Paired cxc Table"
 }

@@ -40,11 +40,11 @@ jobs:
           run: |
             library(lintr)
             excluded_code <- list(
-              "R/FleissEveritt_test_paired_cxc.R" = 20,
-              "R/JonckheereTerpstra_test_rxc.R" = 73,
-              "R/JonckheereTerpstra_test_rxc.R" = 76,
-              "R/RBG_test_and_CI_stratified_2x2.R" = 42,
-              "R/RBG_test_and_CI_stratified_2x2.R" = 43,
+              "R/FleissEveritt_test_paired_cxc.R" = 18,
+              "R/JonckheereTerpstra_test_rxc.R" = 57,
+              "R/JonckheereTerpstra_test_rxc.R" = 60,
+              "R/RBG_test_and_CI_stratified_2x2.R" = 32,
+              "R/RBG_test_and_CI_stratified_2x2.R" = 33,
               "R/the_1xc_table_tests.R" = 41,
               "R/the_1xc_table_tests.R" = 47,
               "R/the_2xc_table.R" = 52,
@@ -52,17 +52,17 @@ jobs:
               "R/the_2xc_table.R" = 93
             )
             style_rules <- list(
-              T_and_F_symbol_linter, assignment_linter, closed_curly_linter,
-              commas_linter, commented_code_linter, todo_comment_linter,
-              cyclocomp_linter, object_length_linter, equals_na_linter,
-              function_left_parentheses_linter, infix_spaces_linter,
-              line_length_linter, no_tab_linter, object_usage_linter,
-              open_curly_linter, paren_brace_linter, absolute_path_linter,
-              nonportable_path_linter, pipe_continuation_linter,
-              semicolon_terminator_linter, seq_linter, single_quotes_linter,
-              spaces_inside_linter, trailing_blank_lines_linter,
-              trailing_whitespace_linter, undesirable_function_linter,
-              undesirable_operator_linter, unneeded_concatenation_linter
+              T_and_F_symbol_linter(), assignment_linter(), brace_linter(),
+              commas_linter(), commented_code_linter(), todo_comment_linter(),
+              equals_na_linter(),
+              function_left_parentheses_linter(), infix_spaces_linter(),
+              no_tab_linter(), object_usage_linter(),
+              absolute_path_linter(),
+              pipe_continuation_linter(),
+              semicolon_linter(), seq_linter(), single_quotes_linter(),
+              spaces_inside_linter(), trailing_blank_lines_linter(),
+              trailing_whitespace_linter(), undesirable_function_linter(),
+              undesirable_operator_linter(), unneeded_concatenation_linter()
             )
             lint_package(linters = style_rules, exclusions = excluded_code)
           shell: Rscript {0}
