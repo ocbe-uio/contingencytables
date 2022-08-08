@@ -25,6 +25,13 @@
 #' @return Fisher's exact test statistic
 Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.0001,
                                          printresults = TRUE) {
+  validateArguments(
+    x = mget(ls()),
+    types = list(
+      n = "counts", statistic = c("Pearson", "LR", "unpooled", "Fisher"),
+      gamma = "skip", printresults = "skip"
+    )
+  )
   # Partition the parameter space into 'num_pi_values' equally spaced values
   num_pi_values <- 1000
 

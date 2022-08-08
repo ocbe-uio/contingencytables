@@ -34,6 +34,7 @@ validateArguments <- function(x, types = "default") {
         "link" = "linear, log or logit",
         "estimatetype" = "MH or IV",
         "linkfunction" = "logit or probit",
+        "direction" = "increasing or decreasing",
         "skip"
       )
     } else {
@@ -42,17 +43,23 @@ validateArguments <- function(x, types = "default") {
       # so the indices match.
       type <- types[order(names(types))][i]
     }
-    isvalid <- switch(
-      type,
-      "counts" = all(trunc(x[[i]]) == x[[i]]) && all(x[[i]] >= 0),
-      "probability"  = (x[[i]] >= 0) && (x[[i]] <= 1),
-      "positive" = (x[[i]] > 0),
-      "linear, log or logit" = x[[i]] %in% c("linear", "log", "logit"),
-      "MH or IV" = x[[i]] %in% c("MH", "IV"),
-      "logit or probit" = x[[i]] %in% c("logit", "probit"),
-      "skip" = TRUE
-    )
+    if (length(type[[1]]) == 1) {
+      isvalid <- switch(
+        type[[1]],
+        "counts" = all(trunc(x[[i]]) == x[[i]]) && all(x[[i]] >= 0),
+        "probability"  = all((x[[i]] >= 0)) && all((x[[i]] <= 1)),
+        "positive" = (x[[i]] > 0),
+        "linear, log or logit" = x[[i]] %in% c("linear", "log", "logit"),
+        "MH or IV" = x[[i]] %in% c("MH", "IV"),
+        "logit or probit" = x[[i]] %in% c("logit", "probit"),
+        "increasing or decreasing" = x[[i]] %in% c("increasing", "decreasing"),
+        "skip" = TRUE
+      )
+    } else {
+      isvalid <- x[[i]] %in% type[[1]]
+    }
     if (!isvalid) {
+      type <- paste(type[[1]], collapse = ", ")
       stop(
         names(x)[i], " contains invalid values. Should be ", type,
         ". Please read the function documentation for more information.",

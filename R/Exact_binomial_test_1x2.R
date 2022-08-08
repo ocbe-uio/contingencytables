@@ -15,6 +15,7 @@
 #' Exact_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 #' @export
 Exact_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+  validateArguments(mget(ls()))
 
   # The exact right tail P-value (for H_A: pi > pi0)
   Pright <- sum(dbinom(X:n, n, pi0))
