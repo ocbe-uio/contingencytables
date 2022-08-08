@@ -89,4 +89,26 @@ test_that("Invalid arguments are picked up", {
   expect_error(
     Cumulative_models_for_rxc(lydersen_2012a, "log"), "Should be logit or pr"
   )
+  expect_error(
+    Exact_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = -0.5),
+    "Should be probability"
+  )
+  expect_error(
+     Exact_cond_midP_linear_rank_tests_2xc(-lydersen_2012a), "Should be counts"
+  )
+  expect_error(
+    Exact_cond_midP_tests_rxc(-table_7.3), "Should be counts"
+  )
+  expect_error(
+    Exact_cond_midP_unspecific_ordering_rx2(t(lydersen_2012a), "dec"),
+    "Should be increasing or decreasing"
+  )
+  expect_error(
+     Exact_multinomial_test_1xc(snp6498169$subset$n, -snp6498169$subset$pi0),
+    "Should be probability"
+  )
+  expect_error(
+    Exact_unconditional_test_2x2(tea, "LER"),
+    "Should be Pearson, LR, unpooled, Fisher."
+  )
 })

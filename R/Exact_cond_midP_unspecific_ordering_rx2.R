@@ -21,6 +21,7 @@
 #' @export
 #' @return A data frame containing the two-sided exact P-value and the mid-P value
 Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson", printresults = TRUE) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
