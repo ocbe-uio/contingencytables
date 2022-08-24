@@ -21,6 +21,8 @@
 #' @export
 #' @return A vector containing the two-sided p-value and the score test statistic
 Score_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 

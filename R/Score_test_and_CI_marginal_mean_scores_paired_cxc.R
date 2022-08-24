@@ -13,6 +13,8 @@
 #' @export
 #' @return A list containing the two-sided p-value, the score test statistic, the confidence limits and the estimate of the difference between marginal mean scores
 Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c <- nrow(n)
   N <- sum(n)
   nip <- apply(n, 1, sum)

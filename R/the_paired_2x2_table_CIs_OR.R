@@ -6,6 +6,8 @@
 #' @export
 #' @return A string of "-". This function should be called for its printed output.
 the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   thetacondhat <- n[1, 2] / n[2, 1]
 
   .print("\nEstimate of theta_cond = n_12/n_21: %5.3f\n\n", thetacondhat)

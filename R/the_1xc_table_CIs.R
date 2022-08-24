@@ -7,6 +7,7 @@
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 the_1xc_table_CIs <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
 
   # ======================================================== #
   # Ad-hoc function to print output                          #

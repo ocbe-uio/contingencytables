@@ -12,6 +12,8 @@
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 Pearson_chi_squared_test_1xc <- function(n, pi0, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c0 <- length(n)
   N <- sum(n)
 

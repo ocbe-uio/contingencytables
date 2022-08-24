@@ -17,6 +17,8 @@
 #' @export
 #' @return NULL. This function should be called for its printed output
 the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   estimate <- X / n
 
   # ======================================================== #

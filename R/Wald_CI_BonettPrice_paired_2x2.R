@@ -19,7 +19,10 @@
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 Wald_CI_BonettPrice_paired_2x2 <- function(
-  n, alpha = 0.05, printresults = TRUE) {
+  n, alpha = 0.05, printresults = TRUE
+) {
+  validateArguments(mget(ls()))
+
   # Estimate of the difference between probabilities (deltahat)
   N <- sum(n)
   estimate <- (n[1, 2] - n[2, 1]) / N

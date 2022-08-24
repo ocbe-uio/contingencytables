@@ -9,6 +9,8 @@
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
 Stuart_test_paired_cxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c <- nrow(n)
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)

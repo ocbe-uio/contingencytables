@@ -24,6 +24,8 @@
 Trend_estimate_CI_tests_rx2 <- function(
   n, a, linkfunction = "logit", alpha = 0.05, printresults = TRUE
 ) {
+  validateArguments(mget(ls()))
+
   nip <- apply(n, 1, sum)
 
   # Fit model and get estimat of the trend (beta) and its standard error

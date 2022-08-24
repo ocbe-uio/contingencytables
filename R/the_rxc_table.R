@@ -33,6 +33,8 @@
 #' @export
 #' @return NULL. This function should be called for its printed output.
 the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
 

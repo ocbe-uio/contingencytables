@@ -20,8 +20,9 @@
 Uncorrected_asymptotic_score_CI_2x2 <- function(
   n, alpha = 0.05, printresults = TRUE
 ) {
-  # global n11 n21 n1p n2p alphaglobal limit
+  validateArguments(mget(ls()))
 
+  # global n11 n21 n1p n2p alphaglobal limit
   n11 <- n[1, 1]
   n21 <- n[2, 1]
   n1p <- n[1, 1] + n[1, 2]

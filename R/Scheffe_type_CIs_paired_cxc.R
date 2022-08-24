@@ -10,6 +10,8 @@
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 Scheffe_type_CIs_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c <- nrow(n)
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)
