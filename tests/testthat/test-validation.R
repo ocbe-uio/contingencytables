@@ -81,13 +81,15 @@ test_that("Invalid arguments are picked up", {
     Cumulative_models_for_2xc(lydersen_2012a, alpha = 1.1), "probability"
   )
   expect_error(
-    Cumulative_models_for_2xc(lydersen_2012a, "log"), "Should be logit or pr"
+    Cumulative_models_for_2xc(lydersen_2012a, "log"),
+    "linkfunction contains invalid values. Should be logit, probit or identity"
   )
   expect_error(
     Cumulative_models_for_rxc(lydersen_2012a, "logit", alpha = 1.1), "probability"
   )
   expect_error(
-    Cumulative_models_for_rxc(lydersen_2012a, "log"), "Should be logit or pr"
+    Cumulative_models_for_rxc(lydersen_2012a, "log"),
+    "linkfunction contains invalid values. Should be logit, probit or identity"
   )
   expect_error(
     Exact_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = -0.5),
@@ -132,8 +134,8 @@ test_that("Invalid arguments are picked up", {
     "Should be counts."
   )
   expect_error(
-    gamma_coefficient_rxc_bca(table_7.7, 0),
-    "nboot contains invalid values. Should be positive."
+    gamma_coefficient_rxc_bca(table_7.7, -80),
+    "nboot contains invalid values. Should be counts."
   )
   expect_error(
     gamma_coefficient_rxc(-table_7.7),
@@ -188,8 +190,8 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-    Kendalls_tau_b_rxc_bca(table_7.9, 0),
-    "nboot contains invalid values. Should be positive."
+    Kendalls_tau_b_rxc_bca(table_7.9, -1),
+    "nboot contains invalid values. Should be counts."
   )
   expect_error(
     Kendalls_tau_b_rxc(-table_7.8),
@@ -316,8 +318,8 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-    Pearson_correlation_coefficient_rxc_bca(table_7.7, 0),
-    "nboot contains invalid values. Should be positive."
+    Pearson_correlation_coefficient_rxc_bca(table_7.7, -1),
+    "nboot contains invalid values. Should be counts."
   )
   expect_error(
     Pearson_correlation_coefficient_rxc(table_7.7, alpha = 1.1),
@@ -508,7 +510,7 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-     Trend_estimate_CI_tests_rx2(indredavik_2008, 1:5, 5),
+     Trend_estimate_CI_tests_rx2(indredavik_2008, 1:5, "logit", 5),
     "alpha contains invalid values. Should be probability."
   )
   expect_error(
