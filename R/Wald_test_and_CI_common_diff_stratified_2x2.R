@@ -22,6 +22,8 @@
 Wald_test_and_CI_common_diff_stratified_2x2 <- function(
   n, estimatetype = "MH", alpha = 0.05, printresults = TRUE
 ) {
+  validateArguments(mget(ls()))
+
   n1pk <- apply(n[1, , ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)
   nppk <- apply(n, 3, sum)

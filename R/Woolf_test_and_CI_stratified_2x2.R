@@ -19,6 +19,8 @@
 Woolf_test_and_CI_stratified_2x2 <- function(
   n, alpha = 0.05, printresults = TRUE
 ) {
+  validateArguments(mget(ls()))
+
   # Get the inverse variance overall estimate and weights
   tmp <- InverseVariance_estimate_stratified_2x2(n, "logit", FALSE)
   thetahatIV <- tmp[[1]]

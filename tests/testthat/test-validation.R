@@ -545,40 +545,66 @@ test_that("Invalid arguments are picked up", {
     Wald_CI_diff_CC_paired_2x2(cavo_2012 / 6),
     "n contains invalid values. Should be counts."
   )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
-  # expect_error(
-  #   ,
-  #   "n contains invalid values. Should be counts."
-  # )
+  expect_error(
+    Wald_CI_diff_paired_2x2(cavo_2012 / 7),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wald_CI_OR_Laplace_paired_2x2(ezra_2010, 5),
+    "alpha contains invalid values. Should be probability."
+  )
+  expect_error(
+    Wald_CI_OR_paired_2x2(ezra_2010 / 7),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wald_CI_ratio_paired_2x2(cavo_2012 / 8),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wald_test_1x2(ligarden_2010["X"], -ligarden_2010["n"], pi0 = 0.1),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wald_test_and_CI_common_diff_stratified_2x2(hine_1989, "HH"),
+    "estimatetype contains invalid values. Should be MH or IV."
+  )
+  expect_error(
+    Wald_test_and_CI_common_ratio_stratified_2x2(-hine_1989),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999 / 7),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wald_test_and_CI_marginal_mean_scores_paired_cxc(
+      fischer_1999, c(8, 3.5, 0, -3.5, -8), 4
+    ),
+    "alpha contains invalid values. Should be probability."
+  )
+  expect_error(
+    Wald_test_CC_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = -1),
+    "pi0 contains invalid values. Should be probability."
+  )
+  expect_error(
+    Wilson_score_CI_1x2(singh_2010["1st", "X"], -singh_2010["1st", "n"]),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Wilson_score_CI_CC_1x2(ligarden_2010["X"] / 7, ligarden_2010["n"]),
+    "X contains invalid values. Should be counts."
+  )
+  expect_error(
+    Woolf_logit_CI_2x2(ritland_2007, 7),
+    "alpha contains invalid values. Should be probability."
+  )
+  expect_error(
+    Woolf_test_and_CI_stratified_2x2(hine_1989 / 7),
+    "n contains invalid values. Should be counts."
+  )
+  expect_error(
+    Z_unpooled_test_2x2(ritland_2007 / 8),
+    "n contains invalid values. Should be counts."
+  )
 })

@@ -22,6 +22,7 @@
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
 Wilson_score_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
 
   # Estimate of the binomial parameter
   estimate <- X / n
