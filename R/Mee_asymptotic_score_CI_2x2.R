@@ -13,6 +13,8 @@
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 Mee_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   n11 <- n[1, 1]
   n21 <- n[2, 1]
   n1p <- n[1, 1] + n[1, 2]

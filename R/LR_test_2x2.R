@@ -11,6 +11,8 @@
 #' @export
 #' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
 LR_test_2x2 <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   # The estimated expected counts
   N <- sum(n)
   m <- outer(apply(n, 1, sum), apply(n, 2, sum)) / N

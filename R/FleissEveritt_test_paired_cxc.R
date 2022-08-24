@@ -8,6 +8,7 @@
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
 FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   # This is the version with c=3 categories
   c <- nrow(n)
   nip <- apply(n, 1, sum)

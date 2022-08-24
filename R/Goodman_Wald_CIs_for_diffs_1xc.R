@@ -11,6 +11,15 @@
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 Goodman_Wald_CIs_for_diffs_1xc <- function(n, alpha = 0.05, adjustment = "Bonferroni", printresults = TRUE) {
+  validateArguments(
+    x = mget(ls()),
+    types = list(
+      n = "counts", alpha = "probability",
+      adjustment = c("Bonferroni", "Scheffe"),
+      printresults = "skip"
+    )
+  )
+
   c0 <- length(n)
   N <- sum(n)
 

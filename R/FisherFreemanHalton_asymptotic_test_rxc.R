@@ -9,6 +9,7 @@
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
 FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)

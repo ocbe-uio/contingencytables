@@ -10,6 +10,8 @@
 #' @export
 #' @return probability value
 McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   if (n[1, 2] == n[2, 1]) {
     midP <- 1 - 0.5 * dbinom(n[1, 2], n[1, 2] + n[2, 1], 0.5)
   } else {

@@ -11,6 +11,8 @@
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
 Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
   N <- sum(n)

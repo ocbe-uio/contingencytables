@@ -10,6 +10,8 @@
 #' @export
 #' @return The McNemar test statistic with continuity correction (\code{Z}) and the reference distribution (standard normal, \code{P})
 McNemar_asymptotic_test_paired_2x2 <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   # The number of discordant pairs
   nd <- n[1, 2] + n[2, 1]
   if (nd == 0) {
