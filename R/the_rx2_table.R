@@ -6,15 +6,10 @@
 #' for unspecific ordering (often saves calculation time)
 #' ("increasing" or "decreasing")
 #' @examples
-#' \dontrun{
-#'   # Alcohol consumption and malformations (Mills and Graubard, 1987)
-#'   a.0 <- c(1, 2, 3, 4, 5)
-#'   the_rx2_table(mills_graubard_1987, a.0, "increasing")
-#'
-#'   # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#'   a.1 <- c(7, 22, 37, 48, 55)
-#'   the_rx2_table(indredavik_2008, a.1, "decreasing")
-#' }
+#' the_rx2_table(
+#'   mills_graubard_1987, direction = "increasing", skip_exact = TRUE
+#' )
+#' the_rx2_table(indredavik_2008, direction = "decreasing", skip_exact = TRUE)
 #' @export
 #' @return A string of "-". This function should be called for its printed output.
 the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact = FALSE) {
