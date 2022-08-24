@@ -42,12 +42,12 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   # Tests for association in unordered tables
   #--------------------------
 
-  .print("\nMethod                                     Statistic      P-value\n")
-  .print("-------------------------------------------------------------------\n")
-  .print("Unordered rxc tables\n")
+  my_sprintf("\nMethod                                     Statistic      P-value\n")
+  my_sprintf("-------------------------------------------------------------------\n")
+  my_sprintf("Unordered rxc tables\n")
   results <- Pearson_LR_tests_rxc(n, printresults = FALSE)
-  .print("  Pearson chi-square                      %6.3f (df=%g)  %9.6f\n", results$T_Pearson, results$df_Pearson, results$P_Pearson)
-  .print("  Likelihood ratio                        %6.3f (df=%g)  %9.6f\n", results$T_LR, results$df_LR, results$P_LR)
+  my_sprintf("  Pearson chi-square                      %6.3f (df=%g)  %9.6f\n", results$T_Pearson, results$df_Pearson, results$P_Pearson)
+  my_sprintf("  Likelihood ratio                        %6.3f (df=%g)  %9.6f\n", results$T_LR, results$df_LR, results$P_LR)
 
   tmp <- FisherFreemanHalton_asymptotic_test_rxc(n, printresults = FALSE)
   P <- tmp[[1]]
@@ -55,7 +55,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   df <- tmp[[3]]
 
   if (!is.na(P)) {
-    .print("  Fisher-Freeman-Halton asymptotic        %6.3f (df=%g)  %9.6f\n", T0, df, P)
+    my_sprintf("  Fisher-Freeman-Halton asymptotic        %6.3f (df=%g)  %9.6f\n", T0, df, P)
   }
 
   # There is some computation time for the exact and mid-P tests on the 3x3 table
@@ -63,14 +63,14 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   # Change "c <=2" to "c <= 3" to calculate the tests also on these data
   if (r <= 3 && c <= 2) {
     results_exact_midP <- Exact_cond_midP_tests_rxc(n, printresults = FALSE)
-    .print("  Fisher-Freeman-Halton exact conditional                %9.6f\n", results_exact_midP$P_FFH)
-    .print("  Fisher-Freeman-Halton mid-P                            %9.6f\n", results_exact_midP$midP_FFH)
-    .print("  Pearson exact conditional                              %9.6f\n", results_exact_midP$P_Pearson)
-    .print("  Pearson mid-P                                          %9.6f\n", results_exact_midP$midP_Pearson)
-    .print("  Likelihood ratio exact conditional                     %9.6f\n", results_exact_midP$P_LR)
-    .print("  Likelihood ratio mid-P                                 %9.6f\n", results_exact_midP$midP_LR)
+    my_sprintf("  Fisher-Freeman-Halton exact conditional                %9.6f\n", results_exact_midP$P_FFH)
+    my_sprintf("  Fisher-Freeman-Halton mid-P                            %9.6f\n", results_exact_midP$midP_FFH)
+    my_sprintf("  Pearson exact conditional                              %9.6f\n", results_exact_midP$P_Pearson)
+    my_sprintf("  Pearson mid-P                                          %9.6f\n", results_exact_midP$midP_Pearson)
+    my_sprintf("  Likelihood ratio exact conditional                     %9.6f\n", results_exact_midP$P_LR)
+    my_sprintf("  Likelihood ratio mid-P                                 %9.6f\n", results_exact_midP$midP_LR)
   }
-  .print("-------------------------------------------------------------------\n")
+  my_sprintf("-------------------------------------------------------------------\n")
 
 
   # ---------
@@ -80,10 +80,10 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   tmp <- Pearson_residuals_rxc(n, printresults = FALSE)
   residuals <- tmp[[1]]
   std_residuals <- tmp[[2]]
-  .print("Pearson residuals:\n")
+  my_sprintf("Pearson residuals:\n")
   print(residuals)
   cat("\n")
-  .print("Standardized Pearson residuals:\n")
+  my_sprintf("Standardized Pearson residuals:\n")
   print(std_residuals)
 
 
@@ -93,9 +93,9 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 
   if (c == 2) {
     Scheffe_type_CIs_rxc(n, alpha, printresults = TRUE)
-    .print("\n")
+    my_sprintf("\n")
     Bonferroni_type_CIs_rxc(n, alpha, printresults = TRUE)
-    .print("\n")
+    my_sprintf("\n")
   }
 
 
@@ -104,18 +104,18 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #-------------------------------
 
   cat("\n")
-  .print("Method                                     Statistic      P-value\n")
-  .print("------------------------------------------------------------------\n")
-  .print("Singly ordered rxc tables\n")
+  my_sprintf("Method                                     Statistic      P-value\n")
+  my_sprintf("------------------------------------------------------------------\n")
+  my_sprintf("Singly ordered rxc tables\n")
   tmp <- KruskalWallis_asymptotic_test_rxc(n, printresults = FALSE)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
-  .print("  Kruskal-Wallis asymptotic               %6.3f (df=%g)  %9.6f\n", T0, df, P)
+  my_sprintf("  Kruskal-Wallis asymptotic               %6.3f (df=%g)  %9.6f\n", T0, df, P)
 
   if (exists("results_exact_midP")) {
-    .print("  Kruskal-Wallis exact conditional                       %9.6f\n", results_exact_midP$P_KW)
-    .print("  Kruskal-Wallis mid-P                                   %9.6f\n", results_exact_midP$midP_KW)
+    my_sprintf("  Kruskal-Wallis exact conditional                       %9.6f\n", results_exact_midP$P_KW)
+    my_sprintf("  Kruskal-Wallis mid-P                                   %9.6f\n", results_exact_midP$midP_KW)
   }
 
 
@@ -127,30 +127,30 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
     results <- Cumulative_models_for_rxc(n, "logit", alpha, printresults = FALSE)
 
     cat("\n")
-    .print("\nTesting the fit of a proportional odds model\n")
-    .print("  Pearson goodness of fit:                %6.3f (df=%g)  %9.6f\n", results$X2, results$df_X2, results$P_X2)
-    .print("  Likelihodd ratio (deviance):            %6.3f (df=%g)  %9.6f\n", results$D, results$df_D, results$P_D)
+    my_sprintf("\nTesting the fit of a proportional odds model\n")
+    my_sprintf("  Pearson goodness of fit:                %6.3f (df=%g)  %9.6f\n", results$X2, results$df_X2, results$P_X2)
+    my_sprintf("  Likelihodd ratio (deviance):            %6.3f (df=%g)  %9.6f\n", results$D, results$df_D, results$P_D)
 
     cat("\n")
-    .print("\nTesting the effect in a proportional odds model\n")
-    .print("  Likelihood ratio                        %6.3f (df=%g)  %9.6f\n", results$T_LR, results$df_LR, results$P_LR)
-    .print("------------------------------------------------------------------\n")
+    my_sprintf("\nTesting the effect in a proportional odds model\n")
+    my_sprintf("  Likelihood ratio                        %6.3f (df=%g)  %9.6f\n", results$T_LR, results$df_LR, results$P_LR)
+    my_sprintf("------------------------------------------------------------------\n")
 
     cat("\n")
-    .print("\nComparing the rows                  Statistic   P-value\n")
-    .print("--------------------------------------------------------\n")
+    my_sprintf("\nComparing the rows                  Statistic   P-value\n")
+    my_sprintf("--------------------------------------------------------\n")
     for (i in 1:(r - 1)) {
-      .print("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, results$Z_Wald[i], results$P_Wald[i])
+      my_sprintf("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, results$Z_Wald[i], results$P_Wald[i])
     }
-    .print("--------------------------------------------------------\n\n")
+    my_sprintf("--------------------------------------------------------\n\n")
 
     cat("\n")
-    .print("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
-    .print("--------------------------------------------------------------------------\n")
+    my_sprintf("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
+    my_sprintf("--------------------------------------------------------------------------\n")
     for (i in 1:(r - 1)) {
-      .print("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, results$betahat[i], results$Wald_CI[i, 1], results$Wald_CI[i, 2], results$OR[i], results$Wald_CI_OR[i, 1], results$Wald_CI_OR[i, 2])
+      my_sprintf("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, results$betahat[i], results$Wald_CI[i, 1], results$Wald_CI[i, 2], results$OR[i], results$Wald_CI_OR[i, 1], results$Wald_CI_OR[i, 2])
     }
-    .print("--------------------------------------------------------------------------\n")
+    my_sprintf("--------------------------------------------------------------------------\n")
   }
 
 
@@ -159,25 +159,25 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #-------------------------------
 
   cat("\n")
-  .print("\nMethod                                    Statistic    P-value\n")
-  .print("---------------------------------------------------------------\n")
-  .print("Doubly ordered rxc tables\n")
+  my_sprintf("\nMethod                                    Statistic    P-value\n")
+  my_sprintf("---------------------------------------------------------------\n")
+  my_sprintf("Doubly ordered rxc tables\n")
   tmp <- linear_by_linear_test_rxc(n, 1:r, 1:c, printresults = FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  .print("  Linear-by-linear                         %6.3f    %9.6f\n", Z, P)
+  my_sprintf("  Linear-by-linear                         %6.3f    %9.6f\n", Z, P)
   tmp <- JonckheereTerpstra_test_rxc(n, printresults = FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  .print("  Jonckheere-Terpstra                      %6.3f    %9.6f\n", Z, P)
+  my_sprintf("  Jonckheere-Terpstra                      %6.3f    %9.6f\n", Z, P)
 
   if (exists("results_exact_midP")) {
-    .print("  Linear-by-linear exact conditional                 %9.6f\n", results_exact_midP$P_KW)
-    .print("  Linear-by-linear mid-P                             %9.6f\n", results_exact_midP$midP_KW)
-    .print("  Jonckheere-Terpstra exact conditional              %9.6f\n", results_exact_midP$P_KW)
-    .print("  Jonckheere-Terpstra mid-P                          %9.6f\n", results_exact_midP$midP_KW)
+    my_sprintf("  Linear-by-linear exact conditional                 %9.6f\n", results_exact_midP$P_KW)
+    my_sprintf("  Linear-by-linear mid-P                             %9.6f\n", results_exact_midP$midP_KW)
+    my_sprintf("  Jonckheere-Terpstra exact conditional              %9.6f\n", results_exact_midP$P_KW)
+    my_sprintf("  Jonckheere-Terpstra mid-P                          %9.6f\n", results_exact_midP$midP_KW)
   }
-  .print("---------------------------------------------------------------\n")
+  my_sprintf("---------------------------------------------------------------\n")
 
 
   #-----
@@ -185,20 +185,20 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #-----
 
   cat("\n")
-  .print("\nCorrelation measures\n")
-  .print("-----------------------------------------------------------------------------------------\n")
+  my_sprintf("\nCorrelation measures\n")
+  my_sprintf("-----------------------------------------------------------------------------------------\n")
 
   tmp <- Pearson_correlation_coefficient_rxc(n, 1:r, 1:c, alpha, printresults = FALSE)
   rP <- tmp[[1]]
   L <- tmp[[2]]
   U <- tmp[[3]]
-  .print("Pearson correlation coefficient           %6.3f (%g%% CI %6.3f to %6.3f)\n", rP, 100 * (1 - alpha), L, U)
+  my_sprintf("Pearson correlation coefficient           %6.3f (%g%% CI %6.3f to %6.3f)\n", rP, 100 * (1 - alpha), L, U)
   if (nboot > 0) {
     tmp <- Pearson_correlation_coefficient_rxc_bca(n, nboot, 1:r, 1:c, alpha, printresults = FALSE)
     rP <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
-    .print("Pearson correlation w / BCa bootstrap CI    %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rP, 100 * (1 - alpha), L, U, nboot)
+    my_sprintf("Pearson correlation w / BCa bootstrap CI    %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rP, 100 * (1 - alpha), L, U, nboot)
   }
 
   cat("\n")
@@ -208,27 +208,27 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   U <- tmp[[3]]
   L_BW <- tmp[[4]]
   U_BW <- tmp[[5]]
-  .print("\nSpearman correlation w / Fieller CI         %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L, U)
-  .print("Spearman correlation w / Bonett-Wright CI   %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
+  my_sprintf("\nSpearman correlation w / Fieller CI         %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L, U)
+  my_sprintf("Spearman correlation w / Bonett-Wright CI   %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
 
   if (nboot > 0) {
     tmp <- Spearman_correlation_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
     rho <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
-    .print("Spearman correlation w / BCa bootstrap CI   %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rho, 100 * (1 - alpha), L, U, nboot)
+    my_sprintf("Spearman correlation w / BCa bootstrap CI   %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", rho, 100 * (1 - alpha), L, U, nboot)
   }
 
   cat("\n")
   gamma <- gamma_coefficient_rxc(n, printresults = FALSE)$gamma
-  .print("\nThe gamma coefficient                     %6.3f\n", gamma)
+  my_sprintf("\nThe gamma coefficient                     %6.3f\n", gamma)
 
   if (nboot > 0) {
     tmp <- gamma_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
     gamma <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
-    .print("The gamma coefficient w / BCa bootstrap CI  %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", gamma, 100 * (1 - alpha), L, U, nboot)
+    my_sprintf("The gamma coefficient w / BCa bootstrap CI  %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", gamma, 100 * (1 - alpha), L, U, nboot)
   }
 
   cat("\n")
@@ -236,19 +236,15 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   tau_b <- tmp[[1]]
   L <- tmp[[2]]
   U <- tmp[[3]]
-  .print("\nKendalls tau-b w / Fieller CI              %6.3f (%g%% CI %6.3f to %6.3f)\n", tau_b, 100 * (1 - alpha), L, U)
+  my_sprintf("\nKendalls tau-b w / Fieller CI              %6.3f (%g%% CI %6.3f to %6.3f)\n", tau_b, 100 * (1 - alpha), L, U)
 
   if (nboot > 0) {
     tmp <- Kendalls_tau_b_rxc_bca(n, nboot, alpha, printresults = FALSE)
     tau_b <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
-    .print("Kendalls tau-b w / BCa bootstrap CI        %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", tau_b, 100 * (1 - alpha), L, U, nboot)
+    my_sprintf("Kendalls tau-b w / BCa bootstrap CI        %6.3f (%g%% CI %6.3f to %6.3f), nboot = %g\n", tau_b, 100 * (1 - alpha), L, U, nboot)
   }
 
-  .print("-----------------------------------------------------------------------------------------\n")
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  my_sprintf("-----------------------------------------------------------------------------------------\n")
 }

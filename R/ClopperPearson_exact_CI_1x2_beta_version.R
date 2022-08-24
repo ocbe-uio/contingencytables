@@ -38,12 +38,8 @@ ClopperPearson_exact_CI_1x2_beta_version <- function(
   }
 
   if (printresults) {
-    .print("The Clopper Pearson exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    my_sprintf("The Clopper Pearson exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(L = L, U = U, estimate = estimate))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

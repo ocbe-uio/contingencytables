@@ -43,16 +43,11 @@ Bonferroni_type_CIs_paired_cxc <- function(
   }
 
   if (printresults) {
-    .print("Bonferroni-type simultaneous intervals\n")
+    my_sprintf("Bonferroni-type simultaneous intervals\n")
     for (i in 1:c) {
-      .print("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
+      my_sprintf("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
     }
   }
 
   invisible(list(L = L, U = U, deltahat = deltahat))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

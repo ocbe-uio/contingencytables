@@ -17,8 +17,8 @@ McNemar_asymptotic_test_CC_paired_2x2 <- function(n, printresults = TRUE) {
   nd <- n[1, 2] + n[2, 1]
   if (nd == 0) {
     if (printresults) {
-      .print("No discordant pairs\n")
-      .print("P = 1.0\n")
+      my_sprintf("No discordant pairs\n")
+      my_sprintf("P = 1.0\n")
     }
     P <- 1
     return(P)
@@ -31,13 +31,8 @@ McNemar_asymptotic_test_CC_paired_2x2 <- function(n, printresults = TRUE) {
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
   if (printresults) {
-    .print("The asymptotic McNemar test with continuity correction: P = %8.6f, Z = %6.3f\n", P, Z)
+    my_sprintf("The asymptotic McNemar test with continuity correction: P = %8.6f, Z = %6.3f\n", P, Z)
   }
 
   return(list(P = P, Z = Z))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

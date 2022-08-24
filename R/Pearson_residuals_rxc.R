@@ -42,7 +42,3 @@ Pearson_residuals_rxc <- function(n, printresults = TRUE) {
 
   return(list(residuals = residuals, std_residuals = std_residuals))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

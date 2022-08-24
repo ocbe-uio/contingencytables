@@ -48,13 +48,9 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE)
   U <- thetahatMH * exp(z_alpha * SElog)
 
   if (printresults) {
-    .print("The RBG test: P = %7.5f, Z = %6.3f\n", P, Z)
-    .print("The RBG CI: thetahatMH = %6.4f (%g%% CI %6.4f to %6.4f)\n", thetahatMH, 100 * (1 - alpha), L, U)
+    my_sprintf("The RBG test: P = %7.5f, Z = %6.3f\n", P, Z)
+    my_sprintf("The RBG CI: thetahatMH = %6.4f (%g%% CI %6.4f to %6.4f)\n", thetahatMH, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(P = P, Z = Z, L = L, U = U, thetahatMH = thetahatMH, SElog = SElog))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

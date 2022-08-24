@@ -47,7 +47,7 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresul
   U <- ans.ci$bca[5]
 
   if (printresults) {
-    .print("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)\n", gamma, 100 * (1 - alpha), L, U)
+    my_sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)\n", gamma, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(gamma = gamma, L = L, U = U))
@@ -62,8 +62,4 @@ f.gcrb <- function(dat, d) {
   }
   res <- gamma_coefficient_rxc(n, printresults = FALSE)
   return(res$gamma)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

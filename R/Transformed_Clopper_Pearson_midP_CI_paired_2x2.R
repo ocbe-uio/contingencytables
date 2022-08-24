@@ -28,7 +28,7 @@ Transformed_Clopper_Pearson_midP_CI_paired_2x2 <- function(
   U <- U_mu / (1 - U_mu)
 
   if (printresults) {
-    .print(
+    my_sprintf(
       paste(
         "The transformed Clopper-Pearson mid-P CI: estimate =",
         "%6.4f (%g%% CI %6.4f to %6.4f)\n"
@@ -38,9 +38,4 @@ Transformed_Clopper_Pearson_midP_CI_paired_2x2 <- function(
   }
 
   invisible(list(L = L, U = U, estimate = estimate))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

@@ -54,16 +54,12 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
   P <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
 
   if (printresults) {
-    .print("The Wald test: P = %7.5f, Z = %6.3f\n", P, Z_Wald)
-    .print(
+    my_sprintf("The Wald test: P = %7.5f, Z = %6.3f\n", P, Z_Wald)
+    my_sprintf(
       "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate,
       100 * (1 - alpha), L, U
     )
   }
 
   invisible(list(P = P, Z_Wald = Z_Wald, L = L, U = U, estimate = estimate))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

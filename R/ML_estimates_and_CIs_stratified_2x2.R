@@ -78,18 +78,13 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, p
   results$pihat <- pihat
 
   if (printresults) {
-    .print("Maximum likelihood estimates:\n")
-    .print("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
-    .print("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
+    my_sprintf("Maximum likelihood estimates:\n")
+    my_sprintf("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
+    my_sprintf("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
     for (k in 2:K) {
-      .print("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
+      my_sprintf("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
     }
   }
 
   invisible(results)
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

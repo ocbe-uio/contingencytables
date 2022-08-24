@@ -55,12 +55,8 @@ Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05, printresults 
   U <- estimate + sqrt((pip1hat - l2)^2 + (u1 - pi1phat)^2 - 2 * psi * (pip1hat - l2) * (u1 - pi1phat))
 
   if (printresults) {
-    .print("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    my_sprintf("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)\n", estimate, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(L = L, U = U, estimate = estimate))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

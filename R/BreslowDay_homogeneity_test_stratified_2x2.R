@@ -48,13 +48,8 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   P <- 1 - pchisq(T0, df)
 
   if (printresults) {
-    .print("The Breslow-Day test: P = %7.5f, T0 = %5.3f (df = %i)\n", P, T0, df)
+    my_sprintf("The Breslow-Day test: P = %7.5f, T0 = %5.3f (df = %i)\n", P, T0, df)
   }
 
   invisible(list(P = P, T = T0, df = df))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

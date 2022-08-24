@@ -51,7 +51,7 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = 
   }
 
   if (printresults) {
-    .print("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    my_sprintf("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(L = L, U = U, estimate = estimate))
@@ -100,8 +100,4 @@ ML_estimate.3 <- function(phi0, .param) {
   C <- n21 * (1 - phi0) * (n11 + n12 + n21) / N
   p21tilde <- (-B + sqrt(B^2 - 4 * A * C)) / (2 * A)
   return(p21tilde)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

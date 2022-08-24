@@ -62,12 +62,8 @@ Pearson_correlation_coefficient_rxc <- function(
   U <- (exp(2 * u) - 1) / (exp(2 * u) + 1)
 
   if (printresults) {
-    .print("The Pearson correlation coefficient: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
+    my_sprintf("The Pearson correlation coefficient: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(rP = rP, L = L, U = U))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

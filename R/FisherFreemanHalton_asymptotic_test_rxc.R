@@ -31,7 +31,7 @@ FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
   P <- 1 - pchisq(T0, df)
 
   if (printresults) {
-    .print("\nFisher-Freeman-Halton asymptotic test: P = %6.4f, T = %5.3f (df=%g)\n\n", P, T0, df)
+    my_sprintf("\nFisher-Freeman-Halton asymptotic test: P = %6.4f, T = %5.3f (df=%g)\n\n", P, T0, df)
   }
 
   invisible(list(P = P, T = T0, df = df))
@@ -66,8 +66,4 @@ multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
     }
   }
   return(f)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

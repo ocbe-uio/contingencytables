@@ -48,7 +48,7 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   U <- ans.ci$bca[5]
 
   if (printresults) {
-    .print("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
+    my_sprintf("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(rho = rho, L = L, U = U))
@@ -69,8 +69,4 @@ f.Sccrb <- function(dat, indx, .param) {
   }
   rho <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)$rho
   return(rho)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

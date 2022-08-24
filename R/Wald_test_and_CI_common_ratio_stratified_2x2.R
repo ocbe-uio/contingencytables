@@ -60,17 +60,12 @@ Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
   U <- phihat * exp(z_alpha * SElog)
 
   if (printresults) {
-    .print("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
-    .print(
+    my_sprintf("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
+    my_sprintf(
       "The Wald CI (%s): phihat = %6.4f (%g%% CI %6.4f to %6.4f)\n",
       estimatetype, phihat, 100 * (1 - alpha), L, U
     )
   }
 
   invisible(list(P = P, Z = Z, L = L, U = U, phihat = phihat))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

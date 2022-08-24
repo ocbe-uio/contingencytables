@@ -103,22 +103,22 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
 
   if (printresults) {
     common_part <- "%6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f"
-    .print("\nInference for tau\n-----------------\n")
-    .print(
+    my_sprintf("\nInference for tau\n-----------------\n")
+    my_sprintf(
       paste("Wald:       estimate =", common_part, "\n"),
       tauhat, 100 * (1 - alpha), CI_tau[1], CI_tau[2], P, Z_Wald
     )
-    .print(
+    my_sprintf(
       paste("Wald logit: estimate =", common_part, "\n"),
       tauhat, 100 * (1 - alpha), CI_tau_logit[1], CI_tau_logit[2], P_logit,
       Z_Wald_logit
     )
-    .print("\nInference for alpha\n-------------------\n")
-    .print(
+    my_sprintf("\nInference for alpha\n-------------------\n")
+    my_sprintf(
       paste("Wald:       estimate =", common_part, "\n"),
       alphahat, 100 * (1 - alpha), CI_alpha[1], CI_alpha[2], P, Z_Wald
     )
-    .print(
+    my_sprintf(
       paste("Wald logit: estimate =", common_part, "\n\n"),
       alphahat, 100 * (1 - alpha), CI_alpha_logit[1], CI_alpha_logit[2],
       P_logit, Z_Wald_logit
@@ -126,9 +126,4 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
   }
 
   invisible(results)
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

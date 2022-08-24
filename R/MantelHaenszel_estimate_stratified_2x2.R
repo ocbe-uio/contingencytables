@@ -38,12 +38,8 @@ MantelHaenszel_estimate_stratified_2x2 <- function(n, link = "logit", printresul
   estimate <- sum(w * psihat) / sum(w)
 
   if (printresults) {
-    .print("The Mantel-Haenszel estimate = %7.4f\n", estimate)
+    my_sprintf("The Mantel-Haenszel estimate = %7.4f\n", estimate)
   }
 
   invisible(list(estimate = estimate, psihat = psihat, w = w))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

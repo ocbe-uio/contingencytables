@@ -17,9 +17,9 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   pi1phat <- (n[1, 1] + n[1, 2]) / N
   pip1hat <- (n[1, 1] + n[2, 1]) / N
 
-  .print("\nH_0: pi_1+ = pi_+1  vs  H_A: pi_1+ ~= pi_+1\n\n")
-  .print("Estimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
-  .print("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
+  my_sprintf("\nH_0: pi_1+ = pi_+1  vs  H_A: pi_1+ ~= pi_+1\n\n")
+  my_sprintf("Estimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
+  my_sprintf("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
 
   print("Test                             P-value  (test statistic)", quote = FALSE)
   print("---------------------------------------------------------", quote = FALSE)
@@ -27,29 +27,25 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   tmp <- McNemar_asymptotic_test_paired_2x2(n, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  .print("McNemar asymptotic               %6.4f   (Z = %5.3f)\n", P, Z)
+  my_sprintf("McNemar asymptotic               %6.4f   (Z = %5.3f)\n", P, Z)
 
   tmp <- McNemar_asymptotic_test_CC_paired_2x2(n, FALSE)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  .print("McNemar asymptotic w/CC          %6.4f   (Z = %5.3f)\n", P, Z)
+  my_sprintf("McNemar asymptotic w/CC          %6.4f   (Z = %5.3f)\n", P, Z)
 
   P <- McNemar_exact_cond_test_paired_2x2(n, FALSE)
-  .print("McNemar exact conditional        %6.4f\n", P)
+  my_sprintf("McNemar exact conditional        %6.4f\n", P)
 
   P <- McNemar_midP_test_paired_2x2(n, FALSE)
-  .print("McNemar mid-P                    %6.4f\n", P)
+  my_sprintf("McNemar mid-P                    %6.4f\n", P)
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, 0, FALSE)
-  .print("McNemar exact unconditional      %6.4f\n", P)
+  my_sprintf("McNemar exact unconditional      %6.4f\n", P)
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma, FALSE)
-  .print("McNemar exact unconditional*     %6.4f\n", P)
+  my_sprintf("McNemar exact unconditional*     %6.4f\n", P)
 
   print("---------------------------------------------------------", quote = FALSE)
-  .print("*gamma = %-10.8g\n", gamma)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  my_sprintf("*gamma = %-10.8g\n", gamma)
 }
