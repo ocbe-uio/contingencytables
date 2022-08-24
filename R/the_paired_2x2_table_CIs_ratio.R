@@ -21,37 +21,37 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   pip1hat <- (n[1, 1] + n[2, 1]) / N
   phihat <- pi1phat / pip1hat
 
-  .print("\nEstimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
-  .print("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
-  .print("Estimate of phi = pi_1+/pi_+1: %5.3f\n\n", phihat)
+  my_sprintf("\nEstimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
+  my_sprintf("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
+  my_sprintf("Estimate of phi = pi_1+/pi_+1: %5.3f\n\n", phihat)
 
-  .print("Interval method                              %i%% CI        log width\n", 100 * (1 - alpha))
+  my_sprintf("Interval method                              %i%% CI        log width\n", 100 * (1 - alpha))
   print("--------------------------------------------------------------------", quote = FALSE)
 
   tmp <- Wald_CI_ratio_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Wald                                   %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
+  my_sprintf("Wald                                   %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
   tmp <- Tang_asymptotic_score_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Tang asymptotic score                  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
+  my_sprintf("Tang asymptotic score                  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
   tmp <- BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Bonett-Price hybrid Wilson score       %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
+  my_sprintf("Bonett-Price hybrid Wilson score       %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
   tmp <- BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Bonett-Price hybrid Wilson score w/CC  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
+  my_sprintf("Bonett-Price hybrid Wilson score w/CC  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
   tmp <- MOVER_Wilson_score_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("MOVER Wilson score                     %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
+  my_sprintf("MOVER Wilson score                     %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
   print("--------------------------------------------------------------------", quote = FALSE)
   print("CC = continuity correction", quote = FALSE)

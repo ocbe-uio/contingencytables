@@ -53,7 +53,7 @@ Pearson_correlation_coefficient_rxc_bca <- function(
   U <- ans.ci$bca[5]
 
   if (printresults) {
-    .print("The Pearson correlation w / BCa bootstrap CI: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
+    my_sprintf("The Pearson correlation w / BCa bootstrap CI: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(rP = rP, L = L, U = U))

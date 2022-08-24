@@ -28,7 +28,7 @@ McNemarBowker_test_paired_cxc <- function(n, printresults = TRUE) {
   P <- 1 - pchisq(T0, df)
 
   if (printresults) {
-    .print("The McNemar-Bowker test for symmetry: P = %8.6f, T0 = %6.3f (df=%g)\n", P, T0, df)
+    my_sprintf("The McNemar-Bowker test for symmetry: P = %8.6f, T0 = %6.3f (df=%g)\n", P, T0, df)
   }
 
   invisible(list(P = P, T = T0, df = df))

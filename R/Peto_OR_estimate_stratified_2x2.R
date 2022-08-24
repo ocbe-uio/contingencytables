@@ -32,7 +32,7 @@ Peto_OR_estimate_stratified_2x2 <- function(n, printresults = TRUE) {
   estimate <- exp(sum(n[1, 1, ] - expectation) / sum(variance))
 
   if (printresults) {
-    .print("The Peto OR estimate = %7.4f\n", estimate)
+    my_sprintf("The Peto OR estimate = %7.4f\n", estimate)
   }
 
   invisible(list(estimate = estimate, expectation = expectation, variance = variance))

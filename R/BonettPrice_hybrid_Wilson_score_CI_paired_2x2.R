@@ -44,7 +44,7 @@ BonettPrice_hybrid_Wilson_score_CI_paired_2x2 <- function(
   }
 
   if (printresults) {
-    .print("The Bonett-Price hybrid Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    my_sprintf("The Bonett-Price hybrid Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

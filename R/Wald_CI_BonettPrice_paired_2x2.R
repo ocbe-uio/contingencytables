@@ -46,7 +46,7 @@ Wald_CI_BonettPrice_paired_2x2 <- function(
   U <- min(U, 1)
 
   if (printresults) {
-    .print(
+    my_sprintf(
       paste(
         "The Wald CI with Bonett-Price adjustment: estimate =",
         "%6.4f (%g%% CI %6.4f to %6.4f)\n"

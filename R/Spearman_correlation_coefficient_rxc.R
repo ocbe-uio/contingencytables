@@ -80,8 +80,8 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults =
   U_BW <- (exp(2 * u_BW) - 1) / (exp(2 * u_BW) + 1)
 
   if (printresults) {
-    .print("Spearman correlation w / Fieller CI:       rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
-    .print("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
+    my_sprintf("Spearman correlation w / Fieller CI:       rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
+    my_sprintf("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
   }
 
   invisible(list(rho = rho, L = L, U = U, L_BW = L_BW, U_BW = U_BW))

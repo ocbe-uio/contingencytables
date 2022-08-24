@@ -30,7 +30,7 @@ Transformed_Clopper_Pearson_exact_CI_paired_2x2 <- function(
   U <- U_mu / (1 - U_mu)
 
   if (printresults) {
-    .print(
+    my_sprintf(
       paste(
         "The transformed Clopper-Pearson exact CI: estimate =",
         "%6.4f (%g%% CI %6.4f to %6.4f)\n"

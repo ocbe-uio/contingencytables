@@ -50,8 +50,8 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05
   P <- 2 * (1 - pnorm(abs(Z_score), 0, 1))
 
   if (printresults) {
-    .print("The score test: P = %7.5f, Z = %6.3f\n", P, Z_score)
-    .print("The score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    my_sprintf("The score test: P = %7.5f, Z = %6.3f\n", P, Z_score)
+    my_sprintf("The score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(P = P, Z_score = Z_score, L = L, U = U, estimate = estimate))

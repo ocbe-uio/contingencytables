@@ -40,12 +40,12 @@ Scheffe_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
   }
 
   if (printresults) {
-    .print("The Scheffe-type simultaneous intervals\n")
+    my_sprintf("The Scheffe-type simultaneous intervals\n")
     k <- 0
     for (i in 1:(r - 1)) {
       for (j in (i + 1):r) {
         k <- k + 1
-        .print("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
+        my_sprintf("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
       }
     }
   }

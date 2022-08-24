@@ -21,42 +21,42 @@ the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   pip1hat <- (n[1, 1] + n[2, 1]) / N
   deltahat <- pi1phat - pip1hat
 
-  .print("\nEstimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
-  .print("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
-  .print("Estimate of delta = pi_1+ - pi_+1: %5.3f\n\n", deltahat)
+  my_sprintf("\nEstimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
+  my_sprintf("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
+  my_sprintf("Estimate of delta = pi_1+ - pi_+1: %5.3f\n\n", deltahat)
 
-  .print("Interval method                           %i%% CI         width\n", 100 * (1 - alpha))
+  my_sprintf("Interval method                           %i%% CI         width\n", 100 * (1 - alpha))
   print("--------------------------------------------------------------", quote = FALSE)
 
   tmp <- Wald_CI_diff_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Wald                                %7.4f to %7.4f %7.3f\n", L, U, U - L)
+  my_sprintf("Wald                                %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   tmp <- Wald_CI_diff_CC_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Wald w/continuity correction        %7.4f to %7.4f %7.3f\n", L, U, U - L)
+  my_sprintf("Wald w/continuity correction        %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   tmp <- Wald_CI_AgrestiMin_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Wald w/Agresti-Min adjustment       %7.4f to %7.4f %7.3f\n", L, U, U - L)
+  my_sprintf("Wald w/Agresti-Min adjustment       %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   tmp <- Wald_CI_BonettPrice_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Wald w/Bonett-Price adjustment      %7.4f to %7.4f %7.3f\n", L, U, U - L)
+  my_sprintf("Wald w/Bonett-Price adjustment      %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   tmp <- Newcombe_square_and_add_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Newcombe square-and-add             %7.4f to %7.4f %7.3f\n", L, U, U - L)
+  my_sprintf("Newcombe square-and-add             %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   tmp <- Tango_asymptotic_score_CI_paired_2x2(n, alpha, FALSE)
   L <- tmp[[1]]
   U <- tmp[[2]]
-  .print("Tango asymptotic score              %7.4f to %7.4f %7.3f\n", L, U, U - L)
+  my_sprintf("Tango asymptotic score              %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   print("--------------------------------------------------------------", quote = FALSE)
 }

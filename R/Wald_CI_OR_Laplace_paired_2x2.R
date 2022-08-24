@@ -41,7 +41,7 @@ Wald_CI_OR_Laplace_paired_2x2 <- function(
   }
 
   if (printresults) {
-    .print(
+    my_sprintf(
       paste(
         "The Wald CI w / Laplace adjustment: estimate =",
         "%6.4f (%g%% CI %6.4f to %6.4f)\n"

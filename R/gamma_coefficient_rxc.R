@@ -43,11 +43,11 @@ gamma_coefficient_rxc <- function(n, printresults = TRUE) {
   gamma <- (C - D) / (C + D)
 
   if (printresults) {
-    .print("The number of concordant pairs:      %g\n", C)
-    .print("The number of discordant pairs:      %g\n", D)
-    .print("The proportion of concordant pairs:  %g\n", C / (C + D))
-    .print("The proportion of discordant pairs:  %g\n", D / (C + D))
-    .print("The gamma coefficient:               %6.4f\n", gamma)
+    my_sprintf("The number of concordant pairs:      %g\n", C)
+    my_sprintf("The number of discordant pairs:      %g\n", D)
+    my_sprintf("The proportion of concordant pairs:  %g\n", C / (C + D))
+    my_sprintf("The proportion of discordant pairs:  %g\n", D / (C + D))
+    my_sprintf("The gamma coefficient:               %6.4f\n", gamma)
   }
 
   invisible(list(gamma = gamma, C = C, D = D))

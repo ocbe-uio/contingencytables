@@ -92,7 +92,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
 
 
   if (printresults) {
-    .print("The McNemar exact unconditional test: P = %8.6f\n", P)
+    my_sprintf("The McNemar exact unconditional test: P = %8.6f\n", P)
   }
 
   invisible(P)

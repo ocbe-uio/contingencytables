@@ -33,14 +33,14 @@ KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
   # The average rank in each row
   if (printresults) {
     for (i in 1:r) {
-      .print("(average rank in row %i: W_%i = %7.4f)\n", i, i, W[i] / nip[i])
+      my_sprintf("(average rank in row %i: W_%i = %7.4f)\n", i, i, W[i] / nip[i])
     }
   }
 
   # Correction term for ties
   CorrectionTerm <- 1 - sum(npj^3 - npj) / (N^3 - N)
   if (printresults) {
-    .print("(correction term for ties: C_ties = %6.4f)\n", CorrectionTerm)
+    my_sprintf("(correction term for ties: C_ties = %6.4f)\n", CorrectionTerm)
   }
 
   # The Kruskal-Wallis test statistic
@@ -55,7 +55,7 @@ KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
   P <- 1 - pchisq(T0, df)
 
   if (printresults) {
-    .print("\nAsymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f\n", T0, df, P)
+    my_sprintf("\nAsymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f\n", T0, df, P)
   }
 
   invisible(list(P = P, T = T0, df = df))

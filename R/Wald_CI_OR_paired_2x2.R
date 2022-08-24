@@ -32,7 +32,7 @@ Wald_CI_OR_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   }
 
   if (printresults) {
-    .print(
+    my_sprintf(
       "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate,
       100 * (1 - alpha), L, U
     )

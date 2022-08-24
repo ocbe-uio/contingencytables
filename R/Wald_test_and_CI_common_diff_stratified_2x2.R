@@ -63,8 +63,8 @@ Wald_test_and_CI_common_diff_stratified_2x2 <- function(
   U <- deltahat + z_alpha * SE
 
   if (printresults) {
-    .print("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
-    .print(
+    my_sprintf("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
+    my_sprintf(
       "The Wald CI (%s): deltahat = %6.4f (%g%% CI %6.4f to %6.4f)\n",
       estimatetype, deltahat, 100 * (1 - alpha), L, U
     )

@@ -21,7 +21,7 @@ McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
   }
 
   if (printresults) {
-    .print("The McNemar mid-P test: P = %8.6f\n", midP)
+    my_sprintf("The McNemar mid-P test: P = %8.6f\n", midP)
   }
 
   invisible(midP)

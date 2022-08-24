@@ -40,7 +40,7 @@ InverseVariance_estimate_stratified_2x2 <- function(n, link = "logit", printresu
   }
 
   if (printresults) {
-    .print("The inverse variance estimate = %7.4f\n", estimate)
+    my_sprintf("The inverse variance estimate = %7.4f\n", estimate)
   }
 
   invisible(list(estimate = estimate, psihat = psihat, v = v))

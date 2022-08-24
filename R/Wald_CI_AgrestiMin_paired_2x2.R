@@ -49,7 +49,7 @@ Wald_CI_AgrestiMin_paired_2x2 <- function(
   U <- min(U, 1)
 
   if (printresults) {
-    .print(
+    my_sprintf(
       paste(
         "The Wald CI with Agresti-Min adjustment: estimate =",
         "%6.4f (%g%% CI %6.4f to %6.4f)\n"

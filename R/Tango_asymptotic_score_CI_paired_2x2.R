@@ -44,7 +44,7 @@ Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults =
   }
 
   if (printresults) {
-    .print("Tango asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+    my_sprintf("Tango asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
   }
 
   invisible(list(L = L, U = U, estimate = estimate))

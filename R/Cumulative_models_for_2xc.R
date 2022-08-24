@@ -162,26 +162,26 @@ Cumulative_models_for_2xc <- function(
     } else if (identical(linkfunction, "probit")) {
       model <- "probit"
     }
-    .print("\nTesting the fit of a %s model\n", model)
-    .print("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-    .print("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
-    .print("\nTesting the effect in a %s model\n", model)
-    .print("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
-    .print("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+    my_sprintf("\nTesting the fit of a %s model\n", model)
+    my_sprintf("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+    my_sprintf("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+    my_sprintf("\nTesting the effect in a %s model\n", model)
+    my_sprintf("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
+    my_sprintf("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
     if (linkfunction == "logistic") {
-      .print("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
+      my_sprintf("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
     }
 
-    .print("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
-    .print("in the %s model\n", model)
-    .print("----------------------------------------------------\n")
-    .print("Interval         Estimate     Conf. int       Width\n")
-    .print("----------------------------------------------------\n")
-    .print("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
+    my_sprintf("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
+    my_sprintf("in the %s model\n", model)
+    my_sprintf("----------------------------------------------------\n")
+    my_sprintf("Interval         Estimate     Conf. int       Width\n")
+    my_sprintf("----------------------------------------------------\n")
+    my_sprintf("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
     if (linkfunction == "logistic") {
-      .print("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
+      my_sprintf("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
     }
-    .print("----------------------------------------------------\n")
+    my_sprintf("----------------------------------------------------\n")
   }
 
   invisible(results)

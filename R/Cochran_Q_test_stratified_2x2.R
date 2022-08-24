@@ -42,7 +42,7 @@ Cochran_Q_test_stratified_2x2 <- function(
   P <- 1 - pchisq(Q, df)
 
   if (printresults) {
-    .print("The Cochran Q test (%s): P = %7.5f, Q = %5.3f (df = %i)\n", estimatetype, P, Q, df)
+    my_sprintf("The Cochran Q test (%s): P = %7.5f, Q = %5.3f (df = %i)\n", estimatetype, P, Q, df)
   }
 
   invisible(list(P = P, Q = Q, df = df))

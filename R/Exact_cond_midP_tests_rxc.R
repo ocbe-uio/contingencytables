@@ -100,18 +100,18 @@ Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
   results$midP_JT <- midP_JT
 
   if (printresults) {
-    .print("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
-    .print("Mid-P Fisher-Freeman-Halton: P = %9.7f\n\n", midP_FFH)
-    .print("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
-    .print("Mid-P Pearson statistic:     P = %9.7f\n\n", midP_Pearson)
-    .print("Exact LR statistic:          P = %9.7f\n", P_LR)
-    .print("Mid-P LR statistic:          P = %9.7f\n\n", midP_LR)
-    .print("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
-    .print("Mid-P Kruskal-Wallis:        P = %9.7f\n\n", midP_KW)
-    .print("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
-    .print("Mid-P linear-by-linear:      P = %9.7f\n\n", midP_lbl)
-    .print("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
-    .print("Mid-P Jonckheere-Terpstra:   P = %9.7f\n\n", midP_JT)
+    my_sprintf("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
+    my_sprintf("Mid-P Fisher-Freeman-Halton: P = %9.7f\n\n", midP_FFH)
+    my_sprintf("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
+    my_sprintf("Mid-P Pearson statistic:     P = %9.7f\n\n", midP_Pearson)
+    my_sprintf("Exact LR statistic:          P = %9.7f\n", P_LR)
+    my_sprintf("Mid-P LR statistic:          P = %9.7f\n\n", midP_LR)
+    my_sprintf("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
+    my_sprintf("Mid-P Kruskal-Wallis:        P = %9.7f\n\n", midP_KW)
+    my_sprintf("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
+    my_sprintf("Mid-P linear-by-linear:      P = %9.7f\n\n", midP_lbl)
+    my_sprintf("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
+    my_sprintf("Mid-P Jonckheere-Terpstra:   P = %9.7f\n\n", midP_JT)
   }
 
   invisible(results)
