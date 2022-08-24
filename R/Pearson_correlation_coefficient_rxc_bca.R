@@ -16,8 +16,12 @@
 #' }
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
-Pearson_correlation_coefficient_rxc_bca <- function(n, nboot = 1e4, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05,
-                                                    printresults = TRUE) {
+Pearson_correlation_coefficient_rxc_bca <- function(
+  n, nboot = 1e4, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05,
+  printresults = TRUE
+) {
+  validateArguments(mget(ls()))
+
   # If no scores are given, use equally spaced scores
   r <- nrow(n)
   c <- ncol(n)

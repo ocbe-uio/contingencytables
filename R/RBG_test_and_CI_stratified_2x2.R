@@ -18,6 +18,8 @@
 #' Mantel-Haenszel overall estimate (\code{thetahatMH}) and the standard error
 #' (\code{SElog}).
 RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   nppk <- apply(n, 3, sum)
 
   # Get the Mantel-Haenszel overall estimate

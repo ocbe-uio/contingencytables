@@ -13,6 +13,8 @@
 #' @export
 #' @return A string of "-". This function should be called for its printed output.
 the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
+  validateArguments(mget(ls()))
+
   .print("\nMethod                            Statistic      P-value\n")
   .print("--------------------------------------------------------\n")
   .print("Tests for unordered alternatives\n")

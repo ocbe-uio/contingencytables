@@ -13,6 +13,7 @@
 #' @export
 #' @return A string of "-". This function should be called for its printed output.
 the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact = FALSE) {
+  validateArguments(mget(ls()))
   a <- seq_len(nrow(n))
 
   .print("Method                          Statistic      P-value")

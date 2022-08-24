@@ -12,6 +12,8 @@
 #' @export
 #' @return NULL. This function should be called for its printed output
 the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
+  validateArguments(mget(ls()))
+
   # ======================================================== #
   # Ad-hoc function to print output                          #
   # ======================================================== #

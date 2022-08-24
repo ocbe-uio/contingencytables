@@ -20,6 +20,8 @@
 #' @return A list containing the two-sided p-value and the test statistic for
 #' the likelihood ratio and the Pearson chi-squared tests
 Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)

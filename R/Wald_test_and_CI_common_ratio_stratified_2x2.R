@@ -20,6 +20,8 @@
 Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
   n, estimatetype = "MH", alpha = 0.05, printresults = TRUE
 ) {
+  validateArguments(mget(ls()))
+
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)

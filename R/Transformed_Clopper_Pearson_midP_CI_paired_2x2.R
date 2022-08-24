@@ -13,6 +13,8 @@
 Transformed_Clopper_Pearson_midP_CI_paired_2x2 <- function(
   n, alpha = 0.05, printresults = TRUE
 ) {
+  validateArguments(mget(ls()))
+
   # Estimate of the conditional odds ratio (thetacondhat)
   estimate <- n[1, 2] / n[2, 1]
 

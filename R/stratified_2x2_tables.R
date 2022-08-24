@@ -11,6 +11,8 @@
 #' @export
 #' @return A string of "-". This function should be called for its printed output
 stratified_2x2_tables <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   cat("\n")
   .print("\nThe stratum-specific effect estimates\n")
   .print("-------------------------------------\n")

@@ -33,11 +33,11 @@ validateArguments <- function(x, types = "default") {
         "alpha" = "probability",
         "psi1" = "positive",
         "psi2" = "positive",
-        "nboot" = "positive",
+        "nboot" = "counts",
         "pi0" = "probability",
         "link" = "linear, log or logit",
         "estimatetype" = "MH or IV",
-        "linkfunction" = "logit or probit",
+        "linkfunction" = "logit, probit or identity",
         "direction" = "increasing or decreasing",
         "skip"
       )
@@ -55,7 +55,7 @@ validateArguments <- function(x, types = "default") {
         "positive" = (x[[i]] > 0),
         "linear, log or logit" = x[[i]] %in% c("linear", "log", "logit"),
         "MH or IV" = x[[i]] %in% c("MH", "IV"),
-        "logit or probit" = x[[i]] %in% c("logit", "probit"),
+        "logit, probit or identity" = x[[i]] %in% c("logit", "probit", "identity"),
         "increasing or decreasing" = x[[i]] %in% c("increasing", "decreasing"),
         "skip" = TRUE
       )

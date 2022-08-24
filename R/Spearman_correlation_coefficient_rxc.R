@@ -13,6 +13,8 @@
 #' @export
 #' @return A list containing the Spearman correlation coefficient, and the Fieller and Bonett-Wright confidence intervals
 Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)

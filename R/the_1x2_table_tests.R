@@ -16,6 +16,7 @@
 #' @export
 #' @return NULL. This function should be called for its printed output
 the_1x2_table_tests <- function(X, n, pi0) {
+  validateArguments(mget(ls()))
 
   # ======================================================== #
   # Ad-hoc function to print output                          #

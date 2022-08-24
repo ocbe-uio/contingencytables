@@ -14,6 +14,8 @@
 #' @return A list containing the Peto odds ratio estimate, its conditional
 #' expectation (from the hypergeometric distribution) and the variance
 Peto_OR_estimate_stratified_2x2 <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)
   n2pk <- apply(n[2, , ], 2, sum)

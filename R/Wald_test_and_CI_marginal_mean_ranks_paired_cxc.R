@@ -15,6 +15,8 @@
 Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
   n, alpha = 0.05, printresults = TRUE
 ) {
+  validateArguments(mget(ls()))
+
   c <- nrow(n)
   N <- sum(n)
   nip <- apply(n, 1, sum)
