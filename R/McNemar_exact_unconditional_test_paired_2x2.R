@@ -120,7 +120,3 @@ test_statistic.2 <- function(x12, x21) {
   T0 <- ((x12 - x21)^2) / (x12 + x21)
   return(T0)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

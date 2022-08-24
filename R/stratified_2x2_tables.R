@@ -242,7 +242,3 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   .print("Maximum likelihood  %7.4f    %7.4f to %7.4f\n", exp(results$betahat), exp(results$betahatCI[1]), exp(results$betahatCI[1]))
   .print("-------------------------------------------------\n")
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

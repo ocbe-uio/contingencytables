@@ -101,7 +101,3 @@ ML_estimate.3 <- function(phi0, .param) {
   p21tilde <- (-B + sqrt(B^2 - 4 * A * C)) / (2 * A)
   return(p21tilde)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

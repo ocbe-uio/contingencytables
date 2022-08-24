@@ -32,8 +32,3 @@ CochranMantelHaenszel_test_stratified_2x2 <- function(n, printresults = TRUE) {
 
   invisible(list(P = P, T = T0, df = df))
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

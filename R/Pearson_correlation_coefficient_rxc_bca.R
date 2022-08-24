@@ -77,7 +77,3 @@ f.Pccrb <- function(dat, indx, .param) {
   rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha, printresults = FALSE)$rP
   return(rP)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

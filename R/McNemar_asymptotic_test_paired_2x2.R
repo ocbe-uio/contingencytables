@@ -35,7 +35,3 @@ McNemar_asymptotic_test_paired_2x2 <- function(n, printresults = TRUE) {
 
   return(list(P = P, Z = Z))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

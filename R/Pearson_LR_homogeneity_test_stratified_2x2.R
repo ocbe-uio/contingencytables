@@ -95,8 +95,3 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit", printr
 
   invisible(results)
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

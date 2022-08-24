@@ -105,7 +105,3 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
 
   .print("----------------------------------------------------\n")
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

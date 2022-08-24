@@ -52,7 +52,3 @@ Scheffe_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 
   invisible(list(L = L, U = U, differences = differences))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

@@ -43,7 +43,3 @@ MantelHaenszel_estimate_stratified_2x2 <- function(n, link = "logit", printresul
 
   invisible(list(estimate = estimate, psihat = psihat, w = w))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

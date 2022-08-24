@@ -174,7 +174,3 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
 
   invisible(results)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

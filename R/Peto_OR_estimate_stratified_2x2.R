@@ -37,7 +37,3 @@ Peto_OR_estimate_stratified_2x2 <- function(n, printresults = TRUE) {
 
   invisible(list(estimate = estimate, expectation = expectation, variance = variance))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

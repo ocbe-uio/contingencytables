@@ -54,7 +54,3 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
 
   invisible(list(P = P, T = T0, df = df))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

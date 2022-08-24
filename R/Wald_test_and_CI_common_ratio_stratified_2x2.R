@@ -69,8 +69,3 @@ Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
 
   invisible(list(P = P, Z = Z, L = L, U = U, phihat = phihat))
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

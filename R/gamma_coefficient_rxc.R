@@ -52,7 +52,3 @@ gamma_coefficient_rxc <- function(n, printresults = TRUE) {
 
   invisible(list(gamma = gamma, C = C, D = D))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

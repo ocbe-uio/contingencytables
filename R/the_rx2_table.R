@@ -84,7 +84,3 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   .print("  Wald CI               %7.5f    %7.5f to %7.5f   %6.4f", results_logit$betahat, results_logit$CI_Wald[1], results_logit$CI_Wald[2], results_logit$CI_Wald_width)
   .print("----------------------------------------------------------------")
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

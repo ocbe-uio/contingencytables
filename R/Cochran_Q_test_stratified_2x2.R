@@ -47,8 +47,3 @@ Cochran_Q_test_stratified_2x2 <- function(
 
   invisible(list(P = P, Q = Q, df = df))
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

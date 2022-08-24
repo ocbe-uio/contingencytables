@@ -88,8 +88,3 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, p
 
   invisible(results)
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

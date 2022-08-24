@@ -72,8 +72,3 @@ Wald_test_and_CI_common_diff_stratified_2x2 <- function(
 
   invisible(list(P = P, Z = Z, L = L, U = U, deltahat = deltahat))
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

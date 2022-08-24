@@ -21,7 +21,3 @@ McNemar_exact_cond_test_paired_2x2 <- function(n, printresults = TRUE) {
   }
   return(P)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

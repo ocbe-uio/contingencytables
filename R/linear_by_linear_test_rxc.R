@@ -49,7 +49,3 @@ linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(
 
   invisible(list(P = P, Z = Z))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

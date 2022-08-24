@@ -52,8 +52,3 @@ Woolf_test_and_CI_stratified_2x2 <- function(
 
   invisible(list(P = P, Z = Z, L = L, U = U, thetahatIV = thetahatIV))
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

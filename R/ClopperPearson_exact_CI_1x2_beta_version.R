@@ -43,7 +43,3 @@ ClopperPearson_exact_CI_1x2_beta_version <- function(
 
   invisible(list(L = L, U = U, estimate = estimate))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

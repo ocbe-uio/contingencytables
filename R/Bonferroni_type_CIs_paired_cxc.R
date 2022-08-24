@@ -51,8 +51,3 @@ Bonferroni_type_CIs_paired_cxc <- function(
 
   invisible(list(L = L, U = U, deltahat = deltahat))
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

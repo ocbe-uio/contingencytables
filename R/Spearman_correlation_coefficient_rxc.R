@@ -86,7 +86,3 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults =
 
   invisible(list(rho = rho, L = L, U = U, L_BW = L_BW, U_BW = U_BW))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

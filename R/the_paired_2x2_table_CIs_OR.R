@@ -48,7 +48,3 @@ the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
 
   print("--------------------------------------------------------------------", quote = FALSE)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

@@ -62,10 +62,6 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
   invisible(data.frame(P = P, midP = midP))
 }
 
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}
-
 # Slightly different calculations are needed for cumulative odds ratios in 2xc tables
 
 test_statistic_cum_OR <- function(n, c, npj, statistic) {

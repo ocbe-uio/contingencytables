@@ -282,7 +282,3 @@ multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
   }
   return(f)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

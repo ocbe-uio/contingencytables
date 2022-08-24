@@ -63,7 +63,3 @@ f.gcrb <- function(dat, d) {
   res <- gamma_coefficient_rxc(n, printresults = FALSE)
   return(res$gamma)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

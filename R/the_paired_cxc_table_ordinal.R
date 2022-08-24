@@ -73,7 +73,3 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   .print("Wald:       estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", results$alphahat, 100 * (1 - alpha), results$CI_alpha[1], results$CI_alpha[2], results$P, results$Z_Wald)
   .print("Wald logit: estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n\n", results$alphahat, 100 * (1 - alpha), results$CI_alpha_logit[1], results$CI_alpha_logit[2], results$P_logit, results$Z_Wald_logit)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

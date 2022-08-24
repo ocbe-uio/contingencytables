@@ -67,7 +67,3 @@ Pearson_correlation_coefficient_rxc <- function(
 
   invisible(list(rP = rP, L = L, U = U))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

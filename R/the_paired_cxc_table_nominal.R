@@ -73,7 +73,3 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   .print("-------------------------------------------------------------------------------\n")
   .print("*Adjusted McNemar asymptotic test with c - 1 = %g degrees of freedom\n\n", c - 1)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

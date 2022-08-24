@@ -70,7 +70,3 @@ f.Sccrb <- function(dat, indx, .param) {
   rho <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)$rho
   return(rho)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

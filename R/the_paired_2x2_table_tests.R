@@ -49,7 +49,3 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   print("---------------------------------------------------------", quote = FALSE)
   .print("*gamma = %-10.8g\n", gamma)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

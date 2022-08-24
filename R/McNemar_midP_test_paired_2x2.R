@@ -26,7 +26,3 @@ McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
 
   invisible(midP)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

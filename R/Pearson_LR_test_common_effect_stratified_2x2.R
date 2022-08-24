@@ -109,8 +109,3 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit", prin
 
   invisible(results)
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

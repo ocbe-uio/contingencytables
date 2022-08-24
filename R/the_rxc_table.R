@@ -248,7 +248,3 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
 
   .print("-----------------------------------------------------------------------------------------\n")
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

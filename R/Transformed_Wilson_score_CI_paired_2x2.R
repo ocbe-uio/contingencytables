@@ -39,7 +39,3 @@ Transformed_Wilson_score_CI_paired_2x2 <- function(
 
   invisible(list(L = L, U = U, estimate = estimate))
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

@@ -186,7 +186,3 @@ Cumulative_models_for_2xc <- function(
 
   invisible(results)
 }
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}

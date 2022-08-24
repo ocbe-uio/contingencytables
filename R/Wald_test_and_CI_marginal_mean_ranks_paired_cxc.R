@@ -127,8 +127,3 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
 
   invisible(results)
 }
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
-}
