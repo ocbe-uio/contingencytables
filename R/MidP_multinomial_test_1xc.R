@@ -14,6 +14,8 @@
 #' @export
 #' @return probability value
 MidP_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c0 <- length(n)
   N <- sum(n)
 

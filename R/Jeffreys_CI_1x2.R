@@ -15,6 +15,7 @@
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
 Jeffreys_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)
   estimate <- X / n

@@ -9,6 +9,8 @@
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
 McNemarBowker_test_paired_cxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c <- nrow(n)
 
   # The McNemar-Bowker test statistic

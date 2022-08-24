@@ -26,7 +26,9 @@ Accepted validation types are:
 \item "probability"
 \item "linear, log or logit"
 \item "MH or IV"
-\item
+\item "logit or probit"
+\item "increasing or decreasing"
+\item A vector of possible values
 }
 }
 \note{

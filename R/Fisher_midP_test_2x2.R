@@ -12,6 +12,13 @@
 #' @export
 #' @return probability value
 Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric", printresults = TRUE) {
+  validateArguments(
+    x = mget(ls()),
+    types = list(
+      n = "counts", statistic = c("Pearson", "hypergeometric", "LR"),
+      printresults = "skip"
+    )
+  )
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
   np1 <- n[1, 1] + n[2, 1]

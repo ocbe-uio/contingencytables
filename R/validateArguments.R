@@ -13,7 +13,9 @@
 #'  \item "probability"
 #'  \item "linear, log or logit"
 #'  \item "MH or IV"
-#'  \item
+#'  \item "logit or probit"
+#'  \item "increasing or decreasing"
+#'  \item A vector of possible values
 #' }
 #' @note Types are evaluated alphabetically, and errors accuse no more than
 #' one invalid argument at a time.
@@ -27,9 +29,11 @@ validateArguments <- function(x, types = "default") {
       type <- switch(
         names(x)[i],
         "n" = "counts",
+        "X" = "counts",
         "alpha" = "probability",
         "psi1" = "positive",
         "psi2" = "positive",
+        "nboot" = "positive",
         "pi0" = "probability",
         "link" = "linear, log or logit",
         "estimatetype" = "MH or IV",

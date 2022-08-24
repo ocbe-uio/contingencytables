@@ -9,6 +9,8 @@
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   c <- ncol(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)

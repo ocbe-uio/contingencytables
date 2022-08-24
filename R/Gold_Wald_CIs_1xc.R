@@ -9,6 +9,7 @@
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
 Gold_Wald_CIs_1xc <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   c0 <- length(n)
   N <- sum(n)
 

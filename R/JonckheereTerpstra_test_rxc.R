@@ -10,6 +10,8 @@
 #' @export
 #' @return a list containing the standard normalized Jonckheere-Terpstra test statistic
 JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
 

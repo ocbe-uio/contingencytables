@@ -15,6 +15,7 @@
 #' @export
 #' @return a list with the gamma coefficient and the confidence interval limits
 gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
   N <- sum(n)

@@ -15,6 +15,7 @@
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
 LR_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
 
   # Define global variables that are needed in the LR test statistic function
   # below

@@ -13,6 +13,7 @@
 #' @return a list containing the gamma coefficient, the number of concordant
 #' pairs and the number of discordant pairs
 gamma_coefficient_rxc <- function(n, printresults = TRUE) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
 

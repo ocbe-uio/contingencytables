@@ -11,6 +11,7 @@
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
 MOVER_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+  validateArguments(mget(ls()))
   N <- sum(n)
   pi1phat <- (n[1, 1] + n[1, 2]) / N
   pip1hat <- (n[1, 1] + n[2, 1]) / N
