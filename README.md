@@ -1,3 +1,5 @@
+<img src="logo/logo.png" width=50%>
+
 # contingencytables
 
 An R package for the _Statistical Analysis of Contingency Tables_ (SACT) book by Fagerland et. al.. More info on the book on [its home page](https://contingencytables.com/) and in the [Citation](#citation) section of this document.
