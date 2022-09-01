@@ -9,9 +9,10 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
+#' set.seed(3509)
+#' Pearson_correlation_coefficient_rxc_bca(table_7.7, nboot = 800)
+#' Pearson_correlation_coefficient_rxc_bca(table_7.8, nboot = 200)
 #' \dontrun{
-#'   Pearson_correlation_coefficient_rxc_bca(table_7.7)
-#'   Pearson_correlation_coefficient_rxc_bca(table_7.8)
 #'   Pearson_correlation_coefficient_rxc_bca(table_7.9)
 #' }
 #' @export

@@ -7,9 +7,10 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
+#' set.seed(2921)
+#' Spearman_correlation_coefficient_rxc_bca(table_7.7, nboot = 800)
+#' Spearman_correlation_coefficient_rxc_bca(table_7.8, nboot = 200)
 #' \dontrun{
-#'   Spearman_correlation_coefficient_rxc_bca(table_7.7)
-#'   Spearman_correlation_coefficient_rxc_bca(table_7.8)
 #'   Spearman_correlation_coefficient_rxc_bca(table_7.9)
 #' }
 #' @export
