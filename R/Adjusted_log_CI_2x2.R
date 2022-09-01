@@ -36,7 +36,7 @@ Adjusted_log_CI_2x2 <- function(n, alpha = 0.05) {
   # Output
   res <- list(
     "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
-    name = "The adjusted log CI"
+    "name" = "The adjusted log CI"
   )
   class(res) <- "contingencytables_output"
   return(res)

@@ -5,14 +5,12 @@
 \title{The Baptista-Pike exact conditional confidence interval for the odds
 ratio}
 \usage{
-BaptistaPike_exact_conditional_CI_2x2(n, alpha = 0.05, printresults = TRUE)
+BaptistaPike_exact_conditional_CI_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A data frame containing lower, upper and point estimates of the

@@ -30,7 +30,7 @@ AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05) {
   # Output
   res <- list(
     "lower" = L, "upper" = U, "estimate" = estimate,
-    "alpha" = alpha, name = "The Agresti-Coull CI"
+    "alpha" = alpha, "name" = "The Agresti-Coull CI"
   )
   class(res) <- "contingencytables_output"
   return(res)

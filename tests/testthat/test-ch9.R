@@ -2,52 +2,52 @@ context("Chapter 9")
 
 test_that("Chapter 9 functions basically work", {
   expect_output(
-    object = Bhapkar_test_paired_cxc(peterson_2007),
+    object = print(Bhapkar_test_paired_cxc(peterson_2007)),
     regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df=3\\)"
   )
   expect_output(
-    object = Bonferroni_type_CIs_paired_cxc(peterson_2007),
+    object = print(Bonferroni_type_CIs_paired_cxc(peterson_2007)),
     regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
   )
   expect_output(
-    object = FleissEveritt_test_paired_cxc(fleiss_2003),
+    object = print(FleissEveritt_test_paired_cxc(fleiss_2003)),
     regexp = "version of the Stuart test: P = 0.000912, T = 14.000 \\(df=2\\)"
   )
   expect_output(
-    object = FleissLevinPaik_test_paired_cxc(peterson_2007[-4, -4]),
+    object = print(FleissLevinPaik_test_paired_cxc(peterson_2007[-4, -4])),
     regexp = "The Fleiss-Levin-Paik test: P = 0.000004, T = 21.429 \\(df=1\\)"
   )
   expect_output(
-    object = McNemarBowker_test_paired_cxc(peterson_2007),
+    object = print(McNemarBowker_test_paired_cxc(peterson_2007)),
     regexp = "test for symmetry: P = 0.000200, T0 = 26.250 \\(df=6\\)"
   )
   expect_output(
-    object = Scheffe_type_CIs_paired_cxc(peterson_2007),
+    object = print(Scheffe_type_CIs_paired_cxc(peterson_2007)),
     regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0076 to  0.0250\\)"
   )
   a <- c(8, 3.5, 0, -3.5, -8)
   expect_output(
-    object = Score_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a),
+    object = print(Score_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a)),
     regexp = "The score CI: estimate = 1.6942 \\(95% CI 0.8769 to 2.5115\\)"
   )
   expect_output(
-    object = Stuart_test_paired_cxc(peterson_2007),
+    object = print(Stuart_test_paired_cxc(peterson_2007)),
     regexp = "marginal homogenity: P = 0.000008, T0 = 26.250 \\(df=3\\)"
   )
   expect_output(
-    object = Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999),
+    object = print(Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)),
     regexp = "0.6196 \\(95% CI 0.5591 to 0.6800\\); P = 0.00011, Z =  3.877"
   )
   expect_output(
-    object = Wald_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a),
+    object = print(Wald_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a)),
     regexp = "The Wald CI: estimate = 1.6942 \\(95% CI 0.9347 to 2.4537\\)"
   )
   expect_output(
-    object = the_paired_cxc_table_nominal(peterson_2007),
+    object = print(the_paired_cxc_table_nominal(peterson_2007)),
     regexp = "pi_3\\+ - pi_\\+3:  -0.0088  \\(-0.0187 to  0.0012\\)"
   )
   expect_output(
-    object = the_paired_cxc_table_ordinal(fischer_1999, a),
+    object = print(the_paired_cxc_table_ordinal(fischer_1999, a)),
     regexp = "Wald logit: estimate = 0.2391 \\(95% CI 0.1151 to 0.3558\\)"
   )
 })

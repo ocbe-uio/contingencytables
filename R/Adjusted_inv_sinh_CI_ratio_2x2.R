@@ -59,7 +59,7 @@ Adjusted_inv_sinh_CI_ratio_2x2 <- function(
   # Output
   res <- list(
     "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
-    name = "The adjusted inverse sinh CI"
+    "name" = "The adjusted inverse sinh CI"
   )
   class(res) <- "contingencytables_output"
   return(res)
