@@ -1,4 +1,4 @@
-<img src="logo/logo.png" width=50%>
+<img src="logo/logo.png" width=25%>
 
 # contingencytables
 
