@@ -61,9 +61,9 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 2000)
+      Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 200, alpha = .2)
     },
-    regexp = "bootstrap CI: r =  0.2019 \\(95% CI  0.0862 to  0.3876\\)"
+    regexp = "bootstrap CI: r =  0.2019 \\(80% CI  0.1028 to  0.3698\\)"
   )
   expect_output(
     object = Pearson_LR_tests_rxc(table_7.3),
@@ -91,7 +91,10 @@ test_that("Chapter 7 functions basically work", {
     regexp = "bootstrap CI: rho = -0.1358 \\(95% CI -0.3636 to  0.1118\\)"
   )
   expect_output(
-    object = the_rxc_table(n3_short, nboot = 3000),
+    object = {
+      set.seed(7494)
+      the_rxc_table(n3_short, nboot = 250, alpha = 0.2)
+    },
     regexp = "Kruskal-Wallis asymptotic\\s+1.561 \\(df=3\\)   0.668229"
   )
 })

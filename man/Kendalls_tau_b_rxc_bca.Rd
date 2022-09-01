@@ -24,9 +24,10 @@ Kendall's tau-b with the bias-corrected and accelerated boostrap confidence inte
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
+set.seed(9974)
+Kendalls_tau_b_rxc_bca(table_7.7, nboot = 800)
+Kendalls_tau_b_rxc_bca(table_7.8, nboot = 200)
 \dontrun{
-  Kendalls_tau_b_rxc_bca(table_7.7)
-  Kendalls_tau_b_rxc_bca(table_7.8)
   Kendalls_tau_b_rxc_bca(table_7.9)
 }
 }

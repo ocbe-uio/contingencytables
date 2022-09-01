@@ -6,9 +6,10 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
 #' @param printresults display results (0 = no, 1 = yes)
 #' @examples
+#' set.seed(9974)
+#' Kendalls_tau_b_rxc_bca(table_7.7, nboot = 800)
+#' Kendalls_tau_b_rxc_bca(table_7.8, nboot = 200)
 #' \dontrun{
-#'   Kendalls_tau_b_rxc_bca(table_7.7)
-#'   Kendalls_tau_b_rxc_bca(table_7.8)
 #'   Kendalls_tau_b_rxc_bca(table_7.9)
 #' }
 #' @export

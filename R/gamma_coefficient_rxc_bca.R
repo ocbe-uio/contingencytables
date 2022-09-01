@@ -7,10 +7,11 @@
 #' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom boot boot boot.ci
 #' @examples
+#' set.seed(9623)
+#' gamma_coefficient_rxc_bca(table_7.7, nboot = 800)
+#' gamma_coefficient_rxc_bca(table_7.8, nboot = 200)
 #' \dontrun{
-#'   gamma_coefficient_rxc_bca(table_7.7)
-#'   gamma_coefficient_rxc_bca(table_7.8)
-#'   gamma_coefficient_rxc_bca(table_7.9)
+#'   gamma_coefficient_rxc_bca(table_7.9, nboot = 3000, alpha = 0.2)
 #' }
 #' @export
 #' @return a list with the gamma coefficient and the confidence interval limits

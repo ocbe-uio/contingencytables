@@ -4,32 +4,33 @@
 #' @param nboot number of boostrap samples. If 0, skips tests that use
 #' bootstrapping
 #' @examples
-#' \dontrun{
+#' set.seed(8047)
 #' # Unordered tables
 #'
 #' ## Treatment for ear infection (van Balen et al., 2003)
-#' the_rxc_table(table_7.3)
+#' the_rxc_table(table_7.3, nboot = 200)
 #'
 #' ## Psychiatric diagnoses vs PA (Mangerud et al., 2004)
-#' the_rxc_table(table_7.4)
+#' the_rxc_table(table_7.4, nboot = 0)
 #'
 #' # Singly ordered tables
+#'
 #' ## Psychiatric diag. vs BMI (Mangerud et al., 2004)
-#' the_rxc_table(table_7.5)
+#' the_rxc_table(table_7.5, nboot = 0)
 #'
 #' ## Low birth weight vs psychiatric morbitidy (Lund et al., 2012)
-#' the_rxc_table(table_7.6)
+#' the_rxc_table(table_7.6, nboot = 150)
 #'
 #' # Doubly ordered tables
-#' # Colorectal cancer (Jullumstroe et al., 2009)
-#' the_rxc_table(table_7.7)
 #'
-#' # Breast Tumor (Bofin et al., 2004)
-#' the_rxc_table(table_7.8)
+#' ## Colorectal cancer (Jullumstroe et al., 2009)
+#' the_rxc_table(table_7.7, nboot = 0)
 #'
-#' # Self-rated health (Breidablik et al., 2008)
-#' the_rxc_table(table_7.9)
-#' }
+#' ## Breast Tumor (Bofin et al., 2004)
+#' the_rxc_table(table_7.8, nboot = 200)
+#'
+#' ## Self-rated health (Breidablik et al., 2008)
+#' the_rxc_table(table_7.9, nboot = 0)
 #' @export
 #' @return NULL. This function should be called for its printed output.
 the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {

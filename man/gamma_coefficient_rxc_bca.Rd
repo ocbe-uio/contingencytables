@@ -24,9 +24,10 @@ The gamma coefficient with the bias-corrected and accelerated boostrap confidenc
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
+set.seed(9623)
+gamma_coefficient_rxc_bca(table_7.7, nboot = 800)
+gamma_coefficient_rxc_bca(table_7.8, nboot = 200)
 \dontrun{
-  gamma_coefficient_rxc_bca(table_7.7)
-  gamma_coefficient_rxc_bca(table_7.8)
-  gamma_coefficient_rxc_bca(table_7.9)
+  gamma_coefficient_rxc_bca(table_7.9, nboot = 3000, alpha = 0.2)
 }
 }

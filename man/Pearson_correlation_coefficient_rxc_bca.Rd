@@ -37,9 +37,10 @@ boostrap confidence interval
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
+set.seed(3509)
+Pearson_correlation_coefficient_rxc_bca(table_7.7, nboot = 800)
+Pearson_correlation_coefficient_rxc_bca(table_7.8, nboot = 200)
 \dontrun{
-  Pearson_correlation_coefficient_rxc_bca(table_7.7)
-  Pearson_correlation_coefficient_rxc_bca(table_7.8)
   Pearson_correlation_coefficient_rxc_bca(table_7.9)
 }
 }
