@@ -2,15 +2,15 @@ context("Chapter 4")
 
 test_that("Chapter 4 functions basically work", {
   expect_output(
-    object = Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013),
+    object = print(Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)),
     regexp = "estimate = 5.6250 \\(95% CI 1.1414 to 21.7873\\)"
   )
   expect_output(
-    object = Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007),
+    object = print(Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007)),
     regexp = "estimate = 0.0000 \\(95% CI 0.0000 to 1.1524\\)"
   )
   expect_output(
-    object = Adjusted_log_CI_2x2(perondi_2004),
+    object = print(Adjusted_log_CI_2x2(perondi_2004)),
     regexp = "estimate = 7.0000 \\(95% CI 0.9241 to 27.0523\\)"
   )
   expect_output(
@@ -18,7 +18,7 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 0.1765 \\(95% CI 0.0292 to 0.3238\\)"
   )
   expect_output(
-    object = AgrestiCaffo_CI_2x2(perondi_2004),
+    object = print(AgrestiCaffo_CI_2x2(perondi_2004)),
     regexp = "estimate = 0.1765 \\(95% CI 0.0116 to 0.3217\\)"
   )
   expect_output(

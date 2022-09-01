@@ -8,7 +8,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (0 = no, 1 = yes)
 #' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
 #' AgrestiCoull_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
@@ -17,7 +16,7 @@
 #' with(singh_2010["4th", ], AgrestiCoull_CI_1x2(X, n)) # alternative syntax
 #' AgrestiCoull_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
@@ -28,15 +27,11 @@ AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   L <- res[1]
   U <- res[2]
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The Agresti-Coull CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), L, U
-      ),
-      quote = FALSE
-    )
-  }
-
-  invisible(res)
+  # Output
+  res <- list(
+    "lower" = L, "upper" = U, "estimate" = estimate,
+    "alpha" = alpha, name = "The Agresti-Coull CI"
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

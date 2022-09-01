@@ -3,13 +3,12 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' AgrestiCaffo_CI_2x2(perondi_2004)
 #' AgrestiCaffo_CI_2x2(ritland_2007)
 #' @export
-AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the difference between probabilities (deltahat)
   estimate <- n[1, 1] / (n[1, 1] + n[1, 2]) - n[2, 1] / (n[2, 1] + n[2, 2])
@@ -17,18 +16,11 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   # Add one success and one failure in each group and calculate the Wald CI
   res.wald <- Wald_CI_2x2(n + 1, alpha, printresults = FALSE)
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The Agresti-Caffo CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), res.wald$lower, res.wald$upper
-      ),
-      quote = FALSE
-    )
-  }
-
-  res <- data.frame(
-    lower = res.wald$lower, upper = res.wald$upper, estimate = estimate
+  # Output
+  res <- list(
+    "lower" = res.wald$lower, "upper" = res.wald$upper, "estimate" = estimate,
+    "alpha" = alpha, name = "The Agresti-Caffo CI"
   )
-  invisible(res)
+  class(res) <- "contingencytables_output"
+  return(res)
 }

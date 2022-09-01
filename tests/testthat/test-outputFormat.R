@@ -14,11 +14,11 @@ n7 <- floor(lydersen_2012a / 4)
 
 # Unit tests ============================================= #
 set.seed(6492798) # useful for functions using Bootstrap
-t001 <- Adjusted_inv_sinh_CI_OR_2x2(n, printresults = FALSE)
-t002 <- Adjusted_inv_sinh_CI_ratio_2x2(n, printresults = FALSE)
-t003 <- Adjusted_log_CI_2x2(n, printresults = FALSE)
-t004 <- AgrestiCaffo_CI_2x2(n, printresults = FALSE)
-t005 <- AgrestiCoull_CI_1x2(33, 45, printresults = FALSE)
+t001 <- Adjusted_inv_sinh_CI_OR_2x2(n)
+t002 <- Adjusted_inv_sinh_CI_ratio_2x2(n)
+t003 <- Adjusted_log_CI_2x2(n)
+t004 <- AgrestiCaffo_CI_2x2(n)
+t005 <- AgrestiCoull_CI_1x2(33, 45)
 t006 <- BaptistaPike_exact_conditional_CI_2x2(n, printresults = FALSE)
 t007 <- BaptistaPike_midP_CI_2x2(n, printresults = FALSE)
 t008 <- Bhapkar_test_paired_cxc(n2, printresults = FALSE)
@@ -193,12 +193,17 @@ t158 <- Woolf_logit_CI_2x2(n, printresults = FALSE)
 t159 <- Woolf_test_and_CI_stratified_2x2(n4, printresults = FALSE)
 t160 <- Z_unpooled_test_2x2(n, printresults = FALSE)
 
+function_output_objects <- ls(pattern = "t\\d{3}")
+
+test_that("Output class and names are the expected", {
+  ct_out <- c("lower", "upper", "estimate", "alpha", "name")
+  for (t in function_output_objects[1:5]) {
+    expect_is(get(t), "contingencytables_output")
+    expect_named(get(t), ct_out)
+  }
+})
+
 test_that("Output classes are the expected", {
-  expect_is(t001, "data.frame")
-  expect_is(t002, "data.frame")
-  expect_is(t003, "data.frame")
-  expect_is(t004, "data.frame")
-  expect_is(t005, "numeric")
   expect_is(t006, "data.frame")
   expect_is(t007, "data.frame")
   expect_is(t008, "list")
@@ -369,11 +374,6 @@ test_that("Output names are the expected", {
   plr_df <- c("P_LR", "T_LR", "df_LR", "P_Pearson", "T_Pearson", "df_Pearson")
   plr <- c("T_Pearson", "P_Pearson", "T_LR", "P_LR")
   ps <- c("p.value", "statistic")
-  expect_named(t001, lue)
-  expect_named(t002, lue)
-  expect_named(t003, lue)
-  expect_named(t004, lue)
-  expect_named(t005, lue)
   expect_named(t006, lue)
   expect_named(t007, lue)
   expect_named(t008, ptdf)

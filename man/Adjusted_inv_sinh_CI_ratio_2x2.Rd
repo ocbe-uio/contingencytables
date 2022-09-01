@@ -11,8 +11,7 @@ Adjusted_inv_sinh_CI_ratio_2x2(
   psi2 = 0,
   psi3 = 0,
   psi4 = 1,
-  alpha = 0.05,
-  printresults = TRUE
+  alpha = 0.05
 )
 }
 \arguments{
@@ -27,8 +26,6 @@ Adjusted_inv_sinh_CI_ratio_2x2(
 \item{psi4}{pseudo-frequency}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results}
 }
 \value{
 A data frame containing lower, upper and point estimates of the

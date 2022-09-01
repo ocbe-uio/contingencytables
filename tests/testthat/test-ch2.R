@@ -8,7 +8,7 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(AgrestiCoull_CI_1x2(19))
   expect_output(
-    object = AgrestiCoull_CI_1x2(19, 20, .15),
+    object = print(AgrestiCoull_CI_1x2(19, 20, .15)),
     regexp = "estimate = 0.8750 \\(85% CI 0.7778 to 0.9722\\)"
   )
   expect_error(Arcsine_CI_1x2(500))
