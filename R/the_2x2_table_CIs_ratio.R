@@ -31,7 +31,7 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Katz log                             %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Adjusted_log_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Adjusted_log_CI_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Adjusted log                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
@@ -46,7 +46,7 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Inverse sinh                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Adjusted_inv_sinh_CI_ratio_2x2(n, 0, 0, 0, 1, alpha, printresults = FALSE)
+  res <- Adjusted_inv_sinh_CI_ratio_2x2(n, 0, 0, 0, 1, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Adjusted inverse sinh                %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)

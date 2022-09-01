@@ -7,14 +7,13 @@
 #' @param psi1 pseudo-frequency (should be > 0)
 #' @param psi2 pseudo-frequency (should be > 0)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)
 #' @export
 Adjusted_inv_sinh_CI_OR_2x2 <- function(
-  n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05, printresults = TRUE
+  n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05
 ) {
   validateArguments(mget(ls()))
 
@@ -37,16 +36,11 @@ Adjusted_inv_sinh_CI_OR_2x2 <- function(
   L <- exp(log(thetatilde) - 2 * tmp)
   U <- exp(log(thetatilde) + 2 * tmp)
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The adjusted inverse sinh CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), L, U
-      ),
-      quote = FALSE
-    )
-  }
-
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  # Output
+  res <- list(
+    "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
+    "name" = "The adjusted inverse sinh CI"
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }
