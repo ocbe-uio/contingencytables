@@ -4,6 +4,7 @@
 * Added validation to all exported function arguments (#14)
 * Refactored code (#27)
 * Fixed examples
+* Unwrapped several examples from `\dontrun{}` (#28)
 
 # contingencytables 1.0.2
 
