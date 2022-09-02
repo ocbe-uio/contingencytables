@@ -10,7 +10,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (0 = no, 1 = yes)
 #' @return The two-sided p-value
 #' @examples
 #' Blaker_exact_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
@@ -19,7 +18,7 @@
 #' Blaker_exact_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = 0.513)
 #' Blaker_exact_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 #' @export
-Blaker_exact_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+Blaker_exact_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
   # Calculate the two-sided P-value
   Pvalues <- dbinom(0:n, n, pi0)
@@ -32,12 +31,11 @@ Blaker_exact_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(
-      sprintf("The Blaker exact test: P = %7.5f", P),
-      quote = FALSE
-    )
-  }
-
-  invisible(P)
+  # Output
+  res <- list(
+    name = "The Blaker exact test",
+    statistics = list("pvalue" = P)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

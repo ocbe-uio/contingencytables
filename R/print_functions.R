@@ -18,6 +18,10 @@ print.contingencytables_output <- function(x, ...) {
     "pvalue_df_estimate" = sprintf(
       "P = %8.6f, T = %6.3f (df=%g)",
       stats$pvalue, stats$estimate, stats$df
+    ),
+    "pvalue" = sprintf(
+      "P = %7.5f",
+      stats$pvalue
     )
   )
   cat(x$name, out_stats, sep = ": ")
