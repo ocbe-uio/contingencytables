@@ -66,10 +66,10 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
     "Wilson score with CC         %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
-  res <- AgrestiCoull_CI_1x2(X, n, alpha)
+  res <- unlist(AgrestiCoull_CI_1x2(X, n, alpha)$statistics)
   myprint(
     "Agresti-Coull                %5.3f to %5.3f %8.3f",
-    res$statistics[[1]], res$statistics[[2]], res$statistics[[2]] - res$statistics[[1]]
+    res[1], res[2], res[2] - res[1]
   )
 
   res <- Jeffreys_CI_1x2(X, n, alpha, FALSE)

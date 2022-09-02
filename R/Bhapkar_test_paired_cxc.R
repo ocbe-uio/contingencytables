@@ -2,12 +2,11 @@
 #' @description The Bhapkar test for marginal homogeneity
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @return A list containing the probability, the statistic and the degrees of freedom
 #' @examples
 #' Bhapkar_test_paired_cxc(peterson_2007)
 #' @export
-Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
+Bhapkar_test_paired_cxc <- function(n) {
   validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -18,14 +17,7 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
   d <- nip[1:(c - 1)] - npi[1:(c - 1)]
 
   if (sum(d) == 0) {
-    P <- 1
-    T0 <- 0
-    df <- c - 1
-    if (printresults) {
-      my_sprintf("No differences between the marginal sums\n")
-      my_sprintf("P = 1.0\n")
-    }
-    return()
+    return(cat("No differences between the marginal sums\nP = 1.0"))
   }
 
   # Form the sample covariance matrix

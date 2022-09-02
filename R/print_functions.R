@@ -6,13 +6,20 @@ my_sprintf <- function(s, ...) {
 
 #' @export
 print.contingencytables_output <- function(x, ...) {
-  cat(
-    x$name,
-    sprintf(
-      ": estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      x$estimate, 100 * (1 - x$alpha), x$lower, x$upper
+  # Determining output format
+  stats_names <- paste(names(x$statistics), collapse = "_")
+  stats <- x$statistics
+  out_stats <- switch(
+    EXPR = stats_names,
+    "lower_upper_estimate_alpha" = sprintf(
+      "estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      stats$estimate, 100 * (1 - stats$alpha), stats$lower, stats$upper
     ),
-    sep = ""
+    "pvalue_df_estimate" = sprintf(
+      "P = %8.6f, T = %6.3f (df=%g)",
+      stats$pvalue, stats$estimate, stats$df
+    )
   )
+  cat(x$name, out_stats, sep = ": ")
   invisible(x)
 }
