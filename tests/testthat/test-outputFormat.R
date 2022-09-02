@@ -21,10 +21,10 @@ t004 <- AgrestiCaffo_CI_2x2(n)
 t005 <- AgrestiCoull_CI_1x2(33, 45)
 t006 <- BaptistaPike_exact_conditional_CI_2x2(n)
 t007 <- BaptistaPike_midP_CI_2x2(n)
-t008 <- Bhapkar_test_paired_cxc(n2, printresults = FALSE)
-t009 <- Blaker_exact_CI_1x2(13, 16, printresults = FALSE)
-t010 <- Blaker_exact_test_1x2(13, 16, .5, printresults = FALSE)
-t011 <- Blaker_midP_CI_1x2(13, 16, printresults = FALSE)
+t008 <- Bhapkar_test_paired_cxc(n2)
+t009 <- Blaker_exact_CI_1x2(13, 16)
+t010 <- Blaker_exact_test_1x2(13, 16, .5)
+t011 <- Blaker_midP_CI_1x2(13, 16)
 t012 <- Arcsine_CI_1x2(13, 16, printresults = FALSE)
 t013 <- Blaker_midP_test_1x2(13, 16, .5, printresults = FALSE)
 t014 <- BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(
@@ -196,18 +196,13 @@ t160 <- Z_unpooled_test_2x2(n, printresults = FALSE)
 function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
-  ct_out <- c("lower", "upper", "estimate", "alpha", "name")
-  for (t in function_output_objects[1:7]) {
+  for (t in function_output_objects[1:11]) {
     expect_is(get(t), "contingencytables_output")
-    expect_named(get(t), ct_out)
+    expect_named(get(t), c("name", "statistics"))
   }
 })
 
 test_that("Output classes are the expected", {
-  expect_is(t008, "list")
-  expect_is(t009, "numeric")
-  expect_is(t010, "numeric")
-  expect_is(t011, "numeric")
   expect_is(t012, "numeric")
   expect_is(t013, "numeric")
   expect_is(t014, "list")
@@ -372,10 +367,6 @@ test_that("Output names are the expected", {
   plr_df <- c("P_LR", "T_LR", "df_LR", "P_Pearson", "T_Pearson", "df_Pearson")
   plr <- c("T_Pearson", "P_Pearson", "T_LR", "P_LR")
   ps <- c("p.value", "statistic")
-  expect_named(t008, ptdf)
-  expect_named(t009, lue)
-  expect_named(t010, NULL)
-  expect_named(t011, lue)
   expect_named(t012, lue)
   expect_named(t013, NULL)
   expect_named(t014, LUe)

@@ -4,12 +4,10 @@
 \alias{Bhapkar_test_paired_cxc}
 \title{The Bhapkar test for marginal homogeneity}
 \usage{
-Bhapkar_test_paired_cxc(n, printresults = TRUE)
+Bhapkar_test_paired_cxc(n)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom

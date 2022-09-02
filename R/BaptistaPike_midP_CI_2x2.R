@@ -65,8 +65,10 @@ BaptistaPike_midP_CI_2x2 <- function(n, alpha = 0.05) {
 
   # Output
   res <- list(
-    "lower" = L, "upper" = U, "estimate" = estimate,
-    "alpha" = alpha, "name" = "Baptista-Pike mid-P CI"
+    name = "Baptista-Pike mid-P CI",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+    )
   )
   class(res) <- "contingencytables_output"
   return(res)

@@ -53,7 +53,7 @@ the_1x2_table_tests <- function(X, n, pi0) {
   P <- Exact_binomial_test_1x2(X, n, pi0, FALSE)
   myprint("Exact binomial      %6.4f", P)
 
-  P <- Blaker_exact_test_1x2(X, n, pi0, FALSE)
+  P <- Blaker_exact_test_1x2(X, n, pi0)$statistics$pvalue
   myprint("Blaker exact        %6.4f", P)
 
   midP <- MidP_binomial_test_1x2(X, n, pi0, FALSE)
