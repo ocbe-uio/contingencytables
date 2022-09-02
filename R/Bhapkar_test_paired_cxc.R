@@ -42,24 +42,18 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
   # The Bhapkar test statistic
   T0 <- sum(d * solve(Sigmahat, d))
   if (is.na(T0)) {
-    P <- 1
-    df <- c - 1
-    if (printresults) {
-      my_sprintf("The Bhapkar test statistic is not computable\n")
-      my_sprintf("P = 1.0\n")
-      print(d)
-      print(Sigmahat)
-    }
-    return()
+    return(cat("The Bhapkar test statistic is not computable\nP = 1.0"))
   }
 
   # Reference distribution: chi-squared with c-1 degrees of freedom
   df <- c - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    my_sprintf("The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
+  # Output
+  res <- list(
+    name = "The Bhapkar test for marginal homogenity",
+    statistics = list("pvalue" = P, "df" = df, "estimate" = T0)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

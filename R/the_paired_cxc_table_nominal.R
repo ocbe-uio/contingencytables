@@ -22,7 +22,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   my_sprintf("\nTests for nominal categories                Statistic      P-value\n")
   my_sprintf("-------------------------------------------------------------------\n")
 
-  tmp <- Bhapkar_test_paired_cxc(n, FALSE)
+  tmp <- Bhapkar_test_paired_cxc(n)$statistic
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]

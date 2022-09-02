@@ -18,8 +18,11 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
 
   # Output
   res <- list(
-    "lower" = res.wald$lower, "upper" = res.wald$upper, "estimate" = estimate,
-    "alpha" = alpha, "name" = "The Agresti-Caffo CI"
+    name = "The Agresti-Caffo CI",
+    statistics = list(
+      "lower" = res.wald$lower, "upper" = res.wald$upper, "estimate" = estimate,
+      "alpha" = alpha
+    )
   )
   class(res) <- "contingencytables_output"
   return(res)
