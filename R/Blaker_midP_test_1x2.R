@@ -10,7 +10,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (F = no, T = yes)
 #' @return The two-sided mid-P value
 #' @examples
 #' Blaker_midP_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
@@ -20,7 +19,7 @@
 #' Blaker_midP_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 #' @export
 
-Blaker_midP_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+Blaker_midP_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
   # Calculate the two-sided mid-P value
   Pvalues <- dbinom(0:n, n, pi0)
@@ -35,12 +34,12 @@ Blaker_midP_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(
-      sprintf("The Blaker mid-P test: P = %7.5f", midP),
-      quote = FALSE
+  # Output
+  res <- list(
+    name = "The Blaker mid-P test", statistics = list(
+      "pvalue" = midP, "statname" = "mid-P"
     )
-  }
-
-  invisible(midP)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

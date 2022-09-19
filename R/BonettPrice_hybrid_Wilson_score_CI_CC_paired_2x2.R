@@ -4,16 +4,13 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
 #' BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(bentur_2009)
 #' BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(cavo_2012)
 #'
 #' @export
-BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(
-  n, alpha = 0.05, printresults = TRUE
-) {
+BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   nstar <- n[1, 1] + n[1, 2] + n[2, 1]
   n1p <- n[1, 1] + n[1, 2]
@@ -54,9 +51,13 @@ BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(
   L <- l1 / u2
   U <- u1 / l2
 
-  if (printresults) {
-    my_sprintf("The Bonett-Price hybrid Wilson score CI w / CC: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(L = L, U = U, estimate = estimate))
+  # Output
+  res <- list(
+    name = "The Bonett-Price hybrid Wilson score CI w / CC",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

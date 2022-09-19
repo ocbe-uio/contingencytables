@@ -4,12 +4,10 @@
 \alias{Brant_test_2xc}
 \title{The Brant test for the proportional odds assumption}
 \usage{
-Brant_test_2xc(n, printresults = TRUE)
+Brant_test_2xc(n)
 }
 \arguments{
 \item{n}{the observed table (a 2xc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A data frame containing the probability, the statistic and the degrees of freedom

@@ -33,16 +33,16 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Blaker_midP_test_1x2(100))
   expect_output(
-    object = Blaker_midP_test_1x2(
+    object = print(Blaker_midP_test_1x2(
       ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5
-    ),
+    )),
     regexp = "P = 0.00845"
   )
   expect_error(ClopperPearson_exact_CI_1x2(100))
   expect_output(
-    object = ClopperPearson_exact_CI_1x2(
+    object = print(ClopperPearson_exact_CI_1x2(
       ligarden_2010["X"], ligarden_2010["n"]
-    ),
+    )),
     regexp = "estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
   )
   expect_error(ClopperPearson_midP_CI_1x2(100))

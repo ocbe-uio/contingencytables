@@ -15,3 +15,13 @@
     "chapter X."
   )
 }
+
+pairwiseComparisons <- function(r) {
+  pairs <- NULL
+  for (i in 1:r) {
+    for (j in min(r, i + 1):r) {
+      pairs <- rbind(pairs, c(i, j))
+    }
+  }
+  return(pairs)
+}

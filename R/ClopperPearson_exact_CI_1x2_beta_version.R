@@ -7,7 +7,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @seealso ClopperPearson_exact_CI_1x2
 #' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
@@ -17,9 +16,7 @@
 #' with(singh_2010["4th", ], ClopperPearson_exact_CI_1x2_beta_version(X, n)) # alternative syntax
 #' ClopperPearson_exact_CI_1x2_beta_version(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-ClopperPearson_exact_CI_1x2_beta_version <- function(
-  X, n, alpha = 0.05, printresults = TRUE
-) {
+ClopperPearson_exact_CI_1x2_beta_version <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
@@ -37,9 +34,13 @@ ClopperPearson_exact_CI_1x2_beta_version <- function(
     U <- 1
   }
 
-  if (printresults) {
-    my_sprintf("The Clopper Pearson exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(L = L, U = U, estimate = estimate))
+  # Output
+  res <- list(
+    name = "The Clopper Pearson exact CI",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

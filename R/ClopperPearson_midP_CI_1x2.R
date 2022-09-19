@@ -5,7 +5,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
 #' ClopperPearson_midP_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
@@ -14,7 +13,7 @@
 #' with(singh_2010["4th", ], ClopperPearson_midP_CI_1x2(X, n)) # alternative syntax
 #' ClopperPearson_midP_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-ClopperPearson_midP_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+ClopperPearson_midP_CI_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
@@ -36,16 +35,15 @@ ClopperPearson_midP_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) 
     U <- uniroot(calculate_U_CP2, interval = c(0, 1), X = X, n = n, alpha = alpha, tol = tol)$root
   }
 
-  if (printresults) {
-    print(sprintf(
-      "The Clopper Pearson mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      estimate, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
-  }
-
-  res <- c(L, U, estimate)
-  names(res) <- c("lower", "upper", "estimate")
-  invisible(res)
+  # Output
+  res <- list(
+    name = "The Clopper Pearson mid-P CI",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }
 
 calculate_L_CP2 <- function(L0, X, n, alpha) {

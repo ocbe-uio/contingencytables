@@ -4,12 +4,7 @@
 \alias{ClopperPearson_exact_CI_1x2_beta_version}
 \title{The Clopper-Pearson exact confidence interval for the binomial probability (beta version)}
 \usage{
-ClopperPearson_exact_CI_1x2_beta_version(
-  X,
-  n,
-  alpha = 0.05,
-  printresults = TRUE
-)
+ClopperPearson_exact_CI_1x2_beta_version(X, n, alpha = 0.05)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -17,8 +12,6 @@ ClopperPearson_exact_CI_1x2_beta_version(
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing lower, upper and point estimates of the statistic

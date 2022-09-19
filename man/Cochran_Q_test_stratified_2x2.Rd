@@ -4,12 +4,7 @@
 \alias{Cochran_Q_test_stratified_2x2}
 \title{The Cochran Q test of homogeneity of effects over strata}
 \usage{
-Cochran_Q_test_stratified_2x2(
-  n,
-  link = "linear",
-  estimatetype = "MH",
-  printresults = TRUE
-)
+Cochran_Q_test_stratified_2x2(n, link = "linear", estimatetype = "MH")
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
@@ -17,8 +12,6 @@ Cochran_Q_test_stratified_2x2(
 \item{link}{the link function ('linear', 'log', or 'logit')}
 
 \item{estimatetype}{Mantel-Haenszel or inverse variance estimate ('MH' or 'IV')}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom

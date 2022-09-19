@@ -2,14 +2,13 @@
 #' @description The Brant test for the proportional odds assumption
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed table (a 2xc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom stats binomial glm predict
 #' @return A data frame containing the probability, the statistic and the degrees of freedom
 #' @examples
 #' Brant_test_2xc(fontanella_2008)
 #' Brant_test_2xc(lydersen_2012a)
 #' @export
-Brant_test_2xc <- function(n, printresults = TRUE) {
+Brant_test_2xc <- function(n) {
   validateArguments(mget(ls()))
   # Note that this function only works for 2xc tables (not for rxc tables)
   r0 <- nrow(n)
@@ -85,9 +84,13 @@ Brant_test_2xc <- function(n, printresults = TRUE) {
   df <- c0 - 2
   P0 <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(sprintf("Brant test: T = %6.3f, df = %g, P = %7.5f", T0, df, P0), quote = FALSE)
-  }
-
-  invisible(data.frame(P = P0, T = T0, df = df))
+  # Output
+  res <- list(
+    name = "Brant test",
+    statistics = list(
+      "pvalue" = P0, "df" = df, "estimate" = T0, statname = "T"
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

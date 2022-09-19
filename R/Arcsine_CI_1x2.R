@@ -8,7 +8,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (0 = no, 1 = yes)
 #' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
 #' Arcsine_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
@@ -17,7 +16,7 @@
 #' with(singh_2010["4th", ], Arcsine_CI_1x2(X, n)) # alternative syntax
 #' Arcsine_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-Arcsine_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+Arcsine_CI_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
@@ -32,17 +31,13 @@ Arcsine_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   L <- sin(asin(sqrt(ptilde)) - z / (2 * sqrt(n)))^2
   U <- sin(asin(sqrt(ptilde)) + z / (2 * sqrt(n)))^2
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The arcsine CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), L, U
-      ),
-      quote = FALSE
+  # Output
+  res <- list(
+    name = "The arcsine CI",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
     )
-  }
-
-  res <- c(L, U, estimate)
-  names(res) <- c("lower", "upper", "estimate")
-  invisible(res)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

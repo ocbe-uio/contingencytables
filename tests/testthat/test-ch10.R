@@ -3,7 +3,7 @@ context("Chapter 10")
 test_that("Chapter 10 functions basically work", {
   expect_output(
     object = print(BreslowDay_homogeneity_test_stratified_2x2(doll_hill_1950)),
-    regexp = "The Breslow-Day test: P = 0.02292, T0 = 5.175 \\(df = 1\\)"
+    regexp = "The Breslow-Day test: P = 0.022919, T0 = 5.175 \\(df = 1\\)"
   )
   expect_output(
     object = print(MantelHaenszel_estimate_stratified_2x2(doll_hill_1950)),
@@ -19,7 +19,7 @@ test_that("Chapter 10 functions basically work", {
   )
   expect_output(
     object = print(Cochran_Q_test_stratified_2x2(doll_hill_1950)),
-    regexp = "The Cochran Q test \\(MH\\): P = 0.01025, Q = 6.591 \\(df = 1\\)"
+    regexp = "The Cochran Q test \\(MH\\): P = 0.010251, Q = 6.591 \\(df = 1\\)"
   )
   expect_output(
     object = print(ML_estimates_and_CIs_stratified_2x2(doll_hill_1950)),

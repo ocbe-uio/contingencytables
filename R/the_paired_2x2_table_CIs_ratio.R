@@ -38,12 +38,12 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- tmp[[2]]
   my_sprintf("Tang asymptotic score                  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n, alpha, FALSE)
+  tmp <- BonettPrice_hybrid_Wilson_score_CI_paired_2x2(n, alpha)$statistics
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Bonett-Price hybrid Wilson score       %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n, alpha, FALSE)
+  tmp <- BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(n, alpha)$statistics
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Bonett-Price hybrid Wilson score w/CC  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))

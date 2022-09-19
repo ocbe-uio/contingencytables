@@ -4,12 +4,10 @@
 \alias{BreslowDay_homogeneity_test_stratified_2x2}
 \title{The Breslow-Day test of homogeneity of odds ratios over strata}
 \usage{
-BreslowDay_homogeneity_test_stratified_2x2(n, printresults = TRUE)
+BreslowDay_homogeneity_test_stratified_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing lower bound, upper bound and differences of the statistic

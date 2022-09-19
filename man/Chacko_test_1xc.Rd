@@ -4,12 +4,10 @@
 \alias{Chacko_test_1xc}
 \title{The Chacko test for order-restriction}
 \usage{
-Chacko_test_1xc(n, printresults = TRUE)
+Chacko_test_1xc(n)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A data frame containing the two-sided p-value, the statistic and the degrees of freedom
