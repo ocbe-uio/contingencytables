@@ -24,7 +24,7 @@ the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
   # ======================================================== #
 
   if (chacko.test) {
-    Chacko_test_1xc(n, printresults = TRUE)
+    Chacko_test_1xc(n)
   } else {
     c0 <- length(n)
     N <- sum(n)

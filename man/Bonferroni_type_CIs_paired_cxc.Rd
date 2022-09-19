@@ -4,14 +4,12 @@
 \alias{Bonferroni_type_CIs_paired_cxc}
 \title{Bonferroni-type confidence intervals for differences of marginal probabilities}
 \usage{
-Bonferroni_type_CIs_paired_cxc(n, alpha = 0.05, printresults = TRUE)
+Bonferroni_type_CIs_paired_cxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing lower, upper and point estimates of the statistic

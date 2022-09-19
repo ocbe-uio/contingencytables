@@ -58,7 +58,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
     Scheffe_L <- tmp[[1]]
     Scheffe_U <- tmp[[2]]
     deltahat <- tmp[[3]]
-    tmp <- Bonferroni_type_CIs_paired_cxc(n, alpha, FALSE)
+    tmp <- Bonferroni_type_CIs_paired_cxc(n, alpha)$statistics
     Bonferroni_L <- tmp[[1]]
     Bonferroni_U <- tmp[[2]]
 

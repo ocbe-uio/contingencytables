@@ -81,15 +81,15 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   my_sprintf("============================================================\n")
   my_sprintf("Test                 P-value  (test statistic)\n")
   my_sprintf("-------------------------------------------------\n")
-  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "MH", FALSE)
-  P <- tmp[[1]]
-  Q <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "MH")
+  P <- tmp$statistics$pvalue
+  Q <- tmp$statistics$estimate
+  df <- tmp$statistics$df
   my_sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "IV", FALSE)
-  P <- tmp[[1]]
-  Q <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "IV")
+  P <- tmp$statistics$pvalue
+  Q <- tmp$statistics$estimate
+  df <- tmp$statistics$df
   my_sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear", FALSE)
   my_sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
@@ -101,15 +101,15 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   my_sprintf("================================================\n")
   my_sprintf("Test                 P-value  (test statistic)\n")
   my_sprintf("-------------------------------------------------\n")
-  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "MH", FALSE)
-  P <- tmp[[1]]
-  Q <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "MH")
+  P <- tmp$statistics$pvalue
+  Q <- tmp$statistics$estimate
+  df <- tmp$statistics$df
   my_sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "IV", FALSE)
-  P <- tmp[[1]]
-  Q <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- Cochran_Q_test_stratified_2x2(n, "log", "IV")
+  P <- tmp$statistics$pvalue
+  Q <- tmp$statistics$estimate
+  df <- tmp$statistics$df
   my_sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log", FALSE)
   my_sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
@@ -121,23 +121,23 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   my_sprintf("===================================\n")
   my_sprintf("Test                             P-value  (test statistic)\n")
   my_sprintf("-------------------------------------------------------------\n")
-  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "MH", FALSE)
-  P <- tmp[[1]]
-  Q <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "MH")
+  P <- tmp$statistics$pvalue
+  Q <- tmp$statistics$estimate
+  df <- tmp$statistics$df
   my_sprintf("Cochran Q (MH)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "IV", FALSE)
-  P <- tmp[[1]]
-  Q <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "IV")
+  P <- tmp$statistics$pvalue
+  Q <- tmp$statistics$estimate
+  df <- tmp$statistics$df
   my_sprintf("Cochran Q (IV)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit", FALSE)
   my_sprintf("Likelihood ratio                 %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   my_sprintf("Pearson chi-squared              %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
-  tmp <- BreslowDay_homogeneity_test_stratified_2x2(n, FALSE)
-  P <- tmp[[1]]
-  T0 <- tmp[[2]]
-  df <- tmp[[3]]
+  tmp <- BreslowDay_homogeneity_test_stratified_2x2(n)$statistics
+  P <- tmp$pvalue
+  T0 <- tmp$estimate
+  df <- tmp$df
   my_sprintf("Breslow-Day W/Tarone correction  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df)
   tmp <- Peto_homogeneity_test_stratified_2x2(n, FALSE)
   P <- tmp[[1]]

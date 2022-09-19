@@ -3,12 +3,11 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rx2 vector)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
 #' Bonferroni_type_CIs_rxc(table_7.3)
 #' @export
-Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -38,16 +37,11 @@ Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(sprintf("The Bonferroni-type simultaneous intervals"), quote = FALSE)
-    k <- 0
-    for (i in 1:r) {
-      for (j in min(r, i + 1):r) {
-        k <- k + 1
-        print(sprintf("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)", i, j, differences[k], L[k], U[k]), quote = FALSE)
-      }
-    }
-  }
-
-  invisible(list(L = L, U = U, differences = differences))
+  # Output
+  res <- list(
+    name = "The Bonferroni-type simultaneous intervals",
+    statistics = list("lower" = L, "upper" = U, "differences" = differences)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

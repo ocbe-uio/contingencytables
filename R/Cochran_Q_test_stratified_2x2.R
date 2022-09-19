@@ -4,14 +4,13 @@
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param link the link function ('linear', 'log', or 'logit')
 #' @param estimatetype Mantel-Haenszel or inverse variance estimate ('MH' or 'IV')
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' Cochran_Q_test_stratified_2x2(doll_hill_1950)
 #' Cochran_Q_test_stratified_2x2(hine_1989)
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
 Cochran_Q_test_stratified_2x2 <- function(
-  n, link = "linear", estimatetype = "MH", printresults = TRUE
+  n, link = "linear", estimatetype = "MH"
 ) {
   validateArguments(mget(ls()))
   K <- dim(n)[3]
@@ -41,9 +40,13 @@ Cochran_Q_test_stratified_2x2 <- function(
   df <- K - 1
   P <- 1 - pchisq(Q, df)
 
-  if (printresults) {
-    my_sprintf("The Cochran Q test (%s): P = %7.5f, Q = %5.3f (df = %i)\n", estimatetype, P, Q, df)
-  }
-
-  invisible(list(P = P, Q = Q, df = df))
+  # Output
+  res <- list(
+    name = sprintf("The Cochran Q test (%s)", estimatetype),
+    statistics = list(
+      "pvalue" = P, "df" = df, "estimate" = Q, statname = "Q"
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

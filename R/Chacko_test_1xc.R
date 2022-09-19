@@ -2,12 +2,11 @@
 #' @description The Chacko test for order-restriction
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
-#' @param printresults display results (F = no, T = yes)
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
 #' @examples
 #' Chacko_test_1xc(hypothetical)
 #' @export
-Chacko_test_1xc <- function(n, printresults = TRUE) {
+Chacko_test_1xc <- function(n) {
   validateArguments(mget(ls()))
   c0 <- length(n)
   N <- sum(n)
@@ -44,15 +43,13 @@ Chacko_test_1xc <- function(n, printresults = TRUE) {
   df <- m - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The Chacko test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df
-      ),
-      quote = FALSE
+  # Output
+  res <- list(
+    name = "The Chacko test",
+    statistics = list(
+      "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
     )
-  }
-
-  res <- data.frame(P = P, T = T0, df = df)
-  invisible(res)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

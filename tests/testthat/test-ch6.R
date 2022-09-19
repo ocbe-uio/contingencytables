@@ -4,7 +4,7 @@ test_that("Chapter 6 functions basically work", {
   n_short <- floor(lydersen_2012a / 2)
   expect_output(
     object = print(Brant_test_2xc(lydersen_2012a)),
-    regexp = "Brant test: T =  1.668, df = 2, P = 0.43422"
+    regexp = "P = 0.434217, T = 1.668 \\(df = 2\\)"
   )
   expect_output(
     object = print(Cumulative_models_for_2xc(lydersen_2012a)),

@@ -59,7 +59,7 @@ the_1x2_table_tests <- function(X, n, pi0) {
   midP <- MidP_binomial_test_1x2(X, n, pi0, FALSE)
   myprint("Mid-P binomial      %6.4f", midP)
 
-  midP <- Blaker_midP_test_1x2(X, n, pi0, FALSE)
+  midP <- Blaker_midP_test_1x2(X, n, pi0)$statistics$midp
   myprint("Blaker mid-P        %6.4f", midP)
 
   myprint("------------------------------------------------")

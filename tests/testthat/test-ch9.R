@@ -3,7 +3,7 @@ context("Chapter 9")
 test_that("Chapter 9 functions basically work", {
   expect_output(
     object = print(Bhapkar_test_paired_cxc(peterson_2007)),
-    regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df=3\\)"
+    regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df = 3\\)"
   )
   expect_output(
     object = print(Bonferroni_type_CIs_paired_cxc(peterson_2007)),

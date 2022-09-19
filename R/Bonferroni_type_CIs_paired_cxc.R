@@ -3,14 +3,11 @@
 #' @description Described in Chapter 9 "The Paired kxk Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @return A list containing lower, upper and point estimates of the statistic
 #' @examples
 #' Bonferroni_type_CIs_paired_cxc(peterson_2007)
 #' @export
-Bonferroni_type_CIs_paired_cxc <- function(
-  n, alpha = 0.05, printresults = TRUE
-) {
+Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -42,12 +39,11 @@ Bonferroni_type_CIs_paired_cxc <- function(
     }
   }
 
-  if (printresults) {
-    my_sprintf("Bonferroni-type simultaneous intervals\n")
-    for (i in 1:c) {
-      my_sprintf("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
-    }
-  }
-
-  invisible(list(L = L, U = U, deltahat = deltahat))
+  # Output
+  res <- list(
+    name = "Bonferroni-type simultaneous intervals",
+    statistics = list("lower" = L, "upper" = U, "deltahat" = deltahat)
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

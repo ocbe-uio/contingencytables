@@ -44,7 +44,9 @@ Bhapkar_test_paired_cxc <- function(n) {
   # Output
   res <- list(
     name = "The Bhapkar test for marginal homogenity",
-    statistics = list("pvalue" = P, "df" = df, "estimate" = T0)
+    statistics = list(
+      "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
+    )
   )
   class(res) <- "contingencytables_output"
   return(res)
