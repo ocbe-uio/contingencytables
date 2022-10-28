@@ -11,10 +11,10 @@ print.contingencytables_output <- function(x, ...) {
   stats <- x$statistics
   out_stats <- switch(
     EXPR = stats_names,
-    "lower_upper_estimate_alpha" = sprintf(
-      # TODO: add stats$statname to accomodate, e.g. CochranArmitage_CI_rx2()
-      "estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      stats$estimate, 100 * (1 - stats$alpha), stats$lower, stats$upper
+    "lower_upper_estimate_alpha_statname" = sprintf(
+      "%s = %6.4f (%g%% CI %6.4f to %6.4f)",
+      stats$statname, stats$estimate, 100 * (1 - stats$alpha), stats$lower,
+      stats$upper
     ),
     "pvalue_df_estimate_statname" = sprintf(
       "P = %8.6f, %s = %5.3f (df = %g)",
@@ -34,9 +34,16 @@ print.contingencytables_output <- function(x, ...) {
       pairwiseComparisons(length(stats$differences) - 1)[, 1],
       pairwiseComparisons(length(stats$differences) - 1)[, 2],
       stats$differences, stats$lower, stats$upper
+    ),
+    "t_pvalue" = sprintf(
+      "T = %6.3f, P = %7.5f", stats$t, stats$pvalue
     )
   )
   separator <- ifelse(length(out_stats) == 1, ": ", "\n")
-  cat(x$name, out_stats, sep = separator)
+  if (length(x$name) == 1) {
+    cat(x$name, out_stats, sep = separator)
+  } else {
+    cat(paste0(x$name, ": ", out_stats), sep = separator)
+  }
   invisible(x)
 }

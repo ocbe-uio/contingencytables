@@ -4,14 +4,12 @@
 \alias{CochranArmitage_exact_cond_midP_tests_rx2}
 \title{The Cochran-Armitage exact conditional and mid-P tests}
 \usage{
-CochranArmitage_exact_cond_midP_tests_rx2(n, a, printresults = TRUE)
+CochranArmitage_exact_cond_midP_tests_rx2(n, a)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
 
 \item{a}{scores assigned to the rows}
-
-\item{printresults}{display results}
 }
 \value{
 A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value

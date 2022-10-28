@@ -4,12 +4,10 @@
 \alias{CochranMantelHaenszel_test_stratified_2x2}
 \title{The Cochran-Mantel-Haenszel test of a common odds ratio}
 \usage{
-CochranMantelHaenszel_test_stratified_2x2(n, printresults = TRUE)
+CochranMantelHaenszel_test_stratified_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the two-sided p-value, the statistic and the degrees of freedom

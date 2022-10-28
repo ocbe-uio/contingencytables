@@ -38,12 +38,12 @@ t021 <- ClopperPearson_exact_CI_1x2_beta_version(13, 16)
 t022 <- ClopperPearson_exact_CI_1x2(13, 16)
 t023 <- ClopperPearson_midP_CI_1x2(13, 16)
 t024 <- Cochran_Q_test_stratified_2x2(n4)
-t025 <- CochranArmitage_CI_rx2(n, 1:2, printresults = FALSE)
-t026 <- CochranArmitage_exact_cond_midP_tests_rx2(n2, 1:4, printresults = FALSE)
-t027 <- CochranArmitage_MH_tests_rx2(n2, 1:4, printresults = FALSE)
-t028 <- CochranMantelHaenszel_test_stratified_2x2(n4, printresults = FALSE)
-t029 <- Cornfield_exact_conditional_CI_2x2(n, printresults = FALSE)
-t030 <- Cornfield_midP_CI_2x2(n, printresults = FALSE)
+t025 <- CochranArmitage_CI_rx2(n, 1:2)
+t026 <- CochranArmitage_exact_cond_midP_tests_rx2(n2, 1:4)
+t027 <- CochranArmitage_MH_tests_rx2(n2, 1:4)
+t028 <- CochranMantelHaenszel_test_stratified_2x2(n4)
+t029 <- Cornfield_exact_conditional_CI_2x2(n)
+t030 <- Cornfield_midP_CI_2x2(n)
 t031 <- Cumulative_models_for_2xc(n3, printresults = FALSE)
 t032 <- Cumulative_models_for_rxc(n3, printresults = FALSE)
 t033 <- Exact_binomial_test_1x2(13, 16, .5, printresults = FALSE)
@@ -194,19 +194,13 @@ t160 <- Z_unpooled_test_2x2(n, printresults = FALSE)
 function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
-  for (t in function_output_objects[1:24]) {
+  for (t in function_output_objects[1:30]) {
     expect_is(get(t), "contingencytables_output")
     expect_named(get(t), c("name", "statistics"))
   }
 })
 
 test_that("Output classes are the expected", {
-  expect_is(t025, "data.frame")
-  expect_is(t026, "data.frame")
-  expect_is(t027, "list")
-  expect_is(t028, "list")
-  expect_is(t029, "data.frame")
-  expect_is(t030, "data.frame")
   expect_is(t031, "list")
   expect_is(t032, "list")
   expect_is(t033, "numeric")
@@ -352,12 +346,6 @@ test_that("Output names are the expected", {
   plr_df <- c("P_LR", "T_LR", "df_LR", "P_Pearson", "T_Pearson", "df_Pearson")
   plr <- c("T_Pearson", "P_Pearson", "T_LR", "P_LR")
   ps <- c("p.value", "statistic")
-  expect_named(t025, lue)
-  expect_named(t026, c("P", "midP"))
-  expect_named(t027, c("Z_CA", "P_CA", "Z_CA_mod", "P_CA_mod", "Z_MH", "P_MH"))
-  expect_named(t028, ptdf)
-  expect_named(t029, lue)
-  expect_named(t030, lue)
   expect_named(
     t031,
     c(

@@ -4,14 +4,12 @@
 \alias{Cornfield_midP_CI_2x2}
 \title{The Cornfield mid-P confidence interval for the odds ratio}
 \usage{
-Cornfield_midP_CI_2x2(n, alpha = 0.05, printresults = TRUE)
+Cornfield_midP_CI_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A data frame containing lower, upper and point estimates of the statistic

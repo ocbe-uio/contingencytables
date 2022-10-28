@@ -3,7 +3,6 @@
 #' @description Described in Chapter 5 "The Ordered rx2 Table"
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
-#' @param printresults display results
 #' @examples
 #' \dontrun{
 #' CochranArmitage_exact_cond_midP_tests_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
@@ -11,7 +10,7 @@
 #' CochranArmitage_exact_cond_midP_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
 #' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
-CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults = TRUE) {
+CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -46,11 +45,14 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults = TRUE)
   P <- 2 * one_sided_P
   midP <- 2 * (one_sided_P - 0.5 * point_prob)
 
-  if (printresults) {
-    print(sprintf("Cochran-Armitage exact cond. test: P = %7.5f", P))
-    print(sprintf("Cochran-Armitage mid-P test:   mid-P = %7.5f", midP))
-  }
-
-  res <- data.frame(P = P, midP = midP)
-  invisible(res)
+  # Output
+  res <- list(
+    name = c(
+      "Cochran-Armitage exact cond. test",
+      "Cochran-Armitage mid-P test   "
+    ),
+    statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

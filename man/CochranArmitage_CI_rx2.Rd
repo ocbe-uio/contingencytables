@@ -4,7 +4,7 @@
 \alias{CochranArmitage_CI_rx2}
 \title{The Cochran-Armitage confidence interval for trend in the linear model}
 \usage{
-CochranArmitage_CI_rx2(n, a, alpha = 0.05, printresults = TRUE)
+CochranArmitage_CI_rx2(n, a, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
@@ -12,8 +12,6 @@ CochranArmitage_CI_rx2(n, a, alpha = 0.05, printresults = TRUE)
 \item{a}{scores assigned to the rows}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results}
 }
 \value{
 A vector containing lower, upper and point estimates of the statistic

@@ -21,7 +21,7 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
     name = "The Agresti-Caffo CI",
     statistics = list(
       "lower" = res.wald$lower, "upper" = res.wald$upper, "estimate" = estimate,
-      "alpha" = alpha
+      "alpha" = alpha, "statname" = "estimate"
     )
   )
   class(res) <- "contingencytables_output"

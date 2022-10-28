@@ -55,7 +55,8 @@ BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(n, alpha = 0.05) {
   res <- list(
     name = "The Bonett-Price hybrid Wilson score CI w / CC",
     statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
+      "statname" = "estimate"
     )
   )
   class(res) <- "contingencytables_output"

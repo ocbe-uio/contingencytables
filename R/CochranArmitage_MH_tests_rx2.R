@@ -53,11 +53,17 @@ CochranArmitage_MH_tests_rx2 <- function(n, a, printresults = TRUE) {
   results$Z_MH <- Z_MH
   results$P_MH <- P_MH
 
-  if (printresults) {
-    print(sprintf("Cochran-Armitage test:          T = %6.3f, P = %7.5f", Z_CA, P_CA))
-    print(sprintf("Modified Cochran-Armitage test: T = %6.3f, P = %7.5f", Z_CA_mod, P_CA_mod))
-    print(sprintf("Mantel-Haenszel test:           T = %6.3f, P = %7.5f", Z_MH, P_MH))
-  }
-
-  invisible(results)
+  res <- list(
+    name = c(
+      "Cochran-Armitage test         ",
+      "Modified Cochran-Armitage test",
+      "Mantel-Haenszel test          "
+    ),
+    statistics = list(
+      "t" = c("Z_CA" = Z_CA, "Z_CA_mod" = Z_CA_mod, "Z_MH" = Z_MH),
+      "pvalue" = c("P_CA" = P_CA, "P_CA_mod" = P_CA_mod, "P_MH" = P_MH)
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }

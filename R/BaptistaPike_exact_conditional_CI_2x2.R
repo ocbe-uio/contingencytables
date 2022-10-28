@@ -51,7 +51,8 @@ BaptistaPike_exact_conditional_CI_2x2 <- function(n, alpha = 0.05) {
   res <- list(
     name = "Baptista-Pike exact conditional CI",
     statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
+      "statname" = "estimate"
     )
   )
   class(res) <- "contingencytables_output"

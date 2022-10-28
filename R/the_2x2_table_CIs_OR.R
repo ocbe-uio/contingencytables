@@ -76,7 +76,7 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Uncorrected asymptotic score          %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Cornfield_exact_conditional_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Cornfield_exact_conditional_CI_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Cornfield exact conditional           %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
@@ -86,7 +86,7 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   U <- res$statistics$upper
   print(sprintf("Baptista-Pike exact conditional       %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Cornfield_midP_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Cornfield_midP_CI_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Cornfield mid-P                       %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
