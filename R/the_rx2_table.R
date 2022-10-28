@@ -48,10 +48,10 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   }
 
   my_sprintf("Tests for trend in the linear model")
-  results <- CochranArmitage_MH_tests_rx2(n, a, 0)
-  my_sprintf("  Cochran-Armitage            %6.3f          %8.5f", results$Z_CA, results$P_CA)
-  my_sprintf("  Modified Cochran-Armitage   %6.3f          %8.5f", results$Z_CA_mod, results$P_CA_mod)
-  my_sprintf("  Mantel-Haenszel             %6.3f          %8.5f", results$Z_MH, results$P_MH)
+  results <- CochranArmitage_MH_tests_rx2(n, a)$statistics
+  my_sprintf("  Cochran-Armitage            %6.3f          %8.5f", results[["t"]]["Z_CA"], results[["pvalue"]]["P_CA"])
+  my_sprintf("  Modified Cochran-Armitage   %6.3f          %8.5f", results[["t"]]["Z_CA_mod"], results[["pvalue"]]["P_CA_mod"])
+  my_sprintf("  Mantel-Haenszel             %6.3f          %8.5f", results[["t"]]["Z_MH"], results[["pvalue"]]["P_MH"])
 
   results_linear <- Trend_estimate_CI_tests_rx2(n, a, "identity", alpha, 0)
   my_sprintf("  Wald                        %6.3f          %8.5f", results_linear$Z_Wald, results_linear$P_Wald)
@@ -74,7 +74,7 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   my_sprintf("Method                  Estimate         %g%% CI           Width", 100 * (1 - alpha))
   my_sprintf("----------------------------------------------------------------")
   my_sprintf("Linear model")
-  tmp <- CochranArmitage_CI_rx2(n, a, alpha, 0)
+  tmp <- CochranArmitage_CI_rx2(n, a, alpha)$statistics
   betahat <- tmp$estimate
   L <- tmp$lower
   U <- tmp$upper

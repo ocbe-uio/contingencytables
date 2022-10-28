@@ -4,13 +4,12 @@
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results
 #' @return A vector containing lower, upper and point estimates of the statistic
 #' @examples
 #' CochranArmitage_CI_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' CochranArmitage_CI_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05, printresults = TRUE) {
+CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -38,13 +37,14 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05, printresults = TRUE) {
   L <- betahat - z * SE
   U <- betahat + z * SE
 
-  if (printresults) {
-    print(sprintf(
-      "Trend estimate and Cochran-Armitage CI:  betahat = %6.4f (%g%% CI %6.4f to %6.4f)",
-      betahat, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
-  }
-
-  res <- data.frame(lower = L, upper = U, estimate = betahat)
+  # Output
+  res <- list(
+    name = "Trend estimate and Cochran-Armitage CI",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = betahat, "alpha" = alpha,
+      "statname" = "betahat"
+    )
+  )
+  class(res) <- "contingencytables_output"
   return(res)
 }

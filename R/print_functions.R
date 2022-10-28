@@ -34,9 +34,16 @@ print.contingencytables_output <- function(x, ...) {
       pairwiseComparisons(length(stats$differences) - 1)[, 1],
       pairwiseComparisons(length(stats$differences) - 1)[, 2],
       stats$differences, stats$lower, stats$upper
+    ),
+    "t_pvalue" = sprintf(
+      "T = %6.3f, P = %7.5f", stats$t, stats$pvalue
     )
   )
   separator <- ifelse(length(out_stats) == 1, ": ", "\n")
-  cat(x$name, out_stats, sep = separator)
+  if (length(x$name) == 1) {
+    cat(x$name, out_stats, sep = separator)
+  } else {
+    cat(paste0(x$name, ": ", out_stats), sep = separator)
+  }
   invisible(x)
 }

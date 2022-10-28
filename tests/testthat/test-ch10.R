@@ -11,7 +11,7 @@ test_that("Chapter 10 functions basically work", {
   )
   expect_output(
     object = print(CochranMantelHaenszel_test_stratified_2x2(doll_hill_1950)),
-    regexp = "Cochran-Mantel-Haenszel test: P = 0.00000, T0 = 24.920 \\(df = 1"
+    regexp = "Cochran-Mantel-Haenszel test: P = 0.000001, T0 = 24.920 \\(df = 1"
   )
   expect_output(
     object = print(InverseVariance_estimate_stratified_2x2(doll_hill_1950)),

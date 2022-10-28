@@ -8,12 +8,12 @@ test_that("Chapter 5 functions basically work", {
   )
   expect_output(
     object = print(CochranArmitage_MH_tests_rx2(indredavik_2008, a)),
-    regexp = "Mantel-Haenszel test:           T = -1.790, P = 0.07351"
+    regexp = "Mantel-Haenszel test\\s*:\\s*T = -1.790, P = 0.07351"
   )
   a <- 1:4
   expect_output(
-    object = CochranArmitage_exact_cond_midP_tests_rx2(
-      indredavik_2008[-5, ], a
+    object = print(
+      CochranArmitage_exact_cond_midP_tests_rx2(indredavik_2008[-5, ], a)
     ),
     regexp = "Cochran-Armitage exact cond. test: P = 0.62494"
   )

@@ -3,7 +3,6 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @return A data frame containing lower, upper and point estimates of the statistic
 #' @examples
 #' Cornfield_exact_conditional_CI_2x2(tea)
@@ -11,9 +10,7 @@
 #' Cornfield_exact_conditional_CI_2x2(lampasona_2013)
 #' Cornfield_exact_conditional_CI_2x2(ritland_2007)
 #' @export
-Cornfield_exact_conditional_CI_2x2 <- function(
-  n, alpha = 0.05, printresults = TRUE
-) {
+Cornfield_exact_conditional_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # global n11 n1p n2p np1 alphaglobal
   n11 <- n[1, 1]
@@ -47,15 +44,16 @@ Cornfield_exact_conditional_CI_2x2 <- function(
     U <- uniroot(calculate_U, c(estimate, theta1), n11 = n11, np1 = np1, n1p = n1p, n2p = n2p, alpha = alpha, tol = tol)$root
   }
 
-  if (printresults) {
-    print(sprintf(
-      "Cornfield exact conditional CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      estimate, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
-  }
-
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  # Output
+  res <- list(
+    name = "Cornfield exact conditional CI",
+    statistics = list(
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
+      "statname" = "estimate"
+    )
+  )
+  class(res) <- "contingencytables_output"
+  return(res)
 }
 
 # ==============================

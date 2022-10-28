@@ -214,10 +214,10 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   my_sprintf("-----------------------------------------------------\n")
   my_sprintf("Likelihood ratio         %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   my_sprintf("Pearson chi-squared      %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
-  tmp <- CochranMantelHaenszel_test_stratified_2x2(n, FALSE)
+  tmp <- CochranMantelHaenszel_test_stratified_2x2(n)$statistics
   P <- tmp[[1]]
-  T0 <- tmp[[2]]
-  df <- tmp[[3]]
+  T0 <- tmp[[3]]
+  df <- tmp[[2]]
   my_sprintf("Cochran-Mantel-Haenszel  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df)
   tmp <- RBG_test_and_CI_stratified_2x2(n, alpha, FALSE)
   P <- tmp[[1]]
