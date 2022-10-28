@@ -23,6 +23,7 @@ AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05) {
 
   # Add two successes and two failures and calculate the Wald CI
   res <- Wald_CI_1x2(X + 2, n + 4, alpha, 0)
+  names(res) <- NULL # workaround until Wald_CI_1x2() is fixed for #31
   estimate <- res[3]
   L <- res[1]
   U <- res[2]
@@ -31,7 +32,8 @@ AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05) {
   res <- list(
     name = "The Agresti-Coull CI",
     statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
+      "statname" = "estimate"
     )
   )
   class(res) <- "contingencytables_output"

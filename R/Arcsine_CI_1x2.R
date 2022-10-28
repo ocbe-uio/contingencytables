@@ -35,7 +35,8 @@ Arcsine_CI_1x2 <- function(X, n, alpha = 0.05) {
   res <- list(
     name = "The arcsine CI",
     statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha
+      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
+      "statname" = "estimate"
     )
   )
   class(res) <- "contingencytables_output"

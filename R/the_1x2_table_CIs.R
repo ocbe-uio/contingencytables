@@ -66,10 +66,10 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
     "Wilson score with CC         %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
-  res <- unlist(AgrestiCoull_CI_1x2(X, n, alpha)$statistics)
+  res <- AgrestiCoull_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Agresti-Coull                %5.3f to %5.3f %8.3f",
-    res[1], res[2], res[2] - res[1]
+    res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
   res <- Jeffreys_CI_1x2(X, n, alpha, FALSE)
@@ -78,34 +78,34 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- unlist(Arcsine_CI_1x2(X, n, alpha)$statistics)
+  res <- Arcsine_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Arcsine (Anscombe)           %5.3f to %5.3f %8.3f",
-    res[1], res[2], res[2] - res[1]
+    res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
-  res <- unlist(ClopperPearson_exact_CI_1x2(X, n, alpha)$statistics)
+  res <- ClopperPearson_exact_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Clopper-Pearson exact        %5.3f to %5.3f %8.3f",
-    res[1], res[2], res[2] - res[1]
+    res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
-  res <- unlist(Blaker_exact_CI_1x2(X, n, alpha)$statistics)
+  res <- Blaker_exact_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Blaker exact                 %5.3f to %5.3f %8.3f",
-    res[1], res[2], res[2] - res[1]
+    res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
-  res <- unlist(ClopperPearson_midP_CI_1x2(X, n, alpha)$statistics)
+  res <- ClopperPearson_midP_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Clopper-Pearson mid-p        %5.3f to %5.3f %8.3f",
-    res[1], res[2], res[2] - res[1]
+    res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
-  res <- unlist(Blaker_midP_CI_1x2(X, n, alpha)$statistics)
+  res <- Blaker_midP_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Blaker mid-P                 %5.3f to %5.3f %8.3f",
-    res[1], res[2], res[2] - res[1]
+    res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
   myprint("----------------------------------------------------")

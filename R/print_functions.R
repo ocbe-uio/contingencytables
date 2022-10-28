@@ -11,10 +11,10 @@ print.contingencytables_output <- function(x, ...) {
   stats <- x$statistics
   out_stats <- switch(
     EXPR = stats_names,
-    "lower_upper_estimate_alpha" = sprintf(
-      # TODO: add stats$statname to accomodate, e.g. CochranArmitage_CI_rx2()
-      "estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      stats$estimate, 100 * (1 - stats$alpha), stats$lower, stats$upper
+    "lower_upper_estimate_alpha_statname" = sprintf(
+      "%s = %6.4f (%g%% CI %6.4f to %6.4f)",
+      stats$statname, stats$estimate, 100 * (1 - stats$alpha), stats$lower,
+      stats$upper
     ),
     "pvalue_df_estimate_statname" = sprintf(
       "P = %8.6f, %s = %5.3f (df = %g)",
