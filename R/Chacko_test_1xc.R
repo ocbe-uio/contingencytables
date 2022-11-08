@@ -17,8 +17,8 @@ Chacko_test_1xc <- function(n, printresults = TRUE) {
   t0 <- rep(1, c0)
   m <- c0
   notordered <- 1
-  while (notordered == 1) {
-    for (i in 1:(m - 1)) {
+  while (notordered == 1 && m > 2) {
+    for (i in seq_len(m - 1)) {
       if (nt[i] > nt[i + 1]) {
         nt[i] <- (nt[i] + nt[i + 1]) / 2
         t0[i] <- t0[i] + 1
