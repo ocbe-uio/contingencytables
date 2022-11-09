@@ -33,16 +33,19 @@ Chacko_test_1xc <- function(n, printresults = TRUE) {
   m <- length(n)
 
   # The Chacko test statistic
-  T0 <- 0
-  for (i in 1:m) {
-    T0 <- T0 + t0[i] * ((nt[i] - N / c0)^2)
-  }
-  T0 <- T0 * c0 / N
+  T0 <- sum(t * ((n - N / c) ^ 2L)) * c / N
 
   # The two-sided P-value (reference distribution: chi-squared with m-1
   # degrees of freedom)
-  df <- m - 1
-  P <- 1 - pchisq(T0, df)
+  df <- m - 1L
+  P <- pchisq(T0, df, lower.tail = FALSE)
+
+  if (inclination < 0 || m <= 1) {
+    warning(
+      "Apparently non-decreasing sample may not fit the alternative hypothesis",
+      " (p_1 <= p_2 <= ... <= p_c). Consider reversing the input."
+    )
+  }
 
   if (printresults) {
     print(
