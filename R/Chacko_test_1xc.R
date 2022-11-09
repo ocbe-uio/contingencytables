@@ -9,28 +9,28 @@
 #' Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
 #' @export
 Chacko_test_1xc <- function(n, printresults = TRUE) {
-  c0 <- length(n)
+  inclination <- sum(diff(n))
+  # The ordering process (Chacko, 1966)
+  c <- length(n)
   N <- sum(n)
+  is_ordered <- all(n == sort(n))
+  t <- rep.int(1L, c)
 
-  # The ordering process
-  nt <- n
-  t0 <- rep(1, c0)
-  m <- c0
-  notordered <- 1
-  while (notordered == 1 && m > 2) {
-    for (i in seq_len(m - 1)) {
-      if (nt[i] > nt[i + 1]) {
-        nt[i] <- (nt[i] + nt[i + 1]) / 2
-        t0[i] <- t0[i] + 1
-        m <- m - 1
-        nt[(i + 1):m] <- nt[(i + 2):(m + 1)]
+  while (!is_ordered) {
+    for (i in seq(to = length(n) - 1L)) {
+      if (n[i] > n[i + 1L]) {
+        n[i] <- weighted.mean(c(n[i], n[i + 1L]), c(t[i], t[i + 1L]))
+        t[i] <- 2L
+        t[i + 1L] <- 0L
         break
       }
     }
-    if (i == m - 1) {
-      notordered <- 0
-    }
+    to_keep <- t > 0L
+    t <- t[to_keep]
+    n <- n[to_keep]
+    is_ordered <- all(n == sort(n))
   }
+  m <- length(n)
 
   # The Chacko test statistic
   T0 <- 0
