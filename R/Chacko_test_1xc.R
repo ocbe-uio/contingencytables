@@ -1,48 +1,62 @@
 #' @title The Chacko test for order-restriction
-#' @description The Chacko test for order-restriction
-#' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
+#' @description Described in Chapter 3, "The 1xc Table and the Multinomial
+#' Distribution", Chacko (1966) derived a test based on the Pearson chi-square
+#' statistic to test the hypothesis that the categories of a multinomial
+#' variable with `c` possible outcomes have a natural ordering. The test
+#' statistic is asymptotically chi-squared distributed.
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param printresults display results (F = no, T = yes)
-#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+#' @return A data frame containing the two-sided p-value, the statistic and the
+#' degrees of freedom.
 #' @examples
 #' # Hypothetical experiment
 #' Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
+#' @references
+#' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
+#' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
+#'
+#' Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of Contingency
+#' Tables. Chapman & Hall/CRC, Boca Raton, FL.
 #' @export
+#' @importFrom stats weighted.mean
 Chacko_test_1xc <- function(n, printresults = TRUE) {
-  c0 <- length(n)
+  inclination <- sum(diff(n))
+  # The ordering process (Chacko, 1966)
+  c <- length(n)
   N <- sum(n)
+  is_ordered <- all(n == sort(n))
+  t <- rep.int(1L, c)
 
-  # The ordering process
-  nt <- n
-  t0 <- rep(1, c0)
-  m <- c0
-  notordered <- 1
-  while (notordered == 1) {
-    for (i in 1:(m - 1)) {
-      if (nt[i] > nt[i + 1]) {
-        nt[i] <- (nt[i] + nt[i + 1]) / 2
-        t0[i] <- t0[i] + 1
-        m <- m - 1
-        nt[(i + 1):m] <- nt[(i + 2):(m + 1)]
+  while (!is_ordered) {
+    for (i in seq(to = length(n) - 1L)) {
+      if (n[i] > n[i + 1L]) {
+        n[i] <- weighted.mean(c(n[i], n[i + 1L]), c(t[i], t[i + 1L]))
+        t[i] <- 2L
+        t[i + 1L] <- 0L
         break
       }
     }
-    if (i == m - 1) {
-      notordered <- 0
-    }
+    to_keep <- t > 0L
+    t <- t[to_keep]
+    n <- n[to_keep]
+    is_ordered <- all(n == sort(n))
   }
+  m <- length(n)
 
   # The Chacko test statistic
-  T0 <- 0
-  for (i in 1:m) {
-    T0 <- T0 + t0[i] * ((nt[i] - N / c0)^2)
-  }
-  T0 <- T0 * c0 / N
+  T0 <- sum(t * ((n - N / c) ^ 2L)) * c / N
 
   # The two-sided P-value (reference distribution: chi-squared with m-1
   # degrees of freedom)
-  df <- m - 1
-  P <- 1 - pchisq(T0, df)
+  df <- m - 1L
+  P <- pchisq(T0, df, lower.tail = FALSE)
+
+  if (inclination < 0 || m <= 1) {
+    warning(
+      "Apparently non-decreasing sample may not fit the alternative hypothesis",
+      " (p_1 <= p_2 <= ... <= p_c). Consider reversing the input."
+    )
+  }
 
   if (printresults) {
     print(

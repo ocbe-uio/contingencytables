@@ -12,14 +12,24 @@ Chacko_test_1xc(n, printresults = TRUE)
 \item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+A data frame containing the two-sided p-value, the statistic and the
+degrees of freedom.
 }
 \description{
-The Chacko test for order-restriction
-
-Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
+Described in Chapter 3, "The 1xc Table and the Multinomial
+Distribution", Chacko (1966) derived a test based on the Pearson chi-square
+statistic to test the hypothesis that the categories of a multinomial
+variable with \code{c} possible outcomes have a natural ordering. The test
+statistic is asymptotically chi-squared distributed.
 }
 \examples{
 # Hypothetical experiment
 Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
+}
+\references{
+Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
+Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
+
+Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of Contingency
+Tables. Chapman & Hall/CRC, Boca Raton, FL.
 }
