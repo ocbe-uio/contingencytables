@@ -47,10 +47,15 @@ Exact_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
 # =========================
 all.tables3 <- function(N) {
   x <- vector()
+  show_progress <- N > 100
+  if (show_progress) {
+    progress <- txtProgressBar(max = N + 1, style = 3)
+  }
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {
       x <- rbind(x, c(x1, x2, N - x1 - x2))
     }
+    if (show_progress) setTxtProgressBar(progress, x1)
   }
   return(x)
 }
