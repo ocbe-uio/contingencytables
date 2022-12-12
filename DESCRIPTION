@@ -1,6 +1,6 @@
 Package: contingencytables
 Title: Statistical Analysis of Contingency Tables
-Version: 1.0.3
+Version: 1.0.4
 Authors@R:
     c(
         person(
@@ -35,9 +35,8 @@ Description: Provides functions to perform statistical inference of data organiz
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2
 URL: https://contingencytables.com/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
 Imports: MASS, boot
 Suggests: testthat
-Date: 2022-11-10

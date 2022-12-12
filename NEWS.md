@@ -1,3 +1,7 @@
+# contingencytables 1.0.4
+
+* Fixed bug on `BaptistaPike_midP_CI_2x2()` (issue #37)
+
 # contingencytables 1.0.3
 
 * Fixed bug on `Chacko_test_1xc()` (issue #36)

@@ -87,7 +87,7 @@ calculate_limit <- function(theta0, n11, np1, n1p, n2p, alpha) {
   Pobs <- noncentralhyge(n11, theta0, n1p, n2p, np1)
   for (x11 in max(c(0, np1 - n2p)):min(c(np1, n1p))) {
     P <- noncentralhyge(x11, theta0, n1p, n2p, np1)
-    if (P <= Pobs) {
+    if (!is.nan(P) && P <= Pobs) {
       f <- f + P
     }
   }
