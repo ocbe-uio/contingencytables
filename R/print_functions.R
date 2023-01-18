@@ -1,11 +1,16 @@
 # This file contains print methods used in this package
 
 my_sprintf <- function(s, ...) {
+  # TODO: once #31 is merged, this can be superseded by my_sprintf_cat()
   print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }
 
+my_sprintf_cat <- function(s, ...) {
+  cat(sprintf(s, ...))
+}
+
 #' @export
-print.contingencytables_output <- function(x, ...) {
+print.contingencytables_singletest <- function(x, ...) {
   # Determining output format
   stats_names <- paste(names(x$statistics), collapse = "_")
   stats <- x$statistics
@@ -45,5 +50,11 @@ print.contingencytables_output <- function(x, ...) {
   } else {
     cat(paste0(x$name, ": ", out_stats), sep = separator)
   }
+  invisible(x)
+}
+
+#' @export
+print.contingencytables_multipletests <- function(x, ...) {
+  x$FUN(x$statistics)
   invisible(x)
 }

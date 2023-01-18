@@ -4,7 +4,7 @@
 \alias{Exact_binomial_test_1x2}
 \title{The exact binomial test for the binomial probability (pi)}
 \usage{
-Exact_binomial_test_1x2(X, n, pi0, printresults = TRUE)
+Exact_binomial_test_1x2(X, n, pi0)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,8 +12,6 @@ Exact_binomial_test_1x2(X, n, pi0, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{pi0}{a given probability}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 The two-sided, twice-the-smallest tail p-value

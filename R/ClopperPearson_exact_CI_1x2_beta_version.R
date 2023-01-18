@@ -42,6 +42,6 @@ ClopperPearson_exact_CI_1x2_beta_version <- function(X, n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_output"
+  class(res) <- "contingencytables_singletest"
   return(res)
 }

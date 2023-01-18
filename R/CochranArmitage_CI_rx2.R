@@ -45,6 +45,6 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05) {
       "statname" = "betahat"
     )
   )
-  class(res) <- "contingencytables_output"
+  class(res) <- "contingencytables_singletest"
   return(res)
 }

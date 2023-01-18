@@ -50,7 +50,7 @@ the_1x2_table_tests <- function(X, n, pi0) {
   res <- Score_test_CC_1x2(X, n, pi0, FALSE)
   myprint("Score with CC       %6.4f   (Z = %5.3f)", res[1], res[2])
 
-  P <- Exact_binomial_test_1x2(X, n, pi0, FALSE)
+  P <- Exact_binomial_test_1x2(X, n, pi0)$statistics$pvalue
   myprint("Exact binomial      %6.4f", P)
 
   P <- Blaker_exact_test_1x2(X, n, pi0)$statistics$pvalue

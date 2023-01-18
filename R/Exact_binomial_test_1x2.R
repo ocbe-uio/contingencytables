@@ -5,7 +5,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (F = no, T = yes)
 #' @return The two-sided, twice-the-smallest tail p-value
 #' @examples
 #' Exact_binomial_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
@@ -14,7 +13,7 @@
 #' Exact_binomial_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = 0.513)
 #' Exact_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 #' @export
-Exact_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+Exact_binomial_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
   # The exact right tail P-value (for H_A: pi > pi0)
@@ -27,9 +26,11 @@ Exact_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   P <- 2 * min(Pright, Pleft)
   P <- min(P, 1)
 
-  if (printresults) {
-    print(sprintf("The exact binomial test: P = %7.5f", P), quote = FALSE)
-  }
-
-  invisible(P)
+  # Output
+  res <- list(
+    name = "The exact binomial test",
+    statistics = list("pvalue" = P, "statname" = "P")
+  )
+  class(res) <- "contingencytables_singletest"
+  return(res)
 }
