@@ -4,7 +4,6 @@
 #' @param  n the observed table (a 2xc matrix)
 #' @param  linkfunction either "logit" or "probit"
 #' @param  alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param  printresults display results (0 = no, 1 = yes)
 #' @importFrom MASS polr
 #' @importFrom stats binomial glm predict
 #' @examples
@@ -14,9 +13,7 @@
 #' @return A list containing the results of statistical tests for the
 #' goodness-of-fit of a proportional odds model, the effect in a proportional
 #' odds model and the effect parameter beta in the proportional odds model.
-Cumulative_models_for_2xc <- function(
-  n, linkfunction = "logit", alpha = 0.05, printresults = TRUE
-) {
+Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   validateArguments(mget(ls()))
   c0 <- ncol(n)
   nip <- apply(n, 1, sum)
@@ -155,34 +152,49 @@ Cumulative_models_for_2xc <- function(
   results$Wald_CI_OR <- c(exp(-Wald_CI[2]), exp(-Wald_CI[1]))
   results$Wald_CI_width <- Wald_CI_width
 
+  # Output
+  res <- list(
+    statistics = list(
+      "linkfunction" = linkfunction,
+      "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
+      "P_D" = P_D, "D" = D, "df_D" = df_D,
+      "P_Wald" = P_Wald, "Z_Wald" = Z_Wald,
+      "P_LR" = P_LR, "T_LR" = T_LR, "df_LR" = df_LR,
+      "P_MW" = ifelse(linkfunction == "logit", P_MW, NA),
+      "Z_MW" = ifelse(linkfunction == "logit", Z_MW, NA),
+      "alpha" = alpha,
+      "betahat" = betahat, "Wald_CI" = Wald_CI, "Wald_CI_width" = Wald_CI_width,
+      "OR" = exp(-betahat),
+      "Wald_CI_OR" = c(exp(-Wald_CI[2]), exp(-Wald_CI[1]))
+    ),
+    FUN = function(statistics) {
+      if (identical(linkfunction, "logit")) {
+        model <- "proportional odds"
+      } else if (identical(linkfunction, "probit")) {
+        model <- "probit"
+      }
+      my_sprintf("\nTesting the fit of a %s model\n", model)
+      my_sprintf("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+      my_sprintf("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+      my_sprintf("\nTesting the effect in a %s model\n", model)
+      my_sprintf("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
+      my_sprintf("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+      if (linkfunction %in% c("logistic", "logit")) {
+        my_sprintf("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
+      }
 
-  if (printresults) {
-    if (identical(linkfunction, "logit")) {
-      model <- "proportional odds"
-    } else if (identical(linkfunction, "probit")) {
-      model <- "probit"
+      my_sprintf("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
+      my_sprintf("in the %s model\n", model)
+      my_sprintf("----------------------------------------------------\n")
+      my_sprintf("Interval         Estimate     Conf. int       Width\n")
+      my_sprintf("----------------------------------------------------\n")
+      my_sprintf("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
+      if (linkfunction == "logistic") {
+        my_sprintf("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
+      }
+      my_sprintf("----------------------------------------------------\n")
     }
-    my_sprintf("\nTesting the fit of a %s model\n", model)
-    my_sprintf("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-    my_sprintf("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
-    my_sprintf("\nTesting the effect in a %s model\n", model)
-    my_sprintf("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
-    my_sprintf("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
-    if (linkfunction == "logistic") {
-      my_sprintf("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
-    }
-
-    my_sprintf("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
-    my_sprintf("in the %s model\n", model)
-    my_sprintf("----------------------------------------------------\n")
-    my_sprintf("Interval         Estimate     Conf. int       Width\n")
-    my_sprintf("----------------------------------------------------\n")
-    my_sprintf("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
-    if (linkfunction == "logistic") {
-      my_sprintf("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
-    }
-    my_sprintf("----------------------------------------------------\n")
-  }
-
-  invisible(results)
+  )
+  class(res) <- "contingencytables_multipletests"
+  return(res)
 }

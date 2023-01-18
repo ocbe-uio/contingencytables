@@ -4,12 +4,7 @@
 \alias{Cumulative_models_for_2xc}
 \title{Cumulative logit and probit models}
 \usage{
-Cumulative_models_for_2xc(
-  n,
-  linkfunction = "logit",
-  alpha = 0.05,
-  printresults = TRUE
-)
+Cumulative_models_for_2xc(n, linkfunction = "logit", alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2xc matrix)}
@@ -17,8 +12,6 @@ Cumulative_models_for_2xc(
 \item{linkfunction}{either "logit" or "probit"}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A list containing the results of statistical tests for the
