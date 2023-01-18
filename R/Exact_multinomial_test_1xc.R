@@ -20,17 +20,13 @@ Exact_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
   N <- sum(n)
 
   # Identify all possible tables with N observations (with 3,4,...,7 categories)
-  if (c0 == 3) {
-    x <- all.tables3(N)
-  } else if (c0 == 4) {
-    x <- all.tables4(N)
-  } else if (c0 == 5) {
-    x <- all.tables5(N)
-  } else if (c0 == 6) {
-    x <- all.tables6(N)
-  } else if (c0 == 7) {
-    x <- all.tables7(N)
-  }
+  x <- switch(
+    EXPR = c0,
+    stop("Please provide a sample of size 3 or larger"),
+    stop("Please provide a sample of size 3 or larger"),
+    all.tables3(N), all.tables4(N), all.tables5(N), all.tables6(N),
+    all.tables7(N)
+  )
 
   P <- 0
   Tobs <- sum(((n - N * pi0)^2) / (N * pi0))
@@ -46,17 +42,6 @@ Exact_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
   }
 
   invisible(P)
-}
-
-# =========================
-all.tables3 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      x <- rbind(x, c(x1, x2, N - x1 - x2))
-    }
-  }
-  return(x)
 }
 
 # =========================
