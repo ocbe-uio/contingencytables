@@ -36,6 +36,6 @@ Blaker_exact_test_1x2 <- function(X, n, pi0) {
     name = "The Blaker exact test",
     statistics = list("pvalue" = P, "statname" = "P")
   )
-  class(res) <- "contingencytables_output"
+  class(res) <- "contingencytablestest"
   return(res)
 }

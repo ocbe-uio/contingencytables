@@ -40,6 +40,6 @@ Blaker_midP_test_1x2 <- function(X, n, pi0) {
       "pvalue" = midP, "statname" = "mid-P"
     )
   )
-  class(res) <- "contingencytables_output"
+  class(res) <- "contingencytablestest"
   return(res)
 }

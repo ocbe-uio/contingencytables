@@ -39,6 +39,6 @@ Arcsine_CI_1x2 <- function(X, n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_output"
+  class(res) <- "contingencytablestest"
   return(res)
 }

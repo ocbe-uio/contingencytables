@@ -5,7 +5,7 @@ my_sprintf <- function(s, ...) {
 }
 
 #' @export
-print.contingencytables_output <- function(x, ...) {
+print.contingencytablestest <- function(x, ...) {
   # Determining output format
   stats_names <- paste(names(x$statistics), collapse = "_")
   stats <- x$statistics

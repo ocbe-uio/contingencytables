@@ -195,7 +195,7 @@ function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
   for (t in function_output_objects[1:30]) {
-    expect_is(get(t), "contingencytables_output")
+    expect_is(get(t), "contingencytablestest")
     expect_named(get(t), c("name", "statistics"))
   }
 })

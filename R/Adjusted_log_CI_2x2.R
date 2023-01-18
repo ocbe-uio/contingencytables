@@ -41,6 +41,6 @@ Adjusted_log_CI_2x2 <- function(n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_output"
+  class(res) <- "contingencytablestest"
   return(res)
 }
