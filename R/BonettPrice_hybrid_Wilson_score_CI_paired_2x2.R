@@ -48,6 +48,6 @@ BonettPrice_hybrid_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytablestest"
+  class(res) <- "contingencytables_singletest"
   return(res)
 }

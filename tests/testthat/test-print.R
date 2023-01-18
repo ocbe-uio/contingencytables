@@ -1,4 +1,4 @@
-context("print() method for contingencytablestests")
+context("print() method for contingencytables_singletests")
 
 test_that("Printing method works for lower_upper_estimate_alpha", {
   expect_silent(Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013))
@@ -24,4 +24,4 @@ test_that("Printing method works for pvalue", {
   expect_length(tmp$statistics, 2)
 })
 
-# TODO: add other print methods for contingencytablestest
+# TODO: add other print methods for contingencytables_singletest

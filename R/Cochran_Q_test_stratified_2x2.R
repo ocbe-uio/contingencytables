@@ -47,6 +47,6 @@ Cochran_Q_test_stratified_2x2 <- function(
       "pvalue" = P, "df" = df, "estimate" = Q, statname = "Q"
     )
   )
-  class(res) <- "contingencytablestest"
+  class(res) <- "contingencytables_singletest"
   return(res)
 }
