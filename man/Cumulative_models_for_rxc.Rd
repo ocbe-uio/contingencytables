@@ -4,12 +4,7 @@
 \alias{Cumulative_models_for_rxc}
 \title{Cumulative logit and probit models}
 \usage{
-Cumulative_models_for_rxc(
-  n,
-  linkfunction = "logit",
-  alpha = 0.05,
-  printresults = TRUE
-)
+Cumulative_models_for_rxc(n, linkfunction = "logit", alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
@@ -17,8 +12,6 @@ Cumulative_models_for_rxc(
 \item{linkfunction}{either "logit" or "probit"}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the results of statistical tests for the

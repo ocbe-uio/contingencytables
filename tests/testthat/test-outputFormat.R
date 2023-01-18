@@ -45,7 +45,7 @@ t028 <- CochranMantelHaenszel_test_stratified_2x2(n4)
 t029 <- Cornfield_exact_conditional_CI_2x2(n)
 t030 <- Cornfield_midP_CI_2x2(n)
 t031 <- Cumulative_models_for_2xc(n3)
-t032 <- Cumulative_models_for_rxc(n3, printresults = FALSE)
+t032 <- Cumulative_models_for_rxc(n3)
 t033 <- Exact_binomial_test_1x2(13, 16, .5, printresults = FALSE)
 t034 <- Exact_cond_midP_linear_rank_tests_2xc(n5, printresults = FALSE)
 t035 <- Exact_cond_midP_tests_rxc(n5[, 1:2], printresults = FALSE)
@@ -198,14 +198,13 @@ test_that("Output class and names are the expected", {
     expect_is(get(t), "contingencytables_singletest")
     expect_named(get(t), c("name", "statistics"))
   }
-  for (t in function_output_objects[c(31)]) {
+  for (t in function_output_objects[c(31, 32)]) {
     expect_is(get(t), "contingencytables_multipletests")
     expect_named(get(t), c("statistics", "FUN"))
   }
 })
 
 test_that("Output classes are the expected", {
-  expect_is(t032, "list")
   expect_is(t033, "numeric")
   expect_is(t034, "data.frame")
   expect_is(t035, "list")
@@ -349,14 +348,6 @@ test_that("Output names are the expected", {
   plr_df <- c("P_LR", "T_LR", "df_LR", "P_Pearson", "T_Pearson", "df_Pearson")
   plr <- c("T_Pearson", "P_Pearson", "T_LR", "P_LR")
   ps <- c("p.value", "statistic")
-  expect_named(
-    t032,
-    c(
-      "betahat", "OR", "se", "D", "df_D", "P_D", "X2", "df_X2", "P_X2",
-      "Z_Wald", "T_Wald", "P_Wald", "T_LR", "df_LR", "P_LR", "Wald_CI",
-      "Wald_CI_OR", "Wald_CI_width"
-    )
-  )
   expect_named(t033, NULL)
   expect_named(t034, c("P", "midP"))
   expect_named(

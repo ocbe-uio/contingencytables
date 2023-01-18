@@ -4,7 +4,6 @@
 #' @param n the observed table (an rxc matrix)
 #' @param linkfunction either "logit" or "probit"
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' Cumulative_models_for_rxc(table_7.5)
 #' Cumulative_models_for_rxc(table_7.6)
@@ -12,7 +11,7 @@
 #' @return A list containing the results of statistical tests for the
 #' goodness-of-fit of a proportional odds model, the effect in a proportional
 #' odds model and row comparisons
-Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {
+Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
@@ -144,33 +143,48 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
   results$Wald_CI_width <- Wald_CI_width
 
 
-  if (printresults) {
-    if (identical(linkfunction, "logit")) {
-      model <- "proportional odds"
-    } else if (identical(linkfunction, "probit")) {
-      model <- "probit"
+  # Output
+  res <- list(
+    statistics = list(
+      "linkfunction" = linkfunction,
+      "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
+      "P_D" = P_D, "D" = D, "df_D" = df_D,
+      "P_LR" = P_LR, "T_LR" = T_LR, "df_LR" = df_LR,
+      "r" = r,
+      "P_Wald" = P_Wald, "Z_Wald" = Z_Wald,
+      "alpha" = alpha,
+      "betahat" = betahat, "Wald_CI" = Wald_CI, "Wald_CI_width" = Wald_CI_width,
+      "OR" = exp(betahat),
+      "Wald_CI_OR" = Wald_CI_OR
+    ),
+    FUN = function(statistics) {
+      if (identical(linkfunction, "logit")) {
+        model <- "proportional odds"
+      } else if (identical(linkfunction, "probit")) {
+        model <- "probit"
+      }
+      my_sprintf_cat("\nTesting the fit of a %s model\n", model)
+      my_sprintf_cat("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+      my_sprintf_cat("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+
+      my_sprintf_cat("\nTesting the effect in a %s model\n", model)
+      my_sprintf_cat("  Likelihood ratio             P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+
+      my_sprintf_cat("\nComparing the rows                  Statistic   P-value\n")
+      my_sprintf_cat("--------------------------------------------------------\n")
+      for (i in 1:(r - 1)) {
+        my_sprintf_cat("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, Z_Wald[i], P_Wald[i])
+      }
+      my_sprintf_cat("--------------------------------------------------------\n\n")
+
+      my_sprintf_cat("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
+      my_sprintf_cat("--------------------------------------------------------------------------\n")
+      for (i in 1:(r - 1)) {
+        my_sprintf_cat("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, betahat[i], Wald_CI[i, 1], Wald_CI[i, 2], exp(betahat[i]), Wald_CI_OR[i, 1], Wald_CI_OR[i, 2])
+      }
+      my_sprintf_cat("--------------------------------------------------------------------------\n")
     }
-    my_sprintf("\nTesting the fit of a %s model\n", model)
-    my_sprintf("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-    my_sprintf("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
-
-    my_sprintf("\nTesting the effect in a %s model\n", model)
-    my_sprintf("  Likelihood ratio             P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
-
-    my_sprintf("\nComparing the rows                  Statistic   P-value\n")
-    my_sprintf("--------------------------------------------------------\n")
-    for (i in 1:(r - 1)) {
-      my_sprintf("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, Z_Wald[i], P_Wald[i])
-    }
-    my_sprintf("--------------------------------------------------------\n\n")
-
-    my_sprintf("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
-    my_sprintf("--------------------------------------------------------------------------\n")
-    for (i in 1:(r - 1)) {
-      my_sprintf("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, betahat[i], Wald_CI[i, 1], Wald_CI[i, 2], exp(betahat[i]), Wald_CI_OR[i, 1], Wald_CI_OR[i, 2])
-    }
-    my_sprintf("--------------------------------------------------------------------------\n")
-  }
-
-  invisible(results)
+  )
+  class(res) <- "contingencytables_multipletests"
+  return(res)
 }

@@ -125,7 +125,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #------------
 
   if (ncol(n) > 2) {
-    results <- Cumulative_models_for_rxc(n, "logit", alpha, printresults = FALSE)
+    results <- Cumulative_models_for_rxc(n, "logit", alpha)$statistics
 
     cat("\n")
     my_sprintf("\nTesting the fit of a proportional odds model\n")
