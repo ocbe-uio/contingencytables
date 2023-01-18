@@ -52,9 +52,11 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Exact_binomial_test_1x2(100))
   expect_output(
-    object = Exact_binomial_test_1x2(
-      ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5
-      ),
+    object = print(
+      Exact_binomial_test_1x2(
+        ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5
+      )
+    ),
     regexp = "P = 0.02127"
   )
   expect_error(Jeffreys_CI_1x2(100))
