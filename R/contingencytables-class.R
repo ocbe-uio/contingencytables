@@ -1,9 +1,16 @@
 # Instantiates an object of the "contingencytables_*" classes
-newContingencytablesOutput <- function(content, class_name) {
+newContingencytablesOutput <- function(content, class_name = "single") {
   # Defining valid structure
   valid_classes <- c(
     "contingencytables_singletest",
     "contingencytables_multipletests"
+  )
+  # Expanding shortened class names
+  class_name <- switch(
+    class_name,
+    "single"   = valid_classes[1],
+    "multiple" = valid_classes[2],
+    class_name
   )
   valid_content <- switch(
     class_name,
