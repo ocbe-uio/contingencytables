@@ -44,6 +44,5 @@ Adjusted_inv_sinh_CI_OR_2x2 <- function(
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(newContingencytablesOutput(res))
 }
