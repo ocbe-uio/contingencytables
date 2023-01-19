@@ -62,7 +62,7 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
     ),
     statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
   )
-  return(newContingencytablesOutput(res))
+  return(contingencytables_result(bundle = res))
 }
 
 # Slightly different calculations are needed for cumulative odds ratios in 2xc tables

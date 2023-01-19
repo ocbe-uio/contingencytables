@@ -55,7 +55,7 @@ BaptistaPike_exact_conditional_CI_2x2 <- function(n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  return(newContingencytablesOutput(res))
+  return(contingencytables_result(bundle = res))
 }
 
 # ==================================
