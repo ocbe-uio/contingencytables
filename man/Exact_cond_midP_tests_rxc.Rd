@@ -4,12 +4,10 @@
 \alias{Exact_cond_midP_tests_rxc}
 \title{Exact conditional and mid-P tests for the rxc table}
 \usage{
-Exact_cond_midP_tests_rxc(n, printresults = TRUE)
+Exact_cond_midP_tests_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing exact p-values and mid-p values

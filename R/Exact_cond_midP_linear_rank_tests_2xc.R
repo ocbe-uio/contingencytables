@@ -53,10 +53,13 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0, printresults = TRUE)
   P <- 2 * one_sided_P
   midP <- 2 * (one_sided_P - 0.5 * point_prob)
 
-  if (printresults) {
-    my_sprintf("Exact cond. linear rank test: P = %7.5f\n", P)
-    my_sprintf("Mid-P linear rank test:   mid-P = %7.5f\n", midP)
-  }
-
-  invisible(data.frame(P = P, midP = midP))
+  # Output
+  res <- list(
+    name = c(
+      "Exact cond. linear rank test",
+      "Mid-P linear rank test   "
+    ),
+    statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
+  )
+  return(contingencytables_result(bundle = res))
 }

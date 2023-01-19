@@ -41,8 +41,7 @@ ClopperPearson_exact_CI_1x2 <- function(X, n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(contingencytables_result(bundle = res))
 }
 
 calculate_L_CP <- function(L0, X, n, alpha) {

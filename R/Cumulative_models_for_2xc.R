@@ -153,48 +153,45 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   results$Wald_CI_width <- Wald_CI_width
 
   # Output
-  res <- list(
-    statistics = list(
-      "linkfunction" = linkfunction,
-      "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
-      "P_D" = P_D, "D" = D, "df_D" = df_D,
-      "P_Wald" = P_Wald, "Z_Wald" = Z_Wald,
-      "P_LR" = P_LR, "T_LR" = T_LR, "df_LR" = df_LR,
-      "P_MW" = ifelse(linkfunction == "logit", P_MW, NA),
-      "Z_MW" = ifelse(linkfunction == "logit", Z_MW, NA),
-      "alpha" = alpha,
-      "betahat" = betahat, "Wald_CI" = Wald_CI, "Wald_CI_width" = Wald_CI_width,
-      "OR" = exp(-betahat),
-      "Wald_CI_OR" = c(exp(-Wald_CI[2]), exp(-Wald_CI[1]))
-    ),
-    FUN = function(statistics) {
-      if (identical(linkfunction, "logit")) {
-        model <- "proportional odds"
-      } else if (identical(linkfunction, "probit")) {
-        model <- "probit"
-      }
-      my_sprintf_cat("\nTesting the fit of a %s model\n", model)
-      my_sprintf_cat("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-      my_sprintf_cat("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
-      my_sprintf_cat("\nTesting the effect in a %s model\n", model)
-      my_sprintf_cat("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
-      my_sprintf_cat("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
-      if (linkfunction %in% c("logistic", "logit")) {
-        my_sprintf_cat("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
-      }
-
-      my_sprintf_cat("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
-      my_sprintf_cat("in the %s model\n", model)
-      my_sprintf_cat("----------------------------------------------------\n")
-      my_sprintf_cat("Interval         Estimate     Conf. int       Width\n")
-      my_sprintf_cat("----------------------------------------------------\n")
-      my_sprintf_cat("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
-      if (linkfunction == "logistic") {
-        my_sprintf_cat("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
-      }
-      my_sprintf_cat("----------------------------------------------------\n")
-    }
+  statistics <- list(
+    "linkfunction" = linkfunction,
+    "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
+    "P_D" = P_D, "D" = D, "df_D" = df_D,
+    "P_Wald" = P_Wald, "Z_Wald" = Z_Wald,
+    "P_LR" = P_LR, "T_LR" = T_LR, "df_LR" = df_LR,
+    "P_MW" = ifelse(linkfunction == "logit", P_MW, NA),
+    "Z_MW" = ifelse(linkfunction == "logit", Z_MW, NA),
+    "alpha" = alpha,
+    "betahat" = betahat, "Wald_CI" = Wald_CI, "Wald_CI_width" = Wald_CI_width,
+    "OR" = exp(-betahat),
+    "Wald_CI_OR" = c(exp(-Wald_CI[2]), exp(-Wald_CI[1]))
   )
-  class(res) <- "contingencytables_multipletests"
-  return(res)
+  print_fun <- function() {
+    if (identical(linkfunction, "logit")) {
+      model <- "proportional odds"
+    } else if (identical(linkfunction, "probit")) {
+      model <- "probit"
+    }
+    my_sprintf_cat("\nTesting the fit of a %s model\n", model)
+    my_sprintf_cat("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+    my_sprintf_cat("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+    my_sprintf_cat("\nTesting the effect in a %s model\n", model)
+    my_sprintf_cat("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
+    my_sprintf_cat("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+    if (linkfunction %in% c("logistic", "logit")) {
+      my_sprintf_cat("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
+    }
+
+    my_sprintf_cat("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
+    my_sprintf_cat("in the %s model\n", model)
+    my_sprintf_cat("----------------------------------------------------\n")
+    my_sprintf_cat("Interval         Estimate     Conf. int       Width\n")
+    my_sprintf_cat("----------------------------------------------------\n")
+    my_sprintf_cat("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
+    if (linkfunction == "logistic") {
+      my_sprintf_cat("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
+    }
+    my_sprintf_cat("----------------------------------------------------\n")
+  }
+  return(contingencytables_result(statistics, print_fun))
 }

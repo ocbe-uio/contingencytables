@@ -15,6 +15,9 @@ print.contingencytables_singletest <- function(x, ...) {
   stats_names <- paste(names(x$statistics), collapse = "_")
   stats <- x$statistics
   out_stats <- switch(
+    # FIXME: lower_upper_differences seems broken. Used by
+    # Bonferroni_type_CIs_rxc() and the_rxc_table(). The latter fails silently
+    # for the_rxc_table(table_7.4, nboot = 0)
     EXPR = stats_names,
     "lower_upper_estimate_alpha_statname" = sprintf(
       "%s = %6.4f (%g%% CI %6.4f to %6.4f)",
@@ -44,7 +47,12 @@ print.contingencytables_singletest <- function(x, ...) {
       "T = %6.3f, P = %7.5f", stats$t, stats$pvalue
     )
   )
+
+  # If out_stats is a vector of strings, each one would be on its own line
+  # Example: all switch() cases above that involve seq_along()
   separator <- ifelse(length(out_stats) == 1, ": ", "\n")
+
+  # Handling output with multiple names
   if (length(x$name) == 1) {
     cat(x$name, out_stats, sep = separator)
   } else {
@@ -55,6 +63,16 @@ print.contingencytables_singletest <- function(x, ...) {
 
 #' @export
 print.contingencytables_multipletests <- function(x, ...) {
-  x$FUN(x$statistics)
+  cat(x$FUN(x$statistics))
+  invisible(x)
+}
+
+#' @export
+print.contingencytables_result <- function(x, ...) {
+  if (is(x$print_format, "function")) {
+    cat(x$print_format())
+  } else {
+    cat(x$print_format)
+  }
   invisible(x)
 }

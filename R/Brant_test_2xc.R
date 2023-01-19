@@ -91,6 +91,5 @@ Brant_test_2xc <- function(n) {
       "pvalue" = P0, "df" = df, "estimate" = T0, statname = "T"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(contingencytables_result(bundle = res))
 }

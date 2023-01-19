@@ -52,8 +52,7 @@ Cornfield_midP_CI_2x2 <- function(n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(contingencytables_result(bundle = res))
 }
 
 

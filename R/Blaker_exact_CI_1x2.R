@@ -47,8 +47,7 @@ Blaker_exact_CI_1x2 <- function(X, n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(contingencytables_result(bundle = res))
 }
 
 # ===============================

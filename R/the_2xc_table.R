@@ -27,8 +27,8 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
-  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson", FALSE)
-  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR", FALSE)
+  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson")$statistics
+  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR")$statistics
   my_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
   my_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
   my_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
@@ -39,8 +39,8 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
-  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR", FALSE)
-  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR", FALSE)
+  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR")$statistics
+  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR")$statistics
   my_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
   my_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
   my_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
@@ -65,7 +65,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", results$T_LR, results$df_LR, results$P_LR)
   my_sprintf("  Score (WMW)                   %6.3f          %8.5f\n", results$Z_MW, results$P_MW)
 
-  res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0, FALSE)
+  res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0)$statistics
   my_sprintf("  Exact conditional linear rank                 %8.5f\n", res$P)
   my_sprintf("  Mid-P linear rank                             %8.5f\n", res$midP)
 

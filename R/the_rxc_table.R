@@ -63,7 +63,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   # (Low birth weight vs psychiatric morbitidy)
   # Change "c <=2" to "c <= 3" to calculate the tests also on these data
   if (r <= 3 && c <= 2) {
-    results_exact_midP <- Exact_cond_midP_tests_rxc(n, printresults = FALSE)
+    results_exact_midP <- Exact_cond_midP_tests_rxc(n)$statistics
     my_sprintf("  Fisher-Freeman-Halton exact conditional                %9.6f\n", results_exact_midP$P_FFH)
     my_sprintf("  Fisher-Freeman-Halton mid-P                            %9.6f\n", results_exact_midP$midP_FFH)
     my_sprintf("  Pearson exact conditional                              %9.6f\n", results_exact_midP$P_Pearson)

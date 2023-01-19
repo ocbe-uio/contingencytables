@@ -64,6 +64,5 @@ Adjusted_inv_sinh_CI_ratio_2x2 <- function(
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(contingencytables_result(bundle = res))
 }

@@ -34,10 +34,10 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   # A little bit of computation time for the exact conditional and mid-P tests
   # for unspecific ordering
   if (!skip_exact) {
-    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "Pearson", 0)
+    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "Pearson")$statistics
     P_Pearson <- tmp$P
     midP_Pearson <- tmp$midP
-    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "LR", 0)
+    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "LR")$statistics
     P_LR <- tmp$P
     midP_LR <- tmp$midP
 
