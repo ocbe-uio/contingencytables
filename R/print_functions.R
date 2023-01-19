@@ -60,6 +60,6 @@ print.contingencytables_singletest <- function(x, ...) {
 
 #' @export
 print.contingencytables_multipletests <- function(x, ...) {
-  x$FUN(x$statistics)
+  cat(x$FUN(x$statistics))
   invisible(x)
 }
