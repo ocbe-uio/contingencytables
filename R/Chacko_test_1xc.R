@@ -64,6 +64,5 @@ Chacko_test_1xc <- function(n) {
       "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(newContingencytablesOutput(res))
 }

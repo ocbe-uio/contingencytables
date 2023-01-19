@@ -44,6 +44,5 @@ Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
     name = "Bonferroni-type simultaneous intervals",
     statistics = list("lower" = L, "upper" = U, "deltahat" = deltahat)
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(newContingencytablesOutput(res))
 }

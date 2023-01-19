@@ -43,8 +43,7 @@ ClopperPearson_midP_CI_1x2 <- function(X, n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  class(res) <- "contingencytables_singletest"
-  return(res)
+  return(newContingencytablesOutput(res))
 }
 
 calculate_L_CP2 <- function(L0, X, n, alpha) {

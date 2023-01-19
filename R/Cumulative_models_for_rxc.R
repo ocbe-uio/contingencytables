@@ -185,6 +185,5 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
       my_sprintf_cat("--------------------------------------------------------------------------\n")
     }
   )
-  class(res) <- "contingencytables_multipletests"
-  return(res)
+  return(newContingencytablesOutput(res, "multiple"))
 }
