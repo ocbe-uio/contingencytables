@@ -37,3 +37,7 @@ newContingencytablesOutput <- function(content, class_name = "single") {
     return(structure(content, class = class_name))
   }
 }
+
+contingencytables_test <- function(x) {
+  return(structure(x, class = "contingencytables_test"))
+}
