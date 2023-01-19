@@ -38,6 +38,10 @@ newContingencytablesOutput <- function(content, class_name = "single") {
   }
 }
 
-contingencytables_test <- function(x) {
-  return(structure(x, class = "contingencytables_test"))
+contingencytables_result <- function(statistics, print_format) {
+  obj <- structure(
+    list("statistics" = statistics, "print_format" = print_format),
+    class = "contingencytables_result"
+  )
+  return(obj)
 }

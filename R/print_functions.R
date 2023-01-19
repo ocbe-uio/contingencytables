@@ -63,3 +63,9 @@ print.contingencytables_multipletests <- function(x, ...) {
   cat(x$FUN(x$statistics))
   invisible(x)
 }
+
+#' @export
+print.contingencytables_result <- function(x, ...) {
+  cat(x$print_format)
+  invisible(x)
+}
