@@ -6,9 +6,9 @@ test_that("Chapter 3 functions basically work", {
     regexp = "P = 0.002168, T = 12.268 \\(df = 2\\)"
   )
   expect_output(
-    object = Exact_multinomial_test_1xc(
+    object = print(Exact_multinomial_test_1xc(
       n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0
-    ),
+    )),
     regexp = "P = 0.04792"
   )
   expect_output(

@@ -50,7 +50,7 @@ the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
     )
 
     if (N < 774) {
-      res <- Exact_multinomial_test_1xc(n, pi0, printresults = FALSE)
+      res <- Exact_multinomial_test_1xc(n, pi0)$statistics
       myprint("Exact multinomial      %6.4f\n", res)
 
       res <- MidP_multinomial_test_1xc(n, pi0, printresults = FALSE)
