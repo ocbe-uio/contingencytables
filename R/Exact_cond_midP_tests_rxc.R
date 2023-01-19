@@ -99,24 +99,21 @@ Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
   results$P_JT <- P_JT
   results$midP_JT <- midP_JT
 
-  res <- list(
-    statistics = results,
-    FUN = function(statistics) {
-      my_sprintf_cat("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
-      my_sprintf_cat("Mid-P Fisher-Freeman-Halton: P = %9.7f\n", midP_FFH)
-      my_sprintf_cat("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
-      my_sprintf_cat("Mid-P Pearson statistic:     P = %9.7f\n", midP_Pearson)
-      my_sprintf_cat("Exact LR statistic:          P = %9.7f\n", P_LR)
-      my_sprintf_cat("Mid-P LR statistic:          P = %9.7f\n", midP_LR)
-      my_sprintf_cat("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
-      my_sprintf_cat("Mid-P Kruskal-Wallis:        P = %9.7f\n", midP_KW)
-      my_sprintf_cat("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
-      my_sprintf_cat("Mid-P linear-by-linear:      P = %9.7f\n", midP_lbl)
-      my_sprintf_cat("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
-      my_sprintf_cat("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
-    }
-  )
-  return(newContingencytablesOutput(res, "multiple"))
+  print_fun <- function() {
+    my_sprintf_cat("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
+    my_sprintf_cat("Mid-P Fisher-Freeman-Halton: P = %9.7f\n", midP_FFH)
+    my_sprintf_cat("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
+    my_sprintf_cat("Mid-P Pearson statistic:     P = %9.7f\n", midP_Pearson)
+    my_sprintf_cat("Exact LR statistic:          P = %9.7f\n", P_LR)
+    my_sprintf_cat("Mid-P LR statistic:          P = %9.7f\n", midP_LR)
+    my_sprintf_cat("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
+    my_sprintf_cat("Mid-P Kruskal-Wallis:        P = %9.7f\n", midP_KW)
+    my_sprintf_cat("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
+    my_sprintf_cat("Mid-P linear-by-linear:      P = %9.7f\n", midP_lbl)
+    my_sprintf_cat("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
+    my_sprintf_cat("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
+  }
+  return(contingencytables_result(results, print_fun))
 }
 
 find_possible_tables_3x2 <- function(nip, npj) {

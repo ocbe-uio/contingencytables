@@ -196,11 +196,7 @@ test_that("Output class and names are the expected", {
     expect_is(get(t), "contingencytables_singletest")
     expect_named(get(t), c("name", "statistics"))
   }
-  for (t in function_output_objects[c(31, 32, 35)]) {
-    expect_is(get(t), "contingencytables_multipletests")
-    expect_named(get(t), c("statistics", "FUN"))
-  }
-  for (t in function_output_objects[37]) {
+  for (t in function_output_objects[c(31, 32, 35, 37)]) {
     expect_is(get(t), "contingencytables_result")
     expect_named(get(t), c("statistics", "print_format"))
   }

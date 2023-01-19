@@ -66,6 +66,10 @@ print.contingencytables_multipletests <- function(x, ...) {
 
 #' @export
 print.contingencytables_result <- function(x, ...) {
-  cat(x$print_format)
+  if (is(x$print_format, "function")) {
+    cat(x$print_format())
+  } else {
+    cat(x$print_format)
+  }
   invisible(x)
 }
