@@ -65,7 +65,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", results$T_LR, results$df_LR, results$P_LR)
   my_sprintf("  Score (WMW)                   %6.3f          %8.5f\n", results$Z_MW, results$P_MW)
 
-  res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0, FALSE)
+  res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0)$statistics
   my_sprintf("  Exact conditional linear rank                 %8.5f\n", res$P)
   my_sprintf("  Mid-P linear rank                             %8.5f\n", res$midP)
 

@@ -44,7 +44,12 @@ print.contingencytables_singletest <- function(x, ...) {
       "T = %6.3f, P = %7.5f", stats$t, stats$pvalue
     )
   )
+
+  # If out_stats is a vector of strings, each one would be on its own line
+  # Example: all switch() cases above that involve seq_along()
   separator <- ifelse(length(out_stats) == 1, ": ", "\n")
+
+  # Handling output with multiple names
   if (length(x$name) == 1) {
     cat(x$name, out_stats, sep = separator)
   } else {
