@@ -99,22 +99,24 @@ Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
   results$P_JT <- P_JT
   results$midP_JT <- midP_JT
 
-  if (printresults) {
-    my_sprintf("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
-    my_sprintf("Mid-P Fisher-Freeman-Halton: P = %9.7f\n\n", midP_FFH)
-    my_sprintf("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
-    my_sprintf("Mid-P Pearson statistic:     P = %9.7f\n\n", midP_Pearson)
-    my_sprintf("Exact LR statistic:          P = %9.7f\n", P_LR)
-    my_sprintf("Mid-P LR statistic:          P = %9.7f\n\n", midP_LR)
-    my_sprintf("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
-    my_sprintf("Mid-P Kruskal-Wallis:        P = %9.7f\n\n", midP_KW)
-    my_sprintf("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
-    my_sprintf("Mid-P linear-by-linear:      P = %9.7f\n\n", midP_lbl)
-    my_sprintf("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
-    my_sprintf("Mid-P Jonckheere-Terpstra:   P = %9.7f\n\n", midP_JT)
-  }
-
-  invisible(results)
+  res <- list(
+    statistics = results,
+    FUN = function(statistics) {
+      my_sprintf_cat("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
+      my_sprintf_cat("Mid-P Fisher-Freeman-Halton: P = %9.7f\n", midP_FFH)
+      my_sprintf_cat("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
+      my_sprintf_cat("Mid-P Pearson statistic:     P = %9.7f\n", midP_Pearson)
+      my_sprintf_cat("Exact LR statistic:          P = %9.7f\n", P_LR)
+      my_sprintf_cat("Mid-P LR statistic:          P = %9.7f\n", midP_LR)
+      my_sprintf_cat("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
+      my_sprintf_cat("Mid-P Kruskal-Wallis:        P = %9.7f\n", midP_KW)
+      my_sprintf_cat("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
+      my_sprintf_cat("Mid-P linear-by-linear:      P = %9.7f\n", midP_lbl)
+      my_sprintf_cat("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
+      my_sprintf_cat("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
+    }
+  )
+  return(newContingencytablesOutput(res, "multiple"))
 }
 
 find_possible_tables_3x2 <- function(nip, npj) {
