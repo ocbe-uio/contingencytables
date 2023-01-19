@@ -54,12 +54,15 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
   P <- tmp$P
   midP <- tmp$midP
 
-  if (printresults) {
-    my_sprintf("Exact conditional test: %8.5f\n", P)
-    my_sprintf("Mid-P test:             %8.5f\n", midP)
-  }
-
-  invisible(data.frame(P = P, midP = midP))
+  # Output
+  res <- list(
+    name = c(
+      "Exact conditional test",
+      "Mid-P test         "
+    ),
+    statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
+  )
+  return(newContingencytablesOutput(res))
 }
 
 # Slightly different calculations are needed for cumulative odds ratios in 2xc tables
