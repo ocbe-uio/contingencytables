@@ -4,7 +4,7 @@
 \alias{contingencytables_result}
 \title{contingencytables_result class}
 \usage{
-contingencytables_result(statistics, print_format)
+contingencytables_result(statistics, print_format, bundle = NULL)
 }
 \arguments{
 \item{statistics}{Either a value or a list of values to be filled by
@@ -12,6 +12,10 @@ print_format}
 
 \item{print_format}{Either a string of a function instructing how to print
 the values from \code{statistics}}
+
+\item{bundle}{Handles the legacy implementation using the
+\code{contingencytables_singletest} class, where \code{bundle} is a list
+containing the names "name" and "statistics"}
 }
 \value{
 an object of class \code{contingencytables_result}

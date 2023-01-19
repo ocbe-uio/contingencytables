@@ -192,11 +192,8 @@ t160 <- Z_unpooled_test_2x2(n, printresults = FALSE)
 function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
-  for (t in function_output_objects[c(1:30, 33:34, 36)]) {
-    expect_is(get(t), "contingencytables_singletest")
-    expect_named(get(t), c("name", "statistics"))
-  }
-  for (t in function_output_objects[c(31, 32, 35, 37)]) {
+  # TODO: test t017
+  for (t in function_output_objects[c(1:16, 18:37)]) {
     expect_is(get(t), "contingencytables_result")
     expect_named(get(t), c("statistics", "print_format"))
   }

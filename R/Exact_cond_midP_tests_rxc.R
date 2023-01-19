@@ -4,7 +4,6 @@
 #' linear-by-linear, and Jonckheere-Terpstra tests.
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' Exact_cond_midP_tests_rxc(table_7.3)  # a 3x2 table
 #' \dontrun{
@@ -13,7 +12,7 @@
 #' @export
 #' @note Works only for 3x2 and 3x3 tables
 #' @return A list containing exact p-values and mid-p values
-Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
+Exact_cond_midP_tests_rxc <- function(n) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)

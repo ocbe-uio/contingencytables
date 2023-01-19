@@ -48,5 +48,5 @@ Bhapkar_test_paired_cxc <- function(n) {
       "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
     )
   )
-  return(newContingencytablesOutput(res))
+  return(contingencytables_result(bundle = res))
 }
