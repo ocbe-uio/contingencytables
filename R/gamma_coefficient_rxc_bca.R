@@ -4,7 +4,6 @@
 #' @param n the observed table (an rxc matrix)
 #' @param nboot number of bootstrap samples
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom boot boot boot.ci
 #' @examples
 #' set.seed(9623)
@@ -15,7 +14,7 @@
 #' }
 #' @export
 #' @return a list with the gamma coefficient and the confidence interval limits
-gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
+gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
@@ -38,7 +37,7 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresul
   }
 
   # The estimate
-  gamma <- gamma_coefficient_rxc(n, 0)$gamma
+  gamma <- gamma_coefficient_rxc(n)$statistics$gamma
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -47,11 +46,14 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresul
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  if (printresults) {
-    my_sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)\n", gamma, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(gamma = gamma, L = L, U = U))
+  return(
+    contingencytables_result(
+      list(gamma = gamma, L = L, U = U),
+      sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)",
+        gamma, 100 * (1 - alpha), L, U
+      )
+    )
+  )
 }
 
 f.gcrb <- function(dat, d) {
@@ -61,6 +63,6 @@ f.gcrb <- function(dat, d) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  res <- gamma_coefficient_rxc(n, printresults = FALSE)
+  res <- gamma_coefficient_rxc(n)$statistics
   return(res$gamma)
 }

@@ -4,12 +4,7 @@
 \alias{Goodman_Wald_CIs_for_diffs_1xc}
 \title{The Goodman Wald simultaneous intervals for the differences between the}
 \usage{
-Goodman_Wald_CIs_for_diffs_1xc(
-  n,
-  alpha = 0.05,
-  adjustment = "Bonferroni",
-  printresults = TRUE
-)
+Goodman_Wald_CIs_for_diffs_1xc(n, alpha = 0.05, adjustment = "Bonferroni")
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
@@ -17,8 +12,6 @@ Goodman_Wald_CIs_for_diffs_1xc(
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
 
 \item{adjustment}{Scheffe or Bonferroni adjustment ("Scheffe" or "Bonferroni")}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A data frame containing lower, upper and point estimates of the statistic

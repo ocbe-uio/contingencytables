@@ -52,28 +52,28 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
   Z0 <- res$statistic
   print(sprintf("Z-unpooled                            %6.4f   (Z = %5.3f)", P0, Z0), quote = FALSE)
 
-  P0 <- Fisher_exact_test_2x2(n, "hypergeometric", printresults = FALSE)
+  P0 <- Fisher_exact_test_2x2(n, "hypergeometric")$statistics
   print(sprintf("Fisher exact test (Fisher-Irwin)      %6.4f", P0), quote = FALSE)
 
-  P0 <- Fisher_exact_test_2x2(n, "Pearson", printresults = FALSE)
+  P0 <- Fisher_exact_test_2x2(n, "Pearson")$statistics
   print(sprintf("Fisher exact test (Pearson)           %6.4f", P0), quote = FALSE)
 
-  P0 <- Fisher_exact_test_2x2(n, "LR", printresults = FALSE)
+  P0 <- Fisher_exact_test_2x2(n, "LR")$statistics
   print(sprintf("Fisher exact test (LR)                %6.4f", P0), quote = FALSE)
 
-  P0 <- Fisher_midP_test_2x2(n, "hypergeometric", printresults = FALSE)
+  P0 <- Fisher_midP_test_2x2(n, "hypergeometric")$statistics
   print(sprintf("Fisher mid-P test (Fisher-Irwin)      %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma, printresults = FALSE)
+  P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma)$statistics
   print(sprintf("Suissa-Shuster exact uncond.*         %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "LR", gamma, printresults = FALSE)
+  P0 <- Exact_unconditional_test_2x2(n, "LR", gamma)$statistics
   print(sprintf("Exact uncond. w / LR statistic*         %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma, printresults = FALSE)
+  P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma)$statistics
   print(sprintf("Exact uncond. w / unpooled Z statistic* %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma, printresults = FALSE)
+  P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma)$statistics
   print(sprintf("Fisher-Boschloo exact uncond.*        %6.4f", P0), quote = FALSE)
 
   print("------------------------------------------------------------------", quote = FALSE)

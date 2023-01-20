@@ -4,12 +4,10 @@
 \alias{FleissLevinPaik_test_paired_cxc}
 \title{The Fleiss-Levin-Paik test for three-level ordinal outcomes}
 \usage{
-FleissLevinPaik_test_paired_cxc(n, printresults = TRUE)
+FleissLevinPaik_test_paired_cxc(n)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom

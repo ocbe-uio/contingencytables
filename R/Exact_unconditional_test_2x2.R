@@ -5,7 +5,6 @@
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001 gamma=0: no adj)
 #' @param statistic 'Pearson' (Suissa-Shuster test default), 'LR' (likelihood ratio),
 #'' unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' Exact_unconditional_test_2x2(tea)
 #' Exact_unconditional_test_2x2(perondi_2004)
@@ -23,13 +22,12 @@
 #' @importFrom stats dhyper
 #' @importFrom grDevices dev.new
 #' @return Fisher's exact test statistic
-Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.0001,
-                                         printresults = TRUE) {
+Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.0001) {
   validateArguments(
     x = mget(ls()),
     types = list(
       n = "counts", statistic = c("Pearson", "LR", "unpooled", "Fisher"),
-      gamma = "skip", printresults = "skip"
+      gamma = "skip"
     )
   )
   # Partition the parameter space into 'num_pi_values' equally spaced values
@@ -120,19 +118,17 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
     )
   }
 
-  if (printresults) {
-    if (statistic == "Pearson") {
-      print(sprintf("The Suissa-Shuster exact unconditional test: P = %7.5f", P), quote = FALSE)
-    } else if (statistic == "LR") {
-      print(sprintf("Exact unconditional test with the LR statistic: P = %7.5f", P), quote = FALSE)
-    } else if (statistic == "unpooled") {
-      print(sprintf("Exact unconditional test with the unpooled Z statistic: P = %7.5f", P), quote = FALSE)
-    } else if (statistic == "Fisher") {
-      print(sprintf("Fisher-Boschloo exact unconditional test: P = %7.5f", P), quote = FALSE)
-    }
+  if (statistic == "Pearson") {
+    txt <- "The Suissa-Shuster exact unconditional test: P = %7.5f"
+  } else if (statistic == "LR") {
+    txt <- "Exact unconditional test with the LR statistic: P = %7.5f"
+  } else if (statistic == "unpooled") {
+    txt <- "Exact unconditional test with the unpooled Z statistic: P = %7.5f"
+  } else if (statistic == "Fisher") {
+    txt <- "Fisher-Boschloo exact unconditional test: P = %7.5f"
   }
 
-  invisible(P)
+  return(contingencytables_result(P, sprintf(txt, P)))
 }
 
 
@@ -186,7 +182,7 @@ test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, stat
   } else if (statistic == "Fisher") {
     # Fisher's exact test as test statistic
     x <- matrix(c(x11, x12, x21, x22), nrow = 2, byrow = TRUE)
-    T0 <- -Fisher_exact_test_2x2(x, "hypergeometric", printresults = FALSE)
+    T0 <- -Fisher_exact_test_2x2(x, "hypergeometric")$statistics
   }
 
   return(T0)

@@ -4,12 +4,10 @@
 \alias{gamma_coefficient_rxc}
 \title{The gamma coefficient}
 \usage{
-gamma_coefficient_rxc(n, printresults = TRUE)
+gamma_coefficient_rxc(n)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 a list containing the gamma coefficient, the number of concordant
@@ -21,9 +19,7 @@ The gamma coefficient
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-\dontrun{
-  gamma_coefficient_rxc(table_7.7)
-  gamma_coefficient_rxc(table_7.8)
-  gamma_coefficient_rxc(table_7.9)
-}
+gamma_coefficient_rxc(table_7.7)
+gamma_coefficient_rxc(table_7.8)
+gamma_coefficient_rxc(table_7.9)
 }

@@ -23,7 +23,7 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      gamma_coefficient_rxc_bca(n3_short, nboot = 200)
+      print(gamma_coefficient_rxc_bca(n3_short, nboot = 200))
     },
     regexp = "-0.2137 \\(95% CI -0.5268 to  0.1931\\)"
   )

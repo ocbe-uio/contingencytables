@@ -19,7 +19,7 @@ Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
 
   # Get the number of concordant and discordant pairs from the gamma
   # coefficient
-  tmp <- gamma_coefficient_rxc(n, 0)
+  tmp <- gamma_coefficient_rxc(n)$statistics
   C <- tmp[[2]]
   D <- tmp[[3]]
 

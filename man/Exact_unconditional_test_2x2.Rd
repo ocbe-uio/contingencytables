@@ -4,12 +4,7 @@
 \alias{Exact_unconditional_test_2x2}
 \title{Exact unconditional test for association in 2x2 tables}
 \usage{
-Exact_unconditional_test_2x2(
-  n,
-  statistic = "Pearson",
-  gamma = 1e-04,
-  printresults = TRUE
-)
+Exact_unconditional_test_2x2(n, statistic = "Pearson", gamma = 1e-04)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
@@ -18,8 +13,6 @@ Exact_unconditional_test_2x2(
 ' unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)}
 
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001 gamma=0: no adj)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 Fisher's exact test statistic

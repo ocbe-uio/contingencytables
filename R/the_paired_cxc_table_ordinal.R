@@ -18,7 +18,7 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   if (c == 3) {
     my_sprintf("\nTest for three-level outomes         Statistic      P-value\n")
     my_sprintf("------------------------------------------------------------\n")
-    tmp <- FleissLevinPaik_test_paired_cxc(n, FALSE)
+    tmp <- FleissLevinPaik_test_paired_cxc(n)$statistics
     P <- tmp[[1]]
     T0 <- tmp[[2]]
     df <- tmp[[3]]

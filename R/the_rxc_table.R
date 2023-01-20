@@ -50,7 +50,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   my_sprintf("  Pearson chi-square                      %6.3f (df=%g)  %9.6f\n", results$T_Pearson, results$df_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio                        %6.3f (df=%g)  %9.6f\n", results$T_LR, results$df_LR, results$P_LR)
 
-  tmp <- FisherFreemanHalton_asymptotic_test_rxc(n, printresults = FALSE)
+  tmp <- FisherFreemanHalton_asymptotic_test_rxc(n)$statistics
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
@@ -220,11 +220,11 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   }
 
   cat("\n")
-  gamma <- gamma_coefficient_rxc(n, printresults = FALSE)$gamma
+  gamma <- gamma_coefficient_rxc(n)$statistics$gamma
   my_sprintf("\nThe gamma coefficient                     %6.3f\n", gamma)
 
   if (nboot > 0) {
-    tmp <- gamma_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
+    tmp <- gamma_coefficient_rxc_bca(n, nboot, alpha)$statistics
     gamma <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
