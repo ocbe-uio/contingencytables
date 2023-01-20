@@ -4,7 +4,7 @@
 \alias{gamma_coefficient_rxc_bca}
 \title{The gamma coefficient with the bias-corrected and accelerated boostrap confidence interval}
 \usage{
-gamma_coefficient_rxc_bca(n, nboot = 10000, alpha = 0.05, printresults = TRUE)
+gamma_coefficient_rxc_bca(n, nboot = 10000, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
@@ -12,8 +12,6 @@ gamma_coefficient_rxc_bca(n, nboot = 10000, alpha = 0.05, printresults = TRUE)
 \item{nboot}{number of bootstrap samples}
 
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha) confidence interval}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 a list with the gamma coefficient and the confidence interval limits

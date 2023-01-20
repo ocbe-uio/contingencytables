@@ -2,13 +2,12 @@
 #' @description Described in Chapter 5 "The Ordered rx2 Table"
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
-#' @param printresults display results
 #' @examples
 #' CochranArmitage_MH_tests_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' CochranArmitage_MH_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
 #' @return A list containing observed statistics and p-values
-CochranArmitage_MH_tests_rx2 <- function(n, a, printresults = TRUE) {
+CochranArmitage_MH_tests_rx2 <- function(n, a) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)

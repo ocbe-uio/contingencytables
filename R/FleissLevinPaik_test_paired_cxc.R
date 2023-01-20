@@ -2,13 +2,12 @@
 #' @description The Fleiss-Levin-Paik test for three-level ordinal outcomes
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Pretherapy susceptability of pathogens *without the N / A category*
 #' FleissLevinPaik_test_paired_cxc(peterson_2007[-4, -4])
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
-FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
+FleissLevinPaik_test_paired_cxc <- function(n) {
   validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -18,10 +17,7 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
     P <- NA
     T0 <- NA
     df <- NA
-    if (printresults) {
-      my_sprintf("This method can only be used for c=3 categories\n")
-    }
-    return()
+    stop("This method can only be used for c=3 categories")
   }
 
   # Compute the differences between the marginal sums
@@ -30,11 +26,7 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
     P <- 1
     T0 <- 0
     df <- 1
-    if (printresults) {
-      my_sprintf("No differences between the marginal sums\n")
-      my_sprintf("P = 1.0\n")
-    }
-    return()
+    stop("No differences between the marginal sums\nP = 1.0")
   }
 
   n12 <- (n[1, 2] + n[2, 1]) / 2
@@ -48,9 +40,12 @@ FleissLevinPaik_test_paired_cxc <- function(n, printresults = TRUE) {
   df <- 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    my_sprintf("The Fleiss-Levin-Paik test: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
+      sprintf("The Fleiss-Levin-Paik test: P = %8.6f, T = %6.3f (df=%g)",
+        P, T0, df
+      )
+    )
+  )
 }

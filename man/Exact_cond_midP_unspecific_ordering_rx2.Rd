@@ -4,12 +4,7 @@
 \alias{Exact_cond_midP_unspecific_ordering_rx2}
 \title{The exact conditional and mid-P tests for unspecific ordering}
 \usage{
-Exact_cond_midP_unspecific_ordering_rx2(
-  n,
-  direction,
-  statistic = "Pearson",
-  printresults = TRUE
-)
+Exact_cond_midP_unspecific_ordering_rx2(n, direction, statistic = "Pearson")
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
@@ -20,8 +15,6 @@ or "decreasing")}
 \item{statistic}{the Pearson test statistic ("Pearson") or the likelihood
 ratio test statistic ("LR"). Can also be used for cumulative ORs in
 2xc tables with "PearsonCumOR" or "LRCumOR".}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A data frame containing the two-sided exact P-value and the mid-P value

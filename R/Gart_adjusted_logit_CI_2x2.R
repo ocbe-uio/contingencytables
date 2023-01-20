@@ -3,13 +3,12 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' Gart_adjusted_logit_CI_2x2(lampasona_2013)
 #' Gart_adjusted_logit_CI_2x2(ritland_2007)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
-Gart_adjusted_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Gart_adjusted_logit_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Estimate of the odds ratio (thetahat)
@@ -34,16 +33,14 @@ Gart_adjusted_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   L <- exp(log(estimate_adj) - z * SE)
   U <- exp(log(estimate_adj) + z * SE)
 
-  if (printresults) {
-    print(
+  res <- data.frame(lower = L, upper = U, estimate = estimate)
+  return(
+    contingencytables_result(
+      res,
       sprintf(
         "The Gart adjusted logit CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U
-      ),
-      quote = FALSE
+      )
     )
-  }
-
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  )
 }

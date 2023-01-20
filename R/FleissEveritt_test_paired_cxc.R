@@ -2,12 +2,11 @@
 #' @description The Fleiss-Everitt version of the Stuart test for marginal homogeneity
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' FleissEveritt_test_paired_cxc(fleiss_2003)
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
-FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
+FleissEveritt_test_paired_cxc <- function(n) {
   validateArguments(mget(ls()))
   # This is the version with c=3 categories
   c <- nrow(n)
@@ -18,10 +17,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
     P <- NA
     T <- NA
     df <- NA
-    if (printresults) {
-      my_sprintf("This method can only be used for c=3 categories\n")
-    }
-    return()
+    stop("This method can only be used for c=3 categories")
   }
 
   # Compute the differences between the marginal sums
@@ -30,11 +26,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
     P <- 1
     T0 <- 0
     df <- c - 1
-    if (printresults) {
-      my_sprintf("No differences between the marginal sums\n")
-      my_sprintf("P = 1.0\n")
-    }
-    return()
+    stop("No differences between the marginal sums\nP = 1.0")
   }
 
   n23 <- (n[2, 3] + n[3, 2]) / 2
@@ -48,9 +40,13 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
   df <- 2
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    my_sprintf("The Fleiss-Everitt version of the Stuart test: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
+      sprintf(
+        "The Fleiss-Everitt version of the Stuart test: P = %8.6f, T = %6.3f (df=%g)",
+        P, T0, df
+      )
+    )
+  )
 }

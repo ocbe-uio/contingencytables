@@ -4,14 +4,12 @@
 \alias{Gold_Wald_CIs_1xc}
 \title{The Gold Wald simultaneous intervals for the multinomial probabilities}
 \usage{
-Gold_Wald_CIs_1xc(n, alpha = 0.05, printresults = TRUE)
+Gold_Wald_CIs_1xc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A data frame containing lower, upper and point estimates of the statistic

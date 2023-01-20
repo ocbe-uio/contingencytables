@@ -4,12 +4,10 @@
 \alias{FisherFreemanHalton_asymptotic_test_rxc}
 \title{The Fisher-Freeman-Halton asymptotic test for unordered rxc tables}
 \usage{
-FisherFreemanHalton_asymptotic_test_rxc(n, printresults = TRUE)
+FisherFreemanHalton_asymptotic_test_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom

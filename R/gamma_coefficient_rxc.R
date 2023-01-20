@@ -2,17 +2,14 @@
 #' @description The gamma coefficient
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' \dontrun{
-#'   gamma_coefficient_rxc(table_7.7)
-#'   gamma_coefficient_rxc(table_7.8)
-#'   gamma_coefficient_rxc(table_7.9)
-#' }
+#' gamma_coefficient_rxc(table_7.7)
+#' gamma_coefficient_rxc(table_7.8)
+#' gamma_coefficient_rxc(table_7.9)
 #' @export
 #' @return a list containing the gamma coefficient, the number of concordant
 #' pairs and the number of discordant pairs
-gamma_coefficient_rxc <- function(n, printresults = TRUE) {
+gamma_coefficient_rxc <- function(n) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
@@ -42,13 +39,13 @@ gamma_coefficient_rxc <- function(n, printresults = TRUE) {
   # The gamma coefficient
   gamma <- (C - D) / (C + D)
 
-  if (printresults) {
-    my_sprintf("The number of concordant pairs:      %g\n", C)
-    my_sprintf("The number of discordant pairs:      %g\n", D)
-    my_sprintf("The proportion of concordant pairs:  %g\n", C / (C + D))
-    my_sprintf("The proportion of discordant pairs:  %g\n", D / (C + D))
-    my_sprintf("The gamma coefficient:               %6.4f\n", gamma)
+  prntrs <- function() {
+    my_sprintf_cat("The number of concordant pairs:      %g\n", C)
+    my_sprintf_cat("The number of discordant pairs:      %g\n", D)
+    my_sprintf_cat("The proportion of concordant pairs:  %g\n", C / (C + D))
+    my_sprintf_cat("The proportion of discordant pairs:  %g\n", D / (C + D))
+    my_sprintf_cat("The gamma coefficient:               %6.4f\n", gamma)
   }
 
-  invisible(list(gamma = gamma, C = C, D = D))
+  return(contingencytables_result(list(gamma = gamma, C = C, D = D), prntrs))
 }

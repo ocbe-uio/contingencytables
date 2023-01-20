@@ -4,14 +4,12 @@
 \alias{Fisher_midP_test_2x2}
 \title{The Fisher mid-P test for association in 2x2 tables}
 \usage{
-Fisher_midP_test_2x2(n, statistic = "hypergeometric", printresults = TRUE)
+Fisher_midP_test_2x2(n, statistic = "hypergeometric")
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{statistic}{'hypergeometric' (i.e. Fisher-Irwin default), 'Pearson', or 'LR' (likelihood ratio)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 probability value

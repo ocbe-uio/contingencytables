@@ -3,13 +3,12 @@
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed table (a 2xc matrix)
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 #' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
 #' @export
 #' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
-Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0, printresults = TRUE) {
+Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   validateArguments(mget(ls()))
   c0 <- ncol(n)
   nip <- apply(n, 1, sum)

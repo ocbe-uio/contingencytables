@@ -3,7 +3,6 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param statistic 'hypergeometric' (i.e. Fisher-Irwin; default), 'Pearson', or 'LR' (likelihood ratio)
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' Fisher_exact_test_2x2(tea)
 #' Fisher_exact_test_2x2(perondi_2004)
@@ -11,12 +10,11 @@
 #' Fisher_exact_test_2x2(ritland_2007)
 #' @export
 #' @return probability value
-Fisher_exact_test_2x2 <- function(n, statistic = "Pearson", printresults = TRUE) {
+Fisher_exact_test_2x2 <- function(n, statistic = "Pearson") {
 validateArguments(
     x = mget(ls()),
     types = list(
-      n = "counts", statistic = c("Pearson", "hypergeometric", "LR"),
-      printresults = "skip"
+      n = "counts", statistic = c("Pearson", "hypergeometric", "LR")
     )
   )
   n1p <- n[1, 1] + n[1, 2]
@@ -51,26 +49,14 @@ validateArguments(
     P <- 1.0
   }
 
-  if (printresults) {
-    if (statistic == "hypergeometric") {
-      print(
-        sprintf("The Fisher exact test (Fisher-Irwin): P = %7.5f", P),
-        quote = FALSE
-      )
-    } else if (statistic == "Pearson") {
-      print(
-        sprintf("The Fisher exact test (Pearson): P = %7.5f", P),
-        quote = FALSE
-      )
-    } else if (statistic == "LR") {
-      print(
-        sprintf("The Fisher exact test (LR): P = %7.5f", P),
-        quote = FALSE
-      )
-    }
-  }
+  txt <- switch(
+    statistic,
+    "hypergeometric" = "The Fisher exact test (Fisher-Irwin): P = %7.5f",
+    "Pearson" = "The Fisher exact test (Pearson): P = %7.5f",
+    "LR" = "The Fisher exact test (LR): P = %7.5f"
+  )
 
-  invisible(P)
+  return(contingencytables_result(P, sprintf(txt, P)))
 }
 
 # ========================================================

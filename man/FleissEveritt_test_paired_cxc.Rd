@@ -4,12 +4,10 @@
 \alias{FleissEveritt_test_paired_cxc}
 \title{The Fleiss-Everitt version of the Stuart test for marginal homogeneity}
 \usage{
-FleissEveritt_test_paired_cxc(n, printresults = TRUE)
+FleissEveritt_test_paired_cxc(n)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom
