@@ -10,7 +10,6 @@
 #' @param statistic the Pearson test statistic ("Pearson") or the likelihood
 #' ratio test statistic ("LR"). Can also be used for cumulative ORs in
 #' 2xc tables with "PearsonCumOR" or "LRCumOR".
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
 #' n <- t(lydersen_2012a)
@@ -20,7 +19,7 @@
 #' }
 #' @export
 #' @return A data frame containing the two-sided exact P-value and the mid-P value
-Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson", printresults = TRUE) {
+Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson") {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)

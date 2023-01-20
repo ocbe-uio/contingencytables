@@ -4,14 +4,12 @@
 \alias{CochranArmitage_MH_tests_rx2}
 \title{The Cochran-Armitage, modified Cochran-Armitage, and Mantel-Haenszel tests for trend}
 \usage{
-CochranArmitage_MH_tests_rx2(n, a, printresults = TRUE)
+CochranArmitage_MH_tests_rx2(n, a)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
 
 \item{a}{scores assigned to the rows}
-
-\item{printresults}{display results}
 }
 \value{
 A list containing observed statistics and p-values

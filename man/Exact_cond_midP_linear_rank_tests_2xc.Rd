@@ -4,14 +4,12 @@
 \alias{Exact_cond_midP_linear_rank_tests_2xc}
 \title{Exact conditional and mid-P linear rank tests}
 \usage{
-Exact_cond_midP_linear_rank_tests_2xc(n, b = 0, printresults = TRUE)
+Exact_cond_midP_linear_rank_tests_2xc(n, b = 0)
 }
 \arguments{
 \item{n}{the observed table (a 2xc matrix)}
 
 \item{b}{scores assigned to the columns (if b=0, midranks will be used as scores)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
