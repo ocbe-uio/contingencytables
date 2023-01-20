@@ -85,10 +85,10 @@ fetch_print_format <- function(x) {
       seq_along(stats$deltahat), seq_along(stats$deltahat),
       stats$deltahat, stats$lower, stats$upper
     ),
-    "lower_upper_differences" = sprintf(
+    "lower_upper_differences_r" = sprintf(
       "  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)",
-      pairwiseComparisons(length(stats$differences) - 1)[, 1],
-      pairwiseComparisons(length(stats$differences) - 1)[, 2],
+      pairwiseComparisons(stats$r)[, 1],
+      pairwiseComparisons(stats$r)[, 2],
       stats$differences, stats$lower, stats$upper
     ),
     "t_pvalue" = sprintf(
@@ -101,9 +101,14 @@ fetch_print_format <- function(x) {
 
   # Handling output with multiple names
   if (length(x$name) == 1) {
-    print_string <- paste(x$name, out_stats, sep = separator)
+    printed_stats <- paste(out_stats, collapse = separator)
+    if (length(printed_stats) == 1) {
+      print_string <- paste(x$name, printed_stats, sep = ": ")
+    } else {
+      print_string <- paste(x$name, printed_stats, sep = "\n")
+    }
   } else {
-    print_string <- paste(paste0(x$name, ": ", out_stats), sep = separator)
+    print_string <- paste(paste0(x$name, ": ", out_stats), collapse = separator)
   }
   return(print_string)
 }

@@ -97,4 +97,9 @@ test_that("Chapter 7 functions basically work", {
     },
     regexp = "Kruskal-Wallis asymptotic\\s+1.561 \\(df=3\\)   0.668229"
   )
+  n4_short <- floor(table_7.4 / 10)
+  expect_output(
+    object = the_rxc_table(n4_short, nboot = 0),
+    regexp = "  pi_1|6 - pi_1|6: estimate = 0.0000 \\(-0.8987 to 0.8987\\)"
+  )
 })

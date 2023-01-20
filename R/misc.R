@@ -18,8 +18,8 @@
 
 pairwiseComparisons <- function(r) {
   pairs <- NULL
-  for (i in 1:r) {
-    for (j in min(r, i + 1):r) {
+  for (i in seq_len(r)) {
+    for (j in min(i + 1, r):r) {
       pairs <- rbind(pairs, c(i, j))
     }
   }
