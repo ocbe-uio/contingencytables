@@ -40,7 +40,7 @@ Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05) {
   # Output
   res <- list(
     name = "The Bonferroni-type simultaneous intervals",
-    statistics = list("lower" = L, "upper" = U, "differences" = differences)
+    statistics = list("lower" = L, "upper" = U, "differences" = differences, "r" = r)
   )
-  return(newContingencytablesOutput(res))  # TODO: convert to contingencytables_result
+  return(contingencytables_result(bundle = res))
 }

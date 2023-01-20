@@ -15,9 +15,6 @@ print.contingencytables_singletest <- function(x, ...) {
   stats_names <- paste(names(x$statistics), collapse = "_")
   stats <- x$statistics
   out_stats <- switch(
-    # FIXME: lower_upper_differences seems broken. Used by
-    # Bonferroni_type_CIs_rxc() and the_rxc_table(). The latter fails silently
-    # for the_rxc_table(table_7.4, nboot = 0)
     EXPR = stats_names,
     "lower_upper_estimate_alpha_statname" = sprintf(
       "%s = %6.4f (%g%% CI %6.4f to %6.4f)",
@@ -37,10 +34,10 @@ print.contingencytables_singletest <- function(x, ...) {
       seq_along(stats$deltahat), seq_along(stats$deltahat),
       stats$deltahat, stats$lower, stats$upper
     ),
-    "lower_upper_differences" = sprintf(
+    "lower_upper_differences_r" = sprintf(
       "  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)",
-      pairwiseComparisons(length(stats$differences) - 1)[, 1],
-      pairwiseComparisons(length(stats$differences) - 1)[, 2],
+      pairwiseComparisons(stats$r)[, 1],
+      pairwiseComparisons(stats$r)[, 2],
       stats$differences, stats$lower, stats$upper
     ),
     "t_pvalue" = sprintf(

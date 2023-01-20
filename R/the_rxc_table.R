@@ -95,8 +95,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   if (c == 2) {
     Scheffe_type_CIs_rxc(n, alpha, printresults = TRUE)
     my_sprintf("\n")
-    Bonferroni_type_CIs_rxc(n, alpha)
-    my_sprintf("\n")
+    print(Bonferroni_type_CIs_rxc(n, alpha))
   }
 
 
