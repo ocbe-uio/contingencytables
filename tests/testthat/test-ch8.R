@@ -21,8 +21,16 @@ test_that("Chapter 8 functions basically work", {
     regexp = "McNemar test with continuity correction: P = 0.055009, Z =  1.919"
   )
   expect_output(
+    object = print(McNemar_asymptotic_test_CC_paired_2x2(matrix(c(10, 0, 0, 1), 2))),
+    regexp = "No discordant pairs"
+  )
+  expect_output(
     object = print(McNemar_asymptotic_test_paired_2x2(cavo_2012)),
     regexp = "The McNemar asymptotic test: P = 0.033006, Z = -2.132"
+  )
+  expect_output(
+    object = print(McNemar_asymptotic_test_paired_2x2(matrix(c(10, 0, 0, 1), 2))),
+    regexp = "No discordant pairs"
   )
   expect_output(
     object = print(McNemar_exact_cond_test_paired_2x2(cavo_2012)),

@@ -4,7 +4,6 @@
 #' @param n the observed counts (a 2xc matrix)
 #' @param alphahat0 a column vector with c-1 estimated coefficients
 #' (\code{alpha_j}) under the null hypothesis (\code{beta = 0})
-#' @param printresults display results (F = no, T = yes)
 #' @note Must give the alphahats under the null hypothesis as input,
 #'  because Matlab does not calculate an intercept-only probit model (and this
 #' may apply to R code as well). alphahat0 can be calculated in, for instance,
@@ -21,7 +20,7 @@
 #'
 #' @export
 #' @return A list containing the probability, the statistic and the degrees of freedom
-Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0, printresults = TRUE) {
+Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0) {
   validateArguments(mget(ls()))
 
   c <- ncol(n)
@@ -49,13 +48,12 @@ Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0, printres
   df <- 1
   P <- 1 - pchisq(T0, 1)
 
-  if (printresults) {
-    print(
-      sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df),
-      quote = TRUE
+  return(
+    contingencytables_result(
+      data.frame(P = P, T = T0, df = df),
+      sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df)
     )
-  }
-  invisible(data.frame(P = P, T = T0, df = df))
+  )
 }
 
 # =========================================================

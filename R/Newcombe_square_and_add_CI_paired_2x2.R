@@ -3,7 +3,6 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
@@ -15,7 +14,7 @@
 #'
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   nip <- apply(n, 1, sum)
@@ -54,9 +53,10 @@ Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05, printresults 
   L <- estimate - sqrt((pi1phat - l1)^2 + (u2 - pip1hat)^2 - 2 * psi * (pi1phat - l1) * (u2 - pip1hat))
   U <- estimate + sqrt((pip1hat - l2)^2 + (u1 - pi1phat)^2 - 2 * psi * (pip1hat - l2) * (u1 - pi1phat))
 
-  if (printresults) {
-    my_sprintf("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)\n", estimate, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(L = L, U = U, estimate = estimate),
+      sprintf("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)", estimate, 100 * (1 - alpha), L, U)
+    )
+  )
 }

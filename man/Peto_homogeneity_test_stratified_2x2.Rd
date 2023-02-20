@@ -4,12 +4,10 @@
 \alias{Peto_homogeneity_test_stratified_2x2}
 \title{The Peto test for homogeneity of odds ratios over strata}
 \usage{
-Peto_homogeneity_test_stratified_2x2(n, printresults = TRUE)
+Peto_homogeneity_test_stratified_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the two-sided p-value, the statistic and the degrees of freedom

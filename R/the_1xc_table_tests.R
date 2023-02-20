@@ -37,13 +37,13 @@ the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
     myprint("Method                 P-value  (test statistic)")
     myprint("---------------------------------------------------")
 
-    res <- Pearson_chi_squared_test_1xc(n, pi0, printresults = FALSE)
+    res <- Pearson_chi_squared_test_1xc(n, pi0)$statistics
     myprint(
       "Pearson chi-squared    %6.4f   (T = %5.3f, df = %i)", res$P,
       res$T, res$df
     )
 
-    res <- LR_test_1xc(n, pi0, printresults = FALSE)
+    res <- LR_test_1xc(n, pi0)$statistics
     myprint(
       "Likelihood ratio       %6.4f   (T = %5.3f, df = %i)",
       res$P, res$T, res$df
@@ -53,7 +53,7 @@ the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
       res <- Exact_multinomial_test_1xc(n, pi0)$statistics
       myprint("Exact multinomial      %6.4f\n", res)
 
-      res <- MidP_multinomial_test_1xc(n, pi0, printresults = FALSE)
+      res <- MidP_multinomial_test_1xc(n, pi0)$statistics
       myprint("Mid-P multinomial      %6.4f\n", res)
     }
 

@@ -6,7 +6,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010, adapted)
 #' Score_test_CC_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = .5)
@@ -20,7 +19,7 @@
 #' Score_test_CC_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
 #' @return A vector containing the two-sided p-value and the score test statistic
-Score_test_CC_1x2 <- function(X, n, pi0, printresults = TRUE) {
+Score_test_CC_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)
@@ -35,17 +34,10 @@ Score_test_CC_1x2 <- function(X, n, pi0, printresults = TRUE) {
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The score test with continuity correction: P = %7.5f, Z = %5.3f",
-        P, Z
-      ),
-      quote = FALSE
+  return(
+    contingencytables_result(
+      c("p.value" = P, "statistic" = Z),
+      sprintf("The score test with continuity correction: P = %7.5f, Z = %5.3f", P, Z)
     )
-  }
-
-  res <- c(P, Z)
-  names(res) <- c("p.value", "statistic")
-  invisible(res)
+  )
 }

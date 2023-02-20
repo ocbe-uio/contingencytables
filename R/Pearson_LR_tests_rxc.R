@@ -2,7 +2,6 @@
 #' @description The Pearson chi-squared and likelihood ratio tests for association in rxc tables
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results
 #' @examples
 #' # Examples from Chapter 5 (ordered rx2 tables)
 #'
@@ -32,7 +31,7 @@
 #' @export
 #' @return A list containing the two-sided p-value, the test statistic and the
 #' degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
-Pearson_LR_tests_rxc <- function(n, printresults = TRUE) {
+Pearson_LR_tests_rxc <- function(n) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -71,10 +70,10 @@ Pearson_LR_tests_rxc <- function(n, printresults = TRUE) {
   results$df_LR <- df
   results$P_LR <- P_LR
 
-  if (printresults) {
-    print(sprintf("Pearson chi-squared test: T = %6.3f, df = %g, P = %7.5f", T_Pearson, df, P_Pearson))
-    print(sprintf("Likelihood ratio test:    T = %6.3f, df = %g, P = %7.5f", T_LR, df, P_LR))
+  printresults <- function() {
+    my_sprintf_cat("Pearson chi-squared test: T = %6.3f, df = %g, P = %7.5f\n", T_Pearson, df, P_Pearson)
+    my_sprintf_cat("Likelihood ratio test:    T = %6.3f, df = %g, P = %7.5f", T_LR, df, P_LR)
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }

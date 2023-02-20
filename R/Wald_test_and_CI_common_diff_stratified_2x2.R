@@ -30,9 +30,9 @@ Wald_test_and_CI_common_diff_stratified_2x2 <- function(
 
   # Get the MH or IV overall estimates (and the weights for the IV)
   if (identical(estimatetype, "MH")) {
-    deltahat <- MantelHaenszel_estimate_stratified_2x2(n, "linear", FALSE)[[1]]
+    deltahat <- MantelHaenszel_estimate_stratified_2x2(n, "linear")$statistics[[1]]
   } else if (identical(estimatetype, "IV")) {
-    tmp <- InverseVariance_estimate_stratified_2x2(n, "linear", FALSE)
+    tmp <- InverseVariance_estimate_stratified_2x2(n, "linear")$statistics
     deltahat <- tmp[[1]]
     v <- tmp[[3]]
   }

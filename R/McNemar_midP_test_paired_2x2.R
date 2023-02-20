@@ -2,14 +2,13 @@
 #' @description The McNemar mid-P test
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' McNemar_midP_test_paired_2x2(bentur_2009)
 #' McNemar_midP_test_paired_2x2(cavo_2012)
 #' McNemar_midP_test_paired_2x2(ezra_2010)
 #' @export
 #' @return probability value
-McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
+McNemar_midP_test_paired_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   if (n[1, 2] == n[2, 1]) {
@@ -20,9 +19,10 @@ McNemar_midP_test_paired_2x2 <- function(n, printresults = TRUE) {
     midP <- P - dbinom(n[1, 2], n[1, 2] + n[2, 1], 0.5)
   }
 
-  if (printresults) {
-    my_sprintf("The McNemar mid-P test: P = %8.6f\n", midP)
-  }
-
-  invisible(midP)
+  return(
+    contingencytables_result(
+      midP,
+      sprintf("The McNemar mid-P test: P = %8.6f\n", midP)
+    )
+  )
 }

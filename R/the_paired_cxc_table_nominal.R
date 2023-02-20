@@ -42,7 +42,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
     my_sprintf("Fleiss-Everitt version of the Stuart test  %6.3f (df=%g)  %9.6f\n", T0, df, P)
   }
 
-  tmp <- McNemarBowker_test_paired_cxc(n, FALSE)
+  tmp <- McNemarBowker_test_paired_cxc(n)$statistics
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
@@ -54,7 +54,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   my_sprintf("\nCategory        Estimate    ScheffE 95%%CI         Bonferroni 95%%CI     P-value*\n")
   my_sprintf("-------------------------------------------------------------------------------\n")
   for (i in 1:c) {
-    tmp <- Scheffe_type_CIs_paired_cxc(n, alpha, FALSE)
+    tmp <- Scheffe_type_CIs_paired_cxc(n, alpha)$statistics
     Scheffe_L <- tmp[[1]]
     Scheffe_U <- tmp[[2]]
     deltahat <- tmp[[3]]

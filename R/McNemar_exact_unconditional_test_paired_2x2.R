@@ -3,7 +3,6 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 #' \dontrun{
@@ -20,7 +19,7 @@
 #' restriction of the parameter space.
 #' @importFrom graphics segments
 #' @return The T version of the test statistic (not the Z one)
-McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, printresults = TRUE) {
+McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
   validateArguments(mget(ls()))
 
   # Partition the parameter space into 'num_pi_values' equally spaced values
@@ -90,12 +89,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
     segments(common_pi_at_max_value, 0, common_pi_at_max_value, P, col = "red", lty = 2)
   }
 
-
-  if (printresults) {
-    my_sprintf("The McNemar exact unconditional test: P = %8.6f\n", P)
-  }
-
-  invisible(P)
+  return(contingencytables_result(P, sprintf("The McNemar exact unconditional test: P = %8.6f\n", P)))
 }
 
 

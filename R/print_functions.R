@@ -13,6 +13,8 @@ my_sprintf_cat <- function(s, ...) {
 print.contingencytables_result <- function(x, ...) {
   if (is(x$print_format, "function")) {
     cat(x$print_format())
+  } else if (is.na(x$print_format)) {
+    print(x$statistics)
   } else {
     cat(x$print_format)
   }

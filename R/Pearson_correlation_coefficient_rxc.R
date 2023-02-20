@@ -5,7 +5,6 @@
 #' @param a scores assigned to the rows
 #' @param b scores assigned to the columns
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
-#' @param printresults display results (0 = no, 1 = yes)
 #' @importFrom stats cov
 #' @examples
 #'   Pearson_correlation_coefficient_rxc(table_7.7)
@@ -16,8 +15,7 @@
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
 Pearson_correlation_coefficient_rxc <- function(
-  n, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05,
-  printresults = TRUE
+  n, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05
 ) {
   validateArguments(mget(ls()))
 
@@ -61,9 +59,10 @@ Pearson_correlation_coefficient_rxc <- function(
   L <- (exp(2 * l) - 1) / (exp(2 * l) + 1)
   U <- (exp(2 * u) - 1) / (exp(2 * u) + 1)
 
-  if (printresults) {
-    my_sprintf("The Pearson correlation coefficient: r = %7.4f (%g%% CI %7.4f to %7.4f)\n", rP, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(rP = rP, L = L, U = U))
+  return(
+    contingencytables_result(
+      list(rP = rP, L = L, U = U),
+      sprintf("The Pearson correlation coefficient: r = %7.4f (%g%% CI %7.4f to %7.4f)", rP, 100 * (1 - alpha), L, U)
+    )
+  )
 }

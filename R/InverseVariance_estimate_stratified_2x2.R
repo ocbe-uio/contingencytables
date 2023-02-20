@@ -3,13 +3,12 @@
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param link the link function ('linear', 'log', or 'logit')
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' InverseVariance_estimate_stratified_2x2(doll_hill_1950)
 #' InverseVariance_estimate_stratified_2x2(hine_1989)
 #' @export
 #' @return a list respectively containing the inverse variance estimate of the overall effect (\code{estimate}), the stratum-specific effect estimates (\code{psihat}) and the weights (\code{v}).
-InverseVariance_estimate_stratified_2x2 <- function(n, link = "logit", printresults = TRUE) {
+InverseVariance_estimate_stratified_2x2 <- function(n, link = "logit") {
   validateArguments(mget(ls()))
 
   n1pk <- apply(n[1, , ], 2, sum)
@@ -39,9 +38,10 @@ InverseVariance_estimate_stratified_2x2 <- function(n, link = "logit", printresu
     estimate <- exp(estimate)
   }
 
-  if (printresults) {
-    my_sprintf("The inverse variance estimate = %7.4f\n", estimate)
-  }
-
-  invisible(list(estimate = estimate, psihat = psihat, v = v))
+  return(
+    contingencytables_result(
+      list(estimate = estimate, psihat = psihat, v = v),
+      sprintf("The inverse variance estimate = %7.4f", estimate)
+    )
+  )
 }

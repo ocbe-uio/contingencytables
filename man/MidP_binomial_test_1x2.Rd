@@ -4,7 +4,7 @@
 \alias{MidP_binomial_test_1x2}
 \title{The mid-P binomial test for the binomial probability (pi)}
 \usage{
-MidP_binomial_test_1x2(X, n, pi0, printresults = TRUE)
+MidP_binomial_test_1x2(X, n, pi0)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,8 +12,6 @@ MidP_binomial_test_1x2(X, n, pi0, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{pi0}{a given probability}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 probability value

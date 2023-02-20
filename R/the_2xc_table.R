@@ -18,12 +18,12 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("\nMethod                            Statistic      P-value\n")
   my_sprintf("--------------------------------------------------------\n")
   my_sprintf("Tests for unordered alternatives\n")
-  results <- Pearson_LR_tests_rxc(n, FALSE)
+  results <- Pearson_LR_tests_rxc(n)$statistis
   my_sprintf("  Pearson chi-squared           %6.3f (df=%g)   %8.5f\n", results$T_Pearson, results$df_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", results$T_LR, results$df_LR, results$P_LR)
 
   my_sprintf("\nTests for ordered local odds ratios\n")
-  results <- Pearson_LR_tests_unspecific_ordering_rx2(t(n), direction, FALSE)
+  results <- Pearson_LR_tests_unspecific_ordering_rx2(t(n), direction)$statistics
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
@@ -35,7 +35,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Mid-P (LR)                                    %8.5f\n", res2$midP)
 
   my_sprintf("\nTests for ordered cumulative odds ratios\n")
-  results <- Pearson_LR_tests_cum_OR_2xc(n, direction, FALSE)
+  results <- Pearson_LR_tests_cum_OR_2xc(n, direction)$statistics
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
@@ -47,7 +47,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Mid-P (LR)                                    %8.5f\n", res2$midP)
 
   my_sprintf("\nTest for association with column scores \n")
-  res <- MantelHaenszel_test_2xc(n, 0, FALSE)
+  res <- MantelHaenszel_test_2xc(n, 0)$statistics
   my_sprintf("  Mantel-Haenszel               %6.3f (df=%g)   %8.5f\n", res$T, res$df, res$P)
 
 
@@ -88,7 +88,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
     alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
   }
   if (!is.null(alphahat0)) {
-    res <- Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0, FALSE)
+    res <- Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)$statistics
     my_sprintf("  Score                         %6.3f (df=%g)   %8.5f\n", res$T, res$df, res$P)
   }
   my_sprintf("--------------------------------------------------------\n")

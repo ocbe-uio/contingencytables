@@ -4,14 +4,12 @@
 \alias{Pearson_LR_tests_cum_OR_2xc}
 \title{The Pearson chi-squared and likelihood ratio tests for cumulative ORs in 2xc tables}
 \usage{
-Pearson_LR_tests_cum_OR_2xc(n, direction = "decreasing", printresults = TRUE)
+Pearson_LR_tests_cum_OR_2xc(n, direction = "decreasing")
 }
 \arguments{
 \item{n}{the observed counts (a 2xc matrix)}
 
 \item{direction}{the direction of column probabilities ("increasing" or "decreasing")}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests

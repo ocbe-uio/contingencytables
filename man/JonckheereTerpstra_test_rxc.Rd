@@ -4,12 +4,10 @@
 \alias{JonckheereTerpstra_test_rxc}
 \title{The Jonckheere-Terpstra test for association}
 \usage{
-JonckheereTerpstra_test_rxc(n, printresults = TRUE)
+JonckheereTerpstra_test_rxc(n)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 a list containing the standard normalized Jonckheere-Terpstra test statistic

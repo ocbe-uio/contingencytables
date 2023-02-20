@@ -4,12 +4,10 @@
 \alias{Pearson_LR_tests_rxc}
 \title{The Pearson chi-squared and likelihood ratio tests for association in rxc tables}
 \usage{
-Pearson_LR_tests_rxc(n, printresults = TRUE)
+Pearson_LR_tests_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results}
 }
 \value{
 A list containing the two-sided p-value, the test statistic and the

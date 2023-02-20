@@ -4,12 +4,10 @@
 \alias{Pearson_residuals_rxc}
 \title{The Pearson residuals and the standardized Pearson residuals}
 \usage{
-Pearson_residuals_rxc(n, printresults = TRUE)
+Pearson_residuals_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing matrices of the Pearson residuals and the standardized Pearson residuals

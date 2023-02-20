@@ -4,12 +4,7 @@
 \alias{linear_by_linear_test_rxc}
 \title{The linear-by-linear test for association}
 \usage{
-linear_by_linear_test_rxc(
-  n,
-  a = seq_len(ncol(n)),
-  b = seq_len(nrow(n)),
-  printresults = TRUE
-)
+linear_by_linear_test_rxc(n, a = seq_len(ncol(n)), b = seq_len(nrow(n)))
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
@@ -17,8 +12,6 @@ linear_by_linear_test_rxc(
 \item{a}{scores assigned to the rows}
 
 \item{b}{scores assigned to the columns}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 a list containing the linear-by-linear test statistic

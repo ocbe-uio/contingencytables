@@ -4,7 +4,7 @@
 \alias{Score_test_CC_1x2}
 \title{The score test with continuity correction for the}
 \usage{
-Score_test_CC_1x2(X, n, pi0, printresults = TRUE)
+Score_test_CC_1x2(X, n, pi0)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,8 +12,6 @@ Score_test_CC_1x2(X, n, pi0, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{pi0}{a given probability}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A vector containing the two-sided p-value and the score test statistic

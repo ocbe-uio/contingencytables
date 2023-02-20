@@ -4,7 +4,6 @@
 #' @param n the observed table (an rxc matrix)
 #' @param a scores assigned to the rows
 #' @param b scores assigned to the columns
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' linear_by_linear_test_rxc(table_7.7)
 #' \dontrun{
@@ -13,7 +12,7 @@
 #' }
 #' @export
 #' @return a list containing the linear-by-linear test statistic
-linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n)), printresults = TRUE) {
+linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n))) {
   validateArguments(mget(ls()))
 
   # If no scores are given, use equally spaced scores
@@ -43,9 +42,10 @@ linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(
   Z <- sqrt(N - 1) * r
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-  if (printresults) {
-    my_sprintf("The linear-by-linear test for association: P = %8.6f, Z = %6.3f\n", P, Z)
-  }
-
-  invisible(list(P = P, Z = Z))
+  return(
+    contingencytables_result(
+      list(P = P, Z = Z),
+      sprintf("The linear-by-linear test for association: P = %8.6f, Z = %6.3f", P, Z)
+    )
+  )
 }

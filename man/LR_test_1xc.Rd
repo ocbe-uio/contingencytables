@@ -4,14 +4,12 @@
 \alias{LR_test_1xc}
 \title{The likelihood ratio test for multinomial probabilities}
 \usage{
-LR_test_1xc(n, pi0, printresults = TRUE)
+LR_test_1xc(n, pi0)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
 
 \item{pi0}{given probabilities (a 1xc vector)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A data frame containing the two-sided p-value, the statistic and the degrees of freedom

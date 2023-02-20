@@ -4,13 +4,7 @@
 \alias{PriceBonett_approximate_Bayes_CI_2x2}
 \title{The Price-Bonett approximate Bayes confidence interval for the ratio of probabilities}
 \usage{
-PriceBonett_approximate_Bayes_CI_2x2(
-  n,
-  a = 1.25,
-  b = 2.5,
-  alpha = 0.05,
-  printresults = TRUE
-)
+PriceBonett_approximate_Bayes_CI_2x2(n, a = 1.25, b = 2.5, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
@@ -18,8 +12,6 @@ PriceBonett_approximate_Bayes_CI_2x2(
 \item{a, b}{parameters of the beta distribution}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A data frame containing lower, upper and point estimates of the statistic

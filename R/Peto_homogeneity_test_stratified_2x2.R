@@ -2,7 +2,6 @@
 #' @description The Peto test for homogeneity of odds ratios over strata
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' Peto_homogeneity_test_stratified_2x2(doll_hill_1950)
@@ -12,7 +11,7 @@
 #'
 #' @export
 #' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
-Peto_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
+Peto_homogeneity_test_stratified_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   n1pk <- apply(n[1, , ], 2, sum)
@@ -42,9 +41,10 @@ Peto_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   df <- K - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    my_sprintf("The Peto test: P = %7.5f, T0 = %5.3f (df = %i)\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
+      sprintf("The Peto test: P = %7.5f, T0 = %5.3f (df = %i)", P, T0, df)
+    )
+  )
 }

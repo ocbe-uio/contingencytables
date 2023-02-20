@@ -2,7 +2,6 @@
 #' @description The Peto estimate of the common odds ratio across strata
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' Peto_OR_estimate_stratified_2x2(doll_hill_1950)
@@ -13,7 +12,7 @@
 #' @export
 #' @return A list containing the Peto odds ratio estimate, its conditional
 #' expectation (from the hypergeometric distribution) and the variance
-Peto_OR_estimate_stratified_2x2 <- function(n, printresults = TRUE) {
+Peto_OR_estimate_stratified_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   n1pk <- apply(n[1, , ], 2, sum)
@@ -31,9 +30,10 @@ Peto_OR_estimate_stratified_2x2 <- function(n, printresults = TRUE) {
   # The Peto odds ratio estimate
   estimate <- exp(sum(n[1, 1, ] - expectation) / sum(variance))
 
-  if (printresults) {
-    my_sprintf("The Peto OR estimate = %7.4f\n", estimate)
-  }
-
-  invisible(list(estimate = estimate, expectation = expectation, variance = variance))
+  return(
+    contingencytables_result(
+      list(estimate = estimate, expectation = expectation, variance = variance),
+      sprintf("The Peto OR estimate = %7.4f", estimate)
+    )
+  )
 }
