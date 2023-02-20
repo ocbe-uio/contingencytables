@@ -46,7 +46,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   my_sprintf("\nMethod                                     Statistic      P-value\n")
   my_sprintf("-------------------------------------------------------------------\n")
   my_sprintf("Unordered rxc tables\n")
-  results <- Pearson_LR_tests_rxc(n, printresults = FALSE)
+  results <- Pearson_LR_tests_rxc(n)$statistics
   my_sprintf("  Pearson chi-square                      %6.3f (df=%g)  %9.6f\n", results$T_Pearson, results$df_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio                        %6.3f (df=%g)  %9.6f\n", results$T_LR, results$df_LR, results$P_LR)
 
@@ -78,7 +78,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   # Residuals
   # ---------
 
-  tmp <- Pearson_residuals_rxc(n, printresults = FALSE)
+  tmp <- Pearson_residuals_rxc(n)$statistics
   residuals <- tmp[[1]]
   std_residuals <- tmp[[2]]
   my_sprintf("Pearson residuals:\n")
@@ -93,7 +93,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #---------------------------------
 
   if (c == 2) {
-    Scheffe_type_CIs_rxc(n, alpha, printresults = TRUE)
+    Scheffe_type_CIs_rxc(n, alpha)$statistics
     my_sprintf("\n")
     print(Bonferroni_type_CIs_rxc(n, alpha))
   }
@@ -107,7 +107,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   my_sprintf("Method                                     Statistic      P-value\n")
   my_sprintf("------------------------------------------------------------------\n")
   my_sprintf("Singly ordered rxc tables\n")
-  tmp <- KruskalWallis_asymptotic_test_rxc(n, printresults = FALSE)
+  tmp <- KruskalWallis_asymptotic_test_rxc(n)$statistics
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
@@ -162,11 +162,11 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   my_sprintf("\nMethod                                    Statistic    P-value\n")
   my_sprintf("---------------------------------------------------------------\n")
   my_sprintf("Doubly ordered rxc tables\n")
-  tmp <- linear_by_linear_test_rxc(n, 1:r, 1:c, printresults = FALSE)
+  tmp <- linear_by_linear_test_rxc(n, 1:r, 1:c)$statistics
   P <- tmp[[1]]
   Z <- tmp[[2]]
   my_sprintf("  Linear-by-linear                         %6.3f    %9.6f\n", Z, P)
-  tmp <- JonckheereTerpstra_test_rxc(n, printresults = FALSE)
+  tmp <- JonckheereTerpstra_test_rxc(n)$statistics
   P <- tmp[[1]]
   Z <- tmp[[2]]
   my_sprintf("  Jonckheere-Terpstra                      %6.3f    %9.6f\n", Z, P)
@@ -188,13 +188,13 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   my_sprintf("\nCorrelation measures\n")
   my_sprintf("-----------------------------------------------------------------------------------------\n")
 
-  tmp <- Pearson_correlation_coefficient_rxc(n, 1:r, 1:c, alpha, printresults = FALSE)
+  tmp <- Pearson_correlation_coefficient_rxc(n, 1:r, 1:c, alpha)$statistics
   rP <- tmp[[1]]
   L <- tmp[[2]]
   U <- tmp[[3]]
   my_sprintf("Pearson correlation coefficient           %6.3f (%g%% CI %6.3f to %6.3f)\n", rP, 100 * (1 - alpha), L, U)
   if (nboot > 0) {
-    tmp <- Pearson_correlation_coefficient_rxc_bca(n, nboot, 1:r, 1:c, alpha, printresults = FALSE)
+    tmp <- Pearson_correlation_coefficient_rxc_bca(n, nboot, 1:r, 1:c, alpha)$statistics
     rP <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
@@ -202,7 +202,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   }
 
   cat("\n")
-  tmp <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)
+  tmp <- Spearman_correlation_coefficient_rxc(n, alpha)$statistics
   rho <- tmp[[1]]
   L <- tmp[[2]]
   U <- tmp[[3]]
@@ -212,7 +212,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   my_sprintf("Spearman correlation w / Bonett-Wright CI   %6.3f (%g%% CI %6.3f to %6.3f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
 
   if (nboot > 0) {
-    tmp <- Spearman_correlation_coefficient_rxc_bca(n, nboot, alpha, printresults = FALSE)
+    tmp <- Spearman_correlation_coefficient_rxc_bca(n, nboot, alpha)$statistics
     rho <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]
@@ -232,14 +232,14 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   }
 
   cat("\n")
-  tmp <- Kendalls_tau_b_rxc(n, alpha, printresults = FALSE)
+  tmp <- Kendalls_tau_b_rxc(n, alpha)$statistics
   tau_b <- tmp[[1]]
   L <- tmp[[2]]
   U <- tmp[[3]]
   my_sprintf("\nKendalls tau-b w / Fieller CI              %6.3f (%g%% CI %6.3f to %6.3f)\n", tau_b, 100 * (1 - alpha), L, U)
 
   if (nboot > 0) {
-    tmp <- Kendalls_tau_b_rxc_bca(n, nboot, alpha, printresults = FALSE)
+    tmp <- Kendalls_tau_b_rxc_bca(n, nboot, alpha)$statistics
     tau_b <- tmp[[1]]
     L <- tmp[[2]]
     U <- tmp[[3]]

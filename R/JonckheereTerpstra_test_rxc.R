@@ -2,14 +2,13 @@
 #' @description The Jonckheere-Terpstra test for association
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' JonckheereTerpstra_test_rxc(table_7.7)
 #' JonckheereTerpstra_test_rxc(table_7.8)
 #' JonckheereTerpstra_test_rxc(table_7.9)
 #' @export
 #' @return a list containing the standard normalized Jonckheere-Terpstra test statistic
-JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
+JonckheereTerpstra_test_rxc <- function(n) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -65,9 +64,10 @@ JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
   Z <- (T0 - ExpT) / sqrt(VarT)
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-  if (printresults) {
-    print(sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z), quote = FALSE)
-  }
-
-  invisible(list(P = P, Z = Z))
+  return(
+    contingencytables_result(
+      list(P = P, Z = Z),
+      sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z)
+    )
+  )
 }

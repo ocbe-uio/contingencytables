@@ -4,7 +4,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (0 = no, 1 <- yes)
 #' @importFrom stats qbeta
 #' @examples
 #' Jeffreys_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
@@ -14,7 +13,7 @@
 #' Jeffreys_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
-Jeffreys_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+Jeffreys_CI_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)
@@ -24,16 +23,13 @@ Jeffreys_CI_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   L <- qbeta(alpha / 2, X + 0.5, n - X + 0.5)
   U <- qbeta(1 - alpha / 2, X + 0.5, n - X + 0.5)
 
-  if (printresults) {
-    print(
+  return(
+    contingencytables_result(
+      c("lower" = L, "upper" = U, "estimate" = estimate),
       sprintf(
         "The Jeffreys CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U
       )
     )
-  }
-
-  res <- c(L, U, estimate)
-  names(res) <- c("lower", "upper", "estimate")
-  invisible(res)
+  )
 }

@@ -4,12 +4,10 @@
 \alias{McNemar_midP_test_paired_2x2}
 \title{The McNemar mid-P test}
 \usage{
-McNemar_midP_test_paired_2x2(n, printresults = TRUE)
+McNemar_midP_test_paired_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 probability value

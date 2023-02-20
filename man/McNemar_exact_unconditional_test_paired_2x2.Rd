@@ -4,18 +4,12 @@
 \alias{McNemar_exact_unconditional_test_paired_2x2}
 \title{The McNemar exact unconditional test}
 \usage{
-McNemar_exact_unconditional_test_paired_2x2(
-  n,
-  gamma = 1e-04,
-  printresults = TRUE
-)
+McNemar_exact_unconditional_test_paired_2x2(n, gamma = 1e-04)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 The T version of the test statistic (not the Z one)

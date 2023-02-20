@@ -4,12 +4,7 @@
 \alias{ML_estimates_and_CIs_stratified_2x2}
 \title{Maximum likelihood estimates with CIs of the grouping and strata effects}
 \usage{
-ML_estimates_and_CIs_stratified_2x2(
-  n,
-  link = "log",
-  alpha = 0.05,
-  printresults = TRUE
-)
+ML_estimates_and_CIs_stratified_2x2(n, link = "log", alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
@@ -17,8 +12,6 @@ ML_estimates_and_CIs_stratified_2x2(
 \item{link}{the link function ('linear', 'log', or 'logit')}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the maximum likelihood estimates

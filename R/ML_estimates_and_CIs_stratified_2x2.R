@@ -4,7 +4,6 @@
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param link the link function ('linear', 'log', or 'logit')
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' ML_estimates_and_CIs_stratified_2x2(doll_hill_1950)
@@ -15,7 +14,7 @@
 #' @export
 #' @importFrom stats coef
 #' @return A list containing the maximum likelihood estimates
-ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, printresults = TRUE) {
+ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05) {
   validateArguments(mget(ls()))
 
   N <- sum(n)
@@ -77,14 +76,14 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, p
   rownames(results$gammahatCI) <- rep("", nrow(results$gammahatCI))
   results$pihat <- pihat
 
-  if (printresults) {
-    my_sprintf("Maximum likelihood estimates:\n")
-    my_sprintf("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
-    my_sprintf("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
+  printresults <- function() {
+    my_sprintf_cat("Maximum likelihood estimates:\n")
+    my_sprintf_cat("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
+    my_sprintf_cat("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
     for (k in 2:K) {
-      my_sprintf("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
+      my_sprintf_cat("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
     }
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }

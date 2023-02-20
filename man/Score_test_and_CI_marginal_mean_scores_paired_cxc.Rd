@@ -5,12 +5,7 @@
 \alias{Score_test_and_CI_marginal_mean_scores_paired_cxc}
 \title{Score test and CI marginal mean scores paired CxC}
 \usage{
-Score_test_and_CI_marginal_mean_scores_paired_cxc(
-  n,
-  a,
-  alpha = 0.05,
-  printresults = TRUE
-)
+Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
@@ -18,8 +13,6 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc(
 \item{a}{scores assigned to the outcome categories}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A list containing the two-sided p-value, the score test statistic, the confidence limits and the estimate of the difference between marginal mean scores

@@ -2,7 +2,6 @@
 #' @description The likelihood ratio test for association in 2x2 tables
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' LR_test_2x2(tea)
 #' LR_test_2x2(perondi_2004)
@@ -10,7 +9,7 @@
 #' LR_test_2x2(ritland_2007)
 #' @export
 #' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
-LR_test_2x2 <- function(n, printresults = TRUE) {
+LR_test_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   # The estimated expected counts
@@ -37,16 +36,10 @@ LR_test_2x2 <- function(n, printresults = TRUE) {
     P <- 1.0
   }
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P,
-        T0, df
-      ),
-      quote = FALSE
+  return(
+    contingencytables_result(
+      data.frame("p.value" = P, "statistic" = T0, "df" = df),
+      sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
-  }
-
-  res <- data.frame(p.value = P, statistic = T0, df = df)
-  invisible(res)
+  )
 }

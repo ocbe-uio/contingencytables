@@ -3,7 +3,6 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha)# confidence interval
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' Spearman_correlation_coefficient_rxc(table_7.7)
 #' \dontrun{
@@ -12,7 +11,7 @@
 #' }
 #' @export
 #' @return A list containing the Spearman correlation coefficient, and the Fieller and Bonett-Wright confidence intervals
-Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -79,10 +78,14 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05, printresults =
   L_BW <- (exp(2 * l_BW) - 1) / (exp(2 * l_BW) + 1)
   U_BW <- (exp(2 * u_BW) - 1) / (exp(2 * u_BW) + 1)
 
-  if (printresults) {
-    my_sprintf("Spearman correlation w / Fieller CI:       rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
-    my_sprintf("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L_BW, U_BW)
+  printresults <- function() {
+    my_sprintf_cat("Spearman correlation w / Fieller CI:       rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
+    my_sprintf_cat("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L_BW, U_BW)
   }
 
-  invisible(list(rho = rho, L = L, U = U, L_BW = L_BW, U_BW = U_BW))
+  return(
+    contingencytables_result(
+      list(rho = rho, L = L, U = U, L_BW = L_BW, U_BW = U_BW), printresults
+    )
+  )
 }

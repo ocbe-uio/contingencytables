@@ -50,7 +50,7 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   U <- tmp[[4]]
   my_sprintf("Wald CI and test for marginal mean scores  (%6.3f to %6.3f)  %6.4f  (Z = %5.3f)\n", L, U, P, Z)
 
-  tmp <- Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha, FALSE)
+  tmp <- Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha)$statistics
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L <- tmp[[3]]

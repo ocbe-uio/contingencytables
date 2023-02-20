@@ -3,13 +3,12 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rx2 vector)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Example: Treatment for ear infection
 #' Scheffe_type_CIs_rxc(table_7.3)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Scheffe_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Scheffe_type_CIs_rxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -39,16 +38,20 @@ Scheffe_type_CIs_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    my_sprintf("The Scheffe-type simultaneous intervals\n")
+  printresults <- function() {
+    cat("The Scheffe-type simultaneous intervals\n")
     k <- 0
     for (i in 1:(r - 1)) {
       for (j in (i + 1):r) {
         k <- k + 1
-        my_sprintf("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
+        my_sprintf_cat("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
       }
     }
   }
 
-  invisible(list(L = L, U = U, differences = differences))
+  return(
+    contingencytables_result(
+      list(L = L, U = U, differences = differences), printresults
+    )
+  )
 }

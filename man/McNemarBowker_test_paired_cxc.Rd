@@ -4,12 +4,10 @@
 \alias{McNemarBowker_test_paired_cxc}
 \title{The McNemar-Bowker test for marginal symmetry}
 \usage{
-McNemarBowker_test_paired_cxc(n, printresults = TRUE)
+McNemarBowker_test_paired_cxc(n)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom

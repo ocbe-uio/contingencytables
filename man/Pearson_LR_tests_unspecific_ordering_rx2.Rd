@@ -4,14 +4,12 @@
 \alias{Pearson_LR_tests_unspecific_ordering_rx2}
 \title{The Pearson chi-squared and likelihood ratio tests for unspecific ordering in rx2 tables}
 \usage{
-Pearson_LR_tests_unspecific_ordering_rx2(n, direction, printresults = TRUE)
+Pearson_LR_tests_unspecific_ordering_rx2(n, direction)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
 
 \item{direction}{the direction of the success probabilities ("increasing" or "decreasing")}
-
-\item{printresults}{display results}
 }
 \value{
 A list containing the two-sided p-value and the test statistic for

@@ -4,12 +4,10 @@
 \alias{McNemar_exact_cond_test_paired_2x2}
 \title{The McNemar exact conditional test}
 \usage{
-McNemar_exact_cond_test_paired_2x2(n, printresults = TRUE)
+McNemar_exact_cond_test_paired_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 The exact p-value based on the binomial distribution

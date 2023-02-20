@@ -49,7 +49,7 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- LR_CI_1x2(X, n, alpha, FALSE)
+  res <- LR_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Likelihood ratio             %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
@@ -72,7 +72,7 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
     res[["lower"]], res[["upper"]], res[["upper"]] - res[["lower"]]
   )
 
-  res <- Jeffreys_CI_1x2(X, n, alpha, FALSE)
+  res <- Jeffreys_CI_1x2(X, n, alpha)$statistics
   myprint(
     "Jeffreys                     %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]

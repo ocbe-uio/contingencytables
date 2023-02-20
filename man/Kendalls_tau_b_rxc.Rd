@@ -4,14 +4,12 @@
 \alias{Kendalls_tau_b_rxc}
 \title{Kendall's tau-b with confidence interval based on the Fieller standard deviation}
 \usage{
-Kendalls_tau_b_rxc(n, alpha = 0.05, printresults = TRUE)
+Kendalls_tau_b_rxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
 
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha)\% confidence interval}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the statistic and the confindence interval limits

@@ -4,19 +4,13 @@
 \alias{Score_test_for_effect_in_the_probit_model_2xc}
 \title{Score test for effect in the cumulative probit model}
 \usage{
-Score_test_for_effect_in_the_probit_model_2xc(
-  n,
-  alphahat0,
-  printresults = TRUE
-)
+Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
 }
 \arguments{
 \item{n}{the observed counts (a 2xc matrix)}
 
 \item{alphahat0}{a column vector with c-1 estimated coefficients
 (\code{alpha_j}) under the null hypothesis (\code{beta = 0})}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
 A list containing the probability, the statistic and the degrees of freedom

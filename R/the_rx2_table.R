@@ -20,13 +20,13 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   my_sprintf("-------------------------------------------------------")
 
   my_sprintf("Tests for unordered alternatives")
-  results <- Pearson_LR_tests_rxc(n, 0)
+  results <- Pearson_LR_tests_rxc(n)$statistics
   my_sprintf("  Pearson chi-squared         %6.3f (df=%g)   %8.5f", results$T_Pearson, results$df_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio            %6.3f (df=%g)   %8.5f", results$T_LR, results$df_LR, results$P_LR)
 
 
   my_sprintf("Tests for ordered alternatives")
-  results <- Pearson_LR_tests_unspecific_ordering_rx2(n, direction, 0)
+  results <- Pearson_LR_tests_unspecific_ordering_rx2(n, direction)$statistics
   my_sprintf("  Pearson chi-squared         %6.3f (chibar) %8.5f", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio            %6.3f (chibar) %8.5f", results$T_LR, results$P_LR)
 

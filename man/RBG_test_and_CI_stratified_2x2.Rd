@@ -4,14 +4,12 @@
 \alias{RBG_test_and_CI_stratified_2x2}
 \title{The RBG test and CI for a common odds ratio}
 \usage{
-RBG_test_and_CI_stratified_2x2(n, alpha = 0.05, printresults = TRUE)
+RBG_test_and_CI_stratified_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the two-sided p-value (\code{P}), the Wald test

@@ -6,7 +6,6 @@
 #' first argument).
 #' @param n the observed counts (an rx2 matrix)
 #' @param direction the direction of the success probabilities ("increasing" or "decreasing")
-#' @param printresults display results
 #' @examples
 #' # Chapter 5: Alcohol consumption and malformations (Mills and Graubard, 1987)
 #' Pearson_LR_tests_unspecific_ordering_rx2(mills_graubard_1987, "increasing")
@@ -19,7 +18,7 @@
 #' @export
 #' @return A list containing the two-sided p-value and the test statistic for
 #' the likelihood ratio and the Pearson chi-squared tests
-Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults = TRUE) {
+Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -75,12 +74,12 @@ Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults 
   results$T_LR <- T_LR
   results$P_LR <- P_LR
 
-  if (printresults) {
-    print(sprintf("Pearson chi-squared test: T = %6.3f, P = %7.5f", T_Pearson, P_Pearson))
-    print(sprintf("Likelihood ratio test:    T = %6.3f, P = %7.5f", T_LR, P_LR))
+  printresults <- function() {
+    my_sprintf_cat("Pearson chi-squared test: T = %6.3f, P = %7.5f\n", T_Pearson, P_Pearson)
+    my_sprintf_cat("Likelihood ratio test:    T = %6.3f, P = %7.5f", T_LR, P_LR)
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }
 
 # ========================

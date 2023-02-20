@@ -2,7 +2,6 @@
 #' @description The Pearson residuals and the standardized Pearson residuals
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' ## Treatment for ear infection (van Balen et al., 2003):
 #' Pearson_residuals_rxc(table_7.3)
@@ -14,7 +13,7 @@
 #' Pearson_residuals_rxc(table_7.5)
 #' @export
 #' @return A list containing matrices of the Pearson residuals and the standardized Pearson residuals
-Pearson_residuals_rxc <- function(n, printresults = TRUE) {
+Pearson_residuals_rxc <- function(n) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -35,10 +34,10 @@ Pearson_residuals_rxc <- function(n, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(residuals)
-    print(std_residuals)
-  }
-
-  return(list(residuals = residuals, std_residuals = std_residuals))
+  return(
+    contingencytables_result(
+      list(residuals = residuals, std_residuals = std_residuals),
+      NA
+    )
+  )
 }

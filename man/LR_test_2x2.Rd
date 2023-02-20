@@ -4,12 +4,10 @@
 \alias{LR_test_2x2}
 \title{The likelihood ratio test for association in 2x2 tables}
 \usage{
-LR_test_2x2(n, printresults = TRUE)
+LR_test_2x2(n)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A vector containing the two-sided p-value, the statistic and the degrees of freedom

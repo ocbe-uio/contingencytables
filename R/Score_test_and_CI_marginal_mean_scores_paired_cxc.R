@@ -4,7 +4,6 @@
 #' @param n the observed table (a cxc matrix)
 #' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # A comparison between serial and retrospective measurements
 #' # (Fischer et al., 1999)
@@ -12,7 +11,7 @@
 #' Score_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a)
 #' @export
 #' @return A list containing the two-sided p-value, the score test statistic, the confidence limits and the estimate of the difference between marginal mean scores
-Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05, printresults = TRUE) {
+Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   c <- nrow(n)
@@ -49,10 +48,15 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * (1 - pnorm(abs(Z_score), 0, 1))
 
-  if (printresults) {
-    my_sprintf("The score test: P = %7.5f, Z = %6.3f\n", P, Z_score)
-    my_sprintf("The score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+  printresults <- function() {
+    my_sprintf_cat("The score test: P = %7.5f, Z = %6.3f\n", P, Z_score)
+    my_sprintf_cat("The score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  invisible(list(P = P, Z_score = Z_score, L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(P = P, Z_score = Z_score, L = L, U = U, estimate = estimate),
+      printresults
+    )
+  )
 }

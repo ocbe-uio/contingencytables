@@ -4,7 +4,6 @@
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' RBG_test_and_CI_stratified_2x2(doll_hill_1950)
@@ -17,13 +16,13 @@
 #' statistic (\code{Z}), the confidence limits (\code{L} and \code{U}), the
 #' Mantel-Haenszel overall estimate (\code{thetahatMH}) and the standard error
 #' (\code{SElog}).
-RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   nppk <- apply(n, 3, sum)
 
   # Get the Mantel-Haenszel overall estimate
-  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit", FALSE)[[1]]
+  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit")$statistics[[1]]
 
   # Estimate the standard error
   A <- sum(n[1, 1, ] * n[2, 2, ] / nppk)
@@ -47,10 +46,15 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05, printresults = TRUE)
   L <- thetahatMH * exp(-z_alpha * SElog)
   U <- thetahatMH * exp(z_alpha * SElog)
 
-  if (printresults) {
-    my_sprintf("The RBG test: P = %7.5f, Z = %6.3f\n", P, Z)
-    my_sprintf("The RBG CI: thetahatMH = %6.4f (%g%% CI %6.4f to %6.4f)\n", thetahatMH, 100 * (1 - alpha), L, U)
+  printresults <- function() {
+    my_sprintf_cat("The RBG test: P = %7.5f, Z = %6.3f\n", P, Z)
+    my_sprintf_cat("The RBG CI: thetahatMH = %6.4f (%g%% CI %6.4f to %6.4f)", thetahatMH, 100 * (1 - alpha), L, U)
   }
 
-  invisible(list(P = P, Z = Z, L = L, U = U, thetahatMH = thetahatMH, SElog = SElog))
+  return(
+    contingencytables_result(
+      list(P = P, Z = Z, L = L, U = U, thetahatMH = thetahatMH, SElog = SElog),
+      printresults
+    )
+  )
 }

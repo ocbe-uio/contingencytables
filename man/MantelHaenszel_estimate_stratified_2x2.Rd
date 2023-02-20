@@ -4,14 +4,12 @@
 \alias{MantelHaenszel_estimate_stratified_2x2}
 \title{The Mantel-Haenszel estimate of the overall effect across strata}
 \usage{
-MantelHaenszel_estimate_stratified_2x2(n, link = "logit", printresults = TRUE)
+MantelHaenszel_estimate_stratified_2x2(n, link = "logit")
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 
 \item{link}{the link function ('linear', 'log', or 'logit')}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 a list respectively containing the inverse variance estimate of the overall effect (\code{estimate}), the stratum-specific effect estimates (\code{psihat}) and the weights (\code{w}).

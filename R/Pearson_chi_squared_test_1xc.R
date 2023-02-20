@@ -3,7 +3,6 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param pi0 given probabilities (a 1xc vector)
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' Pearson_chi_squared_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
@@ -11,7 +10,7 @@
 #' Pearson_chi_squared_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
 #' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
-Pearson_chi_squared_test_1xc <- function(n, pi0, printresults = TRUE) {
+Pearson_chi_squared_test_1xc <- function(n, pi0) {
   validateArguments(mget(ls()))
 
   c0 <- length(n)
@@ -25,16 +24,13 @@ Pearson_chi_squared_test_1xc <- function(n, pi0, printresults = TRUE) {
   df <- c0 - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(
+  return(
+    contingencytables_result(
+      data.frame(P = P, T = T0, df = df),
       sprintf(
         "The Pearson chi-squared test: P = %7.5f, T = %5.3f (df = %i)",
         P, T0, df
-      ),
-      quote = FALSE
+      )
     )
-  }
-
-  res <- data.frame(P = P, T = T0, df = df)
-  invisible(res)
+  )
 }

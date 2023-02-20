@@ -4,12 +4,10 @@
 \alias{Peto_OR_estimate_stratified_2x2}
 \title{The Peto estimate of the common odds ratio across strata}
 \usage{
-Peto_OR_estimate_stratified_2x2(n, printresults = TRUE)
+Peto_OR_estimate_stratified_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the Peto odds ratio estimate, its conditional

@@ -4,12 +4,10 @@
 \alias{McNemar_asymptotic_test_paired_2x2}
 \title{The McNemar asymptotic test}
 \usage{
-McNemar_asymptotic_test_paired_2x2(n, printresults = TRUE)
+McNemar_asymptotic_test_paired_2x2(n)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 The McNemar test statistic with continuity correction (\code{Z}) and the reference distribution (standard normal, \code{P})

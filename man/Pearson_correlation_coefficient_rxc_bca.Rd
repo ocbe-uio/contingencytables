@@ -9,8 +9,7 @@ Pearson_correlation_coefficient_rxc_bca(
   nboot = 10000,
   a = seq_len(nrow(n)),
   b = seq_len(ncol(n)),
-  alpha = 0.05,
-  printresults = TRUE
+  alpha = 0.05
 )
 }
 \arguments{
@@ -23,8 +22,6 @@ Pearson_correlation_coefficient_rxc_bca(
 \item{b}{scores assigned to the columns}
 
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha) confidence interval}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the statistic and the confindence interval limits

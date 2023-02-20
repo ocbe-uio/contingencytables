@@ -4,7 +4,7 @@
 \alias{LR_test_1x2}
 \title{The likelihood ratio test for the binomial probability (pi)}
 \usage{
-LR_test_1x2(X, n, pi0, printresults = TRUE)
+LR_test_1x2(X, n, pi0)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,8 +12,6 @@ LR_test_1x2(X, n, pi0, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{pi0}{a given probability}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A vector containing the two-sided p-value, the statistic and the degrees of freedom

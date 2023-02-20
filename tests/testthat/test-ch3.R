@@ -32,15 +32,17 @@ test_that("Chapter 3 functions basically work", {
     regexp = "P = 0.02704, T = 7.221 \\(df = 2\\)"
   )
   expect_output(
-    object = MidP_multinomial_test_1xc(
-      n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0
+    object = print(
+        MidP_multinomial_test_1xc(
+        n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0
+      )
     ),
     regexp = "P = 0.04649"
   )
   expect_output(
-    object = Pearson_chi_squared_test_1xc(
+    object = print(Pearson_chi_squared_test_1xc(
       n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0
-    ),
+    )),
     regexp = "P = 0.00321, T = 11.481 \\(df = 2\\)"
   )
   expect_output(

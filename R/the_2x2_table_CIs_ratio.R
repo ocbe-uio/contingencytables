@@ -26,7 +26,7 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   print(sprintf("Interval method                            %i%% CI      Log width", 100 * (1 - alpha)), quote = FALSE)
   print("----------------------------------------------------------------", quote = FALSE)
 
-  res <- Katz_log_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Katz_log_CI_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Katz log                             %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
@@ -36,12 +36,12 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- res$statistics$upper
   print(sprintf("Adjusted log                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- PriceBonett_approximate_Bayes_CI_2x2(n, 1.25, 2.5, alpha, printresults = FALSE)
+  res <- PriceBonett_approximate_Bayes_CI_2x2(n, 1.25, 2.5, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Price-Bonett approximate Bayes       %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Inv_sinh_CI_ratio_2x2(n, alpha, printresults = FALSE)
+  res <- Inv_sinh_CI_ratio_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Inverse sinh                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
@@ -51,17 +51,17 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- res$statistics$upper
   print(sprintf("Adjusted inverse sinh                %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- MOVER_R_Wilson_CI_ratio_2x2(n, alpha, printresults = FALSE)
+  res <- MOVER_R_Wilson_CI_ratio_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("MOVER-R Wilson                       %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n, alpha, printresults = FALSE)
+  res <- MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Miettinen-Nurminen asymptotic score  %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Koopman_asymptotic_score_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Koopman_asymptotic_score_CI_2x2(n, alpha)$statistics
   L <- res$lower
   U <- res$upper
   print(sprintf("Koopman asymptotic score             %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)

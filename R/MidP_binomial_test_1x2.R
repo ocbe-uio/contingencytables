@@ -5,7 +5,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010, adapted)
 #' MidP_binomial_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = .5)
@@ -19,7 +18,7 @@
 #' MidP_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
 #' @return probability value
-MidP_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+MidP_binomial_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
   # The right tail mid-P value (for H_A: pi > pi0)
@@ -34,9 +33,9 @@ MidP_binomial_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   midP <- 2 * min(midPright, midPleft)
   midP <- min(midP, 1)
 
-  if (printresults) {
-    print(sprintf("The mid-P binomial test: P = %7.5f", midP), quote = FALSE)
-  }
-
-  invisible(midP)
+  return(
+    contingencytables_result(
+      midP, sprintf("The mid-P binomial test: P = %7.5f", midP)
+    )
+  )
 }

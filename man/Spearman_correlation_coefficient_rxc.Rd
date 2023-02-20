@@ -4,14 +4,12 @@
 \alias{Spearman_correlation_coefficient_rxc}
 \title{The Spearman correlation coefficient}
 \usage{
-Spearman_correlation_coefficient_rxc(n, alpha = 0.05, printresults = TRUE)
+Spearman_correlation_coefficient_rxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
 
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha)# confidence interval}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the Spearman correlation coefficient, and the Fieller and Bonett-Wright confidence intervals

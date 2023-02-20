@@ -3,7 +3,6 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, 1T= yes)
 #' @examples
 #' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
 #' MOVER_R_Wilson_CI_OR_2x2(lampasona_2013)
@@ -13,7 +12,7 @@
 #'
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
-MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # If n_22 = 0, use an equivalent case, which gives a finite upper limit
@@ -49,7 +48,7 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {
-    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha, printresults = FALSE)$upper
+    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha)$statistics$upper
     L <- 1 / U_tmp
   }
 
@@ -64,13 +63,13 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   }
   L <- max(c(0, L))
 
-  if (printresults) {
-    print(sprintf(
-      "The MOVER-R Wilson CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      estimate, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
-  }
-
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  return(
+    contingencytables_result(
+      data.frame(lower = L, upper = U, estimate = estimate),
+      sprintf(
+        "The MOVER-R Wilson CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+        estimate, 100 * (1 - alpha), L, U
+      )
+    )
+  )
 }

@@ -5,7 +5,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (0 = no, 1 = yes)
 #' @importFrom stats pchisq
 #' @examples
 #' LR_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = .5)
@@ -15,7 +14,7 @@
 #' LR_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
 #' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
-LR_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+LR_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)
@@ -34,16 +33,10 @@ LR_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   df <- 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The likelihood ratio test: P = %7.5f, T = %5.3f (df <- %i)", P, T0, df
-      ),
-      quote = FALSE
+  return(
+    contingencytables_result(
+      c("p.value" = P, "statistic" = T0, "df" = df),
+      sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
-  }
-
-  res <- c(P, T0, df)
-  names(res) <- c("p.value", "statistic", "df")
-  invisible(res)
+  )
 }

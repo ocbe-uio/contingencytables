@@ -4,18 +4,12 @@
 \alias{Pearson_LR_test_common_effect_stratified_2x2}
 \title{The Pearson chi-squared and likelihood ratio tests of a common difference}
 \usage{
-Pearson_LR_test_common_effect_stratified_2x2(
-  n,
-  link = "logit",
-  printresults = TRUE
-)
+Pearson_LR_test_common_effect_stratified_2x2(n, link = "logit")
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 
 \item{link}{the link function ('linear', 'log', or 'logit')}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests

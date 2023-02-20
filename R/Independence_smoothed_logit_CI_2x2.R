@@ -3,13 +3,12 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' Independence_smoothed_logit_CI_2x2(lampasona_2013)
 #' Independence_smoothed_logit_CI_2x2(ritland_2007)
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the statistic
-Independence_smoothed_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Independence_smoothed_logit_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
@@ -39,13 +38,12 @@ Independence_smoothed_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = T
   L <- exp(log(estimate_adj) - z * SE)
   U <- exp(log(estimate_adj) + z * SE)
 
-  if (printresults) {
-    print(sprintf(
-      "The independence-smoothed logit CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-      estimate, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
-  }
-
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  return(contingencytables_result(
+      data.frame(lower = L, upper = U, estimate = estimate),
+      sprintf(
+        "The independence-smoothed logit CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+        estimate, 100 * (1 - alpha), L, U
+      )
+    )
+  )
 }

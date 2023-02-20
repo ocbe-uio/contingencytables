@@ -3,14 +3,13 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha)% confidence interval
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' Kendalls_tau_b_rxc(table_7.7)
 #' Kendalls_tau_b_rxc(table_7.8)
 #' Kendalls_tau_b_rxc(table_7.9)
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
-Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Kendalls_tau_b_rxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   nip <- apply(n, 1, sum)
@@ -46,9 +45,13 @@ Kendalls_tau_b_rxc <- function(n, alpha = 0.05, printresults = TRUE) {
   L <- (exp(2 * l) - 1) / (exp(2 * l) + 1)
   U <- (exp(2 * u) - 1) / (exp(2 * u) + 1)
 
-  if (printresults) {
-    print(sprintf("Kendalls tau-b w / Fieller CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)", tau_b, 100 * (1 - alpha), L, U), quote = FALSE)
-  }
-
-  invisible(list(tau_b = tau_b, L = L, U = U))
+  return(
+    contingencytables_result(
+      list(tau_b = tau_b, L = L, U = U),
+      sprintf(
+        "Kendalls tau-b w / Fieller CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)",
+        tau_b, 100 * (1 - alpha), L, U
+      )
+    )
+  )
 }

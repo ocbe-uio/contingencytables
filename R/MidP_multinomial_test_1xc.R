@@ -3,7 +3,6 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param pi0 given probabilities (a 1xc vector)
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' \dontrun{
@@ -13,7 +12,7 @@
 #' MidP_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
 #' @return probability value
-MidP_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
+MidP_multinomial_test_1xc <- function(n, pi0) {
   validateArguments(mget(ls()))
 
   c0 <- length(n)
@@ -43,9 +42,9 @@ MidP_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(sprintf("The mid-P multinomial test: P = %7.5f", P), quote = FALSE)
-  }
-
-  invisible(P)
+  return(
+    contingencytables_result(
+      P, sprintf("The mid-P multinomial test: P = %7.5f", P)
+    )
+  )
 }

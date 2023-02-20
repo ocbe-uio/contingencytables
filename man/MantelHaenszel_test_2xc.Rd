@@ -4,14 +4,12 @@
 \alias{MantelHaenszel_test_2xc}
 \title{The Mantel-Haenszel test of association with column scores}
 \usage{
-MantelHaenszel_test_2xc(n, b = 0, printresults = TRUE)
+MantelHaenszel_test_2xc(n, b = 0)
 }
 \arguments{
 \item{n}{the observed counts (a 2xc matrix)}
 
 \item{b}{scores assigned to the columns (if b=0, midranks will be used as scores)}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A data frame containing the two-sided p-value, the statistic and the degrees of freedom

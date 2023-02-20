@@ -42,7 +42,7 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      Kendalls_tau_b_rxc_bca(n3_short, nboot = 200)
+      print(Kendalls_tau_b_rxc_bca(n3_short, nboot = 200))
     },
     regexp = "bootstrap CI: tau-b = -0.1235 \\(95% CI -0.0863 to  0.3904\\)"
   )
@@ -61,7 +61,9 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(1562)
-      Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 200, alpha = .2)
+      print(
+        Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 200, alpha = .2)
+      )
     },
     regexp = "bootstrap CI: r =  0.2019 \\(80% CI  0.1028 to  0.3698\\)"
   )
@@ -70,9 +72,7 @@ test_that("Chapter 7 functions basically work", {
     regexp = "Pearson chi-squared test: T = 17.562, df = 2, P = 0.00015"
   )
   expect_equal(
-    object = dim(
-      Pearson_residuals_rxc(table_7.3, printresults = FALSE)$residuals
-    ),
+    object = dim(Pearson_residuals_rxc(table_7.3)$statistics$residuals),
     expected = c(3, 2)
   )
   expect_output(
@@ -86,7 +86,7 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = {
       set.seed(562)
-      Spearman_correlation_coefficient_rxc_bca(n3_short, nboot = 200)
+      print(Spearman_correlation_coefficient_rxc_bca(n3_short, nboot = 200))
     },
     regexp = "bootstrap CI: rho = -0.1358 \\(95% CI -0.3636 to  0.1118\\)"
   )

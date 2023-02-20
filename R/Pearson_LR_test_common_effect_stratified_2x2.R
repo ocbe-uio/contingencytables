@@ -5,7 +5,6 @@
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param link the link function ('linear', 'log', or 'logit')
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' Pearson_LR_test_common_effect_stratified_2x2(doll_hill_1950)
@@ -15,7 +14,7 @@
 #'
 #' @export
 #' @return A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
-Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit", printresults = TRUE) {
+Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit") {
   validateArguments(mget(ls()))
 
   n1pk <- apply(n[1, , ], 2, sum)
@@ -26,7 +25,7 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit", prin
   K <- dim(n)[3]
 
   # Get the estimated probabilities
-  results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05, FALSE)
+  results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05)$statistics
   pihat <- results$pihat
 
   if (any(pihat < 0)) {
@@ -102,10 +101,10 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit", prin
   results$T_Pearson <- T_Pearson
   results$df_Pearson <- df
 
-  if (printresults) {
-    my_sprintf("The likelihood ratio test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_LR, T_LR, df)
-    my_sprintf("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_Pearson, T_Pearson, df)
+  printresults <- function() {
+    my_sprintf_cat("The likelihood ratio test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_LR, T_LR, df)
+    my_sprintf_cat("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)", P_Pearson, T_Pearson, df)
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }

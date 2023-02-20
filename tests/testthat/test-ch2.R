@@ -72,13 +72,13 @@ test_that("Chapter 2 functions basically work", {
   expect_error(LR_test_1x2(100))
   expect_output(
     object = print(LR_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)),
-    regexp = "P = 0.00944, T = 6.738 \\(df <- 1\\)"
+    regexp = "P = 0.00944, T = 6.738 \\(df = 1\\)"
   )
   expect_error(MidP_binomial_test_1x2(100))
   expect_output(
-    object = MidP_binomial_test_1x2(
+    object = print(MidP_binomial_test_1x2(
       ligarden_2010["X"], ligarden_2010["n"], pi0 = .5
-    ),
+    )),
     regexp = "P = 0.01273"
   )
   expect_error(Score_test_1x2(100))
@@ -88,8 +88,10 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Score_test_CC_1x2(100))
   expect_output(
-    object = Score_test_CC_1x2(
-      ligarden_2010["X"], ligarden_2010["n"], pi0 = .5
+    object = print(
+      Score_test_CC_1x2(
+        ligarden_2010["X"], ligarden_2010["n"], pi0 = .5
+      )
     ),
     regexp = "P = 0.02445, Z = 2.250"
   )

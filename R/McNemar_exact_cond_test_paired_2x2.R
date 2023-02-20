@@ -2,7 +2,6 @@
 #' @description The McNemar exact conditional test
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom stats pbinom
 #' @examples
 #' McNemar_exact_cond_test_paired_2x2(bentur_2009)
@@ -10,14 +9,11 @@
 #' McNemar_exact_cond_test_paired_2x2(ezra_2010)
 #' @export
 #' @return The exact p-value based on the binomial distribution
-McNemar_exact_cond_test_paired_2x2 <- function(n, printresults = TRUE) {
+McNemar_exact_cond_test_paired_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   # Exact p-value based on the binomial distribution
   P <- 2 * pbinom(min(n[1, 2], n[2, 1]), n[1, 2] + n[2, 1], 0.5)
   P <- min(P, 1)
-  if (printresults) {
-    my_sprintf("The McNemar exact conditional test: P = %8.6f\n", P)
-  }
-  return(P)
+  return(contingencytables_result(P, sprintf("The McNemar exact conditional test: P = %8.6f", P)))
 }

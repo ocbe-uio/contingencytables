@@ -29,19 +29,19 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
 
   print("Test                                  P-value  (test statistic)", quote = FALSE)
   print("------------------------------------------------------------------", quote = FALSE)
-  res <- Pearson_chi_squared_test_2x2(n, printresults = FALSE)
+  res <- Pearson_chi_squared_test_2x2(n)$statistics
   P0 <- res$p.value
   T0 <- res$statistic
   df <- res$df
   print(sprintf("Pearson chi-squared                   %6.4f   (T = %5.3f, df = %i)", P0, T0, df), quote = FALSE)
 
-  res <- Pearson_chi_squared_test_CC_2x2(n, printresults = FALSE)
+  res <- Pearson_chi_squared_test_CC_2x2(n)$statistics
   P0 <- res$p.value
   T0 <- res$statistic
   df <- res$df
   print(sprintf("Pearson chi-squared w / CC              %6.4f   (T = %5.3f, df = %i)", P0, T0, df), quote = FALSE)
 
-  res <- LR_test_2x2(n, printresults = FALSE)
+  res <- LR_test_2x2(n)$statistics
   P0 <- res$p.value
   T0 <- res$statistic
   df <- res$df

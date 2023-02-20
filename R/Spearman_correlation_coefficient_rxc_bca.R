@@ -5,7 +5,6 @@
 #' @param n the observed table (an rxc matrix)
 #' @param nboot number of bootstrap samples
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' set.seed(2921)
 #' Spearman_correlation_coefficient_rxc_bca(table_7.7, nboot = 800)
@@ -15,7 +14,7 @@
 #' }
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
-Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
+Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -39,7 +38,7 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   }
 
   # The estimate
-  rho <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)$rho
+  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$statistics$rho
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -48,11 +47,12 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  if (printresults) {
-    my_sprintf("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(rho = rho, L = L, U = U))
+  return(
+    contingencytables_result(
+      list(rho = rho, L = L, U = U),
+      sprintf("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L, U)
+    )
+  )
 }
 
 
@@ -68,6 +68,6 @@ f.Sccrb <- function(dat, indx, .param) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  rho <- Spearman_correlation_coefficient_rxc(n, alpha, printresults = FALSE)$rho
+  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$statistics$rho
   return(rho)
 }
