@@ -52,13 +52,13 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   print(sprintf("Inverse sinh                          %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- Adjusted_inv_sinh_CI_OR_2x2(n, 0.45, 0.25, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Adjusted inverse sinh (0.45, 0.25)    %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- Adjusted_inv_sinh_CI_OR_2x2(n, 0.6, 0.4, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Adjusted inverse sinh (0.6, 0.4)      %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- MOVER_R_Wilson_CI_OR_2x2(n, alpha)$statistics

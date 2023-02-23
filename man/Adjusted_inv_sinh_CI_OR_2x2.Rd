@@ -17,7 +17,8 @@ Adjusted_inv_sinh_CI_OR_2x2(n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the contingencytables_result2 class containing lower,
+upper and point estimates of the statistic.
 }
 \description{
 The adjusted inverse hyperbolic sine confidence interval for

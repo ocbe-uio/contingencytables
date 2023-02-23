@@ -180,7 +180,11 @@ t160 <- Z_unpooled_test_2x2(n, printresults = FALSE)
 function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
-  for (t in function_output_objects[c(1:111)]) {
+  for (t in function_output_objects[c(1)]) {
+    expect_is(get(t), "contingencytables_result2")
+    expect_named(attributes(get(t)), c("names", "class", "print_structure"))
+  }
+  for (t in function_output_objects[c(2:111)]) {
     expect_is(get(t), "contingencytables_result")
     expect_named(get(t), c("statistics", "print_format"))
     # TODO: test that statistics is consistent. Currently, some are lists, others are data.frame and vectors

@@ -5,7 +5,7 @@ test_that("Printing method works for lower_upper_estimate_alpha", {
   expect_invisible(tmp <- Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013))
   expect_silent(tmp)
   expect_output(print(tmp), "The adjusted inverse sinh CI")
-  expect_length(tmp$statistics, 5)
+  expect_length(tmp, 5)
 })
 
 test_that("Printing method works for pvalue_df_estimate_statname", {

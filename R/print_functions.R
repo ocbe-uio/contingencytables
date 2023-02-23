@@ -20,3 +20,18 @@ print.contingencytables_result <- function(x, ...) {
   }
   invisible(x)
 }
+
+#' @title Output from a contingency tables method
+#' @param x The output from a function from the [contingencytables] package
+#' @param as_list Print the elements of `x` as a list
+#' @param ... unused (kept for consistency with the generic [base::print()])
+#' @rdname print
+#' @export
+print.contingencytables_result2 <- function(x, as_list = FALSE, ...) {
+  if (as_list) {
+    print(vapply(x, list, list(names(x))))
+  } else {
+    cat(attr(x, "print_structure"))
+  }
+  invisible(x)
+}
