@@ -52,7 +52,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
 
 
   my_sprintf("\nTesting the fit of a proportional odds model\n")
-  results <- Cumulative_models_for_2xc(n, "logit", alpha)$statistics
+  results <- Cumulative_models_for_2xc(n, "logit", alpha)
   my_sprintf("  Pearson goodness of fit       %6.3f (df=%g)   %8.5f\n", results$X2, results$df_X2, results$P_X2)
   my_sprintf("  Likelihodd ratio (deviance)   %6.3f (df=%g)   %8.5f\n", results$D, results$df_D, results$P_D)
 
@@ -71,7 +71,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
 
 
   my_sprintf("\nTesting the fit of a probit model\n")
-  resultsProbit <- Cumulative_models_for_2xc(n, "probit", alpha)$statistics
+  resultsProbit <- Cumulative_models_for_2xc(n, "probit", alpha)
   my_sprintf("  Pearson goodness of fit       %6.3f (df=%g)   %8.5f\n", resultsProbit$X2, resultsProbit$df_X2, resultsProbit$P_X2)
   my_sprintf("  Likelihodd ratio (deviance)   %6.3f (df=%g)   %8.5f\n", resultsProbit$D, resultsProbit$df_D, resultsProbit$P_D)
 

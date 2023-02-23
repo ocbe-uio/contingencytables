@@ -31,7 +31,12 @@ print.contingencytables_result2 <- function(x, as_list = FALSE, ...) {
   if (as_list) {
     print(vapply(x, list, list(names(x))))
   } else {
-    cat(attr(x, "print_structure"))
+    print_structure <- attr(x, "print_structure")
+    switch(
+      class(print_structure),
+      "function"  = cat(print_structure()),
+      "character" = cat(print_structure)
+    )
   }
   invisible(x)
 }
