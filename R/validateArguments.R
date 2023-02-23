@@ -2,7 +2,7 @@
 #' @description This is an internal function used by user-level functions to
 #' validate their arguments.
 #' @param x named list containing function arguments and their values
-#' @param types named vector of types for \code{x}
+#' @param types named vector of types for `x`
 #' @return Nothing if all aguments fit their type. An error message otherwise.
 #' @author Waldir Leoncio
 #' @export

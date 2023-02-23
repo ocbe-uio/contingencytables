@@ -1,5 +1,5 @@
 #' @title The 2x2 table CIs ratio
-#' @description Wrapper for \code{_CI_2x2} functions on Chapter 4.
+#' @description Wrapper for `_CI_2x2` functions on Chapter 4.
 #' @param n frequency matrix
 #' @param alpha type I error
 #' @seealso the_2x2_table_CIs_difference the_2x2_table_CIs_OR the_2x2_table_tests

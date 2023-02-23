@@ -15,7 +15,7 @@ the_2x2_table_CIs_OR(n, alpha = 0.05)
 A string of "-". This function should be called for its printed output
 }
 \description{
-Wrapper for \code{_CI_OR_2x2} functions on Chapter 4.
+Wrapper for \verb{_CI_OR_2x2} functions on Chapter 4.
 }
 \examples{
 # Example: A lady tasting a cup of tea

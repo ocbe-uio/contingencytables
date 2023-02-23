@@ -18,11 +18,11 @@ contingencytables_result2 <- function(statistics, print_structure) {
 #' @param statistics Either a value or a list of values to be filled by
 #' print_format
 #' @param print_format Either a string of a function instructing how to print
-#' the values from \code{statistics}
+#' the values from `statistics`
 #' @param bundle Handles the legacy implementation using the
-#' \code{contingencytables_singletest} class, where \code{bundle} is a list
+#' `contingencytables_singletest` class, where `bundle` is a list
 #' containing the names "name" and "statistics"
-#' @return an object of class \code{contingencytables_result}
+#' @return an object of class `contingencytables_result`
 #' @author Waldir Leoncio
 contingencytables_result <- function(statistics, print_format, bundle = NULL) {
   if (!is.null(bundle)) {

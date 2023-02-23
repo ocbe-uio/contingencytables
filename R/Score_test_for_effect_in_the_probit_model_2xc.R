@@ -3,7 +3,7 @@
 #' described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed counts (a 2xc matrix)
 #' @param alphahat0 a column vector with c-1 estimated coefficients
-#' (\code{alpha_j}) under the null hypothesis (\code{beta = 0})
+#' (`alpha_j`) under the null hypothesis (\code{beta = 0})
 #' @note Must give the alphahats under the null hypothesis as input,
 #'  because Matlab does not calculate an intercept-only probit model (and this
 #' may apply to R code as well). alphahat0 can be calculated in, for instance,
