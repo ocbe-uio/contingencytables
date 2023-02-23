@@ -5,7 +5,7 @@ test_that("Printing method works for lower_upper_estimate_alpha", {
   expect_invisible(tmp <- Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013))
   expect_silent(tmp)
   expect_output(print(tmp), "The adjusted inverse sinh CI")
-  expect_length(tmp$statistics, 5)
+  expect_length(tmp, 5)
 })
 
 test_that("Printing method works for pvalue_df_estimate_statname", {
@@ -13,7 +13,8 @@ test_that("Printing method works for pvalue_df_estimate_statname", {
   expect_invisible(tmp <- Bhapkar_test_paired_cxc(peterson_2007))
   expect_silent(tmp)
   expect_output(print(tmp), "The Bhapkar test for marginal homogenity")
-  expect_length(tmp$statistics, 4)
+  expect_output(print(tmp, as_list = TRUE), "pvalue")
+  expect_length(tmp, 4)
 })
 
 test_that("Printing method works for pvalue", {
@@ -21,7 +22,8 @@ test_that("Printing method works for pvalue", {
   expect_invisible(tmp <- Blaker_exact_test_1x2(13, 16, 0.5))
   expect_silent(tmp)
   expect_output(print(tmp), "The Blaker exact test")
-  expect_length(tmp$statistics, 2)
+  expect_output(print(tmp, as_list = TRUE), "pvalue")
+  expect_length(tmp, 2)
 })
 
 # TODO: add other print methods for contingencytables_singletest

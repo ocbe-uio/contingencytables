@@ -7,16 +7,16 @@ ruxton <- c(6, 8, 4, 7, 3) # Ruxton
 
 test_that("Expected output is obtained", {
   f <- Chacko_test_1xc(fagerland)
-  expect_equal(f[["statistics"]][["pvalue"]], 0.002, tol = 1e-2)
-  expect_equal(f[["statistics"]][["estimate"]], 12.27, tol = 1e-2)
-  expect_equal(f[["statistics"]][["df"]], 2)
+  expect_equal(f[["pvalue"]], 0.002, tol = 1e-2)
+  expect_equal(f[["estimate"]], 12.27, tol = 1e-2)
+  expect_equal(f[["df"]], 2)
 
   c1 <- Chacko_test_1xc(chacko_1)
-  expect_equal(c1[["statistics"]][["df"]], 2)
+  expect_equal(c1[["df"]], 2)
 
   c2 <- Chacko_test_1xc(chacko_2)
-  expect_equal(c2[["statistics"]][["estimate"]], 13.5)
-  expect_equal(c2[["statistics"]][["df"]], 6)
+  expect_equal(c2[["estimate"]], 13.5)
+  expect_equal(c2[["df"]], 6)
 
   expect_warning(Chacko_test_1xc(ruxton))
 })

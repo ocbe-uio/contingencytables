@@ -1,5 +1,5 @@
 #' @title The 2x2 table CIs difference
-#' @description Wrapper for \code{_CI_2x2} functions on Chapter 4.
+#' @description Wrapper for `_CI_2x2` functions on Chapter 4.
 #' @param n frequency matrix
 #' @param alpha type I error
 #' @examples

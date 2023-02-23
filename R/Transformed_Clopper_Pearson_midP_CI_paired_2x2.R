@@ -20,8 +20,8 @@ Transformed_Clopper_Pearson_midP_CI_paired_2x2 <- function(
 
   # The Clopper-Pearson mid-P interval for mu = pi_12 / (pi_12 + pi_21)
   tmp <- ClopperPearson_midP_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha)
-  L_mu <- tmp$statistics$lower
-  U_mu <- tmp$statistics$upper
+  L_mu <- tmp$lower
+  U_mu <- tmp$upper
 
   # Transform the confidence limits back to the conditional odds ratio scale
   L <- L_mu / (1 - L_mu)

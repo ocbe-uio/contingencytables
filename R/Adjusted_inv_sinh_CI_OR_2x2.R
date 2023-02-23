@@ -7,7 +7,8 @@
 #' @param psi1 pseudo-frequency (should be > 0)
 #' @param psi2 pseudo-frequency (should be > 0)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the contingencytables_result2 class containing lower,
+#' upper and point estimates of the statistic.
 #' @examples
 #' Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)
@@ -44,5 +45,6 @@ Adjusted_inv_sinh_CI_OR_2x2 <- function(
       "statname" = "estimate"
     )
   )
-  return(contingencytables_result(bundle = res))
+
+  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
 }

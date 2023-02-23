@@ -63,7 +63,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   # (Low birth weight vs psychiatric morbitidy)
   # Change "c <=2" to "c <= 3" to calculate the tests also on these data
   if (r <= 3 && c <= 2) {
-    results_exact_midP <- Exact_cond_midP_tests_rxc(n)$statistics
+    results_exact_midP <- Exact_cond_midP_tests_rxc(n)
     my_sprintf("  Fisher-Freeman-Halton exact conditional                %9.6f\n", results_exact_midP$P_FFH)
     my_sprintf("  Fisher-Freeman-Halton mid-P                            %9.6f\n", results_exact_midP$midP_FFH)
     my_sprintf("  Pearson exact conditional                              %9.6f\n", results_exact_midP$P_Pearson)
@@ -93,7 +93,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #---------------------------------
 
   if (c == 2) {
-    Scheffe_type_CIs_rxc(n, alpha)$statistics
+    Scheffe_type_CIs_rxc(n, alpha)
     my_sprintf("\n")
     print(Bonferroni_type_CIs_rxc(n, alpha))
   }
@@ -124,7 +124,7 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   #------------
 
   if (ncol(n) > 2) {
-    results <- Cumulative_models_for_rxc(n, "logit", alpha)$statistics
+    results <- Cumulative_models_for_rxc(n, "logit", alpha)
 
     cat("\n")
     my_sprintf("\nTesting the fit of a proportional odds model\n")

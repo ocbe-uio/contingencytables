@@ -1,5 +1,5 @@
 #' @title The 2x2 table tests
-#' @description Wrapper for \code{_test_2x2} functions on Chapter 4.
+#' @description Wrapper for `_test_2x2` functions on Chapter 4.
 #' @param n frequency matrix
 #' @param gamma  parameter for the Berger and Boos procedure
 #' @examples

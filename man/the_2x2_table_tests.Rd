@@ -15,7 +15,7 @@ the_2x2_table_tests(n, gamma = 1e-04)
 The value of gamma. This function should be called for its printed output.
 }
 \description{
-Wrapper for \code{_test_2x2} functions on Chapter 4.
+Wrapper for \verb{_test_2x2} functions on Chapter 4.
 }
 \examples{
 # Example: A lady tasting a cup of tea

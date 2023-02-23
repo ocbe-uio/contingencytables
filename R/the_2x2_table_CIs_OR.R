@@ -1,5 +1,5 @@
 #' @title The 2x2 table CIs odds ratio
-#' @description Wrapper for \code{_CI_OR_2x2} functions on Chapter 4.
+#' @description Wrapper for `_CI_OR_2x2` functions on Chapter 4.
 #' @param n frequency matrix
 #' @param alpha type I error
 #' @examples
@@ -52,13 +52,13 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   print(sprintf("Inverse sinh                          %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- Adjusted_inv_sinh_CI_OR_2x2(n, 0.45, 0.25, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Adjusted inverse sinh (0.45, 0.25)    %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- Adjusted_inv_sinh_CI_OR_2x2(n, 0.6, 0.4, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Adjusted inverse sinh (0.6, 0.4)      %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- MOVER_R_Wilson_CI_OR_2x2(n, alpha)$statistics
@@ -76,24 +76,24 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Uncorrected asymptotic score          %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Cornfield_exact_conditional_CI_2x2(n, alpha)$statistics
+  res <- Cornfield_exact_conditional_CI_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Cornfield exact conditional           %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- BaptistaPike_exact_conditional_CI_2x2(n, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Baptista-Pike exact conditional       %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Cornfield_midP_CI_2x2(n, alpha)$statistics
+  res <- Cornfield_midP_CI_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Cornfield mid-P                       %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- BaptistaPike_midP_CI_2x2(n, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Baptista-Pike mid-P                   %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   print("----------------------------------------------------------------", quote = FALSE)

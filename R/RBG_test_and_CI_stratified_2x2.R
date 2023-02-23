@@ -12,10 +12,10 @@
 #' RBG_test_and_CI_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value (\code{P}), the Wald test
-#' statistic (\code{Z}), the confidence limits (\code{L} and \code{U}), the
-#' Mantel-Haenszel overall estimate (\code{thetahatMH}) and the standard error
-#' (\code{SElog}).
+#' @return A list containing the two-sided p-value (`P`), the Wald test
+#' statistic (`Z`), the confidence limits (`L` and `U`), the
+#' Mantel-Haenszel overall estimate (`thetahatMH`) and the standard error
+#' (`SElog`).
 RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 

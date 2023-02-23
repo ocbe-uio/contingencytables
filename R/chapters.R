@@ -289,7 +289,7 @@ NULL
 
 #' @title List functions from a chapter
 #' @description Complements the \code{?chapX} command by printing a list of
-#' functions related to a particular chapter \code{X} on the R console.
+#' functions related to a particular chapter `X` on the R console.
 #' @param chap_num Number of book chapter (from 2 to 10)
 #' @return List of functions from that chapter
 #' @author Waldir Leoncio

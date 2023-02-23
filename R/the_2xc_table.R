@@ -27,8 +27,8 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
-  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson")$statistics
-  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR")$statistics
+  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson")
+  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR")
   my_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
   my_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
   my_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
@@ -39,8 +39,8 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
-  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR")$statistics
-  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR")$statistics
+  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR")
+  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR")
   my_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
   my_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
   my_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
@@ -52,11 +52,11 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
 
 
   my_sprintf("\nTesting the fit of a proportional odds model\n")
-  results <- Cumulative_models_for_2xc(n, "logit", alpha)$statistics
+  results <- Cumulative_models_for_2xc(n, "logit", alpha)
   my_sprintf("  Pearson goodness of fit       %6.3f (df=%g)   %8.5f\n", results$X2, results$df_X2, results$P_X2)
   my_sprintf("  Likelihodd ratio (deviance)   %6.3f (df=%g)   %8.5f\n", results$D, results$df_D, results$P_D)
 
-  res <- Brant_test_2xc(n)$statistics
+  res <- Brant_test_2xc(n)
   my_sprintf("  Brant                         %6.3f (df=%g)   %8.5f\n", res$estimate, res$df, res$pvalue)
 
 
@@ -65,13 +65,13 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", results$T_LR, results$df_LR, results$P_LR)
   my_sprintf("  Score (WMW)                   %6.3f          %8.5f\n", results$Z_MW, results$P_MW)
 
-  res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0)$statistics
+  res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0)
   my_sprintf("  Exact conditional linear rank                 %8.5f\n", res$P)
   my_sprintf("  Mid-P linear rank                             %8.5f\n", res$midP)
 
 
   my_sprintf("\nTesting the fit of a probit model\n")
-  resultsProbit <- Cumulative_models_for_2xc(n, "probit", alpha)$statistics
+  resultsProbit <- Cumulative_models_for_2xc(n, "probit", alpha)
   my_sprintf("  Pearson goodness of fit       %6.3f (df=%g)   %8.5f\n", resultsProbit$X2, resultsProbit$df_X2, resultsProbit$P_X2)
   my_sprintf("  Likelihodd ratio (deviance)   %6.3f (df=%g)   %8.5f\n", resultsProbit$D, resultsProbit$df_D, resultsProbit$P_D)
 

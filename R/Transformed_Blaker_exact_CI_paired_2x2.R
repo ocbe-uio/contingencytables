@@ -17,7 +17,7 @@ Transformed_Blaker_exact_CI_paired_2x2 <- function(
   estimate <- n[1, 2] / n[2, 1]
 
   # The Blaker exact interval for mu = pi_12 / (pi_12 + pi_21)
-  tmp <- Blaker_exact_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha)$statistics
+  tmp <- Blaker_exact_CI_1x2(n[1, 2], n[1, 2] + n[2, 1], alpha)
   L_mu <- tmp[[1]]
   U_mu <- tmp[[2]]
 

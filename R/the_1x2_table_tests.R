@@ -50,16 +50,16 @@ the_1x2_table_tests <- function(X, n, pi0) {
   res <- Score_test_CC_1x2(X, n, pi0)$statistics
   myprint("Score with CC       %6.4f   (Z = %5.3f)", res[1], res[2])
 
-  P <- Exact_binomial_test_1x2(X, n, pi0)$statistics$pvalue
+  P <- Exact_binomial_test_1x2(X, n, pi0)$pvalue
   myprint("Exact binomial      %6.4f", P)
 
-  P <- Blaker_exact_test_1x2(X, n, pi0)$statistics$pvalue
+  P <- Blaker_exact_test_1x2(X, n, pi0)$pvalue
   myprint("Blaker exact        %6.4f", P)
 
   midP <- MidP_binomial_test_1x2(X, n, pi0)$statistics
   myprint("Mid-P binomial      %6.4f", midP)
 
-  midP <- Blaker_midP_test_1x2(X, n, pi0)$statistics$midp
+  midP <- Blaker_midP_test_1x2(X, n, pi0)$midp
   myprint("Blaker mid-P        %6.4f", midP)
 
   myprint("------------------------------------------------")

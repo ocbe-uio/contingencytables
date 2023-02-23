@@ -8,7 +8,7 @@
 #' McNemar_asymptotic_test_CC_paired_2x2(ezra_2010)
 #'
 #' @export
-#' @return The McNemar test statistic with continuity correction (\code{Z}) and the reference distribution (standard normal, \code{P})
+#' @return The McNemar test statistic with continuity correction (`Z`) and the reference distribution (standard normal, `P`)
 McNemar_asymptotic_test_CC_paired_2x2 <- function(n) {
   validateArguments(mget(ls()))
 

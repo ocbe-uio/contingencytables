@@ -53,5 +53,5 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
       "pvalue" = P, "df" = df, "estimate" = T0, statname = "T0"
     )
   )
-  return(contingencytables_result(bundle = res))
+  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
 }

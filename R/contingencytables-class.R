@@ -2,18 +2,26 @@
 #' @description A class for output of the main functions on this package
 #' @param statistics Either a value or a list of values to be filled by
 #' print_format
-#' @param print_format Either a string of a function instructing how to print
-#' the values from \code{statistics}
-#' @param bundle Handles the legacy implementation using the
-#' \code{contingencytables_singletest} class, where \code{bundle} is a list
-#' containing the names "name" and "statistics"
-#' @return an object of class \code{contingencytables_result}
+#' @param print_structure Either a string of a function instructing how to print
+#' the values from `statistics`
+#' @return an object of class `contingencytables_result2`
+#' @seealso [print.contingencytables_result2]
 #' @author Waldir Leoncio
-contingencytables_result <- function(statistics, print_format, bundle = NULL) {
-  if (!is.null(bundle)) {
-    statistics <- bundle$statistics
-    print_format <- fetch_print_format(bundle)
-  }
+contingencytables_result2 <- function(statistics, print_structure) {
+  obj <- structure(statistics, class = "contingencytables_result2")
+  attr(obj, "print_structure") <- print_structure
+  return(obj)
+}
+
+#' @title contingencytables_result class
+#' @description A class for output of the main functions on this package
+#' @param statistics Either a value or a list of values to be filled by
+#' print_format
+#' @param print_format Either a string of a function instructing how to print
+#' the values from `statistics`
+#' @return an object of class `contingencytables_result`
+#' @author Waldir Leoncio
+contingencytables_result <- function(statistics, print_format) {
   obj <- structure(
     list("statistics" = statistics, "print_format" = print_format),
     class = "contingencytables_result"

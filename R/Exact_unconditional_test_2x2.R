@@ -78,7 +78,7 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
   } else {
     # Berger and Boos procedure
     # Use the Clopper-Pearson exact interval
-    res.cpe <- unlist(ClopperPearson_exact_CI_1x2(np1, N, gamma)$statistics)
+    res.cpe <- unlist(ClopperPearson_exact_CI_1x2(np1, N, gamma))
     pivalues <- seq(
       res.cpe["lower"], res.cpe["upper"],
       length = num_pi_values
