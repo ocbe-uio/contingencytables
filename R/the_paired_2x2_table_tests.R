@@ -38,8 +38,10 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   P <- McNemar_midP_test_paired_2x2(n)$statistics
   my_sprintf("McNemar mid-P                    %6.4f\n", P)
 
-  P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)$statistics
-  my_sprintf("McNemar exact unconditional      %6.4f\n", P)
+  if (gamma != 0) {
+    P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)$statistics
+    my_sprintf("McNemar exact unconditional      %6.4f\n", P)
+  }
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma)$statistics
   my_sprintf("McNemar exact unconditional*     %6.4f\n", P)
