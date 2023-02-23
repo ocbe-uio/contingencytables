@@ -21,8 +21,6 @@ Described in Chapter 7 "The rxc Table"
 }
 \examples{
 Spearman_correlation_coefficient_rxc(table_7.7)
-\dontrun{
-  Spearman_correlation_coefficient_rxc(table_7.8)
-  Spearman_correlation_coefficient_rxc(table_7.9)
-}
+Spearman_correlation_coefficient_rxc(table_7.8)
+Spearman_correlation_coefficient_rxc(table_7.9)
 }

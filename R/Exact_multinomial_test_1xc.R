@@ -6,9 +6,8 @@
 #' @importFrom stats dmultinom
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' \dontrun{
 #' Exact_multinomial_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
-#' }
+#'
 #' # subset of 10 patients
 #' Exact_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export

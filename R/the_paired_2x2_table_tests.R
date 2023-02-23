@@ -3,10 +3,8 @@
 #' @param gamma parameter for the Berger and Boos procedure
 #' @examples
 #' the_paired_2x2_table_tests(bentur_2009)
-#' \dontrun{
-#'   the_paired_2x2_table_tests(cavo_2012)
-#'   the_paired_2x2_table_tests(ezra_2010)
-#' }
+#' the_paired_2x2_table_tests(cavo_2012, gamma = 0)
+#' the_paired_2x2_table_tests(ezra_2010)
 #' @export
 #' @return The value of gamma. This function should be called for its printed output.
 the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
@@ -40,8 +38,10 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   P <- McNemar_midP_test_paired_2x2(n)$statistics
   my_sprintf("McNemar mid-P                    %6.4f\n", P)
 
-  P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)$statistics
-  my_sprintf("McNemar exact unconditional      %6.4f\n", P)
+  if (gamma != 0) {
+    P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)$statistics
+    my_sprintf("McNemar exact unconditional      %6.4f\n", P)
+  }
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma)$statistics
   my_sprintf("McNemar exact unconditional*     %6.4f\n", P)

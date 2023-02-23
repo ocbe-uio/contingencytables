@@ -30,8 +30,6 @@ restriction of the parameter space.
 }
 \examples{
 McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
-\dontrun{
-McNemar_exact_unconditional_test_paired_2x2(cavo_2012)
-}
+McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
 McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
 }

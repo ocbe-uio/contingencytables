@@ -5,9 +5,7 @@
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
-#' \dontrun{
-#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012)
-#' }
+#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
 #' McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
@@ -89,7 +87,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
     segments(common_pi_at_max_value, 0, common_pi_at_max_value, P, col = "red", lty = 2)
   }
 
-  return(contingencytables_result(P, sprintf("The McNemar exact unconditional test: P = %8.6f\n", P)))
+  return(contingencytables_result(P, sprintf("The McNemar exact unconditional test: P = %8.6f", P)))
 }
 
 

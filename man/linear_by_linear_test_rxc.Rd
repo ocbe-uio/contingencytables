@@ -23,8 +23,6 @@ Described in Chapter 7 "The rxc Table"
 }
 \examples{
 linear_by_linear_test_rxc(table_7.7)
-\dontrun{
-  linear_by_linear_test_rxc(table_7.8)
-  linear_by_linear_test_rxc(table_7.9)
-}
+linear_by_linear_test_rxc(table_7.8)
+linear_by_linear_test_rxc(table_7.9)
 }

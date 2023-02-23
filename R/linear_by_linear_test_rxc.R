@@ -6,10 +6,8 @@
 #' @param b scores assigned to the columns
 #' @examples
 #' linear_by_linear_test_rxc(table_7.7)
-#' \dontrun{
-#'   linear_by_linear_test_rxc(table_7.8)
-#'   linear_by_linear_test_rxc(table_7.9)
-#' }
+#' linear_by_linear_test_rxc(table_7.8)
+#' linear_by_linear_test_rxc(table_7.9)
 #' @export
 #' @return a list containing the linear-by-linear test statistic
 linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n))) {
