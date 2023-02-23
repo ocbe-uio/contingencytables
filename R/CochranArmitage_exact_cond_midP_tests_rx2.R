@@ -53,5 +53,5 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a) {
     ),
     statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
   )
-  return(contingencytables_result(bundle = res))
+  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
 }

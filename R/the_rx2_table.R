@@ -34,10 +34,10 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   # A little bit of computation time for the exact conditional and mid-P tests
   # for unspecific ordering
   if (!skip_exact) {
-    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "Pearson")$statistics
+    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "Pearson")
     P_Pearson <- tmp$P
     midP_Pearson <- tmp$midP
-    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "LR")$statistics
+    tmp <- Exact_cond_midP_unspecific_ordering_rx2(n, direction, "LR")
     P_LR <- tmp$P
     midP_LR <- tmp$midP
 
@@ -48,7 +48,7 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   }
 
   my_sprintf("Tests for trend in the linear model")
-  results <- CochranArmitage_MH_tests_rx2(n, a)$statistics
+  results <- CochranArmitage_MH_tests_rx2(n, a)
   my_sprintf("  Cochran-Armitage            %6.3f          %8.5f", results[["t"]]["Z_CA"], results[["pvalue"]]["P_CA"])
   my_sprintf("  Modified Cochran-Armitage   %6.3f          %8.5f", results[["t"]]["Z_CA_mod"], results[["pvalue"]]["P_CA_mod"])
   my_sprintf("  Mantel-Haenszel             %6.3f          %8.5f", results[["t"]]["Z_MH"], results[["pvalue"]]["P_MH"])
@@ -74,7 +74,7 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   my_sprintf("Method                  Estimate         %g%% CI           Width", 100 * (1 - alpha))
   my_sprintf("----------------------------------------------------------------")
   my_sprintf("Linear model")
-  tmp <- CochranArmitage_CI_rx2(n, a, alpha)$statistics
+  tmp <- CochranArmitage_CI_rx2(n, a, alpha)
   betahat <- tmp$estimate
   L <- tmp$lower
   U <- tmp$upper

@@ -32,8 +32,8 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   print(sprintf("Katz log                             %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- Adjusted_log_CI_2x2(n, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Adjusted log                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- PriceBonett_approximate_Bayes_CI_2x2(n, 1.25, 2.5, alpha)$statistics
@@ -47,8 +47,8 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   print(sprintf("Inverse sinh                         %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- Adjusted_inv_sinh_CI_ratio_2x2(n, 0, 0, 0, 1, alpha)
-  L <- res$statistics$lower
-  U <- res$statistics$upper
+  L <- res$lower
+  U <- res$upper
   print(sprintf("Adjusted inverse sinh                %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   res <- MOVER_R_Wilson_CI_ratio_2x2(n, alpha)$statistics

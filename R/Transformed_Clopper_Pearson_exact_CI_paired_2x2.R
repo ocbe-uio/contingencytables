@@ -22,8 +22,8 @@ Transformed_Clopper_Pearson_exact_CI_paired_2x2 <- function(
   tmp <- ClopperPearson_exact_CI_1x2_beta_version(
     n[1, 2], n[1, 2] + n[2, 1], alpha
   )
-  L_mu <- tmp$statistics$lower
-  U_mu <- tmp$statistics$upper
+  L_mu <- tmp$lower
+  U_mu <- tmp$upper
 
   # Transform the confidence limits back to the conditional odds ratio scale
   L <- L_mu / (1 - L_mu)

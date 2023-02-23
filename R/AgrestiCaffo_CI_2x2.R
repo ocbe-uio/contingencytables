@@ -24,5 +24,5 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
       "alpha" = alpha, "statname" = "estimate"
     )
   )
-  return(contingencytables_result(bundle = res))
+  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
 }

@@ -63,5 +63,5 @@ CochranArmitage_MH_tests_rx2 <- function(n, a) {
       "pvalue" = c("P_CA" = P_CA, "P_CA_mod" = P_CA_mod, "P_MH" = P_MH)
     )
   )
-  return(contingencytables_result(bundle = res))
+  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
 }
