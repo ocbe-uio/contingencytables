@@ -4,8 +4,8 @@
 #' @param n the observed table (a 2xc matrix)
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
 #' @examples
-#' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 #' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
+#' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 #' @export
 #' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
 Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {

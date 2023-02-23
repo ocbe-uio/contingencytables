@@ -21,9 +21,8 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
 # Genotype counts for SNP rs 6498169 in RA patients
-\dontrun{
 MidP_multinomial_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
-}
+
 # subset of 10 patients
 MidP_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 }

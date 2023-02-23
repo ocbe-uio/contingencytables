@@ -19,8 +19,6 @@ The Paired 2x2 table tests
 }
 \examples{
 the_paired_2x2_table_tests(bentur_2009)
-\dontrun{
-  the_paired_2x2_table_tests(cavo_2012)
-  the_paired_2x2_table_tests(ezra_2010)
-}
+the_paired_2x2_table_tests(cavo_2012, gamma = 0)
+the_paired_2x2_table_tests(ezra_2010)
 }

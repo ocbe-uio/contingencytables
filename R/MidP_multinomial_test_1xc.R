@@ -5,9 +5,8 @@
 #' @param pi0 given probabilities (a 1xc vector)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' \dontrun{
 #' MidP_multinomial_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
-#' }
+#'
 #' # subset of 10 patients
 #' MidP_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export

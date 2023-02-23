@@ -30,8 +30,6 @@ Described in Chapter 7 "The rxc Table"
 }
 \examples{
   Pearson_correlation_coefficient_rxc(table_7.7)
-\dontrun{
   Pearson_correlation_coefficient_rxc(table_7.8)
   Pearson_correlation_coefficient_rxc(table_7.9)
-}
 }

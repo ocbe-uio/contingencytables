@@ -5,9 +5,7 @@
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
-#' \dontrun{
-#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012)
-#' }
+#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
 #' McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the

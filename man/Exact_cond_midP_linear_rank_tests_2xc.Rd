@@ -20,6 +20,6 @@ Exact conditional and mid-P linear rank tests
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-\dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
+\dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 }

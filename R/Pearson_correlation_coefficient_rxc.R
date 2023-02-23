@@ -8,10 +8,8 @@
 #' @importFrom stats cov
 #' @examples
 #'   Pearson_correlation_coefficient_rxc(table_7.7)
-#' \dontrun{
 #'   Pearson_correlation_coefficient_rxc(table_7.8)
 #'   Pearson_correlation_coefficient_rxc(table_7.9)
-#' }
 #' @export
 #' @return A list containing the statistic and the confindence interval limits
 Pearson_correlation_coefficient_rxc <- function(

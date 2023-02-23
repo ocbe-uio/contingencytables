@@ -5,10 +5,8 @@
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha)# confidence interval
 #' @examples
 #' Spearman_correlation_coefficient_rxc(table_7.7)
-#' \dontrun{
-#'   Spearman_correlation_coefficient_rxc(table_7.8)
-#'   Spearman_correlation_coefficient_rxc(table_7.9)
-#' }
+#' Spearman_correlation_coefficient_rxc(table_7.8)
+#' Spearman_correlation_coefficient_rxc(table_7.9)
 #' @export
 #' @return A list containing the Spearman correlation coefficient, and the Fieller and Bonett-Wright confidence intervals
 Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05) {
