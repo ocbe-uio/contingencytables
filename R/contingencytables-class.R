@@ -19,16 +19,9 @@ contingencytables_result2 <- function(statistics, print_structure) {
 #' print_format
 #' @param print_format Either a string of a function instructing how to print
 #' the values from `statistics`
-#' @param bundle Handles the legacy implementation using the
-#' `contingencytables_singletest` class, where `bundle` is a list
-#' containing the names "name" and "statistics"
 #' @return an object of class `contingencytables_result`
 #' @author Waldir Leoncio
-contingencytables_result <- function(statistics, print_format, bundle = NULL) {
-  if (!is.null(bundle)) {
-    statistics <- bundle$statistics
-    print_format <- fetch_print_format(bundle)
-  }
+contingencytables_result <- function(statistics, print_format) {
   obj <- structure(
     list("statistics" = statistics, "print_format" = print_format),
     class = "contingencytables_result"
