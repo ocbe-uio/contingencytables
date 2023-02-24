@@ -47,5 +47,5 @@ Cochran_Q_test_stratified_2x2 <- function(
       "pvalue" = P, "df" = df, "estimate" = Q, statname = "Q"
     )
   )
-  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
+  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

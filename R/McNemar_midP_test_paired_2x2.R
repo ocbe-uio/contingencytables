@@ -20,7 +20,7 @@ McNemar_midP_test_paired_2x2 <- function(n) {
   }
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       c("midP" = midP),
       sprintf("The McNemar mid-P test: P = %8.6f\n", midP)
     )

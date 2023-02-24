@@ -47,7 +47,7 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   U <- ans.ci$bca[5]
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(gamma = gamma, L = L, U = U),
       sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)",
         gamma, 100 * (1 - alpha), L, U

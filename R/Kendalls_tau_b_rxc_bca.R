@@ -45,7 +45,7 @@ Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   U <- ans.ci$bca[5]
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(tau_b = tau_b, L = L, U = U),
       sprintf(
         "Kendalls tau-b w / BCa bootstrap CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)",

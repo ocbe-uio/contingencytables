@@ -193,5 +193,5 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     }
     my_sprintf_cat("----------------------------------------------------\n")
   }
-  return(contingencytables_result2(statistics, print_fun))
+  return(contingencytables_result(statistics, print_fun))
 }

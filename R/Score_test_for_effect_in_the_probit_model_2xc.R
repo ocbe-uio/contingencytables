@@ -49,7 +49,7 @@ Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0) {
   P <- 1 - pchisq(T0, 1)
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       data.frame(P = P, T = T0, df = df),
       sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df)
     )

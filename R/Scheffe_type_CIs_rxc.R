@@ -50,7 +50,7 @@ Scheffe_type_CIs_rxc <- function(n, alpha = 0.05) {
   }
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(L = L, U = U, differences = differences), printresults
     )
   )

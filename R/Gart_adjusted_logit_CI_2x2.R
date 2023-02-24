@@ -35,7 +35,7 @@ Gart_adjusted_logit_CI_2x2 <- function(n, alpha = 0.05) {
 
   res <- data.frame("lower" = L, "upper" = U, "estimate" = estimate)
   return(
-    contingencytables_result2(
+    contingencytables_result(
       res,
       sprintf(
         "The Gart adjusted logit CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",

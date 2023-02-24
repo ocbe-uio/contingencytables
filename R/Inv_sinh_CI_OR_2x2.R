@@ -41,7 +41,7 @@ Inv_sinh_CI_OR_2x2 <- function(n, alpha = 0.05) {
     L <- n[1, 1] * n[2, 2] / ((z^2) * (z^2))
   }
 
-  return(contingencytables_result2(
+  return(contingencytables_result(
     data.frame("lower" = L, "upper" = U, "estimate" = estimate),
     sprintf(
       "The inverse sinh CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",

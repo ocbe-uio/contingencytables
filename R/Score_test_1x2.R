@@ -36,7 +36,7 @@ Score_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       c("p.value" = P, "statistic" = Z),
       sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z)
     )

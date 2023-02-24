@@ -106,5 +106,5 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit") {
     my_sprintf_cat("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)", P_Pearson, T_Pearson, df)
   }
 
-  return(contingencytables_result2(results, printresults))
+  return(contingencytables_result(results, printresults))
 }

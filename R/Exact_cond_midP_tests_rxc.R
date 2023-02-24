@@ -112,7 +112,7 @@ Exact_cond_midP_tests_rxc <- function(n) {
     my_sprintf_cat("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
     my_sprintf_cat("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
   }
-  return(contingencytables_result2(results, print_fun))
+  return(contingencytables_result(results, print_fun))
 }
 
 find_possible_tables_3x2 <- function(nip, npj) {

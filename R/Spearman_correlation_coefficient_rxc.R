@@ -82,7 +82,7 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05) {
   }
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(rho = rho, L = L, U = U, L_BW = L_BW, U_BW = U_BW), printresults
     )
   )

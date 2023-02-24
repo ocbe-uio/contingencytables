@@ -64,5 +64,5 @@ Adjusted_inv_sinh_CI_ratio_2x2 <- function(
       "statname" = "estimate"
     )
   )
-  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
+  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

@@ -56,7 +56,7 @@ validateArguments(
     "LR" = "The Fisher exact test (LR): P = %7.5f"
   )
 
-  return(contingencytables_result2(c("P" = P), sprintf(txt, P)))
+  return(contingencytables_result(c("P" = P), sprintf(txt, P)))
 }
 
 # ========================================================

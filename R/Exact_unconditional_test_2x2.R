@@ -128,7 +128,7 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
     txt <- "Fisher-Boschloo exact unconditional test: P = %7.5f"
   }
 
-  return(contingencytables_result2(c("P" = P), sprintf(txt, P)))
+  return(contingencytables_result(c("P" = P), sprintf(txt, P)))
 }
 
 

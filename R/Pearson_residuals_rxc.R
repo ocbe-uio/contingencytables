@@ -35,7 +35,7 @@ Pearson_residuals_rxc <- function(n) {
   }
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(residuals = residuals, std_residuals = std_residuals),
       NA
     )

@@ -10,6 +10,6 @@ X <- list(
 test_that("Objects have correct class elements", {
   for (x in X) {
     expect_named(attributes(x), c("names", "class", "print_structure"))
-    expect_s3_class(x, "contingencytables_result2")
+    expect_s3_class(x, "contingencytables_result")
   }
 })

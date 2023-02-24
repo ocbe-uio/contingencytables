@@ -4,13 +4,13 @@
 \alias{contingencytables_result}
 \title{contingencytables_result class}
 \usage{
-contingencytables_result(statistics, print_format)
+contingencytables_result(statistics, print_structure)
 }
 \arguments{
 \item{statistics}{Either a value or a list of values to be filled by
 print_format}
 
-\item{print_format}{Either a string of a function instructing how to print
+\item{print_structure}{Either a string of a function instructing how to print
 the values from \code{statistics}}
 }
 \value{
@@ -18,6 +18,9 @@ an object of class \code{contingencytables_result}
 }
 \description{
 A class for output of the main functions on this package
+}
+\seealso{
+\link{print.contingencytables_result}
 }
 \author{
 Waldir Leoncio

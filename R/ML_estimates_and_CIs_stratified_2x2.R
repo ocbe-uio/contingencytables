@@ -85,5 +85,5 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05) {
     }
   }
 
-  return(contingencytables_result2(results, printresults))
+  return(contingencytables_result(results, printresults))
 }

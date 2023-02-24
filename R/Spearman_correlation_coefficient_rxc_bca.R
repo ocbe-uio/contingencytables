@@ -48,7 +48,7 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   U <- ans.ci$bca[5]
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(rho = rho, L = L, U = U),
       sprintf("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L, U)
     )

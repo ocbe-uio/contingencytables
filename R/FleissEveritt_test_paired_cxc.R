@@ -41,7 +41,7 @@ FleissEveritt_test_paired_cxc <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
       list(P = P, T = T0, df = df),
       sprintf(
         "The Fleiss-Everitt version of the Stuart test: P = %8.6f, T = %6.3f (df=%g)",

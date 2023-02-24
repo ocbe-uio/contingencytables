@@ -181,7 +181,7 @@ function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
   for (t in function_output_objects[seq_len(111L)]) { # TODO: work up to 160, as #31 is developed
-    expect_is(get(t), "contingencytables_result2")
+    expect_is(get(t), "contingencytables_result")
     expect_named(attributes(get(t)), c("names", "class", "print_structure"))
   }
 })

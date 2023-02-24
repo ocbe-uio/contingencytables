@@ -47,5 +47,5 @@ gamma_coefficient_rxc <- function(n) {
     my_sprintf_cat("The gamma coefficient:               %6.4f\n", gamma)
   }
 
-  return(contingencytables_result2(list(gamma = gamma, C = C, D = D), prntrs))
+  return(contingencytables_result(list(gamma = gamma, C = C, D = D), prntrs))
 }

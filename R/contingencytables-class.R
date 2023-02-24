@@ -4,32 +4,21 @@
 #' print_format
 #' @param print_structure Either a string of a function instructing how to print
 #' the values from `statistics`
-#' @return an object of class `contingencytables_result2`
-#' @seealso [print.contingencytables_result2]
+#' @return an object of class `contingencytables_result`
+#' @seealso [print.contingencytables_result]
 #' @author Waldir Leoncio
-contingencytables_result2 <- function(statistics, print_structure) {
-  obj <- structure(statistics, class = "contingencytables_result2")
+contingencytables_result <- function(statistics, print_structure) {
+  obj <- structure(statistics, class = "contingencytables_result")
   attr(obj, "print_structure") <- print_structure
   attr(obj, "row.names") <- NULL # workaround for data frames
   return(obj)
 }
 
-#' @title contingencytables_result class
-#' @description A class for output of the main functions on this package
-#' @param statistics Either a value or a list of values to be filled by
-#' print_format
-#' @param print_format Either a string of a function instructing how to print
-#' the values from `statistics`
-#' @return an object of class `contingencytables_result`
-#' @author Waldir Leoncio
-contingencytables_result <- function(statistics, print_format) {
-  obj <- structure(
-    list("statistics" = statistics, "print_format" = print_format),
-    class = "contingencytables_result"
-  )
-  return(obj)
-}
-
+#' @title Fetch print format
+#' @description This is just a way of automating the retrieval of common
+#' @param x a named vector, data.frame or list containing test statistics
+#' @return A string with the proper print_structure for `x`
+#' printing formats for the contingencytables_result class
 fetch_print_format <- function(x) {
   # Determining output format
   stats_names <- paste(names(x$statistics), collapse = "_")

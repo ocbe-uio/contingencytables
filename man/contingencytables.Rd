@@ -16,5 +16,5 @@ This package provides functions that accompany the "Statistical Analysis of Cont
 }
 }
 \seealso{
-\link{print.contingencytables_result2} to read about printing alternatives.
+\link{print.contingencytables_result} to read about printing alternatives.
 }

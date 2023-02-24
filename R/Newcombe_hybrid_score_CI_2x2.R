@@ -36,7 +36,7 @@ Newcombe_hybrid_score_CI_2x2 <- function(n, alpha = 0.05) {
   U <- min(U, 1)
 
   return(
-    contingencytables_result2(
+    contingencytables_result(
        data.frame(lower = L, upper = U, estimate = estimate),
       sprintf(
         "The Newcombe hybrid score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
