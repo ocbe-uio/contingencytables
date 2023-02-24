@@ -128,7 +128,7 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
     txt <- "Fisher-Boschloo exact unconditional test: P = %7.5f"
   }
 
-  return(contingencytables_result(P, sprintf(txt, P)))
+  return(contingencytables_result2(c("P" = P), sprintf(txt, P)))
 }
 
 
@@ -182,7 +182,7 @@ test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, stat
   } else if (statistic == "Fisher") {
     # Fisher's exact test as test statistic
     x <- matrix(c(x11, x12, x21, x22), nrow = 2, byrow = TRUE)
-    T0 <- -Fisher_exact_test_2x2(x, "hypergeometric")$statistics
+    T0 <- -Fisher_exact_test_2x2(x, "hypergeometric")
   }
 
   return(T0)

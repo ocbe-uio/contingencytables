@@ -10,6 +10,7 @@
 contingencytables_result2 <- function(statistics, print_structure) {
   obj <- structure(statistics, class = "contingencytables_result2")
   attr(obj, "print_structure") <- print_structure
+  attr(obj, "row.names") <- NULL # workaround for data frames
   return(obj)
 }
 

@@ -34,13 +34,13 @@ the_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   res <- AgrestiCaffo_CI_2x2(n, alpha)
   print(sprintf("Agresti-Caffo                       %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
-  res <- Newcombe_hybrid_score_CI_2x2(n, alpha)$statistics
+  res <- Newcombe_hybrid_score_CI_2x2(n, alpha)
   print(sprintf("Newcombe hybrid score               %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
-  res <- Mee_asymptotic_score_CI_2x2(n, alpha)$statistics
+  res <- Mee_asymptotic_score_CI_2x2(n, alpha)
   print(sprintf("Mee asymptotic score                %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
-  res <- MiettinenNurminen_asymptotic_score_CI_difference_2x2(n, alpha)$statistics
+  res <- MiettinenNurminen_asymptotic_score_CI_difference_2x2(n, alpha)
   print(sprintf("Miettinen-Nurminen asymptotic score %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
   print("--------------------------------------------------------------", quote = FALSE)

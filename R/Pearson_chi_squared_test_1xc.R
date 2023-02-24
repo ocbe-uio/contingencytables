@@ -25,7 +25,7 @@ Pearson_chi_squared_test_1xc <- function(n, pi0) {
   P <- 1 - pchisq(T0, df)
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       data.frame(P = P, T = T0, df = df),
       sprintf(
         "The Pearson chi-squared test: P = %7.5f, T = %5.3f (df = %i)",

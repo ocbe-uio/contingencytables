@@ -65,7 +65,7 @@ JonckheereTerpstra_test_rxc <- function(n) {
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(P = P, Z = Z),
       sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z)
     )

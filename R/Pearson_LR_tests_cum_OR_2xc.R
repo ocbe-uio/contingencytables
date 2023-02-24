@@ -82,7 +82,7 @@ Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing") {
     my_sprintf_cat("Likelihood ratio test:    T = %6.3f,  P = %7.5f", T_LR, P_LR)
   }
 
-  return(contingencytables_result(results, printresults))
+  return(contingencytables_result2(results, printresults))
 }
 
 # ========================

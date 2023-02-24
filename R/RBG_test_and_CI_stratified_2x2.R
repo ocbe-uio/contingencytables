@@ -22,7 +22,7 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   nppk <- apply(n, 3, sum)
 
   # Get the Mantel-Haenszel overall estimate
-  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit")$statistics[[1]]
+  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit")[[1]]
 
   # Estimate the standard error
   A <- sum(n[1, 1, ] * n[2, 2, ] / nppk)
@@ -52,7 +52,7 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   }
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(P = P, Z = Z, L = L, U = U, thetahatMH = thetahatMH, SElog = SElog),
       printresults
     )

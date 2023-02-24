@@ -41,7 +41,7 @@ MOVER_R_Wilson_CI_ratio_2x2 <- function(n, alpha = 0.05) {
   L <- max(c(0, L))
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       data.frame(lower = L, upper = U, estimate = estimate),
       sprintf(
         "The MOVER-R Wilson CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",

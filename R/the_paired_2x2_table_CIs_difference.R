@@ -48,7 +48,7 @@ the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   U <- tmp[[2]]
   my_sprintf("Wald w/Bonett-Price adjustment      %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Newcombe_square_and_add_CI_paired_2x2(n, alpha)$statistics
+  tmp <- Newcombe_square_and_add_CI_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Newcombe square-and-add             %7.4f to %7.4f %7.3f\n", L, U, U - L)

@@ -48,7 +48,7 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- tmp[[2]]
   my_sprintf("Bonett-Price hybrid Wilson score w/CC  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- MOVER_Wilson_score_CI_paired_2x2(n, alpha)$statistics
+  tmp <- MOVER_Wilson_score_CI_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("MOVER Wilson score                     %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))

@@ -54,7 +54,7 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05
   }
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(P = P, Z_score = Z_score, L = L, U = U, estimate = estimate),
       printresults
     )

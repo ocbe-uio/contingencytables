@@ -23,10 +23,10 @@ the_1xc_table_CIs <- function(n, alpha = 0.05) {
   myprint("Interval method                 Simultaneous CIs     width")
   myprint("----------------------------------------------------------")
 
-  res1 <- Gold_Wald_CIs_1xc(n, alpha)$statistics
-  res2 <- Goodman_Wald_CIs_1xc(n, alpha)$statistics
-  res3 <- QuesenberryHurst_Wilson_score_CIs_1xc(n, alpha)$statistics
-  res4 <- Goodman_Wilson_score_CIs_1xc(n, alpha)$statistics
+  res1 <- Gold_Wald_CIs_1xc(n, alpha)
+  res2 <- Goodman_Wald_CIs_1xc(n, alpha)
+  res3 <- QuesenberryHurst_Wilson_score_CIs_1xc(n, alpha)
+  res4 <- Goodman_Wilson_score_CIs_1xc(n, alpha)
   for (i in 1:c0) {
     myprint("Estimate of pi_%i: %6.4f", i, res1$estimate[i])
     myprint(

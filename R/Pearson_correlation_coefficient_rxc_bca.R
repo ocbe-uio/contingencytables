@@ -42,7 +42,7 @@ Pearson_correlation_coefficient_rxc_bca <- function(
   }
 
   # The estimate
-  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$statistics$rP
+  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$rP
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -52,7 +52,7 @@ Pearson_correlation_coefficient_rxc_bca <- function(
   U <- ans.ci$bca[5]
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(rP = rP, L = L, U = U),
       sprintf("The Pearson correlation w / BCa bootstrap CI: r = %7.4f (%g%% CI %7.4f to %7.4f)", rP, 100 * (1 - alpha), L, U)
     )
@@ -74,6 +74,6 @@ f.Pccrb <- function(dat, indx, .param) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$statistics$rP
+  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$rP
   return(rP)
 }

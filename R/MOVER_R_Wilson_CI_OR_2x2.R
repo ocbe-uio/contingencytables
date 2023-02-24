@@ -48,7 +48,7 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {
-    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha)$statistics$upper
+    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha)$upper
     L <- 1 / U_tmp
   }
 
@@ -64,7 +64,7 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
   L <- max(c(0, L))
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       data.frame(lower = L, upper = U, estimate = estimate),
       sprintf(
         "The MOVER-R Wilson CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",

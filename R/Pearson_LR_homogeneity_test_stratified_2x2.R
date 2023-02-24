@@ -20,7 +20,7 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
   K <- dim(n)[3]
 
   # Get the estimated probabilities
-  results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05)$statistics
+  results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05)
   pihat <- results$pihat
 
   if (any(pihat < 0)) {
@@ -92,5 +92,5 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
     my_sprintf_cat("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_Pearson, T_Pearson, df)
   }
 
-  return(contingencytables_result(results, printresults))
+  return(contingencytables_result2(results, printresults))
 }

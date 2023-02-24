@@ -35,8 +35,8 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
     }
   }
 
-  res <- contingencytables_result(
-    P, sprintf("The exact multinomial test: P = %7.5f", P)
+  res <- contingencytables_result2(
+    c("P" = P), sprintf("The exact multinomial test: P = %7.5f", P)
   )
   return(res)
 }

@@ -43,7 +43,7 @@ PriceBonett_approximate_Bayes_CI_2x2 <- function(n, a = 1.25, b = 2.5, alpha = 0
   U <- exp(log_phi_tilde + z * sqrt(var_log_phi_tilde))
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       data.frame(lower = L, upper = U, estimate = estimate),
       sprintf(
         "The Price-Bonett approximate Bayes CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",

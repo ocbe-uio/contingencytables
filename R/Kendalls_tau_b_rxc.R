@@ -18,7 +18,7 @@ Kendalls_tau_b_rxc <- function(n, alpha = 0.05) {
 
   # Get the number of concordant and discordant pairs from the gamma
   # coefficient
-  tmp <- gamma_coefficient_rxc(n)$statistics
+  tmp <- gamma_coefficient_rxc(n)
   C <- tmp[[2]]
   D <- tmp[[3]]
 
@@ -46,7 +46,7 @@ Kendalls_tau_b_rxc <- function(n, alpha = 0.05) {
   U <- (exp(2 * u) - 1) / (exp(2 * u) + 1)
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(tau_b = tau_b, L = L, U = U),
       sprintf(
         "Kendalls tau-b w / Fieller CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)",

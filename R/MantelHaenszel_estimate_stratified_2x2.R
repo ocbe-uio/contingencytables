@@ -37,7 +37,7 @@ MantelHaenszel_estimate_stratified_2x2 <- function(n, link = "logit") {
   estimate <- sum(w * psihat) / sum(w)
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(estimate = estimate, psihat = psihat, w = w),
       sprintf("The Mantel-Haenszel estimate = %7.4f", estimate)
     )

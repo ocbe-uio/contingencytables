@@ -42,7 +42,7 @@ Peto_homogeneity_test_stratified_2x2 <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       list(P = P, T = T0, df = df),
       sprintf("The Peto test: P = %7.5f, T0 = %5.3f (df = %i)", P, T0, df)
     )

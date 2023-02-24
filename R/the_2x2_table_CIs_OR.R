@@ -36,17 +36,17 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Woolf logit                           %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Gart_adjusted_logit_CI_2x2(n, alpha)$statistics
+  res <- Gart_adjusted_logit_CI_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Gart adjusted logit                   %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Independence_smoothed_logit_CI_2x2(n, alpha)$statistics
+  res <- Independence_smoothed_logit_CI_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Independence-smoothed logit           %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- Inv_sinh_CI_OR_2x2(n, alpha)$statistics
+  res <- Inv_sinh_CI_OR_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Inverse sinh                          %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
@@ -61,12 +61,12 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   U <- res$upper
   print(sprintf("Adjusted inverse sinh (0.6, 0.4)      %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- MOVER_R_Wilson_CI_OR_2x2(n, alpha)$statistics
+  res <- MOVER_R_Wilson_CI_OR_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("MOVER-R Wilson                        %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
-  res <- MiettinenNurminen_asymptotic_score_CI_OR_2x2(n, alpha)$statistics
+  res <- MiettinenNurminen_asymptotic_score_CI_OR_2x2(n, alpha)
   L <- res$lower
   U <- res$upper
   print(sprintf("Miettinen-Nurminen asymptotic score   %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)

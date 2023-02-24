@@ -35,7 +35,7 @@ Score_test_CC_1x2 <- function(X, n, pi0) {
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
   return(
-    contingencytables_result(
+    contingencytables_result2(
       c("p.value" = P, "statistic" = Z),
       sprintf("The score test with continuity correction: P = %7.5f, Z = %5.3f", P, Z)
     )

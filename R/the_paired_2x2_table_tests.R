@@ -22,28 +22,28 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   print("Test                             P-value  (test statistic)", quote = FALSE)
   print("---------------------------------------------------------", quote = FALSE)
 
-  tmp <- McNemar_asymptotic_test_paired_2x2(n)$statistics
+  tmp <- McNemar_asymptotic_test_paired_2x2(n)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   my_sprintf("McNemar asymptotic               %6.4f   (Z = %5.3f)\n", P, Z)
 
-  tmp <- McNemar_asymptotic_test_CC_paired_2x2(n)$statistics
+  tmp <- McNemar_asymptotic_test_CC_paired_2x2(n)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   my_sprintf("McNemar asymptotic w/CC          %6.4f   (Z = %5.3f)\n", P, Z)
 
-  P <- McNemar_exact_cond_test_paired_2x2(n)$statistics
+  P <- McNemar_exact_cond_test_paired_2x2(n)
   my_sprintf("McNemar exact conditional        %6.4f\n", P)
 
-  P <- McNemar_midP_test_paired_2x2(n)$statistics
+  P <- McNemar_midP_test_paired_2x2(n)
   my_sprintf("McNemar mid-P                    %6.4f\n", P)
 
   if (gamma != 0) {
-    P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)$statistics
+    P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)
     my_sprintf("McNemar exact unconditional      %6.4f\n", P)
   }
 
-  P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma)$statistics
+  P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma)
   my_sprintf("McNemar exact unconditional*     %6.4f\n", P)
 
   print("---------------------------------------------------------", quote = FALSE)

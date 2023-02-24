@@ -42,8 +42,8 @@ MidP_multinomial_test_1xc <- function(n, pi0) {
   }
 
   return(
-    contingencytables_result(
-      P, sprintf("The mid-P multinomial test: P = %7.5f", P)
+    contingencytables_result2(
+      c("P" = P), sprintf("The mid-P multinomial test: P = %7.5f", P)
     )
   )
 }
