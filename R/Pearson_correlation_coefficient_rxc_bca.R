@@ -42,7 +42,7 @@ Pearson_correlation_coefficient_rxc_bca <- function(
   }
 
   # The estimate
-  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$statistics$rP
+  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$rP
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -74,6 +74,6 @@ f.Pccrb <- function(dat, indx, .param) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$statistics$rP
+  rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$rP
   return(rP)
 }

@@ -38,7 +38,7 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   }
 
   # The estimate
-  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$statistics$rho
+  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$rho
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -68,6 +68,6 @@ f.Sccrb <- function(dat, indx, .param) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$statistics$rho
+  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$rho
   return(rho)
 }

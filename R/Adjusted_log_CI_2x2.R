@@ -41,5 +41,5 @@ Adjusted_log_CI_2x2 <- function(n, alpha = 0.05) {
       "statname" = "estimate"
     )
   )
-  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
+  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

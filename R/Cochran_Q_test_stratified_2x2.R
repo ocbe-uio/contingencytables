@@ -18,12 +18,12 @@ Cochran_Q_test_stratified_2x2 <- function(
   # the inverse variance estimate (this may be overwritten if the MH estimate
   # is chosen). In any case, use the psihat from the inverse variance because
   # these are on the log scale for the log and logit links.
-  tmp <- InverseVariance_estimate_stratified_2x2(n, link)$statistics
+  tmp <- InverseVariance_estimate_stratified_2x2(n, link)
   estimate <- tmp[[1]]
   psihat <- tmp[[2]]
   v <- tmp[[3]]
   if (identical(estimatetype, "MH")) {
-    estimate <- MantelHaenszel_estimate_stratified_2x2(n, link)$statistics[[1]]
+    estimate <- MantelHaenszel_estimate_stratified_2x2(n, link)[[1]]
   }
 
   # The Cochran Q test statistic
@@ -47,5 +47,5 @@ Cochran_Q_test_stratified_2x2 <- function(
       "pvalue" = P, "df" = df, "estimate" = Q, statname = "Q"
     )
   )
-  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
+  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

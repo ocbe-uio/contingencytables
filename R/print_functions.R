@@ -9,25 +9,13 @@ my_sprintf_cat <- function(s, ...) {
   cat(sprintf(s, ...))
 }
 
-#' @export
-print.contingencytables_result <- function(x, ...) {
-  if (is(x$print_format, "function")) {
-    cat(x$print_format())
-  } else if (is.na(x$print_format)) {
-    print(x$statistics)
-  } else {
-    cat(x$print_format)
-  }
-  invisible(x)
-}
-
 #' @title Output from a contingency tables method
 #' @param x The output from a function from the [contingencytables] package
 #' @param as_list Print the elements of `x` as a list
 #' @param ... unused (kept for consistency with the generic [base::print()])
 #' @rdname print
 #' @export
-print.contingencytables_result2 <- function(x, as_list = FALSE, ...) {
+print.contingencytables_result <- function(x, as_list = FALSE, ...) {
   if (as_list) {
     print(vapply(x, list, list(names(x))))
   } else {

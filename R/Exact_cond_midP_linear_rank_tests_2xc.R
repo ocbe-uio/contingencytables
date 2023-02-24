@@ -60,5 +60,5 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
     ),
     statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
   )
-  return(contingencytables_result2(res$statistics, fetch_print_format(res)))
+  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

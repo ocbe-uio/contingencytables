@@ -48,7 +48,7 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {
-    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha)$statistics$upper
+    U_tmp <- MOVER_R_Wilson_CI_OR_2x2(matrix(c(0, n1p, n[2, 2], n[2, 1]), nrow = 2, byrow = TRUE), alpha)$upper
     L <- 1 / U_tmp
   }
 

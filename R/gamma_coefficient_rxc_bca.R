@@ -37,7 +37,7 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   }
 
   # The estimate
-  gamma <- gamma_coefficient_rxc(n)$statistics$gamma
+  gamma <- gamma_coefficient_rxc(n)$gamma
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -63,6 +63,6 @@ f.gcrb <- function(dat, d) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  res <- gamma_coefficient_rxc(n)$statistics
+  res <- gamma_coefficient_rxc(n)
   return(res$gamma)
 }

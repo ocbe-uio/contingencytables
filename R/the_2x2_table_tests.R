@@ -29,19 +29,19 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
 
   print("Test                                  P-value  (test statistic)", quote = FALSE)
   print("------------------------------------------------------------------", quote = FALSE)
-  res <- Pearson_chi_squared_test_2x2(n)$statistics
+  res <- Pearson_chi_squared_test_2x2(n)
   P0 <- res$p.value
   T0 <- res$statistic
   df <- res$df
   print(sprintf("Pearson chi-squared                   %6.4f   (T = %5.3f, df = %i)", P0, T0, df), quote = FALSE)
 
-  res <- Pearson_chi_squared_test_CC_2x2(n)$statistics
+  res <- Pearson_chi_squared_test_CC_2x2(n)
   P0 <- res$p.value
   T0 <- res$statistic
   df <- res$df
   print(sprintf("Pearson chi-squared w / CC              %6.4f   (T = %5.3f, df = %i)", P0, T0, df), quote = FALSE)
 
-  res <- LR_test_2x2(n)$statistics
+  res <- LR_test_2x2(n)
   P0 <- res$p.value
   T0 <- res$statistic
   df <- res$df
@@ -52,28 +52,28 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
   Z0 <- res$statistic
   print(sprintf("Z-unpooled                            %6.4f   (Z = %5.3f)", P0, Z0), quote = FALSE)
 
-  P0 <- Fisher_exact_test_2x2(n, "hypergeometric")$statistics
+  P0 <- Fisher_exact_test_2x2(n, "hypergeometric")
   print(sprintf("Fisher exact test (Fisher-Irwin)      %6.4f", P0), quote = FALSE)
 
-  P0 <- Fisher_exact_test_2x2(n, "Pearson")$statistics
+  P0 <- Fisher_exact_test_2x2(n, "Pearson")
   print(sprintf("Fisher exact test (Pearson)           %6.4f", P0), quote = FALSE)
 
-  P0 <- Fisher_exact_test_2x2(n, "LR")$statistics
+  P0 <- Fisher_exact_test_2x2(n, "LR")
   print(sprintf("Fisher exact test (LR)                %6.4f", P0), quote = FALSE)
 
-  P0 <- Fisher_midP_test_2x2(n, "hypergeometric")$statistics
+  P0 <- Fisher_midP_test_2x2(n, "hypergeometric")
   print(sprintf("Fisher mid-P test (Fisher-Irwin)      %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma)$statistics
+  P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma)
   print(sprintf("Suissa-Shuster exact uncond.*         %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "LR", gamma)$statistics
+  P0 <- Exact_unconditional_test_2x2(n, "LR", gamma)
   print(sprintf("Exact uncond. w / LR statistic*         %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma)$statistics
+  P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma)
   print(sprintf("Exact uncond. w / unpooled Z statistic* %6.4f", P0), quote = FALSE)
 
-  P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma)$statistics
+  P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma)
   print(sprintf("Fisher-Boschloo exact uncond.*        %6.4f", P0), quote = FALSE)
 
   print("------------------------------------------------------------------", quote = FALSE)

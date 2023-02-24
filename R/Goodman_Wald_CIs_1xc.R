@@ -29,6 +29,6 @@ Goodman_Wald_CIs_1xc <- function(n, alpha = 0.05) {
     cat("The Goodman Wald simultaneous intervals\n ")
     sprintf("  pi_%i: estimate = %6.4f (%6.4f to %6.4f)\n", seq_len(c0), pihat, L, U)
   }
-  res <- data.frame(lower = L, upper = U, estimate = pihat)
+  res <- data.frame("lower" = L, "upper" = U, "estimate" = pihat)
   return(contingencytables_result(res, printresults))
 }

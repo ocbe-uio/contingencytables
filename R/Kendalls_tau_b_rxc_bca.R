@@ -35,7 +35,7 @@ Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   }
 
   # The estimate
-  tau_b <- Kendalls_tau_b_rxc(n, alpha)$statistics$tau_b
+  tau_b <- Kendalls_tau_b_rxc(n, alpha)$tau_b
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -62,6 +62,6 @@ f.Ktbrb <- function(dat, d, .alpha, .r, .c) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  res <- Kendalls_tau_b_rxc(n, .alpha)$statistics
+  res <- Kendalls_tau_b_rxc(n, .alpha)
   return(res$tau_b)
 }

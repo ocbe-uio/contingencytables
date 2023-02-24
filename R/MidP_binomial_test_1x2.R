@@ -35,7 +35,7 @@ MidP_binomial_test_1x2 <- function(X, n, pi0) {
 
   return(
     contingencytables_result(
-      midP, sprintf("The mid-P binomial test: P = %7.5f", midP)
+      c("midP" = midP), sprintf("The mid-P binomial test: P = %7.5f", midP)
     )
   )
 }

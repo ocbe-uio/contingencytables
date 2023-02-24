@@ -29,9 +29,9 @@ Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
 
   # Get the MH or IV overall estimates (and the weights for the IV)
   if (identical(estimatetype, "MH")) {
-    phihat <- MantelHaenszel_estimate_stratified_2x2(n, "log")$statistics[[1]]
+    phihat <- MantelHaenszel_estimate_stratified_2x2(n, "log")[[1]]
   } else if (identical(estimatetype, "IV")) {
-    tmp <- InverseVariance_estimate_stratified_2x2(n, "log")$statistics
+    tmp <- InverseVariance_estimate_stratified_2x2(n, "log")
     phihat <- tmp[[1]]
     v <- tmp[[3]]
   }

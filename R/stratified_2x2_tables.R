@@ -54,27 +54,27 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("\n")
   my_sprintf("\nEstimating a common difference between probabilities\n")
   my_sprintf("----------------------------------------------------\n")
-  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "linear")$statistics[[1]]
+  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "linear")[[1]]
   my_sprintf("The Mantel-Haenszel estimate = %7.4f\n", estimate)
-  estimate <- InverseVariance_estimate_stratified_2x2(n, "linear")$statistics[[1]]
+  estimate <- InverseVariance_estimate_stratified_2x2(n, "linear")[[1]]
   my_sprintf("The inverse variance estimate = %7.4f\n", estimate)
 
   cat("\n")
   my_sprintf("\nEstimating a common ratio of probabilities\n")
   my_sprintf("------------------------------------------\n")
-  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "log")$statistics[[1]]
+  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "log")[[1]]
   my_sprintf("The Mantel-Haenszel estimate = %7.4f\n", estimate)
-  estimate <- InverseVariance_estimate_stratified_2x2(n, "log")$statistics[[1]]
+  estimate <- InverseVariance_estimate_stratified_2x2(n, "log")[[1]]
   my_sprintf("The inverse variance estimate = %7.4f\n", estimate)
 
   cat("\n")
   my_sprintf("\nEstimating a common odds ratio\n")
   my_sprintf("------------------------------\n")
-  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "logit")$statistics[[1]]
+  estimate <- MantelHaenszel_estimate_stratified_2x2(n, "logit")[[1]]
   my_sprintf("The Mantel-Haenszel estimate = %7.4f\n", estimate)
-  estimate <- InverseVariance_estimate_stratified_2x2(n, "logit")$statistics[[1]]
+  estimate <- InverseVariance_estimate_stratified_2x2(n, "logit")[[1]]
   my_sprintf("The inverse variance estimate = %7.4f\n", estimate)
-  estimate <- Peto_OR_estimate_stratified_2x2(n)$statistics[[1]]
+  estimate <- Peto_OR_estimate_stratified_2x2(n)[[1]]
   my_sprintf("The Peto OR estimate = %7.4f\n", estimate)
 
   my_sprintf("\nTests of homogeneity of the difference between probabilities\n")
@@ -91,7 +91,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   Q <- tmp$estimate
   df <- tmp$df
   my_sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear")$statistics
+  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear")
   my_sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   my_sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
   my_sprintf("-------------------------------------------------\n")
@@ -111,7 +111,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   Q <- tmp$estimate
   df <- tmp$df
   my_sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log")$statistics
+  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log")
   my_sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   my_sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
   my_sprintf("-------------------------------------------------\n")
@@ -131,7 +131,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   Q <- tmp$estimate
   df <- tmp$df
   my_sprintf("Cochran Q (IV)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df)
-  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit")$statistics
+  results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit")
   my_sprintf("Likelihood ratio                 %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
   my_sprintf("Pearson chi-squared              %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson)
   tmp <- BreslowDay_homogeneity_test_stratified_2x2(n)
@@ -139,7 +139,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   T0 <- tmp$estimate
   df <- tmp$df
   my_sprintf("Breslow-Day W/Tarone correction  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df)
-  tmp <- Peto_homogeneity_test_stratified_2x2(n)$statistics
+  tmp <- Peto_homogeneity_test_stratified_2x2(n)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
@@ -149,7 +149,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 
   my_sprintf("\nTests and CIs for a common difference between probabilities\n")
   my_sprintf("===========================================================\n")
-  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "linear")$statistics
+  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "linear")
   my_sprintf("Test                 P-value  (test statistic)\n")
   my_sprintf("-------------------------------------------------\n")
   my_sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
@@ -169,7 +169,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   deltahat_IV <- tmp[[5]]
   my_sprintf("Wald (IV)            %6.4f   (Z = %5.3f)\n", P, Z)
   my_sprintf("-------------------------------------------------\n")
-  results <- ML_estimates_and_CIs_stratified_2x2(n, "linear", alpha)$statistics
+  results <- ML_estimates_and_CIs_stratified_2x2(n, "linear", alpha)
   my_sprintf("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha))
   my_sprintf("-------------------------------------------------\n")
   my_sprintf("Wald (MH)           %7.4f    %7.4f to %7.4f\n", deltahat_MH, L_MH, U_MH)
@@ -179,7 +179,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 
   my_sprintf("\nTests and CIs for a common ratio of probabilities\n")
   my_sprintf("=================================================\n")
-  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "log")$statistics
+  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "log")
   my_sprintf("Test                 P-value  (test statistic)\n")
   my_sprintf("-------------------------------------------------\n")
   my_sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
@@ -199,7 +199,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   deltahat_IV <- tmp[[5]]
   my_sprintf("Wald (IV)            %6.4f   (Z = %5.3f)\n", P, Z)
   my_sprintf("-------------------------------------------------\n")
-  results <- ML_estimates_and_CIs_stratified_2x2(n, "log", alpha)$statistics
+  results <- ML_estimates_and_CIs_stratified_2x2(n, "log", alpha)
   my_sprintf("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha))
   my_sprintf("-------------------------------------------------\n")
   my_sprintf("Wald (MH)           %7.4f    %7.4f to %7.4f\n", deltahat_MH, L_MH, U_MH)
@@ -209,7 +209,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
 
   my_sprintf("\nTests and CIs for a common odds ratio\n")
   my_sprintf("=====================================\n")
-  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "logit")$statistics
+  results <- Pearson_LR_test_common_effect_stratified_2x2(n, "logit")
   my_sprintf("Test                     P-value  (test statistic)\n")
   my_sprintf("-----------------------------------------------------\n")
   my_sprintf("Likelihood ratio         %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR)
@@ -219,7 +219,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   T0 <- tmp[[3]]
   df <- tmp[[2]]
   my_sprintf("Cochran-Mantel-Haenszel  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df)
-  tmp <- RBG_test_and_CI_stratified_2x2(n, alpha)$statistics
+  tmp <- RBG_test_and_CI_stratified_2x2(n, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_RBG <- tmp[[3]]
@@ -234,7 +234,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   phihat_Woolf <- tmp[[5]]
   my_sprintf("Woolf                    %6.4f   (Z = %5.3f)\n", P, Z)
   my_sprintf("-----------------------------------------------------\n")
-  results <- ML_estimates_and_CIs_stratified_2x2(n, "logit", alpha)$statistics
+  results <- ML_estimates_and_CIs_stratified_2x2(n, "logit", alpha)
   my_sprintf("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha))
   my_sprintf("-------------------------------------------------\n")
   my_sprintf("RBG (MH)            %7.4f    %7.4f to %7.4f\n", phihat_RBG, L_RBG, U_RBG)

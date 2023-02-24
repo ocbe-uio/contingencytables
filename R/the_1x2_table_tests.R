@@ -41,13 +41,13 @@ the_1x2_table_tests <- function(X, n, pi0) {
   res <- Wald_test_CC_1x2(X, n, pi0, FALSE)
   myprint("Wald with CC        %6.4f   (Z = %5.3f)", res[1], res[2])
 
-  res <- LR_test_1x2(X, n, pi0)$statistics
+  res <- LR_test_1x2(X, n, pi0)
   myprint("Likelihood ratio    %6.4f   (T = %5.3f, df = %i)", res[1], res[2], res[3])
 
-  res <- Score_test_1x2(X, n, pi0)$statistics
+  res <- Score_test_1x2(X, n, pi0)
   myprint("Score               %6.4f   (Z = %5.3f)", res[1], res[2])
 
-  res <- Score_test_CC_1x2(X, n, pi0)$statistics
+  res <- Score_test_CC_1x2(X, n, pi0)
   myprint("Score with CC       %6.4f   (Z = %5.3f)", res[1], res[2])
 
   P <- Exact_binomial_test_1x2(X, n, pi0)$pvalue
@@ -56,7 +56,7 @@ the_1x2_table_tests <- function(X, n, pi0) {
   P <- Blaker_exact_test_1x2(X, n, pi0)$pvalue
   myprint("Blaker exact        %6.4f", P)
 
-  midP <- MidP_binomial_test_1x2(X, n, pi0)$statistics
+  midP <- MidP_binomial_test_1x2(X, n, pi0)
   myprint("Mid-P binomial      %6.4f", midP)
 
   midP <- Blaker_midP_test_1x2(X, n, pi0)$midp
