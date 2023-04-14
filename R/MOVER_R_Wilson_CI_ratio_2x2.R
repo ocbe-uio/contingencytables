@@ -26,8 +26,8 @@ MOVER_R_Wilson_CI_ratio_2x2 <- function(n, alpha = 0.05) {
   estimate <- pi1hat / pi2hat
 
   # Use Wilson score CIs for the two probabilities of success
-  res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha, printresults = FALSE)
-  res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha, printresults = FALSE)
+  res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha)
+  res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha)
   L <- (pi1hat * pi2hat - sqrt((pi1hat * pi2hat)^2 - res1["lower"] * res2["upper"] * (2 * pi1hat - res1["lower"]) * (2 * pi2hat - res2["upper"]))) / (res2["upper"] * (2 * pi2hat - res2["upper"]))
   U <- (pi1hat * pi2hat + sqrt((pi1hat * pi2hat)^2 - res1["upper"] * res2["lower"] * (2 * pi1hat - res1["upper"]) * (2 * pi2hat - res2["lower"]))) / (res2["lower"] * (2 * pi2hat - res2["lower"]))
 

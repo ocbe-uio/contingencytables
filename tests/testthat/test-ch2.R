@@ -122,8 +122,10 @@ test_that("Chapter 2 functions basically work", {
   )
   expect_error(Wald_test_CC_1x2(100))
   expect_output(
-    object = Wald_test_CC_1x2(
-      ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.1
+    object = print(
+      Wald_test_CC_1x2(
+        ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.1
+      )
     ),
     regexp = "P = 0.00000, Z = 6.982"
   )

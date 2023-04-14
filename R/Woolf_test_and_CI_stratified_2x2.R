@@ -5,7 +5,6 @@
 #' Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' Woolf_test_and_CI_stratified_2x2(doll_hill_1950)
@@ -16,9 +15,7 @@
 #' @export
 #' @return A list containing the two-sided p-value, the Wald test statistic,
 #' and the lower, upper and point estimate thetahatIV.
-Woolf_test_and_CI_stratified_2x2 <- function(
-  n, alpha = 0.05, printresults = TRUE
-) {
+Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Get the inverse variance overall estimate and weights
@@ -42,7 +39,7 @@ Woolf_test_and_CI_stratified_2x2 <- function(
   L <- thetahatIV * exp(-z_alpha * SElog)
   U <- thetahatIV * exp(z_alpha * SElog)
 
-  if (printresults) {
+  printresults <- function() {
     my_sprintf("The Woolf test: P = %7.5f, Z = %6.3f\n", P, Z)
     my_sprintf(
       "The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)\n",
@@ -50,5 +47,9 @@ Woolf_test_and_CI_stratified_2x2 <- function(
     )
   }
 
-  invisible(list(P = P, Z = Z, L = L, U = U, thetahatIV = thetahatIV))
+  return(
+    contingencytables_result(
+      list(P = P, Z = Z, L = L, U = U, thetahatIV = thetahatIV), printresults
+    )
+  )
 }

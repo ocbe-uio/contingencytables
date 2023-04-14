@@ -4,7 +4,6 @@
 #' "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
 #' Wald_CI_CC_2x2(perondi_2004)
@@ -15,7 +14,7 @@
 #' @export
 #' @return A data frame containing lower, upper and point estimates of the
 #' statistic
-Wald_CI_CC_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Wald_CI_CC_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   n1p <- n[1, 1] + n[1, 2]
@@ -45,19 +44,16 @@ Wald_CI_CC_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
   L <- max(-1, L)
   U <- min(U, 1)
 
-  if (printresults) {
-    print(
-      sprintf(
-        paste(
-          "The Wald CI with continuity correction: estimate =",
-          "%6.4f (%g%% CI %6.4f to %6.4f)"
-        ),
-        estimate, 100 * (1 - alpha), L, U
+  printresults <- function() {
+    sprintf(
+      paste(
+        "The Wald CI with continuity correction: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)"
       ),
-      quote = FALSE
+      estimate, 100 * (1 - alpha), L, U
     )
   }
 
   res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  return(contingencytables_result(res, printresults))
 }

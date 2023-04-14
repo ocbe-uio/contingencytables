@@ -4,14 +4,12 @@
 \alias{Woolf_test_and_CI_stratified_2x2}
 \title{The Woolf test and CI for a common odds ratio}
 \usage{
-Woolf_test_and_CI_stratified_2x2(n, alpha = 0.05, printresults = TRUE)
+Woolf_test_and_CI_stratified_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the two-sided p-value, the Wald test statistic,

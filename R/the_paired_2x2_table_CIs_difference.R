@@ -28,22 +28,22 @@ the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   my_sprintf("Interval method                           %i%% CI         width\n", 100 * (1 - alpha))
   print("--------------------------------------------------------------", quote = FALSE)
 
-  tmp <- Wald_CI_diff_paired_2x2(n, alpha, FALSE)
+  tmp <- Wald_CI_diff_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Wald                                %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Wald_CI_diff_CC_paired_2x2(n, alpha, FALSE)
+  tmp <- Wald_CI_diff_CC_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Wald w/continuity correction        %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Wald_CI_AgrestiMin_paired_2x2(n, alpha, FALSE)
+  tmp <- Wald_CI_AgrestiMin_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Wald w/Agresti-Min adjustment       %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Wald_CI_BonettPrice_paired_2x2(n, alpha, FALSE)
+  tmp <- Wald_CI_BonettPrice_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Wald w/Bonett-Price adjustment      %7.4f to %7.4f %7.3f\n", L, U, U - L)

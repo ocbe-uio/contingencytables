@@ -7,7 +7,6 @@
 #' @param estimatetype Mantel-Haenszel or inverse variance estimate
 #' ('MH' or 'IV')
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
 #' Wald_test_and_CI_common_ratio_stratified_2x2(doll_hill_1950)
@@ -18,7 +17,7 @@
 #' @return A list containing the two-sided p-value, the Wald test statistic,
 #' and the lower, upper and point estimates for phi.
 Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
-  n, estimatetype = "MH", alpha = 0.05, printresults = TRUE
+  n, estimatetype = "MH", alpha = 0.05
 ) {
   validateArguments(mget(ls()))
 
@@ -59,13 +58,21 @@ Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
   L <- phihat * exp(-z_alpha * SElog)
   U <- phihat * exp(z_alpha * SElog)
 
-  if (printresults) {
-    my_sprintf("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
-    my_sprintf(
-      "The Wald CI (%s): phihat = %6.4f (%g%% CI %6.4f to %6.4f)\n",
-      estimatetype, phihat, 100 * (1 - alpha), L, U
+  printresults <- function() {
+    cat(
+      sprintf("The Wald test (%s): P = %7.5f, Z = %6.3f\n", estimatetype, P, Z)
+    )
+    cat(
+      sprintf(
+        "The Wald CI (%s): phihat = %6.4f (%g%% CI %6.4f to %6.4f)",
+        estimatetype, phihat, 100 * (1 - alpha), L, U
+      )
     )
   }
 
-  invisible(list(P = P, Z = Z, L = L, U = U, phihat = phihat))
+  return(
+    contingencytables_result(
+      list(P = P, Z = Z, L = L, U = U, phihat = phihat), printresults
+    )
+  )
 }

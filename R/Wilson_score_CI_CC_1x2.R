@@ -8,7 +8,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010)
 #' Wilson_score_CI_CC_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
@@ -22,7 +21,7 @@
 #' Wilson_score_CI_CC_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
-Wilson_score_CI_CC_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+Wilson_score_CI_CC_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)
@@ -37,14 +36,14 @@ Wilson_score_CI_CC_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   U <- (2 * n * estimate + z^2 + 1 + z * sqrt(z^2 + 2 - 1 / n +
     4 * estimate * n * (1 - estimate) - 4 * estimate)) / (2 * (n + z^2))
 
-  if (printresults) {
-    print(sprintf(
+  printresults <- function() {
+    sprintf(
       "The Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
       estimate, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
+    )
   }
 
   res <- c(L, U, estimate)
   names(res) <- c("lower", "upper", "estimate")
-  invisible(res)
+  return(contingencytables_result(res, printresults))
 }

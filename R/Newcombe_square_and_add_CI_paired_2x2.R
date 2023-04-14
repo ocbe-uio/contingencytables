@@ -27,10 +27,10 @@ Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05) {
   estimate <- pi1phat - pip1hat
 
   # Calculate the Wilson score interval for each success probability
-  tmp <- Wilson_score_CI_1x2(nip[1], N, alpha, printresults = FALSE)
+  tmp <- Wilson_score_CI_1x2(nip[1], N, alpha)
   l1 <- tmp[[1]]
   u1 <- tmp[[2]]
-  tmp <- Wilson_score_CI_1x2(npi[1], N, alpha, printresults = FALSE)
+  tmp <- Wilson_score_CI_1x2(npi[1], N, alpha)
   l2 <- tmp[[1]]
   u2 <- tmp[[2]]
 

@@ -22,7 +22,7 @@ Adjusted_inv_sinh_CI_ratio_2x2 <- function(
     x = mget(ls()),
     types = c(
       n = "counts", psi1 = "skip", psi2 = "skip", psi3 = "skip", psi4 = "skip",
-      alpha = "probability", printresults = "skip"
+      alpha = "probability"
     )
   )
   n1p <- n[1, 1] + n[1, 2]

@@ -4,7 +4,7 @@
 \alias{Wald_test_1x2}
 \title{The Wald test for the binomial probability (pi)}
 \usage{
-Wald_test_1x2(X, n, pi0, printresults = TRUE)
+Wald_test_1x2(X, n, pi0)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,8 +12,6 @@ Wald_test_1x2(X, n, pi0, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{pi0}{a given probability}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A vector containing the two-sided p-value and the Wald test statistic

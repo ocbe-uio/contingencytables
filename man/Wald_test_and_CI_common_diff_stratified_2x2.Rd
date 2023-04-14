@@ -7,8 +7,7 @@
 Wald_test_and_CI_common_diff_stratified_2x2(
   n,
   estimatetype = "MH",
-  alpha = 0.05,
-  printresults = TRUE
+  alpha = 0.05
 )
 }
 \arguments{
@@ -18,8 +17,6 @@ Wald_test_and_CI_common_diff_stratified_2x2(
 ('MH' or 'IV')}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the two-sided p-value, the Wald test statistic,

@@ -6,18 +6,12 @@
 \title{The Wald test and confidence interval for the difference between
 marginal mean ranks / ridits}
 \usage{
-Wald_test_and_CI_marginal_mean_ranks_paired_cxc(
-  n,
-  alpha = 0.05,
-  printresults = TRUE
-)
+Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing the test statistic estimates

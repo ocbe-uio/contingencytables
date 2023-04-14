@@ -2,13 +2,12 @@
 #' @description The Kruskal-Wallis asymptotic test for singly ordered rxc tables
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' KruskalWallis_asymptotic_test_rxc(table_7.5)
 #' KruskalWallis_asymptotic_test_rxc(table_7.6)
 #' @export
 #' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
-KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
+KruskalWallis_asymptotic_test_rxc <- function(n) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)

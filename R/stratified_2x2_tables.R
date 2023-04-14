@@ -146,14 +146,14 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("-------------------------------------------------\n")
   cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
   cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
-  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "MH", alpha, FALSE)
+  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "MH", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_MH <- tmp[[3]]
   U_MH <- tmp[[4]]
   deltahat_MH <- tmp[[5]]
   cat(sprintf("Wald (MH)            %6.4f   (Z = %5.3f)\n", P, Z))
-  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "IV", alpha, FALSE)
+  tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "IV", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_IV <- tmp[[3]]
@@ -176,14 +176,14 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("-------------------------------------------------\n")
   cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
   cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
-  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "MH", alpha, FALSE)
+  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "MH", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_MH <- tmp[[3]]
   U_MH <- tmp[[4]]
   deltahat_MH <- tmp[[5]]
   cat(sprintf("Wald (MH)            %6.4f   (Z = %5.3f)\n", P, Z))
-  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "IV", alpha, FALSE)
+  tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "IV", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_IV <- tmp[[3]]
@@ -218,7 +218,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   U_RBG <- tmp[[4]]
   phihat_RBG <- tmp[[5]]
   cat(sprintf("RBG                      %6.4f   (Z = %5.3f)\n", P, Z))
-  tmp <- Woolf_test_and_CI_stratified_2x2(n, alpha, FALSE)
+  tmp <- Woolf_test_and_CI_stratified_2x2(n, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_Woolf <- tmp[[3]]

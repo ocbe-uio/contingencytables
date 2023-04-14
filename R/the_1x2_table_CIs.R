@@ -37,13 +37,13 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
   )
   myprint("----------------------------------------------------")
 
-  res <- Wald_CI_1x2(X, n, alpha, FALSE)
+  res <- Wald_CI_1x2(X, n, alpha)
   myprint(
     "Wald                         %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Wald_CI_CC_1x2(X, n, alpha, FALSE)
+  res <- Wald_CI_CC_1x2(X, n, alpha)
   myprint(
     "Wald with CC                 %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
@@ -55,13 +55,13 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
     res[[1]], res[[2]], res[[2]] - res[[1]]
   )
 
-  res <- Wilson_score_CI_1x2(X, n, alpha, FALSE)
+  res <- Wilson_score_CI_1x2(X, n, alpha)
   myprint(
     "Wilson score                 %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]
   )
 
-  res <- Wilson_score_CI_CC_1x2(X, n, alpha, FALSE)
+  res <- Wilson_score_CI_CC_1x2(X, n, alpha)
   myprint(
     "Wilson score with CC         %5.3f to %5.3f %8.3f",
     res[1], res[2], res[2] - res[1]

@@ -5,7 +5,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010)
 #' Wald_CI_CC_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
@@ -20,7 +19,7 @@
 #'
 #' @export
 #' @return A vector containing lower, upper and point estimates of the statistic
-Wald_CI_CC_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
+Wald_CI_CC_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)
@@ -40,19 +39,17 @@ Wald_CI_CC_1x2 <- function(X, n, alpha = 0.05, printresults = TRUE) {
   L <- max(0, L)
   U <- min(U, 1)
 
-  if (printresults) {
-    print(
-      sprintf(
-        paste(
-          "The Wald CI with continuity correction: estimate =",
-          "%6.4f (%g%% CI %6.4f to %6.4f)"
-        ),
-        estimate, 100 * (1 - alpha), L, U
-      )
+  printresults <- function() {
+    sprintf(
+      paste(
+        "The Wald CI with continuity correction: estimate =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)"
+      ),
+      estimate, 100 * (1 - alpha), L, U
     )
   }
 
   res <- c(L, U, estimate)
   names(res) <- c("lower", "upper", "estimate")
-  invisible(res)
+  return(contingencytables_result(res, printresults))
 }

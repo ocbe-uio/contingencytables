@@ -4,7 +4,6 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
@@ -16,7 +15,7 @@
 #'
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Wald_CI_ratio_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Wald_CI_ratio_paired_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Estimate of the ratio of probabilities (phihat)
@@ -38,12 +37,16 @@ Wald_CI_ratio_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
     U <- Inf
   }
 
-  if (printresults) {
-    my_sprintf(
-      "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate,
+  printresults <- function() {
+    sprintf(
+      "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate,
       100 * (1 - alpha), L, U
     )
   }
 
-  invisible(list(L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(L = L, U = U, estimate = estimate), printresults
+    )
+  )
 }

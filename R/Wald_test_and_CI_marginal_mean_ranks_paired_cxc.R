@@ -5,16 +5,13 @@
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # A comparison between serial and retrospective measurements
 #' # (Fischer et al., 1999)
 #' Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)
 #' @export
 #' @return A list containing the test statistic estimates
-Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
-  n, alpha = 0.05, printresults = TRUE
-) {
+Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   c <- nrow(n)
@@ -101,29 +98,37 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(
   results$P_logit <- P_logit
   results$CI_tau_logit <- CI_tau_logit
 
-  if (printresults) {
+  printresults <- function() {
     common_part <- "%6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f"
-    my_sprintf("\nInference for tau\n-----------------\n")
-    my_sprintf(
-      paste("Wald:       estimate =", common_part, "\n"),
-      tauhat, 100 * (1 - alpha), CI_tau[1], CI_tau[2], P, Z_Wald
+    cat("\nInference for tau\n-----------------\n")
+    cat(
+      sprintf(
+        paste("Wald:       estimate =", common_part, "\n"),
+        tauhat, 100 * (1 - alpha), CI_tau[1], CI_tau[2], P, Z_Wald
+      )
     )
-    my_sprintf(
-      paste("Wald logit: estimate =", common_part, "\n"),
-      tauhat, 100 * (1 - alpha), CI_tau_logit[1], CI_tau_logit[2], P_logit,
-      Z_Wald_logit
+    cat(
+      sprintf(
+        paste("Wald logit: estimate =", common_part, "\n"),
+        tauhat, 100 * (1 - alpha), CI_tau_logit[1], CI_tau_logit[2], P_logit,
+        Z_Wald_logit
+      )
     )
-    my_sprintf("\nInference for alpha\n-------------------\n")
-    my_sprintf(
-      paste("Wald:       estimate =", common_part, "\n"),
-      alphahat, 100 * (1 - alpha), CI_alpha[1], CI_alpha[2], P, Z_Wald
+    cat("\nInference for alpha\n-------------------\n")
+    cat(
+      sprintf(
+        paste("Wald:       estimate =", common_part, "\n"),
+        alphahat, 100 * (1 - alpha), CI_alpha[1], CI_alpha[2], P, Z_Wald
+      )
     )
-    my_sprintf(
-      paste("Wald logit: estimate =", common_part, "\n\n"),
-      alphahat, 100 * (1 - alpha), CI_alpha_logit[1], CI_alpha_logit[2],
-      P_logit, Z_Wald_logit
+    cat(
+      sprintf(
+        paste("Wald logit: estimate =", common_part),
+        alphahat, 100 * (1 - alpha), CI_alpha_logit[1], CI_alpha_logit[2],
+        P_logit, Z_Wald_logit
+      )
     )
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }

@@ -4,13 +4,7 @@
 \alias{Trend_estimate_CI_tests_rx2}
 \title{Trend estimate for linear and logit models}
 \usage{
-Trend_estimate_CI_tests_rx2(
-  n,
-  a,
-  linkfunction = "logit",
-  alpha = 0.05,
-  printresults = TRUE
-)
+Trend_estimate_CI_tests_rx2(n, a, linkfunction = "logit", alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
@@ -21,8 +15,6 @@ Trend_estimate_CI_tests_rx2(
 \code{?family} for more details}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A list containing several test statistics (see description above).

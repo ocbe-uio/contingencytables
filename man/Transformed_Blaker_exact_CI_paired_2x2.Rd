@@ -4,14 +4,12 @@
 \alias{Transformed_Blaker_exact_CI_paired_2x2}
 \title{The Transformed Blaker exact confidence interval for the conditional odds ratio}
 \usage{
-Transformed_Blaker_exact_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
+Transformed_Blaker_exact_CI_paired_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing lower, upper and point estimates of the statistic
