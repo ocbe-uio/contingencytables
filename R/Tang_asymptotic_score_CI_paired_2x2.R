@@ -3,7 +3,6 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
@@ -15,7 +14,7 @@
 #'
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Define global variables that are needed in the functions below
@@ -50,11 +49,16 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = 
     U <- uniroot(calculate_upper_limit.3, c(phimin, phimax), .param = param, tol = tol)$root
   }
 
-  if (printresults) {
-    my_sprintf("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+  printresults <- function() {
+    my_sprintf_cat("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  invisible(list(L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(L = L, U = U, estimate = estimate),
+      printresults
+    )
+  )
 }
 
 

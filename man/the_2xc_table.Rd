@@ -14,7 +14,7 @@ the_2xc_table(n, alpha = 0.05, direction = "increasing")
 \item{direction}{the direction of the success probabilities}
 }
 \value{
-A string of "-". This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The 2xc table

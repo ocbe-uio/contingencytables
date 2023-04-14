@@ -5,8 +5,7 @@
 #' @examples
 #' the_paired_cxc_table_ordinal(fischer_1999, c(8, 3.5, 0, -3.5, -8))
 #' @export
-#' @return A string containing the last line of the printed text.
-#' This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -72,4 +71,5 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   my_sprintf("-------------------\n")
   my_sprintf("Wald:       estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", results$alphahat, 100 * (1 - alpha), results$CI_alpha[1], results$CI_alpha[2], results$P, results$Z_Wald)
   my_sprintf("Wald logit: estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n\n", results$alphahat, 100 * (1 - alpha), results$CI_alpha_logit[1], results$CI_alpha_logit[2], results$P_logit, results$Z_Wald_logit)
+  invisible(NULL)
 }

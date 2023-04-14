@@ -11,7 +11,7 @@
 #' the_paired_2x2_table_CIs_difference(cavo_2012)
 #'
 #' @export
-#' @return A string of "-". This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -53,10 +53,11 @@ the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   U <- tmp[[2]]
   my_sprintf("Newcombe square-and-add             %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
-  tmp <- Tango_asymptotic_score_CI_paired_2x2(n, alpha, FALSE)
+  tmp <- Tango_asymptotic_score_CI_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Tango asymptotic score              %7.4f to %7.4f %7.3f\n", L, U, U - L)
 
   print("--------------------------------------------------------------", quote = FALSE)
+  invisible(NULL)
 }

@@ -11,7 +11,7 @@
 #' the_paired_2x2_table_CIs_ratio(cavo_2012)
 #'
 #' @export
-#' @return A string containing the last line of the printed text. This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -33,7 +33,7 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   U <- tmp[[2]]
   my_sprintf("Wald                                   %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
-  tmp <- Tang_asymptotic_score_CI_paired_2x2(n, alpha, FALSE)
+  tmp <- Tang_asymptotic_score_CI_paired_2x2(n, alpha)
   L <- tmp[[1]]
   U <- tmp[[2]]
   my_sprintf("Tang asymptotic score                  %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
@@ -55,4 +55,5 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
 
   print("--------------------------------------------------------------------", quote = FALSE)
   print("CC = continuity correction", quote = FALSE)
+  invisible(NULL)
 }

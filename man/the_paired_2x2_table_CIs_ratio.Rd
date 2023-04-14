@@ -12,7 +12,7 @@ the_paired_2x2_table_CIs_ratio(n, alpha = 0.05)
 \item{alpha}{type I error}
 }
 \value{
-A string containing the last line of the printed text. This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The Paired 2x2 table CIs ratio

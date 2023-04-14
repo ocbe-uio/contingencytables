@@ -18,7 +18,7 @@ for unspecific ordering (often saves calculation time)
 ("increasing" or "decreasing")}
 }
 \value{
-A string of "-". This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The rx2 table

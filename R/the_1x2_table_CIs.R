@@ -110,4 +110,5 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
 
   myprint("----------------------------------------------------")
   myprint("CC = continuity correction")
+  invisible(NULL)
 }

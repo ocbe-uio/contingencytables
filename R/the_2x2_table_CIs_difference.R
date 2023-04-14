@@ -10,7 +10,7 @@
 #' the_2x2_table_CIs_difference(ritland_2007)
 #'
 #' @export
-#' @return A string of "-". This function should be called for its printed output
+#' @return NULL. This function should be called for its printed output
 the_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -44,4 +44,5 @@ the_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   print(sprintf("Miettinen-Nurminen asymptotic score %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
   print("--------------------------------------------------------------", quote = FALSE)
+  invisible(NULL)
 }

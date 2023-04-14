@@ -12,7 +12,7 @@ the_1xc_table_CIs(n, alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+NULL. This function should be called for its printed output
 }
 \description{
 The 1xc table CIs

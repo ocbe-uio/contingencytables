@@ -5,7 +5,7 @@
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' the_1xc_table_CIs(n = snp6498169$complete$n)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return NULL. This function should be called for its printed output
 the_1xc_table_CIs <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -47,6 +47,6 @@ the_1xc_table_CIs <- function(n, alpha = 0.05) {
     )
   }
   myprint("----------------------------------------------------------")
-
-  Goodman_Wald_CIs_for_diffs_1xc(n, alpha, "Bonferroni")
+  print(Goodman_Wald_CIs_for_diffs_1xc(n, alpha, "Bonferroni"))
+  invisible(NULL)
 }
