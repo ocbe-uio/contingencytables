@@ -28,7 +28,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   df <- tmp[[3]]
   my_sprintf("Bhapkar test for marginal homogeneity      %6.3f (df=%g)  %9.6f\n", T0, df, P)
 
-  tmp <- Stuart_test_paired_cxc(n, FALSE)
+  tmp <- Stuart_test_paired_cxc(n)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]

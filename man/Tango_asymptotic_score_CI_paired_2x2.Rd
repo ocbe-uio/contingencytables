@@ -4,14 +4,12 @@
 \alias{Tango_asymptotic_score_CI_paired_2x2}
 \title{The Tango asymptotic score confidence interval for the difference between paired probabilities}
 \usage{
-Tango_asymptotic_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
+Tango_asymptotic_score_CI_paired_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A list containing lower, upper and point estimates of the statistic

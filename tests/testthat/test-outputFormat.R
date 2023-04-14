@@ -126,9 +126,9 @@ t109 <- Score_test_for_effect_in_the_probit_model_2xc(n, rnorm(4))
 t110 <- Spearman_correlation_coefficient_rxc_bca(n, nboot = 160)
 t111 <- Spearman_correlation_coefficient_rxc(n)
 t112 <- invisible(capture.output(stratified_2x2_tables(n4)))
-t113 <- Stuart_test_paired_cxc(n2, printresults = FALSE)
-t114 <- Tang_asymptotic_score_CI_paired_2x2(n, printresults = FALSE)
-t115 <- Tango_asymptotic_score_CI_paired_2x2(n, printresults = FALSE)
+t113 <- Stuart_test_paired_cxc(n2)
+t114 <- Tang_asymptotic_score_CI_paired_2x2(n)
+t115 <- Tango_asymptotic_score_CI_paired_2x2(n)
 t116 <- invisible(capture.output(the_1x2_table_CIs(13, 16)))
 t117 <- invisible(capture.output(the_1x2_table_tests(13, 16, .4)))
 t118 <- invisible(capture.output(the_1xc_table_CIs(n)))
@@ -180,7 +180,8 @@ t160 <- Z_unpooled_test_2x2(n, printresults = FALSE)
 function_output_objects <- ls(pattern = "t\\d{3}")
 
 test_that("Output class and names are the expected", {
-  for (t in function_output_objects[seq_len(111L)]) { # TODO: work up to 160, as #31 is developed
+  # Regular tests
+  for (t in function_output_objects[c(1:111, 113:115)]) { # TODO: work up to 160, as #31 is developed
     expect_is(get(t), "contingencytables_result")
     expect_named(attributes(get(t)), c("names", "class", "print_structure"))
   }
