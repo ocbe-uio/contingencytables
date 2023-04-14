@@ -14,8 +14,7 @@ Goodman_Wald_CIs_for_diffs_1xc <- function(n, alpha = 0.05, adjustment = "Bonfer
     x = mget(ls()),
     types = list(
       n = "counts", alpha = "probability",
-      adjustment = c("Bonferroni", "Scheffe"),
-      printresults = "skip"
+      adjustment = c("Bonferroni", "Scheffe")
     )
   )
 

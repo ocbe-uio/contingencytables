@@ -2,7 +2,6 @@
 #' @description The Z-unpooled test for association in 2x2 tables
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Example: A lady tasting a cup of tea
 #' Z_unpooled_test_2x2(tea)
@@ -19,7 +18,7 @@
 #' @export
 #' @return A vector containing the two-sided p-value and the unpooled Z
 #' statistic
-Z_unpooled_test_2x2 <- function(n, printresults = TRUE) {
+Z_unpooled_test_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   n1p <- n[1, 1] + n[1, 2]
@@ -37,12 +36,10 @@ Z_unpooled_test_2x2 <- function(n, printresults = TRUE) {
     P <- 1.0
   }
 
-  if (printresults) {
-    print(
-      sprintf("The Z-unpooled test: P = %7.5f, Z = %6.3f", P, Z),
-    quote = FALSE)
+  printresults <- function() {
+    sprintf("The Z-unpooled test: P = %7.5f, Z = %6.3f", P, Z)
   }
 
   res <- data.frame(p.value = P, statistic = Z)
-  invisible(res)
+  return(contingencytables_result(res, printresults))
 }

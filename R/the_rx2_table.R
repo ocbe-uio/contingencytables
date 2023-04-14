@@ -53,7 +53,7 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   my_sprintf("  Modified Cochran-Armitage   %6.3f          %8.5f", results[["t"]]["Z_CA_mod"], results[["pvalue"]]["P_CA_mod"])
   my_sprintf("  Mantel-Haenszel             %6.3f          %8.5f", results[["t"]]["Z_MH"], results[["pvalue"]]["P_MH"])
 
-  results_linear <- Trend_estimate_CI_tests_rx2(n, a, "identity", alpha, 0)
+  results_linear <- Trend_estimate_CI_tests_rx2(n, a, "identity", alpha)
   my_sprintf("  Wald                        %6.3f          %8.5f", results_linear$Z_Wald, results_linear$P_Wald)
   my_sprintf("  Likelihood ratio            %6.3f (df=%g)   %8.5f", results_linear$T_LR, results_linear$df_LR, results_linear$P_LR)
 
@@ -62,7 +62,7 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   my_sprintf("  Likelihood ratio (deviance) %6.3f (df=%g)   %8.5f", results_linear$D, results_linear$df_D, results_linear$P_D)
 
   my_sprintf("Tests for trend in the logit model")
-  results_logit <- Trend_estimate_CI_tests_rx2(n, a, "logit", alpha, 0)
+  results_logit <- Trend_estimate_CI_tests_rx2(n, a, "logit", alpha)
   my_sprintf("  Wald                        %6.3f          %8.5f", results_logit$Z_Wald, results_logit$P_Wald)
   my_sprintf("  Likelihood ratio            %6.3f (df=%g)   %8.5f", results_logit$T_LR, results_logit$df_LR, results_logit$P_LR)
 

@@ -14,7 +14,7 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
   estimate <- n[1, 1] / (n[1, 1] + n[1, 2]) - n[2, 1] / (n[2, 1] + n[2, 2])
 
   # Add one success and one failure in each group and calculate the Wald CI
-  res.wald <- Wald_CI_2x2(n + 1, alpha, printresults = FALSE)
+  res.wald <- Wald_CI_2x2(n + 1, alpha)
 
   # Output
   res <- list(

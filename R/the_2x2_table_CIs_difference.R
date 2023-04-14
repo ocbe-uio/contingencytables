@@ -25,10 +25,10 @@ the_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   print(sprintf("Interval method                           %i%% CI         width", 100 * (1 - alpha)), quote = FALSE)
   print("--------------------------------------------------------------", quote = FALSE)
 
-  res <- Wald_CI_2x2(n, alpha, printresults = FALSE)
+  res <- Wald_CI_2x2(n, alpha)
   print(sprintf("Wald                                %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
-  res <- Wald_CI_CC_2x2(n, alpha, printresults = FALSE)
+  res <- Wald_CI_CC_2x2(n, alpha)
   print(sprintf("Wald with continuity correction     %7.4f to %7.4f %7.3f", res$lower, res$upper, res$upper - res$lower), quote = FALSE)
 
   res <- AgrestiCaffo_CI_2x2(n, alpha)

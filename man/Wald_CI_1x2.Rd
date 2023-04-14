@@ -4,7 +4,7 @@
 \alias{Wald_CI_1x2}
 \title{The Wald confidence interval for the binomial probability}
 \usage{
-Wald_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
+Wald_CI_1x2(X, n, alpha = 0.05)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,8 +12,6 @@ Wald_CI_1x2(X, n, alpha = 0.05, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (\code{FALSE} = no, \code{TRUE} = yes)}
 }
 \value{
 A vector containing lower, upper and point estimates of the statistic

@@ -5,7 +5,6 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (0 = no, 1 = yes)
 #' @importFrom stats pnorm
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010, adapted)
@@ -20,7 +19,7 @@
 #' Score_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
 #' @return A vector containing the two-sided p-value and the score test statistic
-Score_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+Score_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
   # Estimate of the binomial probability (pihat)

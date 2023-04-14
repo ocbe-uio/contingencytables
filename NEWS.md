@@ -5,7 +5,7 @@
 * Refactored code (#27)
 * Fixed examples
 * Unwrapped several examples from `\dontrun{}` (#28)
-* Improved output of several functions (#31)
+* Improved output of all functions (#31)
 
 # contingencytables 1.0.4
 

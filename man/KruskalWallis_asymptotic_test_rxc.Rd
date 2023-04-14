@@ -4,12 +4,10 @@
 \alias{KruskalWallis_asymptotic_test_rxc}
 \title{The Kruskal-Wallis asymptotic test for singly ordered rxc tables}
 \usage{
-KruskalWallis_asymptotic_test_rxc(n, printresults = TRUE)
+KruskalWallis_asymptotic_test_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
 A list containing the two-sided p-value, the statistic and the degrees of freedom

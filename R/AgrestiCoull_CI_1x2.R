@@ -22,7 +22,7 @@ AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05) {
   estimate <- X / n
 
   # Add two successes and two failures and calculate the Wald CI
-  res <- Wald_CI_1x2(X + 2, n + 4, alpha, 0)
+  res <- Wald_CI_1x2(X + 2, n + 4, alpha)
   names(res) <- NULL # workaround until Wald_CI_1x2() is fixed for #31
   estimate <- res[3]
   L <- res[1]

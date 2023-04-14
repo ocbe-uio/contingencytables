@@ -4,12 +4,10 @@
 \alias{Z_unpooled_test_2x2}
 \title{The Z-unpooled test for association in 2x2 tables}
 \usage{
-Z_unpooled_test_2x2(n, printresults = TRUE)
+Z_unpooled_test_2x2(n)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
 A vector containing the two-sided p-value and the unpooled Z

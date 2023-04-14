@@ -3,14 +3,11 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' Transformed_Blaker_exact_CI_paired_2x2(ezra_2010)
 #' @export
 #' @return A list containing lower, upper and point estimates of the statistic
-Transformed_Blaker_exact_CI_paired_2x2 <- function(
-  n, alpha = 0.05, printresults = TRUE
-) {
+Transformed_Blaker_exact_CI_paired_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
   # Estimate of the conditional odds ratio (thetacondhat)
@@ -25,15 +22,19 @@ Transformed_Blaker_exact_CI_paired_2x2 <- function(
   L <- L_mu / (1 - L_mu)
   U <- U_mu / (1 - U_mu)
 
-  if (printresults) {
-    my_sprintf(
+  printresults <- function() {
+    sprintf(
       paste(
         "The transformed Blaker exact CI: estimate =",
-        "%6.4f (%g%% CI %6.4f to %6.4f)\n"
+        "%6.4f (%g%% CI %6.4f to %6.4f)"
       ),
       estimate, 100 * (1 - alpha), L, U
     )
   }
 
-  invisible(list(L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(L = L, U = U, estimate = estimate), printresults
+    )
+  )
 }

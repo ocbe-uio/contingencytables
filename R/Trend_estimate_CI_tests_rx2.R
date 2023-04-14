@@ -10,7 +10,6 @@
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (0 = no, 1 = yes)
 #' @param linkfunction Link function for the binomial distribution see
 #' \code{?family} for more details
 #' @examples
@@ -22,7 +21,7 @@
 #' @export
 #' @return A list containing several test statistics (see description above).
 Trend_estimate_CI_tests_rx2 <- function(
-  n, a, linkfunction = "logit", alpha = 0.05, printresults = TRUE
+  n, a, linkfunction = "logit", alpha = 0.05
 ) {
   validateArguments(mget(ls()))
 
@@ -100,44 +99,30 @@ Trend_estimate_CI_tests_rx2 <- function(
   results$CI_Wald_width <- CI_Wald[2] - CI_Wald[1]
 
 
-  if (printresults) {
-    print(
-      sprintf(
-        "Wald test:                    P = %7.5f, T = %5.3f", P_Wald, Z_Wald
-      ),
-      quote = FALSE
+  printresults <- function() {
+    my_sprintf_cat(
+        "Wald test:                    P = %7.5f, T = %5.3f\n", P_Wald, Z_Wald
     )
-    print(
-      sprintf(
-        "Likelihood ratio test:        P = %7.5f, T = %5.3f (df = %i)",
+    my_sprintf_cat(
+        "Likelihood ratio test:        P = %7.5f, T = %5.3f (df = %i)\n",
         P_LR, T_LR, df_LR
-      ),
-      quote = FALSE
     )
-    print(
-      sprintf(
-        "Pearson goodness-of-fit test: P = %7.5f, T = %5.3f (df = %i)",
+    my_sprintf_cat(
+        "Pearson goodness-of-fit test: P = %7.5f, T = %5.3f (df = %i)\n",
         P_chi2, chi2, df_chi2
-      ),
-      quote = FALSE
     )
-    print(
-      sprintf(
-        "LR (deviance) test:           P = %7.5f, T = %5.3f (df = %i)",
+    my_sprintf_cat(
+        "LR (deviance) test:           P = %7.5f, T = %5.3f (df = %i)\n",
         P_D, D, df_D
-      ),
-      quote = FALSE
     )
-    print(
-      sprintf(
-        paste(
-          "Trend estimate and Wald CI:   betahat =",
-          "%6.4f (%g%% CI %6.4f to %6.4f)"
-        ),
-        betahat, 100 * (1 - alpha), CI_Wald[1], CI_Wald[2]
-      ), quote = FALSE
+    my_sprintf_cat(
+      paste(
+        "Trend estimate and Wald CI:   betahat =",
+        "%6.4f (%g%% CI %6.4f to %6.4f)"
+      ),
+      betahat, 100 * (1 - alpha), CI_Wald[1], CI_Wald[2]
     )
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }

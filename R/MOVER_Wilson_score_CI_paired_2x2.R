@@ -19,10 +19,10 @@ MOVER_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
   estimate <- (n[1, 1] + n[1, 2]) / (n[1, 1] + n[2, 1])
 
   # Use Wilson score intervals for pi_1+ and pi_ + 1
-  tmp <- Wilson_score_CI_1x2(n[1, 1] + n[1, 2], N, alpha, printresults = FALSE)
+  tmp <- Wilson_score_CI_1x2(n[1, 1] + n[1, 2], N, alpha)
   l1 <- tmp[[1]]
   u1 <- tmp[[2]]
-  tmp <- Wilson_score_CI_1x2(n[1, 1] + n[2, 1], N, alpha, printresults = FALSE)
+  tmp <- Wilson_score_CI_1x2(n[1, 1] + n[2, 1], N, alpha)
   l2 <- tmp[[1]]
   u2 <- tmp[[2]]
 

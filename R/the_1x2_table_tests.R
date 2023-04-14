@@ -35,10 +35,10 @@ the_1x2_table_tests <- function(X, n, pi0) {
   myprint("Test                P-value  (test statistic)")
   myprint("------------------------------------------------")
 
-  res <- Wald_test_1x2(X, n, pi0, FALSE)
+  res <- Wald_test_1x2(X, n, pi0)
   myprint("Wald                %6.4f   (Z = %5.3f)", res[1], res[2])
 
-  res <- Wald_test_CC_1x2(X, n, pi0, FALSE)
+  res <- Wald_test_CC_1x2(X, n, pi0)
   myprint("Wald with CC        %6.4f   (Z = %5.3f)", res[1], res[2])
 
   res <- LR_test_1x2(X, n, pi0)

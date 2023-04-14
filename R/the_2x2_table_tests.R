@@ -47,7 +47,7 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
   df <- res$df
   print(sprintf("Likelihood ratio                      %6.4f   (T = %5.3f, df = %i)", P0, T0, df), quote = FALSE)
 
-  res <- Z_unpooled_test_2x2(n, printresults = FALSE)
+  res <- Z_unpooled_test_2x2(n)
   P0 <- res$p.value
   Z0 <- res$statistic
   print(sprintf("Z-unpooled                            %6.4f   (Z = %5.3f)", P0, Z0), quote = FALSE)

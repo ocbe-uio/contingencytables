@@ -6,7 +6,6 @@
 #' @param n the observed table (a cxc matrix)
 #' @param a scores assigned to the outcome categories
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # A comparison between serial and retrospective measurements
 #' # (Fischer et al., 1999)
@@ -15,7 +14,7 @@
 #' @export
 #' @return A list containing the Wald test and the Wald CI statistics
 Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
-  n, a, alpha = 0.05, printresults = TRUE
+  n, a, alpha = 0.05
 ) {
   validateArguments(mget(ls()))
 
@@ -53,13 +52,20 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
 
-  if (printresults) {
-    my_sprintf("The Wald test: P = %7.5f, Z = %6.3f\n", P, Z_Wald)
-    my_sprintf(
-      "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate,
-      100 * (1 - alpha), L, U
+  printresults <- function() {
+    cat(sprintf("The Wald test: P = %7.5f, Z = %6.3f\n", P, Z_Wald))
+    cat(
+      sprintf(
+        "The Wald CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate,
+        100 * (1 - alpha), L, U
+      )
     )
   }
 
-  invisible(list(P = P, Z_Wald = Z_Wald, L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(P = P, Z_Wald = Z_Wald, L = L, U = U, estimate = estimate),
+      printresults
+    )
+  )
 }

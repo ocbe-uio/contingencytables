@@ -42,7 +42,7 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
 
   my_sprintf("\nMethod                                           %g%% CI       P-value  (test statistic)\n", 100 * (1 - alpha))
   my_sprintf("--------------------------------------------------------------------------------------\n")
-  tmp <- Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha, FALSE)
+  tmp <- Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L <- tmp[[3]]
@@ -62,7 +62,7 @@ the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
   # Comparing marginal mean ranks/ridits
   # ====================================
 
-  results <- Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, alpha, FALSE)
+  results <- Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, alpha)
   my_sprintf("\nInference for tau\n")
   my_sprintf("-----------------\n")
   my_sprintf("Wald:       estimate = %6.4f (%g%% CI %6.4f to %6.4f); P = %7.5f, Z = %6.3f\n", results$tauhat, 100 * (1 - alpha), results$CI_tau[1], results$CI_tau[2], results$P, results$Z_Wald)

@@ -26,8 +26,8 @@ Newcombe_hybrid_score_CI_2x2 <- function(n, alpha = 0.05) {
   estimate <- pi1hat - pi2hat
 
   # Use Wilson score CIs for the two probabilities of success
-  res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha, printresults = FALSE)
-  res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha, printresults = FALSE)
+  res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha)
+  res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha)
   L <- estimate - sqrt((pi1hat - res1["lower"])^2 + (res2["upper"] - pi2hat)^2)
   U <- estimate + sqrt((pi2hat - res2["lower"])^2 + (res1["upper"] - pi1hat)^2)
 
