@@ -64,4 +64,5 @@ the_1x2_table_tests <- function(X, n, pi0) {
 
   myprint("------------------------------------------------")
   myprint("CC = continuity correction")
+  invisible(NULL)
 }

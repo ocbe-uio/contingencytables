@@ -11,7 +11,7 @@
 #' the_2xc_table(lydersen_2012a, direction = "decreasing")
 #' }
 #' @export
-#' @return A string of "-". This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   validateArguments(mget(ls()))
 
@@ -104,4 +104,5 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", resultsProbit$betahat, resultsProbit$Wald_CI[1], resultsProbit$Wald_CI[2], resultsProbit$Wald_CI_width)
 
   my_sprintf("----------------------------------------------------\n")
+  invisible(NULL)
 }

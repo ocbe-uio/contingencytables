@@ -11,7 +11,7 @@
 #' )
 #' the_rx2_table(indredavik_2008, direction = "decreasing", skip_exact = TRUE)
 #' @export
-#' @return A string of "-". This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact = FALSE) {
   validateArguments(mget(ls()))
   a <- seq_len(nrow(n))
@@ -83,4 +83,5 @@ the_rx2_table <- function(n, alpha = 0.05, direction = "increasing", skip_exact 
   my_sprintf("Logit model")
   my_sprintf("  Wald CI               %7.5f    %7.5f to %7.5f   %6.4f", results_logit$betahat, results_logit$CI_Wald[1], results_logit$CI_Wald[2], results_logit$CI_Wald_width)
   my_sprintf("----------------------------------------------------------------")
+  invisible(NULL)
 }

@@ -5,7 +5,7 @@
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
 #' the_paired_cxc_table_nominal(peterson_2007)
 #' @export
-#' @return A string containing the last line of the printed text. This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -72,4 +72,5 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   }
   my_sprintf("-------------------------------------------------------------------------------\n")
   my_sprintf("*Adjusted McNemar asymptotic test with c - 1 = %g degrees of freedom\n\n", c - 1)
+  invisible(NULL)
 }

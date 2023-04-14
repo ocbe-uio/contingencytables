@@ -16,7 +16,7 @@
 #' the_2x2_table_tests(ritland_2007)
 #'
 #' @export
-#' @return The value of gamma. This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output
 the_2x2_table_tests <- function(n, gamma = 0.0001) {
   validateArguments(mget(ls()))
 
@@ -78,4 +78,5 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
 
   print("------------------------------------------------------------------", quote = FALSE)
   print(sprintf(" * gamma = %-10.8g", gamma), quote = FALSE)
+  invisible(NULL)
 }

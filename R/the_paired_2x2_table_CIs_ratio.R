@@ -11,7 +11,7 @@
 #' the_paired_2x2_table_CIs_ratio(cavo_2012)
 #'
 #' @export
-#' @return A string containing the last line of the printed text. This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -55,4 +55,5 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
 
   print("--------------------------------------------------------------------", quote = FALSE)
   print("CC = continuity correction", quote = FALSE)
+  invisible(NULL)
 }

@@ -4,7 +4,7 @@
 #' @examples
 #' the_paired_2x2_table_CIs_OR(ezra_2010)
 #' @export
-#' @return A string of "-". This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -47,4 +47,5 @@ the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
   my_sprintf("Transformed Blaker exact               %7.4f to %7.4f   %7.3f\n", L, U, log(U) - log(L))
 
   print("--------------------------------------------------------------------", quote = FALSE)
+  invisible(NULL)
 }

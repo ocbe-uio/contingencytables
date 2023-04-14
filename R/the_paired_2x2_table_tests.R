@@ -6,7 +6,7 @@
 #' the_paired_2x2_table_tests(cavo_2012, gamma = 0)
 #' the_paired_2x2_table_tests(ezra_2010)
 #' @export
-#' @return The value of gamma. This function should be called for its printed output.
+#' @return NULL. This function should be called for its printed output.
 the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   validateArguments(mget(ls()))
 
@@ -48,4 +48,5 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
 
   print("---------------------------------------------------------", quote = FALSE)
   my_sprintf("*gamma = %-10.8g\n", gamma)
+  invisible(NULL)
 }

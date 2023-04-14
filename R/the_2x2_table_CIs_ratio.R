@@ -11,7 +11,7 @@
 #' the_2x2_table_CIs_ratio(ritland_2007)
 #'
 #' @export
-#' @return A string of "-". This function should be called for its printed output
+#' @return NULL. This function should be called for its printed output
 the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -67,4 +67,5 @@ the_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   print(sprintf("Koopman asymptotic score             %6.3f to %6.3f  %7.3f", L, U, log(U) - log(L)), quote = FALSE)
 
   print("----------------------------------------------------------------", quote = FALSE)
+  invisible(NULL)
 }
