@@ -15,38 +15,38 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   pi1phat <- (n[1, 1] + n[1, 2]) / N
   pip1hat <- (n[1, 1] + n[2, 1]) / N
 
-  my_sprintf("\nH_0: pi_1+ = pi_+1  vs  H_A: pi_1+ ~= pi_+1\n\n")
-  my_sprintf("Estimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
-  my_sprintf("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
+  my_sprintf_cat("\nH_0: pi_1+ = pi_+1  vs  H_A: pi_1+ ~= pi_+1\n\n")
+  my_sprintf_cat("Estimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
+  my_sprintf_cat("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
 
-  print("Test                             P-value  (test statistic)", quote = FALSE)
-  print("---------------------------------------------------------", quote = FALSE)
+  cat("Test                             P-value  (test statistic)\n")
+  cat("---------------------------------------------------------\n")
 
   tmp <- McNemar_asymptotic_test_paired_2x2(n)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  my_sprintf("McNemar asymptotic               %6.4f   (Z = %5.3f)\n", P, Z)
+  my_sprintf_cat("McNemar asymptotic               %6.4f   (Z = %5.3f)\n", P, Z)
 
   tmp <- McNemar_asymptotic_test_CC_paired_2x2(n)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  my_sprintf("McNemar asymptotic w/CC          %6.4f   (Z = %5.3f)\n", P, Z)
+  my_sprintf_cat("McNemar asymptotic w/CC          %6.4f   (Z = %5.3f)\n", P, Z)
 
   P <- McNemar_exact_cond_test_paired_2x2(n)
-  my_sprintf("McNemar exact conditional        %6.4f\n", P)
+  my_sprintf_cat("McNemar exact conditional        %6.4f\n", P)
 
   P <- McNemar_midP_test_paired_2x2(n)
-  my_sprintf("McNemar mid-P                    %6.4f\n", P)
+  my_sprintf_cat("McNemar mid-P                    %6.4f\n", P)
 
   if (gamma != 0) {
     P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)
-    my_sprintf("McNemar exact unconditional      %6.4f\n", P)
+    my_sprintf_cat("McNemar exact unconditional      %6.4f\n", P)
   }
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma)
-  my_sprintf("McNemar exact unconditional*     %6.4f\n", P)
+  my_sprintf_cat("McNemar exact unconditional*     %6.4f\n", P)
 
-  print("---------------------------------------------------------", quote = FALSE)
-  my_sprintf("*gamma = %-10.8g\n", gamma)
+  cat("---------------------------------------------------------\n")
+  my_sprintf_cat("*gamma = %-10.8g\n", gamma)
   invisible(NULL)
 }
