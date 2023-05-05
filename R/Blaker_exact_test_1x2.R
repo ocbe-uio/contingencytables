@@ -32,9 +32,8 @@ Blaker_exact_test_1x2 <- function(X, n, pi0) {
   }
 
   # Output
-  res <- list(
-    name = "The Blaker exact test",
-    statistics = list("pvalue" = P, "statname" = "P")
-  )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+  printresults <- function() {
+    my_sprintf_cat("The Blaker exact test: P = %7.5f", P)
+  }
+  return(contingencytables_result(list(pvalue = P), printresults))
 }

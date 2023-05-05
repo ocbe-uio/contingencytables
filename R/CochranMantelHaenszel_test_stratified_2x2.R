@@ -26,11 +26,16 @@ CochranMantelHaenszel_test_stratified_2x2 <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   # Output
-  res <- list(
-    name = "The Cochran-Mantel-Haenszel test",
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = T0, "statname" = "T0"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Cochran-Mantel-Haenszel test: P = %7.6f, T0 = %5.3f (df = %g)",
+      P, T0, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

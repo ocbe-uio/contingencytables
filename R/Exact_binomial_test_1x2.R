@@ -27,9 +27,8 @@ Exact_binomial_test_1x2 <- function(X, n, pi0) {
   P <- min(P, 1)
 
   # Output
-  res <- list(
-    name = "The exact binomial test",
-    statistics = list("pvalue" = P, "statname" = "P")
-  )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+  printresults <- function() {
+    my_sprintf_cat("The exact binomial test: P = %7.5f", P)
+  }
+  return(contingencytables_result(list(P = P), printresults))
 }

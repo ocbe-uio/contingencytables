@@ -41,11 +41,16 @@ Cochran_Q_test_stratified_2x2 <- function(
   P <- 1 - pchisq(Q, df)
 
   # Output
-  res <- list(
-    name = sprintf("The Cochran Q test (%s)", estimatetype),
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = Q, statname = "Q"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Cochran Q test (%s): P = %7.6f, Q = %5.3f (df = %i)",
+      estimatetype, P, Q, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "Q" = Q, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

@@ -85,11 +85,15 @@ Brant_test_2xc <- function(n) {
   P0 <- 1 - pchisq(T0, df)
 
   # Output
-  res <- list(
-    name = "Brant test",
-    statistics = list(
-      "pvalue" = P0, "df" = df, "estimate" = T0, statname = "T"
+  printresults <- function() {
+    my_sprintf_cat(
+      "Brant test: P = %7.6f, T = %5.3f (df = %g)", P0, T0, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P0, "T" = T0, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

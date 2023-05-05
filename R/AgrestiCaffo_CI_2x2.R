@@ -17,12 +17,17 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
   res.wald <- Wald_CI_2x2(n + 1, alpha)
 
   # Output
-  res <- list(
-    name = "The Agresti-Caffo CI",
-    statistics = list(
-      "lower" = res.wald$lower, "upper" = res.wald$upper, "estimate" = estimate,
-      "alpha" = alpha, "statname" = "estimate"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Agresti-Caffo CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), res.wald$lower, res.wald$upper
+    )
+  }
+
+  return(
+    contingencytables_result(
+      list(lower = res.wald$lower, upper = res.wald$upper, estimate = estimate),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

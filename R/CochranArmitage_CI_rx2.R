@@ -38,12 +38,16 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05) {
   U <- betahat + z * SE
 
   # Output
-  res <- list(
-    name = "Trend estimate and Cochran-Armitage CI",
-    statistics = list(
-      "lower" = L, "upper" = U, "estimate" = betahat, "alpha" = alpha,
-      "statname" = "betahat"
+  printresults <- function() {
+    my_sprintf_cat(
+      "Trend estimate and Cochran-Armitage CI:  betahat = %6.4f (%g%% CI %6.4f to %6.4f)",
+      betahat, 100 * (1 - alpha), L, U
+    )
+  }
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = betahat),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

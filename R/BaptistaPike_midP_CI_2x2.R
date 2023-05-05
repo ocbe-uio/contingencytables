@@ -64,14 +64,19 @@ BaptistaPike_midP_CI_2x2 <- function(n, alpha = 0.05) {
   }
 
   # Output
-  res <- list(
-    name = "Baptista-Pike mid-P CI",
-    statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
-      "statname" = "estimate"
+  printresults <- function() {
+    my_sprintf_cat(
+      "Baptista-Pike mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
+    )
+  }
+
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = estimate),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }
 
 # ==================================

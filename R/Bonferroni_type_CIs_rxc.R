@@ -38,9 +38,20 @@ Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05) {
   }
 
   # Output
-  res <- list(
-    name = "The Bonferroni-type simultaneous intervals",
-    statistics = list("lower" = L, "upper" = U, "differences" = differences, "r" = r)
+  printresults <- function() {
+    my_sprintf_cat("The Bonferroni-type simultaneous intervals")
+    k <- 0
+    for (i in 1:r) {
+      for (j in min(r, i + 1):r) {
+        k <- k + 1
+        print(sprintf("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)", i, j, differences[k], L[k], U[k]), quote = FALSE)
+      }
+    }
+  }
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, differences = differences),
+      printresults
+    )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

@@ -58,11 +58,14 @@ Chacko_test_1xc <- function(n) {
   }
 
   # Output
-  res <- list(
-    name = "The Chacko test",
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
+  printresults <- function() {
+    my_sprintf_cat("The Chacko test: P = %7.6f, T = %5.3f (df = %i)", P, T0, df)
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+
 }

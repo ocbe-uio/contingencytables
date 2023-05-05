@@ -21,7 +21,7 @@ test_that("Chapter 5 functions basically work", {
   d <- "decreasing"
   expect_output(
     object = print(Exact_cond_midP_unspecific_ordering_rx2(ceiling(m / 10), d)),
-    regexp = "Mid-P test\\s*:\\s*midP = 0.43131"
+    regexp = "Mid-P test\\s*:\\s*midP =\\s*0.43131"
   )
   expect_output(
     object = print(Pearson_LR_tests_unspecific_ordering_rx2(indredavik_2008, d)),

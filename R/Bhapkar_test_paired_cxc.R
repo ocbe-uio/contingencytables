@@ -42,11 +42,16 @@ Bhapkar_test_paired_cxc <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   # Output
-  res <- list(
-    name = "The Bhapkar test for marginal homogenity",
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df = %g)",
+      P, T0, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

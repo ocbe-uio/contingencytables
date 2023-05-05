@@ -17,12 +17,12 @@ test_that("Chapter 6 functions basically work", {
   dir <- "decreasing"
   expect_output(
     object = print(Exact_cond_midP_unspecific_ordering_rx2(t(n_short), dir)),
-    regexp = "Exact conditional test\\s*:\\s*P = 0.23094"
+    regexp = "Exact conditional test\\s*:\\s*P =\\s*0.23094"
   )
   stat <- "PearsonCumOR"
   expect_output(
     object = print(Exact_cond_midP_unspecific_ordering_rx2(t(n_short), dir, stat)),
-    regexp = "Exact conditional test\\s*:\\s*P = 0.08012"
+    regexp = "Exact conditional test\\s*:\\s*P =\\s*0.08012"
   )
   expect_output(
     object = print(MantelHaenszel_test_2xc(lydersen_2012a)),
