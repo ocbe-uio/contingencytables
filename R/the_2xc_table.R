@@ -18,7 +18,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("\nMethod                            Statistic      P-value\n")
   my_sprintf("--------------------------------------------------------\n")
   my_sprintf("Tests for unordered alternatives\n")
-  results <- Pearson_LR_tests_rxc(n)$statistis
+  results <- Pearson_LR_tests_rxc(n)
   my_sprintf("  Pearson chi-squared           %6.3f (df=%g)   %8.5f\n", results$T_Pearson, results$df_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", results$T_LR, results$df_LR, results$P_LR)
 
