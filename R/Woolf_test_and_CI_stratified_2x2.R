@@ -40,9 +40,9 @@ Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   U <- thetahatIV * exp(z_alpha * SElog)
 
   printresults <- function() {
-    my_sprintf("The Woolf test: P = %7.5f, Z = %6.3f\n", P, Z)
-    my_sprintf(
-      "The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)\n",
+    my_sprintf_cat("The Woolf test: P = %7.5f, Z = %6.3f\n", P, Z)
+    my_sprintf_cat(
+      "The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)",
       thetahatIV, 100 * (1 - alpha), L, U
     )
   }
