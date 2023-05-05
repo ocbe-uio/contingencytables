@@ -19,7 +19,7 @@ contingencytables_result <- function(statistics, print_structure) {
 #' @param x a named vector, data.frame or list containing test statistics
 #' @return A string with the proper print_structure for `x`
 #' printing formats for the contingencytables_result class
-fetch_print_format <- function(x) {
+fetch_print_format <- function(x) { # TODO: supersede
   # Determining output format
   stats_names <- paste(names(x$statistics), collapse = "_")
   stats <- x$statistics

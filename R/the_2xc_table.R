@@ -27,8 +27,8 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
-  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson")
-  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR")
+  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson") # TODO: optimize, takes forever! (ISSUE #44)
+  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR") # TODO: optimize, takes forever! (ISSUE #44)
   my_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
   my_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
   my_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
@@ -39,8 +39,8 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   my_sprintf("  Pearson chi-squared           %6.3f (chibar) %8.5f\n", results$T_Pearson, results$P_Pearson)
   my_sprintf("  Likelihood ratio              %6.3f (chibar) %8.5f\n", results$T_LR, results$P_LR)
 
-  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR")
-  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR")
+  res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR") # TODO: optimize, takes forever! (ISSUE #44)
+  res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR") # TODO: optimize, takes forever! (ISSUE #44)
   my_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
   my_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
   my_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)

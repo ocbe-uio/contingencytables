@@ -18,7 +18,7 @@ Adjusted_inv_sinh_CI_OR_2x2(n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05)
 }
 \value{
 An object of the contingencytables_result class containing lower,
-upper and point estimates of the statistic.
+upper and point estimates of the statistic. # TODO: standardize this across functions
 }
 \description{
 The adjusted inverse hyperbolic sine confidence interval for
