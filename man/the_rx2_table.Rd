@@ -24,8 +24,6 @@ NULL. This function should be called for its printed output.
 The rx2 table
 }
 \examples{
-the_rx2_table(
-  mills_graubard_1987, direction = "increasing", skip_exact = TRUE
-)
+the_rx2_table(mills_graubard_1987, skip_exact = TRUE)
 the_rx2_table(indredavik_2008, direction = "decreasing", skip_exact = TRUE)
 }
