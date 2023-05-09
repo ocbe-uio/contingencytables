@@ -37,7 +37,7 @@ MantelHaenszel_test_2xc <- function(n, b = 0) {
 
   return(
     contingencytables_result(
-      data.frame(P = P, T = T0, df = df),
+      list(P = P, T = T0, df = df),
       sprintf(
         "Mantel-Haenszel test of association: P = %6.4f, T = %5.3f (df=%g)",
         P, T0, df

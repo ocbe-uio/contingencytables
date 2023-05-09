@@ -40,11 +40,11 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
 
   # Calculate the confidence limits
   L <- (q1hat * q2hat - sqrt((q1hat * q2hat)^2 -
-    res1["lower"] * res2["upper"] * (2 * q1hat - res1["lower"]) * (2 * q2hat - res2["upper"]))) /
-    (res2["upper"] * (2 * q2hat - res2["upper"]))
+    res1[["lower"]] * res2[["upper"]] * (2 * q1hat - res1[["lower"]]) * (2 * q2hat - res2[["upper"]]))) /
+    (res2[["upper"]] * (2 * q2hat - res2[["upper"]]))
   U <- (q1hat * q2hat + sqrt((q1hat * q2hat)^2 -
-    res1["upper"] * res2["lower"] * (2 * q1hat - res1["upper"]) * (2 * q2hat - res2["lower"]))) /
-    (res2["lower"] * (2 * q2hat - res2["lower"]))
+    res1[["upper"]] * res2[["lower"]] * (2 * q1hat - res1[["upper"]]) * (2 * q2hat - res2[["lower"]]))) /
+    (res2[["lower"]] * (2 * q2hat - res2[["lower"]]))
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {
@@ -65,7 +65,7 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      data.frame(lower = L, upper = U, estimate = estimate),
+      list(lower = L, upper = U, estimate = estimate),
       sprintf(
         "The MOVER-R Wilson CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U

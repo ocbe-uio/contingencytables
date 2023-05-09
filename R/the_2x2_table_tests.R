@@ -52,28 +52,28 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
   Z0 <- res$statistic
   my_sprintf_cat("Z-unpooled                              %6.4f (Z = %5.3f)\n", P0, Z0)
 
-  P0 <- Fisher_exact_test_2x2(n, "hypergeometric")
+  P0 <- Fisher_exact_test_2x2(n, "hypergeometric")$P
   my_sprintf_cat("Fisher exact test (Fisher-Irwin)        %6.4f\n", P0)
 
-  P0 <- Fisher_exact_test_2x2(n, "Pearson")
+  P0 <- Fisher_exact_test_2x2(n, "Pearson")$P
   my_sprintf_cat("Fisher exact test (Pearson)             %6.4f\n", P0)
 
-  P0 <- Fisher_exact_test_2x2(n, "LR")
+  P0 <- Fisher_exact_test_2x2(n, "LR")$P
   my_sprintf_cat("Fisher exact test (LR)                  %6.4f\n", P0)
 
-  P0 <- Fisher_midP_test_2x2(n, "hypergeometric")
+  P0 <- Fisher_midP_test_2x2(n, "hypergeometric")$P
   my_sprintf_cat("Fisher mid-P test (Fisher-Irwin)        %6.4f\n", P0)
 
-  P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma)
+  P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma)$P
   my_sprintf_cat("Suissa-Shuster exact uncond.*           %6.4f\n", P0)
 
-  P0 <- Exact_unconditional_test_2x2(n, "LR", gamma)
+  P0 <- Exact_unconditional_test_2x2(n, "LR", gamma)$P
   my_sprintf_cat("Exact uncond. w / LR statistic*         %6.4f\n", P0)
 
-  P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma)
+  P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma)$P
   my_sprintf_cat("Exact uncond. w / unpooled Z statistic* %6.4f\n", P0)
 
-  P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma)
+  P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma)$P
   my_sprintf_cat("Fisher-Boschloo exact uncond.*          %6.4f\n", P0)
 
   cat("------------------------------------------------------------------\n")

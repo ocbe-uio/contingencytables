@@ -40,6 +40,6 @@ Z_unpooled_test_2x2 <- function(n) {
     sprintf("The Z-unpooled test: P = %7.5f, Z = %6.3f", P, Z)
   }
 
-  res <- data.frame(p.value = P, statistic = Z)
+  res <- list(p.value = P, statistic = Z)
   return(contingencytables_result(res, printresults))
 }

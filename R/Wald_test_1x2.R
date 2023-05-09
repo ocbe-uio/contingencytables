@@ -42,7 +42,7 @@ Wald_test_1x2 <- function(X, n, pi0) {
     sprintf("The Wald test: P = %7.5f, Z = %6.3f", P, Z)
   }
 
-  res <- c(P, Z)
+  res <- list(P, Z)
   names(res) <- c("p.value", "statistic")
   return(contingencytables_result(res, printresults))
 }

@@ -31,7 +31,7 @@ LR_test_1xc <- function(n, pi0) {
 
   return(
     contingencytables_result(
-      data.frame("P" = P, "T" = T0, "df" = df),
+      list("P" = P, "T" = T0, "df" = df),
       sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
   )

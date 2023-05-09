@@ -68,7 +68,7 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      data.frame(lower = L, upper = U, estimate = estimate),
+      list(lower = L, upper = U, estimate = estimate),
       sprintf(
         "Koopman asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U

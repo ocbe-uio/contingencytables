@@ -36,7 +36,7 @@ Score_test_1x2 <- function(X, n, pi0) {
 
   return(
     contingencytables_result(
-      c("p.value" = P, "statistic" = Z),
+      list("p.value" = P, "statistic" = Z),
       sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z)
     )
   )

@@ -45,6 +45,6 @@ QuesenberryHurst_Wilson_score_CIs_1xc <- function(n, alpha = 0.05) {
     }
   }
 
-  res <- data.frame(lower = L, upper = U, estimate = pihat)
+  res <- list(lower = L, upper = U, estimate = pihat)
   return(contingencytables_result(res, printresults))
 }

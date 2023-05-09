@@ -54,6 +54,6 @@ Wald_CI_CC_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
+  res <- list(lower = L, upper = U, estimate = estimate)
   return(contingencytables_result(res, printresults))
 }
