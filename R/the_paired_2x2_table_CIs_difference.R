@@ -21,8 +21,8 @@ the_paired_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   pip1hat <- (n[1, 1] + n[2, 1]) / N
   deltahat <- pi1phat - pip1hat
 
-  my_sprintf_cat("\nEstimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
-  my_sprintf_cat("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
+  my_sprintf_cat("Estimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
+  my_sprintf_cat("Estimate of pi_+1: %i/%i = %5.3f\n", n[1, 1] + n[2, 1], N, pip1hat)
   my_sprintf_cat("Estimate of delta = pi_1+ - pi_+1: %5.3f\n\n", deltahat)
 
   my_sprintf_cat("Interval method                           %i%% CI         width\n", 100 * (1 - alpha))

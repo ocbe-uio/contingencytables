@@ -30,7 +30,7 @@ the_1x2_table_CIs <- function(X, n, alpha = 0.05) {
   # Output                                                   #
   # ======================================================== #
 
-  myprint("Estimate of pi: %i / %i = %5.3f", X, n, estimate)
+  myprint("Estimate of pi: %i / %i = %5.3f\n", X, n, estimate)
 
   myprint(
     "Interval method                  %i%% CI        width", 100 * (1 - alpha)

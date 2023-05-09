@@ -25,7 +25,7 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
 
   cat("H_0: pi_1 = pi_2  vs  H_A: pi_1 = / = pi_2\n")
   my_sprintf_cat("Estimate of pi_1: %i / %i = %5.3f\n", n[1, 1], n[1, 1] + n[1, 2], pi1hat)
-  my_sprintf_cat("Estimate of pi_2: %i / %i = %5.3f\n", n[2, 1], n[2, 1] + n[2, 2], pi2hat)
+  my_sprintf_cat("Estimate of pi_2: %i / %i = %5.3f\n\n", n[2, 1], n[2, 1] + n[2, 2], pi2hat)
 
   cat("Test                                  P-value  (test statistic)\n")
   cat("------------------------------------------------------------------\n")

@@ -10,8 +10,7 @@ the_paired_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
 
   thetacondhat <- n[1, 2] / n[2, 1]
 
-  my_sprintf_cat("\nEstimate of theta_cond = n_12/n_21: %5.3f\n\n", thetacondhat)
-  cat("\n")
+  my_sprintf_cat("Estimate of theta_cond = n_12/n_21: %5.3f\n\n", thetacondhat)
 
   my_sprintf_cat("Interval method                              %i%% CI        log width\n", 100 * (1 - alpha))
   my_sprintf_cat("--------------------------------------------------------------------\n")

@@ -30,7 +30,7 @@ the_1x2_table_tests <- function(X, n, pi0) {
   estimate <- X / n
 
   myprint("H_0: pi = %5.3f  vs  H_A: pi ~= %5.3f", pi0, pi0)
-  myprint("Estimate of pi: %i/%i = %5.3f", X, n, estimate)
+  myprint("Estimate of pi: %i/%i = %5.3f\n", X, n, estimate)
 
   myprint("Test                P-value  (test statistic)")
   myprint("------------------------------------------------")

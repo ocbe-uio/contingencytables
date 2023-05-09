@@ -26,7 +26,7 @@ the_2x2_table_CIs_OR <- function(n, alpha = 0.05) {
 
   my_sprintf_cat("Estimate of pi_1: %i / %i = %5.3f\n", n[1, 1], n[1, 1] + n[1, 2], pi1hat)
   my_sprintf_cat("Estimate of pi_2: %i / %i = %5.3f\n", n[2, 1], n[2, 1] + n[2, 2], pi2hat)
-  my_sprintf_cat("Estimate of theta = (pi_1 / (1-pi_1)) / (pi_2 / (1-pi_2)): %5.3f\n", thetahat)
+  my_sprintf_cat("Estimate of theta = (pi_1 / (1-pi_1)) / (pi_2 / (1-pi_2)): %5.3f\n\n", thetahat)
 
 my_sprintf_cat("Interval method                            %i%% CI      Log width\n", 100 * (1 - alpha))
   cat("----------------------------------------------------------------\n")

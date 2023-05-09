@@ -22,7 +22,7 @@ the_paired_2x2_table_CIs_ratio <- function(n, alpha = 0.05) {
   phihat <- pi1phat / pip1hat
 
   my_sprintf_cat("\nEstimate of pi_1+: %i/%i = %5.3f\n", n[1, 1] + n[1, 2], N, pi1phat)
-  my_sprintf_cat("Estimate of pi_+1: %i/%i = %5.3f\n\n", n[1, 1] + n[2, 1], N, pip1hat)
+  my_sprintf_cat("Estimate of pi_+1: %i/%i = %5.3f\n", n[1, 1] + n[2, 1], N, pip1hat)
   my_sprintf_cat("Estimate of phi = pi_1+/pi_+1: %5.3f\n\n", phihat)
 
   my_sprintf_cat("Interval method                              %i%% CI        log width\n", 100 * (1 - alpha))
