@@ -16,8 +16,9 @@
 #' Wald_test_and_CI_common_diff_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value, the Wald test statistic,
-#' and the lower, upper and point estimates for delta.
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Wald_test_and_CI_common_diff_stratified_2x2 <- function(
   n, estimatetype = "MH", alpha = 0.05
 ) {

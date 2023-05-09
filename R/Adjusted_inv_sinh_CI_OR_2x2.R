@@ -7,8 +7,9 @@
 #' @param psi1 pseudo-frequency (should be > 0)
 #' @param psi2 pseudo-frequency (should be > 0)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return An object of the contingencytables_result class containing lower,
-#' upper and point estimates of the statistic. # TODO: standardize this across functions
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)

@@ -12,7 +12,9 @@ MantelHaenszel_test_2xc(n, b = 0)
 \item{b}{scores assigned to the columns (if b=0, midranks will be used as scores)}
 }
 \value{
-A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Mantel-Haenszel test of association with column scores

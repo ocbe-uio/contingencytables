@@ -16,7 +16,9 @@
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing")
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
 #' @export
-#' @return A data frame containing the two-sided exact P-value and the mid-P value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson") {
   validateArguments(mget(ls()))
   r <- nrow(n)

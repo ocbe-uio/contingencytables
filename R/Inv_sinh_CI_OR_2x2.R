@@ -7,7 +7,9 @@
 #' Inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Inv_sinh_CI_OR_2x2(ritland_2007)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Inv_sinh_CI_OR_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the odds ratio (thetahat)

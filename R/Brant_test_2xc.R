@@ -3,7 +3,9 @@
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed table (a 2xc matrix)
 #' @importFrom stats binomial glm predict
-#' @return A data frame containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Brant_test_2xc(fontanella_2008)
 #' Brant_test_2xc(lydersen_2012a)

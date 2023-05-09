@@ -12,10 +12,9 @@ RBG_test_and_CI_stratified_2x2(n, alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
 }
 \value{
-A list containing the two-sided p-value (\code{P}), the Wald test
-statistic (\code{Z}), the confidence limits (\code{L} and \code{U}), the
-Mantel-Haenszel overall estimate (\code{thetahatMH}) and the standard error
-(\code{SElog}).
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The RBG test and CI for a common odds ratio

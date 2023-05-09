@@ -14,7 +14,9 @@
 #' with(singh_2010["4th", ], Wald_CI_1x2(X, n)) # alternative syntax
 #' Wald_CI_1x2(ligarden_2010["X"], ligarden_2010["n"]) # Ligarden et al. (2010)
 #' @export
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Wald_CI_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
 

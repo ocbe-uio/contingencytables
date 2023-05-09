@@ -5,8 +5,9 @@
 #' variable with `c` possible outcomes have a natural ordering. The test
 #' statistic is asymptotically chi-squared distributed.
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
-#' @return A data frame containing the two-sided p-value, the statistic and the
-#' degrees of freedom.
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @references
 #' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.

@@ -7,7 +7,9 @@
 #' Independence_smoothed_logit_CI_2x2(lampasona_2013)
 #' Independence_smoothed_logit_CI_2x2(ritland_2007)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Independence_smoothed_logit_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   n1p <- n[1, 1] + n[1, 2]

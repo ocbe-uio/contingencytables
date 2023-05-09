@@ -10,7 +10,9 @@ JonckheereTerpstra_test_rxc(n)
 \item{n}{the observed table (an rxc matrix)}
 }
 \value{
-a list containing the standard normalized Jonckheere-Terpstra test statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Jonckheere-Terpstra test for association

@@ -13,7 +13,9 @@
 #'
 #' @export
 #' @importFrom stats coef
-#' @return A list containing the maximum likelihood estimates
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05) {
   validateArguments(mget(ls()))
 

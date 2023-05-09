@@ -19,7 +19,9 @@
 #' Score_test_for_effect_in_the_probit_model_2xc(lydersen_2012a, alphahat0)
 #'
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0) {
   validateArguments(mget(ls()))
 

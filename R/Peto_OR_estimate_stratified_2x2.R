@@ -10,8 +10,9 @@
 #' Peto_OR_estimate_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the Peto odds ratio estimate, its conditional
-#' expectation (from the hypergeometric distribution) and the variance
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Peto_OR_estimate_stratified_2x2 <- function(n) {
   validateArguments(mget(ls()))
 

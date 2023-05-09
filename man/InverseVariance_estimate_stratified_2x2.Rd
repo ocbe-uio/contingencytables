@@ -12,7 +12,9 @@ InverseVariance_estimate_stratified_2x2(n, link = "logit")
 \item{link}{the link function ('linear', 'log', or 'logit')}
 }
 \value{
-a list respectively containing the inverse variance estimate of the overall effect (\code{estimate}), the stratum-specific effect estimates (\code{psihat}) and the weights (\code{v}).
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The inverse variance estimate of the overall effect across strata

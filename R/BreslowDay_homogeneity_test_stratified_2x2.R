@@ -3,7 +3,9 @@
 #' @description Tarone correction
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
-#' @return A list containing lower bound, upper bound and differences of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' BreslowDay_homogeneity_test_stratified_2x2(doll_hill_1950)
 #' BreslowDay_homogeneity_test_stratified_2x2(hine_1989)

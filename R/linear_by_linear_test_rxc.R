@@ -9,7 +9,9 @@
 #' linear_by_linear_test_rxc(table_7.8)
 #' linear_by_linear_test_rxc(table_7.9)
 #' @export
-#' @return a list containing the linear-by-linear test statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n))) {
   validateArguments(mget(ls()))
 

@@ -12,7 +12,9 @@ CochranArmitage_MH_tests_rx2(n, a)
 \item{a}{scores assigned to the rows}
 }
 \value{
-A list containing observed statistics and p-values
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Described in Chapter 5 "The Ordered rx2 Table"

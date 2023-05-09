@@ -12,7 +12,9 @@
 #' PriceBonett_approximate_Bayes_CI_2x2(ritland_2007)
 #'
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 PriceBonett_approximate_Bayes_CI_2x2 <- function(n, a = 1.25, b = 2.5, alpha = 0.05) {
   validateArguments(mget(ls()))
   n1p <- n[1, 1] + n[1, 2]

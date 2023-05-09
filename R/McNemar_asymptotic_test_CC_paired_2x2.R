@@ -8,7 +8,9 @@
 #' McNemar_asymptotic_test_CC_paired_2x2(ezra_2010)
 #'
 #' @export
-#' @return The McNemar test statistic with continuity correction (`Z`) and the reference distribution (standard normal, `P`)
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 McNemar_asymptotic_test_CC_paired_2x2 <- function(n) {
   validateArguments(mget(ls()))
 

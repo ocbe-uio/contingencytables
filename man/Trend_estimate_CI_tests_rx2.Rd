@@ -17,7 +17,9 @@ Trend_estimate_CI_tests_rx2(n, a, linkfunction = "logit", alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A list containing several test statistics (see description above).
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Trend estimate for linear and logit models

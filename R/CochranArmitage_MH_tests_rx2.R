@@ -6,7 +6,9 @@
 #' CochranArmitage_MH_tests_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' CochranArmitage_MH_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-#' @return A list containing observed statistics and p-values
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 CochranArmitage_MH_tests_rx2 <- function(n, a) {
   validateArguments(mget(ls()))
   r <- nrow(n)

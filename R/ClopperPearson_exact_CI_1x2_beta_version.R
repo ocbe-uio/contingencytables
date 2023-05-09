@@ -8,7 +8,9 @@
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @seealso ClopperPearson_exact_CI_1x2
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' ClopperPearson_exact_CI_1x2_beta_version(singh_2010["1st", "X"], singh_2010["1st", "n"])
 #' ClopperPearson_exact_CI_1x2_beta_version(singh_2010["2nd", "X"], singh_2010["2nd", "n"])

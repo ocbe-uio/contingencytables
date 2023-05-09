@@ -12,7 +12,9 @@ Pearson_LR_homogeneity_test_stratified_2x2(n, link = "logit")
 \item{link}{the link function ('linear', 'log', or 'logit')}
 }
 \value{
-A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for homogeneity over strata

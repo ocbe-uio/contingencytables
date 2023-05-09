@@ -9,8 +9,9 @@
 #' @param psi3 pseudo-frequency
 #' @param psi4 pseudo-frequency
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return A data frame containing lower, upper and point estimates of the
-#' statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Adjusted_inv_sinh_CI_ratio_2x2(perondi_2004)
 #' Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007)

@@ -12,7 +12,9 @@ AgrestiCaffo_CI_2x2(n, alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Agresti-Caffo confidence interval for the difference between probabilities

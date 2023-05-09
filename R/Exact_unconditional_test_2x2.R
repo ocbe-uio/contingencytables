@@ -21,7 +21,9 @@
 #' @importFrom graphics lines
 #' @importFrom stats dhyper
 #' @importFrom grDevices dev.new
-#' @return Fisher's exact test statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.0001) {
   validateArguments(
     x = mget(ls()),

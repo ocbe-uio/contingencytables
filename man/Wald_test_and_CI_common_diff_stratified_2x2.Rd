@@ -19,8 +19,9 @@ Wald_test_and_CI_common_diff_stratified_2x2(
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A list containing the two-sided p-value, the Wald test statistic,
-and the lower, upper and point estimates for delta.
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Wald test and CI for a common difference between

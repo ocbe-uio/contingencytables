@@ -10,7 +10,9 @@ Pearson_residuals_rxc(n)
 \item{n}{the observed counts (an rxc matrix)}
 }
 \value{
-A list containing matrices of the Pearson residuals and the standardized Pearson residuals
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson residuals and the standardized Pearson residuals

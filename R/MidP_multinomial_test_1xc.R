@@ -10,7 +10,9 @@
 #' # subset of 10 patients
 #' MidP_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
-#' @return probability value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 MidP_multinomial_test_1xc <- function(n, pi0) {
   validateArguments(mget(ls()))
 

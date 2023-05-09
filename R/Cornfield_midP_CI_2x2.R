@@ -3,7 +3,9 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Cornfield_midP_CI_2x2(tea)
 #' Cornfield_midP_CI_2x2(perondi_2004)

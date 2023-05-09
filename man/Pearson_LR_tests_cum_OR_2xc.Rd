@@ -12,7 +12,9 @@ Pearson_LR_tests_cum_OR_2xc(n, direction = "decreasing")
 \item{direction}{the direction of column probabilities ("increasing" or "decreasing")}
 }
 \value{
-A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for cumulative ORs in 2xc tables

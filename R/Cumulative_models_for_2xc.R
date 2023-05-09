@@ -10,9 +10,9 @@
 #' Cumulative_models_for_2xc(fontanella_2008)
 #' Cumulative_models_for_2xc(lydersen_2012a)
 #' @export
-#' @return A list containing the results of statistical tests for the
-#' goodness-of-fit of a proportional odds model, the effect in a proportional
-#' odds model and the effect parameter beta in the proportional odds model.
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   validateArguments(mget(ls()))
   c0 <- ncol(n)

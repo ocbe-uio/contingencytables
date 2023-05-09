@@ -12,8 +12,9 @@ Pearson_LR_tests_unspecific_ordering_rx2(n, direction)
 \item{direction}{the direction of the success probabilities ("increasing" or "decreasing")}
 }
 \value{
-A list containing the two-sided p-value and the test statistic for
-the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for unspecific ordering in rx2 tables.

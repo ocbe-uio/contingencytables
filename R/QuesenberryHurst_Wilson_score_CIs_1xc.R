@@ -8,7 +8,9 @@
 #' # Genotype counts for SNP rs 6498169 in RA patients
 #' QuesenberryHurst_Wilson_score_CIs_1xc(n = snp6498169$complete$n)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 QuesenberryHurst_Wilson_score_CIs_1xc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 

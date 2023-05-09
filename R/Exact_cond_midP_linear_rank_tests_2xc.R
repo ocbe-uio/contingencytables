@@ -7,7 +7,9 @@
 #' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
 #' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 #' @export
-#' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   validateArguments(mget(ls()))
   c0 <- ncol(n)

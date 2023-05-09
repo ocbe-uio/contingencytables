@@ -17,7 +17,9 @@
 #' Pearson_chi_squared_test_CC_2x2(ritland_2007)
 #'
 #' @export
-#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_chi_squared_test_CC_2x2 <- function(n) {
   validateArguments(mget(ls()))
 

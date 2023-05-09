@@ -14,7 +14,9 @@ ML_estimates_and_CIs_stratified_2x2(n, link = "log", alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A list containing the maximum likelihood estimates
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Maximum likelihood estimates with CIs of the grouping and strata effects

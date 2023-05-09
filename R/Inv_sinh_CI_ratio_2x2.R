@@ -7,7 +7,9 @@
 #' Inv_sinh_CI_ratio_2x2(perondi_2004)
 #' Inv_sinh_CI_ratio_2x2(ritland_2007)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Inv_sinh_CI_ratio_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   n1p <- n[1, 1] + n[1, 2]

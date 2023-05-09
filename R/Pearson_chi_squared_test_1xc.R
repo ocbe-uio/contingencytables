@@ -9,7 +9,9 @@
 #' # subset of 10 patients
 #' Pearson_chi_squared_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
-#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_chi_squared_test_1xc <- function(n, pi0) {
   validateArguments(mget(ls()))
 

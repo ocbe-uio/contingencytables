@@ -14,7 +14,9 @@ MidP_binomial_test_1x2(X, n, pi0)
 \item{pi0}{a given probability}
 }
 \value{
-probability value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The mid-P binomial test for the binomial probability (pi)

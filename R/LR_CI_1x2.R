@@ -12,7 +12,9 @@
 #' with(singh_2010["4th", ], LR_CI_1x2(X, n)) # alternative syntax
 #' LR_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 LR_CI_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
 

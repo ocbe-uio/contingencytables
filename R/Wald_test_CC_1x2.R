@@ -18,7 +18,9 @@
 #' # Ligarden et al. (2010)
 #' Wald_test_CC_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.1)
 #' @export
-#' @return A vector containing the two-sided p-value and the Wald test statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Wald_test_CC_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 

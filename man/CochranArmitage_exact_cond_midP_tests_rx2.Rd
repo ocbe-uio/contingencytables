@@ -12,7 +12,9 @@ CochranArmitage_exact_cond_midP_tests_rx2(n, a)
 \item{a}{scores assigned to the rows}
 }
 \value{
-A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Cochran-Armitage exact conditional and mid-P tests

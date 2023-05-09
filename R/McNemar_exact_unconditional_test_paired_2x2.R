@@ -16,7 +16,9 @@
 #' the precision. A refinement of the maximization can be done with a manual
 #' restriction of the parameter space.
 #' @importFrom graphics segments
-#' @return The T version of the test statistic (not the Z one)
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
   validateArguments(mget(ls()))
 

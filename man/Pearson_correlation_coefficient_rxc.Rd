@@ -21,7 +21,9 @@ Pearson_correlation_coefficient_rxc(
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha) confidence interval}
 }
 \value{
-A list containing the statistic and the confindence interval limits
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson correlation coefficient

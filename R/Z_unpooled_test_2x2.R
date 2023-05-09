@@ -16,8 +16,9 @@
 #' Z_unpooled_test_2x2(ritland_2007)
 #'
 #' @export
-#' @return A vector containing the two-sided p-value and the unpooled Z
-#' statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Z_unpooled_test_2x2 <- function(n) {
   validateArguments(mget(ls()))
 

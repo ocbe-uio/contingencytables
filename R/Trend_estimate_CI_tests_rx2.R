@@ -19,7 +19,9 @@
 #' # levated troponin T levels in stroke patients (Indredavik et al., 2008)
 #' Trend_estimate_CI_tests_rx2(indredavik_2008, 1:5)
 #' @export
-#' @return A list containing several test statistics (see description above).
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Trend_estimate_CI_tests_rx2 <- function(
   n, a, linkfunction = "logit", alpha = 0.05
 ) {

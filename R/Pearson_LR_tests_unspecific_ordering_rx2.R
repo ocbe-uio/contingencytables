@@ -16,8 +16,9 @@
 #' # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
 #' Pearson_LR_tests_unspecific_ordering_rx2(t(lydersen_2012a), "decreasing")
 #' @export
-#' @return A list containing the two-sided p-value and the test statistic for
-#' the likelihood ratio and the Pearson chi-squared tests
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction) {
   validateArguments(mget(ls()))
 
