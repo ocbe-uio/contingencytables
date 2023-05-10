@@ -4,21 +4,15 @@
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#' # Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' n <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-#' a <- c(1, 2, 3, 4, 5)
-#' CochranArmitage_CI_rx2(n, a)
-#'
-#' # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
-#' a <- c(1, 2, 3, 4, 5)
-#' CochranArmitage_CI_rx2(n, a)
-#'
+#' CochranArmitage_CI_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
+#' CochranArmitage_CI_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05, printresults = TRUE) {
+CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   N <- sum(n)
@@ -45,13 +39,17 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05, printresults = TRUE) {
   L <- betahat - z * SE
   U <- betahat + z * SE
 
-  if (printresults) {
-    print(sprintf(
+  # Output
+  printresults <- function() {
+    my_sprintf_cat(
       "Trend estimate and Cochran-Armitage CI:  betahat = %6.4f (%g%% CI %6.4f to %6.4f)",
       betahat, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
+    )
   }
-
-  res <- data.frame(lower = L, upper = U, estimate = betahat)
-  return(res)
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = betahat),
+      printresults
+    )
+  )
 }

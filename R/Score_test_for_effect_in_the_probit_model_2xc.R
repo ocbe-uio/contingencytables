@@ -3,8 +3,7 @@
 #' described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed counts (a 2xc matrix)
 #' @param alphahat0 a column vector with c-1 estimated coefficients
-#' (\code{alpha_j}) under the null hypothesis (\code{beta = 0})
-#' @param printresults display results (F = no, T = yes)
+#' (`alpha_j`) under the null hypothesis (\code{beta = 0})
 #' @note Must give the alphahats under the null hypothesis as input,
 #'  because Matlab does not calculate an intercept-only probit model (and this
 #' may apply to R code as well). alphahat0 can be calculated in, for instance,
@@ -12,18 +11,20 @@
 #' @importFrom stats dnorm
 #' @examples
 #' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 #' alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
-#' Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
+#' Score_test_for_effect_in_the_probit_model_2xc(fontanella_2008, alphahat0)
 #'
 #' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 #' alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
-#' Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
+#' Score_test_for_effect_in_the_probit_model_2xc(lydersen_2012a, alphahat0)
 #'
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
-Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0) {
+  validateArguments(mget(ls()))
+
   c <- ncol(n)
 
   # Evaluate the derivatives under the null hypothesis: H0: beta = 0
@@ -49,13 +50,12 @@ Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0, printres
   df <- 1
   P <- 1 - pchisq(T0, 1)
 
-  if (printresults) {
-    print(
-      sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df),
-      quote = TRUE
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
+      sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df)
     )
-  }
-  invisible(data.frame(P = P, T = T0, df = df))
+  )
 }
 
 # =========================================================

@@ -4,23 +4,15 @@
 #' @param n the observed table (an rxc matrix)
 #' @param linkfunction either "logit" or "probit"
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Psychiatric diag. vs BMI with hyperkinetic disorders
-#' # as reference category (Table 7.5)
-#' n <- rbind(
-#'   c(19, 130, 64), c(3, 55, 23), c(8, 102, 36), c(6, 14, 1), c(5, 21, 12), c(7, 26, 18)
-#' )
-#' Cumulative_models_for_rxc(n)
-#'
-#' # LBW vs psych. morbidity with control as reference category (Table 7.6)
-#' n <- rbind(c(51, 7, 6), c(22, 4, 12), c(24, 9, 10))
-#' Cumulative_models_for_rxc(n)
+#' Cumulative_models_for_rxc(table_7.5)
+#' Cumulative_models_for_rxc(table_7.6)
 #' @export
-#' @return A list containing the results of statistical tests for the
-#' goodness-of-fit of a proportional odds model, the effect in a proportional
-#' odds model and row comparisons
-Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)
@@ -151,37 +143,45 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05, p
   results$Wald_CI_width <- Wald_CI_width
 
 
-  if (printresults) {
+  # Output
+  statistics = list(
+    "linkfunction" = linkfunction,
+    "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
+    "P_D" = P_D, "D" = D, "df_D" = df_D,
+    "P_LR" = P_LR, "T_LR" = T_LR, "df_LR" = df_LR,
+    "r" = r,
+    "P_Wald" = P_Wald, "Z_Wald" = Z_Wald,
+    "alpha" = alpha,
+    "betahat" = betahat, "Wald_CI" = Wald_CI, "Wald_CI_width" = Wald_CI_width,
+    "OR" = exp(betahat),
+    "Wald_CI_OR" = Wald_CI_OR
+  )
+  print_function <- function(statistics) {
     if (identical(linkfunction, "logit")) {
       model <- "proportional odds"
     } else if (identical(linkfunction, "probit")) {
       model <- "probit"
     }
-    .print("\nTesting the fit of a %s model\n", model)
-    .print("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-    .print("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+    my_sprintf_cat("\nTesting the fit of a %s model\n", model)
+    my_sprintf_cat("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+    my_sprintf_cat("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
 
-    .print("\nTesting the effect in a %s model\n", model)
-    .print("  Likelihood ratio             P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+    my_sprintf_cat("\nTesting the effect in a %s model\n", model)
+    my_sprintf_cat("  Likelihood ratio             P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
 
-    .print("\nComparing the rows                  Statistic   P-value\n")
-    .print("--------------------------------------------------------\n")
+    my_sprintf_cat("\nComparing the rows                  Statistic   P-value\n")
+    my_sprintf_cat("--------------------------------------------------------\n")
     for (i in 1:(r - 1)) {
-      .print("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, Z_Wald[i], P_Wald[i])
+      my_sprintf_cat("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, Z_Wald[i], P_Wald[i])
     }
-    .print("--------------------------------------------------------\n\n")
+    my_sprintf_cat("--------------------------------------------------------\n\n")
 
-    .print("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
-    .print("--------------------------------------------------------------------------\n")
+    my_sprintf_cat("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
+    my_sprintf_cat("--------------------------------------------------------------------------\n")
     for (i in 1:(r - 1)) {
-      .print("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, betahat[i], Wald_CI[i, 1], Wald_CI[i, 2], exp(betahat[i]), Wald_CI_OR[i, 1], Wald_CI_OR[i, 2])
+      my_sprintf_cat("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, betahat[i], Wald_CI[i, 1], Wald_CI[i, 2], exp(betahat[i]), Wald_CI_OR[i, 1], Wald_CI_OR[i, 2])
     }
-    .print("--------------------------------------------------------------------------\n")
+    my_sprintf_cat("--------------------------------------------------------------------------\n")
   }
-
-  invisible(results)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(contingencytables_result(statistics, print_function))
 }

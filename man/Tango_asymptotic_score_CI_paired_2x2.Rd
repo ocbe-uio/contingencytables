@@ -4,17 +4,17 @@
 \alias{Tango_asymptotic_score_CI_paired_2x2}
 \title{The Tango asymptotic score confidence interval for the difference between paired probabilities}
 \usage{
-Tango_asymptotic_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
+Tango_asymptotic_score_CI_paired_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Tango asymptotic score confidence interval for the difference between paired probabilities
@@ -24,12 +24,10 @@ Described in Chapter 8 "The Paired 2x2 Table"
 \examples{
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)
-n <- rbind(c(1, 1), c(7, 12))
-Tango_asymptotic_score_CI_paired_2x2(n)
+Tango_asymptotic_score_CI_paired_2x2(bentur_2009)
 
 # Complete response before and after consolidation therapy
 # (Cavo et al., 2012)
-n <- rbind(c(59, 6), c(16, 80))
-Tango_asymptotic_score_CI_paired_2x2(n)
+Tango_asymptotic_score_CI_paired_2x2(cavo_2012)
 
 }

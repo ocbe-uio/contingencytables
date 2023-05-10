@@ -2,7 +2,8 @@
 % Please edit documentation in R/Adjusted_inv_sinh_CI_ratio_2x2.R
 \name{Adjusted_inv_sinh_CI_ratio_2x2}
 \alias{Adjusted_inv_sinh_CI_ratio_2x2}
-\title{The adjusted inverse hyperbolic sine confidence interval for the ratio of probabilities}
+\title{The adjusted inverse hyperbolic sine confidence interval for the
+ratio of probabilities}
 \usage{
 Adjusted_inv_sinh_CI_ratio_2x2(
   n,
@@ -10,8 +11,7 @@ Adjusted_inv_sinh_CI_ratio_2x2(
   psi2 = 0,
   psi3 = 0,
   psi4 = 1,
-  alpha = 0.05,
-  printresults = TRUE
+  alpha = 0.05
 )
 }
 \arguments{
@@ -26,22 +26,19 @@ Adjusted_inv_sinh_CI_ratio_2x2(
 \item{psi4}{pseudo-frequency}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
-The adjusted inverse hyperbolic sine confidence interval for the ratio of probabilities
+The adjusted inverse hyperbolic sine confidence interval for
+the ratio of probabilities
 
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
-n <- matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE)
-Adjusted_inv_sinh_CI_ratio_2x2(n)
-# The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
-Adjusted_inv_sinh_CI_ratio_2x2(n)
+Adjusted_inv_sinh_CI_ratio_2x2(perondi_2004)
+Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007)
 }

@@ -4,7 +4,7 @@
 \alias{Blaker_exact_test_1x2}
 \title{The Blaker exact test}
 \usage{
-Blaker_exact_test_1x2(X, n, pi0, printresults = TRUE)
+Blaker_exact_test_1x2(X, n, pi0)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,11 +12,11 @@ Blaker_exact_test_1x2(X, n, pi0, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{pi0}{a given probability}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
-The two-sided p-value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Blaker exact test for the binomial probability (pi)
@@ -24,17 +24,11 @@ H_0: pi = pi0  vs  H_A: pi ~= pi0 (two-sided)
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
-
-# The number of 1st order male births (Singh et al. 2010)
-Blaker_exact_test_1x2(X = 250, n = 533, pi0 = 0.513)
-# The number of 2nd order male births (Singh et al. 2010)
-Blaker_exact_test_1x2(X = 204, n = 412, pi0 = 0.513)
-# The number of 3rd order male births (Singh et al. 2010)
-Blaker_exact_test_1x2(X = 103, n = 167, pi0 = 0.513)
-# The number of 4th order male births (Singh et al. 2010)
-Blaker_exact_test_1x2(X = 33, n = 45, pi0 = 0.513)
-# Ligarden et al. (2010)
-Blaker_exact_test_1x2(X = 13, n = 16, pi0 = 0.5)
+Blaker_exact_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
+Blaker_exact_test_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"], pi0 = 0.513)
+Blaker_exact_test_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"], pi0 = 0.513)
+Blaker_exact_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = 0.513)
+Blaker_exact_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 }
 \references{
 Blaker H (2000) Confidence curves and improved exact

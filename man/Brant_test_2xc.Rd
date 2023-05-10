@@ -4,15 +4,15 @@
 \alias{Brant_test_2xc}
 \title{The Brant test for the proportional odds assumption}
 \usage{
-Brant_test_2xc(n, printresults = TRUE)
+Brant_test_2xc(n)
 }
 \arguments{
 \item{n}{the observed table (a 2xc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A data frame containing the probability, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Brant test for the proportional odds assumption
@@ -20,12 +20,6 @@ The Brant test for the proportional odds assumption
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-# The Adolescent Placement Study (Fontanella et al., 2008)
-n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-Brant_test_2xc(n)
-
-# Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-Brant_test_2xc(n)
-
+Brant_test_2xc(fontanella_2008)
+Brant_test_2xc(lydersen_2012a)
 }

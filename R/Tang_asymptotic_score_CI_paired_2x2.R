@@ -3,21 +3,22 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
-#' n <- rbind(c(1, 1), c(7, 12))
-#' Tang_asymptotic_score_CI_paired_2x2(n)
+#' Tang_asymptotic_score_CI_paired_2x2(bentur_2009)
 #'
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
-#' n <- rbind(c(59, 6), c(16, 80))
-#' Tang_asymptotic_score_CI_paired_2x2(n)
+#' Tang_asymptotic_score_CI_paired_2x2(cavo_2012)
 #'
 #' @export
-#' @return A list containing lower, upper and point estimates of the statistic
-Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   # Define global variables that are needed in the functions below
 
   n11 <- n[1, 1]
@@ -50,18 +51,23 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = 
     U <- uniroot(calculate_upper_limit.3, c(phimin, phimax), .param = param, tol = tol)$root
   }
 
-  if (printresults) {
-    .print("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+  printresults <- function() {
+    my_sprintf_cat("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  invisible(list(L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(
+      list(L = L, U = U, estimate = estimate),
+      printresults
+    )
+  )
 }
 
 
 # ======================================
 calculate_lower_limit.3 <- function(phi0, .param) {
   z <- .param$z
-  T0 <- score_test_statistic.3(phi0, .param)
+  T0 <- score_test_statistic_3(phi0, .param)
   f <- T0 - z
   return(f)
 }
@@ -70,14 +76,14 @@ calculate_lower_limit.3 <- function(phi0, .param) {
 # ======================================
 calculate_upper_limit.3 <- function(phi0, .param) {
   z <- .param$z
-  T0 <- score_test_statistic.3(phi0, .param)
+  T0 <- score_test_statistic_3(phi0, .param)
   f <- T0 + z
   return(f)
 }
 
 
 # =====================================
-score_test_statistic.3 <- function(phi0, .param) {
+score_test_statistic_3 <- function(phi0, .param) {
   n11 <- .param$n11
   n12 <- .param$n12
   n21 <- .param$n21
@@ -100,8 +106,4 @@ ML_estimate.3 <- function(phi0, .param) {
   C <- n21 * (1 - phi0) * (n11 + n12 + n21) / N
   p21tilde <- (-B + sqrt(B^2 - 4 * A * C)) / (2 * A)
   return(p21tilde)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

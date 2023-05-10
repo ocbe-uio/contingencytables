@@ -2,14 +2,14 @@
 #' @description The Bhapkar test for marginal homogeneity
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
-#' @return A list containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-#' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-#' Bhapkar_test_paired_cxc(n)
+#' Bhapkar_test_paired_cxc(peterson_2007)
 #' @export
-Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
+Bhapkar_test_paired_cxc <- function(n) {
+  validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)
@@ -19,14 +19,7 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
   d <- nip[1:(c - 1)] - npi[1:(c - 1)]
 
   if (sum(d) == 0) {
-    P <- 1
-    T0 <- 0
-    df <- c - 1
-    if (printresults) {
-      .print("No differences between the marginal sums\n")
-      .print("P = 1.0\n")
-    }
-    return()
+    return(cat("No differences between the marginal sums\nP = 1.0"))
   }
 
   # Form the sample covariance matrix
@@ -43,29 +36,24 @@ Bhapkar_test_paired_cxc <- function(n, printresults = TRUE) {
   # The Bhapkar test statistic
   T0 <- sum(d * solve(Sigmahat, d))
   if (is.na(T0)) {
-    P <- 1
-    df <- c - 1
-    if (printresults) {
-      .print("The Bhapkar test statistic is not computable\n")
-      .print("P = 1.0\n")
-      print(d)
-      print(Sigmahat)
-    }
-    return()
+    return(cat("The Bhapkar test statistic is not computable\nP = 1.0"))
   }
 
   # Reference distribution: chi-squared with c-1 degrees of freedom
   df <- c - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    .print("The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
+  # Output
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df = %g)",
+      P, T0, df
+    )
   }
-
-  invisible(list(P = P, T = T0, df = df))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
+    )
+  )
 }

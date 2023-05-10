@@ -4,15 +4,15 @@
 \alias{Z_unpooled_test_2x2}
 \title{The Z-unpooled test for association in 2x2 tables}
 \usage{
-Z_unpooled_test_2x2(n, printresults = TRUE)
+Z_unpooled_test_2x2(n)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A vector containing the two-sided p-value and the unpooled Z statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Z-unpooled test for association in 2x2 tables
@@ -21,19 +21,15 @@ Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
 # Example: A lady tasting a cup of tea
-n <- rbind(c(3, 1), c(1, 3))
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(tea)
 
 # Example: Perondi et al. (2004)
-n <- rbind(c(7, 27), c(1, 33))
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(perondi_2004)
 
 # Example: Lampasona et al. (2013)
-n <- rbind(c(9, 4), c(4, 10))
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(lampasona_2013)
 
 # Example: Ritland et al. (2007)
-n <- rbind(c(0, 16), c(15, 57))
-Z_unpooled_test_2x2(n)
+Z_unpooled_test_2x2(ritland_2007)
 
 }

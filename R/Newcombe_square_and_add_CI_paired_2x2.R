@@ -3,21 +3,22 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
-#' n <- rbind(c(1, 1), c(7, 12))
-#' Newcombe_square_and_add_CI_paired_2x2(n)
+#' Newcombe_square_and_add_CI_paired_2x2(bentur_2009)
 #'
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
-#' n <- matrix(c(59, 6, 16, 80), 2, byrow = TRUE)
-#' Newcombe_square_and_add_CI_paired_2x2(n)
+#' Newcombe_square_and_add_CI_paired_2x2(cavo_2012)
 #'
 #' @export
-#' @return A list containing lower, upper and point estimates of the statistic
-Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)
   N <- sum(n)
@@ -28,10 +29,10 @@ Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05, printresults 
   estimate <- pi1phat - pip1hat
 
   # Calculate the Wilson score interval for each success probability
-  tmp <- Wilson_score_CI_1x2(nip[1], N, alpha, printresults = FALSE)
+  tmp <- Wilson_score_CI_1x2(nip[1], N, alpha)
   l1 <- tmp[[1]]
   u1 <- tmp[[2]]
-  tmp <- Wilson_score_CI_1x2(npi[1], N, alpha, printresults = FALSE)
+  tmp <- Wilson_score_CI_1x2(npi[1], N, alpha)
   l2 <- tmp[[1]]
   u2 <- tmp[[2]]
 
@@ -54,13 +55,10 @@ Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05, printresults 
   L <- estimate - sqrt((pi1phat - l1)^2 + (u2 - pip1hat)^2 - 2 * psi * (pi1phat - l1) * (u2 - pip1hat))
   U <- estimate + sqrt((pip1hat - l2)^2 + (u1 - pi1phat)^2 - 2 * psi * (pip1hat - l2) * (u1 - pi1phat))
 
-  if (printresults) {
-    .print("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)\n", estimate, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(L = L, U = U, estimate = estimate))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(
+    contingencytables_result(
+      list(L = L, U = U, estimate = estimate),
+      sprintf("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)", estimate, 100 * (1 - alpha), L, U)
+    )
+  )
 }

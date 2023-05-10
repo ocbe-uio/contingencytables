@@ -3,10 +3,11 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' the_1xc_table_CIs(n = c(276, 380, 118))
+#' the_1xc_table_CIs(n = snp6498169$complete$n)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return NULL. This function should be called for its printed output
 the_1xc_table_CIs <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
 
   # ======================================================== #
   # Ad-hoc function to print output                          #
@@ -22,10 +23,10 @@ the_1xc_table_CIs <- function(n, alpha = 0.05) {
   myprint("Interval method                 Simultaneous CIs     width")
   myprint("----------------------------------------------------------")
 
-  res1 <- Gold_Wald_CIs_1xc(n, alpha, printresults = FALSE)
-  res2 <- Goodman_Wald_CIs_1xc(n, alpha, printresults = FALSE)
-  res3 <- QuesenberryHurst_Wilson_score_CIs_1xc(n, alpha, printresults = FALSE)
-  res4 <- Goodman_Wilson_score_CIs_1xc(n, alpha, printresults = FALSE)
+  res1 <- Gold_Wald_CIs_1xc(n, alpha)
+  res2 <- Goodman_Wald_CIs_1xc(n, alpha)
+  res3 <- QuesenberryHurst_Wilson_score_CIs_1xc(n, alpha)
+  res4 <- Goodman_Wilson_score_CIs_1xc(n, alpha)
   for (i in 1:c0) {
     myprint("Estimate of pi_%i: %6.4f", i, res1$estimate[i])
     myprint(
@@ -46,6 +47,6 @@ the_1xc_table_CIs <- function(n, alpha = 0.05) {
     )
   }
   myprint("----------------------------------------------------------")
-
-  Goodman_Wald_CIs_for_diffs_1xc(n, alpha, "Bonferroni")
+  print(Goodman_Wald_CIs_for_diffs_1xc(n, alpha, "Bonferroni"))
+  invisible(NULL)
 }

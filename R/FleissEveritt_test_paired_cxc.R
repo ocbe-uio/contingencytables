@@ -2,14 +2,14 @@
 #' @description The Fleiss-Everitt version of the Stuart test for marginal homogeneity
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # From Table 13.6, page 382, of Fleiss et al. (2003)
-#' n <- rbind(c(35, 5, 0), c(15, 20, 5), c(10, 5, 5))
-#' FleissEveritt_test_paired_cxc(n)
+#' FleissEveritt_test_paired_cxc(fleiss_2003)
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
-FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+FleissEveritt_test_paired_cxc <- function(n) {
+  validateArguments(mget(ls()))
   # This is the version with c=3 categories
   c <- nrow(n)
   nip <- apply(n, 1, sum)
@@ -19,10 +19,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
     P <- NA
     T <- NA
     df <- NA
-    if (printresults) {
-      .print("This method can only be used for c=3 categories\n")
-    }
-    return()
+    stop("This method can only be used for c=3 categories")
   }
 
   # Compute the differences between the marginal sums
@@ -31,11 +28,7 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
     P <- 1
     T0 <- 0
     df <- c - 1
-    if (printresults) {
-      .print("No differences between the marginal sums\n")
-      .print("P = 1.0\n")
-    }
-    return()
+    stop("No differences between the marginal sums\nP = 1.0")
   }
 
   n23 <- (n[2, 3] + n[3, 2]) / 2
@@ -49,13 +42,13 @@ FleissEveritt_test_paired_cxc <- function(n, printresults = TRUE) {
   df <- 2
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    .print("The Fleiss-Everitt version of the Stuart test: P = %8.6f, T = %6.3f (df=%g)\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
+      sprintf(
+        "The Fleiss-Everitt version of the Stuart test: P = %8.6f, T = %6.3f (df=%g)",
+        P, T0, df
+      )
+    )
+  )
 }

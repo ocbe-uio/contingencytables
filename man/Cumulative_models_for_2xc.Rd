@@ -4,12 +4,7 @@
 \alias{Cumulative_models_for_2xc}
 \title{Cumulative logit and probit models}
 \usage{
-Cumulative_models_for_2xc(
-  n,
-  linkfunction = "logit",
-  alpha = 0.05,
-  printresults = TRUE
-)
+Cumulative_models_for_2xc(n, linkfunction = "logit", alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2xc matrix)}
@@ -17,13 +12,11 @@ Cumulative_models_for_2xc(
 \item{linkfunction}{either "logit" or "probit"}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
-A list containing the results of statistical tests for the
-goodness-of-fit of a proportional odds model, the effect in a proportional
-odds model and the effect parameter beta in the proportional odds model.
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Cumulative logit and probit models
@@ -31,12 +24,6 @@ Cumulative logit and probit models
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-# The Adolescent Placement Study (Fontanella et al., 2008)
-n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-Cumulative_models_for_2xc(n)
-
-# Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-Cumulative_models_for_2xc(n)
-
+Cumulative_models_for_2xc(fontanella_2008)
+Cumulative_models_for_2xc(lydersen_2012a)
 }

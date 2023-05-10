@@ -12,19 +12,17 @@ the_2x2_table_CIs_ratio(n, alpha = 0.05)
 \item{alpha}{type I error}
 }
 \value{
-A string of "-". This function should be called for its printed output
+NULL. This function should be called for its printed output
 }
 \description{
-Wrapper for \code{_CI_2x2} functions on Chapter 4.
+Wrapper for \verb{_CI_2x2} functions on Chapter 4.
 }
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-n <- matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE)
-the_2x2_table_CIs_ratio(n)
+the_2x2_table_CIs_ratio(perondi_2004)
 
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
-the_2x2_table_CIs_ratio(n)
+the_2x2_table_CIs_ratio(ritland_2007)
 
 }
 \seealso{

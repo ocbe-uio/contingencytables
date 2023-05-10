@@ -4,17 +4,17 @@
 \alias{Bonferroni_type_CIs_rxc}
 \title{The Bonferroni-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j}
 \usage{
-Bonferroni_type_CIs_rxc(n, alpha = 0.05, printresults = TRUE)
+Bonferroni_type_CIs_rxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 vector)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Bonferroni-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
@@ -22,7 +22,5 @@ The Bonferroni-type simultaneous confidence intervals for the differences pi_1|i
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-# Example: Treatment for ear infection
-n <- rbind(c(40, 25), c(54, 7), c(63, 10))
-Bonferroni_type_CIs_rxc(n)
+Bonferroni_type_CIs_rxc(table_7.3)
 }

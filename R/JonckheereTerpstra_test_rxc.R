@@ -2,30 +2,17 @@
 #' @description The Jonckheere-Terpstra test for association
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed table (an rxc matrix)
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' # Colorectal cancer (Table 7.7)
-#' n <- rbind(
-#'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-#' )
-#' JonckheereTerpstra_test_rxc(n)
-#'
-#' # Breast Tumor (Table 7.8)
-#' n <- matrix(
-#'   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-#'   ncol = 5, byrow = TRUE
-#' )
-#' JonckheereTerpstra_test_rxc(n)
-#'
-#' # Self-rated health (Table 7.9)
-#' n <- matrix(
-#'   c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-#'   ncol = 4, byrow = TRUE
-#' )
-#' JonckheereTerpstra_test_rxc(n)
+#' JonckheereTerpstra_test_rxc(table_7.7)
+#' JonckheereTerpstra_test_rxc(table_7.8)
+#' JonckheereTerpstra_test_rxc(table_7.9)
 #' @export
-#' @return a list containing the standard normalized Jonckheere-Terpstra test statistic
-JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+JonckheereTerpstra_test_rxc <- function(n) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
 
@@ -79,9 +66,10 @@ JonckheereTerpstra_test_rxc <- function(n, printresults = TRUE) {
   Z <- (T0 - ExpT) / sqrt(VarT)
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-  if (printresults) {
-    print(sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z), quote = FALSE)
-  }
-
-  invisible(list(P = P, Z = Z))
+  return(
+    contingencytables_result(
+      list(P = P, Z = Z),
+      sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z)
+    )
+  )
 }

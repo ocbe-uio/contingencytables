@@ -3,21 +3,22 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Airway hyper-responsiveness before and after stem cell transplantation
 #' # (Bentur et al., 2009)
-#' n <- rbind(c(1, 1), c(7, 12))
-#' Tango_asymptotic_score_CI_paired_2x2(n)
+#' Tango_asymptotic_score_CI_paired_2x2(bentur_2009)
 #'
 #' # Complete response before and after consolidation therapy
 #' # (Cavo et al., 2012)
-#' n <- rbind(c(59, 6), c(16, 80))
-#' Tango_asymptotic_score_CI_paired_2x2(n)
+#' Tango_asymptotic_score_CI_paired_2x2(cavo_2012)
 #'
 #' @export
-#' @return A list containing lower, upper and point estimates of the statistic
-Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   n12 <- n[1, 2]
   n21 <- n[2, 1]
   N <- sum(n)
@@ -43,11 +44,13 @@ Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05, printresults =
     U <- uniroot(calculate_upper_limit.4, c(-1 + tol, 1 - tol), .param = param, tol = tol)$root
   }
 
-  if (printresults) {
-    .print("Tango asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
+  printresults <- function() {
+    my_sprintf_cat("Tango asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  invisible(list(L = L, U = U, estimate = estimate))
+  return(
+    contingencytables_result(list(L = L, U = U, estimate = estimate), printresults)
+  )
 }
 
 
@@ -90,8 +93,4 @@ ML_estimate.4 <- function(delta0, .param) {
   C <- -n21 * delta0 * (1 - delta0)
   p21tilde <- (sqrt(B^2 - 4 * A * C) - B) / (2 * A)
   return(p21tilde)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

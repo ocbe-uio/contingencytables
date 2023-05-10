@@ -2,16 +2,15 @@
 #' @description The Fisher-Freeman-Halton asymptotic test for unordered rxc tables
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Treatment for ear infection (van Balen et al., 2003)
-#' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
-#' FisherFreemanHalton_asymptotic_test_rxc(n)
-#'
+#' FisherFreemanHalton_asymptotic_test_rxc(table_7.3)
 #' @note May not give results for all tables, due to overflow
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
-FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+FisherFreemanHalton_asymptotic_test_rxc <- function(n) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)
@@ -32,11 +31,15 @@ FisherFreemanHalton_asymptotic_test_rxc <- function(n, printresults = TRUE) {
   df <- (r - 1) * (c - 1)
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    .print("\nFisher-Freeman-Halton asymptotic test: P = %6.4f, T = %5.3f (df=%g)\n\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
+  return(
+    contingencytables_result(
+      list("P" = P, "T" = T0, "df" = df),
+      sprintf(
+        "Fisher-Freeman-Halton asymptotic test: P = %6.4f, T = %5.3f (df=%g)",
+        P, T0, df
+      )
+    )
+  )
 }
 
 multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
@@ -68,8 +71,4 @@ multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
     }
   }
   return(f)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

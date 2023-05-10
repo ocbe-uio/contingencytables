@@ -4,17 +4,17 @@
 \alias{Pearson_LR_tests_cum_OR_2xc}
 \title{The Pearson chi-squared and likelihood ratio tests for cumulative ORs in 2xc tables}
 \usage{
-Pearson_LR_tests_cum_OR_2xc(n, direction = "decreasing", printresults = TRUE)
+Pearson_LR_tests_cum_OR_2xc(n, direction = "decreasing")
 }
 \arguments{
 \item{n}{the observed counts (a 2xc matrix)}
 
 \item{direction}{the direction of column probabilities ("increasing" or "decreasing")}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
-A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for cumulative ORs in 2xc tables
@@ -23,6 +23,5 @@ Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
 # Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-Pearson_LR_tests_cum_OR_2xc(n)
+Pearson_LR_tests_cum_OR_2xc(lydersen_2012a)
 }

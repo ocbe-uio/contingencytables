@@ -4,26 +4,27 @@
 \alias{Wald_CI_2x2}
 \title{The Wald confidence interval for the difference between probabilities}
 \usage{
-Wald_CI_2x2(n, alpha = 0.05, printresults = TRUE)
+Wald_CI_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
-The Wald confidence interval for the difference between probabilities
+The Wald confidence interval for the difference between
+probabilities
 
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
-Wald_CI_2x2(n = matrix(c(7, 27, 1, 33), nrow = 2, byrow = TRUE))
+Wald_CI_2x2(n = perondi_2004)
 # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-Wald_CI_2x2(n = matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE))
+Wald_CI_2x2(n = ritland_2007)
 }

@@ -4,7 +4,7 @@
 \alias{CochranArmitage_CI_rx2}
 \title{The Cochran-Armitage confidence interval for trend in the linear model}
 \usage{
-CochranArmitage_CI_rx2(n, a, alpha = 0.05, printresults = TRUE)
+CochranArmitage_CI_rx2(n, a, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
@@ -12,11 +12,11 @@ CochranArmitage_CI_rx2(n, a, alpha = 0.05, printresults = TRUE)
 \item{a}{scores assigned to the rows}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results}
 }
 \value{
-A vector containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Cochran-Armitage confidence interval for trend in the linear model
@@ -24,14 +24,6 @@ The Cochran-Armitage confidence interval for trend in the linear model
 Described in Chapter 5 "The Ordered rx2 Table"
 }
 \examples{
-# Alcohol consumption and malformations (Mills and Graubard, 1987)
-n <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-a <- c(1, 2, 3, 4, 5)
-CochranArmitage_CI_rx2(n, a)
-
-# Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
-a <- c(1, 2, 3, 4, 5)
-CochranArmitage_CI_rx2(n, a)
-
+CochranArmitage_CI_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
+CochranArmitage_CI_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 }

@@ -2,29 +2,27 @@
 % Please edit documentation in R/Transformed_Wilson_score_CI_paired_2x2.R
 \name{Transformed_Wilson_score_CI_paired_2x2}
 \alias{Transformed_Wilson_score_CI_paired_2x2}
-\title{The Transformed Wilson score confidence interval for the conditional odds ratio}
+\title{The Transformed Wilson score confidence interval for the conditional
+odds ratio}
 \usage{
-Transformed_Wilson_score_CI_paired_2x2(n, alpha = 0.05, printresults = TRUE)
+Transformed_Wilson_score_CI_paired_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
-The Transformed Wilson score confidence interval for the conditional odds ratio
+The Transformed Wilson score confidence interval for the
+conditional odds ratio
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }
 \examples{
-
-# Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-n <- rbind(c(7, 25), c(2, 68))
-Transformed_Wilson_score_CI_paired_2x2(n)
-
+Transformed_Wilson_score_CI_paired_2x2(ezra_2010)
 }

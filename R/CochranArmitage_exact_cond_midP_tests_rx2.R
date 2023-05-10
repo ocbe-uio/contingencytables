@@ -3,23 +3,17 @@
 #' @description Described in Chapter 5 "The Ordered rx2 Table"
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
-#' @param printresults display results
 #' @examples
 #' \dontrun{
-#' # Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' n <- rbind(c(48, 17066), c(38, 14464), c(5, 788), c(1, 126), c(1, 37))
-#' a <- c(1, 2, 3, 4, 5)
-#' CochranArmitage_exact_cond_midP_tests_rx2(n, a)
+#' CochranArmitage_exact_cond_midP_tests_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' }
-#'
-#' # Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' n <- rbind(c(8, 53), c(10, 48), c(11, 100), c(22, 102), c(6, 129))
-#' a <- c(1, 2, 3, 4, 5)
-#' CochranArmitage_exact_cond_midP_tests_rx2(n, a)
-#'
+#' CochranArmitage_exact_cond_midP_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-#' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
-CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   N <- sum(n)
@@ -53,11 +47,10 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a, printresults = TRUE)
   P <- 2 * one_sided_P
   midP <- 2 * (one_sided_P - 0.5 * point_prob)
 
-  if (printresults) {
-    print(sprintf("Cochran-Armitage exact cond. test: P = %7.5f", P))
-    print(sprintf("Cochran-Armitage mid-P test:   mid-P = %7.5f", midP))
+  # Output
+  printresults <- function() {
+    my_sprintf_cat("Cochran-Armitage exact cond. test: P = %7.5f", P)
+    my_sprintf_cat("Cochran-Armitage mid-P test:   mid-P = %7.5f", midP)
   }
-
-  res <- data.frame(P = P, midP = midP)
-  invisible(res)
+  return(contingencytables_result(list(P = P, midP = midP), printresults))
 }

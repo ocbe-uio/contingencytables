@@ -3,23 +3,10 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Airway hyper-responsiveness before and after stem cell transplantation
-#' # (Bentur et al., 2009)
-#' n <- rbind(c(1, 1), c(7, 12))
-#' McNemar_exact_unconditional_test_paired_2x2(n)
-#'
-#' \dontrun{
-#' # Complete response before and after consolidation therapy
-#' # (Cavo et al., 2012)
-#' n <- rbind(c(59, 6), c(16, 80))
-#' McNemar_exact_unconditional_test_paired_2x2(n)
-#' }
-#'
-#' # Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-#' n <- rbind(c(7, 25), c(2, 68))
-#' McNemar_exact_unconditional_test_paired_2x2(n)
+#' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
+#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
+#' \dontrun{McNemar_exact_unconditional_test_paired_2x2(ezra_2010)}
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
@@ -29,8 +16,12 @@
 #' the precision. A refinement of the maximization can be done with a manual
 #' restriction of the parameter space.
 #' @importFrom graphics segments
-#' @return The T version of the test statistic (not the Z one)
-McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
+  validateArguments(mget(ls()))
+
   # Partition the parameter space into 'num_pi_values' equally spaced values
   num_pi_values <- 1000
 
@@ -65,9 +56,9 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
   } else {
     # Berger and Boos procedure
     # Use the Clopper-Pearson exact interval
-    tmp <- ClopperPearson_exact_CI_1x2_beta_version(n[1, 2] + n[2, 1], N, gamma, FALSE)
-    L <- tmp[[1]]
-    U <- tmp[[2]]
+    tmp <- ClopperPearson_exact_CI_1x2_beta_version(n[1, 2] + n[2, 1], N, gamma)
+    L <- tmp$lower
+    U <- tmp$upper
     pivalues <- seq(L, U, length = num_pi_values)
   }
 
@@ -98,12 +89,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, print
     segments(common_pi_at_max_value, 0, common_pi_at_max_value, P, col = "red", lty = 2)
   }
 
-
-  if (printresults) {
-    .print("The McNemar exact unconditional test: P = %8.6f\n", P)
-  }
-
-  invisible(P)
+  return(contingencytables_result(list("P" = P), sprintf("The McNemar exact unconditional test: P = %8.6f", P)))
 }
 
 
@@ -127,8 +113,4 @@ test_statistic.2 <- function(x12, x21) {
   # This is the T version of the statistic, not the Z version
   T0 <- ((x12 - x21)^2) / (x12 + x21)
   return(T0)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

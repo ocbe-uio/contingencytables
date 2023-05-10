@@ -4,17 +4,17 @@
 \alias{QuesenberryHurst_Wilson_score_CIs_1xc}
 \title{The Quesenberry-Hurst Wilson score simultaneous intervals for the multinomial probabilities}
 \usage{
-QuesenberryHurst_Wilson_score_CIs_1xc(n, alpha = 0.05, printresults = TRUE)
+QuesenberryHurst_Wilson_score_CIs_1xc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Quesenberry-Hurst Wilson score simultaneous intervals for the multinomial probabilities
@@ -25,5 +25,5 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
 # Genotype counts for SNP rs 6498169 in RA patients
-QuesenberryHurst_Wilson_score_CIs_1xc(n = c(276, 380, 118))
+QuesenberryHurst_Wilson_score_CIs_1xc(n = snp6498169$complete$n)
 }

@@ -14,20 +14,11 @@ the_paired_cxc_table_ordinal(n, a, alpha = 0.05)
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
 }
 \value{
-A string containing the last line of the printed text. This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The Paired CxC table - ordinal
 }
 \examples{
-# Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- rbind(
-  c(1, 0, 1, 0, 0),
-  c(0, 2, 8, 4, 4),
-  c(1, 1, 31, 14, 11),
-  c(1, 0, 15, 9, 12),
-  c(0, 0, 2, 1, 3)
-)
-a <- c(8, 3.5, 0, -3.5, -8)
-the_paired_cxc_table_ordinal(n, a)
+the_paired_cxc_table_ordinal(fischer_1999, c(8, 3.5, 0, -3.5, -8))
 }

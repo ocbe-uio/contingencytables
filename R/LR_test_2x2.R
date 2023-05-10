@@ -2,19 +2,18 @@
 #' @description The likelihood ratio test for association in 2x2 tables
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' n <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-#' LR_test_2x2(n)
-#' n <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-#' LR_test_2x2(n)
-#' n <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-#' LR_test_2x2(n)
-#' n <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-#' LR_test_2x2(n)
+#' LR_test_2x2(tea)
+#' LR_test_2x2(perondi_2004)
+#' LR_test_2x2(lampasona_2013)
+#' LR_test_2x2(ritland_2007)
 #' @export
-#' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
-LR_test_2x2 <- function(n, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+LR_test_2x2 <- function(n) {
+  validateArguments(mget(ls()))
+
   # The estimated expected counts
   N <- sum(n)
   m <- outer(apply(n, 1, sum), apply(n, 2, sum)) / N
@@ -39,16 +38,10 @@ LR_test_2x2 <- function(n, printresults = TRUE) {
     P <- 1.0
   }
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P,
-        T0, df
-      ),
-      quote = FALSE
+  return(
+    contingencytables_result(
+      list("p.value" = P, "statistic" = T0, "df" = df),
+      sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
-  }
-
-  res <- data.frame(p.value = P, statistic = T0, df = df)
-  invisible(res)
+  )
 }

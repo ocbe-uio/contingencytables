@@ -2,20 +2,16 @@
 #' @description The Brant test for the proportional odds assumption
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed table (a 2xc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom stats binomial glm predict
-#' @return A data frame containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-#' Brant_test_2xc(n)
-#'
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' Brant_test_2xc(n)
-#'
+#' Brant_test_2xc(fontanella_2008)
+#' Brant_test_2xc(lydersen_2012a)
 #' @export
-Brant_test_2xc <- function(n, printresults = TRUE) {
+Brant_test_2xc <- function(n) {
+  validateArguments(mget(ls()))
   # Note that this function only works for 2xc tables (not for rxc tables)
   r0 <- nrow(n)
   c0 <- ncol(n)
@@ -90,9 +86,16 @@ Brant_test_2xc <- function(n, printresults = TRUE) {
   df <- c0 - 2
   P0 <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(sprintf("Brant test: T = %6.3f, df = %g, P = %7.5f", T0, df, P0), quote = FALSE)
+  # Output
+  printresults <- function() {
+    my_sprintf_cat(
+      "Brant test: P = %7.6f, T = %5.3f (df = %g)", P0, T0, df
+    )
   }
-
-  invisible(data.frame(P = P0, T = T0, df = df))
+  return(
+    contingencytables_result(
+      list("pvalue" = P0, "T" = T0, "df" = df),
+      printresults
+    )
+  )
 }

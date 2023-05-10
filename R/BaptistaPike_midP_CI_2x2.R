@@ -3,19 +3,17 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (F = no, T = yes)
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#' n1 <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-#' n2 <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-#' n3 <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-#' n4 <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-#' BaptistaPike_midP_CI_2x2(n1)
-#' BaptistaPike_midP_CI_2x2(n2)
-#' BaptistaPike_midP_CI_2x2(n3)
-#' BaptistaPike_midP_CI_2x2(n4)
+#' BaptistaPike_midP_CI_2x2(tea)
+#' BaptistaPike_midP_CI_2x2(perondi_2004)
+#' BaptistaPike_midP_CI_2x2(lampasona_2013)
+#' BaptistaPike_midP_CI_2x2(ritland_2007)
 #' @export
-BaptistaPike_midP_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+BaptistaPike_midP_CI_2x2 <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
   # global n11 n1p n2p np1 alphaglobal
   n11 <- n[1, 1]
   n1p <- n[1, 1] + n[1, 2]
@@ -67,18 +65,20 @@ BaptistaPike_midP_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
     )$root
   }
 
-  if (printresults) {
-    print(
-      sprintf(
-        "Baptista-Pike mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), L, U
-      ),
-      quote = FALSE
+  # Output
+  printresults <- function() {
+    my_sprintf_cat(
+      "Baptista-Pike mid-P CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
     )
   }
 
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = estimate),
+      printresults
+    )
+  )
 }
 
 # ==================================

@@ -5,22 +5,25 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (0 = no, 1 = yes)
 #' @importFrom stats pnorm
 #' @examples
 #' # The number of 1st order male births (Singh et al. 2010, adapted)
-#' Score_test_1x2(X = 250, n = 533, pi0 = .5)
+#' Score_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = .5)
 #' # The number of 2nd order male births (Singh et al. 2010, adapted)
-#' Score_test_1x2(X = 204, n = 412, pi0 = .5)
+#' Score_test_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"], pi0 = .5)
 #' # The number of 3rd order male births (Singh et al. 2010, adapted)
-#' Score_test_1x2(X = 103, n = 167, pi0 = .5)
+#' Score_test_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"], pi0 = .5)
 #' # The number of 4th order male births (Singh et al. 2010, adapted)
-#' Score_test_1x2(X = 33, n = 45, pi0 = .5)
+#' Score_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = .5)
 #' # Ligarden et al. (2010, adapted)
-#' Score_test_1x2(X = 13, n = 16, pi0 = .5)
+#' Score_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
-#' @return A vector containing the two-sided p-value and the score test statistic
-Score_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Score_test_1x2 <- function(X, n, pi0) {
+  validateArguments(mget(ls()))
+
   # Estimate of the binomial probability (pihat)
   estimate <- X / n
 
@@ -33,14 +36,10 @@ Score_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-  if (printresults) {
-    print(
-      sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z),
-      quote = FALSE
+  return(
+    contingencytables_result(
+      list("p.value" = P, "statistic" = Z),
+      sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z)
     )
-  }
-
-  res <- c(P, Z)
-  names(res) <- c("p.value", "statistic")
-  invisible(res)
+  )
 }

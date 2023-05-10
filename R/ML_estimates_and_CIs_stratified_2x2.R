@@ -4,28 +4,21 @@
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
 #' @param link the link function ('linear', 'log', or 'logit')
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Smoking and lung cancer (Doll and Hill, 1950)
-#' n <- array(dim = c(2, 2, 2))
-#' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
-#' n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
-#' ML_estimates_and_CIs_stratified_2x2(n)
+#' ML_estimates_and_CIs_stratified_2x2(doll_hill_1950)
 #'
 #' # Prophylactice use of Lidocaine in myocardial infarction (Hine et al., 1989)
-#' n <- array(0, dim = c(2, 2, 6))
-#' n[, , 1] <- rbind(c(2, 37), c(1, 42))
-#' n[, , 2] <- rbind(c(4, 40), c(4, 40))
-#' n[, , 3] <- rbind(c(6, 101), c(4, 106))
-#' n[, , 4] <- rbind(c(7, 96), c(5, 95))
-#' n[, , 5] <- rbind(c(7, 103), c(3, 103))
-#' n[, , 6] <- rbind(c(11, 143), c(4, 142))
-#' ML_estimates_and_CIs_stratified_2x2(n)
+#' ML_estimates_and_CIs_stratified_2x2(hine_1989)
 #'
 #' @export
 #' @importFrom stats coef
-#' @return A list containing the maximum likelihood estimates
-ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   N <- sum(n)
   K <- dim(n)[3]
   if (identical(link, "linear")) {
@@ -79,25 +72,20 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05, p
   results$betahat <- as.vector(alphaandbetahat[2])
   results$betahatSE <- as.vector(stats.se[2])
   results$betahatCI <- as.vector(c(L[2], U[2]))
-  results$gammahat <- as.vector(alphaandbetahat[-c(1:2)])
-  results$gammahatSE <- as.vector(stats.se[-c(1:2)])
-  results$gammahatCI <- cbind(L[-c(1:2)], U[-c(1:2)])
+  results$gammahat <- as.vector(alphaandbetahat[-c(1, 2)])
+  results$gammahatSE <- as.vector(stats.se[-c(1, 2)])
+  results$gammahatCI <- cbind(L[-c(1, 2)], U[-c(1, 2)])
   rownames(results$gammahatCI) <- rep("", nrow(results$gammahatCI))
   results$pihat <- pihat
 
-  if (printresults) {
-    .print("Maximum likelihood estimates:\n")
-    .print("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
-    .print("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
+  printresults <- function() {
+    my_sprintf_cat("Maximum likelihood estimates:\n")
+    my_sprintf_cat("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
+    my_sprintf_cat("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
     for (k in 2:K) {
-      .print("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
+      my_sprintf_cat("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
     }
   }
 
-  invisible(results)
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(contingencytables_result(results, printresults))
 }

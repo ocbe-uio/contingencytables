@@ -15,3 +15,6 @@ This package provides functions that accompany the "Statistical Analysis of Cont
 \item https://www.routledge.com/Statistical-Analysis-of-Contingency-Tables/Fagerland-Lydersen-Laake/p/book/9781466588172
 }
 }
+\seealso{
+\link{print.contingencytables_result} to read about printing alternatives.
+}

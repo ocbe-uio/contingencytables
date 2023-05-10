@@ -10,24 +10,19 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @param printresults display results (F = no, T = yes)
-#' @return The two-sided mid-P value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#'
-#' # Example: The number of 1st order male births (Singh et al. 2010)
-#' Blaker_midP_test_1x2(X = 250, n = 533, pi0 = 0.513)
-#' # Example: The number of 2nd order male births (Singh et al. 2010)
-#' Blaker_midP_test_1x2(X = 204, n = 412, pi0 = 0.513)
-#' # Example: The number of 3rd order male births (Singh et al. 2010)
-#' Blaker_midP_test_1x2(X = 103, n = 167, pi0 = 0.513)
-#' # Example: The number of 4th order male births (Singh et al. 2010)
-#' Blaker_midP_test_1x2(X = 33, n = 45, pi0 = 0.513)
-#' # Example: Ligarden et al. (2010)
-#' Blaker_midP_test_1x2(X = 13, n = 16, pi0 = 0.5)
+#' Blaker_midP_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
+#' Blaker_midP_test_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"], pi0 = 0.513)
+#' Blaker_midP_test_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"], pi0 = 0.513)
+#' Blaker_midP_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = 0.513)
+#' Blaker_midP_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.5)
 #' @export
 
-Blaker_midP_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
-
+Blaker_midP_test_1x2 <- function(X, n, pi0) {
+  validateArguments(mget(ls()))
   # Calculate the two-sided mid-P value
   Pvalues <- dbinom(0:n, n, pi0)
   gammaobs <- min(sum(Pvalues[(X + 1):(n + 1)]), sum(Pvalues[1:(X + 1)]))
@@ -41,12 +36,9 @@ Blaker_midP_test_1x2 <- function(X, n, pi0, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(
-      sprintf("The Blaker mid-P test: P = %7.5f", midP),
-      quote = FALSE
-    )
+  # Output
+  printresults <- function() {
+    my_sprintf_cat("The Blaker mid-P test: P = %7.5f", midP)
   }
-
-  invisible(midP)
+  return(contingencytables_result(list(midP = midP), printresults))
 }

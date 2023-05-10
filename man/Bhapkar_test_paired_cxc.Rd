@@ -4,15 +4,15 @@
 \alias{Bhapkar_test_paired_cxc}
 \title{The Bhapkar test for marginal homogeneity}
 \usage{
-Bhapkar_test_paired_cxc(n, printresults = TRUE)
+Bhapkar_test_paired_cxc(n)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing the probability, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Bhapkar test for marginal homogeneity
@@ -20,7 +20,5 @@ The Bhapkar test for marginal homogeneity
 Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
-# Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-Bhapkar_test_paired_cxc(n)
+Bhapkar_test_paired_cxc(peterson_2007)
 }

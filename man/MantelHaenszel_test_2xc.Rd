@@ -4,17 +4,17 @@
 \alias{MantelHaenszel_test_2xc}
 \title{The Mantel-Haenszel test of association with column scores}
 \usage{
-MantelHaenszel_test_2xc(n, b = 0, printresults = TRUE)
+MantelHaenszel_test_2xc(n, b = 0)
 }
 \arguments{
 \item{n}{the observed counts (a 2xc matrix)}
 
 \item{b}{scores assigned to the columns (if b=0, midranks will be used as scores)}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
-A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Mantel-Haenszel test of association with column scores
@@ -22,8 +22,5 @@ The Mantel-Haenszel test of association with column scores
 Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
-# Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-MantelHaenszel_test_2xc(n)
-b <- 0
+MantelHaenszel_test_2xc(lydersen_2012a)
 }

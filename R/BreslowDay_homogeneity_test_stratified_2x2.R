@@ -3,27 +3,15 @@
 #' @description Tarone correction
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
-#' @param printresults display results (FALSE = no, TRUE = yes)
-#' @return A list containing lower bound, upper bound and differences of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#' # Smoking and lung cancer (Doll and Hill, 1950)
-#' n <- array(dim = c(2, 2, 2))
-#' n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
-#' n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
-#' BreslowDay_homogeneity_test_stratified_2x2(n)
-#'
-#' # Prophylactice use of Lidocaine in myocardial infarction (Hine et al., 1989)
-#' n <- array(0, dim = c(2, 2, 6))
-#' n[, , 1] <- rbind(c(2, 37), c(1, 42))
-#' n[, , 2] <- rbind(c(4, 40), c(4, 40))
-#' n[, , 3] <- rbind(c(6, 101), c(4, 106))
-#' n[, , 4] <- rbind(c(7, 96), c(5, 95))
-#' n[, , 5] <- rbind(c(7, 103), c(3, 103))
-#' n[, , 6] <- rbind(c(11, 143), c(4, 142))
-#' BreslowDay_homogeneity_test_stratified_2x2(n)
-#'
+#' BreslowDay_homogeneity_test_stratified_2x2(doll_hill_1950)
+#' BreslowDay_homogeneity_test_stratified_2x2(hine_1989)
 #' @export
-BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
+BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
+  validateArguments(mget(ls()))
   n11k <- n[1, 1, ]
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)
@@ -31,7 +19,7 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   K <- dim(n)[3]
 
   # Get the Mantel-Haenszel overall estimate
-  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit", FALSE)[[1]]
+  thetahatMH <- MantelHaenszel_estimate_stratified_2x2(n, "logit")[[1]]
 
   # Find the expected cell counts in cell [1, 1] in each stratum (m11k) by
   # solving a quadratic equation
@@ -60,14 +48,16 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n, printresults = TRUE) {
   df <- K - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    .print("The Breslow-Day test: P = %7.5f, T0 = %5.3f (df = %i)\n", P, T0, df)
+  # Output
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Breslow-Day test: P = %7.6f, T0 = %5.3f (df = %g)\n", P, T0, df
+    )
   }
-
-  invisible(list(P = P, T = T0, df = df))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
+    )
+  )
 }

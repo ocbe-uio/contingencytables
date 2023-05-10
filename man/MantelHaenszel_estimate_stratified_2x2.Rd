@@ -4,17 +4,17 @@
 \alias{MantelHaenszel_estimate_stratified_2x2}
 \title{The Mantel-Haenszel estimate of the overall effect across strata}
 \usage{
-MantelHaenszel_estimate_stratified_2x2(n, link = "logit", printresults = TRUE)
+MantelHaenszel_estimate_stratified_2x2(n, link = "logit")
 }
 \arguments{
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 
 \item{link}{the link function ('linear', 'log', or 'logit')}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-a list respectively containing the inverse variance estimate of the overall effect (\code{estimate}), the stratum-specific effect estimates (\code{psihat}) and the weights (\code{w}).
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Mantel-Haenszel estimate of the overall effect across strata
@@ -22,20 +22,6 @@ The Mantel-Haenszel estimate of the overall effect across strata
 Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 }
 \examples{
-# Smoking and lung cancer (Doll and Hill, 1950)
-n <- array(dim = c(2, 2, 2))
-n[, , 1] <- matrix(c(647, 622, 2, 27), 2, byrow = TRUE)
-n[, , 2] <- matrix(c(41, 28, 19, 32), 2, byrow = TRUE)
-MantelHaenszel_estimate_stratified_2x2(n)
-
-# Prophylactice use of Lidocaine in myocardial infarction (Hine et al., 1989)
-n <- array(0, dim = c(2, 2, 6))
-n[, , 1] <- rbind(c(2, 37), c(1, 42))
-n[, , 2] <- rbind(c(4, 40), c(4, 40))
-n[, , 3] <- rbind(c(6, 101), c(4, 106))
-n[, , 4] <- rbind(c(7, 96), c(5, 95))
-n[, , 5] <- rbind(c(7, 103), c(3, 103))
-n[, , 6] <- rbind(c(11, 143), c(4, 142))
-MantelHaenszel_estimate_stratified_2x2(n)
-
+MantelHaenszel_estimate_stratified_2x2(doll_hill_1950)
+MantelHaenszel_estimate_stratified_2x2(hine_1989)
 }

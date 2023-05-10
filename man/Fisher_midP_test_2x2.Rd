@@ -4,17 +4,17 @@
 \alias{Fisher_midP_test_2x2}
 \title{The Fisher mid-P test for association in 2x2 tables}
 \usage{
-Fisher_midP_test_2x2(n, statistic = "hypergeometric", printresults = TRUE)
+Fisher_midP_test_2x2(n, statistic = "hypergeometric")
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
 
 \item{statistic}{'hypergeometric' (i.e. Fisher-Irwin default), 'Pearson', or 'LR' (likelihood ratio)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-probability value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Fisher mid-P test for association in 2x2 tables
@@ -22,12 +22,8 @@ The Fisher mid-P test for association in 2x2 tables
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-n <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-Fisher_midP_test_2x2(n)
-n <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-Fisher_midP_test_2x2(n)
-n <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-Fisher_midP_test_2x2(n)
-n <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-Fisher_midP_test_2x2(n)
+Fisher_midP_test_2x2(tea)
+Fisher_midP_test_2x2(perondi_2004)
+Fisher_midP_test_2x2(lampasona_2013)
+Fisher_midP_test_2x2(ritland_2007)
 }

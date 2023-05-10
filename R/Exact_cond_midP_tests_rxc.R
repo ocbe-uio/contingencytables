@@ -4,20 +4,19 @@
 #' linear-by-linear, and Jonckheere-Terpstra tests.
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # Treatment for ear infection (Table 7.3)
-#' n <- rbind(c(40, 25), c(54, 7), c(63, 10))
-#' Exact_cond_midP_tests_rxc(n)
-#' # Low birth weight vs psychiatric morbitidy (Table 7.6)
+#' Exact_cond_midP_tests_rxc(table_7.3)  # a 3x2 table
 #' \dontrun{
-#' n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
-#' Exact_cond_midP_tests_rxc(n)
+#'   Exact_cond_midP_tests_rxc(table_7.6) # a 3x3 table
 #' }
 #' @export
-#' @note  Works only for 3x2 and 3x3 tables
-#' @return A list containing exact p-values and mid-p values
-Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
+#' @note Works only for 3x2 and 3x3 tables
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Exact_cond_midP_tests_rxc <- function(n) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)
@@ -101,22 +100,21 @@ Exact_cond_midP_tests_rxc <- function(n, printresults = TRUE) {
   results$P_JT <- P_JT
   results$midP_JT <- midP_JT
 
-  if (printresults) {
-    .print("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
-    .print("Mid-P Fisher-Freeman-Halton: P = %9.7f\n\n", midP_FFH)
-    .print("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
-    .print("Mid-P Pearson statistic:     P = %9.7f\n\n", midP_Pearson)
-    .print("Exact LR statistic:          P = %9.7f\n", P_LR)
-    .print("Mid-P LR statistic:          P = %9.7f\n\n", midP_LR)
-    .print("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
-    .print("Mid-P Kruskal-Wallis:        P = %9.7f\n\n", midP_KW)
-    .print("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
-    .print("Mid-P linear-by-linear:      P = %9.7f\n\n", midP_lbl)
-    .print("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
-    .print("Mid-P Jonckheere-Terpstra:   P = %9.7f\n\n", midP_JT)
+  print_fun <- function() {
+    my_sprintf_cat("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
+    my_sprintf_cat("Mid-P Fisher-Freeman-Halton: P = %9.7f\n", midP_FFH)
+    my_sprintf_cat("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
+    my_sprintf_cat("Mid-P Pearson statistic:     P = %9.7f\n", midP_Pearson)
+    my_sprintf_cat("Exact LR statistic:          P = %9.7f\n", P_LR)
+    my_sprintf_cat("Mid-P LR statistic:          P = %9.7f\n", midP_LR)
+    my_sprintf_cat("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
+    my_sprintf_cat("Mid-P Kruskal-Wallis:        P = %9.7f\n", midP_KW)
+    my_sprintf_cat("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
+    my_sprintf_cat("Mid-P linear-by-linear:      P = %9.7f\n", midP_lbl)
+    my_sprintf_cat("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
+    my_sprintf_cat("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
   }
-
-  invisible(results)
+  return(contingencytables_result(results, print_fun))
 }
 
 find_possible_tables_3x2 <- function(nip, npj) {
@@ -283,8 +281,4 @@ multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
     }
   }
   return(f)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

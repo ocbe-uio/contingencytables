@@ -4,17 +4,17 @@
 \alias{Exact_multinomial_test_1xc}
 \title{The exact multinomial test for multinomial probabilities}
 \usage{
-Exact_multinomial_test_1xc(n, pi0, printresults = TRUE)
+Exact_multinomial_test_1xc(n, pi0)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
 
 \item{pi0}{given probabilities (a 1xc vector)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-probability value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The exact multinomial test for multinomial probabilities
@@ -23,9 +23,8 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
 # Genotype counts for SNP rs 6498169 in RA patients
-\dontrun{
-Exact_multinomial_test_1xc(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119))
-}
+Exact_multinomial_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
+
 # subset of 10 patients
-Exact_multinomial_test_1xc(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+Exact_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 }

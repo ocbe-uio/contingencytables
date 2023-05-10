@@ -4,17 +4,17 @@
 \alias{Independence_smoothed_logit_CI_2x2}
 \title{The Independence-smoothed logit confidence interval for the odds ratio}
 \usage{
-Independence_smoothed_logit_CI_2x2(n, alpha = 0.05, printresults = TRUE)
+Independence_smoothed_logit_CI_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Independence-smoothed logit confidence interval for the odds ratio
@@ -22,10 +22,6 @@ The Independence-smoothed logit confidence interval for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-# A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-n <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
-Independence_smoothed_logit_CI_2x2(n)
-# The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
-Independence_smoothed_logit_CI_2x2(n)
+Independence_smoothed_logit_CI_2x2(lampasona_2013)
+Independence_smoothed_logit_CI_2x2(ritland_2007)
 }

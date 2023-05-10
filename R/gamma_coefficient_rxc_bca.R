@@ -4,33 +4,20 @@
 #' @param n the observed table (an rxc matrix)
 #' @param nboot number of bootstrap samples
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @importFrom boot boot boot.ci
 #' @examples
+#' set.seed(9623)
+#' gamma_coefficient_rxc_bca(table_7.7, nboot = 800)
+#' gamma_coefficient_rxc_bca(table_7.8, nboot = 200)
 #' \dontrun{
-#' # Colorectal cancer (Table 7.7)
-#' n <- rbind(
-#'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-#' )
-#' gamma_coefficient_rxc_bca(n)
-#'
-#' # Breast Tumor (Table 7.8)
-#' n <- matrix(
-#'   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-#'   ncol = 5, byrow = TRUE
-#' )
-#' gamma_coefficient_rxc_bca(n)
-#'
-#' # Self-rated health (Table 7.9)
-#' n <- matrix(
-#'   c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-#'   ncol = 4, byrow = TRUE
-#' )
-#' gamma_coefficient_rxc_bca(n)
+#'   gamma_coefficient_rxc_bca(table_7.9, nboot = 3000, alpha = 0.2)
 #' }
 #' @export
-#' @return a list with the gamma coefficient and the confidence interval limits
-gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   c <- ncol(n)
   N <- sum(n)
@@ -52,7 +39,7 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresul
   }
 
   # The estimate
-  gamma <- gamma_coefficient_rxc(n, 0)$gamma
+  gamma <- gamma_coefficient_rxc(n)$gamma
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -61,11 +48,14 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresul
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  if (printresults) {
-    .print("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)\n", gamma, 100 * (1 - alpha), L, U)
-  }
-
-  invisible(list(gamma = gamma, L = L, U = U))
+  return(
+    contingencytables_result(
+      list(gamma = gamma, L = L, U = U),
+      sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)",
+        gamma, 100 * (1 - alpha), L, U
+      )
+    )
+  )
 }
 
 f.gcrb <- function(dat, d) {
@@ -75,10 +65,6 @@ f.gcrb <- function(dat, d) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  res <- gamma_coefficient_rxc(n, printresults = FALSE)
+  res <- gamma_coefficient_rxc(n)
   return(res$gamma)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
 }

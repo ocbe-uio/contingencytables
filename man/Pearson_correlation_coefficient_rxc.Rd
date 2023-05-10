@@ -8,8 +8,7 @@ Pearson_correlation_coefficient_rxc(
   n,
   a = seq_len(nrow(n)),
   b = seq_len(ncol(n)),
-  alpha = 0.05,
-  printresults = TRUE
+  alpha = 0.05
 )
 }
 \arguments{
@@ -20,11 +19,11 @@ Pearson_correlation_coefficient_rxc(
 \item{b}{scores assigned to the columns}
 
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha) confidence interval}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
-A list containing the statistic and the confindence interval limits
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson correlation coefficient
@@ -32,25 +31,7 @@ The Pearson correlation coefficient
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-# Colorectal cancer (Table 7.7)
-n <- rbind(
-  c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-)
-Pearson_correlation_coefficient_rxc(n)
-\dontrun{
-# Breast Tumor (Table 7.8)
-n <- matrix(
-  c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-  ncol = 5, byrow = TRUE
-)
-Pearson_correlation_coefficient_rxc(n)
-
-# Self-rated health (Table 7.9)
-n <- matrix(
-  c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-  ncol = 4, byrow = TRUE
-)
-Pearson_correlation_coefficient_rxc(n)
-}
-
+  Pearson_correlation_coefficient_rxc(table_7.7)
+  Pearson_correlation_coefficient_rxc(table_7.8)
+  Pearson_correlation_coefficient_rxc(table_7.9)
 }

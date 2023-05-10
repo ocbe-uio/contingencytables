@@ -4,22 +4,18 @@
 \alias{Score_test_for_effect_in_the_probit_model_2xc}
 \title{Score test for effect in the cumulative probit model}
 \usage{
-Score_test_for_effect_in_the_probit_model_2xc(
-  n,
-  alphahat0,
-  printresults = TRUE
-)
+Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
 }
 \arguments{
 \item{n}{the observed counts (a 2xc matrix)}
 
 \item{alphahat0}{a column vector with c-1 estimated coefficients
 (\code{alpha_j}) under the null hypothesis (\code{beta = 0})}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A list containing the probability, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The score test for effect in the cumulative probit model
@@ -33,13 +29,11 @@ Stata.
 }
 \examples{
 # The Adolescent Placement Study (Fontanella et al., 2008)
-n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
 alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
-Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
+Score_test_for_effect_in_the_probit_model_2xc(fontanella_2008, alphahat0)
 
 # Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
 alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
-Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
+Score_test_for_effect_in_the_probit_model_2xc(lydersen_2012a, alphahat0)
 
 }

@@ -3,21 +3,15 @@
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed table (a 2xc matrix)
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' \dontrun{
-#' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-#' Exact_cond_midP_linear_rank_tests_2xc(n)
-#' }
-#'
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' Exact_cond_midP_linear_rank_tests_2xc(n)
-#'
+#' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
+#' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 #' @export
-#' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
-Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
+  validateArguments(mget(ls()))
   c0 <- ncol(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
@@ -60,10 +54,11 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0, printresults = TRUE)
   P <- 2 * one_sided_P
   midP <- 2 * (one_sided_P - 0.5 * point_prob)
 
-  if (printresults) {
-    .print("Exact cond. linear rank test: P = %7.5f\n", P)
-    .print("Mid-P linear rank test:   mid-P = %7.5f\n", midP)
+  # Output
+  printresults <- function() {
+    my_sprintf_cat("Exact cond. linear rank test: P = %7.5f\n", P)
+    my_sprintf_cat("Mid-P linear rank test:   mid-P = %7.5f\n", midP)
   }
 
-  invisible(data.frame(P = P, midP = midP))
+  return(contingencytables_result(list("P" = P, "midP" = midP), printresults))
 }

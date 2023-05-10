@@ -4,15 +4,15 @@
 \alias{Exact_cond_midP_tests_rxc}
 \title{Exact conditional and mid-P tests for the rxc table}
 \usage{
-Exact_cond_midP_tests_rxc(n, printresults = TRUE)
+Exact_cond_midP_tests_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing exact p-values and mid-p values
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Exact conditional and mid-P tests for the rxc table:
@@ -25,12 +25,8 @@ Described in Chapter 7 "The rxc Table"
 Works only for 3x2 and 3x3 tables
 }
 \examples{
-# Treatment for ear infection (Table 7.3)
-n <- rbind(c(40, 25), c(54, 7), c(63, 10))
-Exact_cond_midP_tests_rxc(n)
-# Low birth weight vs psychiatric morbitidy (Table 7.6)
+Exact_cond_midP_tests_rxc(table_7.3)  # a 3x2 table
 \dontrun{
-n <- matrix(c(22, 4, 12, 24, 9, 10, 51, 7, 6), ncol = 3, byrow = TRUE)
-Exact_cond_midP_tests_rxc(n)
+  Exact_cond_midP_tests_rxc(table_7.6) # a 3x3 table
 }
 }

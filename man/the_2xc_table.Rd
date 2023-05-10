@@ -14,7 +14,7 @@ the_2xc_table(n, alpha = 0.05, direction = "increasing")
 \item{direction}{the direction of the success probabilities}
 }
 \value{
-A string of "-". This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The 2xc table
@@ -22,12 +22,9 @@ The 2xc table
 \examples{
 \dontrun{
 # The Adolescent Placement Study (Fontanella et al., 2008)
-n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-the_2xc_table(n)
+the_2xc_table(fontanella_2008)
 
 # Postoperative nausea (Lydersen et al., 2012a)
-n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-dir <- "decreasing"
-the_2xc_table(n, direction = dir)
+the_2xc_table(lydersen_2012a, direction = "decreasing")
 }
 }

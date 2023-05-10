@@ -2,14 +2,16 @@
 #' @description The McNemar-Bowker test for marginal symmetry
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-#' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-#' McNemarBowker_test_paired_cxc(n)
+#' McNemarBowker_test_paired_cxc(peterson_2007)
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
-McNemarBowker_test_paired_cxc <- function(n, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+McNemarBowker_test_paired_cxc <- function(n) {
+  validateArguments(mget(ls()))
+
   c <- nrow(n)
 
   # The McNemar-Bowker test statistic
@@ -26,14 +28,10 @@ McNemarBowker_test_paired_cxc <- function(n, printresults = TRUE) {
   df <- c * (c - 1) / 2
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    .print("The McNemar-Bowker test for symmetry: P = %8.6f, T0 = %6.3f (df=%g)\n", P, T0, df)
-  }
-
-  invisible(list(P = P, T = T0, df = df))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
+      sprintf("The McNemar-Bowker test for symmetry: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)
+    )
+  )
 }

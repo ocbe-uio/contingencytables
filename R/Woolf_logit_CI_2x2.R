@@ -3,19 +3,21 @@
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
 #' @examples
-#' # A case-control study of GADA exposure on IPEX syndrome (Lampasona et al., 2013):
-#' n <- matrix(c(9, 4, 4, 10), nrow = 2, byrow = TRUE)
-#' Woolf_logit_CI_2x2(n)
+#' # A case-control study of GADA exposure on IPEX syndrome
+#' # (Lampasona et al., 2013):
+#' Woolf_logit_CI_2x2(lampasona_2013)
 #'
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007):
-#' n <- matrix(c(0, 16, 15, 57), nrow = 2, byrow = TRUE)
-#' Woolf_logit_CI_2x2(n)
+#' Woolf_logit_CI_2x2(ritland_2007)
 #'
 #' @export
-#' @return A vector containing lower, upper and point estimates of the statistic
-Woolf_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Woolf_logit_CI_2x2 <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   # Estimate of the odds ratio (thetahat)
   estimate <- n[1, 1] * n[2, 2] / (n[1, 2] * n[2, 1])
 
@@ -35,13 +37,13 @@ Woolf_logit_CI_2x2 <- function(n, alpha = 0.05, printresults = TRUE) {
     U <- Inf
   }
 
-  if (printresults) {
-    print(sprintf(
+  printresults <- function() {
+    sprintf(
       "The Woolf logit CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
       estimate, 100 * (1 - alpha), L, U
-    ), quote = FALSE)
+    )
   }
 
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
-  invisible(res)
+  res <- list(lower = L, upper = U, estimate = estimate)
+  return(contingencytables_result(res, printresults))
 }

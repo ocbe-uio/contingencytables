@@ -5,21 +5,21 @@
 #' variable with `c` possible outcomes have a natural ordering. The test
 #' statistic is asymptotically chi-squared distributed.
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
-#' @param printresults display results (F = no, T = yes)
-#' @return A data frame containing the two-sided p-value, the statistic and the
-#' degrees of freedom.
-#' @examples
-#' # Hypothetical experiment
-#' Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @references
 #' Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.
 #' Sankhyā: The Indian Journal of Statistics, Series B, 185-190.
 #'
 #' Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of Contingency
 #' Tables. Chapman & Hall/CRC, Boca Raton, FL.
+#' @examples
+#' Chacko_test_1xc(hypothetical)
 #' @export
 #' @importFrom stats weighted.mean
-Chacko_test_1xc <- function(n, printresults = TRUE) {
+Chacko_test_1xc <- function(n) {
+  validateArguments(mget(ls()))
   inclination <- sum(diff(n))
   # The ordering process (Chacko, 1966)
   c <- length(n)
@@ -58,15 +58,15 @@ Chacko_test_1xc <- function(n, printresults = TRUE) {
     )
   }
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The Chacko test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df
-      ),
-      quote = FALSE
-    )
+  # Output
+  printresults <- function() {
+    my_sprintf_cat("The Chacko test: P = %7.6f, T = %5.3f (df = %g)", P, T0, df)
   }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
+    )
+  )
 
-  res <- data.frame(P = P, T = T0, df = df)
-  invisible(res)
 }

@@ -3,31 +3,33 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param pi0 given probabilities (a 1xc vector)
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' \dontrun{
-#' MidP_multinomial_test_1xc(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119))
-#' }
+#' MidP_multinomial_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
+#'
 #' # subset of 10 patients
-#' MidP_multinomial_test_1xc(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+#' MidP_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
-#' @return probability value
-MidP_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+MidP_multinomial_test_1xc <- function(n, pi0) {
+  validateArguments(mget(ls()))
+
   c0 <- length(n)
   N <- sum(n)
 
   # Identify all possible tables with N observations (with 3,4,...,7 categories)
   if (c0 == 3) {
-    x <- all.tables3(N)
+    x <- all_tables_3(N)
   } else if (c0 == 4) {
-    x <- all.tables4(N)
+    x <- all_tables_4(N)
   } else if (c0 == 5) {
-    x <- all.tables5(N)
+    x <- all_tables_5(N)
   } else if (c0 == 6) {
-    x <- all.tables6(N)
+    x <- all_tables_6(N)
   } else if (c0 == 7) {
-    x <- all.tables7(N)
+    x <- all_tables_7(N)
   }
 
   P <- 0
@@ -41,85 +43,9 @@ MidP_multinomial_test_1xc <- function(n, pi0, printresults = TRUE) {
     }
   }
 
-  if (printresults) {
-    print(sprintf("The mid-P multinomial test: P = %7.5f", P), quote = FALSE)
-  }
-
-  invisible(P)
-}
-
-
-# =========================
-all.tables3 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      x <- rbind(x, c(x1, x2, N - x1 - x2))
-    }
-  }
-  return(x)
-}
-
-# =========================
-all.tables4 <- function(N) {
-  x <- vector()
-  for (x1 in (0:N)) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        x <- rbind(x, c(x1, x2, x3, N - x1 - x2 - x3))
-      }
-    }
-  }
-  return(x)
-}
-
-# =========================
-all.tables5 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          x <- rbind(x, c(x1, x2, x3, x4, N - x1 - x2 - x3 - x4))
-        }
-      }
-    }
-  }
-}
-
-# =========================
-all.tables6 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          for (x5 in 0:(N - x1 - x2 - x3 - x4)) {
-            x <- rbind(x, c(x1, x2, x3, x4, x5, N - x1 - x2 - x3 - x4 - x5))
-          }
-        }
-      }
-    }
-  }
-}
-
-# =========================
-all.tables7 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          for (x5 in 0:(N - x1 - x2 - x3 - x4)) {
-            for (x6 in 0:(N - x1 - x2 - x3 - x4 - x5)) {
-              x <- rbind(
-                x,
-                c(x1, x2, x3, x4, x5, x6, N - x1 - x2 - x3 - x4 - x5 - x6)
-              )
-            }
-          }
-        }
-      }
-    }
-  }
+  return(
+    contingencytables_result(
+      list("P" = P), sprintf("The mid-P multinomial test: P = %7.5f", P)
+    )
+  )
 }

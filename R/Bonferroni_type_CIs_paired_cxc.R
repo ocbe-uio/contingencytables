@@ -3,14 +3,14 @@
 #' @description Described in Chapter 9 "The Paired kxk Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param printresults display results (FALSE = no, TRUE = yes)
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
-#' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
-#' n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-#' Bonferroni_type_CIs_paired_cxc(n)
+#' Bonferroni_type_CIs_paired_cxc(peterson_2007)
 #' @export
-Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE) {
+Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
   c <- nrow(n)
   nip <- apply(n, 1, sum)
   npi <- apply(n, 2, sum)
@@ -41,17 +41,20 @@ Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05, printresults = TRUE)
     }
   }
 
-  if (printresults) {
-    .print("Bonferroni-type simultaneous intervals\n")
+  # Output
+  printresults <- function() {
+    my_sprintf_cat("Bonferroni-type simultaneous intervals\n")
     for (i in 1:c) {
-      .print("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
+      my_sprintf_cat(
+        "  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n",
+        i, i, deltahat[i], L[i], U[i]
+      )
     }
   }
-
-  invisible(list(L = L, U = U, deltahat = deltahat))
-}
-
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, deltahat = deltahat),
+      printresults
+    )
+  )
 }

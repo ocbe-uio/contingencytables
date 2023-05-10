@@ -6,25 +6,22 @@
 #' first argument).
 #' @param n the observed counts (an rx2 matrix)
 #' @param direction the direction of the success probabilities ("increasing" or "decreasing")
-#' @param printresults display results
 #' @examples
 #' # Chapter 5: Alcohol consumption and malformations (Mills and Graubard, 1987)
-#' n <- matrix(
-#'   c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
-#'   byrow = TRUE, ncol = 2
-#' )
-#' Pearson_LR_tests_unspecific_ordering_rx2(n, "increasing")
+#' Pearson_LR_tests_unspecific_ordering_rx2(mills_graubard_1987, "increasing")
 #'
 #' # Chapter 5: Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-#' n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow = TRUE, ncol = 2)
-#' Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing")
+#' Pearson_LR_tests_unspecific_ordering_rx2(indredavik_2008, "decreasing")
 #'
 #' # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
-#' n <- t(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow = TRUE, ncol = 4))
-#' Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing")
+#' Pearson_LR_tests_unspecific_ordering_rx2(t(lydersen_2012a), "decreasing")
 #' @export
-#' @return A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
-Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
@@ -78,12 +75,12 @@ Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction, printresults 
   results$T_LR <- T_LR
   results$P_LR <- P_LR
 
-  if (printresults) {
-    print(sprintf("Pearson chi-squared test: T = %6.3f, P = %7.5f", T_Pearson, P_Pearson))
-    print(sprintf("Likelihood ratio test:    T = %6.3f, P = %7.5f", T_LR, P_LR))
+  printresults <- function() {
+    my_sprintf_cat("Pearson chi-squared test: T = %6.3f, P = %7.5f\n", T_Pearson, P_Pearson)
+    my_sprintf_cat("Likelihood ratio test:    T = %6.3f, P = %7.5f", T_LR, P_LR)
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }
 
 # ========================

@@ -4,12 +4,7 @@
 \alias{Exact_unconditional_test_2x2}
 \title{Exact unconditional test for association in 2x2 tables}
 \usage{
-Exact_unconditional_test_2x2(
-  n,
-  statistic = "Pearson",
-  gamma = 1e-04,
-  printresults = TRUE
-)
+Exact_unconditional_test_2x2(n, statistic = "Pearson", gamma = 1e-04)
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
@@ -18,11 +13,11 @@ Exact_unconditional_test_2x2(
 ' unpooled' (unpooled Z), or 'Fisher' (Fisher-Boschloo test)}
 
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001 gamma=0: no adj)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-Fisher's exact test statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Exact unconditional test for association in 2x2 tables
@@ -39,12 +34,8 @@ to get an indication of the precision. A refinement of the maximization
 can be done with a manual restriction of the parameter space.
 }
 \examples{
-n <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-Exact_unconditional_test_2x2(n)
-n <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-Exact_unconditional_test_2x2(n)
-n <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-Exact_unconditional_test_2x2(n)
-n <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-Exact_unconditional_test_2x2(n)
+Exact_unconditional_test_2x2(tea)
+Exact_unconditional_test_2x2(perondi_2004)
+Exact_unconditional_test_2x2(lampasona_2013)
+Exact_unconditional_test_2x2(ritland_2007)
 }

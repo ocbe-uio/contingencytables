@@ -3,15 +3,15 @@
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed counts (a 2xc matrix)
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' MantelHaenszel_test_2xc(n)
-#' b <- 0
+#' MantelHaenszel_test_2xc(lydersen_2012a)
 #' @export
-#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
-MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+MantelHaenszel_test_2xc <- function(n, b = 0) {
+  validateArguments(mget(ls()))
+
   c <- ncol(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
@@ -37,15 +37,13 @@ MantelHaenszel_test_2xc <- function(n, b = 0, printresults = TRUE) {
   df <- 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(
+  return(
+    contingencytables_result(
+      list(P = P, T = T0, df = df),
       sprintf(
         "Mantel-Haenszel test of association: P = %6.4f, T = %5.3f (df=%g)",
         P, T0, df
-      ),
-      quote = FALSE
+      )
     )
-  }
-
-  invisible(data.frame(P = P, T = T0, df = df))
+  )
 }

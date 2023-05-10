@@ -4,15 +4,15 @@
 \alias{Pearson_LR_tests_rxc}
 \title{The Pearson chi-squared and likelihood ratio tests for association in rxc tables}
 \usage{
-Pearson_LR_tests_rxc(n, printresults = TRUE)
+Pearson_LR_tests_rxc(n)
 }
 \arguments{
 \item{n}{the observed counts (an rxc matrix)}
-
-\item{printresults}{display results}
 }
 \value{
-A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for association in rxc tables
@@ -22,51 +22,27 @@ Described in Chapter 7 "The rxc Table"
 \examples{
 # Examples from Chapter 5 (ordered rx2 tables)
 
-
 ## Alcohol consumption and malformations (Mills and Graubard, 1987):
-
-n <- matrix(
-  c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
-  byrow = TRUE, ncol = 2
-)
-Pearson_LR_tests_rxc(n)
+Pearson_LR_tests_rxc(mills_graubard_1987)
 
 ## Elevated troponin T levels in stroke patients (Indredavik et al., 2008):
-
-n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow = TRUE, ncol = 2)
-Pearson_LR_tests_rxc(n)
-
+Pearson_LR_tests_rxc(indredavik_2008)
 
 # Examples from Chapter 6 (ordered 2xc tables)
 ## The Adolescent Placement Study (Fontanella et al., 2008):
-
-n <- matrix(c(8, 28, 72, 126, 46, 73, 69, 86), byrow = TRUE, ncol = 4)
-Pearson_LR_tests_rxc(n)
+Pearson_LR_tests_rxc(fontanella_2008)
 
 ## Postoperative nausea (Lydersen et al., 2012a):
-
-n <- matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow = TRUE, ncol = 4)
-Pearson_LR_tests_rxc(n)
-
+Pearson_LR_tests_rxc(lydersen_2012a)
 
 # Examples from Chapter 7 (unordered rxc tables)
 
 ## Treatment for ear infection (van Balen et al., 2003):
-
-n <- matrix(c(40, 25, 54, 7, 63, 10), byrow = TRUE, ncol = 2)
-Pearson_LR_tests_rxc(n)
+Pearson_LR_tests_rxc(table_7.3)
 
 ## Psychiatric diagnoses vs PA (Mangerud et al., 2004):
-n <- matrix(
-  c(62, 21, 97, 48, 10, 12, 30, 7, 132, 78, 34, 17),
-  byrow = TRUE, ncol = 2
-)
-Pearson_LR_tests_rxc(n)
+Pearson_LR_tests_rxc(table_7.4)
 
 ## Psychiatric diag. vs BMI (Mangerud et al., 2004):
-n <- matrix(
-  c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
-  byrow = TRUE, ncol = 3
-)
-Pearson_LR_tests_rxc(n)
+Pearson_LR_tests_rxc(table_7.5)
 }

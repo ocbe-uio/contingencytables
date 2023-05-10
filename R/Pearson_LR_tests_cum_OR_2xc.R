@@ -3,14 +3,15 @@
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
 #' @param n the observed counts (a 2xc matrix)
 #' @param direction the direction of column probabilities ("increasing" or "decreasing")
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' Pearson_LR_tests_cum_OR_2xc(n)
+#' Pearson_LR_tests_cum_OR_2xc(lydersen_2012a)
 #' @export
-#' @return A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
-Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing") {
+  validateArguments(mget(ls()))
 
   # Swap the order of the two rows if probabilities are increasing
   if (identical(direction, "increasing")) {
@@ -78,12 +79,12 @@ Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing", printresult
   results$T_LR <- T_LR
   results$P_LR <- P_LR
 
-  if (printresults) {
-    print(sprintf("Pearson chi-squared test: T = %6.3f,  P = %7.5f", T_Pearson, P_Pearson), quote = FALSE)
-    print(sprintf("Likelihood ratio test:    T = %6.3f,  P = %7.5f", T_LR, P_LR), quote = FALSE)
+  printresults <- function() {
+    my_sprintf_cat("Pearson chi-squared test: T = %6.3f,  P = %7.5f\n", T_Pearson, P_Pearson)
+    my_sprintf_cat("Likelihood ratio test:    T = %6.3f,  P = %7.5f", T_LR, P_LR)
   }
 
-  invisible(results)
+  return(contingencytables_result(results, printresults))
 }
 
 # ========================

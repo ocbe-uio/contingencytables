@@ -3,6 +3,6 @@ aux
 LICENSE
 Rprof.out
 README.md
-NEWS.md
 ^cran-comments\.md$
 .gitignore
+logo

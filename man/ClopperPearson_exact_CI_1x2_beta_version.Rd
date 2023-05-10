@@ -4,12 +4,7 @@
 \alias{ClopperPearson_exact_CI_1x2_beta_version}
 \title{The Clopper-Pearson exact confidence interval for the binomial probability (beta version)}
 \usage{
-ClopperPearson_exact_CI_1x2_beta_version(
-  X,
-  n,
-  alpha = 0.05,
-  printresults = TRUE
-)
+ClopperPearson_exact_CI_1x2_beta_version(X, n, alpha = 0.05)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -17,11 +12,11 @@ ClopperPearson_exact_CI_1x2_beta_version(
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Clopper-Pearson exact confidence interval for the binomial probability
@@ -31,16 +26,11 @@ The Clopper-Pearson exact confidence interval for the binomial probability
 Described in Chapter 2 "The 1x2 Table and the Binomial Distribution"
 }
 \examples{
-# The number of 1st order male births (Singh et al. 2010)
-ClopperPearson_exact_CI_1x2_beta_version(X = 250, n = 533)
-# The number of 2nd order male births (Singh et al. 2010)
-ClopperPearson_exact_CI_1x2_beta_version(X = 204, n = 412)
-# The number of 3rd order male births (Singh et al. 2010)
-ClopperPearson_exact_CI_1x2_beta_version(X = 103, n = 167)
-# The number of 4th order male births (Singh et al. 2010)
-ClopperPearson_exact_CI_1x2_beta_version(X = 33, n = 45)
-# Ligarden et al. (2010)
-ClopperPearson_exact_CI_1x2_beta_version(X = 13, n = 16)
+ClopperPearson_exact_CI_1x2_beta_version(singh_2010["1st", "X"], singh_2010["1st", "n"])
+ClopperPearson_exact_CI_1x2_beta_version(singh_2010["2nd", "X"], singh_2010["2nd", "n"])
+ClopperPearson_exact_CI_1x2_beta_version(singh_2010["3rd", "X"], singh_2010["3rd", "n"])
+with(singh_2010["4th", ], ClopperPearson_exact_CI_1x2_beta_version(X, n)) # alternative syntax
+ClopperPearson_exact_CI_1x2_beta_version(ligarden_2010["X"], ligarden_2010["n"])
 }
 \references{
 Brown LD, Cai T, DasGupta A (2001) Interval estimation for a

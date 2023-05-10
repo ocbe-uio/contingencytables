@@ -4,23 +4,17 @@
 #' @param  n the observed table (a 2xc matrix)
 #' @param  linkfunction either "logit" or "probit"
 #' @param  alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @param  printresults display results (0 = no, 1 = yes)
 #' @importFrom MASS polr
 #' @importFrom stats binomial glm predict
 #' @examples
-#' # The Adolescent Placement Study (Fontanella et al., 2008)
-#' n <- rbind(c(8, 28, 72, 126), c(46, 73, 69, 86))
-#' Cumulative_models_for_2xc(n)
-#'
-#' # Postoperative nausea (Lydersen et al., 2012a)
-#' n <- rbind(c(14, 10, 3, 2), c(11, 7, 8, 4))
-#' Cumulative_models_for_2xc(n)
-#'
+#' Cumulative_models_for_2xc(fontanella_2008)
+#' Cumulative_models_for_2xc(lydersen_2012a)
 #' @export
-#' @return A list containing the results of statistical tests for the
-#' goodness-of-fit of a proportional odds model, the effect in a proportional
-#' odds model and the effect parameter beta in the proportional odds model.
-Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
+  validateArguments(mget(ls()))
   c0 <- ncol(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
@@ -158,38 +152,46 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05, p
   results$Wald_CI_OR <- c(exp(-Wald_CI[2]), exp(-Wald_CI[1]))
   results$Wald_CI_width <- Wald_CI_width
 
-
-  if (printresults) {
+  # Output
+  statistics <- list(
+    "linkfunction" = linkfunction,
+    "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
+    "P_D" = P_D, "D" = D, "df_D" = df_D,
+    "P_Wald" = P_Wald, "Z_Wald" = Z_Wald,
+    "P_LR" = P_LR, "T_LR" = T_LR, "df_LR" = df_LR,
+    "P_MW" = ifelse(linkfunction == "logit", P_MW, NA),
+    "Z_MW" = ifelse(linkfunction == "logit", Z_MW, NA),
+    "alpha" = alpha,
+    "betahat" = betahat, "Wald_CI" = Wald_CI, "Wald_CI_width" = Wald_CI_width,
+    "OR" = exp(-betahat),
+    "Wald_CI_OR" = c(exp(-Wald_CI[2]), exp(-Wald_CI[1]))
+  )
+  print_fun <- function() {
     if (identical(linkfunction, "logit")) {
       model <- "proportional odds"
     } else if (identical(linkfunction, "probit")) {
       model <- "probit"
     }
-    .print("\nTesting the fit of a %s model\n", model)
-    .print("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-    .print("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
-    .print("\nTesting the effect in a %s model\n", model)
-    .print("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
-    .print("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
-    if (linkfunction == "logistic") {
-      .print("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
+    my_sprintf_cat("\nTesting the fit of a %s model\n", model)
+    my_sprintf_cat("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+    my_sprintf_cat("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+    my_sprintf_cat("\nTesting the effect in a %s model\n", model)
+    my_sprintf_cat("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
+    my_sprintf_cat("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+    if (linkfunction %in% c("logistic", "logit")) {
+      my_sprintf_cat("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
     }
 
-    .print("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
-    .print("in the %s model\n", model)
-    .print("----------------------------------------------------\n")
-    .print("Interval         Estimate     Conf. int       Width\n")
-    .print("----------------------------------------------------\n")
-    .print("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
+    my_sprintf_cat("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
+    my_sprintf_cat("in the %s model\n", model)
+    my_sprintf_cat("----------------------------------------------------\n")
+    my_sprintf_cat("Interval         Estimate     Conf. int       Width\n")
+    my_sprintf_cat("----------------------------------------------------\n")
+    my_sprintf_cat("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
     if (linkfunction == "logistic") {
-      .print("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
+      my_sprintf_cat("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
     }
-    .print("----------------------------------------------------\n")
+    my_sprintf_cat("----------------------------------------------------\n")
   }
-
-  invisible(results)
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(contingencytables_result(statistics, print_fun))
 }

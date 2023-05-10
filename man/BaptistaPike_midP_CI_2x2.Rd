@@ -4,17 +4,17 @@
 \alias{BaptistaPike_midP_CI_2x2}
 \title{The Baptista-Pike mid-P confidence interval for the odds ratio}
 \usage{
-BaptistaPike_midP_CI_2x2(n, alpha = 0.05, printresults = TRUE)
+BaptistaPike_midP_CI_2x2(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Baptista-Pike mid-P confidence interval for the odds ratio
@@ -22,12 +22,8 @@ The Baptista-Pike mid-P confidence interval for the odds ratio
 Described in Chapter 4 "The 2x2 Table"
 }
 \examples{
-n1 <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-n2 <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-n3 <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-n4 <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-BaptistaPike_midP_CI_2x2(n1)
-BaptistaPike_midP_CI_2x2(n2)
-BaptistaPike_midP_CI_2x2(n3)
-BaptistaPike_midP_CI_2x2(n4)
+BaptistaPike_midP_CI_2x2(tea)
+BaptistaPike_midP_CI_2x2(perondi_2004)
+BaptistaPike_midP_CI_2x2(lampasona_2013)
+BaptistaPike_midP_CI_2x2(ritland_2007)
 }

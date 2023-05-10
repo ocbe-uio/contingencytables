@@ -2,21 +2,16 @@
 #' @description The Kruskal-Wallis asymptotic test for singly ordered rxc tables
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rxc matrix)
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
-#' # Low birth weight vs psychiatric morbitidy (Table 7.6)
-#' n <- rbind(c(22, 4, 12), c(24, 9, 10), c(51, 7, 6))
-#' KruskalWallis_asymptotic_test_rxc(n)
-#'
-#' # Psychiatric diag. vs BMI (Table 7.5)
-#' n <- matrix(
-#'   c(3, 55, 23, 8, 102, 36, 6, 14, 1, 5, 21, 12, 19, 130, 64, 7, 26, 18),
-#'   ncol = 3, byrow = TRUE
-#' )
-#' KruskalWallis_asymptotic_test_rxc(n)
+#' KruskalWallis_asymptotic_test_rxc(table_7.5)
+#' KruskalWallis_asymptotic_test_rxc(table_7.6)
 #' @export
-#' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
-KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+KruskalWallis_asymptotic_test_rxc <- function(n) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
   nip <- apply(n, 1, sum)
@@ -36,18 +31,8 @@ KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
   # The rank sum in each row
   W <- n %*% midranks
 
-  # The average rank in each row
-  if (printresults) {
-    for (i in 1:r) {
-      .print("(average rank in row %i: W_%i = %7.4f)\n", i, i, W[i] / nip[i])
-    }
-  }
-
   # Correction term for ties
   CorrectionTerm <- 1 - sum(npj^3 - npj) / (N^3 - N)
-  if (printresults) {
-    .print("(correction term for ties: C_ties = %6.4f)\n", CorrectionTerm)
-  }
 
   # The Kruskal-Wallis test statistic
   T0 <- 0
@@ -60,13 +45,13 @@ KruskalWallis_asymptotic_test_rxc <- function(n, printresults = TRUE) {
   df <- r - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    .print("\nAsymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f\n", T0, df, P)
+  printresults <- function() {
+    for (i in 1:r) {
+      my_sprintf_cat("(average rank in row %i: W_%i = %7.4f)\n", i, i, W[i] / nip[i])
+    }
+    my_sprintf_cat("(correction term for ties: C_ties = %6.4f)\n", CorrectionTerm)
+    my_sprintf_cat("Asymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f", T0, df, P)
   }
 
-  invisible(list(P = P, T = T0, df = df))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(contingencytables_result(list(P = P, T = T0, df = df), printresults))
 }

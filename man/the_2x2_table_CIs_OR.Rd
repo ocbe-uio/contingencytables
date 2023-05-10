@@ -12,26 +12,22 @@ the_2x2_table_CIs_OR(n, alpha = 0.05)
 \item{alpha}{type I error}
 }
 \value{
-A string of "-". This function should be called for its printed output
+NULL. This function should be called for its printed output
 }
 \description{
-Wrapper for \code{_CI_OR_2x2} functions on Chapter 4.
+Wrapper for \verb{_CI_OR_2x2} functions on Chapter 4.
 }
 \examples{
 # Example: A lady tasting a cup of tea
-n <- rbind(c(3, 1), c(1, 3))
-the_2x2_table_CIs_OR(n)
+the_2x2_table_CIs_OR(tea)
 
 # Example: Perondi et al. (2004)
-n <- rbind(c(7, 27), c(1, 33))
-the_2x2_table_CIs_OR(n)
+the_2x2_table_CIs_OR(perondi_2004)
 
 # Example: Lampasona et al. (2013)
-n <- rbind(c(9, 4), c(4, 10))
-the_2x2_table_CIs_OR(n)
+the_2x2_table_CIs_OR(lampasona_2013)
 
 # Example: Ritland et al. (2007)
-n <- rbind(c(0, 16), c(15, 57))
-the_2x2_table_CIs_OR(n)
+the_2x2_table_CIs_OR(ritland_2007)
 
 }

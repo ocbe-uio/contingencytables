@@ -2,20 +2,21 @@
 #' @description The Fisher mid-P test for association in 2x2 tables
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
-#' @param printresults display results (F = no, T = yes)
 #' @param statistic 'hypergeometric' (i.e. Fisher-Irwin default), 'Pearson', or 'LR' (likelihood ratio)
 #' @examples
-#' n <- rbind(c(3, 1), c(1, 3)) # Example: A lady tasting a cup of tea
-#' Fisher_midP_test_2x2(n)
-#' n <- rbind(c(7, 27), c(1, 33)) # Example: Perondi et al. (2004)
-#' Fisher_midP_test_2x2(n)
-#' n <- rbind(c(9, 4), c(4, 10)) # Example: Lampasona et al. (2013)
-#' Fisher_midP_test_2x2(n)
-#' n <- rbind(c(0, 16), c(15, 57)) # Example: Ritland et al. (2007)
-#' Fisher_midP_test_2x2(n)
+#' Fisher_midP_test_2x2(tea)
+#' Fisher_midP_test_2x2(perondi_2004)
+#' Fisher_midP_test_2x2(lampasona_2013)
+#' Fisher_midP_test_2x2(ritland_2007)
 #' @export
-#' @return probability value
-Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric", printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
+  validateArguments(
+    x = mget(ls()),
+    types = list(n = "counts", statistic = c("Pearson", "hypergeometric", "LR"))
+  )
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
   np1 <- n[1, 1] + n[2, 1]
@@ -43,26 +44,14 @@ Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric", printresults =
   # Two-sided P-value
   P <- sum(fvalues[Tvalues > Tobs]) + 0.5 * sum(fvalues[Tvalues == Tobs])
 
-  if (printresults) {
-    if (statistic == "hypergeometric") {
-      print(
-        sprintf("The Fisher mid-P test (Fisher-Irwin): P = %7.5f", P),
-        quote = FALSE
-      )
-    } else if (statistic == "Pearson") {
-      print(
-        sprintf("The Fisher mid-P test (Pearson): P = %7.5f", P),
-        quote = FALSE
-      )
-    } else if (statistic == "LR") {
-      print(
-        sprintf("The Fisher mid-P test (LR): P = %7.5f", P),
-        quote = FALSE
-      )
-    }
-  }
+  txt <- switch(
+    statistic,
+    "hypergeometric" = "The Fisher mid-P test (Fisher-Irwin): P = %7.5f",
+    "Pearson" = "The Fisher mid-P test (Pearson): P = %7.5f",
+    "LR" = "The Fisher mid-P test (LR): P = %7.5f"
+  )
 
-  invisible(P)
+  return(contingencytables_result(list("P" = P), sprintf(txt, P)))
 }
 
 # ========================================================

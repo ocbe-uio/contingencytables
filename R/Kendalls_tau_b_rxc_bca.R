@@ -4,32 +4,20 @@
 #' @param n the observed table (an rxc matrix)
 #' @param nboot number of bootstrap samples
 #' @param alpha the nominal significance level, used to compute a 100(1-alpha) confidence interval
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
+#' set.seed(9974)
+#' Kendalls_tau_b_rxc_bca(table_7.7, nboot = 800)
+#' Kendalls_tau_b_rxc_bca(table_7.8, nboot = 200)
 #' \dontrun{
-#' # Colorectal cancer (Table 7.7)
-#' n <- rbind(
-#'   c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-#' )
-#' Kendalls_tau_b_rxc_bca(n)
-#'
-#' # Breast Tumor (Table 7.8)
-#' n <- matrix(
-#'   c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-#'   ncol = 5, byrow = TRUE
-#' )
-#' Kendalls_tau_b_rxc_bca(n)
-#'
-#' # Self-rated health (Table 7.9)
-#' n <- matrix(
-#'   c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-#'   ncol = 4, byrow = TRUE
-#' )
-#' Kendalls_tau_b_rxc_bca(n)
+#'   Kendalls_tau_b_rxc_bca(table_7.9)
 #' }
 #' @export
-#' @return A list containing the statistic and the confindence interval limits
-Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
+  validateArguments(mget(ls()))
+
   r <- nrow(n)
   c <- ncol(n)
   N <- sum(n)
@@ -49,7 +37,7 @@ Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults 
   }
 
   # The estimate
-  tau_b <- Kendalls_tau_b_rxc(n, alpha, 0)$tau_b
+  tau_b <- Kendalls_tau_b_rxc(n, alpha)$tau_b
 
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
@@ -58,11 +46,15 @@ Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05, printresults 
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  if (printresults) {
-    print(sprintf("Kendalls tau-b w / BCa bootstrap CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)", tau_b, 100 * (1 - alpha), L, U), quote = FALSE)
-  }
-
-  invisible(list(tau_b = tau_b, L = L, U = U))
+  return(
+    contingencytables_result(
+      list(tau_b = tau_b, L = L, U = U),
+      sprintf(
+        "Kendalls tau-b w / BCa bootstrap CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)",
+        tau_b, 100 * (1 - alpha), L, U
+      )
+    )
+  )
 }
 
 f.Ktbrb <- function(dat, d, .alpha, .r, .c) {
@@ -72,6 +64,6 @@ f.Ktbrb <- function(dat, d, .alpha, .r, .c) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  res <- Kendalls_tau_b_rxc(n, .alpha, printresults = FALSE)
+  res <- Kendalls_tau_b_rxc(n, .alpha)
   return(res$tau_b)
 }

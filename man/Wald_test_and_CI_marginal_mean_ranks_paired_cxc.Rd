@@ -3,38 +3,29 @@
 %   R/Wald_test_and_CI_marginal_mean_ranks_paired_cxc.R
 \name{Wald_test_and_CI_marginal_mean_ranks_paired_cxc}
 \alias{Wald_test_and_CI_marginal_mean_ranks_paired_cxc}
-\title{The Wald test and confidence interval for the difference between marginal mean ranks / ridits}
+\title{The Wald test and confidence interval for the difference between
+marginal mean ranks / ridits}
 \usage{
-Wald_test_and_CI_marginal_mean_ranks_paired_cxc(
-  n,
-  alpha = 0.05,
-  printresults = TRUE
-)
+Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing the test statistic estimates
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
-The Wald test and confidence interval for the difference between marginal mean ranks / ridits
+The Wald test and confidence interval for the difference between
+marginal mean ranks / ridits
 
 Described in Chapter 9 "The Paired cxc Table"
 }
 \examples{
 # A comparison between serial and retrospective measurements
 # (Fischer et al., 1999)
-n <- rbind(
-  c(1, 0, 1, 0, 0),
-  c(0, 2, 8, 4, 4),
-  c(1, 1, 31, 14, 11),
-  c(1, 0, 15, 9, 12),
-  c(0, 0, 2, 1, 3)
-)
-Wald_test_and_CI_marginal_mean_ranks_paired_cxc(n)
+Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)
 }

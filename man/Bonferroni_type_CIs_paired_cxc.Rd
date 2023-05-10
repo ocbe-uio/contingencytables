@@ -4,17 +4,17 @@
 \alias{Bonferroni_type_CIs_paired_cxc}
 \title{Bonferroni-type confidence intervals for differences of marginal probabilities}
 \usage{
-Bonferroni_type_CIs_paired_cxc(n, alpha = 0.05, printresults = TRUE)
+Bonferroni_type_CIs_paired_cxc(n, alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95\% CIs}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-A list containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Bonferroni-type confidence intervals for differences of marginal probabilities
@@ -22,7 +22,5 @@ Bonferroni-type confidence intervals for differences of marginal probabilities
 Described in Chapter 9 "The Paired kxk Table"
 }
 \examples{
-# Pretherapy susceptability of pathogens (Peterson et al., 2007)
-n <- rbind(c(596, 18, 6, 5), c(0, 2, 0, 0), c(0, 0, 42, 0), c(11, 0, 0, 0))
-Bonferroni_type_CIs_paired_cxc(n)
+Bonferroni_type_CIs_paired_cxc(peterson_2007)
 }

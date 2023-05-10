@@ -4,7 +4,7 @@
 \alias{Wald_CI_CC_1x2}
 \title{The Wald CI  with CC for the binomial probability}
 \usage{
-Wald_CI_CC_1x2(X, n, alpha = 0.05, printresults = TRUE)
+Wald_CI_CC_1x2(X, n, alpha = 0.05)
 }
 \arguments{
 \item{X}{the number of successes}
@@ -12,11 +12,11 @@ Wald_CI_CC_1x2(X, n, alpha = 0.05, printresults = TRUE)
 \item{n}{the total number of observations}
 
 \item{alpha}{the nominal level, e.g. 0.05 for 95# CIs}
-
-\item{printresults}{display results (0 = no, 1 = yes)}
 }
 \value{
-A vector containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Wald confidence interval with continuity correction for the
@@ -25,14 +25,14 @@ Distribution"
 }
 \examples{
 # The number of 1st order male births (Singh et al. 2010)
-Wald_CI_CC_1x2(X = 250, n = 533)
+Wald_CI_CC_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
 # The number of 2nd order male births (Singh et al. 2010)
-Wald_CI_CC_1x2(X = 204, n = 412)
+Wald_CI_CC_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"])
 # The number of 3rd order male births (Singh et al. 2010)
-Wald_CI_CC_1x2(X = 103, n = 167)
+Wald_CI_CC_1x2(singh_2010["3rd", "X"], singh_2010["3rd", "n"])
 # The number of 4th order male births (Singh et al. 2010)
-Wald_CI_CC_1x2(X = 33, n = 45)
+with(singh_2010["4th", ], Wald_CI_CC_1x2(X, n)) # alternative syntax
 # Ligarden et al. (2010)
-Wald_CI_CC_1x2(X = 13, n = 16)
+Wald_CI_CC_1x2(ligarden_2010["X"], ligarden_2010["n"])
 
 }

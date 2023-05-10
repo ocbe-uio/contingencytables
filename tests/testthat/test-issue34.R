@@ -6,23 +6,23 @@ n3 <- rbind(c(9, 4), c(4, 10))
 n4 <- rbind(c(0, 16), c(15, 57))
 test_that("Pearson_chi_squared_test_CC_2x2 equals chisq.test", {
   expect_equal(
-    Pearson_chi_squared_test_CC_2x2(n1, printresults = FALSE)$p.value,
+    Pearson_chi_squared_test_CC_2x2(n1)$p.value,
     suppressWarnings(chisq.test(n1, correct = TRUE)$p.value)
   )
   expect_equal(
-    Pearson_chi_squared_test_CC_2x2(n2, printresults = FALSE)$p.value,
+    Pearson_chi_squared_test_CC_2x2(n2)$p.value,
     suppressWarnings(chisq.test(n2, correct = TRUE)$p.value)
   )
   expect_equal(
-    Pearson_chi_squared_test_CC_2x2(n3, printresults = FALSE)$p.value,
+    Pearson_chi_squared_test_CC_2x2(n3)$p.value,
     suppressWarnings(chisq.test(n3, correct = TRUE)$p.value)
   )
   expect_equal(
-    Pearson_chi_squared_test_CC_2x2(n4, printresults = FALSE)$p.value,
+    Pearson_chi_squared_test_CC_2x2(n4)$p.value,
     suppressWarnings(chisq.test(n4, correct = TRUE)$p.value)
   )
   expect_equal(
-    Pearson_chi_squared_test_CC_2x2(x, printresults = FALSE)$p.value,
+    Pearson_chi_squared_test_CC_2x2(x)$p.value,
     suppressWarnings(chisq.test(x, correct = TRUE)$p.value)
   )
 })

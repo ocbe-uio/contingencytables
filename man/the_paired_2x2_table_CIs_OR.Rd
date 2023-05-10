@@ -12,15 +12,11 @@ the_paired_2x2_table_CIs_OR(n, alpha = 0.05)
 \item{alpha}{type I error}
 }
 \value{
-A string of "-". This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The Paired 2x2 table CIs OR
 }
 \examples{
-
-# Floppy eyelid syndrome vs obstructive sleep apnea (Ezra et al., 2010)
-n <- rbind(c(7, 25), c(2, 68))
-the_paired_2x2_table_CIs_OR(n)
-
+the_paired_2x2_table_CIs_OR(ezra_2010)
 }

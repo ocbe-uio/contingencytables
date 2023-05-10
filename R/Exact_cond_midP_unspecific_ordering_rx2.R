@@ -10,17 +10,17 @@
 #' @param statistic the Pearson test statistic ("Pearson") or the likelihood
 #' ratio test statistic ("LR"). Can also be used for cumulative ORs in
 #' 2xc tables with "PearsonCumOR" or "LRCumOR".
-#' @param printresults display results (0 = no, 1 = yes)
 #' @examples
 #' # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
-#' n <- t(rbind(c(14, 10, 3, 2), c(11, 7, 8, 4)))
+#' n <- t(lydersen_2012a)
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing")
-#' \dontrun{
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
-#' }
 #' @export
-#' @return A data frame containing the two-sided exact P-value and the mid-P value
-Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson", printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson") {
+  validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)
   npj <- apply(n, 2, sum)
@@ -49,20 +49,19 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
     tmp <- calc_Pvalue_5x2.ExactCond_unspecific(
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
+  } else {
+    stop("n must have either 4 or 5 rows")
   }
   P <- tmp$P
   midP <- tmp$midP
 
-  if (printresults) {
-    .print("Exact conditional test: %8.5f\n", P)
-    .print("Mid-P test:             %8.5f\n", midP)
+  # Output
+  printresults <- function() {
+    my_sprintf_cat("Exact conditional test:    P = %8.5f\n", P)
+    my_sprintf_cat("Mid-P test:             midP = %8.5f\n", midP)
   }
 
-  invisible(data.frame(P = P, midP = midP))
-}
-
-.print <- function(s, ...) {
-  print(sprintf(gsub("\n", "", s), ...), quote = FALSE)
+  return(contingencytables_result(list("P" = P, "midP" = midP), printresults))
 }
 
 # Slightly different calculations are needed for cumulative odds ratios in 2xc tables

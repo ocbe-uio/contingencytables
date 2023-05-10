@@ -4,14 +4,15 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @param printresults display results (F = no, T = yes)
 #' @importFrom stats qchisq
 #' @examples
-#' # Genotype counts for SNP rs 6498169 in RA patients
-#' Goodman_Wilson_score_CIs_1xc(n = c(276, 380, 118))
+#' Goodman_Wilson_score_CIs_1xc(n = snp6498169$complete$n)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
-Goodman_Wilson_score_CIs_1xc <- function(n, alpha = 0.05, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+Goodman_Wilson_score_CIs_1xc <- function(n, alpha = 0.05) {
+  validateArguments(mget(ls()))
   c0 <- length(n)
   N <- sum(n)
 
@@ -35,22 +36,10 @@ Goodman_Wilson_score_CIs_1xc <- function(n, alpha = 0.05, printresults = TRUE) {
     ) / (2 * Bonferroni + 2 * N)
   }
 
-  if (printresults) {
-    print(
-      sprintf("The Goodman Wilson score simultaneous intervals"),
-      quote = FALSE
-    )
-    for (i in 1:c0) {
-      print(
-        sprintf(
-          "  pi_%i: estimate = %6.4f (%6.4f to %6.4f)",
-          i, pihat[i], L[i], U[i]
-        ),
-        quote = FALSE
-      )
-    }
+  printresults <- function() {
+    cat("The Goodman Wilson score simultaneous intervals\n ")
+    sprintf("  pi_%i: estimate = %6.4f (%6.4f to %6.4f)\n", seq_len(c0), pihat, L, U)
   }
-
-  res <- data.frame(lower = L, upper = U, estimate = pihat)
-  invisible(res)
+  res <- list("lower" = L, "upper" = U, "estimate" = pihat)
+  return(contingencytables_result(res, printresults))
 }

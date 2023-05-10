@@ -4,16 +4,15 @@
 \alias{gamma_coefficient_rxc}
 \title{The gamma coefficient}
 \usage{
-gamma_coefficient_rxc(n, printresults = TRUE)
+gamma_coefficient_rxc(n)
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
-
-\item{printresults}{display results (FALSE = no, TRUE = yes)}
 }
 \value{
-a list containing the gamma coefficient, the number of concordant
-pairs and the number of discordant pairs
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The gamma coefficient
@@ -21,25 +20,7 @@ The gamma coefficient
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
-\dontrun{
-# Colorectal cancer (Table 7.7)
-n <- rbind(
-  c(2, 4, 29, 19), c(7, 6, 116, 51), c(19, 27, 201, 76), c(18, 22, 133, 54)
-)
-gamma_coefficient_rxc_bca(n)
-
-# Breast Tumor (Table 7.8)
-n <- matrix(
-  c(15, 35, 6, 9, 6, 2, 4, 2, 11, 11, 0, 0, 1, 10, 21),
-  ncol = 5, byrow = TRUE
-)
-gamma_coefficient_rxc_bca(n)
-
-# Self-rated health (Table 7.9)
-n <- matrix(
-  c(2, 3, 3, 3, 2, 58, 98, 14, 8, 162, 949, 252, 4, 48, 373, 369),
-  ncol = 4, byrow = TRUE
-)
-gamma_coefficient_rxc_bca(n)
-}
+gamma_coefficient_rxc(table_7.7)
+gamma_coefficient_rxc(table_7.8)
+gamma_coefficient_rxc(table_7.9)
 }

@@ -12,7 +12,7 @@ the_paired_2x2_table_CIs_difference(n, alpha = 0.05)
 \item{alpha}{type I error}
 }
 \value{
-A string of "-". This function should be called for its printed output.
+NULL. This function should be called for its printed output.
 }
 \description{
 The Paired 2x2 table CIs difference
@@ -20,12 +20,10 @@ The Paired 2x2 table CIs difference
 \examples{
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)
-n <- rbind(c(1, 1), c(7, 12))
-the_paired_2x2_table_CIs_difference(n)
+the_paired_2x2_table_CIs_difference(bentur_2009)
 
 # Complete response before and after consolidation therapy
 # (Cavo et al., 2012)
-n <- rbind(c(59, 6), c(16, 80))
-the_paired_2x2_table_CIs_difference(n)
+the_paired_2x2_table_CIs_difference(cavo_2012)
 
 }

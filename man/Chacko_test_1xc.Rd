@@ -4,16 +4,15 @@
 \alias{Chacko_test_1xc}
 \title{The Chacko test for order-restriction}
 \usage{
-Chacko_test_1xc(n, printresults = TRUE)
+Chacko_test_1xc(n)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing the two-sided p-value, the statistic and the
-degrees of freedom.
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Described in Chapter 3, "The 1xc Table and the Multinomial
@@ -23,8 +22,7 @@ variable with \code{c} possible outcomes have a natural ordering. The test
 statistic is asymptotically chi-squared distributed.
 }
 \examples{
-# Hypothetical experiment
-Chacko_test_1xc(n = c(1, 4, 3, 11, 9))
+Chacko_test_1xc(hypothetical)
 }
 \references{
 Chacko, V. J. (1966). Modified chi-square test for ordered alternatives.

@@ -4,17 +4,17 @@
 \alias{Pearson_chi_squared_test_1xc}
 \title{The Pearson chi-squared test for multinomial probabilities}
 \usage{
-Pearson_chi_squared_test_1xc(n, pi0, printresults = TRUE)
+Pearson_chi_squared_test_1xc(n, pi0)
 }
 \arguments{
 \item{n}{the observed counts (a 1xc vector, where c is the number of categories)}
 
 \item{pi0}{given probabilities (a 1xc vector)}
-
-\item{printresults}{display results (F = no, T = yes)}
 }
 \value{
-A data frame containing the two-sided p-value, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared test for multinomial probabilities
@@ -23,7 +23,7 @@ Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 }
 \examples{
 # Genotype counts for SNP rs 6498169 in RA patients
-Pearson_chi_squared_test_1xc(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119))
+Pearson_chi_squared_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
 # subset of 10 patients
-Pearson_chi_squared_test_1xc(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+Pearson_chi_squared_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 }

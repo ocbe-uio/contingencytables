@@ -4,17 +4,17 @@
 \alias{Pearson_LR_tests_unspecific_ordering_rx2}
 \title{The Pearson chi-squared and likelihood ratio tests for unspecific ordering in rx2 tables}
 \usage{
-Pearson_LR_tests_unspecific_ordering_rx2(n, direction, printresults = TRUE)
+Pearson_LR_tests_unspecific_ordering_rx2(n, direction)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
 
 \item{direction}{the direction of the success probabilities ("increasing" or "decreasing")}
-
-\item{printresults}{display results}
 }
 \value{
-A list containing the two-sided p-value and the test statistic for the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for unspecific ordering in rx2 tables.
@@ -25,17 +25,11 @@ first argument).
 }
 \examples{
 # Chapter 5: Alcohol consumption and malformations (Mills and Graubard, 1987)
-n <- matrix(
-  c(48, 17066, 38, 14464, 5, 788, 1, 126, 1, 37),
-  byrow = TRUE, ncol = 2
-)
-Pearson_LR_tests_unspecific_ordering_rx2(n, "increasing")
+Pearson_LR_tests_unspecific_ordering_rx2(mills_graubard_1987, "increasing")
 
 # Chapter 5: Elevated troponin T levels in stroke patients (Indredavik et al., 2008)
-n <- matrix(c(8, 53, 10, 48, 11, 100, 22, 102, 6, 129), byrow = TRUE, ncol = 2)
-Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing")
+Pearson_LR_tests_unspecific_ordering_rx2(indredavik_2008, "decreasing")
 
 # Chapter 6: Postoperative nausea (Lydersen et al., 2012a)
-n <- t(matrix(c(14, 10, 3, 2, 11, 7, 8, 4), byrow = TRUE, ncol = 4))
-Pearson_LR_tests_unspecific_ordering_rx2(n, "decreasing")
+Pearson_LR_tests_unspecific_ordering_rx2(t(lydersen_2012a), "decreasing")
 }

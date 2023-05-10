@@ -3,15 +3,18 @@
 #' @description Described in Chapter 3 "The 1xc Table and the Multinomial Distribution"
 #' @param n the observed counts (a 1xc vector, where c is the number of categories)
 #' @param pi0 given probabilities (a 1xc vector)
-#' @param printresults display results (F = no, T = yes)
 #' @examples
 #' # Genotype counts for SNP rs 6498169 in RA patients
-#' LR_test_1xc(n = c(276, 380, 118), pi0 = c(0.402, 0.479, 0.119))
+#' LR_test_1xc(n = snp6498169$complete$n, pi0 = snp6498169$complete$pi0)
 #' # subset of 10 patients
-#' LR_test_1xc(n = c(6, 1, 3), pi0 = c(0.402, 0.479, 0.119))
+#' LR_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
-#' @return A data frame containing the two-sided p-value, the statistic and the degrees of freedom
-LR_test_1xc <- function(n, pi0, printresults = TRUE) {
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
+LR_test_1xc <- function(n, pi0) {
+  validateArguments(mget(ls()))
+
   c0 <- length(n)
   N <- sum(n)
 
@@ -28,16 +31,10 @@ LR_test_1xc <- function(n, pi0, printresults = TRUE) {
   df <- c0 - 1
   P <- 1 - pchisq(T0, df)
 
-  if (printresults) {
-    print(
-      sprintf(
-        "The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)",
-        P, T0, df
-      ),
-      quote = FALSE
+  return(
+    contingencytables_result(
+      list("P" = P, "T" = T0, "df" = df),
+      sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
-  }
-
-  res <- data.frame(P = P, T = T0, df = df)
-  invisible(res)
+  )
 }
