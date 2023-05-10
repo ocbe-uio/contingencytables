@@ -57,7 +57,7 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   # Output
   printresults <- function() {
     my_sprintf_cat("Exact cond. linear rank test: P = %7.5f\n", P)
-    my_sprintf_cat("Mid-P linear rank test:   mid-P = %7.5f\n", midP)
+    my_sprintf_cat("Mid-P linear rank test:   mid-P = %7.5f", midP)
   }
 
   return(contingencytables_result(list("P" = P, "midP" = midP), printresults))
