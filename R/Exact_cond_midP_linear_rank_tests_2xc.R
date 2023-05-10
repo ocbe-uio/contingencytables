@@ -27,12 +27,16 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   }
 
   # Calculate all nchoosek beforehand
-  npj_choose_x1j <- matrix(0, c0, max(npj) + 1)
-  for (j in 1:c0) {
-    for (x1j in 0:npj[j]) {
-      npj_choose_x1j[j, x1j + 1] <- choose(npj[j], x1j)
+  fill_nchoosek <- function(c0, npj) {
+    npj_choose_x1j <- matrix(0, c0, max(npj) + 1)
+    for (j in 1:c0) {
+      for (x1j in 0:npj[j]) {
+        npj_choose_x1j[j, x1j + 1] <- choose(npj[j], x1j)
+      }
     }
+    return(npj_choose_x1j)
   }
+  npj_choose_x1j <- fill_nchoosek(c0, npj)
   N_choose_n1p <- choose(N, nip[1])
 
   # The observed value of the test statistic
