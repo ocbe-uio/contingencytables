@@ -1,3 +1,7 @@
+# contingencytables (development version)
+
+* Improved error handling (#46)
+
 # contingencytables 2.0.0
 
 * Created objects for all common example inputs (#25)

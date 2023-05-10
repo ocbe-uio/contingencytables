@@ -49,7 +49,12 @@ Pearson_correlation_coefficient_rxc_bca <- function(
   # The CI bootstrap sample
   dat <- data.frame(Y1 = Y1, Y2 = Y2)
   ans.boot <- boot(dat, f.Pccrb, R = nboot, stype = "i", .param = list(a, b, alpha, r, c))
-  ans.ci <- boot.ci(ans.boot, conf = 1 - alpha, type = "bca")
+  ans.ci <- tryCatch(
+    boot.ci(ans.boot, conf = 1 - alpha, type = "bca"),
+    error = function(e) {
+      stop("Insufficient samples. Increase nboot.", call. = FALSE)
+    }
+  )
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
