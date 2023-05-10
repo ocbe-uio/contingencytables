@@ -24,8 +24,8 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
     EXPR = c0,
     stop("Please provide a sample of size 3 or larger"),
     stop("Please provide a sample of size 3 or larger"),
-    all.tables3(N), all.tables4(N), all.tables5(N), all.tables6(N),
-    all.tables7(N)
+    all_tables_3(N), all_tables_4(N), all_tables_5(N), all_tables_6(N),
+    all_tables_7(N)
   )
 
   P <- 0
@@ -44,7 +44,7 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
 }
 
 # =========================
-all.tables4 <- function(N) {
+all_tables_4 <- function(N) {
   x <- vector()
   for (x1 in (0:N)) {
     for (x2 in 0:(N - x1)) {
@@ -57,7 +57,7 @@ all.tables4 <- function(N) {
 }
 
 # =========================
-all.tables5 <- function(N) {
+all_tables_5 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {
@@ -71,7 +71,7 @@ all.tables5 <- function(N) {
 }
 
 # =========================
-all.tables6 <- function(N) {
+all_tables_6 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {
@@ -87,7 +87,7 @@ all.tables6 <- function(N) {
 }
 
 # =========================
-all.tables7 <- function(N) {
+all_tables_7 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {

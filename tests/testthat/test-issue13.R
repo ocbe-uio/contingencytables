@@ -70,6 +70,6 @@ at7 <- function(N) {
 # Unit test ====================================================================
 test_that("Results for the new functions are the same", {
   for (i in seq_len(50)) {
-    expect_equal(all.tables3(i), at3(i))
+    expect_equal(all_tables_3(i), at3(i))
   }
 })

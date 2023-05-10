@@ -21,15 +21,15 @@ MidP_multinomial_test_1xc <- function(n, pi0) {
 
   # Identify all possible tables with N observations (with 3,4,...,7 categories)
   if (c0 == 3) {
-    x <- all.tables3(N)
+    x <- all_tables_3(N)
   } else if (c0 == 4) {
-    x <- all.tables4(N)
+    x <- all_tables_4(N)
   } else if (c0 == 5) {
-    x <- all.tables5(N)
+    x <- all_tables_5(N)
   } else if (c0 == 6) {
-    x <- all.tables6(N)
+    x <- all_tables_6(N)
   } else if (c0 == 7) {
-    x <- all.tables7(N)
+    x <- all_tables_7(N)
   }
 
   P <- 0
