@@ -14,7 +14,9 @@ linear_by_linear_test_rxc(n, a = seq_len(ncol(n)), b = seq_len(nrow(n)))
 \item{b}{scores assigned to the columns}
 }
 \value{
-a list containing the linear-by-linear test statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The linear-by-linear test for association

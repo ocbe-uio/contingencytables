@@ -12,7 +12,9 @@
 #' Woolf_logit_CI_2x2(ritland_2007)
 #'
 #' @export
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Woolf_logit_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -42,6 +44,6 @@ Woolf_logit_CI_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  res <- data.frame(lower = L, upper = U, estimate = estimate)
+  res <- list(lower = L, upper = U, estimate = estimate)
   return(contingencytables_result(res, printresults))
 }

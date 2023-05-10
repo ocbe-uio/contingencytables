@@ -8,7 +8,9 @@
 #' LR_test_2x2(lampasona_2013)
 #' LR_test_2x2(ritland_2007)
 #' @export
-#' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 LR_test_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
@@ -38,7 +40,7 @@ LR_test_2x2 <- function(n) {
 
   return(
     contingencytables_result(
-      data.frame("p.value" = P, "statistic" = T0, "df" = df),
+      list("p.value" = P, "statistic" = T0, "df" = df),
       sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
   )

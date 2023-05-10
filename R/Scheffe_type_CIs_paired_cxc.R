@@ -7,7 +7,9 @@
 #' # Pretherapy susceptability of pathogens (Peterson et al., 2007)
 #' Scheffe_type_CIs_paired_cxc(peterson_2007)
 #' @export
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Scheffe_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 

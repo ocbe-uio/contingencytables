@@ -14,7 +14,9 @@ Goodman_Wald_CIs_for_diffs_1xc(n, alpha = 0.05, adjustment = "Bonferroni")
 \item{adjustment}{Scheffe or Bonferroni adjustment ("Scheffe" or "Bonferroni")}
 }
 \value{
-A data frame containing lower, upper and point estimates of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Goodman Wald simultaneous intervals for the differences between the

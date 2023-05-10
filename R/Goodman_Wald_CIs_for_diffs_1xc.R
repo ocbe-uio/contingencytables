@@ -8,7 +8,9 @@
 #' @examples
 #' Goodman_Wald_CIs_for_diffs_1xc(n = snp6498169$complete$n)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Goodman_Wald_CIs_for_diffs_1xc <- function(n, alpha = 0.05, adjustment = "Bonferroni") {
   validateArguments(
     x = mget(ls()),
@@ -72,6 +74,6 @@ Goodman_Wald_CIs_for_diffs_1xc <- function(n, alpha = 0.05, adjustment = "Bonfer
       }
     }
   }
-  res <- data.frame("lower" = L, "upper" = U, "estimate" = diffs)
+  res <- list("lower" = L, "upper" = U, "estimate" = diffs)
   return(contingencytables_result(res, printresults))
 }

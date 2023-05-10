@@ -16,7 +16,9 @@
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing")
 #' Exact_cond_midP_unspecific_ordering_rx2(n, "decreasing", "PearsonCumOR")
 #' @export
-#' @return A data frame containing the two-sided exact P-value and the mid-P value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "Pearson") {
   validateArguments(mget(ls()))
   r <- nrow(n)
@@ -47,19 +49,19 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
     tmp <- calc_Pvalue_5x2.ExactCond_unspecific(
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
+  } else {
+    stop("n must have either 4 or 5 rows")
   }
   P <- tmp$P
   midP <- tmp$midP
 
   # Output
-  res <- list(
-    name = c(
-      "Exact conditional test",
-      "Mid-P test         "
-    ),
-    statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
-  )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+  printresults <- function() {
+    my_sprintf_cat("Exact conditional test:    P = %8.5f\n", P)
+    my_sprintf_cat("Mid-P test:             midP = %8.5f\n", midP)
+  }
+
+  return(contingencytables_result(list("P" = P, "midP" = midP), printresults))
 }
 
 # Slightly different calculations are needed for cumulative odds ratios in 2xc tables

@@ -13,8 +13,9 @@
 #' Woolf_test_and_CI_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value, the Wald test statistic,
-#' and the lower, upper and point estimate thetahatIV.
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -40,9 +41,9 @@ Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   U <- thetahatIV * exp(z_alpha * SElog)
 
   printresults <- function() {
-    my_sprintf("The Woolf test: P = %7.5f, Z = %6.3f\n", P, Z)
-    my_sprintf(
-      "The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)\n",
+    my_sprintf_cat("The Woolf test: P = %7.5f, Z = %6.3f\n", P, Z)
+    my_sprintf_cat(
+      "The Woolf CI: thetahatIV = %6.4f (%g%% CI %6.4f to %6.4f)",
       thetahatIV, 100 * (1 - alpha), L, U
     )
   }

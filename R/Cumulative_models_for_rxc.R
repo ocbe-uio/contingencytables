@@ -8,9 +8,9 @@
 #' Cumulative_models_for_rxc(table_7.5)
 #' Cumulative_models_for_rxc(table_7.6)
 #' @export
-#' @return A list containing the results of statistical tests for the
-#' goodness-of-fit of a proportional odds model, the effect in a proportional
-#' odds model and row comparisons
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)

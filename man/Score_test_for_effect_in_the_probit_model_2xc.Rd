@@ -13,7 +13,9 @@ Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
 (\code{alpha_j}) under the null hypothesis (\code{beta = 0})}
 }
 \value{
-A list containing the probability, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The score test for effect in the cumulative probit model

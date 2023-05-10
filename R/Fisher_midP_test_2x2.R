@@ -9,7 +9,9 @@
 #' Fisher_midP_test_2x2(lampasona_2013)
 #' Fisher_midP_test_2x2(ritland_2007)
 #' @export
-#' @return probability value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
   validateArguments(
     x = mget(ls()),
@@ -49,7 +51,7 @@ Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
     "LR" = "The Fisher mid-P test (LR): P = %7.5f"
   )
 
-  return(contingencytables_result(c("P" = P), sprintf(txt, P)))
+  return(contingencytables_result(list("P" = P), sprintf(txt, P)))
 }
 
 # ========================================================

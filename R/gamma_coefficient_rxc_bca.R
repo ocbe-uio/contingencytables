@@ -13,7 +13,9 @@
 #'   gamma_coefficient_rxc_bca(table_7.9, nboot = 3000, alpha = 0.2)
 #' }
 #' @export
-#' @return a list with the gamma coefficient and the confidence interval limits
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)

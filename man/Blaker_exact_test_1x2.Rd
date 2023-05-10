@@ -14,7 +14,9 @@ Blaker_exact_test_1x2(X, n, pi0)
 \item{pi0}{a given probability}
 }
 \value{
-The two-sided p-value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Blaker exact test for the binomial probability (pi)

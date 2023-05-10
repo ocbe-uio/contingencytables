@@ -12,7 +12,9 @@
 #' ## Psychiatric diag. vs BMI (Mangerud et al., 2004):
 #' Pearson_residuals_rxc(table_7.5)
 #' @export
-#' @return A list containing matrices of the Pearson residuals and the standardized Pearson residuals
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_residuals_rxc <- function(n) {
   validateArguments(mget(ls()))
 
@@ -34,10 +36,15 @@ Pearson_residuals_rxc <- function(n) {
     }
   }
 
-  return(
-    contingencytables_result(
-      list(residuals = residuals, std_residuals = std_residuals),
-      NA
-    )
-  )
+  res <- list("residuals" = residuals, "std_residuals" = std_residuals)
+
+  printresults <- function() {
+    my_sprintf_cat("Pearson residuals:\n")
+    print(res$residuals)
+    my_sprintf_cat("\nStandardized Pearson residuals:\n")
+    print(res$std_residuals)
+    return(NULL)
+  }
+
+  return(contingencytables_result(res, printresults))
 }

@@ -7,7 +7,9 @@
 #' InverseVariance_estimate_stratified_2x2(doll_hill_1950)
 #' InverseVariance_estimate_stratified_2x2(hine_1989)
 #' @export
-#' @return a list respectively containing the inverse variance estimate of the overall effect (`estimate`), the stratum-specific effect estimates (`psihat`) and the weights (`v`).
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 InverseVariance_estimate_stratified_2x2 <- function(n, link = "logit") {
   validateArguments(mget(ls()))
 

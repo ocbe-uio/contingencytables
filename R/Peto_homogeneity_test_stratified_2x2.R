@@ -10,7 +10,7 @@
 #' Peto_homogeneity_test_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
+
 Peto_homogeneity_test_stratified_2x2 <- function(n) {
   validateArguments(mget(ls()))
 

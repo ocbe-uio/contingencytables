@@ -10,8 +10,9 @@ Peto_OR_estimate_stratified_2x2(n)
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 }
 \value{
-A list containing the Peto odds ratio estimate, its conditional
-expectation (from the hypergeometric distribution) and the variance
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Peto estimate of the common odds ratio across strata

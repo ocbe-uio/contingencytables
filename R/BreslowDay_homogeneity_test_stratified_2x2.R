@@ -3,7 +3,9 @@
 #' @description Tarone correction
 #' @description Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 #' @param n the observed table (a 2x2xk matrix, where k is the number of strata)
-#' @return A list containing lower bound, upper bound and differences of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' BreslowDay_homogeneity_test_stratified_2x2(doll_hill_1950)
 #' BreslowDay_homogeneity_test_stratified_2x2(hine_1989)
@@ -47,11 +49,15 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   # Output
-  res <- list(
-    name = "The Breslow-Day test",
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = T0, statname = "T0"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Breslow-Day test: P = %7.6f, T0 = %5.3f (df = %g)\n", P, T0, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

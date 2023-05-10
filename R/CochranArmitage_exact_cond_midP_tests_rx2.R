@@ -9,7 +9,9 @@
 #' }
 #' CochranArmitage_exact_cond_midP_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-#' @return A data frame containing the two-sided, twice-the-smallest tail P-value and the mid-P value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a) {
   validateArguments(mget(ls()))
   r <- nrow(n)
@@ -46,12 +48,9 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a) {
   midP <- 2 * (one_sided_P - 0.5 * point_prob)
 
   # Output
-  res <- list(
-    name = c(
-      "Cochran-Armitage exact cond. test",
-      "Cochran-Armitage mid-P test   "
-    ),
-    statistics = list("pvalue" = c(P, midP), "statname" = c("P", "midP"))
-  )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+  printresults <- function() {
+    my_sprintf_cat("Cochran-Armitage exact cond. test: P = %7.5f", P)
+    my_sprintf_cat("Cochran-Armitage mid-P test:   mid-P = %7.5f", midP)
+  }
+  return(contingencytables_result(list(P = P, midP = midP), printresults))
 }

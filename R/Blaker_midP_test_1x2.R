@@ -10,7 +10,9 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param pi0 a given probability
-#' @return The two-sided mid-P value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Blaker_midP_test_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"], pi0 = 0.513)
 #' Blaker_midP_test_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"], pi0 = 0.513)
@@ -35,10 +37,8 @@ Blaker_midP_test_1x2 <- function(X, n, pi0) {
   }
 
   # Output
-  res <- list(
-    name = "The Blaker mid-P test", statistics = list(
-      "pvalue" = midP, "statname" = "mid-P"
-    )
-  )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+  printresults <- function() {
+    my_sprintf_cat("The Blaker mid-P test: P = %7.5f", midP)
+  }
+  return(contingencytables_result(list(midP = midP), printresults))
 }

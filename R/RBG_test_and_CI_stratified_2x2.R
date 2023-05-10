@@ -12,10 +12,9 @@
 #' RBG_test_and_CI_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value (`P`), the Wald test
-#' statistic (`Z`), the confidence limits (`L` and `U`), the
-#' Mantel-Haenszel overall estimate (`thetahatMH`) and the standard error
-#' (`SElog`).
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 

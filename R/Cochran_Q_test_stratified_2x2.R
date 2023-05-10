@@ -8,7 +8,9 @@
 #' Cochran_Q_test_stratified_2x2(doll_hill_1950)
 #' Cochran_Q_test_stratified_2x2(hine_1989)
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Cochran_Q_test_stratified_2x2 <- function(
   n, link = "linear", estimatetype = "MH"
 ) {
@@ -41,11 +43,16 @@ Cochran_Q_test_stratified_2x2 <- function(
   P <- 1 - pchisq(Q, df)
 
   # Output
-  res <- list(
-    name = sprintf("The Cochran Q test (%s)", estimatetype),
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = Q, statname = "Q"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Cochran Q test (%s): P = %7.6f, Q = %5.3f (df = %g)",
+      estimatetype, P, Q, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "Q" = Q, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

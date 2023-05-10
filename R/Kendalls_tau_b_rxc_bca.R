@@ -12,7 +12,9 @@
 #'   Kendalls_tau_b_rxc_bca(table_7.9)
 #' }
 #' @export
-#' @return A list containing the statistic and the confindence interval limits
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   validateArguments(mget(ls()))
 

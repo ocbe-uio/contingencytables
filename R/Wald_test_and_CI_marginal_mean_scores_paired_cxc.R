@@ -12,7 +12,9 @@
 #' a <- c(8, 3.5, 0, -3.5, -8)
 #' Wald_test_and_CI_marginal_mean_scores_paired_cxc(fischer_1999, a)
 #' @export
-#' @return A list containing the Wald test and the Wald CI statistics
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
   n, a, alpha = 0.05
 ) {

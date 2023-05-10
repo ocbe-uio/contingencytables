@@ -12,7 +12,9 @@ Fisher_exact_test_2x2(n, statistic = "Pearson")
 \item{statistic}{'hypergeometric' (i.e. Fisher-Irwin; default), 'Pearson', or 'LR' (likelihood ratio)}
 }
 \value{
-probability value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Fisher exact test for association in 2x2 tables

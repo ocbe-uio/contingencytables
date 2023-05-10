@@ -15,7 +15,9 @@
 #'   Pearson_correlation_coefficient_rxc_bca(table_7.9)
 #' }
 #' @export
-#' @return A list containing the statistic and the confindence interval limits
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_correlation_coefficient_rxc_bca <- function(
   n, nboot = 1e4, a = seq_len(nrow(n)), b = seq_len(ncol(n)), alpha = 0.05
 ) {

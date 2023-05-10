@@ -3,7 +3,9 @@
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rx2 vector)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Bonferroni_type_CIs_rxc(table_7.3)
 #' @export
@@ -38,9 +40,20 @@ Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05) {
   }
 
   # Output
-  res <- list(
-    name = "The Bonferroni-type simultaneous intervals",
-    statistics = list("lower" = L, "upper" = U, "differences" = differences, "r" = r)
+  printresults <- function() {
+    my_sprintf_cat("The Bonferroni-type simultaneous intervals\n")
+    k <- 0
+    for (i in 1:r) {
+      for (j in min(r, i + 1):r) {
+        k <- k + 1
+        my_sprintf_cat("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
+      }
+    }
+  }
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, differences = differences),
+      printresults
+    )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

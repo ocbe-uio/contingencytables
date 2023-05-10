@@ -11,7 +11,9 @@
 #' # subset of 10 patients
 #' Exact_multinomial_test_1xc(n = snp6498169$subset$n, pi0 = snp6498169$subset$pi0)
 #' @export
-#' @return probability value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Exact_multinomial_test_1xc <- function(n, pi0) {
   validateArguments(mget(ls()))
   c0 <- length(n)
@@ -22,8 +24,8 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
     EXPR = c0,
     stop("Please provide a sample of size 3 or larger"),
     stop("Please provide a sample of size 3 or larger"),
-    all.tables3(N), all.tables4(N), all.tables5(N), all.tables6(N),
-    all.tables7(N)
+    all_tables_3(N), all_tables_4(N), all_tables_5(N), all_tables_6(N),
+    all_tables_7(N)
   )
 
   P <- 0
@@ -36,13 +38,13 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
   }
 
   res <- contingencytables_result(
-    c("P" = P), sprintf("The exact multinomial test: P = %7.5f", P)
+    list("P" = P), sprintf("The exact multinomial test: P = %7.5f", P)
   )
   return(res)
 }
 
 # =========================
-all.tables4 <- function(N) {
+all_tables_4 <- function(N) {
   x <- vector()
   for (x1 in (0:N)) {
     for (x2 in 0:(N - x1)) {
@@ -55,7 +57,7 @@ all.tables4 <- function(N) {
 }
 
 # =========================
-all.tables5 <- function(N) {
+all_tables_5 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {
@@ -69,7 +71,7 @@ all.tables5 <- function(N) {
 }
 
 # =========================
-all.tables6 <- function(N) {
+all_tables_6 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {
@@ -85,7 +87,7 @@ all.tables6 <- function(N) {
 }
 
 # =========================
-all.tables7 <- function(N) {
+all_tables_7 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
     for (x2 in 0:(N - x1)) {

@@ -6,7 +6,9 @@
 #' CochranArmitage_MH_tests_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' CochranArmitage_MH_tests_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-#' @return A list containing observed statistics and p-values
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 CochranArmitage_MH_tests_rx2 <- function(n, a) {
   validateArguments(mget(ls()))
   r <- nrow(n)
@@ -52,16 +54,16 @@ CochranArmitage_MH_tests_rx2 <- function(n, a) {
   results$Z_MH <- Z_MH
   results$P_MH <- P_MH
 
-  res <- list(
-    name = c(
-      "Cochran-Armitage test         ",
-      "Modified Cochran-Armitage test",
-      "Mantel-Haenszel test          "
-    ),
-    statistics = list(
-      "t" = c("Z_CA" = Z_CA, "Z_CA_mod" = Z_CA_mod, "Z_MH" = Z_MH),
-      "pvalue" = c("P_CA" = P_CA, "P_CA_mod" = P_CA_mod, "P_MH" = P_MH)
+  printresults <- function() {
+    my_sprintf_cat(
+      "Cochran-Armitage test:          T = %6.3f, P = %7.5f\n", Z_CA, P_CA
     )
-  )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
+    my_sprintf_cat(
+      "Modified Cochran-Armitage test: T = %6.3f, P = %7.5f\n", Z_CA_mod, P_CA_mod
+    )
+    my_sprintf_cat(
+      "Mantel-Haenszel test:           T = %6.3f, P = %7.5f", Z_MH, P_MH
+    )
+  }
+  return(contingencytables_result(results, printresults))
 }

@@ -6,7 +6,7 @@
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 #' McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
-#' McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
+#' \dontrun{McNemar_exact_unconditional_test_paired_2x2(ezra_2010)}
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
@@ -16,7 +16,9 @@
 #' the precision. A refinement of the maximization can be done with a manual
 #' restriction of the parameter space.
 #' @importFrom graphics segments
-#' @return The T version of the test statistic (not the Z one)
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
   validateArguments(mget(ls()))
 
@@ -87,7 +89,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
     segments(common_pi_at_max_value, 0, common_pi_at_max_value, P, col = "red", lty = 2)
   }
 
-  return(contingencytables_result(c("P" = P), sprintf("The McNemar exact unconditional test: P = %8.6f", P)))
+  return(contingencytables_result(list("P" = P), sprintf("The McNemar exact unconditional test: P = %8.6f", P)))
 }
 
 

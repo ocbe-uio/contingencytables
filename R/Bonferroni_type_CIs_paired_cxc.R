@@ -3,7 +3,9 @@
 #' @description Described in Chapter 9 "The Paired kxk Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Bonferroni_type_CIs_paired_cxc(peterson_2007)
 #' @export
@@ -40,9 +42,19 @@ Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
   }
 
   # Output
-  res <- list(
-    name = "Bonferroni-type simultaneous intervals",
-    statistics = list("lower" = L, "upper" = U, "deltahat" = deltahat)
+  printresults <- function() {
+    my_sprintf_cat("Bonferroni-type simultaneous intervals\n")
+    for (i in 1:c) {
+      my_sprintf_cat(
+        "  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n",
+        i, i, deltahat[i], L[i], U[i]
+      )
+    }
+  }
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, deltahat = deltahat),
+      printresults
+    )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

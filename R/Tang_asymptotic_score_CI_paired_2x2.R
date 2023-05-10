@@ -13,7 +13,9 @@
 #' Tang_asymptotic_score_CI_paired_2x2(cavo_2012)
 #'
 #' @export
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -65,7 +67,7 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
 # ======================================
 calculate_lower_limit.3 <- function(phi0, .param) {
   z <- .param$z
-  T0 <- score_test_statistic.3(phi0, .param)
+  T0 <- score_test_statistic_3(phi0, .param)
   f <- T0 - z
   return(f)
 }
@@ -74,14 +76,14 @@ calculate_lower_limit.3 <- function(phi0, .param) {
 # ======================================
 calculate_upper_limit.3 <- function(phi0, .param) {
   z <- .param$z
-  T0 <- score_test_statistic.3(phi0, .param)
+  T0 <- score_test_statistic_3(phi0, .param)
   f <- T0 + z
   return(f)
 }
 
 
 # =====================================
-score_test_statistic.3 <- function(phi0, .param) {
+score_test_statistic_3 <- function(phi0, .param) {
   n11 <- .param$n11
   n12 <- .param$n12
   n21 <- .param$n21

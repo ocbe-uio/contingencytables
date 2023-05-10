@@ -2,7 +2,9 @@
 #' @description The Bhapkar test for marginal homogeneity
 #' @description Described in Chapter 9 "The Paired cxc Table"
 #' @param n the observed table (a cxc matrix)
-#' @return A list containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Bhapkar_test_paired_cxc(peterson_2007)
 #' @export
@@ -42,11 +44,16 @@ Bhapkar_test_paired_cxc <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   # Output
-  res <- list(
-    name = "The Bhapkar test for marginal homogenity",
-    statistics = list(
-      "pvalue" = P, "df" = df, "estimate" = T0, statname = "T"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df = %g)",
+      P, T0, df
+    )
+  }
+  return(
+    contingencytables_result(
+      list("pvalue" = P, "T" = T0, "df" = df),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

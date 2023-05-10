@@ -11,7 +11,9 @@
 #' Pearson_LR_homogeneity_test_stratified_2x2(hine_1989)
 #'
 #' @export
-#' @return A list containing the two-sided p-value, the test statistic and the degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
   validateArguments(mget(ls()))
 

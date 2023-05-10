@@ -20,7 +20,9 @@
 #' # Ligarden et al. (2010)
 #' Wilson_score_CI_CC_1x2(ligarden_2010["X"], ligarden_2010["n"])
 #' @export
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Wilson_score_CI_CC_1x2 <- function(X, n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -43,7 +45,7 @@ Wilson_score_CI_CC_1x2 <- function(X, n, alpha = 0.05) {
     )
   }
 
-  res <- c(L, U, estimate)
+  res <- list(L, U, estimate)
   names(res) <- c("lower", "upper", "estimate")
   return(contingencytables_result(res, printresults))
 }

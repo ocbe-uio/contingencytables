@@ -8,12 +8,14 @@
 #' McNemar_exact_cond_test_paired_2x2(cavo_2012)
 #' McNemar_exact_cond_test_paired_2x2(ezra_2010)
 #' @export
-#' @return The exact p-value based on the binomial distribution
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 McNemar_exact_cond_test_paired_2x2 <- function(n) {
   validateArguments(mget(ls()))
 
   # Exact p-value based on the binomial distribution
   P <- 2 * pbinom(min(n[1, 2], n[2, 1]), n[1, 2] + n[2, 1], 0.5)
   P <- min(P, 1)
-  return(contingencytables_result(c("P" = P), sprintf("The McNemar exact conditional test: P = %8.6f", P)))
+  return(contingencytables_result(list("P" = P), sprintf("The McNemar exact conditional test: P = %8.6f", P)))
 }

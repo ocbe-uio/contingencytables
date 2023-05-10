@@ -6,7 +6,9 @@
 #' FisherFreemanHalton_asymptotic_test_rxc(table_7.3)
 #' @note May not give results for all tables, due to overflow
 #' @export
-#' @return A list containing the probability, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 FisherFreemanHalton_asymptotic_test_rxc <- function(n) {
   validateArguments(mget(ls()))
   r <- nrow(n)

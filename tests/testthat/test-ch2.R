@@ -113,7 +113,7 @@ test_that("Chapter 2 functions basically work", {
   expect_error(the_1x2_table_CIs(100))
   expect_output(
     object = print(the_1x2_table_CIs(ligarden_2010["X"], ligarden_2010["n"])),
-    regexp = "Estimate of pi: 13 / 16 = 0.812 "
+    regexp = "Estimate of pi: 13 / 16 = 0.812"
   )
   expect_error(Wald_test_1x2(100))
   expect_output(

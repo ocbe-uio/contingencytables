@@ -82,7 +82,7 @@ convertFunName2Method <- function() {
 # ======================================================== #
 
 calculate_limit_lower.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
-                                      pi2hat, alpha) {
+                                      pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(
     pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p
@@ -96,7 +96,7 @@ calculate_limit_lower.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
 }
 
 calculate_limit_upper.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
-                                      pi2hat, alpha) {
+                                      pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(
     pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p
@@ -109,7 +109,7 @@ calculate_limit_upper.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
   return(f)
 }
 
-ML_estimates.Mee <- function(n11, n21, n1p, n2p, delta0) {
+ML_estimates.Mee <- function(n11, n21, n1p, n2p, delta0, ...) {
   L3 <- n1p + n2p
   L2 <- (n1p + 2 * n2p) * delta0 - (n1p + n2p) - (n11 + n21)
   L1 <- (n2p * delta0 - (n1p + n2p) - 2 * n21) * delta0 + (n11 + n21)
@@ -124,7 +124,7 @@ ML_estimates.Mee <- function(n11, n21, n1p, n2p, delta0) {
 }
 
 score_test_statistic.Mee <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p,
-                                     n2p) {
+                                     n2p, ...) {
   T0 <- (pi1hat - pi2hat - delta0) / sqrt(p1hat * (1 - p1hat) / n1p + p2hat *
     (1 - p2hat) / n2p)
   return(T0)
@@ -135,7 +135,7 @@ score_test_statistic.Mee <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p,
 # ======================================================== #
 
 calculate_limit_lower.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
-                                          pi2hat, alpha) {
+                                          pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(
     pi1hat, pi2hat, ml.res$p1hat, ml.res$p2hat, n1p, n2p, phi0
@@ -148,7 +148,7 @@ calculate_limit_lower.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
 }
 
 calculate_limit_upper.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
-                                          pi2hat, alpha) {
+                                          pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(
     pi1hat, pi2hat, ml.res$p1hat, ml.res$p2hat, n1p, n2p, phi0
@@ -160,7 +160,7 @@ calculate_limit_upper.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
   return(f)
 }
 
-ML_estimates.Koopman <- function(n11, n21, n1p, n2p, phi0) {
+ML_estimates.Koopman <- function(n11, n21, n1p, n2p, phi0, ...) {
   A0 <- (n1p + n2p) * phi0
   B0 <- -(n1p * phi0 + n11 + n2p + n21 * phi0)
   C0 <- n11 + n21
@@ -171,7 +171,7 @@ ML_estimates.Koopman <- function(n11, n21, n1p, n2p, phi0) {
 }
 
 score_test_statistic.Koopman <- function(pi1hat, pi2hat, p1hat, p2hat, n1p,
-                                         n2p, phi0) {
+                                         n2p, phi0, ...) {
   T0 <- (pi1hat - phi0 * pi2hat) / sqrt(p1hat * (1 - p1hat) / n1p +
     (phi0^2) * p2hat * (1 - p2hat) / n2p)
   return(T0)
@@ -181,7 +181,7 @@ score_test_statistic.Koopman <- function(pi1hat, pi2hat, p1hat, p2hat, n1p,
 # Methods for Miettinen-Nurminen difference                 #
 # ======================================================== #
 
-calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
+calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
   if (is.na(T0)) {
@@ -192,7 +192,7 @@ calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1
   return(f)
 }
 
-calculate_limit_upper.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
+calculate_limit_upper.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
   if (is.na(T0)) {
@@ -203,7 +203,7 @@ calculate_limit_upper.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1
   return(f)
 }
 
-ML_estimates.Miettinen_diff <- function(n11, n21, n1p, n2p, delta0) {
+ML_estimates.Miettinen_diff <- function(n11, n21, n1p, n2p, delta0, ...) {
   L3 <- n1p + n2p
   L2 <- (n1p + 2 * n2p) * delta0 - (n1p + n2p) - (n11 + n21)
   L1 <- (n2p * delta0 - (n1p + n2p) - 2 * n21) * delta0 + (n11 + n21)
@@ -217,7 +217,7 @@ ML_estimates.Miettinen_diff <- function(n11, n21, n1p, n2p, delta0) {
   return(res)
 }
 
-score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p, n2p) {
+score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p, n2p, ...) {
   T0 <- (pi1hat - pi2hat - delta0) / sqrt(p1hat * (1 - p1hat) / n1p + p2hat * (1 - p2hat) / n2p)
   T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
   return(T0)
@@ -227,7 +227,7 @@ score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p
 # Methods for Miettinen-Nurminen Odds Ratio                 #
 # ======================================================== #
 
-calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha) {
+calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
     T0 <- 0
@@ -236,7 +236,7 @@ calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha
   return(f)
 }
 
-calculate_limit_upper.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha) {
+calculate_limit_upper.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
     T0 <- 0
@@ -245,14 +245,14 @@ calculate_limit_upper.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha
   return(f)
 }
 
-score_test_statistic.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p) {
+score_test_statistic.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
   res <- ML_estimates(theta0, n11, n21, n1p, n2p)
   T0 <- (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
   T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
   return(T0)
 }
 
-ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p) {
+ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
   A <- n2p * (theta0 - 1)
   B <- n1p * theta0 + n2p - (n11 + n21) * (theta0 - 1)
   C <- -(n11 + n21)
@@ -266,7 +266,7 @@ ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p) {
 # Methods for Miettinen-Nurminen CI ratio                  #
 # ======================================================== #
 
-calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
+calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
   if (is.na(T0)) {
@@ -276,7 +276,7 @@ calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1h
   return(f)
 }
 
-calculate_limit_upper.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha) {
+calculate_limit_upper.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
   if (is.na(T0)) {
@@ -286,7 +286,7 @@ calculate_limit_upper.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1h
   return(f)
 }
 
-ML_estimates.Miettinen_ratio <- function(n11, n21, n1p, n2p, phi0) {
+ML_estimates.Miettinen_ratio <- function(n11, n21, n1p, n2p, phi0, ...) {
   A0 <- (n1p + n2p) * phi0
   B0 <- -(n1p * phi0 + n11 + n2p + n21 * phi0)
   C0 <- n11 + n21
@@ -296,7 +296,7 @@ ML_estimates.Miettinen_ratio <- function(n11, n21, n1p, n2p, phi0) {
   return(res)
 }
 
-score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n1p, n2p, phi0) {
+score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n1p, n2p, phi0, ...) {
   T0 <- (pi1hat - phi0 * pi2hat) / sqrt(p1hat * (1 - p1hat) / n1p + (phi0^2) * p2hat * (1 - p2hat) / n2p)
   T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
   return(T0)
@@ -306,7 +306,7 @@ score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n
 # Methods for the uncorrected asymptotic score             #
 # ======================================================== #
 
-calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha) {
+calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
     T0 <- 0
@@ -315,7 +315,7 @@ calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha)
   return(f)
 }
 
-calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha) {
+calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
     T0 <- 0
@@ -324,13 +324,13 @@ calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha)
   return(f)
 }
 
-score_test_statistic.Uncorrected <- function(theta0, n11, n21, n1p, n2p) {
+score_test_statistic.Uncorrected <- function(theta0, n11, n21, n1p, n2p, ...) {
   res <- ML_estimates(theta0, n11, n21, n1p, n2p)
   T0 <- (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
   return(T0)
 }
 
-ML_estimates.Uncorrected <- function(theta0, n11, n21, n1p, n2p) {
+ML_estimates.Uncorrected <- function(theta0, n11, n21, n1p, n2p, ...) {
   A0 <- n2p * (theta0 - 1)
   B0 <- n1p * theta0 + n2p - (n11 + n21) * (theta0 - 1)
   C0 <- -(n11 + n21)
@@ -347,7 +347,7 @@ ML_estimates.Uncorrected <- function(theta0, n11, n21, n1p, n2p) {
 # Calculate the probability of table x
 # (multiple hypergeometric distribution)
 
-calc_prob.ExactCond <- function(x, r, N_choose_np1, nip_choose_xi1) {
+calc_prob.ExactCond <- function(x, r, N_choose_np1, nip_choose_xi1, ...) {
   f <- 1
   for (i in 1:r) {
     f <- f * nip_choose_xi1[i, x[i] + 1]
@@ -359,7 +359,7 @@ calc_prob.ExactCond <- function(x, r, N_choose_np1, nip_choose_xi1) {
 # Brute force calculations of the two-sided exact P-value and the mid-P value
 # This function assumes r=4 rows
 
-calc_Pvalue_4x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
+calc_Pvalue_4x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic, ...) {
   P <- 0
   point_prob <- 0
   for (x1 in 0:min(nip[1], np1)) {
@@ -389,7 +389,7 @@ calc_Pvalue_4x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_
 # Brute force calculations of the two-sided exact P-value and the mid-P value
 # This function assumes r=5 rows
 
-calc_Pvalue_5x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
+calc_Pvalue_5x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic, ...) {
   P <- 0
   point_prob <- 0
   for (x1 in 0:min(nip[1], np1)) {
@@ -428,7 +428,7 @@ calc_Pvalue_5x2.ExactCond <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_
 # Calculate the probability of table x
 # (multiple hypergeometric distribution)
 
-calc_prob.CochranArmitage <- function(x, r, N_choose_np1, nip_choose_xi1) {
+calc_prob.CochranArmitage <- function(x, r, N_choose_np1, nip_choose_xi1, ...) {
   f <- 1
   for (i in 1:r) {
     f <- f * nip_choose_xi1[i, x[i] + 1]
@@ -441,7 +441,7 @@ calc_prob.CochranArmitage <- function(x, r, N_choose_np1, nip_choose_xi1) {
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes r=4 rows
 
-calc_Pvalue_4x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_choose_xi1, a) {
+calc_Pvalue_4x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_choose_xi1, a, ...) {
   left_sided_P <- 0
   right_sided_P <- 0
   point_prob <- 0
@@ -473,7 +473,7 @@ calc_Pvalue_4x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes r=5 rows
 
-calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_choose_xi1, a) {
+calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_choose_xi1, a, ...) {
   left_sided_P <- 0
   right_sided_P <- 0
   point_prob <- 0
@@ -507,7 +507,7 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 # The linear rank test statistic, which gives an equivalent ordering of
 # tables as the Cochran-Armitage test statistic (under conditioning on
 # both row and column sums)
-linear_rank_test_statistic.CochranArmitage <- function(x, a) {
+linear_rank_test_statistic.CochranArmitage <- function(x, a, ...) {
   T0 <- sum(x * a)
   return(T0)
 }
@@ -577,7 +577,7 @@ calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
 }
 
 # The linear rank test statistic
-linear_rank_test_statistic.ExactCont_linear <- function(x, b) {
+linear_rank_test_statistic.ExactCont_linear <- function(x, b, ...) {
   T0 <- sum(x * b)
   return(T0)
 }
@@ -585,7 +585,7 @@ linear_rank_test_statistic.ExactCont_linear <- function(x, b) {
 # Calculate the probability of table x
 # (multiple hypergeometric distribution)
 
-calc_prob.ExactCont_linear <- function(x, c, N_choose_n1p, npj_choose_x1j) {
+calc_prob.ExactCont_linear <- function(x, c, N_choose_n1p, npj_choose_x1j, ...) {
   f <- 1
   for (j in 1:c) {
     f <- f * npj_choose_x1j[j, x[j] + 1]
@@ -601,7 +601,7 @@ calc_prob.ExactCont_linear <- function(x, c, N_choose_n1p, npj_choose_x1j) {
 # Brute force calculations of the two-sided exact P-value and the mid-P value
 # This function assumes r=4 rows
 
-calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
+calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic, ...) {
   P <- 0
   point_prob <- 0
   for (x1 in 0:min(c(nip[1], np1))) {
@@ -631,7 +631,7 @@ calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
 # Brute force calculations of the two-sided exact P-value and the mid-P value
 # This function assumes r=5 rows
 
-calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic) {
+calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic, ...) {
   P <- 0
   point_prob <- 0
   for (x1 in 0:min(c(nip[1], np1))) {
@@ -663,7 +663,7 @@ calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
 # Calculate the probability of table x
 # (multiple hypergeometric distribution)
 
-calc_prob.ExactCond_unspecific <- function(x, r, N_choose_np1, nip_choose_xi1) {
+calc_prob.ExactCond_unspecific <- function(x, r, N_choose_np1, nip_choose_xi1, ...) {
   f <- 1
   for (i in 1:r) {
     f <- f * nip_choose_xi1[i, x[i] + 1]

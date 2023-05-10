@@ -12,7 +12,9 @@ McNemar_exact_unconditional_test_paired_2x2(n, gamma = 1e-04)
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)}
 }
 \value{
-The T version of the test statistic (not the Z one)
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The McNemar exact unconditional test
@@ -31,5 +33,5 @@ restriction of the parameter space.
 \examples{
 McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
-McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
+\dontrun{McNemar_exact_unconditional_test_paired_2x2(ezra_2010)}
 }

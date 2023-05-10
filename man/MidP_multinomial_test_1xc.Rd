@@ -12,7 +12,9 @@ MidP_multinomial_test_1xc(n, pi0)
 \item{pi0}{given probabilities (a 1xc vector)}
 }
 \value{
-probability value
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The mid-P multinomial test for multinomial probabilities

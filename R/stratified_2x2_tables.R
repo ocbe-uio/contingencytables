@@ -79,15 +79,15 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   P <- tmp$pvalue
   Q <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df))
+  cat(sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
   tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "IV")
   P <- tmp$pvalue
   Q <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df))
+  cat(sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
   cat("-------------------------------------------------\n")
 
   cat("\nTests of homogeneity of the ratio of probabilities\n")
@@ -98,15 +98,15 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   P <- tmp$pvalue
   Q <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df))
+  cat(sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
   tmp <- Cochran_Q_test_stratified_2x2(n, "log", "IV")
   P <- tmp$pvalue
   Q <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df))
+  cat(sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
   cat("-------------------------------------------------\n")
 
   cat("\nTests of homogeneity of odds ratios\n")
@@ -117,25 +117,25 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   P <- tmp$pvalue
   Q <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Cochran Q (MH)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df))
+  cat(sprintf("Cochran Q (MH)                   %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
   tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "IV")
   P <- tmp$pvalue
   Q <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Cochran Q (IV)                   %6.4f   (Q = %5.3f, df = %i)\n", P, Q, df))
+  cat(sprintf("Cochran Q (IV)                   %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit")
-  cat(sprintf("Likelihood ratio                 %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared              %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio                 %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared              %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
   tmp <- BreslowDay_homogeneity_test_stratified_2x2(n)
   P <- tmp$pvalue
   T0 <- tmp$estimate
   df <- tmp$df
-  cat(sprintf("Breslow-Day W/Tarone correction  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df))
+  cat(sprintf("Breslow-Day W/Tarone correction  %6.4f   (T = %5.3f, df = %g)\n", P, T0, df))
   tmp <- Peto_homogeneity_test_stratified_2x2(n)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
-  cat(sprintf("Peto                             %6.4f   (T = %5.3f, df = %i)\n", P, T0, df))
+  cat(sprintf("Peto                             %6.4f   (T = %5.3f, df = %g)\n", P, T0, df))
   cat("-------------------------------------------------------------\n")
 
 
@@ -144,8 +144,8 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   results <- Pearson_LR_test_common_effect_stratified_2x2(n, "linear")
   cat("Test                 P-value  (test statistic)\n")
   cat("-------------------------------------------------\n")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
   tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "MH", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
@@ -174,8 +174,8 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   results <- Pearson_LR_test_common_effect_stratified_2x2(n, "log")
   cat("Test                 P-value  (test statistic)\n")
   cat("-------------------------------------------------\n")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
   tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "MH", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
@@ -204,13 +204,13 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   results <- Pearson_LR_test_common_effect_stratified_2x2(n, "logit")
   cat(sprintf("Test                     P-value  (test statistic)\n"))
   cat("-----------------------------------------------------\n")
-  cat(sprintf("Likelihood ratio         %6.4f   (T = %5.3f, df = %i)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared      %6.4f   (T = %5.3f, df = %i)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio         %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared      %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
   tmp <- CochranMantelHaenszel_test_stratified_2x2(n)
   P <- tmp[[1]]
   T0 <- tmp[[3]]
   df <- tmp[[2]]
-  cat(sprintf("Cochran-Mantel-Haenszel  %6.4f   (T = %5.3f, df = %i)\n", P, T0, df))
+  cat(sprintf("Cochran-Mantel-Haenszel  %6.4f   (T = %5.3f, df = %g)\n", P, T0, df))
   tmp <- RBG_test_and_CI_stratified_2x2(n, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]

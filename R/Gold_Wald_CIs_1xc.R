@@ -6,7 +6,9 @@
 #' @examples
 #' Gold_Wald_CIs_1xc(n = snp6498169$complete$n)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Gold_Wald_CIs_1xc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   c0 <- length(n)
@@ -28,6 +30,6 @@ Gold_Wald_CIs_1xc <- function(n, alpha = 0.05) {
     cat("The Gold Wald simultaneous intervals\n ")
     sprintf("  pi_%i: estimate = %6.4f (%6.4f to %6.4f)\n", seq_len(c0), pihat, L, U)
     }
-  res <- data.frame("lower" = L, "upper" = U, "estimate" = pihat)
+  res <- list("lower" = L, "upper" = U, "estimate" = pihat)
   return(contingencytables_result(res, printresults))
 }

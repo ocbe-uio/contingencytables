@@ -7,7 +7,9 @@
 #' # Example: Treatment for ear infection
 #' Scheffe_type_CIs_rxc(table_7.3)
 #' @export
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Scheffe_type_CIs_rxc <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)

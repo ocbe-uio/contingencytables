@@ -10,7 +10,9 @@ KruskalWallis_asymptotic_test_rxc(n)
 \item{n}{the observed counts (an rxc matrix)}
 }
 \value{
-A list containing the two-sided p-value, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Kruskal-Wallis asymptotic test for singly ordered rxc tables

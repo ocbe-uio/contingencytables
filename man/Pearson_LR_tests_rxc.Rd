@@ -10,8 +10,9 @@ Pearson_LR_tests_rxc(n)
 \item{n}{the observed counts (an rxc matrix)}
 }
 \value{
-A list containing the two-sided p-value, the test statistic and the
-degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Pearson chi-squared and likelihood ratio tests for association in rxc tables

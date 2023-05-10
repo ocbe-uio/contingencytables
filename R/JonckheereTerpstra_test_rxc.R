@@ -7,7 +7,9 @@
 #' JonckheereTerpstra_test_rxc(table_7.8)
 #' JonckheereTerpstra_test_rxc(table_7.9)
 #' @export
-#' @return a list containing the standard normalized Jonckheere-Terpstra test statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 JonckheereTerpstra_test_rxc <- function(n) {
   validateArguments(mget(ls()))
 

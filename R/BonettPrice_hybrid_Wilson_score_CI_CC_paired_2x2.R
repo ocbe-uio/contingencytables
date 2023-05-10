@@ -4,7 +4,9 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
-#' @return A list containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(bentur_2009)
 #' BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(cavo_2012)
@@ -52,12 +54,16 @@ BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2 <- function(n, alpha = 0.05) {
   U <- u1 / l2
 
   # Output
-  res <- list(
-    name = "The Bonett-Price hybrid Wilson score CI w / CC",
-    statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
-      "statname" = "estimate"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The Bonett-Price hybrid Wilson score CI w / CC: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
+    )
+  }
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = estimate),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

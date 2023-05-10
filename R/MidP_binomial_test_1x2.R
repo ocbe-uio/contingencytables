@@ -17,7 +17,9 @@
 #' # Ligarden et al. (2010, adapted)
 #' MidP_binomial_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
-#' @return probability value
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 MidP_binomial_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
@@ -35,7 +37,7 @@ MidP_binomial_test_1x2 <- function(X, n, pi0) {
 
   return(
     contingencytables_result(
-      c("midP" = midP), sprintf("The mid-P binomial test: P = %7.5f", midP)
+      list("midP" = midP), sprintf("The mid-P binomial test: P = %7.5f", midP)
     )
   )
 }

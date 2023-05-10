@@ -13,7 +13,9 @@
 #' LR_test_1x2(singh_2010["4th", "X"], singh_2010["4th", "n"], pi0 = .5)
 #' LR_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
-#' @return A vector containing the two-sided p-value, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 LR_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
@@ -35,7 +37,7 @@ LR_test_1x2 <- function(X, n, pi0) {
 
   return(
     contingencytables_result(
-      c("p.value" = P, "statistic" = T0, "df" = df),
+      list("p.value" = P, "statistic" = T0, "df" = df),
       sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
   )

@@ -11,7 +11,9 @@
 #' MOVER_R_Wilson_CI_ratio_2x2(ritland_2007)
 #'
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 MOVER_R_Wilson_CI_ratio_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -28,8 +30,8 @@ MOVER_R_Wilson_CI_ratio_2x2 <- function(n, alpha = 0.05) {
   # Use Wilson score CIs for the two probabilities of success
   res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha)
   res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha)
-  L <- (pi1hat * pi2hat - sqrt((pi1hat * pi2hat)^2 - res1["lower"] * res2["upper"] * (2 * pi1hat - res1["lower"]) * (2 * pi2hat - res2["upper"]))) / (res2["upper"] * (2 * pi2hat - res2["upper"]))
-  U <- (pi1hat * pi2hat + sqrt((pi1hat * pi2hat)^2 - res1["upper"] * res2["lower"] * (2 * pi1hat - res1["upper"]) * (2 * pi2hat - res2["lower"]))) / (res2["lower"] * (2 * pi2hat - res2["lower"]))
+  L <- (pi1hat * pi2hat - sqrt((pi1hat * pi2hat)^2 - res1[["lower"]] * res2[["upper"]] * (2 * pi1hat - res1[["lower"]]) * (2 * pi2hat - res2[["upper"]]))) / (res2[["upper"]] * (2 * pi2hat - res2[["upper"]]))
+  U <- (pi1hat * pi2hat + sqrt((pi1hat * pi2hat)^2 - res1[["upper"]] * res2[["lower"]] * (2 * pi1hat - res1[["upper"]]) * (2 * pi2hat - res2[["lower"]]))) / (res2[["lower"]] * (2 * pi2hat - res2[["lower"]]))
 
   # Fix limits for some special cases
   if (is.na(L)) {
@@ -42,7 +44,7 @@ MOVER_R_Wilson_CI_ratio_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      data.frame(lower = L, upper = U, estimate = estimate),
+      list(lower = L, upper = U, estimate = estimate),
       sprintf(
         "The MOVER-R Wilson CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U

@@ -14,7 +14,9 @@ gamma_coefficient_rxc_bca(n, nboot = 10000, alpha = 0.05)
 \item{alpha}{the nominal significance level, used to compute a 100(1-alpha) confidence interval}
 }
 \value{
-a list with the gamma coefficient and the confidence interval limits
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The gamma coefficient with the bias-corrected and accelerated boostrap confidence interval

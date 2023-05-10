@@ -10,7 +10,9 @@ BreslowDay_homogeneity_test_stratified_2x2(n)
 \item{n}{the observed table (a 2x2xk matrix, where k is the number of strata)}
 }
 \value{
-A list containing lower bound, upper bound and differences of the statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The Breslow-Day test of homogeneity of odds ratios over strata with

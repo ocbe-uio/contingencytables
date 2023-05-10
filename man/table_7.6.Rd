@@ -19,7 +19,7 @@ years (Lund et al., 2012).
 Lund et al. (2012) report psychiatric morbidity in young adulthood in two low
 birth weight groups and a control group. The subjects were born between 1986
 and 1988. The very low birth weight (VLBW) group consisted of babies born
-preterm with birth weight ≤ 1500 grams. The small for gestational age at
+preterm with birth weight up to 1500 grams. The small for gestational age at
 term (SGA) group was born at term with birth weight below the 10th percentile
 adjusted for gestational age, sex, and parity. The control group was born at
 term, and was not small for gestational age. Table 7.6 shows the severity

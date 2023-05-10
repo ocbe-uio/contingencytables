@@ -14,7 +14,9 @@ Score_test_CC_1x2(X, n, pi0)
 \item{pi0}{a given probability}
 }
 \value{
-A vector containing the two-sided p-value and the score test statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The score test with continuity correction for the

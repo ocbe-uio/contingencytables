@@ -15,7 +15,9 @@ Exact_unconditional_test_2x2(n, statistic = "Pearson", gamma = 1e-04)
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001 gamma=0: no adj)}
 }
 \value{
-Fisher's exact test statistic
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 Exact unconditional test for association in 2x2 tables

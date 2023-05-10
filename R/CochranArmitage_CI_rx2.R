@@ -4,7 +4,9 @@
 #' @param n the observed counts (an rx2 matrix)
 #' @param a scores assigned to the rows
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' CochranArmitage_CI_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' CochranArmitage_CI_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
@@ -38,12 +40,16 @@ CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05) {
   U <- betahat + z * SE
 
   # Output
-  res <- list(
-    name = "Trend estimate and Cochran-Armitage CI",
-    statistics = list(
-      "lower" = L, "upper" = U, "estimate" = betahat, "alpha" = alpha,
-      "statname" = "betahat"
+  printresults <- function() {
+    my_sprintf_cat(
+      "Trend estimate and Cochran-Armitage CI:  betahat = %6.4f (%g%% CI %6.4f to %6.4f)",
+      betahat, 100 * (1 - alpha), L, U
+    )
+  }
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = betahat),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

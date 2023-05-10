@@ -14,7 +14,9 @@ LR_test_1x2(X, n, pi0)
 \item{pi0}{a given probability}
 }
 \value{
-A vector containing the two-sided p-value, the statistic and the degrees of freedom
+An object of the \link{contingencytables_result} class,
+basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\link[utils:str]{utils::str()}} function
+to see the specific elements returned.
 }
 \description{
 The likelihood ratio test for the binomial probability (pi)

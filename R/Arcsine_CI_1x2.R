@@ -8,7 +8,9 @@
 #' @param X the number of successes
 #' @param n the total number of observations
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
-#' @return A vector containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 #' @examples
 #' Arcsine_CI_1x2(singh_2010["1st", "X"], singh_2010["1st", "n"])
 #' Arcsine_CI_1x2(singh_2010["2nd", "X"], singh_2010["2nd", "n"])
@@ -32,12 +34,17 @@ Arcsine_CI_1x2 <- function(X, n, alpha = 0.05) {
   U <- sin(asin(sqrt(ptilde)) + z / (2 * sqrt(n)))^2
 
   # Output
-  res <- list(
-    name = "The arcsine CI",
-    statistics = list(
-      "lower" = L, "upper" = U, "estimate" = estimate, "alpha" = alpha,
-      "statname" = "estimate"
+  printresults <- function() {
+    my_sprintf_cat(
+      "The arcsine CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
+    )
+  }
+
+  return(
+    contingencytables_result(
+      list(lower = L, upper = U, estimate = estimate),
+      printresults
     )
   )
-  return(contingencytables_result(res$statistics, fetch_print_format(res)))
 }

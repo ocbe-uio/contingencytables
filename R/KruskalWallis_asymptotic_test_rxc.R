@@ -6,7 +6,9 @@
 #' KruskalWallis_asymptotic_test_rxc(table_7.5)
 #' KruskalWallis_asymptotic_test_rxc(table_7.6)
 #' @export
-#' @return A list containing the two-sided p-value, the statistic and the degrees of freedom
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 KruskalWallis_asymptotic_test_rxc <- function(n) {
   validateArguments(mget(ls()))
 

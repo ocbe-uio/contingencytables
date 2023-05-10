@@ -18,7 +18,9 @@
 #' # Ligarden et al. (2010, adapted)
 #' Score_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)
 #' @export
-#' @return A vector containing the two-sided p-value and the score test statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Score_test_1x2 <- function(X, n, pi0) {
   validateArguments(mget(ls()))
 
@@ -36,7 +38,7 @@ Score_test_1x2 <- function(X, n, pi0) {
 
   return(
     contingencytables_result(
-      c("p.value" = P, "statistic" = Z),
+      list("p.value" = P, "statistic" = Z),
       sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z)
     )
   )

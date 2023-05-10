@@ -29,8 +29,9 @@
 #' ## Psychiatric diag. vs BMI (Mangerud et al., 2004):
 #' Pearson_LR_tests_rxc(table_7.5)
 #' @export
-#' @return A list containing the two-sided p-value, the test statistic and the
-#' degrees of freedom for the likelihood ratio and the Pearson chi-squared tests
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 Pearson_LR_tests_rxc <- function(n) {
   validateArguments(mget(ls()))
 

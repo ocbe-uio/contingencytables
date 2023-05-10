@@ -58,6 +58,6 @@ the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
     }
 
     myprint("---------------------------------------------------")
+    invisible(NULL)
   }
-  return(NULL)
 }

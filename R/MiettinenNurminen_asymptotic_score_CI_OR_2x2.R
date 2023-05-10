@@ -10,7 +10,9 @@
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
 #' MiettinenNurminen_asymptotic_score_CI_OR_2x2(ritland_2007)
 #' @export
-#' @return A data frame containing lower, upper and point estimates of the statistic
+#' @return An object of the [contingencytables_result] class,
+#' basically a subclass of [base::list()]. Use the [utils::str()] function
+#' to see the specific elements returned.
 MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
 
@@ -63,7 +65,7 @@ MiettinenNurminen_asymptotic_score_CI_OR_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      data.frame(lower = L, upper = U, estimate = estimate),
+      list(lower = L, upper = U, estimate = estimate),
       sprintf(
         "Mietinen-Nurminen asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U
