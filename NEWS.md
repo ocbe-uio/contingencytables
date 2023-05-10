@@ -1,3 +1,5 @@
+# contingencytables (development version)
+
 # contingencytables 2.0.0
 
 * Created objects for all common example inputs (#25)
