@@ -17,10 +17,7 @@ all_tables_3 <- function(N) {
 
 all_tables_3_optimized <- function(N) {
   # Calculating the number of rows in the output
-  x_rows <- 0L
-  for (x1 in 0:N) {
-    x_rows <- x_rows + N - x1 + 1
-  }
+  x_rows <- sum(1:(N + 1))
 
   # Generating the output
   x <- matrix(NA, x_rows, 3)
