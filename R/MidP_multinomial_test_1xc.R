@@ -20,17 +20,7 @@ MidP_multinomial_test_1xc <- function(n, pi0) {
   N <- sum(n)
 
   # Identify all possible tables with N observations (with 3,4,...,7 categories)
-  if (c0 == 3) {
-    x <- all_tables_3(N)
-  } else if (c0 == 4) {
-    x <- all_tables_4(N)
-  } else if (c0 == 5) {
-    x <- all_tables_5(N)
-  } else if (c0 == 6) {
-    x <- all_tables_6(N)
-  } else if (c0 == 7) {
-    x <- all_tables_7(N)
-  }
+  x <- all_tables_X(N, c0)
 
   P <- 0
   Tobs <- sum(((n - N * pi0)^2) / (N * pi0))

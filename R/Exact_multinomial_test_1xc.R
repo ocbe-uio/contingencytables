@@ -20,13 +20,7 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
   N <- sum(n)
 
   # Identify all possible tables with N observations (with 3,4,...,7 categories)
-  x <- switch(
-    EXPR = c0,
-    stop("Please provide a sample of size 3 or larger"),
-    stop("Please provide a sample of size 3 or larger"),
-    all_tables_3(N), all_tables_4(N), all_tables_5(N), all_tables_6(N),
-    all_tables_7(N)
-  )
+  x <- all_tables_X(N, c0)
 
   P <- 0
   Tobs <- sum(((n - N * pi0)^2) / (N * pi0))

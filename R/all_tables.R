@@ -5,47 +5,13 @@ all_tables_3 <- function(N) {
   return(cbind(x0, x1, x2, deparse.level = 0))
 }
 
-all_tables_4 <- function(N) {
+all_tables_X <- function(N, X) {
+  if (X < 3) stop("X must be >= 3")
+  if (X == 3) return(all_tables_3(N))
   x <- vector()
   first_col <- 0L
   for (i in N:0) {
-    other_cols <- all_tables_3(i)
-    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
-    x <- rbind(x, sub_x)
-    first_col <- first_col + 1L
-  }
-  return(x)
-}
-
-all_tables_5 <- function(N) {
-  x <- vector()
-  first_col <- 0L
-  for (i in N:0) {
-    other_cols <- all_tables_4(i)
-    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
-    x <- rbind(x, sub_x)
-    first_col <- first_col + 1L
-  }
-  return(x)
-}
-
-all_tables_6 <- function(N) {
-  x <- vector()
-  first_col <- 0L
-  for (i in N:0) {
-    other_cols <- all_tables_5(i)
-    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
-    x <- rbind(x, sub_x)
-    first_col <- first_col + 1L
-  }
-  return(x)
-}
-
-all_tables_7 <- function(N) {
-  x <- vector()
-  first_col <- 0L
-  for (i in N:0) {
-    other_cols <- all_tables_6(i)
+    other_cols <- all_tables_X(i, X - 1L)
     sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
     x <- rbind(x, sub_x)
     first_col <- first_col + 1L

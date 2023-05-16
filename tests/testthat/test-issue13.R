@@ -77,12 +77,12 @@ test_that("Results for the new functions are the same", {
   for (iter in seq_len(5)) {
     n_large <- sample(50:80, 1L)
     n_small <- sample(20:50, 1L)
-    n_bitty  <- sample(10:20, 1L)
+    n_bitty <- sample(10:20, 1L)
     n_micro <- sample(5:10, 1L)
-    expect_equal(all_tables_3(n_large), at3(n_large))
-    expect_equal(all_tables_4(n_small), at4(n_small))
-    expect_equal(all_tables_5(n_bitty), at5(n_bitty))
-    expect_equal(all_tables_6(n_bitty), at6(n_bitty))
-    expect_equal(all_tables_7(n_micro), at7(n_micro))
+    expect_equal(all_tables_X(n_large, 3), at3(n_large))
+    expect_equal(all_tables_X(n_small, 4), at4(n_small))
+    expect_equal(all_tables_X(n_bitty, 5), at5(n_bitty))
+    expect_equal(all_tables_X(n_micro, 6), at6(n_micro))
+    expect_equal(all_tables_X(n_micro, 7), at7(n_micro))
   }
 })
