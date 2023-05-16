@@ -11,7 +11,7 @@
 #' CochranArmitage_CI_rx2(mills_graubard_1987, c(1, 2, 3, 4, 5))
 #' CochranArmitage_CI_rx2(indredavik_2008, c(1, 2, 3, 4, 5))
 #' @export
-CochranArmitage_CI_rx2 <- function(n, a, alpha = 0.05) {
+CochranArmitage_CI_rx2 <- function(n, a = seq_len(nrow(n)), alpha = 0.05) {
   validateArguments(mget(ls()))
   r <- nrow(n)
   nip <- apply(n, 1, sum)

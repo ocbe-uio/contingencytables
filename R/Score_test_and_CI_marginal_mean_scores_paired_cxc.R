@@ -13,7 +13,7 @@
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
-Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a, alpha = 0.05) {
+Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a = seq_len(nrow(n)), alpha = 0.05) {
   validateArguments(mget(ls()))
 
   c <- nrow(n)

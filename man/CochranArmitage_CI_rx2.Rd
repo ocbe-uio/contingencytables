@@ -4,7 +4,7 @@
 \alias{CochranArmitage_CI_rx2}
 \title{The Cochran-Armitage confidence interval for trend in the linear model}
 \usage{
-CochranArmitage_CI_rx2(n, a, alpha = 0.05)
+CochranArmitage_CI_rx2(n, a = seq_len(nrow(n)), alpha = 0.05)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}

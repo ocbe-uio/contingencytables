@@ -6,7 +6,11 @@
 \title{The Wald test and confidence interval for the difference between
 marginal mean scores}
 \usage{
-Wald_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha = 0.05)
+Wald_test_and_CI_marginal_mean_scores_paired_cxc(
+  n,
+  a = seq_len(nrow(n)),
+  alpha = 0.05
+)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}

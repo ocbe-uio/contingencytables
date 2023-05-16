@@ -23,7 +23,7 @@
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
 Trend_estimate_CI_tests_rx2 <- function(
-  n, a, linkfunction = "logit", alpha = 0.05
+  n, a = seq_len(nrow(n)), linkfunction = "logit", alpha = 0.05
 ) {
   validateArguments(mget(ls()))
 
