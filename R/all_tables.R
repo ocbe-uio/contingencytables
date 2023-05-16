@@ -57,51 +57,36 @@ all_tables_4 <- function(N) {
 
 all_tables_5 <- function(N) {
   x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          x <- rbind(x, c(x1, x2, x3, x4, N - x1 - x2 - x3 - x4))
-        }
-      }
-    }
+  first_col <- 0L
+  for (i in N:0) {
+    other_cols <- all_tables_4(i)
+    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
+    x <- rbind(x, sub_x)
+    first_col <- first_col + 1L
   }
   return(x)
 }
 
 all_tables_6 <- function(N) {
   x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          for (x5 in 0:(N - x1 - x2 - x3 - x4)) {
-            x <- rbind(x, c(x1, x2, x3, x4, x5, N - x1 - x2 - x3 - x4 - x5))
-          }
-        }
-      }
-    }
+  first_col <- 0L
+  for (i in N:0) {
+    other_cols <- all_tables_5(i)
+    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
+    x <- rbind(x, sub_x)
+    first_col <- first_col + 1L
   }
   return(x)
 }
 
 all_tables_7 <- function(N) {
   x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          for (x5 in 0:(N - x1 - x2 - x3 - x4)) {
-            for (x6 in 0:(N - x1 - x2 - x3 - x4 - x5)) {
-              x <- rbind(
-                x,
-                c(x1, x2, x3, x4, x5, x6, N - x1 - x2 - x3 - x4 - x5 - x6)
-              )
-            }
-          }
-        }
-      }
-    }
+  first_col <- 0L
+  for (i in N:0) {
+    other_cols <- all_tables_6(i)
+    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
+    x <- rbind(x, sub_x)
+    first_col <- first_col + 1L
   }
   return(x)
 }
