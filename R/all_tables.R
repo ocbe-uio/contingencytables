@@ -93,6 +93,35 @@ all_tables_4 <- function(N) {
   return(x)
 }
 
+all_tables_4_fixed_size <- function(N) {
+  x <- matrix(NA, level_4_size(N), 4)
+  first_col <- 0
+  for (i in N:0) {
+    other_cols <- all_tables_3(i)
+    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
+    start_row <- which(is.na(x))[1]
+    end_row <- start_row + nrow(sub_x) - 1L
+    x[start_row:end_row, ] <- sub_x
+    first_col <- first_col + 1L
+  }
+  return(x)
+}
+
+all_tables_4_fixed_size_par <- function(N) {
+  x <- matrix(NA, level_4_size(N), 4)
+  first_col <- 0
+
+  for (i in N:0) {
+    other_cols <- all_tables_3(i)
+    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
+    start_row <- which(is.na(x))[1]
+    end_row <- start_row + nrow(sub_x) - 1L
+    x[start_row:end_row, ] <- sub_x
+    first_col <- first_col + 1L
+  }
+  return(x)
+}
+
 all_tables_5 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
