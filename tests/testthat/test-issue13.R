@@ -1,6 +1,8 @@
 context("Generation of table combinations")
 
 # Original functions (for benchmarking) ========================================
+# Also good to keep these in case they need to be reimplemented
+# (in another language)
 at3 <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
