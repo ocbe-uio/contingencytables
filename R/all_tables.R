@@ -45,12 +45,12 @@ all_tables_4_old <- function(N) {
 
 all_tables_4 <- function(N) {
   x <- vector()
-  first_col <- 0
+  first_col <- 0L
   for (i in N:0) {
     other_cols <- all_tables_3(i)
     sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
     x <- rbind(x, sub_x)
-    first_col <- first_col + 1
+    first_col <- first_col + 1L
   }
   return(x)
 }
