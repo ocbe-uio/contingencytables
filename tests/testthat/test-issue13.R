@@ -34,6 +34,7 @@ at5 <- function(N) {
       }
     }
   }
+  return(x)
 }
 at6 <- function(N) {
   x <- vector()
@@ -48,6 +49,7 @@ at6 <- function(N) {
       }
     }
   }
+  return(x)
 }
 at7 <- function(N) {
   x <- vector()
@@ -67,6 +69,7 @@ at7 <- function(N) {
       }
     }
   }
+  return(x)
 }
 
 # Unit test ====================================================================

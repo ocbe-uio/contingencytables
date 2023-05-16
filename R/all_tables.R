@@ -66,6 +66,7 @@ all_tables_5 <- function(N) {
       }
     }
   }
+  return(x)
 }
 
 all_tables_6 <- function(N) {
@@ -81,6 +82,7 @@ all_tables_6 <- function(N) {
       }
     }
   }
+  return(x)
 }
 
 all_tables_7 <- function(N) {
