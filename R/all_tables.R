@@ -36,49 +36,11 @@ level_7_size <- function(N) {
   return(size)
 }
 
-all_tables_3_old <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      x <- rbind(x, c(x1, x2, N - x1 - x2))
-    }
-  }
-  return(x)
-}
-
 all_tables_3 <- function(N) {
   x0 <- unlist(sapply(0:N, function(x) rep(x, N - x + 1)))
   x1 <- unlist(sapply(N:0, function(x) seq(0, x, 1)))
   x2 <- unlist(sapply(N:0, function(x) seq(x, 0, -1)))
   return(cbind(x0, x1, x2, deparse.level = 0))
-}
-
-all_tables_3_optimized <- function(N) {
-  # Calculating the number of rows in the output
-  x_rows <- sum(1:(N + 1))
-
-  # Generating the output
-  x <- matrix(NA, x_rows, 3)
-  idx <- 1
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      x[idx, ] <- c(x1, x2, N - x1 - x2)
-      idx <- idx + 1
-    }
-  }
-  return(x)
-}
-
-all_tables_4_old <- function(N) {
-  x <- vector()
-  for (x1 in (0:N)) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        x <- rbind(x, c(x1, x2, x3, N - x1 - x2 - x3))
-      }
-    }
-  }
-  return(x)
 }
 
 all_tables_4 <- function(N) {
@@ -88,35 +50,6 @@ all_tables_4 <- function(N) {
     other_cols <- all_tables_3(i)
     sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
     x <- rbind(x, sub_x)
-    first_col <- first_col + 1L
-  }
-  return(x)
-}
-
-all_tables_4_fixed_size <- function(N) {
-  x <- matrix(NA, level_4_size(N), 4)
-  first_col <- 0
-  for (i in N:0) {
-    other_cols <- all_tables_3(i)
-    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
-    start_row <- which(is.na(x))[1]
-    end_row <- start_row + nrow(sub_x) - 1L
-    x[start_row:end_row, ] <- sub_x
-    first_col <- first_col + 1L
-  }
-  return(x)
-}
-
-all_tables_4_fixed_size_par <- function(N) {
-  x <- matrix(NA, level_4_size(N), 4)
-  first_col <- 0
-
-  for (i in N:0) {
-    other_cols <- all_tables_3(i)
-    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
-    start_row <- which(is.na(x))[1]
-    end_row <- start_row + nrow(sub_x) - 1L
-    x[start_row:end_row, ] <- sub_x
     first_col <- first_col + 1L
   }
   return(x)
