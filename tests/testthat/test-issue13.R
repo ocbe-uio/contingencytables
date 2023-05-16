@@ -72,7 +72,17 @@ at7 <- function(N) {
   return(x)
 }
 
-# Unit test ====================================================================
+# Unit tests ===================================================================
+test_that("Output size is correctly calculated", {
+  for (ene in 1:10) {
+    expect_equal(nrow(all_tables_3(ene)), level_3_size(ene))
+    expect_equal(nrow(all_tables_4(ene)), level_4_size(ene))
+    expect_equal(nrow(all_tables_5(ene)), level_5_size(ene))
+    expect_equal(nrow(all_tables_6(ene)), level_6_size(ene))
+    expect_equal(nrow(all_tables_7(ene)), level_7_size(ene))
+  }
+})
+
 test_that("Results for the new functions are the same", {
   for (iter in seq_len(10)) {
     n_large <- sample(50:80, 1)

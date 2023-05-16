@@ -1,3 +1,41 @@
+# Maybe there's a way to use recursion instead of all these level_*_size()
+# functions. I couldn't figure it out, but feel free to give it a try!
+level_3_size <- function(N) {
+  sum(1:(N + 1))
+}
+
+level_4_size <- function(N) {
+  size <- 0L
+  for (iter in 0:N) {
+    size <- size + level_3_size(iter)
+  }
+  return(size)
+}
+
+level_5_size <- function(N) {
+  size <- 0L
+  for (iter in 0:N) {
+    size <- size + level_4_size(iter)
+  }
+  return(size)
+}
+
+level_6_size <- function(N) {
+  size <- 0L
+  for (iter in 0:N) {
+    size <- size + level_5_size(iter)
+  }
+  return(size)
+}
+
+level_7_size <- function(N) {
+  size <- 0L
+  for (iter in 0:N) {
+    size <- size + level_6_size(iter)
+  }
+  return(size)
+}
+
 all_tables_3_old <- function(N) {
   x <- vector()
   for (x1 in 0:N) {
