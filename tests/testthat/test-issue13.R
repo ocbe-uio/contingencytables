@@ -71,7 +71,11 @@ at7 <- function(N) {
 
 # Unit test ====================================================================
 test_that("Results for the new functions are the same", {
-  for (i in seq_len(50)) {
-    expect_equal(all_tables_3(i), at3(i))
+  for (iter in seq_len(10)) {
+    n_large <- sample(50:80, 1)
+    n_small <- sample(20:40, 1)
+    n_tiny  <- sample(5:10, 1)
+    expect_equal(all_tables_3(n_large), at3(n_large))
+    expect_equal(all_tables_4(n_small), at4(n_small))
   }
 })
