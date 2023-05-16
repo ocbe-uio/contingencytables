@@ -6,7 +6,7 @@
 #' the_paired_cxc_table_ordinal(fischer_1999, c(8, 3.5, 0, -3.5, -8))
 #' @export
 #' @return NULL. This function should be called for its printed output.
-the_paired_cxc_table_ordinal <- function(n, a, alpha = 0.05) {
+the_paired_cxc_table_ordinal <- function(n, a = seq_len(nrow(n)), alpha = 0.05) {
   validateArguments(mget(ls()))
 
   c <- nrow(n)

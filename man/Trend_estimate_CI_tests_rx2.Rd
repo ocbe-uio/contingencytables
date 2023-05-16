@@ -4,7 +4,12 @@
 \alias{Trend_estimate_CI_tests_rx2}
 \title{Trend estimate for linear and logit models}
 \usage{
-Trend_estimate_CI_tests_rx2(n, a, linkfunction = "logit", alpha = 0.05)
+Trend_estimate_CI_tests_rx2(
+  n,
+  a = seq_len(nrow(n)),
+  linkfunction = "logit",
+  alpha = 0.05
+)
 }
 \arguments{
 \item{n}{the observed counts (an rx2 matrix)}
