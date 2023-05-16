@@ -31,7 +31,7 @@ all_tables_3_optimized <- function(N) {
   return(x)
 }
 
-all_tables_4 <- function(N) {
+all_tables_4_old <- function(N) {
   x <- vector()
   for (x1 in (0:N)) {
     for (x2 in 0:(N - x1)) {
@@ -39,6 +39,18 @@ all_tables_4 <- function(N) {
         x <- rbind(x, c(x1, x2, x3, N - x1 - x2 - x3))
       }
     }
+  }
+  return(x)
+}
+
+all_tables_4 <- function(N) {
+  x <- vector()
+  first_col <- 0
+  for (i in N:0) {
+    other_cols <- all_tables_3(i)
+    sub_x <- cbind(rep(first_col, nrow(other_cols)), other_cols)
+    x <- rbind(x, sub_x)
+    first_col <- first_col + 1
   }
   return(x)
 }
