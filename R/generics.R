@@ -548,7 +548,7 @@ calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
         }
         x <- c(x1, x2, x3, x4)
         T0 <- linear_rank_test_statistic(x, b)
-        f <- calc_prob(x, 4, N_choose_n1p, npj_choose_x1j)
+        f <- calc_prob.ExactCont_linear(x, 4, N_choose_n1p, npj_choose_x1j)
         if (T0 == Tobs) {
           point_prob <- point_prob + f
         } else if (T0 < Tobs) {
