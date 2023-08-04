@@ -5,7 +5,7 @@
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
 #' @examples
 #' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
-#' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
+#' Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)
 #' @export
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
