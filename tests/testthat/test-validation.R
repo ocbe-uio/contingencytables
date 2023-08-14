@@ -258,7 +258,7 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-   Mee_asymptotic_score_CI_2x2(ritland_2007, 9) ,
+   Mee_asymptotic_score_CI_2x2(ritland_2007, 9),
     "alpha contains invalid values. Should be probability."
   )
   expect_error(
@@ -494,7 +494,7 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-    Transformed_Blaker_exact_CI_paired_2x2(ezra_2010/ 7),
+    Transformed_Blaker_exact_CI_paired_2x2(ezra_2010 / 7),
     "n contains invalid values. Should be counts."
   )
   expect_error(
@@ -506,7 +506,7 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-    Transformed_Wilson_score_CI_paired_2x2(ezra_2010/ 6),
+    Transformed_Wilson_score_CI_paired_2x2(ezra_2010 / 6),
     "n contains invalid values. Should be counts."
   )
   expect_error(

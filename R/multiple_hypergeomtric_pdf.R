@@ -1,4 +1,4 @@
-multiple_hypergeomtric_pdf <- function (x, N, r, c, nip, npj) {
+multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
   # edited version of this function to use logarithms of
   # factorials for intermediate computations to be able
   # to handle larger sample counts
@@ -6,7 +6,7 @@ multiple_hypergeomtric_pdf <- function (x, N, r, c, nip, npj) {
   #   10 Aug 2023
   #
 
-  cutoff <- floor(N/2)
+  cutoff <- floor(N / 2)
   Nfact1 <- lfactorial(cutoff)
   Nfact2 <- lfactorial(N) - lfactorial(cutoff)
   terms1 <- lfactorial(npj)
