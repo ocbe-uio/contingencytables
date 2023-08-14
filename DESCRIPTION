@@ -1,6 +1,6 @@
 Package: contingencytables
 Title: Statistical Analysis of Contingency Tables
-Version: 2.0.0.9005
+Version: 2.0.0.9006
 Authors@R:
     c(
         person(
@@ -29,6 +29,11 @@ Authors@R:
             given  = "Ole Christian",
             family = "Lingjærde",
             role   = "trl"
+        ),
+        person(
+            given  = "Brad J.",
+            family = "Biggerstaff",
+            role   = "ctb"
         )
     )
 Description: Provides functions to perform statistical inference of data organized in contingency tables. This package is a companion to the "Statistical Analysis of Contingency Tables" book by Fagerland et al. <ISBN 9781466588172>.
