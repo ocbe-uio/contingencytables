@@ -1,3 +1,5 @@
+# contingencytables (development version)
+
 # contingencytables 2.1.0
 
 * Improved error handling (#46)
