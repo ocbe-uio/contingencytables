@@ -5,7 +5,7 @@
 #' @param b scores assigned to the columns (if b=0, midranks will be used as scores)
 #' @examples
 #' Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
-#' \dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
+#' Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)
 #' @export
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
@@ -27,12 +27,7 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   }
 
   # Calculate all nchoosek beforehand
-  npj_choose_x1j <- matrix(0, c0, max(npj) + 1)
-  for (j in 1:c0) {
-    for (x1j in 0:npj[j]) {
-      npj_choose_x1j[j, x1j + 1] <- choose(npj[j], x1j)
-    }
-  }
+  npj_choose_x1j <- fill_nchoosek(c0, npj)
   N_choose_n1p <- choose(N, nip[1])
 
   # The observed value of the test statistic
@@ -57,7 +52,7 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   # Output
   printresults <- function() {
     my_sprintf_cat("Exact cond. linear rank test: P = %7.5f\n", P)
-    my_sprintf_cat("Mid-P linear rank test:   mid-P = %7.5f\n", midP)
+    my_sprintf_cat("Mid-P linear rank test:   mid-P = %7.5f", midP)
   }
 
   return(contingencytables_result(list("P" = P, "midP" = midP), printresults))

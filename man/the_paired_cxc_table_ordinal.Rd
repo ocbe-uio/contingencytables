@@ -4,7 +4,7 @@
 \alias{the_paired_cxc_table_ordinal}
 \title{The Paired CxC table - ordinal}
 \usage{
-the_paired_cxc_table_ordinal(n, a, alpha = 0.05)
+the_paired_cxc_table_ordinal(n, a = seq_len(nrow(n)), alpha = 0.05)
 }
 \arguments{
 \item{n}{the total number of observations}

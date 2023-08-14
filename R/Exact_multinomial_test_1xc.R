@@ -20,13 +20,7 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
   N <- sum(n)
 
   # Identify all possible tables with N observations (with 3,4,...,7 categories)
-  x <- switch(
-    EXPR = c0,
-    stop("Please provide a sample of size 3 or larger"),
-    stop("Please provide a sample of size 3 or larger"),
-    all_tables_3(N), all_tables_4(N), all_tables_5(N), all_tables_6(N),
-    all_tables_7(N)
-  )
+  x <- all_tables_X(N, c0)
 
   P <- 0
   Tobs <- sum(((n - N * pi0)^2) / (N * pi0))
@@ -41,68 +35,4 @@ Exact_multinomial_test_1xc <- function(n, pi0) {
     list("P" = P), sprintf("The exact multinomial test: P = %7.5f", P)
   )
   return(res)
-}
-
-# =========================
-all_tables_4 <- function(N) {
-  x <- vector()
-  for (x1 in (0:N)) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        x <- rbind(x, c(x1, x2, x3, N - x1 - x2 - x3))
-      }
-    }
-  }
-  return(x)
-}
-
-# =========================
-all_tables_5 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          x <- rbind(x, c(x1, x2, x3, x4, N - x1 - x2 - x3 - x4))
-        }
-      }
-    }
-  }
-}
-
-# =========================
-all_tables_6 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          for (x5 in 0:(N - x1 - x2 - x3 - x4)) {
-            x <- rbind(x, c(x1, x2, x3, x4, x5, N - x1 - x2 - x3 - x4 - x5))
-          }
-        }
-      }
-    }
-  }
-}
-
-# =========================
-all_tables_7 <- function(N) {
-  x <- vector()
-  for (x1 in 0:N) {
-    for (x2 in 0:(N - x1)) {
-      for (x3 in 0:(N - x1 - x2)) {
-        for (x4 in 0:(N - x1 - x2 - x3)) {
-          for (x5 in 0:(N - x1 - x2 - x3 - x4)) {
-            for (x6 in 0:(N - x1 - x2 - x3 - x4 - x5)) {
-              x <- rbind(
-                x,
-                c(x1, x2, x3, x4, x5, x6, N - x1 - x2 - x3 - x4 - x5 - x6)
-              )
-            }
-          }
-        }
-      }
-    }
-  }
 }

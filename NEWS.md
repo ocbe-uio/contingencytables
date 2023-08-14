@@ -1,3 +1,11 @@
+# contingencytables (development version)
+
+* Improved error handling (#46)
+* Optimized `Exact_multinomial_test_1xc()` and `MidP_multinomial_test_1xc()` (#13)
+* Optimized `Exact_cond_midP_linear_rank_tests_2xc()` (#39)
+* Added default value to `a` as scores for rows (outcomes) (#33)
+* Fixed `Exact_cond_midP_tests_rxc()` and `FisherFreemanHalton_asymptotic_test_rxc()` for margins with larger (171+) observations (credit to @bjbiggerstaff)
+
 # contingencytables 2.0.0
 
 * Created objects for all common example inputs (#25)

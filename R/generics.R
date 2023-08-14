@@ -37,11 +37,6 @@ calc_Pvalue_5x2 <- function(...) {
   UseMethod("calc_Pvalue_5x2", method)
 }
 
-linear_rank_test_statistic <- function(...) {
-  method <- convertFunName2Method()
-  UseMethod("linear_rank_test_statistic", method)
-}
-
 #' @author Waldir Leoncio
 convertFunName2Method <- function() {
   callstack <- as.list(sys.calls())
@@ -453,7 +448,7 @@ calc_Pvalue_4x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
           next
         }
         x <- c(x1, x2, x3, x4)
-        T0 <- linear_rank_test_statistic.CochranArmitage(x, a)
+        T0 <- linear_rank_test_statistic(x, a)
         f <- calc_prob.CochranArmitage(x, 4, N_choose_np1, nip_choose_xi1)
         if (T0 == Tobs) {
           point_prob <- point_prob + f
@@ -486,7 +481,7 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
             next
           }
           x <- c(x1, x2, x3, x4, x5)
-          T0 <- linear_rank_test_statistic.CochranArmitage(x, a)
+          T0 <- linear_rank_test_statistic(x, a)
           f <- calc_prob.CochranArmitage(x, 5, N_choose_np1, nip_choose_xi1)
           if (T0 == Tobs) {
             point_prob <- point_prob + f
@@ -502,14 +497,6 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
   one_sided_P <- min(left_sided_P, right_sided_P) + point_prob
   res <- data.frame(one_sided_P = one_sided_P, point_prob = point_prob)
   return(res)
-}
-
-# The linear rank test statistic, which gives an equivalent ordering of
-# tables as the Cochran-Armitage test statistic (under conditioning on
-# both row and column sums)
-linear_rank_test_statistic.CochranArmitage <- function(x, a, ...) {
-  T0 <- sum(x * a)
-  return(T0)
 }
 
 # ======================================================== #
@@ -561,7 +548,7 @@ calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
         }
         x <- c(x1, x2, x3, x4)
         T0 <- linear_rank_test_statistic(x, b)
-        f <- calc_prob(x, 4, N_choose_n1p, npj_choose_x1j)
+        f <- calc_prob.ExactCont_linear(x, 4, N_choose_n1p, npj_choose_x1j)
         if (T0 == Tobs) {
           point_prob <- point_prob + f
         } else if (T0 < Tobs) {
@@ -574,12 +561,6 @@ calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
   }
   one_sided_P <- min(c(left_sided_P, right_sided_P)) + point_prob
   data.frame(one_sided_P = one_sided_P, point_prob = point_prob)
-}
-
-# The linear rank test statistic
-linear_rank_test_statistic.ExactCont_linear <- function(x, b, ...) {
-  T0 <- sum(x * b)
-  return(T0)
 }
 
 # Calculate the probability of table x

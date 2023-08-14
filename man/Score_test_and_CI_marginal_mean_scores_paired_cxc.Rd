@@ -5,7 +5,11 @@
 \alias{Score_test_and_CI_marginal_mean_scores_paired_cxc}
 \title{Score test and CI marginal mean scores paired CxC}
 \usage{
-Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha = 0.05)
+Score_test_and_CI_marginal_mean_scores_paired_cxc(
+  n,
+  a = seq_len(nrow(n)),
+  alpha = 0.05
+)
 }
 \arguments{
 \item{n}{the observed table (a cxc matrix)}
