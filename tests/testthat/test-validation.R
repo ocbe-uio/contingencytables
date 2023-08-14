@@ -506,7 +506,7 @@ test_that("Invalid arguments are picked up", {
     "n contains invalid values. Should be counts."
   )
   expect_error(
-    Transformed_Wilson_score_CI_paired_2x2(ezra_2010/ 6),
+    Transformed_Wilson_score_CI_paired_2x2(ezra_2010 / 6),
     "n contains invalid values. Should be counts."
   )
   expect_error(
