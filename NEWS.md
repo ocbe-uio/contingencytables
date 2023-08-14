@@ -1,4 +1,4 @@
-# contingencytables (development version)
+# contingencytables 2.1.0
 
 * Improved error handling (#46)
 * Optimized `Exact_multinomial_test_1xc()` and `MidP_multinomial_test_1xc()` (#13)
