@@ -1,6 +1,7 @@
 # contingencytables (development version)
 
-:lipstick: Minor styling fixes to code (#48)
+:lipstick: Minor styling fixes to code (#48)<br>
+:memo: Fixed package documentation
 
 # contingencytables 2.1.0
 
