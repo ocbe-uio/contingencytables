@@ -5,7 +5,6 @@
 #' @param types named vector of types for `x`
 #' @return Nothing if all aguments fit their type. An error message otherwise.
 #' @author Waldir Leoncio
-#' @export
 #' @details Accepted validation types are:
 #' \itemize{
 #'  \item "counts"

@@ -144,7 +144,7 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
 
 
   # Output
-  statistics = list(
+  statistics <- list(
     "linkfunction" = linkfunction,
     "P_X2" = P_X2, "X2" = X2, "df_X2" = df_X2,
     "P_D" = P_D, "D" = D, "df_D" = df_D,

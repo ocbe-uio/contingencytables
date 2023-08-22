@@ -9,4 +9,4 @@
 #' - https://contingencytables.com/
 #' - https://www.routledge.com/Statistical-Analysis-of-Contingency-Tables/Fagerland-Lydersen-Laake/p/book/9781466588172
 #' @seealso [print.contingencytables_result] to read about printing alternatives.
-NULL
+"_PACKAGE"

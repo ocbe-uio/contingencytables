@@ -3,6 +3,7 @@
 \docType{package}
 \name{contingencytables}
 \alias{contingencytables}
+\alias{contingencytables-package}
 \title{Statistical Analysis of Contingency tables}
 \description{
 Statistical Analysis of Contingency Tables is an invaluable tool for statistical inference in contingency tables. It covers effect size estimation, confidence intervals, and hypothesis tests for the binomial and the multinomial distributions, unpaired and paired 2x2 tables, rxc tables, ordered rx2 and 2xc tables, paired cxc tables, and stratified tables.
@@ -17,4 +18,21 @@ This package provides functions that accompany the "Statistical Analysis of Cont
 }
 \seealso{
 \link{print.contingencytables_result} to read about printing alternatives.
+}
+\author{
+\strong{Maintainer}: Waldir Leoncio \email{w.l.netto@medisin.uio.no}
+
+Authors:
+\itemize{
+  \item Morten Wang Fagerland \email{morten.fagerland@medisin.uio.no}
+}
+
+Other contributors:
+\itemize{
+  \item Stian Lydersen [contributor]
+  \item Petter Laake [contributor]
+  \item Ole Christian Lingjærde [translator]
+  \item Brad J. Biggerstaff [contributor]
+}
+
 }

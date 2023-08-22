@@ -40,9 +40,9 @@ jobs:
           run: |
             library(lintr)
             excluded_code <- list(
-              "R/FleissEveritt_test_paired_cxc.R" = 18,
-              "R/JonckheereTerpstra_test_rxc.R" = 57,
+              "R/FleissEveritt_test_paired_cxc.R" = 20,
               "R/JonckheereTerpstra_test_rxc.R" = 60,
+              "R/JonckheereTerpstra_test_rxc.R" = 63,
               "R/RBG_test_and_CI_stratified_2x2.R" = 32,
               "R/RBG_test_and_CI_stratified_2x2.R" = 33,
               "R/the_1xc_table_tests.R" = 41,
@@ -53,7 +53,7 @@ jobs:
             )
             style_rules <- list(
               T_and_F_symbol_linter(), assignment_linter(), brace_linter(),
-              commas_linter(), commented_code_linter(), todo_comment_linter(),
+              commas_linter(), commented_code_linter(),
               equals_na_linter(),
               function_left_parentheses_linter(), infix_spaces_linter(),
               no_tab_linter(), object_usage_linter(),
