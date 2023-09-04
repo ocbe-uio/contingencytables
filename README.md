@@ -1,4 +1,4 @@
-<img src="logo/logo.png" width=25%>
+<img src="https://github.com/ocbe-uio/contingencytables/blob/develop/logo/logo.png?raw=true" width=25%>
 
 # contingencytables
 
