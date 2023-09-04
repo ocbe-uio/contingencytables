@@ -4,12 +4,18 @@
 \alias{McNemar_exact_unconditional_test_paired_2x2}
 \title{The McNemar exact unconditional test}
 \usage{
-McNemar_exact_unconditional_test_paired_2x2(n, gamma = 1e-04)
+McNemar_exact_unconditional_test_paired_2x2(
+  n,
+  gamma = 1e-04,
+  num_pi_values = 1000L
+)
 }
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
 \item{gamma}{parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)}
+
+\item{num_pi_values}{number of values to use in the partition of the nuisance parameter space (default=1000)}
 }
 \value{
 An object of the \link{contingencytables_result} class,
@@ -24,7 +30,7 @@ Described in Chapter 8 "The Paired 2x2 Table"
 \note{
 Somewhat crude code with maximization over a simple partition of the
 nuisance parameter space into 'num_pi_values' equally spaced values
-(default: 1000). The number may be changed below. This method could be
+The number may be changed. This method could be
 improved with a better algorithm for the maximization; however, it works
 well for most purposes. Try \code{showplot=1} to get an indication of
 the precision. A refinement of the maximization can be done with a manual

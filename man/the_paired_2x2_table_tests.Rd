@@ -4,12 +4,14 @@
 \alias{the_paired_2x2_table_tests}
 \title{The Paired 2x2 table tests}
 \usage{
-the_paired_2x2_table_tests(n, gamma = 1e-04)
+the_paired_2x2_table_tests(n, gamma = 1e-04, num_pi_values = 1000L)
 }
 \arguments{
 \item{n}{frequency matrix}
 
 \item{gamma}{parameter for the Berger and Boos procedure}
+
+\item{num_pi_values}{number of values to use in the partition of the nuisance parameter space (default=1000)}
 }
 \value{
 NULL. This function should be called for its printed output.
@@ -19,6 +21,6 @@ The Paired 2x2 table tests
 }
 \examples{
 the_paired_2x2_table_tests(bentur_2009)
-the_paired_2x2_table_tests(cavo_2012, gamma = 0)
-\dontrun{the_paired_2x2_table_tests(ezra_2010)}
+the_paired_2x2_table_tests(cavo_2012, gamma = 0, num_pi_values = 10)
+the_paired_2x2_table_tests(ezra_2010, gamma = 0, num_pi_values = 20)
 }
