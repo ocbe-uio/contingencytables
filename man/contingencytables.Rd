@@ -14,6 +14,7 @@ This package provides functions that accompany the "Statistical Analysis of Cont
 \item Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
 \item https://contingencytables.com/
 \item https://www.routledge.com/Statistical-Analysis-of-Contingency-Tables/Fagerland-Lydersen-Laake/p/book/9781466588172
+\item https://ocbe-uio.github.io/contingencytables/
 }
 }
 \seealso{
