@@ -1,13 +1,14 @@
 #' @title The Paired 2x2 table tests
 #' @param n frequency matrix
 #' @param gamma parameter for the Berger and Boos procedure
+#' @param num_pi_values number of values to use in the partition of the nuisance parameter space (default=1000)
 #' @examples
 #' the_paired_2x2_table_tests(bentur_2009)
-#' the_paired_2x2_table_tests(cavo_2012, gamma = 0)
-#' \dontrun{the_paired_2x2_table_tests(ezra_2010)}
+#' the_paired_2x2_table_tests(cavo_2012, gamma = 0, num_pi_values = 10)
+#' the_paired_2x2_table_tests(ezra_2010, gamma = 0, num_pi_values = 20)
 #' @export
 #' @return NULL. This function should be called for its printed output.
-the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
+the_paired_2x2_table_tests <- function(n, gamma = 0.0001, num_pi_values = 1000L) {
   validateArguments(mget(ls()))
 
   N <- sum(n)
@@ -39,11 +40,11 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001) {
   my_sprintf_cat("McNemar mid-P                    %6.4f\n", P)
 
   if (gamma != 0) {
-    P <- McNemar_exact_unconditional_test_paired_2x2(n, 0)
+    P <- McNemar_exact_unconditional_test_paired_2x2(n, 0, num_pi_values)
     my_sprintf_cat("McNemar exact unconditional      %6.4f\n", P)
   }
 
-  P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma)
+  P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma, num_pi_values)
   my_sprintf_cat("McNemar exact unconditional*     %6.4f\n", P)
 
   cat("---------------------------------------------------------\n")

@@ -3,6 +3,7 @@
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
 #' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
+#' @param num_pi_values number of values to use in the partition of the nuisance parameter space (default=1000)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 #' McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
@@ -10,7 +11,7 @@
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
-#' (default: 1000). The number may be changed below. This method could be
+#' The number may be changed. This method could be
 #' improved with a better algorithm for the maximization; however, it works
 #' well for most purposes. Try \code{showplot=1} to get an indication of
 #' the precision. A refinement of the maximization can be done with a manual
@@ -19,11 +20,8 @@
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
-McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001) {
+McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_pi_values = 1000L) {
   validateArguments(mget(ls()))
-
-  # Partition the parameter space into 'num_pi_values' equally spaced values
-  num_pi_values <- 1000
 
   # Display a plot of the P-value as a function of the common success probability
   showplot <- 0
