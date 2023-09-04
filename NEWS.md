@@ -1,3 +1,5 @@
+# contingencytables (development version)
+
 # contingencytables 2.1.1
 
 :lipstick: Minor styling fixes to code (#48)<br>
