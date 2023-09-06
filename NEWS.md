@@ -1,6 +1,6 @@
 # contingencytables (development version)
 
-* Added argument to control `num_pi_values` in `McNemar_exact_unconditional_test_paired_2x2()` and `the_paired_2x2_table_tests()` (#50)
+:sparkles: Added argument to control `num_pi_values` in `McNemar_exact_unconditional_test_paired_2x2()` and `the_paired_2x2_table_tests()` (#50)
 
 # contingencytables 2.1.1
 
