@@ -46,6 +46,9 @@ validateArguments <- function(x, types = "default") {
       # so the indices match.
       type <- types[order(names(types))][i]
     }
+    if (names(x[i]) == "direction" && x[[i]] == "") {
+      stop(names(x[i]), " cannot be empty")
+    }
     if (length(type[[1]]) == 1) {
       isvalid <- switch(
         type[[1]],
