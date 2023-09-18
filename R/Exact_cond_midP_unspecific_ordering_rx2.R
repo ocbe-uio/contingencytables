@@ -50,7 +50,7 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
   } else {
-    stop("n must have either 4 or 5 rows")
+    stop("n must have either 4 or 5 rows. Consider transposing it.")
   }
   P <- tmp$P
   midP <- tmp$midP
