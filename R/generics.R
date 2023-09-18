@@ -585,6 +585,7 @@ calc_prob.ExactCont_linear <- function(x, c, N_choose_n1p, npj_choose_x1j, ...) 
 calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic, ...) {
   P <- 0
   point_prob <- 0
+  browser() # TEMP
   for (x1 in 0:min(c(nip[1], np1))) {
     for (x2 in 0:min(c(nip[2], np1 - x1))) {
       for (x3 in 0:min(c(nip[3], np1 - x1 - x2))) {
