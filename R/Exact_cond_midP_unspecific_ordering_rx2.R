@@ -81,7 +81,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
 
   m <- array(0, dim = c(length(J), 2, c))
   T0 <- 0
-  if (identical(statistic, "PearsonCumOR")) {
+  if (statistic == "PearsonCumOR") {
     for (h in seq_along(J)) {
       nJ <- J[[h]]
       cols <- ncol(nJ)
@@ -94,7 +94,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
         }
       }
     }
-  } else if (identical(statistic, "LRCumOR")) {
+  } else if (statistic == "LRCumOR") {
     for (h in seq_along(J)) {
       nJ <- J[[h]]
       cols <- ncol(nJ)
@@ -116,7 +116,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
 # Calculate the test statistics
 test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
   # These are used for cumulative odds ratios in 2xc tables
-  if (identical(statistic, "PearsonCumOR") || identical(statistic, "LRCumOR")) {
+  if (statistic %in% c("PearsonCumOR", "LRCumOR")) {
     n <- t(n)
     n[c(1, 2), ] <- n[c(2, 1), ]
     T0 <- test_statistic_cum_OR(n, r, nip, statistic)
@@ -127,8 +127,8 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
   nhat <- n[, 1] / apply(n, 1, sum)
   nhatstar <- nhat
   for (i in 1:(r - 1)) {
-    if ((identical(direction, "increasing") && nhatstar[i] > nhatstar[i + 1]) ||
-      (identical(direction, "decreasing") && nhatstar[i] < nhatstar[i + 1])) {
+    if ((direction == "increasing" && nhatstar[i] > nhatstar[i + 1]) ||
+      (direction == "decreasing" && nhatstar[i] < nhatstar[i + 1])) {
       pooled_proportion <- (n[i, 1] + n[i + 1, 1]) / (n[i, 1] + n[i, 2] + n[i + 1, 1] + n[i + 1, 2])
       nhatstar[i] <- pooled_proportion
       nhatstar[i + 1] <- pooled_proportion
@@ -140,7 +140,7 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
 
   m <- matrix(0, r, 2)
   T0 <- 0
-  if (identical(statistic, "Pearson")) {
+  if (statistic == "Pearson") {
     for (i in 1:r) {
       for (j in 1:2) {
         m[i, j] <- nip[i] * npj[j] / N
@@ -149,7 +149,7 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
         }
       }
     }
-  } else if (identical(statistic, "LR")) {
+  } else if (statistic == "LR") {
     for (i in 1:r) {
       for (j in 1:2) {
         m[i, j] <- nip[i] * npj[j] / N
