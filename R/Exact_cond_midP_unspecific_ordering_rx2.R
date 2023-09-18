@@ -124,7 +124,8 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
   }
 
   # Common calculations for the Pearson and LR statistics
-  nhat <- n[, 1] / apply(n, 1, sum)
+  rowsums_n <- rowSums(n)
+  nhat <- n[, 1] / rowsums_n
   nhatstar <- nhat
   for (i in 1:(r - 1)) {
     if ((direction == "increasing" && nhatstar[i] > nhatstar[i + 1]) ||
@@ -135,8 +136,8 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
     }
   }
   nstar <- matrix(0, r, 2)
-  nstar[, 1] <- apply(n, 1, sum) * nhatstar
-  nstar[, 2] <- apply(n, 1, sum) * (1 - nhatstar)
+  nstar[, 1] <- rowsums_n * nhatstar
+  nstar[, 2] <- rowsums_n * (1 - nhatstar)
 
   m <- matrix(0, r, 2)
   T0 <- 0
