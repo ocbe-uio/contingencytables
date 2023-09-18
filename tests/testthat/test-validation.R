@@ -106,6 +106,10 @@ test_that("Invalid arguments are picked up", {
     "Should be increasing or decreasing"
   )
   expect_error(
+    Exact_cond_midP_unspecific_ordering_rx2(t(lydersen_2012a)),
+    "direction cannot be empty"
+  )
+  expect_error(
      Exact_multinomial_test_1xc(snp6498169$subset$n, -snp6498169$subset$pi0),
     "Should be probability"
   )
