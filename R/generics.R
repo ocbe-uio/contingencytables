@@ -39,26 +39,26 @@ calc_Pvalue_5x2 <- function(...) {
 
 #' @author Waldir Leoncio
 convertFunName2Method <- function() {
-  callstack <- as.list(sys.calls())
+  callstack <- gsub(x = as.character(sys.calls()), "\\(.+$", "") # func names
   findInCallstack <- function(regex) {
-    length_function_name <- length(callstack[grepl(regex, callstack)])
-    return(length_function_name > 0)
+    return(!is.na(match(regex, callstack)))
   }
-  if (findInCallstack("^Koopman_asymptotic_score_CI")) {
+  # TODO: replace if-else with table lookup
+  if (findInCallstack("Koopman_asymptotic_score_CI_2x2")) {
     cls <- "Koopman"
-  } else if (findInCallstack("^Mee_asymptotic_score_CI")) {
+  } else if (findInCallstack("Mee_asymptotic_score_CI_2x2")) {
     cls <- "Mee"
-  } else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_diff")) {
+  } else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_difference_2x2")) {
     cls <- "Miettinen_diff"
-  } else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_OR")) {
+  } else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_OR_2x2")) {
     cls <- "Miettinen_OR"
-  } else if (findInCallstack("^MiettinenNurminen_asymptotic_score_CI_rat")) {
+  } else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_ratio_2x2")) {
     cls <- "Miettinen_ratio"
-  } else if (findInCallstack("^Uncorrected_asymptotic_score_CI_2x2")) {
+  } else if (findInCallstack("Uncorrected_asymptotic_score_CI_2x2")) {
     cls <- "Uncorrected"
-  } else if (findInCallstack("^CochranArmitage")) {
+  } else if (findInCallstack("CochranArmitage_exact_cond_midP_tests_rx2")) {
     cls <- "CochranArmitage"
-  } else if (findInCallstack("^Exact_cond_midP_unspecific_ordering_rx2")) {
+  } else if (findInCallstack("Exact_cond_midP_unspecific_ordering_rx2")) {
     cls <- "ExactCond"
   } else if (findInCallstack("Exact_cond_midP_linear_rank_tests_2xc")) {
     cls <- "ExactCont_linear"
