@@ -24,6 +24,7 @@
 #'
 validateArguments <- function(x, types = "default") {
   for (i in seq_along(x)) {
+    # Typical arguments --------------------------------------------------------
     if (length(types) == 1 && types == "default") {
       type <- switch(
         names(x)[i],
@@ -46,6 +47,13 @@ validateArguments <- function(x, types = "default") {
       # so the indices match.
       type <- types[order(names(types))][i]
     }
+
+    # Preventing some empty args -----------------------------------------------
+    if (names(x[i]) == "direction" && x[[i]] == "") {
+      stop(names(x[i]), " cannot be empty")
+    }
+
+    # Actual validation --------------------------------------------------------
     if (length(type[[1]]) == 1) {
       isvalid <- switch(
         type[[1]],
