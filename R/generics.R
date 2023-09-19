@@ -61,7 +61,7 @@ convertFunName2Method <- function() {
   } else if (findInCallstack("Exact_cond_midP_unspecific_ordering_rx2")) {
     cls <- "ExactCond"
   } else if (findInCallstack("Exact_cond_midP_linear_rank_tests_2xc")) {
-    cls <- "ExactCont_linear"
+    cls <- "ExactCond_linear"
   } else if (findInCallstack("Exact_cond_midP_unspecific_ordering_rx2")) {
     cls <- "ExactCond_unspecific"
   } else {
@@ -506,7 +506,7 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes c=3 columns
 
-calc_Pvalue_2x3.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b) {
+calc_Pvalue_2x3.ExactCond_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b) {
   left_sided_P <- 0
   right_sided_P <- 0
   point_prob <- 0
@@ -535,7 +535,7 @@ calc_Pvalue_2x3.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes c=4 columns
 
-calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b) {
+calc_Pvalue_2x4.ExactCond_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b) {
   left_sided_P <- 0
   right_sided_P <- 0
   point_prob <- 0
@@ -548,7 +548,7 @@ calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
         }
         x <- c(x1, x2, x3, x4)
         T0 <- linear_rank_test_statistic(x, b)
-        f <- calc_prob.ExactCont_linear(x, 4, N_choose_n1p, npj_choose_x1j)
+        f <- calc_prob.ExactCond_linear(x, 4, N_choose_n1p, npj_choose_x1j)
         if (T0 == Tobs) {
           point_prob <- point_prob + f
         } else if (T0 < Tobs) {
@@ -566,7 +566,7 @@ calc_Pvalue_2x4.ExactCont_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
 # Calculate the probability of table x
 # (multiple hypergeometric distribution)
 
-calc_prob.ExactCont_linear <- function(x, c, N_choose_n1p, npj_choose_x1j, ...) {
+calc_prob.ExactCond_linear <- function(x, c, N_choose_n1p, npj_choose_x1j, ...) {
   f <- 1
   for (j in 1:c) {
     f <- f * npj_choose_x1j[j, x[j] + 1]
