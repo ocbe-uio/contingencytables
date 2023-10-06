@@ -37,39 +37,35 @@ calc_Pvalue_5x2 <- function(...) {
   UseMethod("calc_Pvalue_5x2", method)
 }
 
+dispatch_lookup <- data.frame(
+  "fn" = c(
+    "Koopman_asymptotic_score_CI_2x2",
+    "Mee_asymptotic_score_CI_2x2",
+    "MiettinenNurminen_asymptotic_score_CI_difference_2x2",
+    "MiettinenNurminen_asymptotic_score_CI_OR_2x2",
+    "MiettinenNurminen_asymptotic_score_CI_ratio_2x2",
+    "Uncorrected_asymptotic_score_CI_2x2",
+    "CochranArmitage_exact_cond_midP_tests_rx2",
+    "Exact_cond_midP_unspecific_ordering_rx2",
+    "Exact_cond_midP_linear_rank_tests_2xc",
+    "Exact_cond_midP_unspecific_ordering_rx2"
+  ),
+  "cls" = c(
+    "Koopman", "Mee", "Miettinen_diff", "Miettinen_OR", "Miettinen_ratio",
+    "Uncorrected", "CochranArmitage", "ExactCond", "ExactCond_linear",
+    "ExactCond_unspecific"
+  )
+)
+
 #' @author Waldir Leoncio
 convertFunName2Method <- function() {
   callstack <- gsub(x = as.character(sys.calls()), "\\(.+$", "") # func names
   findInCallstack <- function(regex) {
     return(!is.na(match(regex, callstack)))
   }
-  # TODO: replace if-else with table lookup
-  if (findInCallstack("Koopman_asymptotic_score_CI_2x2")) {
-    cls <- "Koopman"
-  } else if (findInCallstack("Mee_asymptotic_score_CI_2x2")) {
-    cls <- "Mee"
-  } else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_difference_2x2")) {
-    cls <- "Miettinen_diff"
-  } else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_OR_2x2")) {
-    cls <- "Miettinen_OR"
-  } else if (findInCallstack("MiettinenNurminen_asymptotic_score_CI_ratio_2x2")) {
-    cls <- "Miettinen_ratio"
-  } else if (findInCallstack("Uncorrected_asymptotic_score_CI_2x2")) {
-    cls <- "Uncorrected"
-  } else if (findInCallstack("CochranArmitage_exact_cond_midP_tests_rx2")) {
-    cls <- "CochranArmitage"
-  } else if (findInCallstack("Exact_cond_midP_unspecific_ordering_rx2")) {
-    cls <- "ExactCond"
-  } else if (findInCallstack("Exact_cond_midP_linear_rank_tests_2xc")) {
-    cls <- "ExactCond_linear"
-  } else if (findInCallstack("Exact_cond_midP_unspecific_ordering_rx2")) {
-    cls <- "ExactCond_unspecific"
-  } else {
-    stop("Unrecognized parent function")
-  }
-  fun_name <- cls
-  class(fun_name) <- cls
-  return(fun_name)
+  cls_match <- dispatch_lookup[match(callstack, dispatch_lookup[["fn"]]), "cls"]
+  cls <- cls_match[!is.na(cls_match)]
+  return(structure(cls, class = cls))
 }
 
 # ======================================================== #
@@ -594,7 +590,7 @@ calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
         }
         x <- rbind(c(x1, nip[1] - x1), c(x2, nip[2] - x2), c(x3, nip[3] - x3), c(x4, nip[4] - x4))
         T0 <- test_statistic(x, 4, nip, npj, N, direction, statistic)
-        f <- calc_prob.ExactCond_unspecific(x[, 1], 4, N_choose_np1, nip_choose_xi1)
+        f <- calc_prob(x[, 1], 4, N_choose_np1, nip_choose_xi1)
         if (T0 == Tobs) {
           point_prob <- point_prob + f
         } else if (T0 > Tobs) {

@@ -42,11 +42,11 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
   # Calculate the two-sided exact P-value and the mid-P value
   # Need separate functions for different values of r (the number of rows)
   if (r == 4) {
-    tmp <- calc_Pvalue_4x2.ExactCond_unspecific(
+    tmp <- calc_Pvalue_4x2(
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
   } else if (r == 5) {
-    tmp <- calc_Pvalue_5x2.ExactCond_unspecific(
+    tmp <- calc_Pvalue_5x2(
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
   } else {
