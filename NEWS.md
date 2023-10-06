@@ -4,6 +4,7 @@
 * Improved validation of the `direction` argument (#45)
 * Optimized `Exact_cond_midP_unspecific_ordering_rx2()` (#44)
 * Optimized internal functions affecting several external functions (#49)
+* Removed duplicated code
 
 # contingencytables 2.1.1
 
