@@ -1,30 +1,30 @@
 # contingencytables (development version)
 
-* Added argument to control `num_pi_values` in `McNemar_exact_unconditional_test_paired_2x2()` and `the_paired_2x2_table_tests()` (#50)<br>
-* Improved validation of the `direction` argument (#45)<br>
-* Optimized `Exact_cond_midP_unspecific_ordering_rx2()` (#44)<br>
-* Optimized internal functions affecting several external functions (#49)<br>
+* Added argument to control `num_pi_values` in `McNemar_exact_unconditional_test_paired_2x2()` and `the_paired_2x2_table_tests()` (#50)
+* Improved validation of the `direction` argument (#45)
+* Optimized `Exact_cond_midP_unspecific_ordering_rx2()` (#44)
+* Optimized internal functions affecting several external functions (#49)
 
 # contingencytables 2.1.1
 
-* Minor styling fixes to code (#48)<br>
+* Minor styling fixes to code (#48)
 * Fixed package documentation
 
 # contingencytables 2.1.0
 
-* Improved error handling (#46)<br>
-* Optimized `Exact_multinomial_test_1xc()` and `MidP_multinomial_test_1xc()` (#13)<br>
-* Optimized `Exact_cond_midP_linear_rank_tests_2xc()` (#39)<br>
-* Added default value to `a` as scores for rows (outcomes) (#33)<br>
+* Improved error handling (#46)
+* Optimized `Exact_multinomial_test_1xc()` and `MidP_multinomial_test_1xc()` (#13)
+* Optimized `Exact_cond_midP_linear_rank_tests_2xc()` (#39)
+* Added default value to `a` as scores for rows (outcomes) (#33)
 * Fixed `Exact_cond_midP_tests_rxc()` and `FisherFreemanHalton_asymptotic_test_rxc()` for margins with larger (171+) observations (credit to @bjbiggerstaff)
 
 # contingencytables 2.0.0
 
-* Created objects for all common example inputs (#25)<br>
-* Added validation to all exported function arguments (#14)<br>
-* Refactored code (#27)<br>
-* Fixed examples<br>
-* Unwrapped several examples from `\dontrun{}` (#28)<br>
+* Created objects for all common example inputs (#25)
+* Added validation to all exported function arguments (#14)
+* Refactored code (#27)
+* Fixed examples
+* Unwrapped several examples from `\dontrun{}` (#28)
 * Improved output of all functions (#31)
 
 # contingencytables 1.0.4
@@ -37,14 +37,14 @@
 
 # contingencytables 1.0.2
 
-* Fixed bug on `Pearson_chi_squared_test_CC_2x2()` (see issue #34 for details)<br>
-* Refactoring (see issues #26 and #30 for details)<br>
-* Fixes bug on `the_2x2_table_CIs_ratio()` (see commit 9d3212f for details)<br>
+* Fixed bug on `Pearson_chi_squared_test_CC_2x2()` (see issue #34 for details)
+* Refactoring (see issues #26 and #30 for details)
+* Fixes bug on `the_2x2_table_CIs_ratio()` (see commit 9d3212f for details)
 * Improvements to Github documentation and CI workflow
 
 # contingencytables 1.0.1
 
-* Added a `NEWS.md` file to track changes to the package.<br>
+* Added a `NEWS.md` file to track changes to the package.
 * Fixes bug (see issue #32)
 
 # contingencytables 1.0.0
