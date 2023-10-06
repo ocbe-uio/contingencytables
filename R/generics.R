@@ -621,7 +621,7 @@ calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
           }
           x <- rbind(c(x1, nip[1] - x1), c(x2, nip[2] - x2), c(x3, nip[3] - x3), c(x4, nip[4] - x4), c(x5, nip[5] - x5))
           T0 <- test_statistic(x, 5, nip, npj, N, direction, statistic)
-          f <- calc_prob.ExactCond_unspecific(x[, 1], 5, N_choose_np1, nip_choose_xi1)
+          f <- calc_prob(x[, 1], 5, N_choose_np1, nip_choose_xi1)
           if (T0 == Tobs) {
             point_prob <- point_prob + f
           } else if (T0 > Tobs) {
