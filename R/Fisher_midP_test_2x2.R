@@ -35,11 +35,9 @@ Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
   )
 
   # Observed value of the test statistic
-  if (n[1, 1] < length(Tvalues)) {
-    Tobs <- Tvalues[n[1, 1] + 1]
-  } else {
-    Tobs <- -Inf # If, for instance, n[1, 2] = 0 and n[2, 2] = 0
-  }
+  Tobs <- test_statistic_fisher_midp_test_2x2(
+    n[1, 1], n[1, 2], n[2, 1], n[2, 2], statistic
+  )
 
   # Two-sided P-value
   P <- sum(fvalues[Tvalues > Tobs]) + 0.5 * sum(fvalues[Tvalues == Tobs])
