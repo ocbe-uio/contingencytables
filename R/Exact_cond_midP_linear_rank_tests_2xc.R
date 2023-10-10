@@ -36,11 +36,11 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
   # Calculate the smallest one-sided P-value and the point probability
   # Need separate functions for different values of c (the number of columns)
   if (c0 == 3) {
-    tmp <- calc_Pvalue_2x3.ExactCont_linear(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b)
+    tmp <- calc_Pvalue_2x3.ExactCond_linear(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b)
     one_sided_P <- tmp$one_sided_P
     point_prob <- tmp$point_prob
   } else if (c0 == 4) {
-    tmp <- calc_Pvalue_2x4.ExactCont_linear(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b)
+    tmp <- calc_Pvalue_2x4.ExactCond_linear(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b)
     one_sided_P <- tmp$one_sided_P
     point_prob <- tmp$point_prob
   }

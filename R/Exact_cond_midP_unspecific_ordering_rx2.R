@@ -42,15 +42,15 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
   # Calculate the two-sided exact P-value and the mid-P value
   # Need separate functions for different values of r (the number of rows)
   if (r == 4) {
-    tmp <- calc_Pvalue_4x2.ExactCond_unspecific(
+    tmp <- calc_Pvalue_4x2(
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
   } else if (r == 5) {
-    tmp <- calc_Pvalue_5x2.ExactCond_unspecific(
+    tmp <- calc_Pvalue_5x2(
       Tobs, nip, np1, npj, N, N_choose_np1, nip_choose_xi1, direction, statistic
     )
   } else {
-    stop("n must have either 4 or 5 rows")
+    stop("n must have either 4 or 5 rows. Consider transposing it.")
   }
   P <- tmp$P
   midP <- tmp$midP
@@ -81,7 +81,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
 
   m <- array(0, dim = c(length(J), 2, c))
   T0 <- 0
-  if (identical(statistic, "PearsonCumOR")) {
+  if (statistic == "PearsonCumOR") {
     for (h in seq_along(J)) {
       nJ <- J[[h]]
       cols <- ncol(nJ)
@@ -94,7 +94,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
         }
       }
     }
-  } else if (identical(statistic, "LRCumOR")) {
+  } else if (statistic == "LRCumOR") {
     for (h in seq_along(J)) {
       nJ <- J[[h]]
       cols <- ncol(nJ)
@@ -116,7 +116,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
 # Calculate the test statistics
 test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
   # These are used for cumulative odds ratios in 2xc tables
-  if (identical(statistic, "PearsonCumOR") || identical(statistic, "LRCumOR")) {
+  if (statistic %in% c("PearsonCumOR", "LRCumOR")) {
     n <- t(n)
     n[c(1, 2), ] <- n[c(2, 1), ]
     T0 <- test_statistic_cum_OR(n, r, nip, statistic)
@@ -124,23 +124,24 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
   }
 
   # Common calculations for the Pearson and LR statistics
-  nhat <- n[, 1] / apply(n, 1, sum)
+  rowsums_n <- rowSums(n)
+  nhat <- n[, 1] / rowsums_n
   nhatstar <- nhat
   for (i in 1:(r - 1)) {
-    if ((identical(direction, "increasing") && nhatstar[i] > nhatstar[i + 1]) ||
-      (identical(direction, "decreasing") && nhatstar[i] < nhatstar[i + 1])) {
+    if ((direction == "increasing" && nhatstar[i] > nhatstar[i + 1]) ||
+      (direction == "decreasing" && nhatstar[i] < nhatstar[i + 1])) {
       pooled_proportion <- (n[i, 1] + n[i + 1, 1]) / (n[i, 1] + n[i, 2] + n[i + 1, 1] + n[i + 1, 2])
       nhatstar[i] <- pooled_proportion
       nhatstar[i + 1] <- pooled_proportion
     }
   }
   nstar <- matrix(0, r, 2)
-  nstar[, 1] <- apply(n, 1, sum) * nhatstar
-  nstar[, 2] <- apply(n, 1, sum) * (1 - nhatstar)
+  nstar[, 1] <- rowsums_n * nhatstar
+  nstar[, 2] <- rowsums_n * (1 - nhatstar)
 
   m <- matrix(0, r, 2)
   T0 <- 0
-  if (identical(statistic, "Pearson")) {
+  if (statistic == "Pearson") {
     for (i in 1:r) {
       for (j in 1:2) {
         m[i, j] <- nip[i] * npj[j] / N
@@ -149,7 +150,7 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
         }
       }
     }
-  } else if (identical(statistic, "LR")) {
+  } else if (statistic == "LR") {
     for (i in 1:r) {
       for (j in 1:2) {
         m[i, j] <- nip[i] * npj[j] / N

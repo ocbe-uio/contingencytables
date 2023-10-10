@@ -8,5 +8,6 @@
 #' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
 #' - https://contingencytables.com/
 #' - https://www.routledge.com/Statistical-Analysis-of-Contingency-Tables/Fagerland-Lydersen-Laake/p/book/9781466588172
+#' - https://ocbe-uio.github.io/contingencytables/
 #' @seealso [print.contingencytables_result] to read about printing alternatives.
 "_PACKAGE"
