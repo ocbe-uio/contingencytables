@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contingencytables</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.0</span>
       </span>
     </div>
 
@@ -48,41 +48,60 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="development version" id="contingencytables-development-version">contingencytables (development version)<a class="anchor" aria-label="anchor" href="#contingencytables-development-version"></a></h2>
+<h2 class="page-header" data-toc-text="2.2.0" id="contingencytables-220">contingencytables 2.2.0<small>2023-10-09</small><a class="anchor" aria-label="anchor" href="#contingencytables-220"></a></h2>
 <ul><li>Added argument to control <code>num_pi_values</code> in <code><a href="../reference/McNemar_exact_unconditional_test_paired_2x2.html">McNemar_exact_unconditional_test_paired_2x2()</a></code> and <code><a href="../reference/the_paired_2x2_table_tests.html">the_paired_2x2_table_tests()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/50" class="external-link">#50</a>)</li>
+<li>Improved validation of the <code>direction</code> argument (<a href="https://github.com/ocbe-uio/contingencytables/issues/45" class="external-link">#45</a>)</li>
+<li>Optimized <code><a href="../reference/Exact_cond_midP_unspecific_ordering_rx2.html">Exact_cond_midP_unspecific_ordering_rx2()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/44" class="external-link">#44</a>)</li>
+<li>Optimized internal functions affecting several external functions (<a href="https://github.com/ocbe-uio/contingencytables/issues/49" class="external-link">#49</a>)</li>
+<li>Removed duplicated code</li>
+<li>Fixed bug on <code><a href="../reference/Fisher_midP_test_2x2.html">Fisher_midP_test_2x2()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/51" class="external-link">#51</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="2.1.1" id="contingencytables-211">contingencytables 2.1.1<small>2023-08-21</small><a class="anchor" aria-label="anchor" href="#contingencytables-211"></a></h2>
-<p><span class="emoji" data-emoji="lipstick">💄</span> Minor styling fixes to code (<a href="https://github.com/ocbe-uio/contingencytables/issues/48" class="external-link">#48</a>)<br><span class="emoji" data-emoji="memo">📝</span> Fixed package documentation</p>
-</div>
+<ul><li>Minor styling fixes to code (<a href="https://github.com/ocbe-uio/contingencytables/issues/48" class="external-link">#48</a>)</li>
+<li>Fixed package documentation</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="2.1.0" id="contingencytables-210">contingencytables 2.1.0<small>2023-08-14</small><a class="anchor" aria-label="anchor" href="#contingencytables-210"></a></h2>
-<p><span class="emoji" data-emoji="safety_vest">🦺</span> Improved error handling (<a href="https://github.com/ocbe-uio/contingencytables/issues/46" class="external-link">#46</a>)<br><span class="emoji" data-emoji="zap">⚡</span> Optimized <code><a href="../reference/Exact_multinomial_test_1xc.html">Exact_multinomial_test_1xc()</a></code> and <code><a href="../reference/MidP_multinomial_test_1xc.html">MidP_multinomial_test_1xc()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/13" class="external-link">#13</a>)<br><span class="emoji" data-emoji="zap">⚡</span> Optimized <code><a href="../reference/Exact_cond_midP_linear_rank_tests_2xc.html">Exact_cond_midP_linear_rank_tests_2xc()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/39" class="external-link">#39</a>)<br><span class="emoji" data-emoji="sparkles">✨</span> Added default value to <code>a</code> as scores for rows (outcomes) (<a href="https://github.com/ocbe-uio/contingencytables/issues/33" class="external-link">#33</a>)<br><span class="emoji" data-emoji="bug">🐛</span> Fixed <code><a href="../reference/Exact_cond_midP_tests_rxc.html">Exact_cond_midP_tests_rxc()</a></code> and <code><a href="../reference/FisherFreemanHalton_asymptotic_test_rxc.html">FisherFreemanHalton_asymptotic_test_rxc()</a></code> for margins with larger (171+) observations (credit to <a href="https://github.com/bjbiggerstaff" class="external-link">@bjbiggerstaff</a>)</p>
-</div>
+<ul><li>Improved error handling (<a href="https://github.com/ocbe-uio/contingencytables/issues/46" class="external-link">#46</a>)</li>
+<li>Optimized <code><a href="../reference/Exact_multinomial_test_1xc.html">Exact_multinomial_test_1xc()</a></code> and <code><a href="../reference/MidP_multinomial_test_1xc.html">MidP_multinomial_test_1xc()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/13" class="external-link">#13</a>)</li>
+<li>Optimized <code><a href="../reference/Exact_cond_midP_linear_rank_tests_2xc.html">Exact_cond_midP_linear_rank_tests_2xc()</a></code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/39" class="external-link">#39</a>)</li>
+<li>Added default value to <code>a</code> as scores for rows (outcomes) (<a href="https://github.com/ocbe-uio/contingencytables/issues/33" class="external-link">#33</a>)</li>
+<li>Fixed <code><a href="../reference/Exact_cond_midP_tests_rxc.html">Exact_cond_midP_tests_rxc()</a></code> and <code><a href="../reference/FisherFreemanHalton_asymptotic_test_rxc.html">FisherFreemanHalton_asymptotic_test_rxc()</a></code> for margins with larger (171+) observations (credit to <a href="https://github.com/bjbiggerstaff" class="external-link">@bjbiggerstaff</a>)</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="2.0.0" id="contingencytables-200">contingencytables 2.0.0<small>2023-05-10</small><a class="anchor" aria-label="anchor" href="#contingencytables-200"></a></h2>
-<p><span class="emoji" data-emoji="sparkles">✨</span> Created objects for all common example inputs (<a href="https://github.com/ocbe-uio/contingencytables/issues/25" class="external-link">#25</a>)<br><span class="emoji" data-emoji="safety_vest">🦺</span> Added validation to all exported function arguments (<a href="https://github.com/ocbe-uio/contingencytables/issues/14" class="external-link">#14</a>)<br><span class="emoji" data-emoji="recycle">♻️</span> Refactored code (<a href="https://github.com/ocbe-uio/contingencytables/issues/27" class="external-link">#27</a>)<br><span class="emoji" data-emoji="memo">📝</span> Fixed examples<br><span class="emoji" data-emoji="memo">📝</span> Unwrapped several examples from <code>\dontrun{}</code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/28" class="external-link">#28</a>)<br><span class="emoji" data-emoji="sparkles">✨</span> Improved output of all functions (<a href="https://github.com/ocbe-uio/contingencytables/issues/31" class="external-link">#31</a>)</p>
-</div>
+<ul><li>Created objects for all common example inputs (<a href="https://github.com/ocbe-uio/contingencytables/issues/25" class="external-link">#25</a>)</li>
+<li>Added validation to all exported function arguments (<a href="https://github.com/ocbe-uio/contingencytables/issues/14" class="external-link">#14</a>)</li>
+<li>Refactored code (<a href="https://github.com/ocbe-uio/contingencytables/issues/27" class="external-link">#27</a>)</li>
+<li>Fixed examples</li>
+<li>Unwrapped several examples from <code>\dontrun{}</code> (<a href="https://github.com/ocbe-uio/contingencytables/issues/28" class="external-link">#28</a>)</li>
+<li>Improved output of all functions (<a href="https://github.com/ocbe-uio/contingencytables/issues/31" class="external-link">#31</a>)</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.4" id="contingencytables-104">contingencytables 1.0.4<small>2022-12-12</small><a class="anchor" aria-label="anchor" href="#contingencytables-104"></a></h2>
-<p><span class="emoji" data-emoji="bug">🐛</span> Fixed bug on <code><a href="../reference/BaptistaPike_midP_CI_2x2.html">BaptistaPike_midP_CI_2x2()</a></code> (issue <a href="https://github.com/ocbe-uio/contingencytables/issues/37" class="external-link">#37</a>)</p>
-</div>
+<ul><li>Fixed bug on <code><a href="../reference/BaptistaPike_midP_CI_2x2.html">BaptistaPike_midP_CI_2x2()</a></code> (issue <a href="https://github.com/ocbe-uio/contingencytables/issues/37" class="external-link">#37</a>)</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.3" id="contingencytables-103">contingencytables 1.0.3<small>2022-11-10</small><a class="anchor" aria-label="anchor" href="#contingencytables-103"></a></h2>
-<p><span class="emoji" data-emoji="bug">🐛</span> Fixed bug on <code><a href="../reference/Chacko_test_1xc.html">Chacko_test_1xc()</a></code> (issue <a href="https://github.com/ocbe-uio/contingencytables/issues/36" class="external-link">#36</a>)</p>
-</div>
+<ul><li>Fixed bug on <code><a href="../reference/Chacko_test_1xc.html">Chacko_test_1xc()</a></code> (issue <a href="https://github.com/ocbe-uio/contingencytables/issues/36" class="external-link">#36</a>)</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.2" id="contingencytables-102">contingencytables 1.0.2<small>2022-06-07</small><a class="anchor" aria-label="anchor" href="#contingencytables-102"></a></h2>
-<p><span class="emoji" data-emoji="bug">🐛</span> Fixed bug on <code><a href="../reference/Pearson_chi_squared_test_CC_2x2.html">Pearson_chi_squared_test_CC_2x2()</a></code> (see issue <a href="https://github.com/ocbe-uio/contingencytables/issues/34" class="external-link">#34</a> for details)<br><span class="emoji" data-emoji="recycle">♻️</span> Refactoring (see issues <a href="https://github.com/ocbe-uio/contingencytables/issues/26" class="external-link">#26</a> and <a href="https://github.com/ocbe-uio/contingencytables/issues/30" class="external-link">#30</a> for details)<br><span class="emoji" data-emoji="bug">🐛</span> Fixes bug on <code><a href="../reference/the_2x2_table_CIs_ratio.html">the_2x2_table_CIs_ratio()</a></code> (see commit 9d3212f for details)<br><span class="emoji" data-emoji="construction_worker">👷</span> Improvements to Github documentation and CI workflow</p>
-</div>
+<ul><li>Fixed bug on <code><a href="../reference/Pearson_chi_squared_test_CC_2x2.html">Pearson_chi_squared_test_CC_2x2()</a></code> (see issue <a href="https://github.com/ocbe-uio/contingencytables/issues/34" class="external-link">#34</a> for details)</li>
+<li>Refactoring (see issues <a href="https://github.com/ocbe-uio/contingencytables/issues/26" class="external-link">#26</a> and <a href="https://github.com/ocbe-uio/contingencytables/issues/30" class="external-link">#30</a> for details)</li>
+<li>Fixes bug on <code><a href="../reference/the_2x2_table_CIs_ratio.html">the_2x2_table_CIs_ratio()</a></code> (see commit 9d3212f for details)</li>
+<li>Improvements to Github documentation and CI workflow</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.1" id="contingencytables-101">contingencytables 1.0.1<small>2022-04-21</small><a class="anchor" aria-label="anchor" href="#contingencytables-101"></a></h2>
-<p><span class="emoji" data-emoji="memo">📝</span> Added a <code>NEWS.md</code> file to track changes to the package.<br><span class="emoji" data-emoji="bug">🐛</span> Fixes bug (see issue <a href="https://github.com/ocbe-uio/contingencytables/issues/32" class="external-link">#32</a>)</p>
-</div>
+<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+<li>Fixes bug (see issue <a href="https://github.com/ocbe-uio/contingencytables/issues/32" class="external-link">#32</a>)</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.0" id="contingencytables-100">contingencytables 1.0.0<small>2022-01-20</small><a class="anchor" aria-label="anchor" href="#contingencytables-100"></a></h2>
-<p><span class="emoji" data-emoji="tada">🎉</span> Initial CRAN release.</p>
-</div>
+<ul><li>Initial CRAN release.</li>
+</ul></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
