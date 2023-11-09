@@ -101,18 +101,18 @@ Exact_cond_midP_tests_rxc <- function(n) {
   results$midP_JT <- midP_JT
 
   print_fun <- function() {
-    my_sprintf_cat("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
-    my_sprintf_cat("Mid-P Fisher-Freeman-Halton: P = %9.7f\n", midP_FFH)
-    my_sprintf_cat("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
-    my_sprintf_cat("Mid-P Pearson statistic:     P = %9.7f\n", midP_Pearson)
-    my_sprintf_cat("Exact LR statistic:          P = %9.7f\n", P_LR)
-    my_sprintf_cat("Mid-P LR statistic:          P = %9.7f\n", midP_LR)
-    my_sprintf_cat("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
-    my_sprintf_cat("Mid-P Kruskal-Wallis:        P = %9.7f\n", midP_KW)
-    my_sprintf_cat("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
-    my_sprintf_cat("Mid-P linear-by-linear:      P = %9.7f\n", midP_lbl)
-    my_sprintf_cat("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
-    my_sprintf_cat("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
+    cat_sprintf("\nExact Fisher-Freeman-Halton: P = %9.7f\n", P_FFH)
+    cat_sprintf("Mid-P Fisher-Freeman-Halton: P = %9.7f\n", midP_FFH)
+    cat_sprintf("Exact Pearson statistic:     P = %9.7f\n", P_Pearson)
+    cat_sprintf("Mid-P Pearson statistic:     P = %9.7f\n", midP_Pearson)
+    cat_sprintf("Exact LR statistic:          P = %9.7f\n", P_LR)
+    cat_sprintf("Mid-P LR statistic:          P = %9.7f\n", midP_LR)
+    cat_sprintf("Exact Kruskal-Wallis:        P = %9.7f\n", P_KW)
+    cat_sprintf("Mid-P Kruskal-Wallis:        P = %9.7f\n", midP_KW)
+    cat_sprintf("Exact linear-by-linear:      P = %9.7f\n", P_lbl)
+    cat_sprintf("Mid-P linear-by-linear:      P = %9.7f\n", midP_lbl)
+    cat_sprintf("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
+    cat_sprintf("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
   }
   return(contingencytables_result(results, print_fun))
 }

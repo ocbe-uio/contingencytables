@@ -79,8 +79,8 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05) {
   U_BW <- (exp(2 * u_BW) - 1) / (exp(2 * u_BW) + 1)
 
   printresults <- function() {
-    my_sprintf_cat("Spearman correlation w / Fieller CI:       rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
-    my_sprintf_cat("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L_BW, U_BW)
+    cat_sprintf("Spearman correlation w / Fieller CI:       rho = %7.4f (%g%% CI %7.4f to %7.4f)\n", rho, 100 * (1 - alpha), L, U)
+    cat_sprintf("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L_BW, U_BW)
   }
 
   return(

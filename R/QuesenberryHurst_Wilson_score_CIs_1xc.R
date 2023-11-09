@@ -40,7 +40,7 @@ QuesenberryHurst_Wilson_score_CIs_1xc <- function(n, alpha = 0.05) {
   printresults <- function() {
     cat("The Quesenberry-Hurst Wilson score simultaneous intervals\n")
     for (i in 1:c0) {
-      my_sprintf_cat(
+      cat_sprintf(
         "  pi_%i: estimate = %6.4f (%6.4f to %6.4f)\n",
         i, pihat[i], L[i], U[i]
       )

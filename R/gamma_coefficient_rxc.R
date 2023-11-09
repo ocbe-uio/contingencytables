@@ -41,11 +41,11 @@ gamma_coefficient_rxc <- function(n) {
   gamma <- (C - D) / (C + D)
 
   prntrs <- function() {
-    my_sprintf_cat("The number of concordant pairs:      %g\n", C)
-    my_sprintf_cat("The number of discordant pairs:      %g\n", D)
-    my_sprintf_cat("The proportion of concordant pairs:  %g\n", C / (C + D))
-    my_sprintf_cat("The proportion of discordant pairs:  %g\n", D / (C + D))
-    my_sprintf_cat("The gamma coefficient:               %6.4f\n", gamma)
+    cat_sprintf("The number of concordant pairs:      %g\n", C)
+    cat_sprintf("The number of discordant pairs:      %g\n", D)
+    cat_sprintf("The proportion of concordant pairs:  %g\n", C / (C + D))
+    cat_sprintf("The proportion of discordant pairs:  %g\n", D / (C + D))
+    cat_sprintf("The gamma coefficient:               %6.4f\n", gamma)
   }
 
   return(contingencytables_result(list(gamma = gamma, C = C, D = D), prntrs))

@@ -90,8 +90,8 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
   results$df_Pearson <- df
 
   printresults <- function() {
-    my_sprintf_cat("The likelihood ratio test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_LR, T_LR, df)
-    my_sprintf_cat("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_Pearson, T_Pearson, df)
+    cat_sprintf("The likelihood ratio test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_LR, T_LR, df)
+    cat_sprintf("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_Pearson, T_Pearson, df)
   }
 
   return(contingencytables_result(results, printresults))

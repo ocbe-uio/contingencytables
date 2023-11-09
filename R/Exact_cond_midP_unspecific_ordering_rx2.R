@@ -57,8 +57,8 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
 
   # Output
   printresults <- function() {
-    my_sprintf_cat("Exact conditional test:    P = %8.5f\n", P)
-    my_sprintf_cat("Mid-P test:             midP = %8.5f\n", midP)
+    cat_sprintf("Exact conditional test:    P = %8.5f\n", P)
+    cat_sprintf("Mid-P test:             midP = %8.5f\n", midP)
   }
 
   return(contingencytables_result(list("P" = P, "midP" = midP), printresults))

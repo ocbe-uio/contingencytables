@@ -72,8 +72,8 @@ Pearson_LR_tests_rxc <- function(n) {
   results$P_LR <- P_LR
 
   printresults <- function() {
-    my_sprintf_cat("Pearson chi-squared test: T = %6.3f, df = %g, P = %7.5f\n", T_Pearson, df, P_Pearson)
-    my_sprintf_cat("Likelihood ratio test:    T = %6.3f, df = %g, P = %7.5f", T_LR, df, P_LR)
+    cat_sprintf("Pearson chi-squared test: T = %6.3f, df = %g, P = %7.5f\n", T_Pearson, df, P_Pearson)
+    cat_sprintf("Likelihood ratio test:    T = %6.3f, df = %g, P = %7.5f", T_LR, df, P_LR)
   }
 
   return(contingencytables_result(results, printresults))

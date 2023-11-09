@@ -38,7 +38,7 @@ ClopperPearson_exact_CI_1x2_beta_version <- function(X, n, alpha = 0.05) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "The Clopper Pearson exact CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
       estimate, 100 * (1 - alpha), L, U
     )
