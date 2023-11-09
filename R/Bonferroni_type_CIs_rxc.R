@@ -41,12 +41,12 @@ Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat("The Bonferroni-type simultaneous intervals\n")
+    cat_sprintf("The Bonferroni-type simultaneous intervals\n")
     k <- 0
     for (i in 1:r) {
       for (j in min(r, i + 1):r) {
         k <- k + 1
-        my_sprintf_cat("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
+        cat_sprintf("  pi_1|%i - pi_1|%i: estimate = %6.4f (%6.4f to %6.4f)\n", i, j, differences[k], L[k], U[k])
       }
     }
   }

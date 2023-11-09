@@ -162,26 +162,26 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
     } else if (identical(linkfunction, "probit")) {
       model <- "probit"
     }
-    my_sprintf_cat("\nTesting the fit of a %s model\n", model)
-    my_sprintf_cat("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
-    my_sprintf_cat("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
+    cat_sprintf("\nTesting the fit of a %s model\n", model)
+    cat_sprintf("  Pearson goodness of fit:     P = %8.5f, X2 = %6.3f (df=%g)\n", P_X2, X2, df_X2)
+    cat_sprintf("  Likelihodd ratio (deviance): P = %8.5f, D  = %6.3f (df=%g)\n", P_D, D, df_D)
 
-    my_sprintf_cat("\nTesting the effect in a %s model\n", model)
-    my_sprintf_cat("  Likelihood ratio             P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
+    cat_sprintf("\nTesting the effect in a %s model\n", model)
+    cat_sprintf("  Likelihood ratio             P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
 
-    my_sprintf_cat("\nComparing the rows                  Statistic   P-value\n")
-    my_sprintf_cat("--------------------------------------------------------\n")
+    cat_sprintf("\nComparing the rows                  Statistic   P-value\n")
+    cat_sprintf("--------------------------------------------------------\n")
     for (i in 1:(r - 1)) {
-      my_sprintf_cat("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, Z_Wald[i], P_Wald[i])
+      cat_sprintf("Wald (Z-statistic) row %g vs row 1    %6.3f    %9.6f\n", i + 1, Z_Wald[i], P_Wald[i])
     }
-    my_sprintf_cat("--------------------------------------------------------\n\n")
+    cat_sprintf("--------------------------------------------------------\n\n")
 
-    my_sprintf_cat("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
-    my_sprintf_cat("--------------------------------------------------------------------------\n")
+    cat_sprintf("Comparing the rows     Estimate (%g%% Wald CI)     Odds ratio (%g%% Wald CI)\n", 100 * (1 - alpha), 100 * (1 - alpha))
+    cat_sprintf("--------------------------------------------------------------------------\n")
     for (i in 1:(r - 1)) {
-      my_sprintf_cat("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, betahat[i], Wald_CI[i, 1], Wald_CI[i, 2], exp(betahat[i]), Wald_CI_OR[i, 1], Wald_CI_OR[i, 2])
+      cat_sprintf("row %g vs row 1:      %6.3f (%6.3f to %6.3f)     %5.3f (%5.3f to %5.3f)\n", i + 1, betahat[i], Wald_CI[i, 1], Wald_CI[i, 2], exp(betahat[i]), Wald_CI_OR[i, 1], Wald_CI_OR[i, 2])
     }
-    my_sprintf_cat("--------------------------------------------------------------------------\n")
+    cat_sprintf("--------------------------------------------------------------------------\n")
   }
   return(contingencytables_result(statistics, print_function))
 }

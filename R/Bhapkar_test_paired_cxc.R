@@ -45,7 +45,7 @@ Bhapkar_test_paired_cxc <- function(n) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "The Bhapkar test for marginal homogenity: P = %8.6f, T = %6.3f (df = %g)",
       P, T0, df
     )

@@ -52,7 +52,7 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
   }
 
   printresults <- function() {
-    my_sprintf_cat("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
+    cat_sprintf("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
   return(

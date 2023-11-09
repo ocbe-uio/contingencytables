@@ -88,7 +88,7 @@ Brant_test_2xc <- function(n) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "Brant test: P = %7.6f, T = %5.3f (df = %g)", P0, T0, df
     )
   }

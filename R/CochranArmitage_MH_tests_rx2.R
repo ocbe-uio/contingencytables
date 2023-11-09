@@ -55,13 +55,13 @@ CochranArmitage_MH_tests_rx2 <- function(n, a) {
   results$P_MH <- P_MH
 
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "Cochran-Armitage test:          T = %6.3f, P = %7.5f\n", Z_CA, P_CA
     )
-    my_sprintf_cat(
+    cat_sprintf(
       "Modified Cochran-Armitage test: T = %6.3f, P = %7.5f\n", Z_CA_mod, P_CA_mod
     )
-    my_sprintf_cat(
+    cat_sprintf(
       "Mantel-Haenszel test:           T = %6.3f, P = %7.5f", Z_MH, P_MH
     )
   }

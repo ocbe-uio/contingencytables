@@ -37,7 +37,7 @@ Adjusted_log_CI_2x2 <- function(n, alpha = 0.05) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "The adjusted log CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
       estimate, 100 * (1 - alpha), L, U
     )

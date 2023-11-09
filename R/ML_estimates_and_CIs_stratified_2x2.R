@@ -79,11 +79,11 @@ ML_estimates_and_CIs_stratified_2x2 <- function(n, link = "log", alpha = 0.05) {
   results$pihat <- pihat
 
   printresults <- function() {
-    my_sprintf_cat("Maximum likelihood estimates:\n")
-    my_sprintf_cat("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
-    my_sprintf_cat("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
+    cat_sprintf("Maximum likelihood estimates:\n")
+    cat_sprintf("  alphahat   = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[1], 100 * (1 - alpha), L[1], U[1])
+    cat_sprintf("  betahat    = %7.4f (%g%% CI %6.4f to %6.4f)\n", alphaandbetahat[2], 100 * (1 - alpha), L[2], U[2])
     for (k in 2:K) {
-      my_sprintf_cat("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
+      cat_sprintf("  gammahat_%i = %7.4f (%g%% CI %6.4f to %6.4f)\n", k, alphaandbetahat[k + 1], 100 * (1 - alpha), L[k + 1], U[k + 1])
     }
   }
 
