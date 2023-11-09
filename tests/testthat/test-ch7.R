@@ -71,6 +71,10 @@ test_that("Chapter 7 functions basically work", {
     object = print(Pearson_LR_tests_rxc(table_7.3)),
     regexp = "Pearson chi-squared test: T = 17.562, df = 2, P = 0.00015"
   )
+  expect_output(
+    object = print(Pearson_residuals_rxc(table_7.3)),
+    regexp = "Pearson residuals:"
+  )
   expect_equal(
     object = dim(Pearson_residuals_rxc(table_7.3)$residuals),
     expected = c(3, 2)
