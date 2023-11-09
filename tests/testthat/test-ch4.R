@@ -50,6 +50,14 @@ test_that("Chapter 4 functions basically work", {
     regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
   )
   expect_output(
+    object = print(Fisher_midP_test_2x2(ritland_2007, "Pearson")),
+    regexp = "The Fisher mid-P test \\(Pearson\\): P = 0.04466"
+  )
+  expect_output(
+    object = print(Fisher_midP_test_2x2(ritland_2007, "LR")),
+    regexp = "The Fisher mid-P test \\(LR\\): P = 0.04466"
+  )
+  expect_output(
     object = print(Gart_adjusted_logit_CI_2x2(ritland_2007)),
     regexp = "estimate = 0.0000 \\(95% CI 0.0064 to 1.9804\\)"
   )
@@ -60,6 +68,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Inv_sinh_CI_OR_2x2(lampasona_2013)),
     regexp = "estimate = 5.6250 \\(95% CI 1.2472 to 25.3686\\)"
+  )
+  expect_output(
+    object = print(Inv_sinh_CI_OR_2x2(matrix(c(0, 0, 0, 0), 2))),
+    regexp = "estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
   )
   expect_output(
     object = print(Inv_sinh_CI_ratio_2x2(perondi_2004)),
