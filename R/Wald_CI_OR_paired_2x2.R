@@ -28,9 +28,6 @@ Wald_CI_OR_paired_2x2 <- function(n, alpha = 0.05) {
   if (is.na(L)) {
     L <- 0
   }
-  if (is.na(U)) {
-    U <- Inf
-  }
 
   printresults <- function() {
     sprintf(
