@@ -22,10 +22,6 @@
 #' to see the specific elements returned.
 McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_pi_values = 1000L) {
   validateArguments(mget(ls()))
-
-  # Display a plot of the P-value as a function of the common success probability
-  showplot <- 0
-
   N <- sum(n)
 
   # Calculate and store the trinomial coefficients needed
@@ -77,14 +73,6 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   # Handle cases where the P-value is not computable
   if (sum(tables) == 0) {
     P <- 1.0
-  }
-
-  # Display a plot of the P-value as a function of the common success probability
-  if (showplot == 1) {
-    common_pi_at_max_value <- pivalues[index]
-    dev.new()
-    plot(pivalues, Pvalues, type = "l", lwd = 2)
-    segments(common_pi_at_max_value, 0, common_pi_at_max_value, P, col = "red", lty = 2)
   }
 
   return(contingencytables_result(list("P" = P), sprintf("The McNemar exact unconditional test: P = %8.6f", P)))
