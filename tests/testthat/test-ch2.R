@@ -69,6 +69,14 @@ test_that("Chapter 2 functions basically work", {
     object = print(LR_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])),
     regexp = "estimate = 0.8125 \\(95% CI 0.5828 to 0.9497\\)"
   )
+  expect_output(
+    object = print(LR_CI_1x2(0, 10)),
+    regexp = "estimate = 0.0000 \\(95% CI 0.0000 to 0.1748\\)"
+  )
+  expect_output(
+    object = print(LR_CI_1x2(10, 10)),
+    regexp = "estimate = 1.0000 \\(95% CI 0.8252 to 1.0000\\)"
+  )
   expect_error(LR_test_1x2(100))
   expect_output(
     object = print(LR_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)),
