@@ -36,4 +36,8 @@ test_that("Chapter 5 functions basically work", {
     object = print(the_rx2_table(m2, direction = d, skip_exact = TRUE)),
     regexp = "Cochran-Armitage             0.817           0.41391"
   )
+  expect_output(
+    object = print(the_rx2_table(ceiling(m2 / 10), direction = d)),
+    regexp = "Mid-P \\(LR\\)                                   0.07092"
+  )
 })

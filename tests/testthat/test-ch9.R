@@ -70,4 +70,9 @@ test_that("Chapter 9 functions basically work", {
     object = print(the_paired_cxc_table_ordinal(fischer_1999, a)),
     regexp = "Wald logit: estimate = 0.2391 \\(95% CI 0.1151 to 0.3558\\)"
   )
+  expect_output(
+    object = print(the_paired_cxc_table_ordinal(table_7.6)),
+    regexp = "Fleiss-Levin-Paik test              30.387 \\(df=1\\)   0.000000"
+  )
+
 })
