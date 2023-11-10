@@ -7,14 +7,42 @@ test_that("Chapter 8 functions basically work", {
     regexp = "CI w / CC: estimate = 0.8667 \\(95% CI 0.7475 to 1.0058\\)"
   )
   expect_output(
+    object = print(BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(matrix(c(0, 1, 0, 2), 2))),
+    regexp = "CI w / CC: estimate = 0.0000 \\(95% CI 0.0000 to 17.3081\\)"
+  )
+  expect_output(
+    object = print(BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(matrix(c(0, 0, 1, 2), 2))),
+    regexp = "CI w / CC: estimate =    Inf \\(95% CI 0.0578 to    Inf\\)"
+  )
+  expect_output(
+    object = print(BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(matrix(c(9, 7, 0, 2), 2))),
+    regexp = "CI w / CC: estimate = 0.5625 \\(95% CI 0.3330 to 0.9625\\)"
+  )
+  expect_output(
+    object = print(BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(matrix(c(9, 0, 8, 2), 2))),
+    regexp = "CI w / CC: estimate = 1.8889 \\(95% CI 1.0926 to 3.2321\\)"
+  )
+  expect_output(
     object = print(BonettPrice_hybrid_Wilson_score_CI_paired_2x2(cavo_2012)),
     regexp = "estimate = 0.8667 \\(95% CI 0.7579 to 0.9910\\)"
+  )
+  expect_output(
+    object = print(BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(matrix(c(0, 0, 0, 2), 2))),
+    regexp = "CI w / CC: estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
   )
   expect_output(
     object = print(ClopperPearson_exact_CI_1x2_beta_version(
       ligarden_2010["X"], ligarden_2010["n"]
     )),
     regexp = "exact CI: estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
+  )
+  expect_output(
+    object = print(ClopperPearson_exact_CI_1x2_beta_version(10, 10)),
+    regexp = "Pearson exact CI: estimate = 1.0000 \\(95% CI 0.6915 to 1.0000\\)"
+  )
+  expect_output(
+    object = print(ClopperPearson_exact_CI_1x2_beta_version(0, 10)),
+    regexp = "Pearson exact CI: estimate = 0.0000 \\(95% CI 0.0000 to 0.3085\\)"
   )
   expect_output(
     object = print(McNemar_asymptotic_test_CC_paired_2x2(cavo_2012)),
@@ -93,6 +121,10 @@ test_that("Chapter 8 functions basically work", {
     regexp = "The Wald CI: estimate = 12.5000 \\(95% CI 2.9608 to 52.7731\\)"
   )
   expect_output(
+    object = print(Wald_CI_OR_paired_2x2(matrix(c(1, 0, 3, 2), 2))),
+    regexp = "The Wald CI: estimate =    Inf \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
     object = print(Wald_CI_OR_Laplace_paired_2x2(ezra_2010)),
     regexp = "adjustment: estimate = 12.5000 \\(95% CI 2.6232 to 28.6333\\)"
   )
@@ -111,6 +143,10 @@ test_that("Chapter 8 functions basically work", {
   expect_output(
     object = print(Wald_CI_ratio_paired_2x2(cavo_2012)),
     regexp = "The Wald CI: estimate = 0.8667 \\(95% CI 0.7597 to 0.9886\\)"
+  )
+  expect_output(
+    object = print(Wald_CI_ratio_paired_2x2(matrix(c(0, 0, 10, 20), 2))),
+    regexp = "The Wald CI: estimate =    Inf \\(95% CI 0.0000 to    Inf\\)"
   )
   expect_output(
     object = print(the_paired_2x2_table_CIs_ratio(cavo_2012)),

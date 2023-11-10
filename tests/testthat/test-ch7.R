@@ -19,6 +19,10 @@ test_that("Chapter 7 functions basically work", {
     object = print(FisherFreemanHalton_asymptotic_test_rxc(table_7.3)),
     regexp = "Fisher-Freeman-Halton asymptotic test: P = 0.0003, T = 16.260"
   )
+  expect_output(
+    object = print(FisherFreemanHalton_asymptotic_test_rxc(matrix(c(4, 5, 0, 0), 2))),
+    regexp = "Halton asymptotic test: P = 1.0000, T = -0.000 \\(df=1\\)"
+  )
   n3_short <- floor(table_7.7 / 10)
   expect_output(
     object = {
