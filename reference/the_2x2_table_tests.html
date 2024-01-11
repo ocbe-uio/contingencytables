@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contingencytables</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.1</span>
       </span>
     </div>
 
@@ -98,29 +98,6 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  * gamma = 0.0001    </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Example: Perondi et al. (2004)</span></span></span>
-<span class="r-in"><span><span class="fu">the_2x2_table_tests</span><span class="op">(</span><span class="va">perondi_2004</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> H_0: pi_1 = pi_2  vs  H_A: pi_1 = / = pi_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate of pi_1: 7 / 34 = 0.206</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate of pi_2: 1 / 34 = 0.029</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Test                                  P-value  (test statistic)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pearson chi-squared                     0.0239 (T = 5.100, df = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pearson chi-squared w / CC              0.0598 (T = 3.542, df = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Likelihood ratio                        0.0173 (T = 5.663, df = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Z-unpooled                              0.0189 (Z = 2.348)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher exact test (Fisher-Irwin)        0.0544</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher exact test (Pearson)             0.0544</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher exact test (LR)                  0.0544</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher mid-P test (Fisher-Irwin)        0.0297</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Suissa-Shuster exact uncond.*           0.0282</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Exact uncond. w / LR statistic*         0.0403</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Exact uncond. w / unpooled Z statistic* 0.0282</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher-Boschloo exact uncond.*          0.0362</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  * gamma = 0.0001    </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example: Lampasona et al. (2013)</span></span></span>
 <span class="r-in"><span><span class="fu">the_2x2_table_tests</span><span class="op">(</span><span class="va">lampasona_2013</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> H_0: pi_1 = pi_2  vs  H_A: pi_1 = / = pi_2</span>
@@ -144,29 +121,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  * gamma = 0.0001    </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Example: Ritland et al. (2007)</span></span></span>
-<span class="r-in"><span><span class="fu">the_2x2_table_tests</span><span class="op">(</span><span class="va">ritland_2007</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> H_0: pi_1 = pi_2  vs  H_A: pi_1 = / = pi_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate of pi_1: 0 / 16 = 0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate of pi_2: 15 / 72 = 0.208</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Test                                  P-value  (test statistic)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pearson chi-squared                     0.0450 (T = 4.018, df = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pearson chi-squared w / CC              0.1016 (T = 2.680, df = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Likelihood ratio                        0.0098 (T = 6.672, df = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Z-unpooled                              0.0000 (Z = -4.353)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher exact test (Fisher-Irwin)        0.0629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher exact test (Pearson)             0.0629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher exact test (LR)                  0.0629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher mid-P test (Fisher-Irwin)        0.0447</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Suissa-Shuster exact uncond.*           0.0499</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Exact uncond. w / LR statistic*         0.0182</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Exact uncond. w / unpooled Z statistic* 0.0136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fisher-Boschloo exact uncond.*          0.0478</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  * gamma = 0.0001    </span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">the_2x2_table_tests</span><span class="op">(</span><span class="va">perondi_2004</span><span class="op">)</span> <span class="co"># Example: Perondi et al. (2004)</span></span></span>
+<span class="r-in"><span>  <span class="fu">the_2x2_table_tests</span><span class="op">(</span><span class="va">ritland_2007</span><span class="op">)</span> <span class="co"># Example: Ritland et al. (2007)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
