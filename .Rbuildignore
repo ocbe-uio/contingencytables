@@ -7,3 +7,4 @@ README.md
 .gitignore
 logo
 ^\.github$
+^CRAN-SUBMISSION$

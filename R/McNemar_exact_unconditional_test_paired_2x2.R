@@ -6,8 +6,10 @@
 #' @param num_pi_values number of values to use in the partition of the nuisance parameter space (default=1000)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
-#' McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
-#' \dontrun{McNemar_exact_unconditional_test_paired_2x2(ezra_2010)}
+#' \dontrun{
+#'   McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
+#'   McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
+#' }
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values

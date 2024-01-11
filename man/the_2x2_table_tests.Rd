@@ -21,13 +21,11 @@ Wrapper for \verb{_test_2x2} functions on Chapter 4.
 # Example: A lady tasting a cup of tea
 the_2x2_table_tests(tea)
 
-# Example: Perondi et al. (2004)
-the_2x2_table_tests(perondi_2004)
-
 # Example: Lampasona et al. (2013)
 the_2x2_table_tests(lampasona_2013)
 
-# Example: Ritland et al. (2007)
-the_2x2_table_tests(ritland_2007)
-
+\dontrun{
+  the_2x2_table_tests(perondi_2004) # Example: Perondi et al. (2004)
+  the_2x2_table_tests(ritland_2007) # Example: Ritland et al. (2007)
+}
 }
