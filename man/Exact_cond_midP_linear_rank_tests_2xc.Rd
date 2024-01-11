@@ -23,5 +23,5 @@ Described in Chapter 6 "The Ordered 2xc Table"
 }
 \examples{
 Exact_cond_midP_linear_rank_tests_2xc(lydersen_2012a)
-Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)
+\dontrun{Exact_cond_midP_linear_rank_tests_2xc(fontanella_2008)}
 }

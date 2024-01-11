@@ -6,15 +6,13 @@
 #' # Example: A lady tasting a cup of tea
 #' the_2x2_table_tests(tea)
 #'
-#' # Example: Perondi et al. (2004)
-#' the_2x2_table_tests(perondi_2004)
-#'
 #' # Example: Lampasona et al. (2013)
 #' the_2x2_table_tests(lampasona_2013)
 #'
-#' # Example: Ritland et al. (2007)
-#' the_2x2_table_tests(ritland_2007)
-#'
+#' \dontrun{
+#'   the_2x2_table_tests(perondi_2004) # Example: Perondi et al. (2004)
+#'   the_2x2_table_tests(ritland_2007) # Example: Ritland et al. (2007)
+#' }
 #' @export
 #' @return NULL. This function should be called for its printed output
 the_2x2_table_tests <- function(n, gamma = 0.0001) {
