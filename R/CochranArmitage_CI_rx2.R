@@ -41,7 +41,7 @@ CochranArmitage_CI_rx2 <- function(n, a = seq_len(nrow(n)), alpha = 0.05) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "Trend estimate and Cochran-Armitage CI:  betahat = %6.4f (%g%% CI %6.4f to %6.4f)",
       betahat, 100 * (1 - alpha), L, U
     )

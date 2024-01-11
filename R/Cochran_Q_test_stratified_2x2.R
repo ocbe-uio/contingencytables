@@ -44,7 +44,7 @@ Cochran_Q_test_stratified_2x2 <- function(
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "The Cochran Q test (%s): P = %7.6f, Q = %5.3f (df = %g)",
       estimatetype, P, Q, df
     )

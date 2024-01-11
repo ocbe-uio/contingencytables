@@ -102,22 +102,22 @@ Trend_estimate_CI_tests_rx2 <- function(
 
 
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
         "Wald test:                    P = %7.5f, T = %5.3f\n", P_Wald, Z_Wald
     )
-    my_sprintf_cat(
+    cat_sprintf(
         "Likelihood ratio test:        P = %7.5f, T = %5.3f (df = %i)\n",
         P_LR, T_LR, df_LR
     )
-    my_sprintf_cat(
+    cat_sprintf(
         "Pearson goodness-of-fit test: P = %7.5f, T = %5.3f (df = %i)\n",
         P_chi2, chi2, df_chi2
     )
-    my_sprintf_cat(
+    cat_sprintf(
         "LR (deviance) test:           P = %7.5f, T = %5.3f (df = %i)\n",
         P_D, D, df_D
     )
-    my_sprintf_cat(
+    cat_sprintf(
       paste(
         "Trend estimate and Wald CI:   betahat =",
         "%6.4f (%g%% CI %6.4f to %6.4f)"

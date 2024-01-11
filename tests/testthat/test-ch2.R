@@ -26,6 +26,14 @@ test_that("Chapter 2 functions basically work", {
     object = print(Blaker_exact_test_1x2(1, 10, .5)),
     regexp = "P = 0.02148"
   )
+  expect_output(
+    object = print(Blaker_exact_CI_1x2(0, 9)),
+    regexp = "Blaker exact CI: estimate = 0.0000 \\(95% CI 0.0000 to 0.3161\\)"
+  )
+  expect_output(
+    object = print(Blaker_exact_CI_1x2(9, 9)),
+    regexp = "Blaker exact CI: estimate = 1.0000 \\(95% CI 0.6839 to 1.0000\\)"
+  )
   expect_error(Blaker_midP_CI_1x2(100))
   expect_output(
     object = print(Blaker_midP_CI_1x2(100, 500, .5)),
@@ -50,6 +58,14 @@ test_that("Chapter 2 functions basically work", {
     object = print(ClopperPearson_midP_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])),
     regexp = "estimate = 0.8125 \\(95% CI 0.5699 to 0.9500\\)"
   )
+  expect_output(
+    object = print(ClopperPearson_midP_CI_1x2(0, 9)),
+    regexp = "Pearson mid-P CI: estimate = 0.0000 \\(95% CI 0.0000 to 0.2831\\)"
+  )
+  expect_output(
+    object = print(ClopperPearson_midP_CI_1x2(9, 9)),
+    regexp = "Pearson mid-P CI: estimate = 1.0000 \\(95% CI 0.7169 to 1.0000\\)"
+  )
   expect_error(Exact_binomial_test_1x2(100))
   expect_output(
     object = print(
@@ -68,6 +84,14 @@ test_that("Chapter 2 functions basically work", {
   expect_output(
     object = print(LR_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])),
     regexp = "estimate = 0.8125 \\(95% CI 0.5828 to 0.9497\\)"
+  )
+  expect_output(
+    object = print(LR_CI_1x2(0, 10)),
+    regexp = "estimate = 0.0000 \\(95% CI 0.0000 to 0.1748\\)"
+  )
+  expect_output(
+    object = print(LR_CI_1x2(10, 10)),
+    regexp = "estimate = 1.0000 \\(95% CI 0.8252 to 1.0000\\)"
   )
   expect_error(LR_test_1x2(100))
   expect_output(
@@ -128,6 +152,10 @@ test_that("Chapter 2 functions basically work", {
       )
     ),
     regexp = "P = 0.00000, Z = 6.982"
+  )
+  expect_output(
+    object = print(Wald_test_CC_1x2(8, 8, 1)),
+    regexp = "The Wald test with continuity correction: P = 1.00000, Z = 0.000"
   )
   expect_error(the_1x2_table_tests(100))
   expect_output(

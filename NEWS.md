@@ -1,3 +1,8 @@
+# contingencytables 2.2.1
+
+* Improved internals:refactoring (#41), increased test coverage (#52)
+* Fixed upper CI limit on `stratified_2x2_tables()` (thanks to Zhen Wang)
+
 # contingencytables 2.2.0
 
 * Added argument to control `num_pi_values` in `McNemar_exact_unconditional_test_paired_2x2()` and `the_paired_2x2_table_tests()` (#50)

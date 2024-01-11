@@ -29,7 +29,7 @@ CochranMantelHaenszel_test_stratified_2x2 <- function(n) {
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "The Cochran-Mantel-Haenszel test: P = %7.6f, T0 = %5.3f (df = %g)",
       P, T0, df
     )

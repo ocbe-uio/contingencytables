@@ -39,9 +39,9 @@ Pearson_residuals_rxc <- function(n) {
   res <- list("residuals" = residuals, "std_residuals" = std_residuals)
 
   printresults <- function() {
-    my_sprintf_cat("Pearson residuals:\n")
+    cat_sprintf("Pearson residuals:\n")
     print(res$residuals)
-    my_sprintf_cat("\nStandardized Pearson residuals:\n")
+    cat_sprintf("\nStandardized Pearson residuals:\n")
     print(res$std_residuals)
     return(NULL)
   }

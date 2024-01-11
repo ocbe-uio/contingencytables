@@ -19,6 +19,10 @@ test_that("Chapter 7 functions basically work", {
     object = print(FisherFreemanHalton_asymptotic_test_rxc(table_7.3)),
     regexp = "Fisher-Freeman-Halton asymptotic test: P = 0.0003, T = 16.260"
   )
+  expect_output(
+    object = print(FisherFreemanHalton_asymptotic_test_rxc(matrix(c(4, 5, 0, 0), 2))),
+    regexp = "Halton asymptotic test: P = 1.0000, T = -0.000 \\(df=1\\)"
+  )
   n3_short <- floor(table_7.7 / 10)
   expect_output(
     object = {
@@ -70,6 +74,10 @@ test_that("Chapter 7 functions basically work", {
   expect_output(
     object = print(Pearson_LR_tests_rxc(table_7.3)),
     regexp = "Pearson chi-squared test: T = 17.562, df = 2, P = 0.00015"
+  )
+  expect_output(
+    object = print(Pearson_residuals_rxc(table_7.3)),
+    regexp = "Pearson residuals:"
   )
   expect_equal(
     object = dim(Pearson_residuals_rxc(table_7.3)$residuals),

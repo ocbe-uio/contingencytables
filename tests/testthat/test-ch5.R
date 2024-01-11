@@ -17,6 +17,13 @@ test_that("Chapter 5 functions basically work", {
     ),
     regexp = "Cochran-Armitage exact cond. test: P = 0.62494"
   )
+  a5 <- 1:5
+  expect_output(
+    object = print(
+      CochranArmitage_exact_cond_midP_tests_rx2(floor(indredavik_2008 / 10), a5)
+    ),
+    regexp = "Cochran-Armitage mid-P test:   mid-P = 0.71754"
+  )
   m <- matrix(c(48, 170, 38, 144, 5, 7, 1, 1), byrow = TRUE, ncol = 2)
   d <- "decreasing"
   expect_output(
@@ -28,12 +35,16 @@ test_that("Chapter 5 functions basically work", {
     regexp = "Likelihood ratio test:    T = 11.192, P = 0.00252"
   )
   expect_output(
-    object = print(Trend_estimate_CI_tests_rx2(indredavik_2008, 1:5)),
+    object = print(Trend_estimate_CI_tests_rx2(indredavik_2008, a5)),
     regexp = "betahat = -0.1828 \\(95% CI -0.3844 to 0.0188\\)"
   )
   m2 <- rbind(c(48, 1706), c(38, 1446), c(5, 78), c(1, 12))
   expect_output(
     object = print(the_rx2_table(m2, direction = d, skip_exact = TRUE)),
     regexp = "Cochran-Armitage             0.817           0.41391"
+  )
+  expect_output(
+    object = print(the_rx2_table(ceiling(m2 / 10), direction = d)),
+    regexp = "Mid-P \\(LR\\)                                   0.07092"
   )
 })

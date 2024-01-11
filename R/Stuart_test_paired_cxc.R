@@ -24,8 +24,8 @@ Stuart_test_paired_cxc <- function(n) {
     T0 <- 0
     df <- c - 1
     printresults <- function() {
-      my_sprintf_cat("No differences between the marginal sums\n")
-      my_sprintf_cat("P = 1.0")
+      cat_sprintf("No differences between the marginal sums\n")
+      cat_sprintf("P = 1.0")
     }
     return(
       contingencytables_result(
@@ -51,8 +51,8 @@ Stuart_test_paired_cxc <- function(n) {
     P <- 1
     df <- c - 1
     printresults <- function() {
-      my_sprintf_cat("The Stuart test statistic is not computable\n")
-      my_sprintf_cat("P = 1.0")
+      cat_sprintf("The Stuart test statistic is not computable\n")
+      cat_sprintf("P = 1.0")
       print(d)
       print(Sigmahat0)
     }
@@ -68,7 +68,7 @@ Stuart_test_paired_cxc <- function(n) {
   P <- 1 - pchisq(T0, df)
 
   printresults <- function() {
-    my_sprintf_cat("The Stuart test for marginal homogenity: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)
+    cat_sprintf("The Stuart test for marginal homogenity: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)
   }
 
   return(

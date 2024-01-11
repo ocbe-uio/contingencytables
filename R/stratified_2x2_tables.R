@@ -231,7 +231,7 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("-------------------------------------------------\n")
   cat(sprintf("RBG (MH)            %7.4f    %7.4f to %7.4f\n", phihat_RBG, L_RBG, U_RBG))
   cat(sprintf("Woolf (IV)          %7.4f    %7.4f to %7.4f\n", phihat_Woolf, L_Woolf, U_Woolf))
-  cat(sprintf("Maximum likelihood  %7.4f    %7.4f to %7.4f\n", exp(results$betahat), exp(results$betahatCI[1]), exp(results$betahatCI[1])))
+  cat(sprintf("Maximum likelihood  %7.4f    %7.4f to %7.4f\n", exp(results$betahat), exp(results$betahatCI[1]), exp(results$betahatCI[2])))
   cat("-------------------------------------------------\n")
   invisible(NULL)
 }

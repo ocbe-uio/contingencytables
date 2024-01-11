@@ -50,6 +50,14 @@ test_that("Chapter 4 functions basically work", {
     regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
   )
   expect_output(
+    object = print(Fisher_midP_test_2x2(ritland_2007, "Pearson")),
+    regexp = "The Fisher mid-P test \\(Pearson\\): P = 0.04466"
+  )
+  expect_output(
+    object = print(Fisher_midP_test_2x2(ritland_2007, "LR")),
+    regexp = "The Fisher mid-P test \\(LR\\): P = 0.04466"
+  )
+  expect_output(
     object = print(Gart_adjusted_logit_CI_2x2(ritland_2007)),
     regexp = "estimate = 0.0000 \\(95% CI 0.0064 to 1.9804\\)"
   )
@@ -60,6 +68,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Inv_sinh_CI_OR_2x2(lampasona_2013)),
     regexp = "estimate = 5.6250 \\(95% CI 1.2472 to 25.3686\\)"
+  )
+  expect_output(
+    object = print(Inv_sinh_CI_OR_2x2(matrix(c(0, 0, 0, 0), 2))),
+    regexp = "estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
   )
   expect_output(
     object = print(Inv_sinh_CI_ratio_2x2(perondi_2004)),
@@ -90,12 +102,20 @@ test_that("Chapter 4 functions basically work", {
     regexp = "5.6250 \\(95% CI 1.0934 to 28.9419\\)"
   )
   expect_output(
+    object = print(MiettinenNurminen_asymptotic_score_CI_OR_2x2(matrix(c(1, 0, 10, 2), 2))),
+    regexp = "score CI: estimate =    Inf \\(95% CI 0.0313 to    Inf\\)"
+  )
+  expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_ratio_2x2(perondi_2004)),
     regexp = "estimate = 7.0000 \\(95% CI 1.2086 to 43.0330\\)"
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_OR_2x2(lampasona_2013)),
     regexp = "estimate = 5.6250 \\(95% CI 1.0433 to 20.5670\\)"
+  )
+  expect_output(
+    object = print(MOVER_R_Wilson_CI_OR_2x2(matrix(c(10, 20, 0, 30), 2))),
+    regexp = "MOVER-R Wilson CI: estimate =    Inf \\(95% CI 3.9010 to    Inf\\)"
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_ratio_2x2(perondi_2004)),
@@ -132,6 +152,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Uncorrected_asymptotic_score_CI_2x2(ritland_2007)),
     regexp = "0.0000 \\(95% CI 0.0000 to 0.9532\\)"
+  )
+  expect_output(
+    object = print(Uncorrected_asymptotic_score_CI_2x2(matrix(c(10, 0, 0, 30), 2))),
+    regexp = "score CI: estimate =    Inf \\(95% CI 81.6504 to    Inf\\)"
   )
   expect_output(
     object = print(the_2x2_table_CIs_OR(ritland_2007)),

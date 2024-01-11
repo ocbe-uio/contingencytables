@@ -13,9 +13,25 @@ test_that("Chapter 9 functions basically work", {
     object = print(FleissEveritt_test_paired_cxc(fleiss_2003)),
     regexp = "version of the Stuart test: P = 0.000912, T = 14.000 \\(df=2\\)"
   )
+  expect_error(
+    object = FleissEveritt_test_paired_cxc(matrix(1:4, 2)),
+    regexp = "This method can only be used for c=3 categories"
+  )
+  expect_error(
+    object = FleissEveritt_test_paired_cxc(matrix(rep(1, 9), 3)),
+    regexp = "No differences between the marginal sums"
+  )
   expect_output(
     object = print(FleissLevinPaik_test_paired_cxc(peterson_2007[-4, -4])),
     regexp = "The Fleiss-Levin-Paik test: P = 0.000004, T = 21.429 \\(df=1\\)"
+  )
+  expect_error(
+    object = FleissLevinPaik_test_paired_cxc(matrix(1:4, 2)),
+    regexp = "This method can only be used for c=3 categories"
+  )
+  expect_error(
+    object = FleissLevinPaik_test_paired_cxc(matrix(rep(1, 9), 3)),
+    regexp = "No differences between the marginal sums"
   )
   expect_output(
     object = print(McNemarBowker_test_paired_cxc(peterson_2007)),
@@ -35,6 +51,10 @@ test_that("Chapter 9 functions basically work", {
     regexp = "marginal homogenity: P = 0.000008, T0 = 26.250 \\(df=3\\)"
   )
   expect_output(
+    object = print(Stuart_test_paired_cxc(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "No differences between the marginal sums"
+  )
+  expect_output(
     object = print(Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)),
     regexp = "0.6196 \\(95% CI 0.5591 to 0.6800\\); P = 0.00011, Z =  3.877"
   )
@@ -50,4 +70,9 @@ test_that("Chapter 9 functions basically work", {
     object = print(the_paired_cxc_table_ordinal(fischer_1999, a)),
     regexp = "Wald logit: estimate = 0.2391 \\(95% CI 0.1151 to 0.3558\\)"
   )
+  expect_output(
+    object = print(the_paired_cxc_table_ordinal(table_7.6)),
+    regexp = "Fleiss-Levin-Paik test              30.387 \\(df=1\\)   0.000000"
+  )
+
 })

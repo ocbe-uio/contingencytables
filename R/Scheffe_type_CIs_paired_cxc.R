@@ -46,7 +46,7 @@ Scheffe_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
   printresults <- function() {
     cat("ScheffE-type simultaneous intervals\n")
     for (i in 1:c) {
-      my_sprintf_cat("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
+      cat_sprintf("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
     }
   }
 

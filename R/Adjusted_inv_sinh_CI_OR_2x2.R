@@ -40,7 +40,7 @@ Adjusted_inv_sinh_CI_OR_2x2 <- function(
 
   # Output
   printresults <- function() {
-    my_sprintf_cat(
+    cat_sprintf(
       "The adjusted inverse sinh CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
       estimate, 100 * (1 - alpha), L, U
     )

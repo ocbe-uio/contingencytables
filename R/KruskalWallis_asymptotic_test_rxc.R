@@ -47,10 +47,10 @@ KruskalWallis_asymptotic_test_rxc <- function(n) {
 
   printresults <- function() {
     for (i in 1:r) {
-      my_sprintf_cat("(average rank in row %i: W_%i = %7.4f)\n", i, i, W[i] / nip[i])
+      cat_sprintf("(average rank in row %i: W_%i = %7.4f)\n", i, i, W[i] / nip[i])
     }
-    my_sprintf_cat("(correction term for ties: C_ties = %6.4f)\n", CorrectionTerm)
-    my_sprintf_cat("Asymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f", T0, df, P)
+    cat_sprintf("(correction term for ties: C_ties = %6.4f)\n", CorrectionTerm)
+    cat_sprintf("Asymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f", T0, df, P)
   }
 
   return(contingencytables_result(list(P = P, T = T0, df = df), printresults))
