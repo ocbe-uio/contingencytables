@@ -61,4 +61,8 @@ test_that("Chapter 10 functions basically work", {
     object = print(stratified_2x2_tables(doll_hill_1950)),
     regexp = "Woolf \\(IV\\)           3.5563     1.8365 to  6.8866"
   )
+  expect_output(
+    object = stratified_2x2_tables(doll_hill_1950),
+    regexp = "Maximum likelihood   4.2549     2.3478 to  7.7112"
+  )
 })
