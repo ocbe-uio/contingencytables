@@ -31,6 +31,15 @@ test_that("Chapter 5 functions basically work", {
     regexp = "Mid-P test\\s*:\\s*midP =\\s*0.43131"
   )
   expect_output(
+    object = print(
+      Exact_cond_midP_unspecific_ordering_rx2(
+        matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 0), 5),
+        "decreasing"
+      )
+    ),
+    regexp = "Mid-P test\\s*:\\s*midP =\\s*0.18978"
+  )
+  expect_output(
     object = print(Pearson_LR_tests_unspecific_ordering_rx2(indredavik_2008, d)),
     regexp = "Likelihood ratio test:    T = 11.192, P = 0.00252"
   )

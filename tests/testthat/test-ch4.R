@@ -30,6 +30,10 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 0.7500 \\(95% CI 0.1415 to 4.6034\\)"
   )
   expect_output(
+    object = print(BaptistaPike_midP_CI_2x2(matrix(c(1, 0, 1, 1), 2))),
+    regexp = "estimate =    Inf \\(95% CI 0.0556 to    Inf\\)"
+  )
+  expect_output(
     object = print(Cornfield_exact_conditional_CI_2x2(lampasona_2013)),
     regexp = "estimate = 5.6250 \\(95% CI 1.0226 to 31.5025\\)"
   )
@@ -86,6 +90,14 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 7.0000 \\(95% CI 1.2209 to 42.5757\\)"
   )
   expect_output(
+    object = print(Koopman_asymptotic_score_CI_2x2(matrix(c(0, 0, 1, 2), 2))),
+    regexp = "estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
+    object = print(Koopman_asymptotic_score_CI_2x2(matrix(c(3, 0, 1, 2), 2))),
+    regexp = "estimate =    Inf \\(95% CI 0.8257 to    Inf\\)"
+  )
+  expect_output(
     object = print(LR_test_2x2(tea)),
     regexp = "P = 0.14798, T = 2.093 \\(df = 1\\)"
   )
@@ -108,6 +120,14 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_ratio_2x2(perondi_2004)),
     regexp = "estimate = 7.0000 \\(95% CI 1.2086 to 43.0330\\)"
+  )
+  expect_output(
+    object = print(MiettinenNurminen_asymptotic_score_CI_ratio_2x2(matrix(c(0, 0, 1, 2), 2))),
+    regexp = "estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
+    object = print(MiettinenNurminen_asymptotic_score_CI_ratio_2x2(matrix(c(3, 0, 1, 2), 2))),
+    regexp = "estimate =    Inf \\(95% CI 0.7113 to    Inf\\)"
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_OR_2x2(lampasona_2013)),

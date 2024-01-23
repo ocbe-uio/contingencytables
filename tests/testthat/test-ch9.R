@@ -55,6 +55,10 @@ test_that("Chapter 9 functions basically work", {
     regexp = "No differences between the marginal sums"
   )
   expect_output(
+    object = print(Stuart_test_paired_cxc(matrix(c(NA, 2, 3, 4), 2))),
+    regexp = "The Stuart test statistic is not computable"
+  )
+  expect_output(
     object = print(Wald_test_and_CI_marginal_mean_ranks_paired_cxc(fischer_1999)),
     regexp = "0.6196 \\(95% CI 0.5591 to 0.6800\\); P = 0.00011, Z =  3.877"
   )
@@ -65,6 +69,10 @@ test_that("Chapter 9 functions basically work", {
   expect_output(
     object = print(the_paired_cxc_table_nominal(peterson_2007)),
     regexp = "pi_3\\+ - pi_\\+3:  -0.0088  \\(-0.0187 to  0.0012\\)"
+  )
+  expect_output(
+    object = print(the_paired_cxc_table_nominal(matrix(1:9, 3))),
+    regexp = "Fleiss-Everitt version of the Stuart test\\s+2.535 \\(df=2\\)\\s+0.281505"
   )
   expect_output(
     object = print(the_paired_cxc_table_ordinal(fischer_1999, a)),

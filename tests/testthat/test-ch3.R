@@ -24,6 +24,10 @@ test_that("Chapter 3 functions basically work", {
     regexp = "pi_2 - pi_3: estimate = 0.3385 \\(0.2759 to 0.4011\\)"
   )
   expect_output(
+    object = print(Goodman_Wald_CIs_for_diffs_1xc(n = snp6498169$complete$n, .1, "Scheffe")),
+    regexp = "pi_2 - pi_3: estimate = 0.3385 \\(0.2824 to 0.3946\\)"
+  )
+  expect_output(
     object = print(Goodman_Wilson_score_CIs_1xc(n = snp6498169$complete$n)),
     regexp = "pi_3: estimate = 0.1525 \\(0.1241 to 0.1859\\)"
   )
