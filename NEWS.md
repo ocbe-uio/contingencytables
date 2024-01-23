@@ -1,3 +1,5 @@
+# contingencytables (development version)
+
 # contingencytables 2.2.1
 
 * Improved internals:refactoring (#41), increased test coverage (#52)
