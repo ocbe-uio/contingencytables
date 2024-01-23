@@ -69,7 +69,7 @@ validateArguments <- function(x, types = "default") {
     } else {
       isvalid <- x[[i]] %in% type[[1]]
     }
-    if (!isvalid) {
+    if (!isvalid && !is.na(isvalid)) {
       type <- paste(type[[1]], collapse = ", ")
       stop(
         names(x)[i], " contains invalid values. Should be ", type,

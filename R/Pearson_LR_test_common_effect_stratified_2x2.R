@@ -30,17 +30,6 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit") {
   results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05)
   pihat <- results$pihat
 
-  if (any(pihat < 0)) {
-    results <- list()
-    results$P_LR <- 1.0
-    results$T_LR <- 0
-    results$df_LR <- 0
-    results$P_Pearson <- 1.0
-    results$T_Pearson <- 0
-    results$df_Pearson <- 0
-    return(invisible(results))
-  }
-
   # Calculate the expected cell counts under the null hypothesis of
   # homogeneity of the effect measure across strata
   m <- array(0, dim = c(2, 2, K))

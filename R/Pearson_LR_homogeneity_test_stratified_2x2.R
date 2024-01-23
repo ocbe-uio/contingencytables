@@ -25,17 +25,6 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
   results <- ML_estimates_and_CIs_stratified_2x2(n, link, 0.05)
   pihat <- results$pihat
 
-  if (any(pihat < 0)) {
-    results <- list()
-    results$P_LR <- 1.0
-    results$T_LR <- 0
-    results$df_LR <- 0
-    results$P_Pearson <- 1.0
-    results$T_Pearson <- 0
-    results$df_Pearson <- 0
-    return(invisible(results))
-  }
-
   # Calculate the expected cell counts
   m <- array(0, dim = c(2, 2, K))
   for (i in 1:2) {
@@ -80,7 +69,6 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
   # degrees of freedom)
   P_Pearson <- 1 - pchisq(T_Pearson, df)
 
-
   results <- list()
   results$P_LR <- P_LR
   results$T_LR <- T_LR
@@ -91,7 +79,7 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
 
   printresults <- function() {
     cat_sprintf("The likelihood ratio test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_LR, T_LR, df)
-    cat_sprintf("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)\n", P_Pearson, T_Pearson, df)
+    cat_sprintf("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)", P_Pearson, T_Pearson, df)
   }
 
   return(contingencytables_result(results, printresults))
