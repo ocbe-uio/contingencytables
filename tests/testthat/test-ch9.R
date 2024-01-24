@@ -7,7 +7,7 @@ test_that("Chapter 9 functions basically work", {
   )
   expect_output(
     object = print(Bonferroni_type_CIs_paired_cxc(peterson_2007)),
-    regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
+    regexp = "pi_4\\+ vs pi_\\+4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
   )
   expect_output(
     object = print(FleissEveritt_test_paired_cxc(fleiss_2003)),
@@ -39,7 +39,15 @@ test_that("Chapter 9 functions basically work", {
   )
   expect_output(
     object = print(Scheffe_type_CIs_paired_cxc(peterson_2007)),
-    regexp = "pi_4\\+ vs pi_ \\+ 4: delta =  0.0088 \\(-0.0076 to  0.0250\\)"
+    regexp = "pi_4\\+ vs pi_\\+4: delta =  0.0088 \\(-0.0076 to  0.0250\\)"
+  )
+  expect_output(
+    object = print(Scheffe_type_CIs_paired_cxc(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "  pi_1\\+ vs pi_\\+1: delta =  0.0000 \\(-1.0000 to  1.0000\\)"
+  )
+  expect_output(
+    object = print(Scheffe_type_CIs_paired_cxc(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "  pi_1\\+ vs pi_\\+1: delta =  0.0000 \\(-1.0000 to  1.0000\\)"
   )
   a <- c(8, 3.5, 0, -3.5, -8)
   expect_output(

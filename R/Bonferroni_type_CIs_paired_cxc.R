@@ -46,7 +46,7 @@ Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
     cat_sprintf("Bonferroni-type simultaneous intervals\n")
     for (i in 1:c) {
       cat_sprintf(
-        "  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n",
+        "  pi_%g+ vs pi_+%g: delta = %7.4f (%7.4f to %7.4f)\n",
         i, i, deltahat[i], L[i], U[i]
       )
     }
