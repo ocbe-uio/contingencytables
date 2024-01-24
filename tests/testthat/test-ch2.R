@@ -39,6 +39,14 @@ test_that("Chapter 2 functions basically work", {
     object = print(Blaker_midP_CI_1x2(100, 500, .5)),
     regexp = "estimate = 0.2000 \\(50% CI 0.1881 to 0.2121\\)"
   )
+  expect_output(
+    object = print(Blaker_midP_CI_1x2(1, 1)),
+    regexp = "Blaker mid-P CI: estimate = 1.0000 \\(95% CI 0.1000 to 1.0000\\)"
+  )
+  expect_output(
+    object = print(Blaker_midP_CI_1x2(0, 1)),
+    regexp = "Blaker mid-P CI: estimate = 0.0000 \\(95% CI 0.0000 to 0.9000\\)"
+  )
   expect_error(Blaker_midP_test_1x2(100))
   expect_output(
     object = print(Blaker_midP_test_1x2(

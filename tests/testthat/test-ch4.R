@@ -123,8 +123,24 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 0.1765 \\(95% CI 0.0284 to 0.3439\\)"
   )
   expect_output(
+    object = print(Mee_asymptotic_score_CI_2x2(matrix(c(2e6, 2, 2, 2e6), 2))),
+    regexp = "Mee asymptotic .+ 1.0000 \\(95% CI 1.0000 to 1.0000\\)"
+  )
+  expect_output(
+    object = print(Mee_asymptotic_score_CI_2x2(matrix(c(2, 2e6, 2e6, 2), 2))),
+    regexp = "Mee asymptotic .+ -1.0000 \\(95% CI -1.0000 to -1.0000\\)"
+  )
+  expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_difference_2x2(ritland_2007)),
     regexp = "estimate = -0.2083 \\(95% CI -0.3164 to -0.0056\\)"
+  )
+  expect_output(
+    object = print(MiettinenNurminen_asymptotic_score_CI_difference_2x2(matrix(c(2e6, 2, 2, 2e6), 2))),
+    regexp = "Mietinen-Nurminen .+ 1.0000 \\(95% CI 1.0000 to 1.0000\\)"
+  )
+  expect_output(
+    object = print(MiettinenNurminen_asymptotic_score_CI_difference_2x2(matrix(c(2, 2e6, 2e6, 2), 2))),
+    regexp = "Mietinen-Nurminen .+ -1.0000 \\(95% CI -1.0000 to -1.0000\\)"
   )
   expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_OR_2x2(lampasona_2013)),
@@ -171,8 +187,16 @@ test_that("Chapter 4 functions basically work", {
     regexp = "Pearson chi-squared test: P = 0.15730, T = 2.000 \\(df = 1\\)"
   )
   expect_output(
+    object = print(Pearson_chi_squared_test_2x2(tea * 0)),
+    regexp = "The Pearson chi-squared test: P = 1.00000, T =   NaN \\(df = 1\\)"
+  )
+  expect_output(
     object = print(Pearson_chi_squared_test_CC_2x2(tea)),
     regexp = "chi-squared test: P = 0.47950, T = 0.500 \\(df = 1\\)"
+  )
+  expect_output(
+    object = print(Pearson_chi_squared_test_CC_2x2(tea * 0)),
+    regexp = "The Pearson chi-squared test: P = 1.00000, T =   NaN \\(df = 1\\)"
   )
   expect_output(
     object = print(PriceBonett_approximate_Bayes_CI_2x2(perondi_2004)),
