@@ -33,26 +33,24 @@ MiettinenNurminen_asymptotic_score_CI_difference_2x2 <- function(n, alpha = 0.05
   delta1 <- 0.99999
 
   # Lower CI limit
-  if (estimate == -1) {
-    L <- -1
-  } else {
-    L <- uniroot(
+  L <- tryCatch(
+    uniroot(
       calculate_limit_lower.Miettinen_diff, c(delta0, estimate),
-      n11 = n11, n21 = n21,
-      n1p = n1p, n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
-    )$root
-  }
+      n11 = n11, n21 = n21, n1p = n1p, n2p = n2p,
+      pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
+    )$root,
+    error = function(e) -1
+  )
 
   # Upper CI limit
-  if (estimate == 1) {
-    U <- 1
-  } else {
-    U <- uniroot(
+  U <- tryCatch(
+    uniroot(
       calculate_limit_upper.Miettinen_diff, c(estimate, delta1),
-      n11 = n11, n21 = n21,
-      n1p = n1p, n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
-    )$root
-  }
+      n11 = n11, n21 = n21, n1p = n1p, n2p = n2p,
+      pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
+    )$root,
+    error = function(e) 1
+  )
 
   return(
     contingencytables_result(
