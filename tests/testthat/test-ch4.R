@@ -26,6 +26,11 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 0.2000 \\(95% CI 0.0151 to 1.7523\\)"
   )
   expect_output(
+    object = print(BaptistaPike_exact_conditional_CI_2x2(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "Baptista-Pike .+ =    Inf \\(95% CI 0.1111 to    Inf\\)"
+  )
+
+  expect_output(
     object = print(BaptistaPike_midP_CI_2x2(rbind(c(15, 30), c(2, 3)))),
     regexp = "estimate = 0.7500 \\(95% CI 0.1415 to 4.6034\\)"
   )
@@ -36,6 +41,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Cornfield_exact_conditional_CI_2x2(lampasona_2013)),
     regexp = "estimate = 5.6250 \\(95% CI 1.0226 to 31.5025\\)"
+  )
+  expect_output(
+    object = print(Cornfield_exact_conditional_CI_2x2(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "conditional CI: estimate =    Inf \\(95% CI 0.0526 to    Inf\\)"
   )
   expect_output(
     object = print(Cornfield_midP_CI_2x2(tea)),
