@@ -50,6 +50,14 @@ test_that("Chapter 4 functions basically work", {
     regexp = "The Suissa-Shuster exact unconditional test: P = 0.28916"
   )
   expect_output(
+    object = print(Exact_unconditional_test_2x2(tea, gamma= 0)),
+    regexp = "The Suissa-Shuster exact unconditional test: P = 0.28906"
+  )
+  expect_output(
+    object = print(Exact_unconditional_test_2x2(matrix(c(0, 1, 0, 0), 2))),
+    regexp = "The Suissa-Shuster exact unconditional test: P = 1.0000"
+  )
+  expect_output(
     object = print(Fisher_midP_test_2x2(ritland_2007)),
     regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
   )
@@ -192,6 +200,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Z_unpooled_test_2x2(ritland_2007)),
     regexp = "The Z-unpooled test: P = 0.00001, Z = -4.353"
+  )
+  expect_output(
+    object = print(Z_unpooled_test_2x2(ritland_2007 * 0)),
+    regexp = "The Z-unpooled test: P = 1.00000, Z =    NaN"
   )
   expect_output(
     object = print(the_2x2_table_tests(ritland_2007)),
