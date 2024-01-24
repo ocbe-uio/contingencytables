@@ -156,6 +156,10 @@ test_that("Chapter 2 functions basically work", {
     object = print(Wald_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = 0.1)),
     regexp = "P = 0.00000, Z =  7.302"
   )
+  expect_output(
+    object = print(Wald_test_1x2(1, 1, pi0 = 0.1)),
+    regexp = "The Wald test: P = 1.00000, Z =  0.000"
+  )
   expect_error(Wald_test_CC_1x2(100))
   expect_output(
     object = print(
