@@ -11,6 +11,7 @@ test_that("Chapter 3 functions basically work", {
     )),
     regexp = "P = 0.04792"
   )
+  expect_error(Exact_multinomial_test_1xc(1:2, runif(2)), "X must be >= 3")
   expect_output(
     object = print(Gold_Wald_CIs_1xc(n = snp6498169$complete$n)),
     regexp = "pi_3: estimate = 0.1525 \\(0.1208 to 0.1841\\)"

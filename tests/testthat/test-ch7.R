@@ -12,6 +12,10 @@ test_that("Chapter 7 functions basically work", {
     regexp = "Likelihood ratio\\s+P =  0.00832, T =  9.579 \\(df=2\\)"
   )
   expect_output(
+    object = print(Cumulative_models_for_rxc(table_7.5, "probit")),
+    regexp = "Wald \\(Z-statistic\\) row 5 vs row 1    -0.509     0.611037"
+  )
+  expect_output(
     object = print(Exact_cond_midP_tests_rxc(n_short)),
     regexp = "Exact linear-by-linear:      P = 0.9754902"
   )
