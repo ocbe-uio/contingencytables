@@ -129,6 +129,10 @@ test_that("Chapter 8 functions basically work", {
     regexp = "adjustment: estimate = 12.5000 \\(95% CI 2.6232 to 28.6333\\)"
   )
   expect_output(
+    object = print(Wald_CI_OR_Laplace_paired_2x2(matrix(c(1, NA, 2, 3), 2))),
+    regexp = "adjustment: estimate =     NA \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
     object = print(Transformed_Clopper_Pearson_exact_CI_paired_2x2(ezra_2010)),
     regexp = "estimate = 12.5000 \\(95% CI 3.1169 to 108.8892\\)"
   )
