@@ -138,6 +138,10 @@ test_that("Chapter 4 functions basically work", {
     regexp = "MOVER-R Wilson CI: estimate =    Inf \\(95% CI 3.9010 to    Inf\\)"
   )
   expect_output(
+    object = print(MOVER_R_Wilson_CI_ratio_2x2(matrix(c(NA, 1, 2, 3), 2))),
+    regexp = "MOVER-R Wilson CI: estimate =\\s+NA \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
     object = print(MOVER_R_Wilson_CI_ratio_2x2(perondi_2004)),
     regexp = "estimate = 7.0000 \\(95% CI 1.1537 to 41.9763\\)"
   )

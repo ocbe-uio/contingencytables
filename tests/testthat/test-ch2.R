@@ -53,6 +53,14 @@ test_that("Chapter 2 functions basically work", {
     )),
     regexp = "estimate = 0.8125 \\(95% CI 0.5435 to 0.9595\\)"
   )
+  expect_output(
+    object = print(ClopperPearson_exact_CI_1x2(0, 1)),
+    regexp = "exact CI: estimate = 0.0000 \\(95% CI 0.0000 to 0.9750\\)"
+  )
+  expect_output(
+    object = print(ClopperPearson_exact_CI_1x2(1, 1)),
+    regexp = "exact CI: estimate = 1.0000 \\(95% CI 0.0250 to 1.0000\\)"
+  )
   expect_error(ClopperPearson_midP_CI_1x2(100))
   expect_output(
     object = print(ClopperPearson_midP_CI_1x2(ligarden_2010["X"], ligarden_2010["n"])),
@@ -97,6 +105,10 @@ test_that("Chapter 2 functions basically work", {
   expect_output(
     object = print(LR_test_1x2(ligarden_2010["X"], ligarden_2010["n"], pi0 = .5)),
     regexp = "P = 0.00944, T = 6.738 \\(df = 1\\)"
+  )
+    expect_output(
+    object = print(LR_test_1x2(ligarden_2010["X"], ligarden_2010["X"], pi0 = .5)),
+    regexp = "The likelihood ratio test: P = 1.00000, T = 0.000 \\(df = 1\\)"
   )
   expect_error(MidP_binomial_test_1x2(100))
   expect_output(
