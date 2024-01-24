@@ -10,6 +10,10 @@ test_that("Chapter 9 functions basically work", {
     regexp = "pi_4\\+ vs pi_\\+4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
   )
   expect_output(
+    object = print(Bonferroni_type_CIs_paired_cxc(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "pi_2\\+ vs pi_\\+2: delta =  0.0000 \\(-1.0000 to  1.0000\\)"
+  )
+  expect_output(
     object = print(FleissEveritt_test_paired_cxc(fleiss_2003)),
     regexp = "version of the Stuart test: P = 0.000912, T = 14.000 \\(df=2\\)"
   )

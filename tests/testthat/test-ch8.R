@@ -27,6 +27,10 @@ test_that("Chapter 8 functions basically work", {
     regexp = "estimate = 0.8667 \\(95% CI 0.7579 to 0.9910\\)"
   )
   expect_output(
+    object = print(BonettPrice_hybrid_Wilson_score_CI_paired_2x2(cavo_2012 * 0)),
+    regexp = "Wilson score CI: estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
     object = print(BonettPrice_hybrid_Wilson_score_CI_CC_paired_2x2(matrix(c(0, 0, 0, 2), 2))),
     regexp = "CI w / CC: estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
   )
@@ -97,8 +101,20 @@ test_that("Chapter 8 functions basically work", {
     regexp = "estimate = 0.8667 \\(95% CI 0.7592 to 0.9866\\)"
   )
   expect_output(
+    object = print(MOVER_Wilson_score_CI_paired_2x2(bentur_2009 * 0)),
+    regexp = "Wilson score CI: estimate =    NaN \\(95% CI    NaN to    Inf\\)"
+  )
+  expect_output(
     object = print(Newcombe_square_and_add_CI_paired_2x2(cavo_2012)),
     regexp = "estimate = -0.0621 \\(95% CI -0.1186 to -0.0046\\)"
+  )
+  expect_output(
+    object = print(Newcombe_square_and_add_CI_paired_2x2(matrix(c(1, 0, 0, 1), 2))),
+    regexp = "Newcombe square-and-add .+  0.0000 \\(95% CI -0.5734 to  0.5734\\)"
+  )
+  expect_output(
+    object = print(Newcombe_square_and_add_CI_paired_2x2(matrix(c(0, 0, 0, 0), 2))),
+    regexp = "Newcombe square-and-add .+ NaN \\(95% CI     NaN to     NaN\\)"
   )
   expect_output(
     object = print(Transformed_Wilson_score_CI_paired_2x2(cavo_2012)),
