@@ -15,6 +15,8 @@ test_that("Chapter 7 functions basically work", {
     object = print(Cumulative_models_for_rxc(table_7.5, "probit")),
     regexp = "Wald \\(Z-statistic\\) row 5 vs row 1    -0.509     0.611037"
   )
+  expect_error(Cumulative_models_for_rxc(n2[, 1, drop = FALSE]), "must have at least 3")
+  expect_error(Cumulative_models_for_rxc(n2[, 1:2]), "must have at least 3")
   expect_output(
     object = print(Exact_cond_midP_tests_rxc(n_short)),
     regexp = "Exact linear-by-linear:      P = 0.9754902"

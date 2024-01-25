@@ -32,10 +32,8 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     }
   }
 
-  #  If there should be only one outcome category
-  if (max(y) == 1) {
-    results <- list()
-    return(invisible(results))
+  if (max(y) < 3L) {
+    stop("Input must have at least 3 columms")
   }
 
   #  Fit the model

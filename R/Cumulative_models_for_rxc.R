@@ -35,9 +35,9 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
       id <- id + n[i, j]
     }
   }
-  if (max(y) == 1) {
-    results <- list()
-    return(invisible(results))
+
+  if (max(y) < 3L) {
+    stop("Input must have at least 3 columms")
   }
 
   # Fit model
