@@ -2,6 +2,8 @@
 
 * Increased test coverage (#52)
 * Removed unused code
+* Improved handling of edge cases
+* Restricted `Cumulative_models_for_rxc()` and `Cumulative_models_for_2xc()` to 2 columns
 
 # contingencytables 2.2.1
 
