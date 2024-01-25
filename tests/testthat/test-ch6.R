@@ -14,6 +14,8 @@ test_that("Chapter 6 functions basically work", {
     object = print(Cumulative_models_for_2xc(fontanella_2008, "probit")),
     regexp = "  Pearson .+ P =  0.06041, X2 =  5.613 \\(df=2\\)"
   )
+  expect_error(Cumulative_models_for_rxc(n_short[, 1, drop = FALSE]), "must have at least 3")
+  expect_error(Cumulative_models_for_rxc(n_short[, 1:2]), "must have at least 3")
   expect_output(
     object = print(Exact_cond_midP_linear_rank_tests_2xc(n_short)),
     regexp = "Exact cond. linear rank test: P = 0.23854"

@@ -1,7 +1,7 @@
 #' @title Cumulative logit and probit models
 #' @description Cumulative logit and probit models
 #' @description Described in Chapter 6 "The Ordered 2xc Table"
-#' @param  n the observed table (a 2xc matrix)
+#' @param  n the observed table (a 2xc matrix) with at least 3 columns
 #' @param  linkfunction either "logit" or "probit"
 #' @param  alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @importFrom MASS polr
@@ -32,10 +32,8 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     }
   }
 
-  #  If there should be only one outcome category
-  if (max(y) == 1) {
-    results <- list()
-    return(invisible(results))
+  if (max(y) < 3L) {
+    stop("Input must have at least 3 columms")
   }
 
   #  Fit the model

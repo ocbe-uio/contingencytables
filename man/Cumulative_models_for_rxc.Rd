@@ -7,7 +7,7 @@
 Cumulative_models_for_rxc(n, linkfunction = "logit", alpha = 0.05)
 }
 \arguments{
-\item{n}{the observed table (an rxc matrix)}
+\item{n}{the observed table (an rxc matrix) with at least 3 columns}
 
 \item{linkfunction}{either "logit" or "probit"}
 

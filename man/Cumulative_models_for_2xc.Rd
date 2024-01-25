@@ -7,7 +7,7 @@
 Cumulative_models_for_2xc(n, linkfunction = "logit", alpha = 0.05)
 }
 \arguments{
-\item{n}{the observed table (a 2xc matrix)}
+\item{n}{the observed table (a 2xc matrix) with at least 3 columns}
 
 \item{linkfunction}{either "logit" or "probit"}
 
