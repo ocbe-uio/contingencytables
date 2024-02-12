@@ -85,9 +85,6 @@ calculate_limit_lower.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
   T0 <- score_test_statistic(
     pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p
   )
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   z <- qnorm(1 - alpha / 2, 0, 1)
   f <- T0 - z
   return(f)
@@ -100,9 +97,6 @@ calculate_limit_upper.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
   T0 <- score_test_statistic(
     pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p
   )
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   z <- qnorm(1 - alpha / 2, 0, 1)
   f <- T0 + z
   return(f)
@@ -140,9 +134,6 @@ calculate_limit_lower.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
   T0 <- score_test_statistic(
     pi1hat, pi2hat, ml.res$p1hat, ml.res$p2hat, n1p, n2p, phi0
   )
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 - qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -154,9 +145,6 @@ calculate_limit_upper.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
   T0 <- score_test_statistic(
     pi1hat, pi2hat, ml.res$p1hat, ml.res$p2hat, n1p, n2p, phi0
   )
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 + qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -186,9 +174,6 @@ score_test_statistic.Koopman <- function(pi1hat, pi2hat, p1hat, p2hat, n1p,
 calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   z <- qnorm(1 - alpha / 2, 0, 1)
   f <- T0 - z
   return(f)
@@ -198,9 +183,6 @@ calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1
 calculate_limit_upper.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   z <- qnorm(1 - alpha / 2, 0, 1)
   f <- T0 + z
   return(f)
@@ -233,9 +215,6 @@ score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p
 #' @export
 calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 - qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -243,9 +222,6 @@ calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha
 #' @export
 calculate_limit_upper.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 + qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -275,9 +251,6 @@ ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
 calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 - qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -286,9 +259,6 @@ calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1h
 calculate_limit_upper.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 + qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -316,9 +286,6 @@ score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n
 #' @export
 calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 - qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
@@ -326,9 +293,6 @@ calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha,
 #' @export
 calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  if (is.na(T0)) {
-    T0 <- 0
-  }
   f <- T0 + qnorm(1 - alpha / 2, 0, 1)
   return(f)
 }
