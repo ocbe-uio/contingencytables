@@ -1,6 +1,6 @@
 # contingencytables (development version)
 
-* Increased test coverage (#52)
+* Reached 100% test coverage (#52)
 * Removed unused code
 * Improved handling of edge cases
 * Restricted `Cumulative_models_for_rxc()` and `Cumulative_models_for_2xc()` to 2 columns
