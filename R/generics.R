@@ -2,11 +2,21 @@
 # Generic functions                                        #
 # ======================================================== #
 
+#' @export
+#' @title Calculate the lower limit of a confidence interval
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported so that
+#' it can be used by [stats::uniroot()].
 calculate_limit_lower <- function(...) {
   method <- convertFunName2Method()
   UseMethod("calculate_limit_lower", method)
 }
 
+#' @export
+#' @title Calculate the upper limit of a confidence interval
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported so that
+#' it can be used by [stats::uniroot()].
 calculate_limit_upper <- function(...) {
   method <- convertFunName2Method()
   UseMethod("calculate_limit_upper", method)
@@ -68,6 +78,7 @@ convertFunName2Method <- function() {
 # Methods for Mee                                          #
 # ======================================================== #
 
+#' @export
 calculate_limit_lower.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
                                       pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
@@ -82,6 +93,7 @@ calculate_limit_lower.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
   return(f)
 }
 
+#' @export
 calculate_limit_upper.Mee <- function(delta0, n11, n21, n1p, n2p, pi1hat,
                                       pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
@@ -121,6 +133,7 @@ score_test_statistic.Mee <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p,
 # Methods for Koopman                                      #
 # ======================================================== #
 
+#' @export
 calculate_limit_lower.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
                                           pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, phi0)
@@ -134,6 +147,7 @@ calculate_limit_lower.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
   return(f)
 }
 
+#' @export
 calculate_limit_upper.Koopman <- function(phi0, n11, n21, n1p, n2p, pi1hat,
                                           pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, phi0)
@@ -168,6 +182,7 @@ score_test_statistic.Koopman <- function(pi1hat, pi2hat, p1hat, p2hat, n1p,
 # Methods for Miettinen-Nurminen difference                 #
 # ======================================================== #
 
+#' @export
 calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
@@ -179,6 +194,7 @@ calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1
   return(f)
 }
 
+#' @export
 calculate_limit_upper.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
@@ -214,6 +230,7 @@ score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p
 # Methods for Miettinen-Nurminen Odds Ratio                 #
 # ======================================================== #
 
+#' @export
 calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
@@ -223,6 +240,7 @@ calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha
   return(f)
 }
 
+#' @export
 calculate_limit_upper.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
@@ -253,6 +271,7 @@ ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
 # Methods for Miettinen-Nurminen CI ratio                  #
 # ======================================================== #
 
+#' @export
 calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
@@ -263,6 +282,7 @@ calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1h
   return(f)
 }
 
+#' @export
 calculate_limit_upper.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
@@ -293,6 +313,7 @@ score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n
 # Methods for the uncorrected asymptotic score             #
 # ======================================================== #
 
+#' @export
 calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
@@ -302,6 +323,7 @@ calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha,
   return(f)
 }
 
+#' @export
 calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
   if (is.na(T0)) {
