@@ -5,11 +5,9 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-#' n <- perondi_2004
-#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)
+#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(perondi_2004)
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-#' n <- ritland_2007
-#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)
+#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(ritland_2007)
 #' @export
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
