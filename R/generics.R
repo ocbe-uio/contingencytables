@@ -71,7 +71,8 @@ convertFunName2Method <- function() {
   callstack <- gsub(x = as.character(sys.calls()), "\\(.+$", "") # func names
   cls_match <- dispatch_lookup[match(callstack, dispatch_lookup[["fn"]]), "cls"]
   cls <- cls_match[!is.na(cls_match)]
-  return(structure(cls, class = cls))
+  class(cls) <- cls
+  return(cls)
 }
 
 # ======================================================== #
