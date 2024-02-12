@@ -10,6 +10,10 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 0.0000 \\(95% CI 0.0000 to 1.1524\\)"
   )
   expect_output(
+    object = print(Adjusted_inv_sinh_CI_ratio_2x2(matrix(c(1, 0, 3, 4), 2))),
+    regexp = "inverse sinh CI: estimate =    Inf \\(95% CI 0.2603 to    Inf\\)"
+  )
+  expect_output(
     object = print(Adjusted_log_CI_2x2(perondi_2004)),
     regexp = "estimate = 7.0000 \\(95% CI 0.9241 to 27.0523\\)"
   )
@@ -51,8 +55,16 @@ test_that("Chapter 4 functions basically work", {
     regexp = "estimate = 9.0000 \\(95% CI 0.3101 to 308.5568\\)"
   )
   expect_output(
+    object = print(Cornfield_midP_CI_2x2(matrix(c(3, 1, 0, 3), 2))),
+    regexp = "Cornfield .+Inf \\(95% CI 0.5605 to    Inf\\)"
+  )
+  expect_output(
     object = print(Fisher_exact_test_2x2(ritland_2007)),
     regexp = "P = 0.06287"
+  )
+  expect_output(
+    object = print(Fisher_exact_test_2x2(tea * 0)),
+    regexp = "The Fisher exact test \\(Pearson\\): P = 1.00000"
   )
   expect_output(
     object = print(Exact_unconditional_test_2x2(tea)),
@@ -93,6 +105,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Inv_sinh_CI_OR_2x2(matrix(c(0, 0, 0, 0), 2))),
     regexp = "estimate =    NaN \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
+    object = print(Inv_sinh_CI_ratio_2x2(matrix(c(10, 0, 10, 20), 2))),
+    regexp = "The inverse sinh CI.+Inf \\(95% CI 2.6032 to    Inf\\)"
   )
   expect_output(
     object = print(Inv_sinh_CI_ratio_2x2(perondi_2004)),
@@ -169,6 +185,10 @@ test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(MOVER_R_Wilson_CI_OR_2x2(matrix(c(10, 20, 0, 30), 2))),
     regexp = "MOVER-R Wilson CI: estimate =    Inf \\(95% CI 3.9010 to    Inf\\)"
+  )
+  expect_output(
+    object = print(MOVER_R_Wilson_CI_OR_2x2(matrix(c(1, NA, 3, 4), 2))),
+    regexp = "MOVER-R Wilson CI: estimate =\\s+NA \\(95% CI 0.0000 to    Inf\\)"
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_ratio_2x2(matrix(c(NA, 1, 2, 3), 2))),

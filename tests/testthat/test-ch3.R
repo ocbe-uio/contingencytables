@@ -62,4 +62,10 @@ test_that("Chapter 3 functions basically work", {
     object = print(the_1xc_table_tests(snp6498169$subset$n, snp6498169$subset$pi0)),
     regexp = "Pearson chi-squared    0.0346   \\(T = 6.727, df = 2\\)"
   )
+  expect_output(
+    object = print(
+      the_1xc_table_tests(c(1, 4, 6, 3, 2), rep(1 / 5, 5), chacko.test = TRUE)
+    ),
+    regexp = "The Chacko test: P = 0.189546, T = 1.721 \\(df = 1\\)"
+  )
 })
