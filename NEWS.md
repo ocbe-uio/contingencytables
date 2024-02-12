@@ -4,6 +4,7 @@
 * Removed unused code
 * Improved handling of edge cases
 * Restricted `Cumulative_models_for_rxc()` and `Cumulative_models_for_2xc()` to 2 columns
+* Added `plot()` method for `Exact_unconditional_test_2x2()` and `McNemar_exact_unconditional_test_paired_2x2()` (#53)
 
 # contingencytables 2.2.1
 
