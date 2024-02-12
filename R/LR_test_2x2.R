@@ -33,11 +33,6 @@ LR_test_2x2 <- function(n) {
   df <- 1
   P <- 1 - pchisq(T0, df)
 
-  # Handle cases where the P-value is not computable
-  if (is.na(P)) {
-    P <- 1.0
-  }
-
   return(
     contingencytables_result(
       list("p.value" = P, "statistic" = T0, "df" = df),

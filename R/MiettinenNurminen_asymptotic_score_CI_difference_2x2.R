@@ -35,7 +35,7 @@ MiettinenNurminen_asymptotic_score_CI_difference_2x2 <- function(n, alpha = 0.05
   # Lower CI limit
   L <- tryCatch(
     uniroot(
-      calculate_limit_lower.Miettinen_diff, c(delta0, estimate),
+      calculate_limit_lower, c(delta0, estimate),
       n11 = n11, n21 = n21, n1p = n1p, n2p = n2p,
       pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root,
@@ -45,7 +45,7 @@ MiettinenNurminen_asymptotic_score_CI_difference_2x2 <- function(n, alpha = 0.05
   # Upper CI limit
   U <- tryCatch(
     uniroot(
-      calculate_limit_upper.Miettinen_diff, c(estimate, delta1),
+      calculate_limit_upper, c(estimate, delta1),
       n11 = n11, n21 = n21, n1p = n1p, n2p = n2p,
       pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root,

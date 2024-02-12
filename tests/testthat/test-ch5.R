@@ -17,6 +17,14 @@ test_that("Chapter 5 functions basically work", {
     ),
     regexp = "Cochran-Armitage exact cond. test: P = 0.62494"
   )
+  expect_output(
+    object = print(
+      CochranArmitage_exact_cond_midP_tests_rx2(
+        matrix(c(1, 2, 3, 0, 0, 0, 0, 0, 5, 1), 5), 1:5
+      )
+    ),
+    regexp = "Cochran-Armitage exact cond. test: P = 0.00216"
+  )
   a5 <- 1:5
   expect_output(
     object = print(

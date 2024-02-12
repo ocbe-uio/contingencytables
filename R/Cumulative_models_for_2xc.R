@@ -50,13 +50,6 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   L1 <- tmp$deviance
   pihat <- predict(tmp, newdata = data.frame(x = c(1, 0)), type = "probs")
 
-  #  Handle cases with missing outcome categories
-  if (ncol(pihat) == c0 - 2) {
-    pihat <- cbind(pihat, matrix(0, 2, 2))
-  } else if (ncol(pihat) == c0 - 1) {
-    pihat <- cbind(pihat, 0)
-  }
-
   #  Calculate expected values
   m <- matrix(0, 2, c0)
   m[1, ] <- nip[1] * pihat[1, ]
@@ -176,7 +169,7 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     cat_sprintf("\nTesting the effect in a %s model\n", model)
     cat_sprintf("  Wald (Z-statistic):          P = %8.5f, Z = %6.3f\n", P_Wald, Z_Wald)
     cat_sprintf("  Likelihood ratio:            P = %8.5f, T = %6.3f (df=%g)\n", P_LR, T_LR, df_LR)
-    if (linkfunction %in% c("logistic", "logit")) {
+    if (identical(linkfunction, "logit")) {
       cat_sprintf("  Score (WMW):                 P = %8.5f, Z = %6.3f\n", P_MW, Z_MW)
     }
 
@@ -186,7 +179,7 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     cat_sprintf("Interval         Estimate     Conf. int       Width\n")
     cat_sprintf("----------------------------------------------------\n")
     cat_sprintf("  Wald           %6.3f    %6.3f to %6.3f   %6.4f\n", betahat, Wald_CI[1], Wald_CI[2], Wald_CI_width)
-    if (linkfunction == "logistic") {
+    if (identical(linkfunction, "logit")) {
       cat_sprintf("  Wald (OR)      %6.3f    %6.3f to %6.3f\n", exp(-betahat), exp(-Wald_CI[2]), exp(-Wald_CI[1]))
     }
     cat_sprintf("----------------------------------------------------\n")

@@ -73,6 +73,10 @@ test_that("Chapter 8 functions basically work", {
     regexp = "The McNemar exact unconditional test: P = 0.542071"
   )
   expect_output(
+    object = print(McNemar_exact_unconditional_test_paired_2x2(tea  * 0)),
+    regexp = "The McNemar exact unconditional test: P = 1.000000"
+  )
+  expect_output(
     object = print(McNemar_midP_test_paired_2x2(cavo_2012)),
     regexp = "The McNemar mid-P test: P = 0.034690"
   )
@@ -81,8 +85,26 @@ test_that("Chapter 8 functions basically work", {
     regexp = "estimate = 0.8667 \\(95% CI 0.7476 to 0.9876\\)"
   )
   expect_output(
+    object = print(
+      Tang_asymptotic_score_CI_paired_2x2(matrix(c(1, 2, NA, 4), 2))
+    ),
+    regexp = "score CI: estimate =     NA \\(95% CI 0.0000 to    Inf\\)"
+  )
+  expect_output(
     object = print(Tango_asymptotic_score_CI_paired_2x2(cavo_2012)),
     regexp = "score CI: estimate = -0.0621 \\(95% CI -0.1240 to -0.0054\\)"
+  )
+  expect_output(
+    object = print(
+      Tango_asymptotic_score_CI_paired_2x2(matrix(c(0, 0, 3, 0), 2))
+    ),
+    regexp = "Tango asymptotic .+ 1.0000 \\(95% CI -0.1230 to 1.0000\\)"
+  )
+  expect_output(
+    object = print(
+      Tango_asymptotic_score_CI_paired_2x2(matrix(c(0, 3, 0, 0), 2))
+    ),
+    regexp = "Tango asymptotic .+ -1.0000 \\(95% CI -1.0000 to 0.1230\\)"
   )
   expect_output(
     object = print(Wald_CI_diff_paired_2x2(cavo_2012)),
@@ -91,6 +113,10 @@ test_that("Chapter 8 functions basically work", {
   expect_output(
     object = print(Wald_CI_diff_CC_paired_2x2(cavo_2012)),
     regexp = "estimate = -0.0621 \\(95% CI -0.1186 to -0.0057\\)"
+  )
+  expect_output(
+    object = print(Wald_CI_diff_CC_paired_2x2(bentur_2009 * NA)),
+    regexp = "Wald CI with continuity correction.+NA \\(95% CI.+NA to.+NA\\)"
   )
   expect_output(
     object = print(Wald_CI_AgrestiMin_paired_2x2(cavo_2012)),

@@ -6,6 +6,10 @@ test_that("Chapter 9 functions basically work", {
     regexp = "marginal homogenity: P = 0.000005, T = 27.304 \\(df = 3\\)"
   )
   expect_output(
+    object = print(Bhapkar_test_paired_cxc(matrix(c(1, 2, 3, NA), 2))),
+    "The Bhapkar test statistic is not computable"
+  )
+  expect_output(
     object = print(Bonferroni_type_CIs_paired_cxc(peterson_2007)),
     regexp = "pi_4\\+ vs pi_\\+4: delta =  0.0088 \\(-0.0059 to  0.0233\\)"
   )
