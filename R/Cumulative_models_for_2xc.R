@@ -50,13 +50,6 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   L1 <- tmp$deviance
   pihat <- predict(tmp, newdata = data.frame(x = c(1, 0)), type = "probs")
 
-  #  Handle cases with missing outcome categories
-  if (ncol(pihat) == c0 - 2) {
-    pihat <- cbind(pihat, matrix(0, 2, 2))
-  } else if (ncol(pihat) == c0 - 1) {
-    pihat <- cbind(pihat, 0)
-  }
-
   #  Calculate expected values
   m <- matrix(0, 2, c0)
   m[1, ] <- nip[1] * pihat[1, ]

@@ -80,17 +80,6 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   cat_sprintf("  Wald                          %6.3f          %8.5f\n", resultsProbit$Z_Wald, resultsProbit$P_Wald)
   cat_sprintf("  Likelihood ratio              %6.3f (df=%g)   %8.5f\n", resultsProbit$T_LR, resultsProbit$df_LR, resultsProbit$P_LR)
 
-  alphahat0 <- NULL
-  if (all(n == fontanella_2008)) {
-    alphahat0 <- c(-1.246452, -0.5097363, 0.2087471)
-  }
-  if (all(n == lydersen_2012a)) {
-    alphahat0 <- c(-0.1923633, 0.5588396, 1.271953)
-  }
-  if (!is.null(alphahat0)) {
-    res <- Score_test_for_effect_in_the_probit_model_2xc(n, alphahat0)
-    cat_sprintf("  Score                         %6.3f (df=%g)   %8.5f\n", res$T, res$df, res$P)
-  }
   cat_sprintf("--------------------------------------------------------\n")
   cat_sprintf("\nEstimation of the effect parameter beta with %g%% CIs\n", 100 * (1 - alpha))
   cat_sprintf("----------------------------------------------------\n")
