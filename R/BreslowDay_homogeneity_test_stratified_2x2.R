@@ -33,11 +33,11 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
   solution2 <- (-sk - sqrt(sk^2 - 4 * r * tk)) / (2 * r)
   m11k <- rep(0, K)
   for (k in 1:K) {
-    if (solution1[k] > 0 && solution1[k] < n1pk[k] && solution1[k] < np1k[k]) {
-      m11k[k] <- solution1[k]
-    } else {
-      m11k[k] <- solution2[k]
-    }
+    m11k[k] <- ifelse(
+      test = solution1[k] > 0 && solution1[k] < n1pk[k] && solution1[k] < np1k[k],
+      yes = solution1[k],
+      no = solution2[k]
+    )
   }
 
   # Estimate of the variance of n11k under the assumption of a common odds ratio
