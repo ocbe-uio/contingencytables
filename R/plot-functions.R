@@ -15,7 +15,7 @@ plot.contingencytables_result <- function(x, y, ...) {
   common_pi_at_max_value <- x$pi_values[index]
 
   # Plotting ===================================================================
-  plot(x$pi_values, x$p_values, lty = 1, col = "black", ...)
+  plot(x$pi_values, x$p_values, lwd = 2, type = "l", ...)
   lines(
     c(common_pi_at_max_value, common_pi_at_max_value), c(0, P),
     lty = 2, col = "red"
