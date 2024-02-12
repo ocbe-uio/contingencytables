@@ -25,5 +25,3 @@ test_that("Printing method works for pvalue", {
   expect_output(print(tmp, as_list = TRUE), "pvalue")
   expect_length(tmp, 1)
 })
-
-# TODO: add other print methods for contingencytables_singletest

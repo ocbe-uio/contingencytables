@@ -120,7 +120,7 @@ test_that("Chapter 7 functions basically work", {
     regexp = "Kruskal-Wallis asymptotic\\s+1.561 \\(df=3\\)   0.668229"
   )
   expect_output(
-    object = the_rxc_table(matrix(c(1:6), 3)),
+    object = the_rxc_table(matrix(1:6, 3)),
     regexp = "  Fisher-Freeman-Halton asymptotic\\s+0.428 \\(df=2\\)   0.807209"
   )
   n4_short <- floor(table_7.4 / 10)
