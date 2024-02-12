@@ -12,6 +12,9 @@
 #' @export
 BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
   validateArguments(mget(ls()))
+  if (length(dim(n)) != 3) {
+    stop("n must have 3 dimensions")
+  }
   n11k <- n[1, 1, ]
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)
