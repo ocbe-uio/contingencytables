@@ -43,7 +43,7 @@ Arcsine_CI_1x2 <- function(X, n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(lower = L, upper = U, estimate = estimate),
+      list("lower" = L, "upper" = U, "estimate" = estimate),
       printresults
     )
   )

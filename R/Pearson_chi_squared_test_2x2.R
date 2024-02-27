@@ -42,7 +42,7 @@ Pearson_chi_squared_test_2x2 <- function(n) {
 
   return(
     contingencytables_result(
-      list(p.value = P, statistic = T0, df = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       sprintf("The Pearson chi-squared test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
   )

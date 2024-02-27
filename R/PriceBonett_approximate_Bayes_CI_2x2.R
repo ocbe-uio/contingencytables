@@ -46,7 +46,7 @@ PriceBonett_approximate_Bayes_CI_2x2 <- function(n, a = 1.25, b = 2.5, alpha = 0
 
   return(
     contingencytables_result(
-      list(lower = L, upper = U, estimate = estimate),
+      list("lower" = L, "upper" = U, "estimate" = estimate),
       sprintf(
         "The Price-Bonett approximate Bayes CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U

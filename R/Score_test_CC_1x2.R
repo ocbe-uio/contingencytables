@@ -38,7 +38,7 @@ Score_test_CC_1x2 <- function(X, n, pi0) {
 
   return(
     contingencytables_result(
-      list("p.value" = P, "statistic" = Z),
+      list("Pvalue" = P, "Z" = Z),
       sprintf("The score test with continuity correction: P = %7.5f, Z = %5.3f", P, Z)
     )
   )

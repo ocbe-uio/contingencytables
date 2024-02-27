@@ -52,7 +52,10 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(P = P, Z = Z, L = L, U = U, thetahatMH = thetahatMH, SElog = SElog),
+      list(
+        "Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U,
+        "thetahatMH" = thetahatMH, "SElog" = SElog
+      ),
       printresults
     )
   )

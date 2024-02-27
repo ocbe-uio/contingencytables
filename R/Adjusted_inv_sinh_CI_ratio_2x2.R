@@ -66,7 +66,7 @@ Adjusted_inv_sinh_CI_ratio_2x2 <- function(
   }
   return(
     contingencytables_result(
-      list(lower = L, upper = U, estimate = estimate), printresults
+      list("lower" = L, "upper" = U, "estimate" = estimate), printresults
     )
   )
 }

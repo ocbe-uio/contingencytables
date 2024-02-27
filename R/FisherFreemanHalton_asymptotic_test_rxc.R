@@ -33,7 +33,7 @@ FisherFreemanHalton_asymptotic_test_rxc <- function(n) {
 
   return(
     contingencytables_result(
-      list("P" = P, "T" = T0, "df" = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       sprintf(
         "Fisher-Freeman-Halton asymptotic test: P = %6.4f, T = %5.3f (df=%g)",
         P, T0, df

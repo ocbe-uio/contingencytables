@@ -7,7 +7,7 @@ ruxton <- c(6, 8, 4, 7, 3) # Ruxton
 
 test_that("Expected output is obtained", {
   f <- Chacko_test_1xc(fagerland)
-  expect_equal(f$pvalue, 0.002, tol = 1e-2)
+  expect_equal(f$Pvalue, 0.002, tol = 1e-2)
   expect_equal(f$T, 12.27, tol = 1e-2)
   expect_equal(f$df, 2)
 

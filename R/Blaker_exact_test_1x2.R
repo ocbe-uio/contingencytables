@@ -37,5 +37,5 @@ Blaker_exact_test_1x2 <- function(X, n, pi0) {
   printresults <- function() {
     cat_sprintf("The Blaker exact test: P = %7.5f", P)
   }
-  return(contingencytables_result(list(pvalue = P), printresults))
+  return(contingencytables_result(list("Pvalue" = P), printresults))
 }

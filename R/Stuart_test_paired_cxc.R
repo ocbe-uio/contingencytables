@@ -29,7 +29,7 @@ Stuart_test_paired_cxc <- function(n) {
     }
     return(
       contingencytables_result(
-        list(P = P, T0 = T0, df = df), printresults
+        list("Pvalue" = P, "T" = T0, "df" = df), printresults
       )
     )
   }

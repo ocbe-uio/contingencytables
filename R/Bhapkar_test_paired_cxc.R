@@ -52,7 +52,7 @@ Bhapkar_test_paired_cxc <- function(n) {
   }
   return(
     contingencytables_result(
-      list("pvalue" = P, "T" = T0, "df" = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       printresults
     )
   )

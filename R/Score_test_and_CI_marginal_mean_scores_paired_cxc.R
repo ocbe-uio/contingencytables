@@ -57,7 +57,10 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a = seq_len(nro
 
   return(
     contingencytables_result(
-      list(P = P, Z_score = Z_score, L = L, U = U, estimate = estimate),
+      list(
+        "Pvalue" = P, "Z" = Z_score, "lower" = L, "upper" = U,
+        "estimate" = estimate
+      ),
       printresults
     )
   )

@@ -27,9 +27,9 @@ Described in Chapter 4 "The 2x2 Table"
 \note{
 Somewhat crude code with maximization over a simple partition of the
 nuisance parameter space into 'num_pi_values' equally spaced values
-(default: 1000). The number may be changed below.
+(1000, hardcoded).
 This method could be improved with a better algorithm for the
-maximization however, it works well for most purposes. Try 'showplot=TRUE'
+maximization however, it works well for most purposes. \code{plot()} the results
 to get an indication of the precision. A refinement of the maximization
 can be done with a manual restriction of the parameter space.
 }
