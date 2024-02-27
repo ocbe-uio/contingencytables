@@ -42,7 +42,7 @@ InverseVariance_estimate_stratified_2x2 <- function(n, link = "logit") {
 
   return(
     contingencytables_result(
-      list(estimate = estimate, psihat = psihat, v = v),
+      list("estimate" = estimate, "psihat" = psihat, "v" = v),
       sprintf("The inverse variance estimate = %7.4f", estimate)
     )
   )

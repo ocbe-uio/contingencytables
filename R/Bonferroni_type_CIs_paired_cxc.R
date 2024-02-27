@@ -53,7 +53,7 @@ Bonferroni_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
   }
   return(
     contingencytables_result(
-      list(lower = L, upper = U, deltahat = deltahat),
+      list("lower" = L, "upper" = U, "deltahat" = deltahat),
       printresults
     )
   )

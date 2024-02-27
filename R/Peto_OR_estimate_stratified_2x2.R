@@ -33,7 +33,11 @@ Peto_OR_estimate_stratified_2x2 <- function(n) {
 
   return(
     contingencytables_result(
-      list(estimate = estimate, expectation = expectation, variance = variance),
+      list(
+        "estimate" = estimate,
+        "expectation" = expectation,
+        "variance" = variance
+      ),
       sprintf("The Peto OR estimate = %7.4f", estimate)
     )
   )

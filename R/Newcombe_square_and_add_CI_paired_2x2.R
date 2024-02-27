@@ -57,7 +57,7 @@ Newcombe_square_and_add_CI_paired_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(L = L, U = U, estimate = estimate),
+      list("lower" = L, "upper" = U, "estimate" = estimate),
       sprintf("The Newcombe square-and-add CI: estimate = %7.4f (%g%% CI %7.4f to %7.4f)", estimate, 100 * (1 - alpha), L, U)
     )
   )
