@@ -64,7 +64,7 @@ Chacko_test_1xc <- function(n) {
   }
   return(
     contingencytables_result(
-      list("pvalue" = P, "T" = T0, "df" = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       printresults
     )
   )

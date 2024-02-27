@@ -117,7 +117,7 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
   }
 
   return(contingencytables_result(
-    list("P" = P, "p_values" = Pvalues, "pi_values" = pivalues),
+    list("Pvalue" = P, "Pvalues" = Pvalues, "pi_values" = pivalues),
     sprintf(txt, P))
   )
 

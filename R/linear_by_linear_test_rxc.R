@@ -44,7 +44,7 @@ linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(
 
   return(
     contingencytables_result(
-      list(P = P, Z = Z),
+      list("Pvalue" = P, "Z" = Z),
       sprintf("The linear-by-linear test for association: P = %8.6f, Z = %6.3f", P, Z)
     )
   )

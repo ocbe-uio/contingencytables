@@ -48,6 +48,6 @@ Wald_test_CC_1x2 <- function(X, n, pi0) {
   }
 
   res <- list(P, Z)
-  names(res) <- c("p.value", "statistic")
+  names(res) <- c("Pvalue", "Z")
   return(contingencytables_result(res, printresults))
 }

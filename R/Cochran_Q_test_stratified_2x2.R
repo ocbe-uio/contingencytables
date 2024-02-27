@@ -51,7 +51,7 @@ Cochran_Q_test_stratified_2x2 <- function(
   }
   return(
     contingencytables_result(
-      list("pvalue" = P, "Q" = Q, "df" = df),
+      list("Pvalue" = P, "Q" = Q, "df" = df),
       printresults
     )
   )

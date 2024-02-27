@@ -76,7 +76,10 @@ Wald_test_and_CI_common_diff_stratified_2x2 <- function(
 
   return(
     contingencytables_result(
-      list(P = P, Z = Z, L = L, U = U, deltahat = deltahat), printresults
+      list(
+        "Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U, "deltahat" = deltahat
+      ),
+      printresults
     )
   )
 }

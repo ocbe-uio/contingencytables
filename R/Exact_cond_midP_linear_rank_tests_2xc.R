@@ -55,5 +55,5 @@ Exact_cond_midP_linear_rank_tests_2xc <- function(n, b = 0) {
     cat_sprintf("Mid-P linear rank test:   mid-P = %7.5f", midP)
   }
 
-  return(contingencytables_result(list("P" = P, "midP" = midP), printresults))
+  return(contingencytables_result(list("Pvalue" = P, "midP" = midP), printresults))
 }

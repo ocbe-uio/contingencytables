@@ -57,10 +57,10 @@ Wald_CI_AgrestiMin_paired_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  invisible(list(L = L, U = U, estimate = estimate))
+  invisible(list("lower" = L, "upper" = U, "estimate" = estimate))
   return(
     contingencytables_result(
-      list(L = L, U = U, estimate = estimate),
+      list("lower" = L, "upper" = U, "estimate" = estimate),
       printresults
     )
   )

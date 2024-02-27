@@ -29,9 +29,9 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
 
   res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "Pearson")
   res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LR")
-  cat_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
+  cat_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$Pvalue)
   cat_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
-  cat_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
+  cat_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$Pvalue)
   cat_sprintf("  Mid-P (LR)                                    %8.5f\n", res2$midP)
 
   cat_sprintf("\nTests for ordered cumulative odds ratios\n")
@@ -41,14 +41,14 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
 
   res1 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "PearsonCumOR")
   res2 <- Exact_cond_midP_unspecific_ordering_rx2(t(n), direction, "LRCumOR")
-  cat_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$P)
+  cat_sprintf("  Exact conditional (Pearson)                   %8.5f\n", res1$Pvalue)
   cat_sprintf("  Mid-P (Pearson)                               %8.5f\n", res1$midP)
-  cat_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$P)
+  cat_sprintf("  Exact conditional (LR)                        %8.5f\n", res2$Pvalue)
   cat_sprintf("  Mid-P (LR)                                    %8.5f\n", res2$midP)
 
   cat_sprintf("\nTest for association with column scores \n")
   res <- MantelHaenszel_test_2xc(n, 0)
-  cat_sprintf("  Mantel-Haenszel               %6.3f (df=%g)   %8.5f\n", res$T, res$df, res$P)
+  cat_sprintf("  Mantel-Haenszel               %6.3f (df=%g)   %8.5f\n", res$T, res$df, res$Pvalue)
 
 
   cat_sprintf("\nTesting the fit of a proportional odds model\n")
@@ -66,7 +66,7 @@ the_2xc_table <- function(n, alpha = 0.05, direction = "increasing") {
   cat_sprintf("  Score (WMW)                   %6.3f          %8.5f\n", results$Z_MW, results$P_MW)
 
   res <- Exact_cond_midP_linear_rank_tests_2xc(n, 0)
-  cat_sprintf("  Exact conditional linear rank                 %8.5f\n", res$P)
+  cat_sprintf("  Exact conditional linear rank                 %8.5f\n", res$Pvalue)
   cat_sprintf("  Mid-P linear rank                             %8.5f\n", res$midP)
 
 

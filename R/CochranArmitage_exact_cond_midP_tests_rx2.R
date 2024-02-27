@@ -52,5 +52,5 @@ CochranArmitage_exact_cond_midP_tests_rx2 <- function(n, a) {
     cat_sprintf("Cochran-Armitage exact cond. test: P = %7.5f\n", P)
     cat_sprintf("Cochran-Armitage mid-P test:   mid-P = %7.5f", midP)
   }
-  return(contingencytables_result(list(P = P, midP = midP), printresults))
+  return(contingencytables_result(list("Pvalue" = P, "midP" = midP), printresults))
 }
