@@ -50,7 +50,7 @@ Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(P = P, Z = Z, L = L, U = U, thetahatIV = thetahatIV), printresults
+      list("Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U, "thetahatIV" = thetahatIV), printresults
     )
   )
 }

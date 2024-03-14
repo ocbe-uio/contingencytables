@@ -1,5 +1,5 @@
-#' @title The ScheffE-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
-#' @description The ScheffE-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
+#' @title The Scheffe-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
+#' @description The Scheffe-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
 #' @description Described in Chapter 7 "The rxc Table"
 #' @param n the observed counts (an rx2 vector)
 #' @param alpha the nominal level, e.g. 0.05 for 95# CIs
@@ -27,7 +27,7 @@ Scheffe_type_CIs_rxc <- function(n, alpha = 0.05) {
     }
   }
 
-  # Simultaneous confidence intervals with ScheffE adjustment
+  # Simultaneous confidence intervals with Scheffe adjustment
   L <- rep(0, C)
   U <- rep(0, C)
   Scheffe <- qchisq(1 - alpha, r - 1)
@@ -53,7 +53,7 @@ Scheffe_type_CIs_rxc <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(L = L, U = U, differences = differences), printresults
+      list("lower" = L, "upper" = U, "differences" = differences), printresults
     )
   )
 }

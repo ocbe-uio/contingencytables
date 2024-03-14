@@ -51,7 +51,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
 
 
   cat_sprintf("\nTests and confidence intervals for individual categories:\n")
-  cat_sprintf("\nCategory        Estimate    ScheffE 95%%CI         Bonferroni 95%%CI     P-value*\n")
+  cat_sprintf("\nCategory        Estimate    Scheffe 95%%CI         Bonferroni 95%%CI     P-value*\n")
   cat_sprintf("-------------------------------------------------------------------------------\n")
   for (i in 1:c) {
     tmp <- Scheffe_type_CIs_paired_cxc(n, alpha)

@@ -40,7 +40,7 @@ Transformed_Clopper_Pearson_exact_CI_paired_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(L = L, U = U, estimate = estimate), printresults
+      list("lower" = L, "upper" = U, "estimate" = estimate), printresults
     )
   )
 }

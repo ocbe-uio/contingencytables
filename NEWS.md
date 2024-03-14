@@ -1,6 +1,15 @@
+# contingencytables 3.0.0
+
+* Reached 100% test coverage (#52)
+* Removed unused code
+* Improved handling of edge cases
+* Restricted `Cumulative_models_for_rxc()` and `Cumulative_models_for_2xc()` to 2 columns
+* Added `plot()` method for `Exact_unconditional_test_2x2()` and `McNemar_exact_unconditional_test_paired_2x2()` (#53)
+* Standardized names of objects in the output (#35)
+
 # contingencytables 2.2.1
 
-* Improved internals:refactoring (#41), increased test coverage (#52)
+* Improved internals: refactoring (#41), increased test coverage (#52)
 * Fixed upper CI limit on `stratified_2x2_tables()` (thanks to Zhen Wang)
 
 # contingencytables 2.2.0

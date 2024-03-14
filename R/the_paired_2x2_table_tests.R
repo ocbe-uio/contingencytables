@@ -41,11 +41,11 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001, num_pi_values = 1000L)
 
   if (gamma != 0) {
     P <- McNemar_exact_unconditional_test_paired_2x2(n, 0, num_pi_values)
-    cat_sprintf("McNemar exact unconditional      %6.4f\n", P)
+    cat_sprintf("McNemar exact unconditional      %6.4f\n", P$Pvalue)
   }
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma, num_pi_values)
-  cat_sprintf("McNemar exact unconditional*     %6.4f\n", P)
+  cat_sprintf("McNemar exact unconditional*     %6.4f\n", P$Pvalue)
 
   cat("---------------------------------------------------------\n")
   cat_sprintf("*gamma = %-10.8g\n", gamma)

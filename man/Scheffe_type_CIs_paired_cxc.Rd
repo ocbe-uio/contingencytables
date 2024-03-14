@@ -2,7 +2,7 @@
 % Please edit documentation in R/Scheffe_type_CIs_paired_cxc.R
 \name{Scheffe_type_CIs_paired_cxc}
 \alias{Scheffe_type_CIs_paired_cxc}
-\title{ScheffE-type confidence intervals for differences of marginal probabilities}
+\title{Scheffe-type confidence intervals for differences of marginal probabilities}
 \usage{
 Scheffe_type_CIs_paired_cxc(n, alpha = 0.05)
 }
@@ -17,7 +17,7 @@ basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\li
 to see the specific elements returned.
 }
 \description{
-ScheffE-type confidence intervals for differences of marginal probabilities
+Scheffe-type confidence intervals for differences of marginal probabilities
 
 Described in Chapter 9 "The Paired kxk Table"
 }

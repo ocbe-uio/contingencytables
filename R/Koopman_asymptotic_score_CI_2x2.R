@@ -37,7 +37,7 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
     L <- 0
   } else if (is.na(estimate) || estimate == Inf) {
     L <- uniroot(
-      calculate_limit_lower.Koopman, c(phi0, phi1),
+      calculate_limit_lower, c(phi0, phi1),
       n11 = n11, n21 = n21,
       n1p = n1p, n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
@@ -45,7 +45,7 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
     L <- 0
   } else {
     L <- uniroot(
-      calculate_limit_lower.Koopman, c(phi0, estimate),
+      calculate_limit_lower, c(phi0, estimate),
       n11 = n11, n21 = n21,
       n1p = n1p, n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
@@ -56,13 +56,13 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
     U <- Inf
   } else if (estimate == 0) {
     U <- uniroot(
-      calculate_limit_upper.Koopman, c(phi0, phi1),
+      calculate_limit_upper, c(phi0, phi1),
       n11 = n11, n21 = n21,
       n1p = n1p, n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
   } else {
     U <- uniroot(
-      calculate_limit_upper.Koopman, c(estimate, phi1),
+      calculate_limit_upper, c(estimate, phi1),
       n11 = n11, n21 = n21,
       n1p = n1p, n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
@@ -70,7 +70,7 @@ Koopman_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(lower = L, upper = U, estimate = estimate),
+      list("lower" = L, "upper" = U, "estimate" = estimate),
       sprintf(
         "Koopman asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U

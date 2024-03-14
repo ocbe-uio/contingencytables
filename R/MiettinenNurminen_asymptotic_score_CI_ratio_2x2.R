@@ -5,11 +5,9 @@
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @examples
 #' # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
-#' n <- perondi_2004
-#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)
+#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(perondi_2004)
 #' # The association between CHRNA4 genotype and XFS (Ritland et al., 2007)
-#' n <- ritland_2007
-#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(n)
+#' MiettinenNurminen_asymptotic_score_CI_ratio_2x2(ritland_2007)
 #' @export
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
@@ -39,8 +37,7 @@ MiettinenNurminen_asymptotic_score_CI_ratio_2x2 <- function(n, alpha = 0.05) {
     L <- 0
   } else if (is.na(estimate) || estimate == Inf) {
     L <- uniroot(
-      calculate_limit_lower.Miettinen_ratio,
-      c(phi0, phi1),
+      calculate_limit_lower, c(phi0, phi1),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
@@ -48,7 +45,7 @@ MiettinenNurminen_asymptotic_score_CI_ratio_2x2 <- function(n, alpha = 0.05) {
     L <- 0
   } else {
     L <- uniroot(
-      calculate_limit_lower.Miettinen_ratio, c(phi0, estimate),
+      calculate_limit_lower, c(phi0, estimate),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
@@ -59,13 +56,13 @@ MiettinenNurminen_asymptotic_score_CI_ratio_2x2 <- function(n, alpha = 0.05) {
     U <- Inf
   } else if (estimate == 0) {
     U <- uniroot(
-      calculate_limit_upper.Miettinen_ratio, c(phi0, phi1),
+      calculate_limit_upper, c(phi0, phi1),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
   } else {
     U <- uniroot(
-      calculate_limit_upper.Miettinen_ratio, c(estimate, phi1),
+      calculate_limit_upper, c(estimate, phi1),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, pi1hat = pi1hat, pi2hat = pi2hat, alpha = alpha, tol = tol
     )$root
@@ -73,9 +70,9 @@ MiettinenNurminen_asymptotic_score_CI_ratio_2x2 <- function(n, alpha = 0.05) {
 
   return(
     contingencytables_result(
-      list(lower = L, upper = U, estimate = estimate),
+      list("lower" = L, "upper" = U, "estimate" = estimate),
       sprintf(
-        "Mietinen-Nurminen asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+        "Miettinen-Nurminen asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U
       )
     )

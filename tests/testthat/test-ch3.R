@@ -11,6 +11,7 @@ test_that("Chapter 3 functions basically work", {
     )),
     regexp = "P = 0.04792"
   )
+  expect_error(Exact_multinomial_test_1xc(1:2, runif(2)), "X must be >= 3")
   expect_output(
     object = print(Gold_Wald_CIs_1xc(n = snp6498169$complete$n)),
     regexp = "pi_3: estimate = 0.1525 \\(0.1208 to 0.1841\\)"
@@ -22,6 +23,10 @@ test_that("Chapter 3 functions basically work", {
   expect_output(
     object = print(Goodman_Wald_CIs_for_diffs_1xc(n = snp6498169$complete$n)),
     regexp = "pi_2 - pi_3: estimate = 0.3385 \\(0.2759 to 0.4011\\)"
+  )
+  expect_output(
+    object = print(Goodman_Wald_CIs_for_diffs_1xc(n = snp6498169$complete$n, .1, "Scheffe")),
+    regexp = "pi_2 - pi_3: estimate = 0.3385 \\(0.2824 to 0.3946\\)"
   )
   expect_output(
     object = print(Goodman_Wilson_score_CIs_1xc(n = snp6498169$complete$n)),
@@ -56,5 +61,11 @@ test_that("Chapter 3 functions basically work", {
   expect_output(
     object = print(the_1xc_table_tests(snp6498169$subset$n, snp6498169$subset$pi0)),
     regexp = "Pearson chi-squared    0.0346   \\(T = 6.727, df = 2\\)"
+  )
+  expect_output(
+    object = print(
+      the_1xc_table_tests(c(1, 4, 6, 3, 2), rep(1 / 5, 5), chacko.test = TRUE)
+    ),
+    regexp = "The Chacko test: P = 0.189546, T = 1.721 \\(df = 1\\)"
   )
 })

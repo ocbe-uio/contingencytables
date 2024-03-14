@@ -32,5 +32,5 @@ Exact_binomial_test_1x2 <- function(X, n, pi0) {
   printresults <- function() {
     cat_sprintf("The exact binomial test: P = %7.5f", P)
   }
-  return(contingencytables_result(list(P = P), printresults))
+  return(contingencytables_result(list("Pvalue" = P), printresults))
 }

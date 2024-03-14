@@ -33,14 +33,9 @@ LR_test_2x2 <- function(n) {
   df <- 1
   P <- 1 - pchisq(T0, df)
 
-  # Handle cases where the P-value is not computable
-  if (is.na(P)) {
-    P <- 1.0
-  }
-
   return(
     contingencytables_result(
-      list("p.value" = P, "statistic" = T0, "df" = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       sprintf("The likelihood ratio test: P = %7.5f, T = %5.3f (df = %i)", P, T0, df)
     )
   )

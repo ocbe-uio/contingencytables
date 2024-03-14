@@ -37,11 +37,7 @@ validateArguments(
   )
 
   # Observed value of the test statistic
-  if (n[1, 1] < length(Tvalues)) {
-    Tobs <- Tvalues[n[1, 1] + 1]
-  } else {
-    Tobs <- -Inf
-  }
+  Tobs <- Tvalues[n[1, 1] + 1]
 
   # Two-sided P-value
   P <- sum(fvalues[Tvalues >= Tobs])
@@ -58,7 +54,7 @@ validateArguments(
     "LR" = "The Fisher exact test (LR): P = %7.5f"
   )
 
-  return(contingencytables_result(list("P" = P), sprintf(txt, P)))
+  return(contingencytables_result(list("Pvalue" = P), sprintf(txt, P)))
 }
 
 # ========================================================

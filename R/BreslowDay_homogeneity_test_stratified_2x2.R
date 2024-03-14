@@ -12,6 +12,9 @@
 #' @export
 BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
   validateArguments(mget(ls()))
+  if (length(dim(n)) != 3) {
+    stop("n must have 3 dimensions")
+  }
   n11k <- n[1, 1, ]
   n1pk <- apply(n[1, , ], 2, sum)
   np1k <- apply(n[, 1, ], 2, sum)
@@ -30,11 +33,11 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
   solution2 <- (-sk - sqrt(sk^2 - 4 * r * tk)) / (2 * r)
   m11k <- rep(0, K)
   for (k in 1:K) {
-    if (solution1[k] > 0 && solution1[k] < n1pk[k] && solution1[k] < np1k[k]) {
-      m11k[k] <- solution1[k]
-    } else {
-      m11k[k] <- solution2[k]
-    }
+    m11k[k] <- ifelse(
+      test = solution1[k] > 0 && solution1[k] < n1pk[k] && solution1[k] < np1k[k],
+      yes = solution1[k],
+      no = solution2[k]
+    )
   }
 
   # Estimate of the variance of n11k under the assumption of a common odds ratio
@@ -51,12 +54,12 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
   # Output
   printresults <- function() {
     cat_sprintf(
-      "The Breslow-Day test: P = %7.6f, T0 = %5.3f (df = %g)\n", P, T0, df
+      "The Breslow-Day test: P = %7.6f, T0 = %5.3f (df = %g)", P, T0, df
     )
   }
   return(
     contingencytables_result(
-      list("pvalue" = P, "T" = T0, "df" = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       printresults
     )
   )

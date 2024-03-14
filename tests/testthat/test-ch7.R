@@ -12,8 +12,22 @@ test_that("Chapter 7 functions basically work", {
     regexp = "Likelihood ratio\\s+P =  0.00832, T =  9.579 \\(df=2\\)"
   )
   expect_output(
+    object = print(Cumulative_models_for_rxc(table_7.5, "probit")),
+    regexp = "Wald \\(Z-statistic\\) row 5 vs row 1    -0.509     0.611037"
+  )
+  expect_error(Cumulative_models_for_rxc(n2[, 1, drop = FALSE]), "must have at least 3")
+  expect_error(Cumulative_models_for_rxc(n2[, 1:2]), "must have at least 3")
+  expect_output(
     object = print(Exact_cond_midP_tests_rxc(n_short)),
     regexp = "Exact linear-by-linear:      P = 0.9754902"
+  )
+  expect_output(
+    object = print(Exact_cond_midP_tests_rxc(ceiling(table_7.6 / 10))),
+    regexp = "Mid-P LR statistic:          P = 0.9237914"
+  )
+  expect_error(
+    object = Exact_cond_midP_tests_rxc(matrix(1:16, 4)),
+    regexp = "Too elaborate..."
   )
   expect_output(
     object = print(FisherFreemanHalton_asymptotic_test_rxc(table_7.3)),
@@ -104,6 +118,10 @@ test_that("Chapter 7 functions basically work", {
       the_rxc_table(n3_short, nboot = 250, alpha = 0.2)
     },
     regexp = "Kruskal-Wallis asymptotic\\s+1.561 \\(df=3\\)   0.668229"
+  )
+  expect_output(
+    object = the_rxc_table(matrix(1:6, 3)),
+    regexp = "  Fisher-Freeman-Halton asymptotic\\s+0.428 \\(df=2\\)   0.807209"
   )
   n4_short <- floor(table_7.4 / 10)
   expect_output(

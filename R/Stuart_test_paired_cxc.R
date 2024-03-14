@@ -19,7 +19,7 @@ Stuart_test_paired_cxc <- function(n) {
   # Compute the differences between the marginal sums
   d <- nip[1:(c - 1)] - npi[1:(c - 1)]
 
-  if (sum(d) == 0) {
+  if (all(!is.na(d)) && sum(d) == 0) {
     P <- 1
     T0 <- 0
     df <- c - 1
@@ -29,7 +29,7 @@ Stuart_test_paired_cxc <- function(n) {
     }
     return(
       contingencytables_result(
-        list(P = P, T0 = T0, df = df), printresults
+        list("Pvalue" = P, "T" = T0, "df" = df), printresults
       )
     )
   }
@@ -53,8 +53,6 @@ Stuart_test_paired_cxc <- function(n) {
     printresults <- function() {
       cat_sprintf("The Stuart test statistic is not computable\n")
       cat_sprintf("P = 1.0")
-      print(d)
-      print(Sigmahat0)
     }
     return(
       contingencytables_result(

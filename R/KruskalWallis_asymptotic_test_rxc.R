@@ -53,5 +53,5 @@ KruskalWallis_asymptotic_test_rxc <- function(n) {
     cat_sprintf("Asymptotic Kruskal-Wallis test: T = %6.3f, df = %g, P = %7.5f", T0, df, P)
   }
 
-  return(contingencytables_result(list(P = P, T = T0, df = df), printresults))
+  return(contingencytables_result(list("Pvalue" = P, "T" = T0, "df" = df), printresults))
 }

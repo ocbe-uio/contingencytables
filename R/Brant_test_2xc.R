@@ -94,7 +94,7 @@ Brant_test_2xc <- function(n) {
   }
   return(
     contingencytables_result(
-      list("pvalue" = P0, "T" = T0, "df" = df),
+      list("Pvalue" = P0, "T" = T0, "df" = df),
       printresults
     )
   )

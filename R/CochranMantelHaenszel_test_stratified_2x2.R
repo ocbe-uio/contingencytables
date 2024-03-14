@@ -36,7 +36,7 @@ CochranMantelHaenszel_test_stratified_2x2 <- function(n) {
   }
   return(
     contingencytables_result(
-      list("pvalue" = P, "T" = T0, "df" = df),
+      list("Pvalue" = P, "T" = T0, "df" = df),
       printresults
     )
   )

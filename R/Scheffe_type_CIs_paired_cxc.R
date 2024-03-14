@@ -1,5 +1,5 @@
-#' @title ScheffE-type confidence intervals for differences of marginal probabilities
-#' @description ScheffE-type confidence intervals for differences of marginal probabilities
+#' @title Scheffe-type confidence intervals for differences of marginal probabilities
+#' @description Scheffe-type confidence intervals for differences of marginal probabilities
 #' @description Described in Chapter 9 "The Paired kxk Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
@@ -44,15 +44,15 @@ Scheffe_type_CIs_paired_cxc <- function(n, alpha = 0.05) {
   }
 
   printresults <- function() {
-    cat("ScheffE-type simultaneous intervals\n")
+    cat("Scheffe-type simultaneous intervals\n")
     for (i in 1:c) {
-      cat_sprintf("  pi_%g+ vs pi_ + %g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
+      cat_sprintf("  pi_%g+ vs pi_+%g: delta = %7.4f (%7.4f to %7.4f)\n", i, i, deltahat[i], L[i], U[i])
     }
   }
 
   return(
     contingencytables_result(
-      list(L = L, U = U, deltahat = deltahat),
+      list("lower" = L, "upper" = U, "deltahat" = deltahat),
       printresults
     )
   )

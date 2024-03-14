@@ -77,7 +77,12 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
     P <- 1.0
   }
 
-  return(contingencytables_result(list("P" = P), sprintf("The McNemar exact unconditional test: P = %8.6f", P)))
+  return(
+    contingencytables_result(
+      list("Pvalue" = P, "Pvalues" = Pvalues, "pi_values" = pivalues),
+      sprintf("The McNemar exact unconditional test: P = %8.6f", P)
+    )
+  )
 }
 
 

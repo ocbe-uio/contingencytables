@@ -36,14 +36,14 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
 
   # Lower CI limit
   if (is.na(estimate) || estimate == Inf) {
-    L <- uniroot(calculate_limit_lower.Uncorrected, c(theta0, theta1),
+    L <- uniroot(calculate_limit_lower, c(theta0, theta1),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, alpha = alpha, tol = tol
     )$root
   } else if (estimate == 0) {
     L <- 0
   } else {
-    L <- uniroot(calculate_limit_lower.Uncorrected, c(theta0, estimate),
+    L <- uniroot(calculate_limit_lower, c(theta0, estimate),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, alpha = alpha, tol = tol
     )$root
@@ -53,12 +53,12 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
   if (n[2, 1] == 0 || n[1, 2] == 0) {
     U <- Inf
   } else if (estimate == 0) {
-    U <- uniroot(calculate_limit_upper.Uncorrected, c(theta0, theta1),
+    U <- uniroot(calculate_limit_upper, c(theta0, theta1),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, alpha = alpha, tol = tol
     )$root
   } else {
-    U <- uniroot(calculate_limit_upper.Uncorrected, c(estimate, theta1),
+    U <- uniroot(calculate_limit_upper, c(estimate, theta1),
       n11 = n11, n21 = n21, n1p = n1p,
       n2p = n2p, alpha = alpha, tol = tol
     )$root
@@ -74,6 +74,6 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  res <- list(lower = L, upper = U, estimate = estimate)
+  res <- list("lower" = L, "upper" = U, "estimate" = estimate)
   return(contingencytables_result(res, printresults))
 }

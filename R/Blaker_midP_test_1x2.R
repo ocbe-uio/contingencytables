@@ -40,5 +40,5 @@ Blaker_midP_test_1x2 <- function(X, n, pi0) {
   printresults <- function() {
     cat_sprintf("The Blaker mid-P test: P = %7.5f", midP)
   }
-  return(contingencytables_result(list(midP = midP), printresults))
+  return(contingencytables_result(list("midP" = midP), printresults))
 }

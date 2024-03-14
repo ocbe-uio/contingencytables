@@ -52,7 +52,7 @@ Bonferroni_type_CIs_rxc <- function(n, alpha = 0.05) {
   }
   return(
     contingencytables_result(
-      list(lower = L, upper = U, differences = differences),
+      list("lower" = L, "upper" = U, "differences" = differences),
       printresults
     )
   )

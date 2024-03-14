@@ -1,6 +1,10 @@
 context("Chapter 10")
 
 test_that("Chapter 10 functions basically work", {
+  expect_error(
+    object = BreslowDay_homogeneity_test_stratified_2x2(hine_1989[, , 1]),
+    regexp = "n must have 3 dimensions"
+  )
   expect_output(
     object = print(BreslowDay_homogeneity_test_stratified_2x2(doll_hill_1950)),
     regexp = "The Breslow-Day test: P = 0.022919, T0 = 5.175 \\(df = 1\\)"

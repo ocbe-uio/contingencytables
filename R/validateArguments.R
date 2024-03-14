@@ -3,7 +3,7 @@
 #' validate their arguments.
 #' @param x named list containing function arguments and their values
 #' @param types named vector of types for `x`
-#' @return Nothing if all aguments fit their type. An error message otherwise.
+#' @return Nothing if all arguments fit their type. An error message otherwise.
 #' @author Waldir Leoncio
 #' @details Accepted validation types are:
 #' \itemize{
@@ -69,7 +69,7 @@ validateArguments <- function(x, types = "default") {
     } else {
       isvalid <- x[[i]] %in% type[[1]]
     }
-    if (!isvalid) {
+    if (!isvalid && !is.na(isvalid)) {
       type <- paste(type[[1]], collapse = ", ")
       stop(
         names(x)[i], " contains invalid values. Should be ", type,

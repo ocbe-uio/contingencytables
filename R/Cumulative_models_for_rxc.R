@@ -1,7 +1,7 @@
 #' @title Cumulative logit and probit models
 #' @description Cumulative logit and probit models
 #' @description Described in Chapter 7 "The rxc Table"
-#' @param n the observed table (an rxc matrix)
+#' @param n the observed table (an rxc matrix) with at least 3 columns
 #' @param linkfunction either "logit" or "probit"
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs
 #' @examples
@@ -35,9 +35,9 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
       id <- id + n[i, j]
     }
   }
-  if (max(y) == 1) {
-    results <- list()
-    return(invisible(results))
+
+  if (max(y) < 3L) {
+    stop("Input must have at least 3 columms")
   }
 
   # Fit model

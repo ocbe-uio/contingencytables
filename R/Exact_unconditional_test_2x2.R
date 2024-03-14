@@ -13,9 +13,9 @@
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
-#' (default: 1000). The number may be changed below.
+#' (1000, hardcoded).
 #' This method could be improved with a better algorithm for the
-#' maximization however, it works well for most purposes. Try 'showplot=TRUE'
+#' maximization however, it works well for most purposes. `plot()` the results
 #' to get an indication of the precision. A refinement of the maximization
 #' can be done with a manual restriction of the parameter space.
 #' @importFrom graphics lines
@@ -34,9 +34,6 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
   )
   # Partition the parameter space into 'num_pi_values' equally spaced values
   num_pi_values <- 1000
-
-  # Display a plot of the P-value as a function of the common success probability
-  showplot <- FALSE
 
   n1p <- n[1, 1] + n[1, 2]
   n2p <- n[2, 1] + n[2, 2]
@@ -109,17 +106,6 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
     P <- 1.0
   }
 
-  # Display a plot of the P-value as a function of the common success probability
-  if (showplot) {
-    common_pi_at_max_value <- pivalues[index]
-    dev.new()
-    plot(pivalues, Pvalues, lty = 1, col = "black")
-    lines(
-      c(common_pi_at_max_value, common_pi_at_max_value), c(0, P),
-      lty = 2, col = "red"
-    )
-  }
-
   if (statistic == "Pearson") {
     txt <- "The Suissa-Shuster exact unconditional test: P = %7.5f"
   } else if (statistic == "LR") {
@@ -130,7 +116,11 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
     txt <- "Fisher-Boschloo exact unconditional test: P = %7.5f"
   }
 
-  return(contingencytables_result(list("P" = P), sprintf(txt, P)))
+  return(contingencytables_result(
+    list("Pvalue" = P, "Pvalues" = Pvalues, "pi_values" = pivalues),
+    sprintf(txt, P))
+  )
+
 }
 
 

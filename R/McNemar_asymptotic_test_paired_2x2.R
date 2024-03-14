@@ -18,7 +18,7 @@ McNemar_asymptotic_test_paired_2x2 <- function(n) {
 
   if (nd == 0) {
     P <- 1
-    res <- c("P" = P)
+    res <- c("Pvalue" = P)
     printresults <- function() {
       cat("No discordant pairs\nP = 1.0")
     }
@@ -29,7 +29,7 @@ McNemar_asymptotic_test_paired_2x2 <- function(n) {
     # Reference distribution: standard normal
     P <- 2 * (1 - pnorm(abs(Z), 0, 1))
 
-    res <- list("P" = P, "Z" = Z)
+    res <- list("Pvalue" = P, "Z" = Z)
     printresults <- function() {
       sprintf("The McNemar asymptotic test: P = %8.6f, Z = %6.3f", P, Z)
     }
