@@ -18,7 +18,7 @@ Described in Chapter 4 "The 2x2 Table"'><meta property="og:image" content="/logo
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contingencytables</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.0</span>
       </span>
     </div>
 
@@ -80,13 +80,11 @@ to see the specific elements returned.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)</span></span></span>
-<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="va">perondi_2004</span></span></span>
-<span class="r-in"><span><span class="fu">MiettinenNurminen_asymptotic_score_CI_ratio_2x2</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Mietinen-Nurminen asymptotic score CI: estimate = 7.0000 (95% CI 1.2086 to 43.0330)</span>
+<span class="r-in"><span><span class="fu">MiettinenNurminen_asymptotic_score_CI_ratio_2x2</span><span class="op">(</span><span class="va">perondi_2004</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Miettinen-Nurminen asymptotic score CI: estimate = 7.0000 (95% CI 1.2086 to 43.0330)</span>
 <span class="r-in"><span><span class="co"># The association between CHRNA4 genotype and XFS (Ritland et al., 2007)</span></span></span>
-<span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="va">ritland_2007</span></span></span>
-<span class="r-in"><span><span class="fu">MiettinenNurminen_asymptotic_score_CI_ratio_2x2</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Mietinen-Nurminen asymptotic score CI: estimate = 0.0000 (95% CI 0.0000 to 0.9715)</span>
+<span class="r-in"><span><span class="fu">MiettinenNurminen_asymptotic_score_CI_ratio_2x2</span><span class="op">(</span><span class="va">ritland_2007</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Miettinen-Nurminen asymptotic score CI: estimate = 0.0000 (95% CI 0.0000 to 0.9715)</span>
 </code></pre></div>
     </div>
   </div>
