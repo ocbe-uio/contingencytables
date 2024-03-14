@@ -1,5 +1,5 @@
-#' @title ScheffE-type confidence intervals for differences of marginal probabilities
-#' @description ScheffE-type confidence intervals for differences of marginal probabilities
+#' @title Scheffe-type confidence intervals for differences of marginal probabilities
+#' @description Scheffe-type confidence intervals for differences of marginal probabilities
 #' @description Described in Chapter 9 "The Paired kxk Table"
 #' @param n the observed table (a cxc matrix)
 #' @param alpha the nominal level, e.g. 0.05 for 95% CIs

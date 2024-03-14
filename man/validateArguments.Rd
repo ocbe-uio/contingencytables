@@ -12,7 +12,7 @@ validateArguments(x, types = "default")
 \item{types}{named vector of types for \code{x}}
 }
 \value{
-Nothing if all aguments fit their type. An error message otherwise.
+Nothing if all arguments fit their type. An error message otherwise.
 }
 \description{
 This is an internal function used by user-level functions to

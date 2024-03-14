@@ -1,5 +1,5 @@
-#' @title The Mietinen-Nurminen asymptotic score confidence interval for the
-#' @description The Mietinen-Nurminen asymptotic score confidence interval for the
+#' @title The Miettinen-Nurminen asymptotic score confidence interval for the
+#' @description The Miettinen-Nurminen asymptotic score confidence interval for the
 #' @description difference between probabilities
 #' @description Described in Chapter 4 "The 2x2 Table"
 #' @param n the observed counts (a 2x2 matrix)
@@ -56,7 +56,7 @@ MiettinenNurminen_asymptotic_score_CI_difference_2x2 <- function(n, alpha = 0.05
     contingencytables_result(
       list("lower" = L, "upper" = U, "estimate" = estimate),
       sprintf(
-        "Mietinen-Nurminen asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+        "Miettinen-Nurminen asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
         estimate, 100 * (1 - alpha), L, U
       )
     )
