@@ -152,11 +152,11 @@ test_that("Chapter 4 functions basically work", {
   )
   expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_difference_2x2(matrix(c(2e6, 2, 2, 2e6), 2))),
-    regexp = "Mietinen-Nurminen .+ 1.0000 \\(95% CI 1.0000 to 1.0000\\)"
+    regexp = "Miettinen-Nurminen .+ 1.0000 \\(95% CI 1.0000 to 1.0000\\)"
   )
   expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_difference_2x2(matrix(c(2, 2e6, 2e6, 2), 2))),
-    regexp = "Mietinen-Nurminen .+ -1.0000 \\(95% CI -1.0000 to -1.0000\\)"
+    regexp = "Miettinen-Nurminen .+ -1.0000 \\(95% CI -1.0000 to -1.0000\\)"
   )
   expect_output(
     object = print(MiettinenNurminen_asymptotic_score_CI_OR_2x2(lampasona_2013)),

@@ -3,7 +3,7 @@
 %   R/MiettinenNurminen_asymptotic_score_CI_difference_2x2.R
 \name{MiettinenNurminen_asymptotic_score_CI_difference_2x2}
 \alias{MiettinenNurminen_asymptotic_score_CI_difference_2x2}
-\title{The Mietinen-Nurminen asymptotic score confidence interval for the}
+\title{The Miettinen-Nurminen asymptotic score confidence interval for the}
 \usage{
 MiettinenNurminen_asymptotic_score_CI_difference_2x2(n, alpha = 0.05)
 }
@@ -18,7 +18,7 @@ basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\li
 to see the specific elements returned.
 }
 \description{
-The Mietinen-Nurminen asymptotic score confidence interval for the
+The Miettinen-Nurminen asymptotic score confidence interval for the
 
 difference between probabilities
 

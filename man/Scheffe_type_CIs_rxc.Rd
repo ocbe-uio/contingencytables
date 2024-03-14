@@ -2,7 +2,7 @@
 % Please edit documentation in R/Scheffe_type_CIs_rxc.R
 \name{Scheffe_type_CIs_rxc}
 \alias{Scheffe_type_CIs_rxc}
-\title{The ScheffE-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j}
+\title{The Scheffe-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j}
 \usage{
 Scheffe_type_CIs_rxc(n, alpha = 0.05)
 }
@@ -17,7 +17,7 @@ basically a subclass of \code{\link[base:list]{base::list()}}. Use the \code{\li
 to see the specific elements returned.
 }
 \description{
-The ScheffE-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
+The Scheffe-type simultaneous confidence intervals for the differences pi_1|i - pi_1|j
 
 Described in Chapter 7 "The rxc Table"
 }

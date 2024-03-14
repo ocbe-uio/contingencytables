@@ -3,7 +3,7 @@
 #' validate their arguments.
 #' @param x named list containing function arguments and their values
 #' @param types named vector of types for `x`
-#' @return Nothing if all aguments fit their type. An error message otherwise.
+#' @return Nothing if all arguments fit their type. An error message otherwise.
 #' @author Waldir Leoncio
 #' @details Accepted validation types are:
 #' \itemize{
