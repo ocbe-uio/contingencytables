@@ -1,4 +1,4 @@
-# contingencytables (development version)
+# contingencytables 3.0.0
 
 * Reached 100% test coverage (#52)
 * Removed unused code

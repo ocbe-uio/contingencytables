@@ -1,6 +1,6 @@
 Package: contingencytables
 Title: Statistical Analysis of Contingency Tables
-Version: 2.2.1.9010
+Version: 3.0.0
 Authors@R:
     c(
         person(
