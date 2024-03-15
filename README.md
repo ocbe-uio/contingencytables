@@ -51,7 +51,7 @@ This software is open source and contributions are welcome! If you have any trou
 
 ## Development version
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Inactive - The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![R build status](https://github.com/ocbe-uio/contingencytables/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/contingencytables/actions)
 [![](https://img.shields.io/github/last-commit/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables/commits/develop)
 [![](https://img.shields.io/github/languages/code-size/ocbe-uio/contingencytables.svg)](https://github.com/ocbe-uio/contingencytables)
