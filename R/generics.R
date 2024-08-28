@@ -23,30 +23,50 @@ calculate_limit_upper <- function(...) {
 }
 
 #' @export
+#' @title Calculate ML estimates
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported for confirmity
+#' to R package standards.
 ML_estimates <- function(...) {
   method <- convertFunName2Method()
   UseMethod("ML_estimates", method)
 }
 
 #' @export
+#' @title Calculate ML estimates
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported for confirmity
+#' to R package standards.
 score_test_statistic <- function(...) {
   method <- convertFunName2Method()
   UseMethod("score_test_statistic", method)
 }
 
 #' @export
+#' @title Calculate probability
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported for confirmity
+#' to R package standards.
 calc_prob <- function(...) {
   method <- convertFunName2Method()
   UseMethod("calc_prob", method)
 }
 
 #' @export
+#' @title Calculate probability
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported for confirmity
+#' to R package standards.
 calc_Pvalue_4x2 <- function(...) {
   method <- convertFunName2Method()
   UseMethod("calc_Pvalue_4x2", method)
 }
 
 #' @export
+#' @title Calculate probability
+#' @param ... arguments passed to methods
+#' @note This function has little use to the user, it is exported for confirmity
+#' to R package standards.
 calc_Pvalue_5x2 <- function(...) {
   method <- convertFunName2Method()
   UseMethod("calc_Pvalue_5x2", method)
@@ -424,7 +444,6 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes c=3 columns
 
-#' @export
 calc_Pvalue_2x3.ExactCond_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b) {
   left_sided_P <- 0
   right_sided_P <- 0
@@ -454,7 +473,6 @@ calc_Pvalue_2x3.ExactCond_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_c
 # Brute force calculations of the one-sided P-values. Return the smallest one.
 # This function assumes c=4 columns
 
-#' @export
 calc_Pvalue_2x4.ExactCond_linear <- function(Tobs, nip, npj, N_choose_n1p, npj_choose_x1j, b) {
   left_sided_P <- 0
   right_sided_P <- 0
