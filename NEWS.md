@@ -1,3 +1,7 @@
+# contingencytables 3.0.1
+
+* Adapted unit tests to new version of `boot`
+
 # contingencytables 3.0.0
 
 * Reached 100% test coverage (#52)
