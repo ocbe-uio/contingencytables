@@ -119,7 +119,7 @@ test_that("Invalid arguments are picked up", {
   )
   expect_error(
     Exact_unconditional_test_2x2(matrix(c(0, 0, 5, 5), 2), "Pearson"),
-    "At least one of the table margins is zero."
+    "Consider using either the LR, unpooled, or Fisher statistic instead."
   )
   expect_error(
     Fisher_exact_test_2x2(tea, "Fisher"),

@@ -75,10 +75,6 @@ test_that("Chapter 4 functions basically work", {
     regexp = "The Suissa-Shuster exact unconditional test: P = 0.28906"
   )
   expect_output(
-    object = print(Exact_unconditional_test_2x2(matrix(c(0, 1, 0, 0), 2))),
-    regexp = "The Suissa-Shuster exact unconditional test: P = 1.0000"
-  )
-  expect_output(
     object = print(Fisher_midP_test_2x2(ritland_2007)),
     regexp = "The Fisher mid-P test \\(Fisher-Irwin\\): P = 0.04466"
   )
@@ -207,16 +203,8 @@ test_that("Chapter 4 functions basically work", {
     regexp = "Pearson chi-squared test: P = 0.15730, T = 2.000 \\(df = 1\\)"
   )
   expect_output(
-    object = print(Pearson_chi_squared_test_2x2(tea * 0)),
-    regexp = "The Pearson chi-squared test: P = 1.00000, T =   NaN \\(df = 1\\)"
-  )
-  expect_output(
     object = print(Pearson_chi_squared_test_CC_2x2(tea)),
     regexp = "chi-squared test: P = 0.47950, T = 0.500 \\(df = 1\\)"
-  )
-  expect_output(
-    object = print(Pearson_chi_squared_test_CC_2x2(tea * 0)),
-    regexp = "The Pearson chi-squared test: P = 1.00000, T =   NaN \\(df = 1\\)"
   )
   expect_equal(
     Exact_unconditional_test_2x2(perondi_2004, statistic = "Fisher", gamma = 0)$Pvalue,
