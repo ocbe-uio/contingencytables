@@ -207,11 +207,11 @@ test_that("Chapter 4 functions basically work", {
     regexp = "chi-squared test: P = 0.47950, T = 0.500 \\(df = 1\\)"
   )
   expect_equal(
-    Exact_unconditional_test_2x2(perondi_2004, statistic = "Fisher", gamma = 0)$Pvalue,
+    Exact_unconditional_test_2x2(perondi_2004, "Fisher", gamma = 0)$Pvalue,
     0.03846383
   )
   expect_equal(
-    Exact_unconditional_test_2x2(perondi_2004, statistic = "Fisher", gamma = 1e-04)$Pvalue,
+    Exact_unconditional_test_2x2(perondi_2004, "Fisher", gamma = 1e-04)$Pvalue,
     0.03127107
   )
   expect_output(
