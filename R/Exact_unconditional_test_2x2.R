@@ -143,8 +143,9 @@ test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, stat
 
   if (statistic == "Pearson") {
     # If any margins are zero, suggest a different statistic
-    if ((x11 + x12) == 0 || (x21 + x22) == 0 || (x11 + x21) == 0 || (x12 + x22) == 0) {
-      stop("One of the table margins is zero, the Pearson chi-squared test is not defined. Consider using either the LR, unpooled, or Fisher statistic instead.")
+    margins <- c(x11 + x12, x21 + x22, x11 + x21, x12 + x22)
+    if (any(margins == 0)) {
+      stop("At least one of the table margins is zero, the Pearson chi-squared test is not defined. Consider using either the LR, unpooled, or Fisher statistic instead.")
     }
     # The Pearson chi-squared statistic
     T0 <- Pearson_chi_squared_test_2x2(

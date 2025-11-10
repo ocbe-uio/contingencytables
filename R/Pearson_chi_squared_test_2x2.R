@@ -26,9 +26,8 @@ Pearson_chi_squared_test_2x2 <- function(n) {
   n2p <- n[2, 1] + n[2, 2]
   np1 <- n[1, 1] + n[2, 1]
   np2 <- n[1, 2] + n[2, 2]
-  # TODO: issue warning() if any of the margins are zero. OK if one diagonal is zero.
-  if (n1p == 0 || n2p == 0 || np1 == 0 || np2 == 0) {
-    stop("One of the table margins is zero, the Pearson chi-squared test is not defined.")
+  if (any(c(n1p, n2p, np1, np2) == 0)) {
+    stop("At least one of the table margins is zero, the Pearson chi-squared test is not defined.")
   }
   N <- sum(n)
 
