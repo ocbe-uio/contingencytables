@@ -64,7 +64,11 @@ test_statistic_fisher_exact_test_2x2 <- function(x11, x12, x21, x22, statistic) 
   if (statistic == "hypergeometric") {
     # The hypergeometric distribution
     # Small values agree less with H0 than large values => "-" sign
-    T0 <- -dhyper(x11, x11 + x21, N - x11 - x21, x11 + x12)
+    # Using definitions from https://se.mathworks.com/help/stats/hygepdf.html
+    M <- N
+    K <- x11 + x21
+    N <- x11 + x12
+    T0 <- -dhyper(x = x11, m = N, n = M - N, k = K)
   } else if (statistic == "Pearson") {
     # Pearson's chi-squared statistic
     T0 <- (N * (x11 * x22 - x12 * x21)^2) / ((x11 + x12) * (x21 + x22) * (x11 + x21) * (x12 + x22))

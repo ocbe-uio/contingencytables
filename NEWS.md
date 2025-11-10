@@ -1,3 +1,7 @@
+# contingencytables (development version)
+
+* Fix `Exact_unconditional_test_2x2()` Fisher-Boschloo test results (#55)
+
 # contingencytables 3.0.1
 
 * Adapted unit tests to new version of `boot`
