@@ -1,3 +1,5 @@
+# contingencytables (development version)
+
 # contingencytables 3.0.1
 
 * Adapted unit tests to new version of `boot`
