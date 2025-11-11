@@ -41,3 +41,6 @@ vignettes/*.pdf
 # Auxiliary files and folders
 aux
 Rprof.out
+
+# Test plots
+tests/testthat/Rplots.pdf
