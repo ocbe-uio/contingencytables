@@ -44,3 +44,6 @@ Rprof.out
 
 # Test plots
 tests/testthat/Rplots.pdf
+
+# Built files
+CRAN-SUBMISSION
