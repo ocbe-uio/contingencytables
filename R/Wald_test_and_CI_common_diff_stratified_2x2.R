@@ -16,6 +16,7 @@
 #' Wald_test_and_CI_common_diff_stratified_2x2(hine_1989)
 #'
 #' @export
+#' @inheritSection chap10 Table orientation
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.

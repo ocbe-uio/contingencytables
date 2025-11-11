@@ -16,6 +16,7 @@
 #' Adjusted_inv_sinh_CI_ratio_2x2(perondi_2004)
 #' Adjusted_inv_sinh_CI_ratio_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 Adjusted_inv_sinh_CI_ratio_2x2 <- function(
   n, psi1 = 0, psi2 = 0, psi3 = 0, psi4 = 1, alpha = 0.05
 ) {

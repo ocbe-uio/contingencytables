@@ -8,6 +8,7 @@
 #' @examples
 #' Transformed_Clopper_Pearson_midP_CI_paired_2x2(ezra_2010)
 #' @export
+#' @inheritSection chap8 Table orientation
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.

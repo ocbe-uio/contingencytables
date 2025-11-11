@@ -21,6 +21,14 @@ The Newcombe square-and-add confidence interval for the difference between paire
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 8 for details.
+}
+
 \examples{
 # Airway hyper-responsiveness before and after stem cell transplantation
 # (Bentur et al., 2009)

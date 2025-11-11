@@ -33,6 +33,14 @@ maximization however, it works well for most purposes. \code{plot()} the results
 to get an indication of the precision. A refinement of the maximization
 can be done with a manual restriction of the parameter space.
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 Exact_unconditional_test_2x2(tea)
 Exact_unconditional_test_2x2(perondi_2004)

@@ -14,6 +14,7 @@
 #' Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Adjusted_inv_sinh_CI_OR_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 Adjusted_inv_sinh_CI_OR_2x2 <- function(
   n, psi1 = 0.45, psi2 = 0.25, alpha = 0.05
 ) {
