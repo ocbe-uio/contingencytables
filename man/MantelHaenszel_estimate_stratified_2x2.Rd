@@ -26,7 +26,7 @@ Described in Chapter 10 "Stratified 2x2 Tables and Meta-Analysis"
 instance, into treatment or exposure groups, while the columns indicate a
 dichotomous outcome, usually with the first column representing the outcome
 of interest. This designation of rows and columns may not be relevant in all
-study designs, please see the introduction to chapter 4 for details.
+study designs, please see the introduction to chapter 10 for details.
 }
 
 \examples{
