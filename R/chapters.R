@@ -232,6 +232,11 @@ NULL
 #'    \item{the_paired_2x2_table_tests}
 #' }
 #' @note You can also print the list above with \code{list_functions(8)}.
+#' @section Table orientation: In most study designs, rows designate a grouping of the data, for
+#' instance, into treatment or exposure groups, while the columns indicate a
+#' dichotomous outcome, usually with the first column representing the outcome
+#' of interest. This designation of rows and columns may not be relevant in all
+#' study designs, please see the introduction to chapter 8 for details.
 #' @references
 #' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of
 #' Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
@@ -285,6 +290,11 @@ NULL
 #'    \item{stratified_2x2_tables}
 #' }
 #' @note You can also print the list above with \code{list_functions(10)}.
+#' @section Table orientation: In most study designs, rows designate a grouping of the data, for
+#' instance, into treatment or exposure groups, while the columns indicate a
+#' dichotomous outcome, usually with the first column representing the outcome
+#' of interest. This designation of rows and columns may not be relevant in all
+#' study designs, please see the introduction to chapter 10 for details.
 #' @references
 #' - Fagerland MW, Lydersen S, Laake P (2017) Statistical Analysis of
 #' Contingency Tables. Chapman & Hall/CRC, Boca Raton, FL
