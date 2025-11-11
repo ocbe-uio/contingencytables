@@ -1,4 +1,4 @@
-# contingencytables (development version)
+# contingencytables 3.1.0
 
 * Fix `Exact_unconditional_test_2x2()` Fisher-Boschloo test results (#55)
 * Fix validation in `Exact_unconditional_test_2x2()` for Pearson statistic (#56)
