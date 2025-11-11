@@ -24,6 +24,14 @@ the conditional odds ratio
 
 Described in Chapter 8 "The Paired 2x2 Table"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 Transformed_Clopper_Pearson_exact_CI_paired_2x2(ezra_2010)
 }

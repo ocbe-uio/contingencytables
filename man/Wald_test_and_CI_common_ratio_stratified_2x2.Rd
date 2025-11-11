@@ -31,6 +31,14 @@ based on either the Mantel-Haenszel or inverse variance estimate
 Described in Chapter 10 "Stratified 2x2 Tables and
 Meta-Analysis"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 # Smoking and lung cancer (Doll and Hill, 1950)
 Wald_test_and_CI_common_ratio_stratified_2x2(doll_hill_1950)

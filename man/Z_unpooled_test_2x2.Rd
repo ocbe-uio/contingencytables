@@ -19,6 +19,14 @@ The Z-unpooled test for association in 2x2 tables
 
 Described in Chapter 4 "The 2x2 Table"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 # Example: A lady tasting a cup of tea
 Z_unpooled_test_2x2(tea)

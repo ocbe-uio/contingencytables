@@ -22,6 +22,14 @@ probabilities
 
 Described in Chapter 4 "The 2x2 Table"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004):
 Wald_CI_2x2(n = perondi_2004)
