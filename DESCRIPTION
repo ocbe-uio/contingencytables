@@ -46,3 +46,4 @@ BugReports: https://github.com/ocbe-uio/contingencytables/issues
 Imports: MASS, boot, methods
 Suggests: testthat
 Date: 2024-08-28
+Language: en-GB
