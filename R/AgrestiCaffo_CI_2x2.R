@@ -10,6 +10,7 @@
 #' AgrestiCaffo_CI_2x2(perondi_2004)
 #' AgrestiCaffo_CI_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # Estimate of the difference between probabilities (deltahat)

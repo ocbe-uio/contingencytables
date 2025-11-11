@@ -7,6 +7,7 @@
 #' Inv_sinh_CI_OR_2x2(lampasona_2013)
 #' Inv_sinh_CI_OR_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.

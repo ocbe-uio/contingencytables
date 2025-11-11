@@ -10,6 +10,7 @@
 #' the_2x2_table_CIs_difference(ritland_2007)
 #'
 #' @export
+#' @inheritSection chap4 Table orientation
 #' @return NULL. This function should be called for its printed output
 the_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))

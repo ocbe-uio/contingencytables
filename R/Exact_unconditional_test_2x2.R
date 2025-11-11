@@ -11,6 +11,7 @@
 #' Exact_unconditional_test_2x2(lampasona_2013)
 #' Exact_unconditional_test_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
 #' (1000, hardcoded).
