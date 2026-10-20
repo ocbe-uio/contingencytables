@@ -41,7 +41,9 @@ Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
   )
 
   # Two-sided P-value
-  P <- sum(fvalues[Tvalues > Tobs]) + 0.5 * sum(fvalues[Tvalues == Tobs])
+  # Statistics that agree to a relative 1e-7 are ties, as in stats::fisher.test()
+  tol <- 1e-7 * abs(Tobs)
+  P <- sum(fvalues[Tvalues > Tobs + tol]) + 0.5 * sum(fvalues[abs(Tvalues - Tobs) <= tol])
 
   txt <- switch(
     statistic,

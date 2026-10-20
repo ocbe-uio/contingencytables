@@ -41,7 +41,8 @@ validateArguments(
   Tobs <- Tvalues[n[1, 1] + 1]
 
   # Two-sided P-value
-  P <- sum(fvalues[Tvalues >= Tobs])
+  # Statistics that agree to a relative 1e-7 are ties, as in stats::fisher.test()
+  P <- sum(fvalues[Tvalues >= Tobs - 1e-7 * abs(Tobs)])
 
   # Handle cases where the P-value is not computable
   if (sum(is.na(Tvalues)) || is.na(Tobs)) {
