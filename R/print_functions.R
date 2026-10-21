@@ -15,7 +15,7 @@ print.contingencytables_result <- function(x, as_list = FALSE, ...) {
     print(vapply(x, list, list(names(x))))
   } else {
     print_structure <- attr(x, "print_structure")
-    output <- capture.output(
+    output <- utils::capture.output(
       switch(
         class(print_structure),
         "function"  = cat(print_structure()),

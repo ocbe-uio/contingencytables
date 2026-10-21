@@ -42,7 +42,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 URL: https://contingencytables.com/ https://ocbe-uio.github.io/contingencytables/
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
-Imports: MASS, boot, methods
+Imports: MASS, boot, methods, utils
 Suggests: testthat
 Date: 2025-11-11
 Language: en-GB
