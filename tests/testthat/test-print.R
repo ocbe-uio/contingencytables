@@ -25,3 +25,11 @@ test_that("Printing method works for pvalue", {
   expect_output(print(tmp, as_list = TRUE), "Pvalue")
   expect_length(tmp, 1)
 })
+
+test_that("Printed results end with a line break", {
+  output_file <- tempfile()
+  on.exit(unlink(output_file))
+  capture.output(print(Blaker_exact_test_1x2(13, 16, 0.5)), file = output_file)
+  output <- readBin(output_file, "raw", n = file.info(output_file)$size)
+  expect_identical(tail(output, 1), as.raw(10))
+})
