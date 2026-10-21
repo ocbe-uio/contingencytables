@@ -5,9 +5,6 @@
 \alias{table_7.7}
 \alias{jullumstroe_2009}
 \title{Colorectal cancer (Table 7.7)}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
-}
 \usage{
 table_7.7
 jullumstroe_2009
@@ -29,4 +26,3 @@ Fagerland MW, Lydersen S, Laake P (2017)
 
 Jullumstroe et al. (2009)
 }
-\keyword{datasets}

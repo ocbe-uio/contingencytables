@@ -56,13 +56,13 @@ jobs:
               commas_linter(), commented_code_linter(),
               equals_na_linter(),
               function_left_parentheses_linter(), infix_spaces_linter(),
-              no_tab_linter(), object_usage_linter(),
+              whitespace_linter(), object_usage_linter(),
               absolute_path_linter(),
               pipe_continuation_linter(),
-              semicolon_linter(), seq_linter(), single_quotes_linter(),
+              semicolon_linter(), seq_linter(), quotes_linter(),
               spaces_inside_linter(), trailing_blank_lines_linter(),
               trailing_whitespace_linter(), undesirable_function_linter(),
-              undesirable_operator_linter(), unneeded_concatenation_linter()
+              undesirable_operator_linter(), unnecessary_concatenation_linter()
             )
             lint_package(linters = style_rules, exclusions = excluded_code)
           shell: Rscript {0}

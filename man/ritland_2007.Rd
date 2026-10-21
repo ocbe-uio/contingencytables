@@ -4,9 +4,6 @@
 \name{ritland_2007}
 \alias{ritland_2007}
 \title{The association between CHRNA4 genotype and XFS}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 ritland_2007
 }
@@ -16,4 +13,3 @@ The association between CHRNA4 genotype and XFS
 \references{
 Ritland et al. (2007)
 }
-\keyword{datasets}

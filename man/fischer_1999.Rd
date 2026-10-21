@@ -4,9 +4,6 @@
 \name{fischer_1999}
 \alias{fischer_1999}
 \title{A comparison between serial and retrospective measurements}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 5 rows and 5 columns.
-}
 \usage{
 fischer_1999
 }
@@ -16,4 +13,3 @@ A comparison between serial and retrospective measurements
 \references{
 Fischer et al. (1999)
 }
-\keyword{datasets}

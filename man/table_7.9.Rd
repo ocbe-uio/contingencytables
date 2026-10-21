@@ -5,9 +5,6 @@
 \alias{table_7.9}
 \alias{breidablik_2008}
 \title{Self-rated health (Table 7.9)}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
-}
 \usage{
 table_7.9
 breidablik_2008
@@ -32,4 +29,3 @@ Fagerland MW, Lydersen S, Laake P (2017)
 
 Breidablik et al. (2008)
 }
-\keyword{datasets}

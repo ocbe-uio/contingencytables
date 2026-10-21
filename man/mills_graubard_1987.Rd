@@ -4,9 +4,6 @@
 \name{mills_graubard_1987}
 \alias{mills_graubard_1987}
 \title{Alcohol consumption and malformations}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 5 rows and 2 columns.
-}
 \usage{
 mills_graubard_1987
 }
@@ -16,4 +13,3 @@ Alcohol consumption and malformations
 \references{
 Mills and Graubard (1987)
 }
-\keyword{datasets}
