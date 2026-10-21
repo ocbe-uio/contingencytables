@@ -4,9 +4,6 @@
 \name{ligarden_2010}
 \alias{ligarden_2010}
 \title{Ligarden et al., 2010}
-\format{
-An object of class \code{numeric} of length 2.
-}
 \usage{
 ligarden_2010
 }
@@ -16,4 +13,3 @@ Ligarden et al., 2010
 \references{
 ligarden_2010
 }
-\keyword{datasets}

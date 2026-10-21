@@ -4,9 +4,6 @@
 \name{peterson_2007}
 \alias{peterson_2007}
 \title{Pretherapy susceptability of pathogens}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
-}
 \usage{
 peterson_2007
 }
@@ -16,4 +13,3 @@ Pretherapy susceptability of pathogens
 \references{
 Peterson et al. (2007)
 }
-\keyword{datasets}

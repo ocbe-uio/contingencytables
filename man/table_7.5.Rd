@@ -5,9 +5,6 @@
 \alias{table_7.5}
 \alias{mangerud_2014_BMI}
 \title{Psychiatric diag. vs BMI with hyperkinetic disorders as reference category}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 6 rows and 3 columns.
-}
 \usage{
 table_7.5
 mangerud_2014_BMI
@@ -33,4 +30,3 @@ Fagerland MW, Lydersen S, Laake P (2017)
 
 Mangerud et al. (2014)
 }
-\keyword{datasets}

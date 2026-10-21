@@ -4,9 +4,6 @@
 \name{doll_hill_1950}
 \alias{doll_hill_1950}
 \title{Smoking and lung cancer}
-\format{
-An object of class \code{array} of dimension 2 x 2 x 2.
-}
 \usage{
 doll_hill_1950
 }
@@ -16,4 +13,3 @@ Smoking and lung cancer
 \references{
 Doll and Hill (1950)
 }
-\keyword{datasets}

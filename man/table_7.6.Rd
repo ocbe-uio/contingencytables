@@ -5,9 +5,6 @@
 \alias{table_7.6}
 \alias{lund_2012}
 \title{Low Birth Weight vs psychiatric morbitidy with control as reference category}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 3 rows and 3 columns.
-}
 \usage{
 table_7.6
 lund_2012
@@ -33,4 +30,3 @@ Fagerland MW, Lydersen S, Laake P (2017)
 
 Lund et al. (2012)
 }
-\keyword{datasets}
