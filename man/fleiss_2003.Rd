@@ -4,9 +4,6 @@
 \name{fleiss_2003}
 \alias{fleiss_2003}
 \title{Table 13.6, page 382, of Fleiss et al. (2003)}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 3 rows and 3 columns.
-}
 \usage{
 fleiss_2003
 }
@@ -16,4 +13,3 @@ Table 13.6, page 382, of Fleiss et al. (2003)
 \references{
 Fleiss et al. (2003)
 }
-\keyword{datasets}

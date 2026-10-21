@@ -4,13 +4,9 @@
 \name{tea}
 \alias{tea}
 \title{A lady tasting a cup of tea}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 tea
 }
 \description{
 A lady tasting a cup of tea
 }
-\keyword{datasets}

@@ -5,9 +5,6 @@
 \alias{table_7.8}
 \alias{bofin_2004}
 \title{Breast Tumor}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 3 rows and 5 columns.
-}
 \usage{
 table_7.8
 bofin_2004
@@ -30,4 +27,3 @@ Fagerland MW, Lydersen S, Laake P (2017)
 
 Bofin et al. (2004)
 }
-\keyword{datasets}

@@ -4,9 +4,6 @@
 \name{perondi_2004}
 \alias{perondi_2004}
 \title{An RCT of high vs standard dose of epinephrine}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 perondi_2004
 }
@@ -16,4 +13,3 @@ An RCT of high vs standard dose of epinephrine
 \references{
 Perondi et al. (2004)
 }
-\keyword{datasets}

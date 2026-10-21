@@ -4,9 +4,6 @@
 \name{cavo_2012}
 \alias{cavo_2012}
 \title{Complete response before and after consolidation therapy}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 cavo_2012
 }
@@ -16,4 +13,3 @@ Complete response before and after consolidation therapy
 \references{
 Cavo et al. (2012)
 }
-\keyword{datasets}
