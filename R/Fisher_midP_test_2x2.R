@@ -41,7 +41,14 @@ Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
   )
 
   # Two-sided P-value
-  P <- sum(fvalues[Tvalues > Tobs]) + 0.5 * sum(fvalues[Tvalues == Tobs])
+  # Statistics that agree to a relative 1e-7 are ties, as in stats::fisher.test()
+  tol <- if (is.finite(Tobs)) 1e-7 * abs(Tobs) else 0
+  tied <- if (is.finite(Tobs)) {
+    abs(Tvalues - Tobs) <= tol
+  } else {
+    Tvalues == Tobs
+  }
+  P <- sum(fvalues[Tvalues > Tobs + tol]) + 0.5 * sum(fvalues[tied])
 
   txt <- switch(
     statistic,
@@ -63,23 +70,29 @@ test_statistic_fisher_midp_test_2x2 <- function(x11, x12, x21, x22, statistic) {
     T0 <- -dhyper(x11, x11 + x21, N - x11 - x21, x11 + x12)
   } else if (statistic == "Pearson") {
     # Pearson's chi-squared statistic
-    T0 <- (N * (x11 * x22 - x12 * x21)^2) / ((x11 + x12) * (x21 + x22) * (x11 + x21) * (x12 + x22))
+    denominator <- (x11 + x12) * (x21 + x22) * (x11 + x21) * (x12 + x22)
+    T0 <- numeric(length(x11))
+    valid <- denominator > 0
+    T0[valid] <- (N[valid] * (x11[valid] * x22[valid] - x12[valid] * x21[valid])^2) / denominator[valid]
   } else if (statistic == "LR") {
     # The likelihood ratio statistic
     n1p <- x11 + x12
     n2p <- x21 + x22
     np1 <- x11 + x21
     np2 <- x12 + x22
-    # Make sure 0 is added to T for terms where x_ij = 0 (log(1) = 0)
-    x11[x11 == 0] <- 1
-    x12[x12 == 0] <- 1
-    x21[x21 == 0] <- 1
-    x22[x22 == 0] <- 1
-    T0 <- 0
-    T0 <- T0 + x11 * log(x11 / (n1p * np1 / N))
-    T0 <- T0 + x12 * log(x12 / (n1p * np2 / N))
-    T0 <- T0 + x21 * log(x21 / (n2p * np1 / N))
-    T0 <- T0 + x22 * log(x22 / (n2p * np2 / N))
+    expected11 <- n1p * np1 / N
+    expected12 <- n1p * np2 / N
+    expected21 <- n2p * np1 / N
+    expected22 <- n2p * np2 / N
+    T0 <- numeric(length(x11))
+    positive <- x11 > 0
+    T0[positive] <- T0[positive] + x11[positive] * log(x11[positive] / expected11[positive])
+    positive <- x12 > 0
+    T0[positive] <- T0[positive] + x12[positive] * log(x12[positive] / expected12[positive])
+    positive <- x21 > 0
+    T0[positive] <- T0[positive] + x21[positive] * log(x21[positive] / expected21[positive])
+    positive <- x22 > 0
+    T0[positive] <- T0[positive] + x22[positive] * log(x22[positive] / expected22[positive])
     T0 <- 2 * T0
   }
 

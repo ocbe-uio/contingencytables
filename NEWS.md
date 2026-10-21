@@ -1,5 +1,7 @@
 # contingencytables (development version)
 
+* Fix ties missed by `Fisher_midP_test_2x2()` and `Fisher_exact_test_2x2()`, which could give a table and its mirror image different p-values (#62)
+
 # contingencytables 3.1.0
 
 * Fix `Exact_unconditional_test_2x2()` Fisher-Boschloo test results (#55)
