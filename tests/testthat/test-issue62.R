@@ -14,14 +14,10 @@ test_that("A table with a zero row and its row swap give the same p-values", {
   x <- matrix(c(0, 0, 1, 1), 2, byrow = TRUE)
   x_swapped <- x[2:1, ]
   for (statistic in c("hypergeometric", "LR", "Pearson")) {
-    expect_equal(
-      Fisher_exact_test_2x2(x, statistic)$Pvalue,
-      Fisher_exact_test_2x2(x_swapped, statistic)$Pvalue
-    )
-    expect_equal(
-      Fisher_midP_test_2x2(x, statistic)$Pvalue,
-      Fisher_midP_test_2x2(x_swapped, statistic)$Pvalue
-    )
+    for (table in list(x, x_swapped)) {
+      expect_equal(Fisher_exact_test_2x2(table, statistic)$Pvalue, 1)
+      expect_equal(Fisher_midP_test_2x2(table, statistic)$Pvalue, 0.5)
+    }
   }
 })
 
