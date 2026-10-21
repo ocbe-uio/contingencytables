@@ -5,9 +5,6 @@
 \alias{table_7.4}
 \alias{mangerud_2014_PA}
 \title{Psychiatric Diagnoses and Physical Activity}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 6 rows and 2 columns.
-}
 \usage{
 table_7.4
 mangerud_2014_PA
@@ -26,4 +23,3 @@ psychiatric diagnoses are unordered, and we shall treat this as an unordered
 \references{
 Fagerland MW, Lydersen S, Laake P (2017)
 }
-\keyword{datasets}

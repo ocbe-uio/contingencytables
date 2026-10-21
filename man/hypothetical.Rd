@@ -4,13 +4,9 @@
 \name{hypothetical}
 \alias{hypothetical}
 \title{Hypothetical experiment}
-\format{
-An object of class \code{numeric} of length 5.
-}
 \usage{
 hypothetical
 }
 \description{
 Hypothetical experiment
 }
-\keyword{datasets}

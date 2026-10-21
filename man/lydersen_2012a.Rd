@@ -4,9 +4,6 @@
 \name{lydersen_2012a}
 \alias{lydersen_2012a}
 \title{Postoperative nausea}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 4 columns.
-}
 \usage{
 lydersen_2012a
 }
@@ -16,4 +13,3 @@ Postoperative nausea
 \references{
 Lydersen et al. (2012a)
 }
-\keyword{datasets}

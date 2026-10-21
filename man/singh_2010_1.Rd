@@ -5,9 +5,6 @@
 \alias{singh_2010_1}
 \alias{singh_2010}
 \title{The number of n-th order male births}
-\format{
-An object of class \code{data.frame} with 4 rows and 2 columns.
-}
 \usage{
 singh_2010
 }
@@ -17,4 +14,3 @@ The number of n-th order male births
 \references{
 Singh et al. (2010)
 }
-\keyword{datasets}

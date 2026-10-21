@@ -4,13 +4,9 @@
 \name{snp6498169}
 \alias{snp6498169}
 \title{Genotype counts for SNP rs 6498169 in RA patients}
-\format{
-An object of class \code{list} of length 2.
-}
 \usage{
 snp6498169
 }
 \description{
 Genotype counts for SNP rs 6498169 in RA patients
 }
-\keyword{datasets}

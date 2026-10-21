@@ -4,9 +4,6 @@
 \name{lampasona_2013}
 \alias{lampasona_2013}
 \title{A case-control study of GADA exposure on IPEX syndrome}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 lampasona_2013
 }
@@ -16,4 +13,3 @@ A case-control study of GADA exposure on IPEX syndrome
 \references{
 Lampasona et al. (2013)
 }
-\keyword{datasets}

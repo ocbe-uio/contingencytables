@@ -4,9 +4,6 @@
 \name{ezra_2010}
 \alias{ezra_2010}
 \title{Floppy eyelid syndrome vs obstructive sleep apnea}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 ezra_2010
 }
@@ -16,4 +13,3 @@ Floppy eyelid syndrome vs obstructive sleep apnea
 \references{
 Ezra et al. (2010)
 }
-\keyword{datasets}
