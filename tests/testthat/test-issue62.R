@@ -10,11 +10,31 @@ test_that("A table and its row swap get the same mid-P value", {
   expect_equal(Fisher_midP_test_2x2(x[2:1, ])$Pvalue, midp)
 })
 
+test_that("A table with a zero row and its row swap give the same p-values", {
+  x <- matrix(c(0, 0, 1, 1), 2, byrow = TRUE)
+  x_swapped <- x[2:1, ]
+  for (statistic in c("hypergeometric", "LR", "Pearson")) {
+    expect_equal(
+      Fisher_exact_test_2x2(x, statistic)$Pvalue,
+      Fisher_exact_test_2x2(x_swapped, statistic)$Pvalue
+    )
+    expect_equal(
+      Fisher_midP_test_2x2(x, statistic)$Pvalue,
+      Fisher_midP_test_2x2(x_swapped, statistic)$Pvalue
+    )
+  }
+})
+
 test_that("Fisher_exact_test_2x2() agrees with fisher.test() on tied tables", {
   y <- matrix(c(8, 2, 30, 36), 2, byrow = TRUE)
   expect_equal(
     Fisher_exact_test_2x2(y, "hypergeometric")$Pvalue,
     fisher.test(y)$p.value # 0.08600352
+  )
+  z <- matrix(c(2, 0, 1, 1), 2, byrow = TRUE)
+  expect_equal(
+    Fisher_exact_test_2x2(z, "hypergeometric")$Pvalue,
+    fisher.test(z)$p.value
   )
 })
 
