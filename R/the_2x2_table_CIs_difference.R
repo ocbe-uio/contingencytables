@@ -44,6 +44,6 @@ the_2x2_table_CIs_difference <- function(n, alpha = 0.05) {
   res <- MiettinenNurminen_asymptotic_score_CI_difference_2x2(n, alpha)
   cat_sprintf("Miettinen-Nurminen asymptotic score %7.4f to %7.4f %7.3f\n", res$lower, res$upper, res$upper - res$lower)
 
-  cat("--------------------------------------------------------------")
+  cat("--------------------------------------------------------------\n")
   invisible(NULL)
 }
