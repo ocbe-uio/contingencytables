@@ -203,21 +203,8 @@ KruskalWallis_statistic <- function(x, N, r, c, nip, npj) {
 #' @importFrom stats cor
 linear_by_linear_statistic <- function(x, N, r, c) {
   # Use equally-spaced scores for both rows and columns
-  a <- 1:r
-  b <- 1:c
-  Y1 <- rep(0, N)
-  Y2 <- rep(0, N)
-  id <- 0
-  for (i in 1:r) {
-    for (j in 1:c) {
-      for (k in 1:x[i, j]) {
-        id <- id + 1
-        Y1[id] <- a[i]
-        Y2[id] <- b[j]
-      }
-    }
-  }
-  r <- cor(Y1, Y2)
+  dat <- to_long(x, 1:r, 1:c)
+  r <- cor(dat$Y1, dat$Y2)
   T0 <- sqrt(N - 1) * r
   return(T0)
 }
