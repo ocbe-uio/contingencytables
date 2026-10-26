@@ -176,11 +176,11 @@ test_that("Chapter 4 functions basically work", {
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_OR_2x2(lampasona_2013)),
-    regexp = "estimate = 5.6250 \\(95% CI 1.0433 to 20.5670\\)"
+    regexp = "estimate = 5.6250 \\(95% CI 1.1679 to 27.1490\\)"
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_OR_2x2(matrix(c(10, 20, 0, 30), 2))),
-    regexp = "MOVER-R Wilson CI: estimate =    Inf \\(95% CI 3.9010 to    Inf\\)"
+    regexp = "MOVER-R Wilson CI: estimate =    Inf \\(95% CI 3.5292 to    Inf\\)"
   )
   expect_output(
     object = print(MOVER_R_Wilson_CI_OR_2x2(matrix(c(1, NA, 3, 4), 2))),

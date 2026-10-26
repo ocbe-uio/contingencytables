@@ -2,6 +2,7 @@
 
 * Fix ties missed by `Fisher_midP_test_2x2()` and `Fisher_exact_test_2x2()`, which could give a table and its mirror image different p-values (#62)
 * Fix line break in output (#66)
+* Fix CIs for `MOVER_R_Wilson_CI_OR_2x2()` (#59)
 
 # contingencytables 3.1.0
 
