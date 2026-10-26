@@ -37,10 +37,15 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
   res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha)
   res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha)
 
-  L1 <- res1[["lower"]]
-  U1 <- res1[["upper"]]
-  L2 <- res2[["lower"]]
-  U2 <- res2[["upper"]]
+  l1 <- res1[["lower"]]
+  u1 <- res1[["upper"]]
+  l2 <- res2[["lower"]]
+  u2 <- res2[["upper"]]
+
+  L1 <- l1 / (1 - l1)
+  U1 <- u1 / (1 - u1)
+  L2 <- l2 / (1 - l2)
+  U2 <- u2 / (1 - u2)
 
   # The estimated logits of pi_1 and pi_2 and their CIs
   q1hat <- pi1hat / (1 - pi1hat)
