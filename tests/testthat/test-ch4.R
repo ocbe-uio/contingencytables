@@ -63,7 +63,7 @@ test_that("Chapter 4 functions basically work", {
     regexp = "P = 0.06287"
   )
   expect_output(
-    object = print(Fisher_exact_test_2x2(tea * 0)),
+    object = print(Fisher_exact_test_2x2(tea * 0, "Pearson")),
     regexp = "The Fisher exact test \\(Pearson\\): P = 1.00000"
   )
   expect_output(
