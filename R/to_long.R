@@ -9,9 +9,9 @@ to_long <- function(n, a = NULL, b = NULL) {
   Y1 <- rep(0, N)
   Y2 <- rep(0, N)
   id <- 0
-  for (i in 1:r) {
-    for (j in 1:c) {
-      for (k in 1:n[i, j]) {
+  for (i in seq_len(r)) {
+    for (j in seq_len(c)) {
+      for (k in seq_len(n[i, j])) {
         id <- id + 1
         Y1[id] <- a[i]
         Y2[id] <- b[j]
