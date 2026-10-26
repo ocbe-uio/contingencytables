@@ -47,12 +47,18 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
   q2hat <- pi2hat / (1 - pi2hat)
 
   # Calculate the confidence limits
-  L <- (q1hat * q2hat - sqrt((q1hat * q2hat)^2 -
-    L1 * U2 * (2 * q1hat - L1) * (2 * q2hat - U2))) /
-    (U2 * (2 * q2hat - U2))
-  U <- (q1hat * q2hat + sqrt((q1hat * q2hat)^2 -
-    U1 * L2 * (2 * q1hat - U1) * (2 * q2hat - L2))) /
-    (L2 * (2 * q2hat - L2))
+  L <- (
+      q1hat * q2hat -
+      sqrt(
+        (q1hat * q2hat)^2 - L1 * U2 * (2 * q1hat - L1) * (2 * q2hat - U2)
+      )
+    ) / (U2 * (2 * q2hat - U2))
+  U <- (
+      q1hat * q2hat +
+      sqrt(
+        (q1hat * q2hat)^2 - U1 * L2 * (2 * q1hat - U1) * (2 * q2hat - L2)
+      )
+    ) / (L2 * (2 * q2hat - L2))
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {
