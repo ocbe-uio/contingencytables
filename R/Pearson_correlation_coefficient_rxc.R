@@ -19,28 +19,10 @@ Pearson_correlation_coefficient_rxc <- function(
 ) {
   validateArguments(mget(ls()))
 
-  # If no scores are given, use equally spaced scores
-  r <- nrow(n)
-  c <- ncol(n)
-
-  N <- sum(n)
-
-  # Put the observed data into long format
-  Y1 <- rep(0, N)
-  Y2 <- rep(0, N)
-  id <- 0
-  for (i in 1:r) {
-    for (j in 1:c) {
-      for (k in 1:n[i, j]) {
-        id <- id + 1
-        Y1[id] <- a[i]
-        Y2[id] <- b[j]
-      }
-    }
-  }
-
   # The covariance matrix of Y1 and Y2
-  covar <- cov(cbind(Y1, Y2))
+  dat <- to_long(n, a, b)
+  N <- nrow(dat)
+  covar <- cov(cbind(dat$Y1, dat$Y2))
 
   # Estimate of the Pearson correlation coefficient
   rP <- covar[1, 2] / sqrt(covar[1, 1] * covar[2, 2])

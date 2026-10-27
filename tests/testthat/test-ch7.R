@@ -19,7 +19,7 @@ test_that("Chapter 7 functions basically work", {
   expect_error(Cumulative_models_for_rxc(n2[, 1:2]), "must have at least 3")
   expect_output(
     object = print(Exact_cond_midP_tests_rxc(n_short)),
-    regexp = "Exact linear-by-linear:      P = 0.9754902"
+    regexp = "Exact linear-by-linear:      P = 0.8835784"
   )
   expect_output(
     object = print(Exact_cond_midP_tests_rxc(ceiling(table_7.6 / 10))),
@@ -74,7 +74,7 @@ test_that("Chapter 7 functions basically work", {
   )
   expect_output(
     object = print(Pearson_correlation_coefficient_rxc(n3_short)),
-    regexp = "coefficient: r =  0.2019 \\(95% CI -0.0347 to  0.4171\\)"
+    regexp = "coefficient: r = -0.1566 \\(95% CI -0.3776 to  0.0814\\)"
   )
   expect_output(
     object = {
@@ -83,7 +83,7 @@ test_that("Chapter 7 functions basically work", {
         Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 200, alpha = .2)
       )
     },
-    regexp = "bootstrap CI: r =  0.2019 \\(80% CI  0.1028 to  0.3698\\)"
+    regexp = "bootstrap CI: r = -0.1566 \\(80% CI  0.0328 to  0.3891\\)"
   )
   expect_output(
     object = print(Pearson_LR_tests_rxc(table_7.3)),

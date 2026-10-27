@@ -37,17 +37,33 @@ MOVER_R_Wilson_CI_OR_2x2 <- function(n, alpha = 0.05) {
   res1 <- Wilson_score_CI_1x2(n[1, 1], n1p, alpha)
   res2 <- Wilson_score_CI_1x2(n[2, 1], n2p, alpha)
 
+  l1 <- res1[["lower"]]
+  u1 <- res1[["upper"]]
+  l2 <- res2[["lower"]]
+  u2 <- res2[["upper"]]
+
+  L1 <- l1 / (1 - l1)
+  U1 <- u1 / (1 - u1)
+  L2 <- l2 / (1 - l2)
+  U2 <- u2 / (1 - u2)
+
   # The estimated logits of pi_1 and pi_2 and their CIs
   q1hat <- pi1hat / (1 - pi1hat)
   q2hat <- pi2hat / (1 - pi2hat)
 
   # Calculate the confidence limits
-  L <- (q1hat * q2hat - sqrt((q1hat * q2hat)^2 -
-    res1[["lower"]] * res2[["upper"]] * (2 * q1hat - res1[["lower"]]) * (2 * q2hat - res2[["upper"]]))) /
-    (res2[["upper"]] * (2 * q2hat - res2[["upper"]]))
-  U <- (q1hat * q2hat + sqrt((q1hat * q2hat)^2 -
-    res1[["upper"]] * res2[["lower"]] * (2 * q1hat - res1[["upper"]]) * (2 * q2hat - res2[["lower"]]))) /
-    (res2[["lower"]] * (2 * q2hat - res2[["lower"]]))
+  L <- (
+      q1hat * q2hat -
+      sqrt(
+        (q1hat * q2hat)^2 - L1 * U2 * (2 * q1hat - L1) * (2 * q2hat - U2)
+      )
+    ) / (U2 * (2 * q2hat - U2))
+  U <- (
+      q1hat * q2hat +
+      sqrt(
+        (q1hat * q2hat)^2 - U1 * L2 * (2 * q1hat - U1) * (2 * q2hat - L2)
+      )
+    ) / (L2 * (2 * q2hat - L2))
 
   # In case of n_12 = 0, let L = 1 / U_tmp, where U_tmp comes from the CI for 0 / n1+ vs n22 / n2+
   if (n[1, 2] == 0) {

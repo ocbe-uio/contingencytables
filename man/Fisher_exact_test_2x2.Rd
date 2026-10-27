@@ -4,7 +4,7 @@
 \alias{Fisher_exact_test_2x2}
 \title{The Fisher exact test for association in 2x2 tables}
 \usage{
-Fisher_exact_test_2x2(n, statistic = "Pearson")
+Fisher_exact_test_2x2(n, statistic = "hypergeometric")
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
