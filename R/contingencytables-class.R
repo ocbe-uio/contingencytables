@@ -8,7 +8,8 @@
 #' @seealso [print.contingencytables_result]
 #' @author Waldir Leoncio
 contingencytables_result <- function(statistics, print_structure) {
-  obj <- structure(statistics, class = "contingencytables_result")
+  obj <- statistics
+  class(obj) <- "contingencytables_result"
   attr(obj, "print_structure") <- print_structure
   attr(obj, "row.names") <- NULL # workaround for data frames
   return(obj)

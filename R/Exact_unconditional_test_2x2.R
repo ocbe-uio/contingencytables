@@ -100,7 +100,6 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
 
   # Let the exact unconditional P-value equal the maximum of the P-values
   P <- max(Pvalues)
-  index <- which(P == Pvalues)[1]
 
   # Add gamma (the parameter for the Berger and Boos procedure) to make sure
   # the actual significance level is bounded by the nominal level

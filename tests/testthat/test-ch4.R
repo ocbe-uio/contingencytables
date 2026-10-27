@@ -71,7 +71,7 @@ test_that("Chapter 4 functions basically work", {
     regexp = "The Suissa-Shuster exact unconditional test: P = 0.28916"
   )
   expect_output(
-    object = print(Exact_unconditional_test_2x2(tea, gamma= 0)),
+    object = print(Exact_unconditional_test_2x2(tea, gamma = 0)),
     regexp = "The Suissa-Shuster exact unconditional test: P = 0.28906"
   )
   expect_output(
