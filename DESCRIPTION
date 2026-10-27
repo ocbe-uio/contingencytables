@@ -44,6 +44,6 @@ URL: https://contingencytables.com/ https://ocbe-uio.github.io/contingencytables
 BugReports: https://github.com/ocbe-uio/contingencytables/issues
 Imports: MASS, boot, methods, utils
 Suggests: testthat
-Date: 2025-11-11
+Date: 2026-10-27
 Language: en-GB
 Config/roxygen2/version: 8.1.1
