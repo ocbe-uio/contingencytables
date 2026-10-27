@@ -62,7 +62,7 @@ test_that("Chapter 7 functions basically work", {
       set.seed(1562)
       print(Kendalls_tau_b_rxc_bca(n3_short, nboot = 200))
     },
-    regexp = "bootstrap CI: tau-b = -0.1235 \\(95% CI -0.0863 to  0.3904\\)"
+    regexp = "bootstrap CI: tau-b = -0.1235 \\(95% CI -0.3415 to  0.0690\\)"
   )
   expect_output(
     object = print(KruskalWallis_asymptotic_test_rxc(table_7.6)),
@@ -83,7 +83,7 @@ test_that("Chapter 7 functions basically work", {
         Pearson_correlation_coefficient_rxc_bca(n3_short, nboot = 200, alpha = .2)
       )
     },
-    regexp = "bootstrap CI: r = -0.1566 \\(80% CI  0.0328 to  0.3891\\)"
+    regexp = "bootstrap CI: r = -0.1566 \\(80% CI -0.2977 to -0.0020\\)"
   )
   expect_output(
     object = print(Pearson_LR_tests_rxc(table_7.3)),

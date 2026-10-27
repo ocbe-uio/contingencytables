@@ -27,27 +27,11 @@ Pearson_correlation_coefficient_rxc_bca <- function(
   r <- nrow(n)
   c <- ncol(n)
 
-  N <- sum(n)
-
-  # Put the observed data into long format for bootstrapping the two samples
-  Y1 <- rep(0, N)
-  Y2 <- rep(0, N)
-  id <- 0
-  for (i in 1:r) {
-    for (j in 1:c) {
-      for (k in 1:n[i, j]) {
-        id <- id + 1
-        Y1[id] <- i
-        Y2[id] <- j
-      }
-    }
-  }
-
   # The estimate
   rP <- Pearson_correlation_coefficient_rxc(n, a, b, alpha)$rP
 
   # The CI bootstrap sample
-  dat <- data.frame(Y1 = Y1, Y2 = Y2)
+  dat <- to_long(n)
   ans.boot <- boot(dat, f.Pccrb, R = nboot, stype = "i", .param = list(a, b, alpha, r, c))
   ans.ci <- tryCatch(
     boot.ci(ans.boot, conf = 1 - alpha, type = "bca"),
