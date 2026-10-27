@@ -13,8 +13,16 @@ to_long <- function(n, a = NULL, b = NULL) {
     for (j in seq_len(c)) {
       for (k in seq_len(n[i, j])) {
         id <- id + 1
-        Y1[id] <- a[i]
-        Y2[id] <- b[j]
+        if (is.null(a)) {
+          Y1[id] <- i
+        } else {
+          Y1[id] <- a[i]
+        }
+        if (is.null(b)) {
+          Y2[id] <- j
+        } else {
+          Y2[id] <- b[j]
+        }
       }
     }
   }
