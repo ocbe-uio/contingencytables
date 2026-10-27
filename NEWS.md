@@ -1,11 +1,12 @@
 # contingencytables (development version)
 
-* Fix ties missed by `Fisher_midP_test_2x2()` and `Fisher_exact_test_2x2()` (#62)
-* Fix line break in output (#66)
 * Fix CIs for `MiettinenNurminen_asymptotic_score_CI_difference_2x2()` (#58)
 * Fix CIs for `MOVER_R_Wilson_CI_OR_2x2()` (#59)
 * Fix default statistic for `Fisher_exact_test_2x2()` (#60)
+* Fix ties missed by `Fisher_midP_test_2x2()` and `Fisher_exact_test_2x2()` (#62)
+* Fix line break in output (#66)
 * Fix empty cells being counted as two observations (#68)
+* Fix `Exact_cond_midP_tests_rxc()` giving one-sided p-values for the linear-by-linear and Jonckheere-Terpstra tests (#69)
 * Remove unecessary code (#73)
 
 # contingencytables 3.1.0
