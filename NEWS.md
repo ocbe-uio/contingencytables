@@ -1,4 +1,4 @@
-# contingencytables (development version)
+# contingencytables 3.1.1
 
 * Fix CIs for `MiettinenNurminen_asymptotic_score_CI_difference_2x2()` (#58)
 * Fix CIs for `MOVER_R_Wilson_CI_OR_2x2()` (#59)
