@@ -7,7 +7,7 @@
 * Fix line break in output (#66)
 * Fix empty cells being counted as two observations (#68)
 * Fix `Exact_cond_midP_tests_rxc()` giving one-sided p-values for the linear-by-linear and Jonckheere-Terpstra tests (#69)
-* Remove unecessary code (#73)
+* Remove unnecessary code (#73)
 
 # contingencytables 3.1.0
 
