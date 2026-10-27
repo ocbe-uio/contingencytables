@@ -6,6 +6,7 @@
 * Fix CIs for `MOVER_R_Wilson_CI_OR_2x2()` (#59)
 * Fix default statistic for `Fisher_exact_test_2x2()` (#60)
 * Fix empty cells being counted as two observations (#68)
+* Remove unecessary code (#73)
 
 # contingencytables 3.1.0
 
