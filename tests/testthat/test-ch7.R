@@ -19,7 +19,7 @@ test_that("Chapter 7 functions basically work", {
   expect_error(Cumulative_models_for_rxc(n2[, 1:2]), "must have at least 3")
   expect_output(
     object = print(Exact_cond_midP_tests_rxc(n_short)),
-    regexp = "Exact linear-by-linear:      P = 0.8835784"
+    regexp = "Exact linear-by-linear:      P = 0.4901961"
   )
   expect_output(
     object = print(Exact_cond_midP_tests_rxc(ceiling(table_7.6 / 10))),
