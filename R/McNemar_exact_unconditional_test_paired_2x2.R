@@ -66,7 +66,6 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
 
   # Let the exact unconditional P-value equal the maximum of the P-values
   P <- max(Pvalues)
-  index <- which(P == Pvalues)[1]
 
   # Add gamma (the parameter for the Berger and Boos procedure) to make sure
   # the actual significance level is bounded by the nominal level

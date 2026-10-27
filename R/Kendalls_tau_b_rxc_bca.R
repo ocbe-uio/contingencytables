@@ -20,7 +20,6 @@ Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
 
   r <- nrow(n)
   c <- ncol(n)
-  N <- sum(n)
 
   # The estimate
   tau_b <- Kendalls_tau_b_rxc(n, alpha)$tau_b
