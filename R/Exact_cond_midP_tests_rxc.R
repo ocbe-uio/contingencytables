@@ -14,7 +14,7 @@
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
-Exact_cond_midP_tests_rxc <- function(n) {
+Exact_cond_midP_tests_rxc <- function(n, newcode = FALSE) {
   validateArguments(mget(ls()))
 
   r <- nrow(n)
@@ -42,6 +42,14 @@ Exact_cond_midP_tests_rxc <- function(n) {
   Tobs_lbl <- ans[[5]]
   Tobs_JT <- ans[[6]]
 
+  if (newcode) {
+    # Two-sided linear-by-linear and Jonckheere-Terpstra tests: order the tables
+    # by T_linear = (N - 1) r^2 (Section 7.8.1) and by (T_JT - E(T_JT))^2
+    E_JT <- (N^2 - sum(nip^2)) / 4
+    Tobs_lbl <- Tobs_lbl^2
+    Tobs_JT <- (Tobs_JT - E_JT)^2
+  }
+
   # Calculate exact P- and mid-P values
   P_FFH <- 0
   P_Pearson <- 0
@@ -65,6 +73,10 @@ Exact_cond_midP_tests_rxc <- function(n) {
     T_KW <- ans[[4]]
     T_lbl <- ans[[5]]
     T_JT <- ans[[6]]
+    if (newcode) {
+      T_lbl <- T_lbl^2
+      T_JT <- (T_JT - E_JT)^2
+    }
 
     P_FFH <- P_FFH + ifelse(f <= Tobs_FFH, 1, 0) * f
     midP_FFH <- midP_FFH + ifelse(f < Tobs_FFH, 1, 0) * f + 0.5 * ifelse(f == Tobs_FFH, 1, 0) * f
@@ -78,8 +90,15 @@ Exact_cond_midP_tests_rxc <- function(n) {
     P_KW <- P_KW + ifelse(T_KW >= Tobs_KW, 1, 0) * f
     midP_KW <- midP_KW + ifelse(T_KW > Tobs_KW, 1, 0) * f + 0.5 * ifelse(T_KW == Tobs_KW, 1, 0) * f
 
-    P_lbl <- P_lbl + ifelse(T_lbl >= Tobs_lbl, 1, 0) * f
-    midP_lbl <- midP_lbl + ifelse(T_lbl > Tobs_lbl, 1, 0) * f + 0.5 * ifelse(T_lbl == Tobs_lbl, 1, 0) * f
+    if (newcode) {
+      # Mirror tables have equal T_linear up to rounding, also when T_linear is 0
+      tie_lbl <- abs(T_lbl - Tobs_lbl) <= 1e-7 * Tobs_lbl + 1e-12
+      P_lbl <- P_lbl + ifelse(T_lbl > Tobs_lbl | tie_lbl, 1, 0) * f
+      midP_lbl <- midP_lbl + ifelse(T_lbl > Tobs_lbl & !tie_lbl, 1, 0) * f + 0.5 * ifelse(tie_lbl, 1, 0) * f
+    } else {
+      P_lbl <- P_lbl + ifelse(T_lbl >= Tobs_lbl, 1, 0) * f
+      midP_lbl <- midP_lbl + ifelse(T_lbl > Tobs_lbl, 1, 0) * f + 0.5 * ifelse(T_lbl == Tobs_lbl, 1, 0) * f
+    }
 
     P_JT <- P_JT + ifelse(T_JT >= Tobs_JT, 1, 0) * f
     midP_JT <- midP_JT + ifelse(T_JT > Tobs_JT, 1, 0) * f + 0.5 * ifelse(T_JT == Tobs_JT, 1, 0) * f
