@@ -40,7 +40,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   for (x12 in 0:N) {
     for (x21 in 0:(N - x12)) {
       T0 <- test_statistic.2(x12, x21)
-      if (!is.na(T0) && T0 >= Tobs) {
+      if (isTRUE(T0 >= Tobs)) {
         tables[x12 + 1, x21 + 1] <- 1
       }
     }
