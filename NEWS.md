@@ -1,5 +1,7 @@
 # contingencytables (development version)
 
+* Fix `linear_by_linear_test_rxc()` for non-square tables (#72)
+
 # contingencytables 3.1.1
 
 * Fix CIs for `MiettinenNurminen_asymptotic_score_CI_difference_2x2()` (#58)
