@@ -14,7 +14,7 @@
 #' @inheritSection chap4 Table orientation
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
-#' (1000, hardcoded).
+#' (1000, hard coded).
 #' This method could be improved with a better algorithm for the
 #' maximization however, it works well for most purposes. `plot()` the results
 #' to get an indication of the precision. A refinement of the maximization
