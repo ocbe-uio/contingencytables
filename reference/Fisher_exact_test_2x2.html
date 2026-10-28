@@ -18,7 +18,7 @@ Described in Chapter 4 "The 2x2 Table"'><meta property="og:image" content="/logo
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contingencytables</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.1</span>
       </span>
     </div>
 
@@ -45,7 +45,7 @@ Described in Chapter 4 "The 2x2 Table"'><meta property="og:image" content="/logo
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The Fisher exact test for association in 2x2 tables</h1>
-    <small class="dont-index">Source: <a href="https://github.com/ocbe-uio/contingencytables/blob/v3.1.0/R/Fisher_exact_test_2x2.R" class="external-link"><code>R/Fisher_exact_test_2x2.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/ocbe-uio/contingencytables/blob/release/R/Fisher_exact_test_2x2.R" class="external-link"><code>R/Fisher_exact_test_2x2.R</code></a></small>
     <div class="hidden name"><code>Fisher_exact_test_2x2.Rd</code></div>
     </div>
 
@@ -55,7 +55,7 @@ Described in Chapter 4 "The 2x2 Table"'><meta property="og:image" content="/logo
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Fisher_exact_test_2x2</span><span class="op">(</span><span class="va">n</span>, statistic <span class="op">=</span> <span class="st">"Pearson"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Fisher_exact_test_2x2</span><span class="op">(</span><span class="va">n</span>, statistic <span class="op">=</span> <span class="st">"hypergeometric"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -88,13 +88,13 @@ study designs, please see the introduction to chapter 4 for details.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">Fisher_exact_test_2x2</span><span class="op">(</span><span class="va">tea</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Pearson): P = 0.48571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Fisher-Irwin): P = 0.48571</span>
 <span class="r-in"><span><span class="fu">Fisher_exact_test_2x2</span><span class="op">(</span><span class="va">perondi_2004</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Pearson): P = 0.05440</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Fisher-Irwin): P = 0.05440</span>
 <span class="r-in"><span><span class="fu">Fisher_exact_test_2x2</span><span class="op">(</span><span class="va">lampasona_2013</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Pearson): P = 0.05698</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Fisher-Irwin): P = 0.05698</span>
 <span class="r-in"><span><span class="fu">Fisher_exact_test_2x2</span><span class="op">(</span><span class="va">ritland_2007</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Pearson): P = 0.06287</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The Fisher exact test (Fisher-Irwin): P = 0.06287</span>
 </code></pre></div>
     </div>
   </div>
@@ -109,7 +109,7 @@ study designs, please see the introduction to chapter 4 for details.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer></div>

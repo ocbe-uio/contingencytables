@@ -19,7 +19,7 @@ Described in Chapter 7 "The rxc Table"'><meta property="og:image" content="/logo
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contingencytables</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.1</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@ Described in Chapter 7 "The rxc Table"'><meta property="og:image" content="/logo
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The Pearson correlation coefficient with the bias-corrected and accelerated</h1>
-    <small class="dont-index">Source: <a href="https://github.com/ocbe-uio/contingencytables/blob/v3.1.0/R/Pearson_correlation_coefficient_rxc_bca.R" class="external-link"><code>R/Pearson_correlation_coefficient_rxc_bca.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/ocbe-uio/contingencytables/blob/release/R/Pearson_correlation_coefficient_rxc_bca.R" class="external-link"><code>R/Pearson_correlation_coefficient_rxc_bca.R</code></a></small>
     <div class="hidden name"><code>Pearson_correlation_coefficient_rxc_bca.Rd</code></div>
     </div>
 
@@ -101,9 +101,9 @@ to see the specific elements returned.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">3509</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">Pearson_correlation_coefficient_rxc_bca</span><span class="op">(</span><span class="va">table_7.7</span>, nboot <span class="op">=</span> <span class="fl">800</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The Pearson correlation w / BCa bootstrap CI: r = -0.1020 (95% CI -0.1752 to -0.0395)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The Pearson correlation w / BCa bootstrap CI: r = -0.1020 (95% CI -0.1697 to -0.0344)</span>
 <span class="r-in"><span><span class="fu">Pearson_correlation_coefficient_rxc_bca</span><span class="op">(</span><span class="va">table_7.8</span>, nboot <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The Pearson correlation w / BCa bootstrap CI: r =  0.5710 (95% CI  0.4790 to  0.6798)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The Pearson correlation w / BCa bootstrap CI: r =  0.6590 (95% CI  0.5553 to  0.7360)</span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="fu">Pearson_correlation_coefficient_rxc_bca</span><span class="op">(</span><span class="va">table_7.9</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
@@ -121,7 +121,7 @@ to see the specific elements returned.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer></div>
