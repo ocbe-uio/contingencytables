@@ -12,7 +12,7 @@
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
-linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n))) {
+linear_by_linear_test_rxc <- function(n, a = seq_len(nrow(n)), b = seq_len(ncol(n))) {
   validateArguments(mget(ls()))
   dat <- to_long(n, a, b)
   N <- nrow(dat)
