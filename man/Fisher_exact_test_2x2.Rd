@@ -4,7 +4,7 @@
 \alias{Fisher_exact_test_2x2}
 \title{The Fisher exact test for association in 2x2 tables}
 \usage{
-Fisher_exact_test_2x2(n, statistic = "Pearson")
+Fisher_exact_test_2x2(n, statistic = "hypergeometric")
 }
 \arguments{
 \item{n}{the observed counts (a 2x2 matrix)}
@@ -21,6 +21,14 @@ The Fisher exact test for association in 2x2 tables
 
 Described in Chapter 4 "The 2x2 Table"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 Fisher_exact_test_2x2(tea)
 Fisher_exact_test_2x2(perondi_2004)

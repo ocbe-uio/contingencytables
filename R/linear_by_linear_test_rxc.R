@@ -14,29 +14,11 @@
 #' to see the specific elements returned.
 linear_by_linear_test_rxc <- function(n, a = seq_len(ncol(n)), b = seq_len(nrow(n))) {
   validateArguments(mget(ls()))
-
-  # If no scores are given, use equally spaced scores
-  r <- nrow(n)
-  c <- ncol(n)
-
-  N <- sum(n)
-
-  # Put the observed data into long format
-  Y1 <- rep(0, N)
-  Y2 <- rep(0, N)
-  id <- 0
-  for (i in 1:r) {
-    for (j in 1:c) {
-      for (k in 1:n[i, j]) {
-        id <- id + 1
-        Y1[id] <- a[i]
-        Y2[id] <- b[j]
-      }
-    }
-  }
+  dat <- to_long(n, a, b)
+  N <- nrow(dat)
 
   # The Pearson correlation coefficient
-  r <- cor(Y1, Y2)
+  r <- cor(dat$Y1, dat$Y2)
 
   # The linear-by-linear test statistic
   Z <- sqrt(N - 1) * r

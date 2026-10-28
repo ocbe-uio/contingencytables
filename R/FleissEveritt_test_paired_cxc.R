@@ -17,7 +17,6 @@ FleissEveritt_test_paired_cxc <- function(n) {
 
   if (c != 3) {
     P <- NA
-    T <- NA
     df <- NA
     stop("This method can only be used for c=3 categories")
   }

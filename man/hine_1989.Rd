@@ -4,9 +4,6 @@
 \name{hine_1989}
 \alias{hine_1989}
 \title{Prophylactice use of Lidocaine in myocardial infarction}
-\format{
-An object of class \code{array} of dimension 2 x 2 x 6.
-}
 \usage{
 hine_1989
 }
@@ -16,4 +13,3 @@ Prophylactice use of Lidocaine in myocardial infarction
 \references{
 Hine et al. (1989)
 }
-\keyword{datasets}

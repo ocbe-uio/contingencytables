@@ -11,9 +11,10 @@
 #' Exact_unconditional_test_2x2(lampasona_2013)
 #' Exact_unconditional_test_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
-#' (1000, hardcoded).
+#' (1000, hard coded).
 #' This method could be improved with a better algorithm for the
 #' maximization however, it works well for most purposes. `plot()` the results
 #' to get an indication of the precision. A refinement of the maximization
@@ -62,14 +63,18 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
   )
   for (x11 in 0:n1p) {
     for (x21 in 0:n2p) {
-      T0 <- test_statistic_exact_unconditional_test_2x2(
-        x11, n1p - x11, x21, n2p - x21, statistic
+      T0 <- tryCatch(
+        test_statistic_exact_unconditional_test_2x2(
+          x11, n1p - x11, x21, n2p - x21, statistic
+        ),
+        error = function(e) NaN
       )
-      if (!is.na(T0) && T0 >= Tobs) { # ADDED !is.na(..) TO AVOID CRASH
+      if (!is.na(T0) && T0 >= Tobs) {
         tables[x11 + 1, x21 + 1] <- 1
       }
     }
   }
+
 
   # A simple partition the nuisance parameter space
   if (gamma == 0) {
@@ -95,7 +100,6 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
 
   # Let the exact unconditional P-value equal the maximum of the P-values
   P <- max(Pvalues)
-  index <- which(P == Pvalues)[1]
 
   # Add gamma (the parameter for the Berger and Boos procedure) to make sure
   # the actual significance level is bounded by the nominal level
@@ -140,10 +144,18 @@ calculate_Pvalue <- function(pi0, tables, binomcoeffs, n1p, n2p) {
 # ========================================================
 test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, statistic) {
   N <- x11 + x12 + x21 + x22
-
   if (statistic == "Pearson") {
+    # This validation is important because it adds more information compared to
+    # the validation in Pearson_chi_squared_test_2x2()
+    margins <- c(x11 + x12, x21 + x22, x11 + x21, x12 + x22)
+    if (any(margins == 0)) {
+      stop("At least one of the table margins is zero, the Pearson chi-squared test is not defined. Consider using either the LR, unpooled, or Fisher statistic instead.")
+    }
+
     # The Pearson chi-squared statistic
-    T0 <- (N * (x11 * x22 - x12 * x21)^2) / ((x11 + x12) * (x21 + x22) * (x11 + x21) * (x12 + x22))
+    T0 <- Pearson_chi_squared_test_2x2(
+      matrix(c(x11, x12, x21, x22), nrow = 2, byrow = TRUE)
+    )$T
   } else if (statistic == "LR") {
     # The likelihood ratio statistic
     T0 <- 0

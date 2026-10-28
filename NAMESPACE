@@ -228,27 +228,33 @@ export(the_paired_cxc_table_ordinal)
 export(the_rx2_table)
 export(the_rxc_table)
 importFrom(MASS,polr)
-importFrom(boot,boot)
-importFrom(boot,boot.ci)
+importFrom(boot,
+  boot,
+  boot.ci
+)
 importFrom(grDevices,dev.new)
-importFrom(graphics,lines)
-importFrom(graphics,segments)
+importFrom(graphics,
+  lines,
+  segments
+)
 importFrom(methods,is)
-importFrom(stats,binomial)
-importFrom(stats,coef)
-importFrom(stats,cor)
-importFrom(stats,cov)
-importFrom(stats,dbinom)
-importFrom(stats,dhyper)
-importFrom(stats,dmultinom)
-importFrom(stats,dnorm)
-importFrom(stats,glm)
-importFrom(stats,pbinom)
-importFrom(stats,pchisq)
-importFrom(stats,pnorm)
-importFrom(stats,predict)
-importFrom(stats,qbeta)
-importFrom(stats,qchisq)
-importFrom(stats,qnorm)
-importFrom(stats,uniroot)
-importFrom(stats,weighted.mean)
+importFrom(stats,
+  binomial,
+  coef,
+  cor,
+  cov,
+  dbinom,
+  dhyper,
+  dmultinom,
+  dnorm,
+  glm,
+  pbinom,
+  pchisq,
+  pnorm,
+  predict,
+  qbeta,
+  qchisq,
+  qnorm,
+  uniroot,
+  weighted.mean
+)

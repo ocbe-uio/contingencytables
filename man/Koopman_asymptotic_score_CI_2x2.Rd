@@ -25,6 +25,14 @@ Described in Chapter 4 "The 2x2 Table"
 This versions uses the score test statistic of the Miettinen-Nurminen
 interval without the variance correction term.
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 Koopman_asymptotic_score_CI_2x2(perondi_2004)
 Koopman_asymptotic_score_CI_2x2(ritland_2007)

@@ -4,9 +4,6 @@
 \name{fontanella_2008}
 \alias{fontanella_2008}
 \title{The Adolescent Placement Study}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 4 columns.
-}
 \usage{
 fontanella_2008
 }
@@ -16,4 +13,3 @@ The Adolescent Placement Study
 \references{
 Fontanella et al. (2008)
 }
-\keyword{datasets}

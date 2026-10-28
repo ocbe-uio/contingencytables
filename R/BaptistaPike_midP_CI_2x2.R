@@ -12,6 +12,7 @@
 #' BaptistaPike_midP_CI_2x2(lampasona_2013)
 #' BaptistaPike_midP_CI_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 BaptistaPike_midP_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   # global n11 n1p n2p np1 alphaglobal

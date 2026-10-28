@@ -21,6 +21,14 @@ The Gart adjusted logit confidence interval for the odds ratio
 
 Described in Chapter 4 "The 2x2 Table"
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 Gart_adjusted_logit_CI_2x2(lampasona_2013)
 Gart_adjusted_logit_CI_2x2(ritland_2007)

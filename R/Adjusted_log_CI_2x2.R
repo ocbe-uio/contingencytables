@@ -10,6 +10,7 @@
 #' Adjusted_log_CI_2x2(perondi_2004)
 #' Adjusted_log_CI_2x2(ritland_2007)
 #' @export
+#' @inheritSection chap4 Table orientation
 Adjusted_log_CI_2x2 <- function(n, alpha = 0.05) {
   validateArguments(mget(ls()))
   n1p <- n[1, 1] + n[1, 2]

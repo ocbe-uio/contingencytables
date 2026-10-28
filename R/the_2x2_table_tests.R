@@ -14,6 +14,7 @@
 #'   the_2x2_table_tests(ritland_2007) # Example: Ritland et al. (2007)
 #' }
 #' @export
+#' @inheritSection chap4 Table orientation
 #' @return NULL. This function should be called for its printed output
 the_2x2_table_tests <- function(n, gamma = 0.0001) {
   validateArguments(mget(ls()))

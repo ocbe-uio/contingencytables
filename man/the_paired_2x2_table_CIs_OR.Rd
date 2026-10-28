@@ -17,6 +17,14 @@ NULL. This function should be called for its printed output.
 \description{
 The Paired 2x2 table CIs OR
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 8 for details.
+}
+
 \examples{
 the_paired_2x2_table_CIs_OR(ezra_2010)
 }

@@ -17,6 +17,14 @@ NULL. This function should be called for its printed output
 \description{
 Wrapper for \verb{_CI_2x2} functions on Chapter 4.
 }
+\section{Table orientation}{
+ In most study designs, rows designate a grouping of the data, for
+instance, into treatment or exposure groups, while the columns indicate a
+dichotomous outcome, usually with the first column representing the outcome
+of interest. This designation of rows and columns may not be relevant in all
+study designs, please see the introduction to chapter 4 for details.
+}
+
 \examples{
 # An RCT of high vs standard dose of epinephrine (Perondi et al., 2004)
 the_2x2_table_CIs_ratio(perondi_2004)

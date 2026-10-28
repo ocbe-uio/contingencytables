@@ -4,9 +4,6 @@
 \name{bentur_2009}
 \alias{bentur_2009}
 \title{Airway hyper-responsiveness before and after stem cell transplantation}
-\format{
-An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
-}
 \usage{
 bentur_2009
 }
@@ -16,4 +13,3 @@ Airway hyper-responsiveness before and after stem cell transplantation
 \references{
 Bentur et al. (2009)
 }
-\keyword{datasets}

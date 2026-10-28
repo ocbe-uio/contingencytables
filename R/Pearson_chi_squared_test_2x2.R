@@ -16,6 +16,7 @@
 #' Pearson_chi_squared_test_2x2(ritland_2007)
 #'
 #' @export
+#' @inheritSection chap4 Table orientation
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
@@ -26,6 +27,9 @@ Pearson_chi_squared_test_2x2 <- function(n) {
   n2p <- n[2, 1] + n[2, 2]
   np1 <- n[1, 1] + n[2, 1]
   np2 <- n[1, 2] + n[2, 2]
+  if (any(c(n1p, n2p, np1, np2) == 0)) {
+    stop("At least one of the table margins is zero, the Pearson chi-squared test is not defined.")
+  }
   N <- sum(n)
 
   # The Pearson chi-squared statistic
