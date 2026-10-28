@@ -4,7 +4,7 @@
 \alias{linear_by_linear_test_rxc}
 \title{The linear-by-linear test for association}
 \usage{
-linear_by_linear_test_rxc(n, a = seq_len(ncol(n)), b = seq_len(nrow(n)))
+linear_by_linear_test_rxc(n, a = seq_len(nrow(n)), b = seq_len(ncol(n)))
 }
 \arguments{
 \item{n}{the observed table (an rxc matrix)}
@@ -24,7 +24,14 @@ The linear-by-linear test for association
 Described in Chapter 7 "The rxc Table"
 }
 \examples{
+# Colorectal cancer (Jullumstrø et al., 2009), Table 7.20
 linear_by_linear_test_rxc(table_7.7)
+
+# Breast Tumor (Bofin et al., 2004), Table 7.21
 linear_by_linear_test_rxc(table_7.8)
+linear_by_linear_test_rxc(table_7.8)$Pvalue
+
+# Self-rated health (Breidablik et al., 2008)
 linear_by_linear_test_rxc(table_7.9)
+
 }

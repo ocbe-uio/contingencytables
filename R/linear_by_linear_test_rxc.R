@@ -5,9 +5,16 @@
 #' @param a scores assigned to the rows
 #' @param b scores assigned to the columns
 #' @examples
+#' # Colorectal cancer (Jullumstrø et al., 2009), Table 7.20
 #' linear_by_linear_test_rxc(table_7.7)
+#'
+#' # Breast Tumor (Bofin et al., 2004), Table 7.21
 #' linear_by_linear_test_rxc(table_7.8)
+#' linear_by_linear_test_rxc(table_7.8)$Pvalue
+#'
+#' # Self-rated health (Breidablik et al., 2008)
 #' linear_by_linear_test_rxc(table_7.9)
+#'
 #' @export
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
