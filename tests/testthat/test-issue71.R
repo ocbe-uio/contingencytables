@@ -18,6 +18,11 @@ test_that("exact conditional tests count numerically tied tables", {
     )
   }
 
+  # Flooring table_7.3 / 10 gives margins (6, 5, 7) by (15, 3). The
+  # conditional tables have total weight choose(18, 3) = 816; for the LR
+  # statistic, 270 weight is more extreme and 210 is tied with the observed
+  # table. Thus P = (270 + 210) / 816 = 10/17, while mid-P is
+  # (270 + 210/2) / 816 = 125/272.
   result <- Exact_cond_midP_tests_rxc(floor(table_7.3 / 10))
   expect_equal(unname(result$P_LR), 0.5882353, tolerance = 5e-8)
   expect_equal(unname(result$midP_LR), 0.4595588, tolerance = 5e-8)
