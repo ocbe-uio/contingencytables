@@ -26,7 +26,7 @@ McNemarBowker_test_paired_cxc <- function(n) {
 
   # Reference distribution: chi-squared with c * (c-1) / 2 degrees of freedom
   df <- c * (c - 1) / 2
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   return(
     contingencytables_result(

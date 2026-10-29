@@ -50,7 +50,7 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
   # The two-sided P-value (reference distribution: chi-squared with K - 1
   # degrees of freedom)
   df <- K - 1
-  P_LR <- 1 - pchisq(T_LR, df)
+  P_LR <- pchisq(T_LR, df, lower.tail = FALSE)
 
 
   # The Pearson chi-squared test statistic
@@ -67,7 +67,7 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
 
   # The two-sided P-value (reference distribution: chi-squared with K - 1
   # degrees of freedom)
-  P_Pearson <- 1 - pchisq(T_Pearson, df)
+  P_Pearson <- pchisq(T_Pearson, df, lower.tail = FALSE)
 
   results <- list()
   results$P_LR <- P_LR

@@ -67,7 +67,7 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit") {
   # The two-sided P-value (reference distribution: chi-squared with one
   # degree of freedom)
   df <- 1
-  P_LR <- 1 - pchisq(T_LR, df)
+  P_LR <- pchisq(T_LR, df, lower.tail = FALSE)
 
   # The Pearson chi-squared test statistic
   T_Pearson <- 0
@@ -83,7 +83,7 @@ Pearson_LR_test_common_effect_stratified_2x2 <- function(n, link = "logit") {
 
   # The two-sided P-value (reference distribution: chi-squared with one
   # degree of freedom)
-  P_Pearson <- 1 - pchisq(T_Pearson, df)
+  P_Pearson <- pchisq(T_Pearson, df, lower.tail = FALSE)
 
   results <- list()
   results$P_LR <- P_LR

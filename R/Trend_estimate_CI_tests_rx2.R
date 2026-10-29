@@ -42,12 +42,12 @@ Trend_estimate_CI_tests_rx2 <- function(
 
   # The Wald test
   Z_Wald <- betahat / SEhat
-  P_Wald <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
+  P_Wald <- 2 * pnorm(abs(Z_Wald), 0, 1, lower.tail = FALSE)
 
   # The likelihood ratio test
   T_LR <- -2 * (L0 - L1)
   df_LR <- 1
-  P_LR <- 1 - pchisq(T_LR, df_LR)
+  P_LR <- pchisq(T_LR, df_LR, lower.tail = FALSE)
 
   # The Wald confidence interval
   z <- qnorm(1 - alpha / 2, 0, 1)
@@ -58,12 +58,12 @@ Trend_estimate_CI_tests_rx2 <- function(
   m <- c(m, nip - m)
   chi2 <- sum(((n - m)^2) / m)
   df_chi2 <- length(a) - 2
-  P_chi2 <- 1 - pchisq(chi2, df_chi2)
+  P_chi2 <- pchisq(chi2, df_chi2, lower.tail = FALSE)
 
   # The likelihood ratio (deviance) test
   D <- mdl1$deviance
   df_D <- length(a) - 2
-  P_D <- 1 - pchisq(D, df_D)
+  P_D <- pchisq(D, df_D, lower.tail = FALSE)
 
   # Output arguments (estimated trend, observed statistics, degrees of freedom,
   # P-values, and CI)

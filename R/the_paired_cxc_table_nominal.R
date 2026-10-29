@@ -66,7 +66,7 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
     n12 <- sum(n[i, ]) - n[i, i]
     n21 <- sum(n[, i]) - n[i, i]
     Z <- (n12 - n21) / sqrt(n12 + n21)
-    P <- 1 - pchisq(Z^2, c - 1)
+    P <- pchisq(Z^2, c - 1, lower.tail = FALSE)
 
     cat_sprintf("pi_%g+ - pi_+%g: %8.4f  (%7.4f to %7.4f)   (%7.4f to %7.4f)    %6.4f\n", i, i, deltahat[i], Scheffe_L[i], Scheffe_U[i], Bonferroni_L[i], Bonferroni_U[i], P)
   }

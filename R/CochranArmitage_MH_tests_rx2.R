@@ -35,15 +35,15 @@ CochranArmitage_MH_tests_rx2 <- function(n, a) {
 
   # The Cochran-Armitage test
   Z_CA <- U / s0
-  P_CA <- 2 * (1 - pnorm(abs(Z_CA), 0, 1))
+  P_CA <- 2 * pnorm(abs(Z_CA), 0, 1, lower.tail = FALSE)
 
   # The modified Cochran-Armitage test
   Z_CA_mod <- U / s
-  P_CA_mod <- 2 * (1 - pnorm(abs(Z_CA_mod), 0, 1))
+  P_CA_mod <- 2 * pnorm(abs(Z_CA_mod), 0, 1, lower.tail = FALSE)
 
   # The Mantel-Haenszel test
   Z_MH <- sqrt(N / (N - 1)) * Z_CA
-  P_MH <- 2 * (1 - pnorm(abs(Z_MH), 0, 1))
+  P_MH <- 2 * pnorm(abs(Z_MH), 0, 1, lower.tail = FALSE)
 
   # Output arguments (observed statistics and P-values)
   results <- list()

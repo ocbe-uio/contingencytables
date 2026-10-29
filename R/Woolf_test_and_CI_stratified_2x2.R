@@ -31,7 +31,7 @@ Woolf_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   Z <- log(thetahatIV) / SElog
 
   # The two-sided P-value (reference distribution: standard normal)
-  P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+  P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
   # The upper alpha / 2 percentile of the standard normal distribution
   z_alpha <- qnorm(1 - alpha / 2, 0, 1)

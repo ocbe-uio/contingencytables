@@ -39,7 +39,7 @@ FleissEveritt_test_paired_cxc <- function(n) {
 
   # Reference distribution: chi-squared with 2 degrees of freedom
   df <- 2
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   return(
     contingencytables_result(

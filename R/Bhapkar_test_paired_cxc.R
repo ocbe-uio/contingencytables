@@ -41,7 +41,7 @@ Bhapkar_test_paired_cxc <- function(n) {
 
   # Reference distribution: chi-squared with c-1 degrees of freedom
   df <- c - 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   # Output
   printresults <- function() {

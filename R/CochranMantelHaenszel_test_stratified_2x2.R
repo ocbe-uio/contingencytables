@@ -26,7 +26,7 @@ CochranMantelHaenszel_test_stratified_2x2 <- function(n) {
   # The two-sided P-value (reference distribution: chi-squared with one
   # degree of freedom)
   df <- 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   # Output
   printresults <- function() {

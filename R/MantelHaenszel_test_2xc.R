@@ -35,7 +35,7 @@ MantelHaenszel_test_2xc <- function(n, b = 0) {
   # The two-sided P-value (reference distribution: chi-squared with one degree
   # of freedom)
   df <- 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   return(
     contingencytables_result(

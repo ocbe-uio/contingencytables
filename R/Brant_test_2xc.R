@@ -84,7 +84,7 @@ Brant_test_2xc <- function(n) {
   # The Brant test statistic is a Wald-type statistic
   T0 <- t(D %*% betas) %*% solve(D %*% covar %*% t(D)) %*% (D %*% betas)
   df <- c0 - 2
-  P0 <- 1 - pchisq(T0, df)
+  P0 <- pchisq(T0, df, lower.tail = FALSE)
 
   # Output
   printresults <- function() {

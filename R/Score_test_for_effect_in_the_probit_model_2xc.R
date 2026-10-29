@@ -48,7 +48,7 @@ Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0) {
   # Calculate test statistic and P-value
   T0 <- theta %*% solve(-I) %*% theta
   df <- 1
-  P <- 1 - pchisq(T0, 1)
+  P <- pchisq(T0, 1, lower.tail = FALSE)
 
   return(
     contingencytables_result(

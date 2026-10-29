@@ -29,7 +29,7 @@ LR_test_1xc <- function(n, pi0) {
 
   # The two-sided P-value (reference distribution: chi-squared with c - 1 degrees of freedom)
   df <- c0 - 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   return(
     contingencytables_result(

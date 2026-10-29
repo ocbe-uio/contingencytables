@@ -40,7 +40,7 @@ Cochran_Q_test_stratified_2x2 <- function(
   # The two-sided P-value (reference distribution: chi-squared with K - 1
   # degrees of freedom)
   df <- K - 1
-  P <- 1 - pchisq(Q, df)
+  P <- pchisq(Q, df, lower.tail = FALSE)
 
   # Output
   printresults <- function() {
