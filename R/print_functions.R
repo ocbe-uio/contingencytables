@@ -33,7 +33,7 @@ sprintf <- function(fmt, ...) {
             decimals <- "6"
           }
           cutoff <- 0.5 * 10^(-as.numeric(decimals))
-          if (any(args[[i]] == 0 | abs(args[[i]]) < cutoff)) {
+          if (any(args[[i]] == 0 | abs(args[[i]]) < cutoff, na.rm = TRUE)) {
             width <- sub("^%[-+ #0]*([0-9]*).*$", "\\1", conversion)
             pvalue_arguments <- c(pvalue_arguments, i)
             pvalue_formats <- c(pvalue_formats, if (nzchar(width)) paste0("%", width, "s") else "%s")
