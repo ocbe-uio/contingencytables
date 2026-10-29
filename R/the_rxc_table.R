@@ -172,10 +172,10 @@ the_rxc_table <- function(n, alpha = 0.05, nboot = 10000) {
   cat_sprintf("  Jonckheere-Terpstra                      %6.3f    %9s\n", Z, format_pvalue(P))
 
   if (exists("results_exact_midP")) {
-    cat_sprintf("  Linear-by-linear exact conditional                 %9s\n", format_pvalue(results_exact_midP$P_KW))
-    cat_sprintf("  Linear-by-linear mid-P                             %9s\n", format_pvalue(results_exact_midP$midP_KW))
-    cat_sprintf("  Jonckheere-Terpstra exact conditional              %9s\n", format_pvalue(results_exact_midP$P_KW))
-    cat_sprintf("  Jonckheere-Terpstra mid-P                          %9s\n", format_pvalue(results_exact_midP$midP_KW))
+    cat_sprintf("  Linear-by-linear exact conditional                 %9s\n", format_pvalue(results_exact_midP$P_lbl))
+    cat_sprintf("  Linear-by-linear mid-P                             %9s\n", format_pvalue(results_exact_midP$midP_lbl))
+    cat_sprintf("  Jonckheere-Terpstra exact conditional              %9s\n", format_pvalue(results_exact_midP$P_JT))
+    cat_sprintf("  Jonckheere-Terpstra mid-P                          %9s\n", format_pvalue(results_exact_midP$midP_JT))
   }
   cat_sprintf("---------------------------------------------------------------\n")
 
