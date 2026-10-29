@@ -36,31 +36,31 @@ the_1x2_table_tests <- function(X, n, pi0) {
   myprint("------------------------------------------------")
 
   res <- Wald_test_1x2(X, n, pi0)
-  myprint("Wald                %6.4f   (Z = %5.3f)", res[1], res[2])
+  myprint("Wald                %6s   (Z = %5.3f)", format_pvalue(res[[1]], fixed_digits = 4), res[[2]])
 
   res <- Wald_test_CC_1x2(X, n, pi0)
-  myprint("Wald with CC        %6.4f   (Z = %5.3f)", res[1], res[2])
+  myprint("Wald with CC        %6s   (Z = %5.3f)", format_pvalue(res[[1]], fixed_digits = 4), res[[2]])
 
   res <- LR_test_1x2(X, n, pi0)
-  myprint("Likelihood ratio    %6.4f   (T = %5.3f, df = %i)", res[[1]], res[[2]], res[[3]])
+  myprint("Likelihood ratio    %6s   (T = %5.3f, df = %i)", format_pvalue(res[[1]], fixed_digits = 4), res[[2]], res[[3]])
 
   res <- Score_test_1x2(X, n, pi0)
-  myprint("Score               %6.4f   (Z = %5.3f)", res[1], res[2])
+  myprint("Score               %6s   (Z = %5.3f)", format_pvalue(res[[1]], fixed_digits = 4), res[[2]])
 
   res <- Score_test_CC_1x2(X, n, pi0)
-  myprint("Score with CC       %6.4f   (Z = %5.3f)", res[1], res[2])
+  myprint("Score with CC       %6s   (Z = %5.3f)", format_pvalue(res[[1]], fixed_digits = 4), res[[2]])
 
-  P <- Exact_binomial_test_1x2(X, n, pi0)$pvalue
-  myprint("Exact binomial      %6.4f", P)
+  P <- Exact_binomial_test_1x2(X, n, pi0)$Pvalue
+  myprint("Exact binomial      %6s", format_pvalue(P, fixed_digits = 4))
 
-  P <- Blaker_exact_test_1x2(X, n, pi0)$pvalue
-  myprint("Blaker exact        %6.4f", P)
+  P <- Blaker_exact_test_1x2(X, n, pi0)$Pvalue
+  myprint("Blaker exact        %6s", format_pvalue(P, fixed_digits = 4))
 
-  midP <- MidP_binomial_test_1x2(X, n, pi0)
-  myprint("Mid-P binomial      %6.4f", midP)
+  midP <- MidP_binomial_test_1x2(X, n, pi0)$midP
+  myprint("Mid-P binomial      %6s", format_pvalue(midP, fixed_digits = 4))
 
-  midP <- Blaker_midP_test_1x2(X, n, pi0)$midp
-  myprint("Blaker mid-P        %6.4f", midP)
+  midP <- Blaker_midP_test_1x2(X, n, pi0)$midP
+  myprint("Blaker mid-P        %6s", format_pvalue(midP, fixed_digits = 4))
 
   myprint("------------------------------------------------")
   myprint("CC = continuity correction")

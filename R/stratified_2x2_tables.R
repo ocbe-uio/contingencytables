@@ -76,18 +76,18 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("Test                 P-value  (test statistic)\n")
   cat("-------------------------------------------------\n")
   tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "MH")
-  P <- tmp$pvalue
-  Q <- tmp$estimate
+  P <- tmp$Pvalue
+  Q <- tmp$Q
   df <- tmp$df
-  cat(sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
+  cat(sprintf("Cochran Q (MH)       %6s   (Q = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), Q, df))
   tmp <- Cochran_Q_test_stratified_2x2(n, "linear", "IV")
-  P <- tmp$pvalue
-  Q <- tmp$estimate
+  P <- tmp$Pvalue
+  Q <- tmp$Q
   df <- tmp$df
-  cat(sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
+  cat(sprintf("Cochran Q (IV)       %6s   (Q = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), Q, df))
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "linear")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_LR, fixed_digits = 4), results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_Pearson, fixed_digits = 4), results$T_Pearson, results$df_Pearson))
   cat("-------------------------------------------------\n")
 
   cat("\nTests of homogeneity of the ratio of probabilities\n")
@@ -95,18 +95,18 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("Test                 P-value  (test statistic)\n")
   cat("-------------------------------------------------\n")
   tmp <- Cochran_Q_test_stratified_2x2(n, "log", "MH")
-  P <- tmp$pvalue
-  Q <- tmp$estimate
+  P <- tmp$Pvalue
+  Q <- tmp$Q
   df <- tmp$df
-  cat(sprintf("Cochran Q (MH)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
+  cat(sprintf("Cochran Q (MH)       %6s   (Q = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), Q, df))
   tmp <- Cochran_Q_test_stratified_2x2(n, "log", "IV")
-  P <- tmp$pvalue
-  Q <- tmp$estimate
+  P <- tmp$Pvalue
+  Q <- tmp$Q
   df <- tmp$df
-  cat(sprintf("Cochran Q (IV)       %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
+  cat(sprintf("Cochran Q (IV)       %6s   (Q = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), Q, df))
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "log")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_LR, fixed_digits = 4), results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_Pearson, fixed_digits = 4), results$T_Pearson, results$df_Pearson))
   cat("-------------------------------------------------\n")
 
   cat("\nTests of homogeneity of odds ratios\n")
@@ -114,28 +114,28 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   cat("Test                             P-value  (test statistic)\n")
   cat("-------------------------------------------------------------\n")
   tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "MH")
-  P <- tmp$pvalue
-  Q <- tmp$estimate
+  P <- tmp$Pvalue
+  Q <- tmp$Q
   df <- tmp$df
-  cat(sprintf("Cochran Q (MH)                   %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
+  cat(sprintf("Cochran Q (MH)                   %6s   (Q = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), Q, df))
   tmp <- Cochran_Q_test_stratified_2x2(n, "logit", "IV")
-  P <- tmp$pvalue
-  Q <- tmp$estimate
+  P <- tmp$Pvalue
+  Q <- tmp$Q
   df <- tmp$df
-  cat(sprintf("Cochran Q (IV)                   %6.4f   (Q = %5.3f, df = %g)\n", P, Q, df))
+  cat(sprintf("Cochran Q (IV)                   %6s   (Q = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), Q, df))
   results <- Pearson_LR_homogeneity_test_stratified_2x2(n, "logit")
-  cat(sprintf("Likelihood ratio                 %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared              %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio                 %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_LR, fixed_digits = 4), results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared              %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_Pearson, fixed_digits = 4), results$T_Pearson, results$df_Pearson))
   tmp <- BreslowDay_homogeneity_test_stratified_2x2(n)
-  P <- tmp$pvalue
-  T0 <- tmp$estimate
+  P <- tmp$Pvalue
+  T0 <- tmp$T
   df <- tmp$df
-  cat(sprintf("Breslow-Day W/Tarone correction  %6.4f   (T = %5.3f, df = %g)\n", P, T0, df))
+  cat(sprintf("Breslow-Day W/Tarone correction  %6s   (T = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), T0, df))
   tmp <- Peto_homogeneity_test_stratified_2x2(n)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
-  cat(sprintf("Peto                             %6.4f   (T = %5.3f, df = %g)\n", P, T0, df))
+  cat(sprintf("Peto                             %6s   (T = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), T0, df))
   cat("-------------------------------------------------------------\n")
 
 
@@ -144,22 +144,22 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   results <- Pearson_LR_test_common_effect_stratified_2x2(n, "linear")
   cat("Test                 P-value  (test statistic)\n")
   cat("-------------------------------------------------\n")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_LR, fixed_digits = 4), results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_Pearson, fixed_digits = 4), results$T_Pearson, results$df_Pearson))
   tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "MH", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_MH <- tmp[[3]]
   U_MH <- tmp[[4]]
   deltahat_MH <- tmp[[5]]
-  cat(sprintf("Wald (MH)            %6.4f   (Z = %5.3f)\n", P, Z))
+  cat(sprintf("Wald (MH)            %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z))
   tmp <- Wald_test_and_CI_common_diff_stratified_2x2(n, "IV", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_IV <- tmp[[3]]
   U_IV <- tmp[[4]]
   deltahat_IV <- tmp[[5]]
-  cat(sprintf("Wald (IV)            %6.4f   (Z = %5.3f)\n", P, Z))
+  cat(sprintf("Wald (IV)            %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z))
   cat("-------------------------------------------------\n")
   results <- ML_estimates_and_CIs_stratified_2x2(n, "linear", alpha)
   cat(sprintf("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha)))
@@ -174,22 +174,22 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   results <- Pearson_LR_test_common_effect_stratified_2x2(n, "log")
   cat("Test                 P-value  (test statistic)\n")
   cat("-------------------------------------------------\n")
-  cat(sprintf("Likelihood ratio     %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared  %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio     %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_LR, fixed_digits = 4), results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared  %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_Pearson, fixed_digits = 4), results$T_Pearson, results$df_Pearson))
   tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "MH", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_MH <- tmp[[3]]
   U_MH <- tmp[[4]]
   deltahat_MH <- tmp[[5]]
-  cat(sprintf("Wald (MH)            %6.4f   (Z = %5.3f)\n", P, Z))
+  cat(sprintf("Wald (MH)            %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z))
   tmp <- Wald_test_and_CI_common_ratio_stratified_2x2(n, "IV", alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_IV <- tmp[[3]]
   U_IV <- tmp[[4]]
   deltahat_IV <- tmp[[5]]
-  cat(sprintf("Wald (IV)            %6.4f   (Z = %5.3f)\n", P, Z))
+  cat(sprintf("Wald (IV)            %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z))
   cat("-------------------------------------------------\n")
   results <- ML_estimates_and_CIs_stratified_2x2(n, "log", alpha)
   cat(sprintf("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha)))
@@ -204,27 +204,27 @@ stratified_2x2_tables <- function(n, alpha = 0.05) {
   results <- Pearson_LR_test_common_effect_stratified_2x2(n, "logit")
   cat(sprintf("Test                     P-value  (test statistic)\n"))
   cat("-----------------------------------------------------\n")
-  cat(sprintf("Likelihood ratio         %6.4f   (T = %5.3f, df = %g)\n", results$P_LR, results$T_LR, results$df_LR))
-  cat(sprintf("Pearson chi-squared      %6.4f   (T = %5.3f, df = %g)\n", results$P_Pearson, results$T_Pearson, results$df_Pearson))
+  cat(sprintf("Likelihood ratio         %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_LR, fixed_digits = 4), results$T_LR, results$df_LR))
+  cat(sprintf("Pearson chi-squared      %6s   (T = %5.3f, df = %g)\n", format_pvalue(results$P_Pearson, fixed_digits = 4), results$T_Pearson, results$df_Pearson))
   tmp <- CochranMantelHaenszel_test_stratified_2x2(n)
   P <- tmp[[1]]
   T0 <- tmp[[3]]
   df <- tmp[[2]]
-  cat(sprintf("Cochran-Mantel-Haenszel  %6.4f   (T = %5.3f, df = %g)\n", P, T0, df))
+  cat(sprintf("Cochran-Mantel-Haenszel  %6s   (T = %5.3f, df = %g)\n", format_pvalue(P, fixed_digits = 4), T0, df))
   tmp <- RBG_test_and_CI_stratified_2x2(n, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_RBG <- tmp[[3]]
   U_RBG <- tmp[[4]]
   phihat_RBG <- tmp[[5]]
-  cat(sprintf("RBG                      %6.4f   (Z = %5.3f)\n", P, Z))
+  cat(sprintf("RBG                      %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z))
   tmp <- Woolf_test_and_CI_stratified_2x2(n, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L_Woolf <- tmp[[3]]
   U_Woolf <- tmp[[4]]
   phihat_Woolf <- tmp[[5]]
-  cat(sprintf("Woolf                    %6.4f   (Z = %5.3f)\n", P, Z))
+  cat(sprintf("Woolf                    %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z))
   cat("-----------------------------------------------------\n")
   results <- ML_estimates_and_CIs_stratified_2x2(n, "logit", alpha)
   cat(sprintf("Interval method     estimate         %i%% CI\n", 100 * (1 - alpha)))

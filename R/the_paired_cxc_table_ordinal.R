@@ -21,7 +21,7 @@ the_paired_cxc_table_ordinal <- function(n, a = seq_len(nrow(n)), alpha = 0.05) 
     P <- tmp[[1]]
     T0 <- tmp[[2]]
     df <- tmp[[3]]
-    cat_sprintf("Fleiss-Levin-Paik test              %6.3f (df=%g)  %9.6f\n", T0, df, P)
+    cat_sprintf("Fleiss-Levin-Paik test              %6.3f (df=%g)  %9s\n", T0, df, format_pvalue(P, fixed_digits = 6))
     cat_sprintf("------------------------------------------------------------\n")
   }
 
@@ -47,14 +47,14 @@ the_paired_cxc_table_ordinal <- function(n, a = seq_len(nrow(n)), alpha = 0.05) 
   Z <- tmp[[2]]
   L <- tmp[[3]]
   U <- tmp[[4]]
-  cat_sprintf("Wald CI and test for marginal mean scores  (%6.3f to %6.3f)  %6.4f  (Z = %5.3f)\n", L, U, P, Z)
+  cat_sprintf("Wald CI and test for marginal mean scores  (%6.3f to %6.3f)  %6s  (Z = %5.3f)\n", L, U, format_pvalue(P, fixed_digits = 4), Z)
 
   tmp <- Score_test_and_CI_marginal_mean_scores_paired_cxc(n, a, alpha)
   P <- tmp[[1]]
   Z <- tmp[[2]]
   L <- tmp[[3]]
   U <- tmp[[4]]
-  cat_sprintf("Score CI and test for marginal mean scores (%6.3f to %6.3f)  %6.4f  (Z = %5.3f)\n", L, U, P, Z)
+  cat_sprintf("Score CI and test for marginal mean scores (%6.3f to %6.3f)  %6s  (Z = %5.3f)\n", L, U, format_pvalue(P, fixed_digits = 4), Z)
   cat_sprintf("--------------------------------------------------------------------------------------\n")
 
 
