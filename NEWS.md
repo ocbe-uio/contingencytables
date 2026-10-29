@@ -2,7 +2,8 @@
 
 * Fix `McNemar_exact_unconditional_test_paired_2x2()` returning NA then `Tobs` is NA (#61)
 * Fix `linear_by_linear_test_rxc()` for non-square tables (#72)
-* Improve unit tests (#58)
+* Fix formatting of small p-values (#74)
+* Improve unit tests (#75)
 
 # contingencytables 3.1.1
 
