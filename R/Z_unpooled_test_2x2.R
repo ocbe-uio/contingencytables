@@ -31,7 +31,7 @@ Z_unpooled_test_2x2 <- function(n) {
     sqrt(n[1, 1] * n[1, 2] / n1p^3 + n[2, 1] * n[2, 2] / n2p^3)
 
   # The two-sided P-value (reference distribution: standard normal)
-  P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+  P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
   # Handle cases where the P-value is not computable
   if (is.na(P)) {

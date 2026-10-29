@@ -85,8 +85,8 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
   X2 <- sum(residuals^2)
   df_D <- (r - 1) * (c - 2)
   df_X2 <- (r - 1) * (c - 2)
-  P_D <- 1 - pchisq(D, df_D)
-  P_X2 <- 1 - pchisq(X2, df_X2)
+  P_D <- pchisq(D, df_D, lower.tail = FALSE)
+  P_X2 <- pchisq(X2, df_X2, lower.tail = FALSE)
 
   # Wald tests and Wald CIs for the betas
   betahat <- rep(0, r - 1)
@@ -103,7 +103,7 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
     se[i] <- stats.se[c - 1 + i]
     Z_Wald[i] <- betahat[i] / se[i]
     T_Wald[i] <- Z_Wald[i]^2
-    P_Wald[i] <- 2 * (1 - pnorm(abs(Z_Wald[i]), 0, 1))
+    P_Wald[i] <- 2 * pnorm(abs(Z_Wald[i]), 0, 1, lower.tail = FALSE)
     Wald_CI[i, ] <- c(betahat[i] - z * se[i], betahat[i] + z * se[i])
     Wald_CI_OR[i, ] <- exp(Wald_CI[i, ])
     Wald_CI_width[i] <- abs(Wald_CI[i, 2] - Wald_CI[i, 1])
@@ -118,7 +118,7 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
   L0 <- tmp$deviance
   T_LR <- L0 - L1
   df_LR <- r - 1
-  P_LR <- 1 - pchisq(T_LR, df_LR)
+  P_LR <- pchisq(T_LR, df_LR, lower.tail = FALSE)
 
 
   # Output arguments
@@ -183,5 +183,5 @@ Cumulative_models_for_rxc <- function(n, linkfunction = "logit", alpha = 0.05) {
     }
     cat_sprintf("--------------------------------------------------------------------------\n")
   }
-  return(contingencytables_result(statistics, print_function))
+  contingencytables_result(statistics, print_function)
 }

@@ -43,7 +43,7 @@ KruskalWallis_asymptotic_test_rxc <- function(n) {
   # The two-sided P-value (reference distribution: chi-squared with (r-1) degrees of freedom)
   T0 <- T0 * 12 / (N * (N + 1) * CorrectionTerm)
   df <- r - 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   printresults <- function() {
     for (i in 1:r) {

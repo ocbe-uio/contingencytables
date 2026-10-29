@@ -26,26 +26,26 @@ the_paired_2x2_table_tests <- function(n, gamma = 0.0001, num_pi_values = 1000L)
   tmp <- McNemar_asymptotic_test_paired_2x2(n)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  cat_sprintf("McNemar asymptotic               %6.4f   (Z = %5.3f)\n", P, Z)
+  cat_sprintf("McNemar asymptotic               %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z)
 
   tmp <- McNemar_asymptotic_test_CC_paired_2x2(n)
   P <- tmp[[1]]
   Z <- tmp[[2]]
-  cat_sprintf("McNemar asymptotic w/CC          %6.4f   (Z = %5.3f)\n", P, Z)
+  cat_sprintf("McNemar asymptotic w/CC          %6s   (Z = %5.3f)\n", format_pvalue(P, fixed_digits = 4), Z)
 
   P <- McNemar_exact_cond_test_paired_2x2(n)
-  cat_sprintf("McNemar exact conditional        %6.4f\n", P)
+  cat_sprintf("McNemar exact conditional        %6s\n", format_pvalue(P$Pvalue, fixed_digits = 4))
 
   P <- McNemar_midP_test_paired_2x2(n)
-  cat_sprintf("McNemar mid-P                    %6.4f\n", P)
+  cat_sprintf("McNemar mid-P                    %6s\n", format_pvalue(P$midP, fixed_digits = 4))
 
   if (gamma != 0) {
     P <- McNemar_exact_unconditional_test_paired_2x2(n, 0, num_pi_values)
-    cat_sprintf("McNemar exact unconditional      %6.4f\n", P$Pvalue)
+    cat_sprintf("McNemar exact unconditional      %6s\n", format_pvalue(P$Pvalue, fixed_digits = 4))
   }
 
   P <- McNemar_exact_unconditional_test_paired_2x2(n, gamma, num_pi_values)
-  cat_sprintf("McNemar exact unconditional*     %6.4f\n", P$Pvalue)
+  cat_sprintf("McNemar exact unconditional*     %6s\n", format_pvalue(P$Pvalue, fixed_digits = 4))
 
   cat("---------------------------------------------------------\n")
   cat_sprintf("*gamma = %-10.8g\n", gamma)

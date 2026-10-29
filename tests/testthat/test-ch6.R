@@ -29,7 +29,7 @@ test_that("Chapter 6 functions basically work", {
     object = print(
       Exact_cond_midP_linear_rank_tests_2xc(matrix(c(1, 200, 300, 0, 5, 6), 2))
     ),
-    "Exact cond. linear rank test: P = 0.00000"
+    "Exact cond. linear rank test: P = 3.27338e-124"
   )
   dir <- "decreasing"
   expect_output(

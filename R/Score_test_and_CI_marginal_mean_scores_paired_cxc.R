@@ -48,20 +48,18 @@ Score_test_and_CI_marginal_mean_scores_paired_cxc <- function(n, a = seq_len(nro
   U <- estimate + z * SE0
 
   # The two-sided P-value (reference distribution: standard normal)
-  P <- 2 * (1 - pnorm(abs(Z_score), 0, 1))
+  P <- 2 * pnorm(abs(Z_score), 0, 1, lower.tail = FALSE)
 
   printresults <- function() {
     cat_sprintf("The score test: P = %7.5f, Z = %6.3f\n", P, Z_score)
     cat_sprintf("The score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  return(
-    contingencytables_result(
-      list(
-        "Pvalue" = P, "Z" = Z_score, "lower" = L, "upper" = U,
-        "estimate" = estimate
-      ),
-      printresults
-    )
+  contingencytables_result(
+    list(
+      "Pvalue" = P, "Z" = Z_score, "lower" = L, "upper" = U,
+      "estimate" = estimate
+    ),
+    printresults
   )
 }

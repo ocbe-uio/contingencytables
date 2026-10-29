@@ -39,22 +39,22 @@ the_1xc_table_tests <- function(n, pi0, chacko.test = FALSE) {
 
     res <- Pearson_chi_squared_test_1xc(n, pi0)
     myprint(
-      "Pearson chi-squared    %6.4f   (T = %5.3f, df = %i)", res$P,
+      "Pearson chi-squared    %6s   (T = %5.3f, df = %i)", format_pvalue(res$P, fixed_digits = 4),
       res$T, res$df
     )
 
     res <- LR_test_1xc(n, pi0)
     myprint(
-      "Likelihood ratio       %6.4f   (T = %5.3f, df = %i)",
-      res$P, res$T, res$df
+      "Likelihood ratio       %6s   (T = %5.3f, df = %i)",
+      format_pvalue(res$P, fixed_digits = 4), res$T, res$df
     )
 
     if (N < 774) {
       res <- Exact_multinomial_test_1xc(n, pi0)
-      myprint("Exact multinomial      %6.4f\n", res)
+      myprint("Exact multinomial      %6s\n", format_pvalue(res$Pvalue, fixed_digits = 4))
 
       res <- MidP_multinomial_test_1xc(n, pi0)
-      myprint("Mid-P multinomial      %6.4f\n", res)
+      myprint("Mid-P multinomial      %6s\n", format_pvalue(res$Pvalue, fixed_digits = 4))
     }
 
     myprint("---------------------------------------------------")

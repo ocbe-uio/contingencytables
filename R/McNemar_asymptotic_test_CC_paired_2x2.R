@@ -29,7 +29,7 @@ McNemar_asymptotic_test_CC_paired_2x2 <- function(n) {
     Z <- (abs(n[1, 2] - n[2, 1]) - 1) / sqrt(nd)
 
     # Reference distribution: standard normal
-    P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+    P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
     res <- list("Pvalue" = P, "Z" = Z)
     printresults <- function() {

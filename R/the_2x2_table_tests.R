@@ -32,48 +32,48 @@ the_2x2_table_tests <- function(n, gamma = 0.0001) {
   P0 <- res$Pvalue
   T0 <- res$T
   df <- res$df
-  cat_sprintf("Pearson chi-squared                     %6.4f (T = %5.3f, df = %i)\n", P0, T0, df)
+  cat_sprintf("Pearson chi-squared                     %6s (T = %5.3f, df = %i)\n", format_pvalue(P0, fixed_digits = 4), T0, df)
 
   res <- Pearson_chi_squared_test_CC_2x2(n)
   P0 <- res$Pvalue
   T0 <- res$T
   df <- res$df
-  cat_sprintf("Pearson chi-squared w / CC              %6.4f (T = %5.3f, df = %i)\n", P0, T0, df)
+  cat_sprintf("Pearson chi-squared w / CC              %6s (T = %5.3f, df = %i)\n", format_pvalue(P0, fixed_digits = 4), T0, df)
 
   res <- LR_test_2x2(n)
   P0 <- res$Pvalue
   T0 <- res$T
   df <- res$df
-  cat_sprintf("Likelihood ratio                        %6.4f (T = %5.3f, df = %i)\n", P0, T0, df)
+  cat_sprintf("Likelihood ratio                        %6s (T = %5.3f, df = %i)\n", format_pvalue(P0, fixed_digits = 4), T0, df)
 
   res <- Z_unpooled_test_2x2(n)
   P0 <- res$Pvalue
   Z0 <- res$T
-  cat_sprintf("Z-unpooled                              %6.4f (Z = %5.3f)\n", P0, Z0)
+  cat_sprintf("Z-unpooled                              %6s (Z = %5.3f)\n", format_pvalue(P0, fixed_digits = 4), Z0)
 
   P0 <- Fisher_exact_test_2x2(n, "hypergeometric")$Pvalue
-  cat_sprintf("Fisher exact test (Fisher-Irwin)        %6.4f\n", P0)
+  cat_sprintf("Fisher exact test (Fisher-Irwin)        %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Fisher_exact_test_2x2(n, "Pearson")$Pvalue
-  cat_sprintf("Fisher exact test (Pearson)             %6.4f\n", P0)
+  cat_sprintf("Fisher exact test (Pearson)             %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Fisher_exact_test_2x2(n, "LR")$Pvalue
-  cat_sprintf("Fisher exact test (LR)                  %6.4f\n", P0)
+  cat_sprintf("Fisher exact test (LR)                  %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Fisher_midP_test_2x2(n, "hypergeometric")$Pvalue
-  cat_sprintf("Fisher mid-P test (Fisher-Irwin)        %6.4f\n", P0)
+  cat_sprintf("Fisher mid-P test (Fisher-Irwin)        %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Exact_unconditional_test_2x2(n, "Pearson", gamma)$Pvalue
-  cat_sprintf("Suissa-Shuster exact uncond.*           %6.4f\n", P0)
+  cat_sprintf("Suissa-Shuster exact uncond.*           %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Exact_unconditional_test_2x2(n, "LR", gamma)$Pvalue
-  cat_sprintf("Exact uncond. w / LR statistic*         %6.4f\n", P0)
+  cat_sprintf("Exact uncond. w / LR statistic*         %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Exact_unconditional_test_2x2(n, "unpooled", gamma)$Pvalue
-  cat_sprintf("Exact uncond. w / unpooled Z statistic* %6.4f\n", P0)
+  cat_sprintf("Exact uncond. w / unpooled Z statistic* %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   P0 <- Exact_unconditional_test_2x2(n, "Fisher", gamma)$Pvalue
-  cat_sprintf("Fisher-Boschloo exact uncond.*          %6.4f\n", P0)
+  cat_sprintf("Fisher-Boschloo exact uncond.*          %6s\n", format_pvalue(P0, fixed_digits = 4))
 
   cat("------------------------------------------------------------------\n")
   cat_sprintf(" * gamma = %-10.8g\n", gamma)

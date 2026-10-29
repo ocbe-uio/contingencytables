@@ -26,27 +26,27 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
-  cat_sprintf("Bhapkar test for marginal homogeneity      %6.3f (df=%g)  %9.6f\n", T0, df, P)
+  cat_sprintf("Bhapkar test for marginal homogeneity      %6.3f (df=%g)  %9s\n", T0, df, format_pvalue(P, fixed_digits = 6))
 
   tmp <- Stuart_test_paired_cxc(n)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
-  cat_sprintf("Stuart test for marginal homogeneity       %6.3f (df=%g)  %9.6f\n", T0, df, P)
+  cat_sprintf("Stuart test for marginal homogeneity       %6.3f (df=%g)  %9s\n", T0, df, format_pvalue(P, fixed_digits = 6))
 
   if (c == 3) {
     tmp <- FleissEveritt_test_paired_cxc(n)
     P <- tmp[[1]]
     T0 <- tmp[[2]]
     df <- tmp[[3]]
-    cat_sprintf("Fleiss-Everitt version of the Stuart test  %6.3f (df=%g)  %9.6f\n", T0, df, P)
+    cat_sprintf("Fleiss-Everitt version of the Stuart test  %6.3f (df=%g)  %9s\n", T0, df, format_pvalue(P, fixed_digits = 6))
   }
 
   tmp <- McNemarBowker_test_paired_cxc(n)
   P <- tmp[[1]]
   T0 <- tmp[[2]]
   df <- tmp[[3]]
-  cat_sprintf("McNemar-Bowker test for symmetry           %6.3f (df=%g)  %9.6f\n", T0, df, P)
+  cat_sprintf("McNemar-Bowker test for symmetry           %6.3f (df=%g)  %9s\n", T0, df, format_pvalue(P, fixed_digits = 6))
   cat_sprintf("-------------------------------------------------------------------\n")
 
 
@@ -66,9 +66,9 @@ the_paired_cxc_table_nominal <- function(n, alpha = 0.05) {
     n12 <- sum(n[i, ]) - n[i, i]
     n21 <- sum(n[, i]) - n[i, i]
     Z <- (n12 - n21) / sqrt(n12 + n21)
-    P <- 1 - pchisq(Z^2, c - 1)
+    P <- pchisq(Z^2, c - 1, lower.tail = FALSE)
 
-    cat_sprintf("pi_%g+ - pi_+%g: %8.4f  (%7.4f to %7.4f)   (%7.4f to %7.4f)    %6.4f\n", i, i, deltahat[i], Scheffe_L[i], Scheffe_U[i], Bonferroni_L[i], Bonferroni_U[i], P)
+    cat_sprintf("pi_%g+ - pi_+%g: %8.4f  (%7.4f to %7.4f)   (%7.4f to %7.4f)    %6s\n", i, i, deltahat[i], Scheffe_L[i], Scheffe_U[i], Bonferroni_L[i], Bonferroni_U[i], format_pvalue(P, fixed_digits = 4))
   }
   cat_sprintf("-------------------------------------------------------------------------------\n")
   cat_sprintf("*Adjusted McNemar asymptotic test with c - 1 = %g degrees of freedom\n\n", c - 1)

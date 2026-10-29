@@ -35,7 +35,7 @@ test_that("Chapter 10 functions basically work", {
   )
   expect_output(
     object = print(Pearson_LR_test_common_effect_stratified_2x2(doll_hill_1950)),
-    regexp = "Pearson chi-squared test: P = 0.00000, T0 = 25.101 \\(df = 1\\)"
+    regexp = "Pearson chi-squared test: P = 5.44049e-07, T0 = 25.101 \\(df = 1\\)"
   )
   expect_output(
     object = print(Peto_homogeneity_test_stratified_2x2(doll_hill_1950)),

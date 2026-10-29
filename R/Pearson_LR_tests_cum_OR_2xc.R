@@ -66,9 +66,9 @@ Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing") {
   P_Pearson <- 0
   P_LR <- 0
   for (i in 1:c) {
-    prob_Pearson <- 1 - pchisq(T_Pearson, i - 1)
+    prob_Pearson <- pchisq(T_Pearson, i - 1, lower.tail = FALSE)
     P_Pearson <- P_Pearson + rho[i] * prob_Pearson
-    prob_LR <- 1 - pchisq(T_LR, i - 1)
+    prob_LR <- pchisq(T_LR, i - 1, lower.tail = FALSE)
     P_LR <- P_LR + rho[i] * prob_LR
   }
 
@@ -84,7 +84,7 @@ Pearson_LR_tests_cum_OR_2xc <- function(n, direction = "decreasing") {
     cat_sprintf("Likelihood ratio test:    T = %6.3f,  P = %7.5f", T_LR, P_LR)
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }
 
 # ========================

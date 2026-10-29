@@ -29,7 +29,7 @@ linear_by_linear_test_rxc <- function(n, a = seq_len(nrow(n)), b = seq_len(ncol(
 
   # The linear-by-linear test statistic
   Z <- sqrt(N - 1) * r
-  P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+  P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
   return(
     contingencytables_result(

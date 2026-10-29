@@ -35,15 +35,13 @@ MantelHaenszel_test_2xc <- function(n, b = 0) {
   # The two-sided P-value (reference distribution: chi-squared with one degree
   # of freedom)
   df <- 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "T" = T0, "df" = df),
-      sprintf(
-        "Mantel-Haenszel test of association: P = %6.4f, T = %5.3f (df=%g)",
-        P, T0, df
-      )
+  contingencytables_result(
+    list("Pvalue" = P, "T" = T0, "df" = df),
+    sprintf(
+      "Mantel-Haenszel test of association: P = %6.4f, T = %5.3f (df=%g)",
+      P, T0, df
     )
   )
 }

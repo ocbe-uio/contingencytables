@@ -34,7 +34,7 @@ Score_test_CC_1x2 <- function(X, n, pi0) {
   Z <- (abs(estimate - pi0) - 1 / (2 * n)) / SE
 
   # The two-sided P-value (reference distribution: standard normal)
-  P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+  P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
   return(
     contingencytables_result(

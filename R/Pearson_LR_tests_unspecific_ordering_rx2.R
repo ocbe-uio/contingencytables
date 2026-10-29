@@ -62,9 +62,9 @@ Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction) {
   P_Pearson <- 0
   P_LR <- 0
   for (i in 1:r) {
-    prob_Pearson <- 1 - pchisq(T_Pearson, i - 1)
+    prob_Pearson <- pchisq(T_Pearson, i - 1, lower.tail = FALSE)
     P_Pearson <- P_Pearson + rho[i] * prob_Pearson
-    prob_LR <- 1 - pchisq(T_LR, i - 1)
+    prob_LR <- pchisq(T_LR, i - 1, lower.tail = FALSE)
     P_LR <- P_LR + rho[i] * prob_LR
   }
 

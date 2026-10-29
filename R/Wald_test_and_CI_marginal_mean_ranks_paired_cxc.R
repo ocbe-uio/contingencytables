@@ -64,7 +64,7 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05) {
   )
   CI_tau <- c(tauhat - z * SE_tau, tauhat + z * SE_tau)
   Z_Wald <- tauhat / SE_tau
-  P <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
+  P <- 2 * pnorm(abs(Z_Wald), 0, 1, lower.tail = FALSE)
 
   # Inference for alpha
   SE_alpha <- SE_tau / 2
@@ -81,7 +81,7 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05) {
   CI_alpha_logit <- c(exp(l) / (1 + exp(l)), exp(u) / (1 + exp(u)))
   Z_Wald_logit <- (alphahat * (1 - alphahat) * log(alphahat / (1 - alphahat))) /
     SE_alpha
-  P_logit <- 2 * (1 - pnorm(abs(Z_Wald_logit), 0, 1))
+  P_logit <- 2 * pnorm(abs(Z_Wald_logit), 0, 1, lower.tail = FALSE)
 
   # Inference for tau on the logit scale
   CI_tau_logit <- c(2 * CI_alpha_logit[1] - 1, 2 * CI_alpha_logit[2] - 1)
@@ -132,5 +132,5 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05) {
     )
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }

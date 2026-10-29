@@ -36,7 +36,7 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
   Z <- log(thetahatMH) / SElog
 
   # The two-sided P-value (reference distribution: standard normal)
-  P <- 2 * (1 - pnorm(abs(Z), 0, 1))
+  P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
   # The upper alpha / 2 percentile of the standard normal distribution
   z_alpha <- qnorm(1 - alpha / 2, 0, 1)
@@ -50,13 +50,11 @@ RBG_test_and_CI_stratified_2x2 <- function(n, alpha = 0.05) {
     cat_sprintf("The RBG CI: thetahatMH = %6.4f (%g%% CI %6.4f to %6.4f)", thetahatMH, 100 * (1 - alpha), L, U)
   }
 
-  return(
-    contingencytables_result(
-      list(
-        "Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U,
-        "thetahatMH" = thetahatMH, "SElog" = SElog
-      ),
-      printresults
-    )
+  contingencytables_result(
+    list(
+      "Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U,
+      "thetahatMH" = thetahatMH, "SElog" = SElog
+    ),
+    printresults
   )
 }

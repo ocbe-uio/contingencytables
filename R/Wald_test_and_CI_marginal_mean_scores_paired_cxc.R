@@ -52,7 +52,7 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
   U <- estimate + z * SE
 
   # The two-sided P-value (reference distribution: standard normal)
-  P <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
+  P <- 2 * pnorm(abs(Z_Wald), 0, 1, lower.tail = FALSE)
 
   printresults <- function() {
     cat(sprintf("The Wald test: P = %7.5f, Z = %6.3f\n", P, Z_Wald))
@@ -64,10 +64,8 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
     )
   }
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Z" = Z_Wald, "lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Z" = Z_Wald, "lower" = L, "upper" = U, "estimate" = estimate),
+    printresults
   )
 }

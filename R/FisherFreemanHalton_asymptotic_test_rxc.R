@@ -29,7 +29,7 @@ FisherFreemanHalton_asymptotic_test_rxc <- function(n) {
   # (r-1)(c-1) degrees of freedom
   T0 <- -2 * log(gamma * f)
   df <- (r - 1) * (c - 1)
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   return(
     contingencytables_result(

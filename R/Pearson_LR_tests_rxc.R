@@ -59,8 +59,8 @@ Pearson_LR_tests_rxc <- function(n) {
   # The two-sided P-values (reference distribution: chi-squared with
   # (r-1)(c-1) degrees of freedom)
   df <- (r - 1) * (c0 - 1)
-  P_Pearson <- 1 - pchisq(T_Pearson, df)
-  P_LR <- 1 - pchisq(T_LR, df)
+  P_Pearson <- pchisq(T_Pearson, df, lower.tail = FALSE)
+  P_LR <- pchisq(T_LR, df, lower.tail = FALSE)
 
   # Output arguments (observed statistics, degrees of freedom, and P-values)
   results <- list()

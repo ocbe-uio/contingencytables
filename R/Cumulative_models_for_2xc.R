@@ -72,15 +72,15 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   X2 <- sum(r^2)
   df_D <- c0 - 2
   df_X2 <- c0 - 2
-  P_D <- 1 - pchisq(D, df_D)
-  P_X2 <- 1 - pchisq(X2, df_X2)
+  P_D <- pchisq(D, df_D, lower.tail = FALSE)
+  P_X2 <- pchisq(X2, df_X2, lower.tail = FALSE)
 
   #  Wald test for beta
   betahat <- -beta[length(beta)]
   se <- summary(tmp)$coef[1, 2]
   Z_Wald <- betahat / se
   T_Wald <- Z_Wald^2
-  P_Wald <- 2 * (1 - pnorm(abs(Z_Wald), 0, 1))
+  P_Wald <- 2 * pnorm(abs(Z_Wald), 0, 1, lower.tail = FALSE)
 
   #  Wald confidence interval for beta
   z <- qnorm(1 - alpha / 2, 0, 1)
@@ -97,7 +97,7 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
   L0 <- tmp$deviance
   T_LR <- L0 - L1
   df_LR <- 1
-  P_LR <- 1 - pchisq(T_LR, df_LR)
+  P_LR <- pchisq(T_LR, df_LR, lower.tail = FALSE)
 
   #  Calculate the midranks
   midranks <- rep(0, c0)
@@ -115,7 +115,7 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     tieadj <- (nip[1] * nip[2] * sum(npj^3 - npj)) / (12 * N * (N - 1))
     Var_W <- Var_W - tieadj
     Z_MW <- (W - Exp_W) / sqrt(Var_W)
-    P_MW <- 2 * (1 - pnorm(abs(Z_MW), 0, 1))
+    P_MW <- 2 * pnorm(abs(Z_MW), 0, 1, lower.tail = FALSE)
   }
 
   #  Output arguments
@@ -184,5 +184,5 @@ Cumulative_models_for_2xc <- function(n, linkfunction = "logit", alpha = 0.05) {
     }
     cat_sprintf("----------------------------------------------------\n")
   }
-  return(contingencytables_result(statistics, print_fun))
+  contingencytables_result(statistics, print_fun)
 }

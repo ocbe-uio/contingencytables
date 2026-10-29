@@ -63,7 +63,7 @@ Stuart_test_paired_cxc <- function(n) {
 
   # Reference distribution: chi-squared with c-1 degrees of freedom
   df <- c - 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   printresults <- function() {
     cat_sprintf("The Stuart test for marginal homogenity: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)

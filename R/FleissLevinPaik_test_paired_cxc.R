@@ -40,7 +40,7 @@ FleissLevinPaik_test_paired_cxc <- function(n) {
 
   # Reference distribution: chi-squared with 1 degree of freedom
   df <- 1
-  P <- 1 - pchisq(T0, df)
+  P <- pchisq(T0, df, lower.tail = FALSE)
 
   return(
     contingencytables_result(
