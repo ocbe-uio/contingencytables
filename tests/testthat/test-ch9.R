@@ -96,7 +96,7 @@ test_that("Chapter 9 functions basically work", {
   )
   expect_output(
     object = print(the_paired_cxc_table_ordinal(table_7.6)),
-    regexp = "Fleiss-Levin-Paik test              30.387 \\(df=1\\)   0.000000"
+    regexp = "Fleiss-Levin-Paik test              30.387 \\(df=1\\)  3.53854e-08"
   )
 
 })
