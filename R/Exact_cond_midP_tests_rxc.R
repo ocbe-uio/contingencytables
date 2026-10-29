@@ -71,17 +71,23 @@ Exact_cond_midP_tests_rxc <- function(n) {
     T_lbl <- T_lbl^2
     T_JT <- (T_JT - E_JT)^2
 
-    P_FFH <- P_FFH + ifelse(f <= Tobs_FFH, 1, 0) * f
-    midP_FFH <- midP_FFH + ifelse(f < Tobs_FFH, 1, 0) * f + 0.5 * ifelse(f == Tobs_FFH, 1, 0) * f
+    # Treat values within relative 1e-7 as ties to absorb rounding differences;
+    # tied probability mass counts fully toward P and halfway toward mid-P.
+    tie_FFH <- abs(f - Tobs_FFH) <= 1e-7 * Tobs_FFH
+    P_FFH <- P_FFH + ifelse(f < Tobs_FFH | tie_FFH, 1, 0) * f
+    midP_FFH <- midP_FFH + ifelse(f < Tobs_FFH & !tie_FFH, 1, 0) * f + 0.5 * ifelse(tie_FFH, 1, 0) * f
 
-    P_Pearson <- P_Pearson + ifelse(T_Pearson >= Tobs_Pearson, 1, 0) * f
-    midP_Pearson <- midP_Pearson + ifelse(T_Pearson > Tobs_Pearson, 1, 0) * f + 0.5 * ifelse(T_Pearson == Tobs_Pearson, 1, 0) * f
+    tie_Pearson <- abs(T_Pearson - Tobs_Pearson) <= 1e-7 * Tobs_Pearson
+    P_Pearson <- P_Pearson + ifelse(T_Pearson > Tobs_Pearson | tie_Pearson, 1, 0) * f
+    midP_Pearson <- midP_Pearson + ifelse(T_Pearson > Tobs_Pearson & !tie_Pearson, 1, 0) * f + 0.5 * ifelse(tie_Pearson, 1, 0) * f
 
-    P_LR <- P_LR + ifelse(T_LR >= Tobs_LR, 1, 0) * f
-    midP_LR <- midP_LR + ifelse(T_LR > Tobs_LR, 1, 0) * f + 0.5 * ifelse(T_LR == Tobs_LR, 1, 0) * f
+    tie_LR <- abs(T_LR - Tobs_LR) <= 1e-7 * Tobs_LR
+    P_LR <- P_LR + ifelse(T_LR > Tobs_LR | tie_LR, 1, 0) * f
+    midP_LR <- midP_LR + ifelse(T_LR > Tobs_LR & !tie_LR, 1, 0) * f + 0.5 * ifelse(tie_LR, 1, 0) * f
 
-    P_KW <- P_KW + ifelse(T_KW >= Tobs_KW, 1, 0) * f
-    midP_KW <- midP_KW + ifelse(T_KW > Tobs_KW, 1, 0) * f + 0.5 * ifelse(T_KW == Tobs_KW, 1, 0) * f
+    tie_KW <- abs(T_KW - Tobs_KW) <= 1e-7 * Tobs_KW
+    P_KW <- P_KW + ifelse(T_KW > Tobs_KW | tie_KW, 1, 0) * f
+    midP_KW <- midP_KW + ifelse(T_KW > Tobs_KW & !tie_KW, 1, 0) * f + 0.5 * ifelse(tie_KW, 1, 0) * f
 
     # Mirror tables have equal T_linear up to rounding, also when T_linear is 0
     tie_lbl <- abs(T_lbl - Tobs_lbl) <= 1e-7 * Tobs_lbl + 1e-12
