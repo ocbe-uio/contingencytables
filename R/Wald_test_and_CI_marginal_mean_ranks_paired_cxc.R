@@ -132,5 +132,5 @@ Wald_test_and_CI_marginal_mean_ranks_paired_cxc <- function(n, alpha = 0.05) {
     )
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }

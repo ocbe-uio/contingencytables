@@ -49,10 +49,8 @@ Cochran_Q_test_stratified_2x2 <- function(
       estimatetype, P, Q, df
     )
   }
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Q" = Q, "df" = df),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Q" = Q, "df" = df),
+    printresults
   )
 }

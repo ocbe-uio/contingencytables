@@ -114,5 +114,5 @@ Trend_estimate_CI_tests_rx2 <- function(
     )
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }

@@ -82,5 +82,5 @@ Pearson_LR_homogeneity_test_stratified_2x2 <- function(n, link = "logit") {
     cat_sprintf("The Pearson chi-squared test: P = %7.5f, T0 = %5.3f (df = %i)", P_Pearson, T_Pearson, df)
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }

@@ -64,10 +64,8 @@ Wald_test_and_CI_marginal_mean_scores_paired_cxc <- function(
     )
   }
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Z" = Z_Wald, "lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Z" = Z_Wald, "lower" = L, "upper" = U, "estimate" = estimate),
+    printresults
   )
 }
