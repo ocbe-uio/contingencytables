@@ -4,6 +4,7 @@
 * Fix `linear_by_linear_test_rxc()` for non-square tables (#72)
 * Fix formatting of small p-values (#74)
 * Improve unit tests (#75)
+* Fix output of `the_rxc_table()` for `Exact_cond_midP_tests_rxc()`
 
 # contingencytables 3.1.1
 
