@@ -7,7 +7,7 @@ test_that("very small p-values are displayed without rounding to zero", {
   expect_gt(result_7_8$Pvalue, 0)
   expect_match(output_7_8, "e-14")
   expect_false(grepl("P = 0.000000", output_7_8, fixed = TRUE))
-  expect_match(sprintf("P = %7.5f", 3.68594e-14), "e-14")
+  expect_match(contingencytables:::sprintf("P = %7.5f", 3.68594e-14), "e-14")
   expect_identical(sprintf("P = %7.5f", 0.000123456), "P = 0.00012")
 })
 
