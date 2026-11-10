@@ -10,14 +10,18 @@
 #'   McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
 #'   McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
 #' }
+#' mx <- matrix(c(12, 9, 0, 1), 2)
+#' mcn <- McNemar_exact_unconditional_test_paired_2x2(mx)
+#' mcn
+#' plot(mcn)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
 #' The number may be changed. This method could be
 #' improved with a better algorithm for the maximization; however, it works
-#' well for most purposes. Try \code{showplot=1} to get an indication of
-#' the precision. A refinement of the maximization can be done with a manual
-#' restriction of the parameter space.
+#' well for most purposes. Try wrapping the code in `plot()` to get an
+#' indication of the precision (see example). A refinement of the maximization
+#' can be done with a manual restriction of the parameter space.
 #' @importFrom graphics segments
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
