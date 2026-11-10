@@ -26,14 +26,6 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   validateArguments(mget(ls()))
   N <- sum(n)
 
-  # Calculate and store the trinomial coefficients needed
-  trinomcoeffs <- matrix(0, N + 1, N + 1)
-  for (x12 in 0:N) {
-    for (x21 in 0:(N - x12)) {
-      trinomcoeffs[x12 + 1, x21 + 1] <- factorial(N) / (factorial(x12) * factorial(x21) * factorial(N - x12 - x21))
-    }
-  }
-
   # Find the tables that agree equally or less with H0 as the observed
   tables <- matrix(0, N + 1, N + 1)
   Tobs <- test_statistic.2(n[1, 2], n[2, 1])
@@ -45,6 +37,12 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
       }
     }
   }
+
+  # Conditional probabilities of the selected tables for each discordant total
+  conditional_Pvalues <- vapply(0:N, function(total) {
+    x12 <- 0:total
+    sum(tables[cbind(x12 + 1, total - x12 + 1)] * dbinom(x12, total, 0.5))
+  }, numeric(1))
 
   # A simple partition the nuisance parameter space
   if (gamma == 0) {
@@ -61,7 +59,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   # Calculate the P-value corresponding to each value of the nuisance parameter
   Pvalues <- rep(0, length(pivalues))
   for (i in seq_along(pivalues)) {
-    Pvalues[i] <- calculate_Pvalue.2(pivalues[i], tables, trinomcoeffs, N)
+    Pvalues[i] <- sum(dbinom(0:N, N, pivalues[i]) * conditional_Pvalues)
   }
 
   # Let the exact unconditional P-value equal the maximum of the P-values
@@ -84,20 +82,6 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   )
 }
 
-
-
-# ==================================================================
-calculate_Pvalue.2 <- function(pivalue, tables, trinomcoeffs, N) {
-  Pvalue <- 0
-  for (x12 in 0:N) {
-    for (x21 in 0:(N - x12)) {
-      if (tables[x12 + 1, x21 + 1] == 1) {
-        Pvalue <- Pvalue + trinomcoeffs[x12 + 1, x21 + 1] * ((pivalue / 2)^(x12 + x21)) * ((1 - pivalue)^(N - x12 - x21))
-      }
-    }
-  }
-  return(Pvalue)
-}
 
 
 # ===================================

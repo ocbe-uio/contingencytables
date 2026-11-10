@@ -1,5 +1,6 @@
 # contingencytables (development version)
 
+* Fix numerical overflow in `McNemar_exact_unconditional_test_paired_2x2()` for large tables (#81)
 * Fix `McNemar_exact_unconditional_test_paired_2x2()` returning NA then `Tobs` is NA (#61)
 * Fix ties missed by `Exact_cond_midP_tests_rxc()` (#71)
 * Fix `linear_by_linear_test_rxc()` for non-square tables (#72)
