@@ -2,27 +2,35 @@
 #' @description The McNemar exact unconditional test
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
-#' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
-#' @param num_pi_values number of values to use in the partition of the nuisance parameter space (default=1000)
+#' @param gamma parameter for the Berger and Boos procedure
+#'   (default = 0.0001; gamma = 0 means no adj)
+#' @param num_pi_values number of values to use in the partition of the
+#'   nuisance parameter space (default = 1000)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 #' \dontrun{
 #'   McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)
 #'   McNemar_exact_unconditional_test_paired_2x2(ezra_2010)
 #' }
+#' mx <- matrix(c(12, 9, 0, 1), 2)
+#' mcn <- McNemar_exact_unconditional_test_paired_2x2(mx)
+#' mcn
+#' plot(mcn)
 #' @export
 #' @note Somewhat crude code with maximization over a simple partition of the
 #' nuisance parameter space into 'num_pi_values' equally spaced values
 #' The number may be changed. This method could be
 #' improved with a better algorithm for the maximization; however, it works
-#' well for most purposes. Try \code{showplot=1} to get an indication of
-#' the precision. A refinement of the maximization can be done with a manual
-#' restriction of the parameter space.
+#' well for most purposes. Try wrapping the code in `plot()` to get an
+#' indication of the precision (see example). A refinement of the maximization
+#' can be done with a manual restriction of the parameter space.
 #' @importFrom graphics segments
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
-McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_pi_values = 1000L) {
+McNemar_exact_unconditional_test_paired_2x2 <- function(
+  n, gamma = 0.0001, num_pi_values = 1000L
+) {
   validateArguments(mget(ls()))
   N <- sum(n)
 
@@ -30,7 +38,10 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   log_trinomcoeffs <- matrix(0, N + 1, N + 1)
   for (x12 in 0:N) {
     for (x21 in 0:(N - x12)) {
-      log_trinomcoeffs[x12 + 1, x21 + 1] <- lgamma(N + 1) - lgamma(x12 + 1) - lgamma(x21 + 1) - lgamma(N - x12 - x21 + 1)
+      log_trinomcoeffs[x12 + 1, x21 + 1] <-
+        lgamma(N + 1) - # total
+        lgamma(x12 + 1) - lgamma(x21 + 1) - # discordants
+        lgamma(N - x12 - x21 + 1) # concordants
     }
   }
 
