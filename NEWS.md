@@ -6,6 +6,7 @@
 * Fix formatting of small p-values (#74)
 * Improve unit tests (#75)
 * Fix output of `the_rxc_table()` for `Exact_cond_midP_tests_rxc()`
+* Fix `McNemar_exact_unconditional_test_paired_2x2()` returning NaN on matrices with large values (#81)
 
 # contingencytables 3.1.1
 
