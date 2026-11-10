@@ -26,11 +26,11 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   validateArguments(mget(ls()))
   N <- sum(n)
 
-  # Calculate and store the trinomial coefficients needed
-  trinomcoeffs <- matrix(0, N + 1, N + 1)
+  # Calculate and store the logarithms of the trinomial coefficients needed
+  log_trinomcoeffs <- matrix(0, N + 1, N + 1)
   for (x12 in 0:N) {
     for (x21 in 0:(N - x12)) {
-      trinomcoeffs[x12 + 1, x21 + 1] <- factorial(N) / (factorial(x12) * factorial(x21) * factorial(N - x12 - x21))
+      log_trinomcoeffs[x12 + 1, x21 + 1] <- lgamma(N + 1) - lgamma(x12 + 1) - lgamma(x21 + 1) - lgamma(N - x12 - x21 + 1)
     }
   }
 
@@ -61,7 +61,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   # Calculate the P-value corresponding to each value of the nuisance parameter
   Pvalues <- rep(0, length(pivalues))
   for (i in seq_along(pivalues)) {
-    Pvalues[i] <- calculate_Pvalue.2(pivalues[i], tables, trinomcoeffs, N)
+    Pvalues[i] <- calculate_Pvalue.2(pivalues[i], tables, log_trinomcoeffs, N)
   }
 
   # Let the exact unconditional P-value equal the maximum of the P-values
@@ -87,12 +87,23 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
 
 
 # ==================================================================
-calculate_Pvalue.2 <- function(pivalue, tables, trinomcoeffs, N) {
+calculate_Pvalue.2 <- function(pivalue, tables, log_trinomcoeffs, N) {
   Pvalue <- 0
+  log_discordant <- log(pivalue / 2)
+  log_concordant <- log1p(-pivalue)
   for (x12 in 0:N) {
     for (x21 in 0:(N - x12)) {
       if (tables[x12 + 1, x21 + 1] == 1) {
-        Pvalue <- Pvalue + trinomcoeffs[x12 + 1, x21 + 1] * ((pivalue / 2)^(x12 + x21)) * ((1 - pivalue)^(N - x12 - x21))
+        discordant <- x12 + x21 # off-diagonal
+        concordant <- N - discordant # diagonal
+        log_probability <- log_trinomcoeffs[x12 + 1, x21 + 1]
+        if (discordant > 0) {
+          log_probability <- log_probability + discordant * log_discordant
+        }
+        if (concordant > 0) {
+          log_probability <- log_probability + concordant * log_concordant
+        }
+        Pvalue <- Pvalue + exp(log_probability)
       }
     }
   }
