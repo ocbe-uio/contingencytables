@@ -2,8 +2,10 @@
 #' @description The McNemar exact unconditional test
 #' @description Described in Chapter 8 "The Paired 2x2 Table"
 #' @param n the observed table (a 2x2 matrix)
-#' @param gamma parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)
-#' @param num_pi_values number of values to use in the partition of the nuisance parameter space (default=1000)
+#' @param gamma parameter for the Berger and Boos procedure
+#'   (default = 0.0001; gamma = 0 means no adj)
+#' @param num_pi_values number of values to use in the partition of the
+#'   nuisance parameter space (default = 1000)
 #' @examples
 #' McNemar_exact_unconditional_test_paired_2x2(bentur_2009)
 #' \dontrun{
@@ -26,7 +28,9 @@
 #' @return An object of the [contingencytables_result] class,
 #' basically a subclass of [base::list()]. Use the [utils::str()] function
 #' to see the specific elements returned.
-McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_pi_values = 1000L) {
+McNemar_exact_unconditional_test_paired_2x2 <- function(
+  n, gamma = 0.0001, num_pi_values = 1000L
+) {
   validateArguments(mget(ls()))
   N <- sum(n)
 
@@ -34,7 +38,10 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   log_trinomcoeffs <- matrix(0, N + 1, N + 1)
   for (x12 in 0:N) {
     for (x21 in 0:(N - x12)) {
-      log_trinomcoeffs[x12 + 1, x21 + 1] <- lgamma(N + 1) - lgamma(x12 + 1) - lgamma(x21 + 1) - lgamma(N - x12 - x21 + 1)
+      log_trinomcoeffs[x12 + 1, x21 + 1] <-
+        lgamma(N + 1) - # total
+        lgamma(x12 + 1) - lgamma(x21 + 1) - # discordants
+        lgamma(N - x12 - x21 + 1) # concordants
     }
   }
 
