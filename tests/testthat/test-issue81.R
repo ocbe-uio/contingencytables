@@ -45,3 +45,16 @@ test_that("exact unconditional McNemar probabilities match trinomial enumeration
   expect_equal(result$Pvalues, expected)
   expect_equal(result$Pvalue, max(expected))
 })
+
+test_that("large tables produce finite probabilities", {
+  tab <- matrix(c(674, 5, 7, 14), 2)
+  result <- McNemar_exact_unconditional_test_paired_2x2(
+    tab, gamma = 0, num_pi_values = 3
+  )
+
+  expect_equal(
+    result$Pvalues,
+    c(0, 0.569552958899, 2 * pbinom(342, 700, 0.5)),
+    tolerance = 1e-8
+  )
+})
