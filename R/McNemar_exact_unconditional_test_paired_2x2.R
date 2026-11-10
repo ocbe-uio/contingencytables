@@ -30,7 +30,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(n, gamma = 0.0001, num_p
   trinomcoeffs <- matrix(0, N + 1, N + 1)
   for (x12 in 0:N) {
     for (x21 in 0:(N - x12)) {
-      trinomcoeffs[x12 + 1, x21 + 1] <- factorial(N) / (factorial(x12) * factorial(x21) * factorial(N - x12 - x21))
+      trinomcoeffs[x12 + 1, x21 + 1] <- exp(lgamma(N + 1) - lgamma(x12 + 1) - lgamma(x21 + 1) - lgamma(N - x12 - x21 + 1))
     }
   }
 
