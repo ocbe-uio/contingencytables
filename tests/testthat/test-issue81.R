@@ -1,5 +1,28 @@
 context("Issue 81")
 
+test_that("exact unconditional McNemar test matches Chapter 8 examples", {
+  expect_equal(
+    McNemar_exact_unconditional_test_paired_2x2(bentur_2009)$Pvalue,
+    0.0354160,
+    tolerance = 1e-6
+  )
+  expect_equal(
+    McNemar_exact_unconditional_test_paired_2x2(bentur_2009, gamma = 0)$Pvalue,
+    0.0353160,
+    tolerance = 1e-6
+  )
+  expect_equal(
+    McNemar_exact_unconditional_test_paired_2x2(cavo_2012)$Pvalue,
+    0.0340532,
+    tolerance = 1e-6
+  )
+  expect_equal(
+    McNemar_exact_unconditional_test_paired_2x2(cavo_2012, gamma = 0)$Pvalue,
+    0.0342039,
+    tolerance = 1e-6
+  )
+})
+
 test_that("exact unconditional McNemar test handles large tables", {
   tab <- matrix(c(155, 5, 7, 14), 2)
   result <- McNemar_exact_unconditional_test_paired_2x2(tab)
