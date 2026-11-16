@@ -1,9 +1,8 @@
 context("Chapter 7")
 
 test_that("gamma bootstrap reports insufficient samples", {
-  set.seed(123)
   expect_error(
-    gamma_coefficient_rxc_bca(floor(table_7.7 / 10), nboot = 1),
+    gamma_coefficient_rxc_bca(matrix(c(0, 0, 0, 2), 2), nboot = 2),
     "Insufficient samples. Increase nboot.",
     fixed = TRUE
   )
