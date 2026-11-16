@@ -34,12 +34,10 @@ gamma_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  return(
-    contingencytables_result(
-      list("gamma" = gamma, "lower" = L, "upper" = U),
-      sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)",
-        gamma, 100 * (1 - alpha), L, U
-      )
+  contingencytables_result(
+    list("gamma" = gamma, "lower" = L, "upper" = U),
+    sprintf("The gamma coefficient w / BCa bootstrap CI: gamma = %7.4f (%g%% CI %7.4f to %7.4f)",
+      gamma, 100 * (1 - alpha), L, U
     )
   )
 }
@@ -52,5 +50,5 @@ f.gcrb <- function(dat, d) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
   res <- gamma_coefficient_rxc(n)
-  return(res$gamma)
+  res$gamma
 }

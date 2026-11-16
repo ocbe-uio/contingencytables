@@ -57,11 +57,8 @@ BaptistaPike_exact_conditional_CI_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate), printresults
   )
 }
 
@@ -75,8 +72,7 @@ calculate_limit <- function(theta0, n11, np1, n1p, n2p, alpha) {
       f <- f + P
     }
   }
-  f <- f - alpha
-  return(f)
+  f - alpha
 }
 
 # ======================================
@@ -86,6 +82,5 @@ noncentralhyge <- function(x11, theta0, n1p, n2p, np1) {
   for (i in max(c(0, np1 - n2p)):min(c(n1p, np1))) {
     denominator <- denominator + choose(n1p, i) * choose(n2p, np1 - i) * (theta0^i)
   }
-  f <- numerator / denominator
-  return(f)
+  numerator / denominator
 }

@@ -49,11 +49,9 @@ Blaker_midP_CI_1x2 <- function(X, n, alpha = 0.05) {
       estimate, 100 * (1 - alpha), L, U
     )
   }
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate), printresults
   )
 }
 
@@ -71,6 +69,5 @@ calculate_limit_Blaker2 <- function(pi0, X, n, alpha) {
       T0 <- T0 + dbinom(k, n, pi0)
     }
   }
-  f <- T0 - alpha
-  return(f)
+  T0 - alpha
 }

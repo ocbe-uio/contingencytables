@@ -62,11 +62,8 @@ Chacko_test_1xc <- function(n) {
   printresults <- function() {
     cat_sprintf("The Chacko test: P = %7.6f, T = %5.3f (df = %g)", P, T0, df)
   }
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "T" = T0, "df" = df),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "T" = T0, "df" = df), printresults
   )
 
 }
