@@ -46,10 +46,7 @@ CochranArmitage_CI_rx2 <- function(n, a = seq_len(nrow(n)), alpha = 0.05) {
       betahat, 100 * (1 - alpha), L, U
     )
   }
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = betahat),
-      printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = betahat), printresults
   )
 }

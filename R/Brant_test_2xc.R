@@ -92,10 +92,7 @@ Brant_test_2xc <- function(n) {
       "Brant test: P = %7.6f, T = %5.3f (df = %g)", P0, T0, df
     )
   }
-  return(
-    contingencytables_result(
-      list("Pvalue" = P0, "T" = T0, "df" = df),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P0, "T" = T0, "df" = df), printresults
   )
 }

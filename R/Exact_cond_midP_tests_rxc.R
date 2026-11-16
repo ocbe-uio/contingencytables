@@ -127,7 +127,7 @@ Exact_cond_midP_tests_rxc <- function(n) {
     cat_sprintf("Exact Jonckheere-Terpstra:   P = %9.7f\n", P_JT)
     cat_sprintf("Mid-P Jonckheere-Terpstra:   P = %9.7f\n", midP_JT)
   }
-  return(contingencytables_result(results, print_fun))
+  contingencytables_result(results, print_fun)
 }
 
 find_possible_tables_3x2 <- function(nip, npj) {
@@ -142,7 +142,7 @@ find_possible_tables_3x2 <- function(nip, npj) {
       tables <- rbind(tables, x)
     }
   }
-  return(tables)
+  tables
 }
 
 find_possible_tables_3x3 <- function(nip, npj) {
@@ -162,7 +162,7 @@ find_possible_tables_3x3 <- function(nip, npj) {
       }
     }
   }
-  return(tables)
+  tables
 }
 
 test_statisticsEcmt <- function(x, N, r, c, nip, npj) {
@@ -173,7 +173,7 @@ test_statisticsEcmt <- function(x, N, r, c, nip, npj) {
   T_KW <- KruskalWallis_statistic(x, N, r, c, nip, npj)
   T_lbl <- linear_by_linear_statistic(x, N, r, c)
   T_JT <- Jonckheere_Terpstra_statistic(x, r, c, nip)
-  return(list(T_FFH, T_Pearson, T_LR, T_KW, T_lbl, T_JT))
+  list(T_FFH, T_Pearson, T_LR, T_KW, T_lbl, T_JT)
 }
 
 Pearson_LR_statistics <- function(x, N, r, c, nip, npj) {
@@ -192,7 +192,7 @@ Pearson_LR_statistics <- function(x, N, r, c, nip, npj) {
     }
   }
   T_LR <- 2 * T_LR
-  return(list(T_Pearson, T_LR))
+  list(T_Pearson, T_LR)
 }
 
 KruskalWallis_statistic <- function(x, N, r, c, nip, npj) {
@@ -209,8 +209,7 @@ KruskalWallis_statistic <- function(x, N, r, c, nip, npj) {
   for (i in 1:r) {
     T0 <- T0 + nip[i] * (R[i] / nip[i] - (N + 1) / 2)^2
   }
-  T0 <- T0 * 12 / (N * (N + 1) * CorrectionTerm)
-  return(T0)
+  T0 * 12 / (N * (N + 1) * CorrectionTerm)
 }
 
 #' @importFrom stats cor
@@ -218,8 +217,7 @@ linear_by_linear_statistic <- function(x, N, r, c) {
   # Use equally-spaced scores for both rows and columns
   dat <- to_long(x, 1:r, 1:c)
   r <- cor(dat$Y1, dat$Y2)
-  T0 <- sqrt(N - 1) * r
-  return(T0)
+  sqrt(N - 1) * r
 }
 
 Jonckheere_Terpstra_statistic <- function(x, r, c, nip) {
@@ -247,7 +245,5 @@ Jonckheere_Terpstra_statistic <- function(x, r, c, nip) {
   }
 
   # The Jonckheere-Terpstra test statistic
-  T0 <- sum(U)
-
-  return(T0)
+  sum(U)
 }

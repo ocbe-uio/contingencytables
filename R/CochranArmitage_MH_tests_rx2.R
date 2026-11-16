@@ -65,5 +65,5 @@ CochranArmitage_MH_tests_rx2 <- function(n, a) {
       "Mantel-Haenszel test:           T = %6.3f, P = %7.5f", Z_MH, P_MH
     )
   }
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }

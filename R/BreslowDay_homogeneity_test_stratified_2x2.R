@@ -57,10 +57,7 @@ BreslowDay_homogeneity_test_stratified_2x2 <- function(n) {
       "The Breslow-Day test: P = %7.6f, T0 = %5.3f (df = %g)", P, T0, df
     )
   }
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "T" = T0, "df" = df),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "T" = T0, "df" = df), printresults
   )
 }

@@ -27,14 +27,10 @@ AgrestiCaffo_CI_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  return(
-    contingencytables_result(
-      list(
-        "lower" = res.wald$lower,
-        "upper" = res.wald$upper,
-        "estimate" = estimate
-      ),
-      printresults
-    )
+  contingencytables_result(
+    list(
+      "lower" = res.wald$lower, "upper" = res.wald$upper, "estimate" = estimate
+    ),
+    printresults
   )
 }

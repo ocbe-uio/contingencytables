@@ -9,6 +9,7 @@
 * Fix `McNemar_exact_unconditional_test_paired_2x2()` returning NaN on matrices with large values (#81)
 * Fix documentation of `McNemar_exact_unconditional_test_paired_2x2()` (#80)
 * Optimize `McNemar_exact_unconditional_test_paired_2x2()` (#81)
+* Fix minor code smells (#91)
 
 # contingencytables 3.1.1
 

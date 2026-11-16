@@ -57,7 +57,7 @@ Fisher_midP_test_2x2 <- function(n, statistic = "hypergeometric") {
     "LR" = "The Fisher mid-P test (LR): P = %7.5f"
   )
 
-  return(contingencytables_result(list("Pvalue" = P), sprintf(txt, P)))
+  contingencytables_result(list("Pvalue" = P), sprintf(txt, P))
 }
 
 # ========================================================
@@ -96,5 +96,5 @@ test_statistic_fisher_midp_test_2x2 <- function(x11, x12, x21, x22, statistic) {
     T0 <- 2 * T0
   }
 
-  return(T0)
+  T0
 }

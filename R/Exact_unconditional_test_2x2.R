@@ -120,9 +120,9 @@ Exact_unconditional_test_2x2 <- function(n, statistic = "Pearson", gamma = 0.000
     txt <- "Fisher-Boschloo exact unconditional test: P = %7.5f"
   }
 
-  return(contingencytables_result(
+  contingencytables_result(
     list("Pvalue" = P, "Pvalues" = Pvalues, "pi_values" = pivalues),
-    sprintf(txt, P))
+    sprintf(txt, P)
   )
 
 }
@@ -138,7 +138,7 @@ calculate_Pvalue <- function(pi0, tables, binomcoeffs, n1p, n2p) {
       }
     }
   }
-  return(Pvalue)
+  Pvalue
 }
 
 # ========================================================
@@ -189,5 +189,5 @@ test_statistic_exact_unconditional_test_2x2 <- function(x11, x12, x21, x22, stat
     T0 <- -Fisher_exact_test_2x2(x, "hypergeometric")$P
   }
 
-  return(T0)
+  T0
 }

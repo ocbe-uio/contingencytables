@@ -54,11 +54,8 @@ Cornfield_exact_conditional_CI_2x2 <- function(n, alpha = 0.05) {
       estimate, 100 * (1 - alpha), L, U
     )
   }
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate), printresults
   )
 }
 
@@ -68,8 +65,7 @@ calculate_L <- function(theta0, n11, np1, n1p, n2p, alpha) {
   for (x11 in n11:min(c(np1, n1p))) {
     f <- f + noncentralhyge(x11, theta0, n1p, n2p, np1)
   }
-  f <- f - alpha / 2
-  return(f)
+  f - alpha / 2
 }
 
 # ==============================
@@ -78,8 +74,7 @@ calculate_U <- function(theta0, n11, np1, n1p, n2p, alpha) {
   for (x11 in max(c(0, np1 - n2p)):n11) {
     f <- f + noncentralhyge(x11, theta0, n1p, n2p, np1)
   }
-  f <- f - alpha / 2
-  return(f)
+  f - alpha / 2
 }
 
 # ======================================
@@ -89,6 +84,5 @@ noncentralhyge <- function(x11, theta0, n1p, n2p, np1) {
   for (i in max(c(0, np1 - n2p)):min(c(n1p, np1))) {
     denominator <- denominator + choose(n1p, i) * choose(n2p, np1 - i) * (theta0^i)
   }
-  f <- numerator / denominator
-  return(f)
+  numerator / denominator
 }

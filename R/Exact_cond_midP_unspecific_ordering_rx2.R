@@ -61,7 +61,7 @@ Exact_cond_midP_unspecific_ordering_rx2 <- function(n, direction, statistic = "P
     cat_sprintf("Mid-P test:             midP = %8.5f\n", midP)
   }
 
-  return(contingencytables_result(list("Pvalue" = P, "midP" = midP), printresults))
+  contingencytables_result(list("Pvalue" = P, "midP" = midP), printresults)
 }
 
 # Slightly different calculations are needed for cumulative odds ratios in 2xc tables
@@ -110,7 +110,7 @@ test_statistic_cum_OR <- function(n, c, npj, statistic) {
     T0 <- 2 * T0
   }
 
-  return(T0)
+  T0
 }
 
 # Calculate the test statistics
@@ -119,8 +119,7 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
   if (statistic %in% c("PearsonCumOR", "LRCumOR")) {
     n <- t(n)
     n[c(1, 2), ] <- n[c(2, 1), ]
-    T0 <- test_statistic_cum_OR(n, r, nip, statistic)
-    return(T0)
+    return(test_statistic_cum_OR(n, r, nip, statistic))
   }
 
   # Common calculations for the Pearson and LR statistics
@@ -162,5 +161,5 @@ test_statistic <- function(n, r, nip, npj, N, direction, statistic) {
     T0 <- 2 * T0
   }
 
-  return(T0)
+  T0
 }

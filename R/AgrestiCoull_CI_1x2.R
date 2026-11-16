@@ -37,5 +37,5 @@ AgrestiCoull_CI_1x2 <- function(X, n, alpha = 0.05) {
     )
   }
 
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

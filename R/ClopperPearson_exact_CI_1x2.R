@@ -42,24 +42,19 @@ ClopperPearson_exact_CI_1x2 <- function(X, n, alpha = 0.05) {
       estimate, 100 * (1 - alpha), L, U
     )
   }
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate), printresults
   )
 }
 
 calculate_L_CP <- function(L0, X, n, alpha) {
   # global Xglobal nglobal alphaglobal
   T0 <- sum(dbinom(X:n, n, L0))
-  L <- T0 - alpha / 2
-  return(L)
+  T0 - alpha / 2
 }
 
 calculate_U_CP <- function(U0, X, n, alpha) {
   # global Xglobal nglobal alphaglobal
   T0 <- sum(dbinom(0:X, n, U0))
-  U <- T0 - alpha / 2
-  return(U)
+  T0 - alpha / 2
 }
