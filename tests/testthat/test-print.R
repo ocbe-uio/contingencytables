@@ -1,5 +1,12 @@
 context("print() method for contingencytables_singletests")
 
+test_that("p-values with unspecified precision use the default precision", {
+  expect_identical(
+    sprintf("P = %f", 0),
+    paste0("P = ", format.pval(0, digits = 6, eps = .Machine$double.xmin))
+  )
+})
+
 test_that("Printing method works for lower_upper_estimate_alpha", {
   expect_silent(Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013))
   expect_invisible(tmp <- Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013))

@@ -1,5 +1,13 @@
 context("Chapter 7")
 
+test_that("gamma bootstrap reports insufficient samples", {
+  expect_error(
+    gamma_coefficient_rxc_bca(matrix(c(0, 0, 0, 2), 2), nboot = 2),
+    "Insufficient samples. Increase nboot.",
+    fixed = TRUE
+  )
+})
+
 test_that("Chapter 7 functions basically work", {
   n_short <- floor(table_7.3 / 10)
   expect_output(

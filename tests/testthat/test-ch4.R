@@ -1,5 +1,44 @@
 context("Chapter 4")
 
+test_that("Pearson tests handle zero margins and overflow", {
+  zero_margin <- matrix(c(0, 0, 1, 1), 2)
+  expect_error(
+    Pearson_chi_squared_test_2x2(zero_margin),
+    "At least one of the table margins is zero"
+  )
+
+  corrected <- Pearson_chi_squared_test_CC_2x2(zero_margin)
+  expect_equal(corrected$Pvalue, 1)
+  expect_true(is.nan(corrected$T))
+
+  large_counts <- rbind(c(1, 1e110), c(0, 1e110))
+  uncorrected <- Pearson_chi_squared_test_2x2(large_counts)
+  expect_equal(uncorrected$Pvalue, 1)
+  expect_true(is.nan(uncorrected$T))
+})
+
+test_that("Fisher tests handle non-finite Pearson statistics", {
+  large_counts <- rbind(c(1, 1e110), c(0, 1e110))
+  expect_equal(Fisher_exact_test_2x2(large_counts, "Pearson")$Pvalue, 1)
+  expect_true(is.na(Fisher_midP_test_2x2(large_counts, "Pearson")$Pvalue))
+})
+
+test_that("exact unconditional test handles uncomputable candidate statistics", {
+  calls <- 0
+  local_mocked_bindings(
+    test_statistic_exact_unconditional_test_2x2 = function(...) {
+      calls <<- calls + 1
+      if (calls == 1) return(1)
+      stop("uncomputable candidate statistic")
+    },
+    .package = "contingencytables"
+  )
+
+  result <- Exact_unconditional_test_2x2(matrix(1, 2, 2), gamma = 0)
+  expect_equal(result$Pvalue, 1)
+  expect_true(all(result$Pvalues == 0))
+})
+
 test_that("Chapter 4 functions basically work", {
   expect_output(
     object = print(Adjusted_inv_sinh_CI_OR_2x2(lampasona_2013)),
