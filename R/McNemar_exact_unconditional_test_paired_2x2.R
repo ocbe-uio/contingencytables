@@ -34,26 +34,16 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(
   validateArguments(mget(ls()))
   N <- sum(n)
 
-  # Calculate and store the logarithms of the trinomial coefficients needed
-  log_trinomcoeffs <- matrix(0, N + 1, N + 1)
-  for (x12 in 0:N) {
-    for (x21 in 0:(N - x12)) {
-      log_trinomcoeffs[x12 + 1, x21 + 1] <-
-        lgamma(N + 1) - # total
-        lgamma(x12 + 1) - lgamma(x21 + 1) - # discordants
-        lgamma(N - x12 - x21 + 1) # concordants
-    }
-  }
-
-  # Find the tables that agree equally or less with H0 as the observed
-  tables <- matrix(0, N + 1, N + 1)
+  # Conditional on the number of discordant pairs, x12 is binomial(d, 1/2).
+  # Compute the extreme-table probability once for each possible d.
   Tobs <- test_statistic.2(n[1, 2], n[2, 1])
-  for (x12 in 0:N) {
-    for (x21 in 0:(N - x12)) {
-      T0 <- test_statistic.2(x12, x21)
-      if (isTRUE(T0 >= Tobs)) {
-        tables[x12 + 1, x21 + 1] <- 1
-      }
+  conditional <- numeric(N + 1)
+  if (!is.nan(Tobs)) {
+    for (d in seq_len(N)) {
+      x12 <- 0:d
+      x21 <- d - x12
+      extreme <- test_statistic.2(x12, x21) >= Tobs
+      conditional[d + 1] <- sum(stats::dbinom(x12[extreme], d, 0.5))
     }
   }
 
@@ -70,10 +60,9 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(
   }
 
   # Calculate the P-value corresponding to each value of the nuisance parameter
-  Pvalues <- rep(0, length(pivalues))
-  for (i in seq_along(pivalues)) {
-    Pvalues[i] <- calculate_Pvalue.2(pivalues[i], tables, log_trinomcoeffs, N)
-  }
+  Pvalues <- vapply(pivalues, function(pi) {
+    sum(conditional * stats::dbinom(0:N, N, pi))
+  }, numeric(1))
 
   # Let the exact unconditional P-value equal the maximum of the P-values
   P <- max(Pvalues)
@@ -83,7 +72,7 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(
   P <- min(P + gamma, 1)
 
   # Handle cases where the P-value is not computable
-  if (sum(tables) == 0) {
+  if (is.nan(Tobs)) {
     P <- 1.0
   }
 
@@ -95,31 +84,6 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(
   )
 }
 
-
-
-# ==================================================================
-calculate_Pvalue.2 <- function(pivalue, tables, log_trinomcoeffs, N) {
-  Pvalue <- 0
-  log_discordant <- log(pivalue / 2)
-  log_concordant <- log1p(-pivalue)
-  for (x12 in 0:N) {
-    for (x21 in 0:(N - x12)) {
-      if (tables[x12 + 1, x21 + 1] == 1) {
-        discordant <- x12 + x21 # off-diagonal
-        concordant <- N - discordant # diagonal
-        log_probability <- log_trinomcoeffs[x12 + 1, x21 + 1]
-        if (discordant > 0) {
-          log_probability <- log_probability + discordant * log_discordant
-        }
-        if (concordant > 0) {
-          log_probability <- log_probability + concordant * log_concordant
-        }
-        Pvalue <- Pvalue + exp(log_probability)
-      }
-    }
-  }
-  return(Pvalue)
-}
 
 
 # ===================================

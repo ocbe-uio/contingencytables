@@ -69,6 +69,35 @@ test_that("exact unconditional McNemar probabilities match trinomial enumeration
   expect_equal(result$Pvalue, max(expected))
 })
 
+test_that("conditional calculation matches enumeration for different tables", {
+  for (tab in list(
+    matrix(c(2, 1, 1, 2), 2),
+    matrix(c(1, 0, 3, 1), 2),
+    matrix(c(0, 2, 4, 0), 2)
+  )) {
+    N <- sum(tab)
+    observed <- (tab[1, 2] - tab[2, 1])^2 / (tab[1, 2] + tab[2, 1])
+    for (gamma in c(0, 0.0001)) {
+      result <- McNemar_exact_unconditional_test_paired_2x2(tab, gamma, 7)
+      expected <- vapply(result$pi_values, function(pi) {
+        probability <- 0
+        for (x12 in 0:N) {
+          for (x21 in 0:(N - x12)) {
+            if (x12 + x21 > 0 && (x12 - x21)^2 / (x12 + x21) >= observed) {
+              probability <- probability + dmultinom(
+                c(x12, x21, N - x12 - x21), prob = c(pi / 2, pi / 2, 1 - pi)
+              )
+            }
+          }
+        }
+        probability
+      }, numeric(1))
+      expect_equal(result$Pvalues, expected)
+      expect_equal(result$Pvalue, min(max(expected) + gamma, 1))
+    }
+  }
+})
+
 test_that("large tables produce finite probabilities", {
   tab <- matrix(c(674, 5, 7, 14), 2)
   result <- McNemar_exact_unconditional_test_paired_2x2(
