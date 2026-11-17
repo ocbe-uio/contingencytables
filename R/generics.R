@@ -199,8 +199,7 @@ calculate_limit_lower.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
   z <- qnorm(1 - alpha / 2, 0, 1)
-  f <- T0 - z
-  return(f)
+  T0 - z
 }
 
 #' @export
@@ -208,8 +207,7 @@ calculate_limit_upper.Miettinen_diff <- function(delta0, n11, n21, n1p, n2p, pi1
   ml.res <- ML_estimates(n11, n21, n1p, n2p, delta0)
   T0 <- score_test_statistic(pi1hat, pi2hat, delta0, ml.res$p1hat, ml.res$p2hat, n1p, n2p)
   z <- qnorm(1 - alpha / 2, 0, 1)
-  f <- T0 + z
-  return(f)
+  T0 + z
 }
 
 #' @export
@@ -223,15 +221,13 @@ ML_estimates.Miettinen_diff <- function(n11, n21, n1p, n2p, delta0, ...) {
   a <- (1 / 3) * (pi + acos(q / p^3))
   p2hat <- 2 * p * cos(a) - L2 / (3 * L3)
   p1hat <- p2hat + delta0
-  res <- data.frame(p1hat = p1hat, p2hat = p2hat)
-  return(res)
+  data.frame(p1hat = p1hat, p2hat = p2hat)
 }
 
 #' @export
 score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p2hat, n1p, n2p, ...) {
   T0 <- (pi1hat - pi2hat - delta0) / sqrt(p1hat * (1 - p1hat) / n1p + p2hat * (1 - p2hat) / n2p)
-  T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
-  return(T0)
+  T0 * sqrt(1 - 1 / (n1p + n2p))
 }
 
 # ======================================================== #
@@ -241,23 +237,20 @@ score_test_statistic.Miettinen_diff <- function(pi1hat, pi2hat, delta0, p1hat, p
 #' @export
 calculate_limit_lower.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  f <- T0 - qnorm(1 - alpha / 2, 0, 1)
-  return(f)
+  T0 - qnorm(1 - alpha / 2, 0, 1)
 }
 
 #' @export
 calculate_limit_upper.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  f <- T0 + qnorm(1 - alpha / 2, 0, 1)
-  return(f)
+  T0 + qnorm(1 - alpha / 2, 0, 1)
 }
 
 #' @export
 score_test_statistic.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
   res <- ML_estimates(theta0, n11, n21, n1p, n2p)
   T0 <- (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
-  T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
-  return(T0)
+  T0 * sqrt(1 - 1 / (n1p + n2p))
 }
 
 #' @export
@@ -267,8 +260,7 @@ ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
   C <- -(n11 + n21)
   p2hat <- (-B + sqrt(B^2 - 4 * A * C)) / (2 * A)
   p1hat <- p2hat * theta0 / (1 + p2hat * (theta0 - 1))
-  res <- data.frame(p1hat = p1hat, p2hat = p2hat)
-  return(res)
+  data.frame(p1hat = p1hat, p2hat = p2hat)
 }
 
 # ======================================================== #
@@ -279,16 +271,14 @@ ML_estimates.Miettinen_OR <- function(theta0, n11, n21, n1p, n2p, ...) {
 calculate_limit_lower.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
-  f <- T0 - qnorm(1 - alpha / 2, 0, 1)
-  return(f)
+  T0 - qnorm(1 - alpha / 2, 0, 1)
 }
 
 #' @export
 calculate_limit_upper.Miettinen_ratio <- function(phi0, n11, n21, n1p, n2p, pi1hat, pi2hat, alpha, ...) {
   res <- ML_estimates(n11, n21, n1p, n2p, phi0)
   T0 <- score_test_statistic(pi1hat, pi2hat, res$p1hat, res$p2hat, n1p, n2p, phi0)
-  f <- T0 + qnorm(1 - alpha / 2, 0, 1)
-  return(f)
+  T0 + qnorm(1 - alpha / 2, 0, 1)
 }
 
 #' @export
@@ -298,15 +288,13 @@ ML_estimates.Miettinen_ratio <- function(n11, n21, n1p, n2p, phi0, ...) {
   C0 <- n11 + n21
   p2hat <- (-B0 - sqrt(B0 * B0 - 4 * A0 * C0)) / (2 * A0)
   p1hat <- p2hat * phi0
-  res <- data.frame(p1hat = p1hat, p2hat = p2hat)
-  return(res)
+  data.frame(p1hat = p1hat, p2hat = p2hat)
 }
 
 #' @export
 score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n1p, n2p, phi0, ...) {
   T0 <- (pi1hat - phi0 * pi2hat) / sqrt(p1hat * (1 - p1hat) / n1p + (phi0^2) * p2hat * (1 - p2hat) / n2p)
-  T0 <- T0 * sqrt(1 - 1 / (n1p + n2p))
-  return(T0)
+  T0 * sqrt(1 - 1 / (n1p + n2p))
 }
 
 # ======================================================== #
@@ -316,22 +304,19 @@ score_test_statistic.Miettinen_ratio <- function(pi1hat, pi2hat, p1hat, p2hat, n
 #' @export
 calculate_limit_lower.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  f <- T0 - qnorm(1 - alpha / 2, 0, 1)
-  return(f)
+  T0 - qnorm(1 - alpha / 2, 0, 1)
 }
 
 #' @export
 calculate_limit_upper.Uncorrected <- function(theta0, n11, n21, n1p, n2p, alpha, ...) {
   T0 <- score_test_statistic(theta0, n11, n21, n1p, n2p)
-  f <- T0 + qnorm(1 - alpha / 2, 0, 1)
-  return(f)
+  T0 + qnorm(1 - alpha / 2, 0, 1)
 }
 
 #' @export
 score_test_statistic.Uncorrected <- function(theta0, n11, n21, n1p, n2p, ...) {
   res <- ML_estimates(theta0, n11, n21, n1p, n2p)
-  T0 <- (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
-  return(T0)
+  (n1p * (n11 / n1p - res$p1hat)) * sqrt(1 / (n1p * res$p1hat * (1 - res$p1hat)) + 1 / (n2p * res$p2hat * (1 - res$p2hat)))
 }
 
 #' @export
@@ -341,8 +326,7 @@ ML_estimates.Uncorrected <- function(theta0, n11, n21, n1p, n2p, ...) {
   C0 <- -(n11 + n21)
   p2hat <- (-B0 + sqrt(B0^2 - 4 * A0 * C0)) / (2 * A0)
   p1hat <- p2hat * theta0 / (1 + p2hat * (theta0 - 1))
-  res <- data.frame(p1hat = p1hat, p2hat = p2hat)
-  return(res)
+  data.frame(p1hat = p1hat, p2hat = p2hat)
 }
 
 # ======================================================== #
@@ -358,8 +342,7 @@ calc_prob.CochranArmitage <- function(x, r, N_choose_np1, nip_choose_xi1, ...) {
   for (i in 1:r) {
     f <- f * nip_choose_xi1[i, x[i] + 1]
   }
-  f <- f / N_choose_np1
-  return(f)
+  f / N_choose_np1
 }
 
 
@@ -392,8 +375,7 @@ calc_Pvalue_4x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
     }
   }
   one_sided_P <- min(left_sided_P, right_sided_P) + point_prob
-  res <- data.frame(one_sided_P = one_sided_P, point_prob = point_prob)
-  return(res)
+  data.frame(one_sided_P = one_sided_P, point_prob = point_prob)
 }
 
 # Brute force calculations of the one-sided P-values. Return the smallest one.
@@ -427,8 +409,7 @@ calc_Pvalue_5x2.CochranArmitage <- function(Tobs, nip, np1, N_choose_np1, nip_ch
     }
   }
   one_sided_P <- min(left_sided_P, right_sided_P) + point_prob
-  res <- data.frame(one_sided_P = one_sided_P, point_prob = point_prob)
-  return(res)
+  data.frame(one_sided_P = one_sided_P, point_prob = point_prob)
 }
 
 # ======================================================== #
@@ -504,8 +485,7 @@ calc_prob.ExactCond_linear <- function(x, c, N_choose_n1p, npj_choose_x1j, ...) 
   for (j in 1:c) {
     f <- f * npj_choose_x1j[j, x[j] + 1]
   }
-  f <- f / N_choose_n1p
-  return(f)
+  f / N_choose_n1p
 }
 
 # ======================================================== #
@@ -540,7 +520,7 @@ calc_Pvalue_4x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
   midP <- P + 0.5 * point_prob
   P <- P + point_prob
 
-  return(data.frame(P = P, midP = midP))
+  data.frame(P = P, midP = midP)
 }
 
 # Brute force calculations of the two-sided exact P-value and the mid-P value
@@ -573,7 +553,7 @@ calc_Pvalue_5x2.ExactCond_unspecific <- function(Tobs, nip, np1, npj, N, N_choos
   midP <- P + 0.5 * point_prob
   P <- P + point_prob
 
-  return(data.frame(P = P, midP = midP))
+  data.frame(P = P, midP = midP)
 }
 
 # Calculate the probability of table x
@@ -585,6 +565,5 @@ calc_prob.ExactCond_unspecific <- function(x, r, N_choose_np1, nip_choose_xi1, .
   for (i in 1:r) {
     f <- f * nip_choose_xi1[i, x[i] + 1]
   }
-  f <- f / N_choose_np1
-  return(f)
+  f / N_choose_np1
 }
