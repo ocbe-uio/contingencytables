@@ -43,7 +43,7 @@ Pearson_residuals_rxc <- function(n) {
     print(res$residuals)
     cat_sprintf("\nStandardized Pearson residuals:\n")
     print(res$std_residuals)
-    return(NULL) # Prevents returning the whole vector of residuals
+    NULL # Prevents returning the whole vector of residuals
   }
 
   contingencytables_result(res, printresults)
