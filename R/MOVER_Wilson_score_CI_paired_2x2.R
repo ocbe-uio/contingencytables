@@ -43,10 +43,9 @@ MOVER_Wilson_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
     U <- Inf
   }
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      sprintf("The MOVER Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate),
+    sprintf("The MOVER Wilson score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)\n", estimate, 100 * (1 - alpha), L, U)
   )
+
 }

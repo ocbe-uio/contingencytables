@@ -76,12 +76,11 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(
     P <- 1.0
   }
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Pvalues" = Pvalues, "pi_values" = pivalues),
-      sprintf("The McNemar exact unconditional test: P = %8.6f", P)
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Pvalues" = Pvalues, "pi_values" = pivalues),
+    sprintf("The McNemar exact unconditional test: P = %8.6f", P)
   )
+
 }
 
 
@@ -89,6 +88,5 @@ McNemar_exact_unconditional_test_paired_2x2 <- function(
 # ===================================
 test_statistic.2 <- function(x12, x21) {
   # This is the T version of the statistic, not the Z version
-  T0 <- ((x12 - x21)^2) / (x12 + x21)
-  return(T0)
+  (x12 - x21)^2 / (x12 + x21)
 }

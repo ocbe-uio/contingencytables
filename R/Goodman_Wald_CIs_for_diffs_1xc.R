@@ -75,5 +75,5 @@ Goodman_Wald_CIs_for_diffs_1xc <- function(n, alpha = 0.05, adjustment = "Bonfer
     }
   }
   res <- list("lower" = L, "upper" = U, "estimate" = diffs)
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

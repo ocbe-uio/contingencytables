@@ -26,13 +26,12 @@ Pearson_chi_squared_test_1xc <- function(n, pi0) {
   df <- c0 - 1
   P <- pchisq(T0, df, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "T" = T0, "df" = df),
-      sprintf(
-        "The Pearson chi-squared test: P = %7.5f, T = %5.3f (df = %i)",
-        P, T0, df
-      )
+  contingencytables_result(
+    list("Pvalue" = P, "T" = T0, "df" = df),
+    sprintf(
+      "The Pearson chi-squared test: P = %7.5f, T = %5.3f (df = %i)",
+      P, T0, df
     )
   )
+
 }

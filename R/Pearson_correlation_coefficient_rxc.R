@@ -41,10 +41,9 @@ Pearson_correlation_coefficient_rxc <- function(
   L <- (exp(2 * l) - 1) / (exp(2 * l) + 1)
   U <- (exp(2 * u) - 1) / (exp(2 * u) + 1)
 
-  return(
-    contingencytables_result(
-      list("rP" = rP, "lower" = L, "upper" = U),
-      sprintf("The Pearson correlation coefficient: r = %7.4f (%g%% CI %7.4f to %7.4f)", rP, 100 * (1 - alpha), L, U)
-    )
+  contingencytables_result(
+    list("rP" = rP, "lower" = L, "upper" = U),
+    sprintf("The Pearson correlation coefficient: r = %7.4f (%g%% CI %7.4f to %7.4f)", rP, 100 * (1 - alpha), L, U)
   )
+
 }

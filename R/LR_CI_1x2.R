@@ -50,15 +50,14 @@ LR_CI_1x2 <- function(X, n, alpha = 0.05) {
     )$root
   }
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      sprintf(
-        "The likelihood ratio CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), L, U
-      )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate),
+    sprintf(
+      "The likelihood ratio CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
     )
   )
+
 }
 
 
@@ -75,6 +74,5 @@ LR_test_statistic <- function(pi0, X, n, z) {
     lhs <- X * log(pi0) + (n - X) * log(1 - pi0)
     rhs <- X * log(X / n) + (n - X) * log(1 - X / n) - (z^2) / 2
   }
-  T0 <- lhs - rhs
-  return(T0)
+  lhs - rhs
 }

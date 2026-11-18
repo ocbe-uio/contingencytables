@@ -25,13 +25,13 @@ Jeffreys_CI_1x2 <- function(X, n, alpha = 0.05) {
   L <- qbeta(alpha / 2, X + 0.5, n - X + 0.5)
   U <- qbeta(1 - alpha / 2, X + 0.5, n - X + 0.5)
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      sprintf(
-        "The Jeffreys CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
-        estimate, 100 * (1 - alpha), L, U
-      )
+
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate),
+    sprintf(
+      "The Jeffreys CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)",
+      estimate, 100 * (1 - alpha), L, U
     )
   )
+
 }

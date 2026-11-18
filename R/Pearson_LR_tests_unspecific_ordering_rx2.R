@@ -80,7 +80,7 @@ Pearson_LR_tests_unspecific_ordering_rx2 <- function(n, direction) {
     cat_sprintf("Likelihood ratio test:    T = %6.3f, P = %7.5f", T_LR, P_LR)
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }
 
 # ========================
@@ -96,5 +96,5 @@ calc_rho <- function(r) {
       rho[i] <- (1 / r) * rho_minus1[i - 1] + ((r - 1) / r) * rho_minus1[i]
     }
   }
-  return(rho)
+  rho
 }
