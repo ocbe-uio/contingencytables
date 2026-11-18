@@ -7,7 +7,7 @@ fill_nchoosek_old <- function(c0, npj) {
         npj_choose_x1j[j, x1j + 1] <- choose(npj[j], x1j)
       }
     }
-  return(npj_choose_x1j)
+  npj_choose_x1j
 }
 
 test_that("New fill_nchoosek produces the same output as the old one", {

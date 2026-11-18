@@ -37,12 +37,11 @@ Spearman_correlation_coefficient_rxc_bca <- function(n, nboot = 10000, alpha = 0
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  return(
-    contingencytables_result(
-      list("rho" = rho, "lower" = L, "upper" = U),
-      sprintf("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L, U)
-    )
+  contingencytables_result(
+    list("rho" = rho, "lower" = L, "upper" = U),
+    sprintf("The Spearman correlation w / BCa bootstrap CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L, U)
   )
+
 }
 
 
@@ -58,6 +57,5 @@ f.Sccrb <- function(dat, indx, .param) {
   for (id in seq_along(Y1)) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
-  rho <- Spearman_correlation_coefficient_rxc(n, alpha)$rho
-  return(rho)
+  Spearman_correlation_coefficient_rxc(n, alpha)$rho
 }

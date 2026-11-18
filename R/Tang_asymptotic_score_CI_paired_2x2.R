@@ -55,12 +55,11 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
     cat_sprintf("The Tang asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate),
-      printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate),
+    printresults
   )
+
 }
 
 
@@ -68,8 +67,7 @@ Tang_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
 calculate_lower_limit.3 <- function(phi0, .param) {
   z <- .param$z
   T0 <- score_test_statistic_3(phi0, .param)
-  f <- T0 - z
-  return(f)
+  T0 - z
 }
 
 
@@ -77,8 +75,7 @@ calculate_lower_limit.3 <- function(phi0, .param) {
 calculate_upper_limit.3 <- function(phi0, .param) {
   z <- .param$z
   T0 <- score_test_statistic_3(phi0, .param)
-  f <- T0 + z
-  return(f)
+  T0 + z
 }
 
 
@@ -91,8 +88,7 @@ score_test_statistic_3 <- function(phi0, .param) {
   p21tilde <- ML_estimate.3(phi0, .param)
   n1p <- n11 + n12
   np1 <- n11 + n21
-  T0 <- (n1p - np1 * phi0) / sqrt(N * (1 + phi0) * p21tilde + (n11 + n12 + n21) * (phi0 - 1))
-  return(T0)
+  (n1p - np1 * phi0) / sqrt(N * (1 + phi0) * p21tilde + (n11 + n12 + n21) * (phi0 - 1))
 }
 
 # ==================================
@@ -104,6 +100,5 @@ ML_estimate.3 <- function(phi0, .param) {
   A <- N * (1 + phi0)
   B <- (n11 + n21) * phi0^2 - (n11 + n12 + 2 * n21)
   C <- n21 * (1 - phi0) * (n11 + n12 + n21) / N
-  p21tilde <- (-B + sqrt(B^2 - 4 * A * C)) / (2 * A)
-  return(p21tilde)
+  (-B + sqrt(B^2 - 4 * A * C)) / (2 * A)
 }
