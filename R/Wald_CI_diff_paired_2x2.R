@@ -46,9 +46,8 @@ Wald_CI_diff_paired_2x2 <- function(n, alpha = 0.05) {
     )
   }
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate), printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate), printresults
   )
+
 }

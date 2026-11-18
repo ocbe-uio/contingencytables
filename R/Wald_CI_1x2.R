@@ -46,5 +46,5 @@ Wald_CI_1x2 <- function(X, n, alpha = 0.05) {
 
   res <- list(L, U, estimate)
   names(res) <- c("lower", "upper", "estimate")
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

@@ -36,10 +36,9 @@ Score_test_CC_1x2 <- function(X, n, pi0) {
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Z" = Z),
-      sprintf("The score test with continuity correction: P = %7.5f, Z = %5.3f", P, Z)
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Z" = Z),
+    sprintf("The score test with continuity correction: P = %7.5f, Z = %5.3f", P, Z)
   )
+
 }

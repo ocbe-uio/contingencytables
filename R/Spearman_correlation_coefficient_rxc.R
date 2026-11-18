@@ -83,10 +83,9 @@ Spearman_correlation_coefficient_rxc <- function(n, alpha = 0.05) {
     cat_sprintf("Spearman correlation w / Bonett-Wright CI: rho = %7.4f (%g%% CI %7.4f to %7.4f)", rho, 100 * (1 - alpha), L_BW, U_BW)
   }
 
-  return(
-    contingencytables_result(
-      list("rho" = rho, "lower" = L, "upper" = U, "L_BW" = L_BW, "U_BW" = U_BW),
-      printresults
-    )
+  contingencytables_result(
+    list("rho" = rho, "lower" = L, "upper" = U, "L_BW" = L_BW, "U_BW" = U_BW),
+    printresults
   )
+
 }

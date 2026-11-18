@@ -48,11 +48,10 @@ Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
     cat_sprintf("Tango asymptotic score CI: estimate = %6.4f (%g%% CI %6.4f to %6.4f)", estimate, 100 * (1 - alpha), L, U)
   }
 
-  return(
-    contingencytables_result(
-      list("lower" = L, "upper" = U, "estimate" = estimate), printresults
-    )
+  contingencytables_result(
+    list("lower" = L, "upper" = U, "estimate" = estimate), printresults
   )
+
 }
 
 
@@ -60,8 +59,7 @@ Tango_asymptotic_score_CI_paired_2x2 <- function(n, alpha = 0.05) {
 calculate_lower_limit.4 <- function(delta0, .param) {
   z <- .param$z
   T0 <- test_statistic.4(delta0, .param)
-  f <- T0 - z
-  return(f)
+  T0 - z
 }
 
 
@@ -69,8 +67,7 @@ calculate_lower_limit.4 <- function(delta0, .param) {
 calculate_upper_limit.4 <- function(delta0, .param) {
   z <- .param$z
   T0 <- test_statistic.4(delta0, .param)
-  f <- T0 + z
-  return(f)
+  T0 + z
 }
 
 
@@ -80,8 +77,7 @@ test_statistic.4 <- function(delta0, .param) {
   n21 <- .param$n21
   N <- .param$N
   p21tilde <- ML_estimate.4(delta0, .param)
-  T0 <- (n12 - n21 - N * delta0) / sqrt(N * (2 * p21tilde + delta0 * (1 - delta0)))
-  return(T0)
+  (n12 - n21 - N * delta0) / sqrt(N * (2 * p21tilde + delta0 * (1 - delta0)))
 }
 
 
@@ -93,6 +89,5 @@ ML_estimate.4 <- function(delta0, .param) {
   A <- 2 * N
   B <- -n12 - n21 + (2 * N - n12 + n21) * delta0
   C <- -n21 * delta0 * (1 - delta0)
-  p21tilde <- (sqrt(B^2 - 4 * A * C) - B) / (2 * A)
-  return(p21tilde)
+  (sqrt(B^2 - 4 * A * C) - B) / (2 * A)
 }

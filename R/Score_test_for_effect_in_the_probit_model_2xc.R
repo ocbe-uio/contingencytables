@@ -50,12 +50,11 @@ Score_test_for_effect_in_the_probit_model_2xc <- function(n, alphahat0) {
   df <- 1
   P <- pchisq(T0, 1, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "T" = T0, "df" = df),
-      sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df)
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "T" = T0, "df" = df),
+    sprintf("Score test for effect: P = %6.4f, T = %5.3f (df=%g)", P, T0, df)
   )
+
 }
 
 # =========================================================
@@ -69,7 +68,7 @@ first_derivative_wrt_beta <- function(n, c, alpha, beta) {
     PHI_jminus1 <- pnorm(alpha[j] - beta)
     dldb <- dldb + n[1, j] * (phi_jminus1 - phi_j) / (PHI_j - PHI_jminus1)
   }
-  return(dldb)
+  dldb
 }
 
 # ==============================================================
@@ -95,7 +94,7 @@ first_derivative_wrt_alpha <- function(n, c, alpha, beta) {
         (PHI_j - PHI_jminus1)
     }
   }
-  return(dldalpha)
+  dldalpha
 }
 
 # ==========================================================
@@ -120,7 +119,7 @@ second_derivative_wrt_beta <- function(n, c, alpha, beta) {
     d2ldb2 <- d2ldb2 - n[1, j] * ((phi_jminus1 - phi_j)^2) /
       ((PHI_j - PHI_jminus1)^2)
   }
-  return(d2ldb2)
+  d2ldb2
 }
 
 # ===========================================================================
@@ -149,7 +148,7 @@ second_derivative_wrt_beta_and_alpha <- function(n, c, alpha, beta) {
         (jl * phi_j - jl1 * phi_jminus1) / ((PHI_j - PHI_jminus1)^2)
     }
   }
-  return(d2ldbdalpha)
+  d2ldbdalpha
 }
 
 #  =================================================================
@@ -202,5 +201,5 @@ second_derivative_wrt_alpha <- function(n, c, alpha, beta) {
       }
     }
   }
-  return(d2ldalpha2)
+  d2ldalpha2
 }

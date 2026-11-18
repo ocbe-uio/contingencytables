@@ -43,5 +43,5 @@ Z_unpooled_test_2x2 <- function(n) {
   }
 
   res <- list("Pvalue" = P, "Z" = Z)
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

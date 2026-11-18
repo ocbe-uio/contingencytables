@@ -46,5 +46,5 @@ Wald_test_1x2 <- function(X, n, pi0) {
 
   res <- list(P, Z)
   names(res) <- c("Pvalue", "Z")
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

@@ -72,10 +72,9 @@ Wald_test_and_CI_common_ratio_stratified_2x2 <- function(
     )
   }
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U, "phihat" = phihat),
-      printresults
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Z" = Z, "lower" = L, "upper" = U, "phihat" = phihat),
+    printresults
   )
+
 }

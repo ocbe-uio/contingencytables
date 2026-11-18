@@ -69,9 +69,8 @@ Stuart_test_paired_cxc <- function(n) {
     cat_sprintf("The Stuart test for marginal homogenity: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)
   }
 
-  return(
-    contingencytables_result(
-      list(P = P, T0 = T0, df = df), printresults
-    )
+  contingencytables_result(
+    list(P = P, T0 = T0, df = df), printresults
   )
+
 }

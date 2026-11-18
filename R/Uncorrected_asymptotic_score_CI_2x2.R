@@ -76,5 +76,5 @@ Uncorrected_asymptotic_score_CI_2x2 <- function(n, alpha = 0.05) {
   }
 
   res <- list("lower" = L, "upper" = U, "estimate" = estimate)
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

@@ -10,7 +10,7 @@ at3 <- function(N) {
       x <- rbind(x, c(x1, x2, N - x1 - x2))
     }
   }
-  return(x)
+  x
 }
 at4 <- function(N) {
   x <- vector()
@@ -21,7 +21,7 @@ at4 <- function(N) {
       }
     }
   }
-  return(x)
+  x
 }
 at5 <- function(N) {
   x <- vector()
@@ -34,7 +34,7 @@ at5 <- function(N) {
       }
     }
   }
-  return(x)
+  x
 }
 at6 <- function(N) {
   x <- vector()
@@ -49,7 +49,7 @@ at6 <- function(N) {
       }
     }
   }
-  return(x)
+  x
 }
 at7 <- function(N) {
   x <- vector()
@@ -69,7 +69,7 @@ at7 <- function(N) {
       }
     }
   }
-  return(x)
+  x
 }
 
 # Unit tests ===================================================================

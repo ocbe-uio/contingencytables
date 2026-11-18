@@ -31,14 +31,13 @@ Peto_OR_estimate_stratified_2x2 <- function(n) {
   # The Peto odds ratio estimate
   estimate <- exp(sum(n[1, 1, ] - expectation) / sum(variance))
 
-  return(
-    contingencytables_result(
-      list(
-        "estimate" = estimate,
-        "expectation" = expectation,
-        "variance" = variance
-      ),
-      sprintf("The Peto OR estimate = %7.4f", estimate)
-    )
+  contingencytables_result(
+    list(
+      "estimate" = estimate,
+      "expectation" = expectation,
+      "variance" = variance
+    ),
+    sprintf("The Peto OR estimate = %7.4f", estimate)
   )
+
 }

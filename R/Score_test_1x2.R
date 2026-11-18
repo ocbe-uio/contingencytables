@@ -36,10 +36,9 @@ Score_test_1x2 <- function(X, n, pi0) {
   # The two-sided P-value (reference distribution: standard normal)
   P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Z" = Z),
-      sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z)
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Z" = Z),
+    sprintf("The score test: P = %7.5f, Z = %6.3f", P, Z)
   )
+
 }
