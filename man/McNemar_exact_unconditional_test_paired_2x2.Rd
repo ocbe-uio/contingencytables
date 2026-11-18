@@ -13,9 +13,11 @@ McNemar_exact_unconditional_test_paired_2x2(
 \arguments{
 \item{n}{the observed table (a 2x2 matrix)}
 
-\item{gamma}{parameter for the Berger and Boos procedure (default=0.0001; gamma=0: no adj)}
+\item{gamma}{parameter for the Berger and Boos procedure
+(default = 0.0001; gamma = 0 means no adj)}
 
-\item{num_pi_values}{number of values to use in the partition of the nuisance parameter space (default=1000)}
+\item{num_pi_values}{number of values to use in the partition of the
+nuisance parameter space (default = 1000)}
 }
 \value{
 An object of the \link{contingencytables_result} class,
