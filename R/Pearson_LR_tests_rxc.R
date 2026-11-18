@@ -76,5 +76,5 @@ Pearson_LR_tests_rxc <- function(n) {
     cat_sprintf("Likelihood ratio test:    T = %6.3f, df = %g, P = %7.5f", T_LR, df, P_LR)
   }
 
-  return(contingencytables_result(results, printresults))
+  contingencytables_result(results, printresults)
 }

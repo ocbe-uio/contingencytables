@@ -28,10 +28,9 @@ McNemarBowker_test_paired_cxc <- function(n) {
   df <- c * (c - 1) / 2
   P <- pchisq(T0, df, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "T" = T0, "df" = df),
-      sprintf("The McNemar-Bowker test for symmetry: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "T" = T0, "df" = df),
+    sprintf("The McNemar-Bowker test for symmetry: P = %8.6f, T0 = %6.3f (df=%g)", P, T0, df)
   )
+
 }

@@ -14,5 +14,5 @@ multiple_hypergeomtric_pdf <- function(x, N, r, c, nip, npj) {
 
   f <- sum(terms1) - Nfact1 + sum(terms2) - Nfact2 - sum(lfactorial(x))
 
-  return(exp(f))
+  exp(f)
 }

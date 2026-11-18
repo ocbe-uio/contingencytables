@@ -100,5 +100,5 @@ calc_rho <- function(r) {
       rho[i] <- (1 / r) * rho_minus1[i - 1] + ((r - 1) / r) * rho_minus1[i]
     }
   }
-  return(rho)
+  rho
 }

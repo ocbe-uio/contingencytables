@@ -37,5 +37,5 @@ McNemar_asymptotic_test_CC_paired_2x2 <- function(n) {
     }
   }
 
-  return(contingencytables_result(res, printresults))
+  contingencytables_result(res, printresults)
 }

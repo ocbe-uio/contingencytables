@@ -36,15 +36,14 @@ Kendalls_tau_b_rxc_bca <- function(n, nboot = 10000, alpha = 0.05) {
   L <- ans.ci$bca[4]
   U <- ans.ci$bca[5]
 
-  return(
-    contingencytables_result(
-      list("tau_b" = tau_b, "lower" = L, "upper" = U),
-      sprintf(
-        "Kendalls tau-b w / BCa bootstrap CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)",
-        tau_b, 100 * (1 - alpha), L, U
-      )
+  contingencytables_result(
+    list("tau_b" = tau_b, "lower" = L, "upper" = U),
+    sprintf(
+      "Kendalls tau-b w / BCa bootstrap CI: tau-b = %7.4f (%g%% CI %7.4f to %7.4f)",
+      tau_b, 100 * (1 - alpha), L, U
     )
   )
+
 }
 
 f.Ktbrb <- function(dat, d, .alpha, .r, .c) {
@@ -55,5 +54,5 @@ f.Ktbrb <- function(dat, d, .alpha, .r, .c) {
     n[Y1[id], Y2[id]] <- n[Y1[id], Y2[id]] + 1
   }
   res <- Kendalls_tau_b_rxc(n, .alpha)
-  return(res$tau_b)
+  res$tau_b
 }

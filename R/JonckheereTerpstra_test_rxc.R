@@ -66,10 +66,9 @@ JonckheereTerpstra_test_rxc <- function(n) {
   Z <- (T0 - ExpT) / sqrt(VarT)
   P <- 2 * pnorm(abs(Z), 0, 1, lower.tail = FALSE)
 
-  return(
-    contingencytables_result(
-      list("Pvalue" = P, "Z" = Z),
-      sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z)
-    )
+  contingencytables_result(
+    list("Pvalue" = P, "Z" = Z),
+    sprintf("The Jonckheere-Terpstra test for association: P = %8.6f, Z = %6.3f", P, Z)
   )
+
 }
